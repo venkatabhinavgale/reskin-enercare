@@ -149,6 +149,9 @@ class Revisionary
 		add_action('save_post', array($this, 'actSavePost'), 20, 2);
 		add_action('delete_post', [$this, 'actDeletePost'], 10, 3);
 
+		add_action('post_updated', [$this, 'actUpdateRevision'], 10, 2);
+		add_action('post_updated', [$this, 'actUpdateRevisionFixCommentCount'], 999, 2);
+
 		if (!defined('REVISIONARY_PRO_VERSION')) {
 			add_action('revisionary_created_revision', [$this, 'act_save_revision_followup'], 5);
 		}
@@ -160,6 +163,31 @@ class Revisionary
 		add_action('wp_insert_post', [$this, 'actLogPreviewAutosave'], 10, 2);
 
 		add_filter('post_link', [$this, 'fltEditRevisionUpdatedLink'], 99, 3);
+
+		if (defined('CUSTOM_PERMALINKS_PLUGIN_VERSION') && !is_admin() && !$this->doing_rest) {
+
+			function enable_custom_permalinks_workaround($retval) {
+				add_filter('query', [$this, 'flt_custom_permalinks_query']);
+				return $retval;
+			}
+		
+			function disable_custom_permalinks_workaround($retval) {
+				remove_filter('query', [$this, 'flt_custom_permalinks_query']);
+				return $retval;
+			}
+
+			add_filter('custom_permalinks_request_ignore', function($retval) {
+				add_filter('query', [$this, 'flt_custom_permalinks_query']);
+				return $retval;
+			});
+
+			add_filter('cp_remove_like_query', function($retval) {
+				remove_filter('query', [$this, 'flt_custom_permalinks_query']);
+				return $retval;
+			});
+		}
+
+		add_filter("option_page_on_front", [$this, 'fltOptionPageOnFront']);
 
 		do_action( 'rvy_init', $this );
 	}
@@ -310,6 +338,17 @@ class Revisionary
 
 		$last_result[$post_id] = $return;
 		return $return;
+	}
+
+	public function fltOptionPageOnFront($front_page_id) {
+		global $post;
+
+		// extra caution and perf optimization for front end execution
+		if (!empty($post) && is_object($post) && rvy_is_revision_status($post->post_status) && ($post->comment_count == $front_page_id)) {
+			return $post->ID;
+		} 
+
+		return $front_page_id;
 	}
 
 	/**
@@ -529,6 +568,50 @@ class Revisionary
 		}
 	}
 
+	function actUpdateRevision($post_id, $revision) {
+		if (rvy_is_revision_status($revision->post_status) /*&& rvy_is_post_author($revision)*/ 
+		&& (rvy_get_option('revision_update_redirect') || rvy_get_option('revision_update_notifications')) 
+		) {
+			$published_post = get_post(rvy_post_id($revision));
+
+			if (apply_filters('revisionary_do_revision_notice', !$this->doing_rest, $revision, $published_post)) {
+				if (('pending-revision' == $revision->post_status) && rvy_get_option('revision_update_notifications')) {
+					$args = ['update' => true, 'revision_id' => $revision->ID, 'published_post' => $published_post, 'object_type' => $published_post->post_type];
+					
+					if ( !empty( $_REQUEST['prev_cc_user'] ) ) {
+						$args['selected_recipients'] = array_map('intval', $_REQUEST['prev_cc_user']);
+					} else {
+						// If the UI that triggered this notification does not support recipient selection, send to default recipients for this post
+						require_once( dirname(__FILE__) . '/revision-workflow_rvy.php' );
+						$result = Rvy_Revision_Workflow_UI::default_notification_recipients($published_post->ID, ['object_type' => $published_post->post_type]);
+						$args['selected_recipients'] = array_keys(array_filter($result['default_ids']));
+					}
+
+					$this->do_notifications('pending-revision', 'pending-revision', (array) $revision, $args);
+				}
+
+				if (rvy_get_option('revision_update_redirect') && apply_filters('revisionary_do_update_redirect', true, $revision) && !$this->isBlockEditorActive()) {
+					$future_date = !empty($revision->post_date) && (strtotime($revision->post_date_gmt) > agp_time_gmt());
+					
+					$msg = $this->get_revision_msg( $revision->ID, ['data' => (array) $revision, 'post_id' => $revision->ID, 'object_type' => $published_post->post_type, 'future_date' => $future_date]);
+					rvy_halt($msg, __('Pending Revision Updated', 'revisionary'));
+				}
+			}
+		}
+	}
+
+	function actUpdateRevisionFixCommentCount($post_id, $revision) {
+		global $wpdb;
+		
+		if (rvy_is_revision_status($revision->post_status)) {
+			if (empty($revision->comment_count)) {
+				if ($main_post_id = get_post_meta($revision->ID, '_rvy_base_post_id', true)) {
+					$wpdb->update($wpdb->posts, ['comment_count' => $main_post_id], ['ID' => $revision->ID]);
+				}
+			}
+		}
+	}
+
 	// Return zero value for revision comments because:
 	// * comments are not supported for revisions
 	// * published post ID is stored to comment_count column is used for query efficiency 
@@ -664,7 +747,7 @@ class Revisionary
 
 				if (!rvy_is_post_author($post) && $status_obj && ! $status_obj->public && ! $status_obj->private) {
 					$post_type_obj = get_post_type_object( $post->post_type );
-					if (isset($post_type_obj->cap->edit_published_posts) && agp_user_can( $post_type_obj->cap->edit_published_posts, 0, '', array('skip_revision_allowance' => true) ) ) {	// don't require any additional caps for sitewide Editors
+					if (isset($post_type_obj->cap->edit_published_posts) && agp_user_can( $post_type_obj->cap->edit_published_posts, 0, '', ['skip_revision_allowance' => true])) {	// don't require any additional caps for sitewide Editors
 						return $caps;
 					}
 			
@@ -945,7 +1028,14 @@ class Revisionary
 				) || empty( $_REQUEST['action'] ) || ( 'editpost' != $_REQUEST['action'] ) 
 			) {
 				if (!apply_filters('revisionary_flag_as_post_update', false, $post_id, $reqd_caps, $args, $internal_args)) {
-					if ( ! in_array( $args[0], array( 'edit_published_pages', 'edit_others_pages', 'edit_private_pages', 'edit_pages', 'publish_pages', 'publish_posts' ) ) ) {
+					if ($post_type_obj = get_post_type_object($object_type)) {
+						$cap = $post_type_obj->cap;
+						$cap_names = [$cap->edit_published_posts, $cap->edit_others_posts, $cap->edit_private_posts, $cap->edit_posts, $cap->publish_posts];
+					} else {
+						$cap_names = ['edit_published_pages', 'edit_others_pages', 'edit_private_pages', 'edit_pages', 'publish_pages', 'publish_posts'];
+					}
+
+					if (!in_array($args[0], $cap_names)) {
 						$busy = false;
 						return $wp_blogcaps;
 					}
@@ -1329,5 +1419,19 @@ class Revisionary
 		}
 	
 		return false;
+	}
+
+	function flt_custom_permalinks_query($query) {
+		global $wpdb;
+
+		if (strpos($query, " WHERE pm.meta_key = 'custom_permalink' ") && strpos($query, "$wpdb->posts AS p")) {
+			$query = str_replace(
+				" ORDER BY FIELD(",
+				" AND p.post_status NOT IN ('pending-revision', 'future-revision') ORDER BY FIELD(",
+				$query
+			);
+		}
+
+		return $query;
 	}
 } // end Revisionary class

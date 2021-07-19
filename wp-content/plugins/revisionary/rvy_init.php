@@ -301,9 +301,15 @@ function rvy_delete_transient($transient) {
 function rvy_update_post_meta($post_id, $meta_key, $meta_value) {
 	global $wpdb, $revisionary;
 
-	$revisionary->internal_meta_update = true;
+	if (!empty($revisionary)) {
+		$revisionary->internal_meta_update = true;
+	}
+
 	update_post_meta($post_id, $meta_key, $meta_value);
-	$revisionary->internal_meta_update = true;
+
+	if (!empty($revisionary)) {
+		$revisionary->internal_meta_update = true;
+	}
 
 	static $skip_deletion_keys;
 	
@@ -1092,8 +1098,13 @@ function rvy_init() {
 	if ( is_admin() ) {
 		require_once( dirname(__FILE__).'/admin/admin-init_rvy.php' );
 		rvy_load_textdomain();
-		rvy_admin_init();
 
+		if (defined('REVISIONARY_BULK_ACTION_EARLY_EXECUTION') || !isset($_REQUEST['action2'])) {
+			rvy_admin_init();
+		} else {
+			// bulk approval fails on some sites due to post types not registered early enough
+			add_action('wp_loaded', 'rvy_admin_init');
+		}
 	} else {		// @todo: fix links instead
 		// fill in the missing args for Pending / Scheduled revision preview link from Edit Posts / Pages
 		if ( isset($_SERVER['HTTP_REFERER']) 
@@ -1275,6 +1286,10 @@ function rvy_preview_url($revision, $args = []) {
 		$preview_url = add_query_arg('post_type', $post_type, $preview_url);
 	}
 
+	if (!defined('REVISIONARY_PREVIEW_NO_CACHEBUST')) {
+		$preview_url = add_query_arg('nc', substr(md5(rand()), 1, 8), $preview_url);
+	}
+
 	return apply_filters('revisionary_preview_url', $preview_url, $revision, $args);
 }
 
@@ -1304,7 +1319,7 @@ function rvy_rest_cache_compat() {
 	$uri = $_SERVER['REQUEST_URI'];
 
 	$rest_cache_active = false;
-	foreach(['rvy_ajax_field', 'rvy_ajax_value', 'revision_submitted'] as $param) {
+	foreach(['rvy_ajax_field', 'rvy_ajax_value', 'revision_submitted', 'revision_updated'] as $param) {
 		if (strpos($uri, $param)) {
 			$rest_cache_active = true;
 			break;
@@ -1329,7 +1344,7 @@ add_filter('wp_rest_cache/skip_caching', 'rvy_rest_cache_skip');
 
 function rvy_rest_cache_skip($skip) {
 	$uri = $_SERVER['REQUEST_URI'];
-	$uncached_params = array_merge($uncached_params, ['rvy_ajax_field', 'rvy_ajax_value', 'revision_submitted']);
+	$uncached_params = array_merge($uncached_params, ['rvy_ajax_field', 'rvy_ajax_value', 'revision_submitted', 'revision_updated']);
 
 	foreach($uncached_params as $param) {
 		if (strpos($uri, $param)) {
