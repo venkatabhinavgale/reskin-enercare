@@ -14,7 +14,7 @@ Please read the instructions here (private repo): https://github.com/billerickso
 Devs, contact me if you need access
 */
 
-define( 'EA_STARTER_VERSION', filemtime( get_template_directory() . '/assets/css/main.css' ) );
+define( 'portent_VERSION', filemtime( get_template_directory() . '/assets/css/main.css' ) );
 
 // General cleanup
 include_once( get_template_directory() . '/inc/wordpress-cleanup.php' );
@@ -193,14 +193,104 @@ function ea_setup() {
 	// -- Editor Color Palette
 	add_theme_support( 'editor-color-palette', array(
 		array(
-			'name'  => __( 'Blue', 'ea_starter' ),
-			'slug'  => 'blue',
-			'color'	=> '#05306F',
+			'name'  => __( 'Red', 'portent' ),
+			'slug'  => 'red',
+			'color'	=> '#DC1C28',
 		),
 		array(
-			'name'  => __( 'Grey', 'ea_starter' ),
+			'name'  => __( 'Dark Red', 'portent' ),
+			'slug'  => 'dark-red',
+			'color' => '#C30D18',
+		),
+		array(
+			'name'  => __( 'Darker Red', 'portent' ),
+			'slug'  => 'darker-red',
+			'color' => '#AB000B',
+		),
+		array(
+			'name'  => __( 'Light Red', 'portent' ),
+			'slug'  => 'light-red',
+			'color' => '#F6323E',
+		),
+		array(
+			'name'  => __( 'Lighter Red', 'portent' ),
+			'slug'  => 'lighter-red',
+			'color' => '#FE4B56',
+		),
+		array(
+			'name'  => __( 'Blue', 'portent' ),
+			'slug'  => 'blue',
+			'color' => '#B9D9EC',
+		),
+		array(
+			'name'  => __( 'Dark Blue', 'portent' ),
+			'slug'  => 'dark-blue',
+			'color' => '#A9CDE2',
+		),
+		array(
+			'name'  => __( 'Darker Blue', 'portent' ),
+			'slug'  => 'darker-blue',
+			'color' => '#95BCD3',
+		),
+		array(
+			'name'  => __( 'Light Blue', 'portent' ),
+			'slug'  => 'light-blue',
+			'color' => '#C6E3F4',
+		),
+		array(
+			'name'  => __( 'Lighter Blue', 'portent' ),
+			'slug'  => 'lighter-blue',
+			'color' => '#D1EBFB',
+		),
+		array(
+			'name'  => __( 'Grey (Text)', 'portent' ),
 			'slug'  => 'grey',
-			'color' => '#FAFAFA',
+			'color' => '#29292C',
+		),
+		array(
+			'name'  => __( 'Black', 'portent' ),
+			'slug'  => 'black',
+			'color' => '#000000',
+		),
+		array(
+			'name'  => __( 'Grey 80%', 'portent' ),
+			'slug'  => 'grey-80',
+			'color' => '#3D3D43',
+		),
+		array(
+			'name'  => __( 'Grey 70%', 'portent' ),
+			'slug'  => 'grey-70',
+			'color' => '#505156',
+		),
+		array(
+			'name'  => __( 'Grey 60%', 'portent' ),
+			'slug'  => 'grey-60',
+			'color' => '#646469',
+		),
+		array(
+			'name'  => __( 'Grey 40%', 'portent' ),
+			'slug'  => 'grey-40',
+			'color' => '#B3B1B1',
+		),
+		array(
+			'name'  => __( 'Grey 30%', 'portent' ),
+			'slug'  => 'grey-30',
+			'color' => '#D3D1D1',
+		),
+		array(
+			'name'  => __( 'Grey 20%', 'portent' ),
+			'slug'  => 'grey-20',
+			'color' => '#E6E4E4',
+		),
+		array(
+			'name'  => __( 'Grey 10%', 'portent' ),
+			'slug'  => 'grey-10',
+			'color' => '#F5F2F2',
+		),
+		array(
+			'name'  => __( 'White', 'portent' ),
+			'slug'  => 'white',
+			'color' => '#FFFFFF',
 		),
 	) );
 

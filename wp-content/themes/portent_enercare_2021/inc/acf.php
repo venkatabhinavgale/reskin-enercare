@@ -64,8 +64,8 @@ class BE_ACF_Customizations {
 
 		$version = get_option( 'ea_acf_json_version' );
 
-		if ( defined( 'EA_STARTER_VERSION' ) && version_compare( EA_STARTER_VERSION, $version ) ) {
-			update_option( 'ea_acf_json_version', EA_STARTER_VERSION );
+		if ( defined( 'portent_VERSION' ) && version_compare( portent_VERSION, $version ) ) {
+			update_option( 'ea_acf_json_version', portent_VERSION );
 			$groups = acf_get_field_groups();
 
 			if ( empty( $groups ) )
