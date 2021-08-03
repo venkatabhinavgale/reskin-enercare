@@ -25,6 +25,54 @@
             "max_height": "",
             "max_size": "",
             "mime_types": ""
+        },
+        {
+            "key": "field_610846ae5d9ad",
+            "label": "Default Contact Form",
+            "name": "default_contact_form",
+            "type": "select",
+            "instructions": "In places where a contact form is needed if no override or specific form is present this form will be used. This field is populated by active gravity forms.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "1": "Contact"
+            },
+            "default_value": false,
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_610847239c1eb",
+            "label": "Default Email Form",
+            "name": "default_email_form",
+            "type": "select",
+            "instructions": "In places where a newsletter signup form is needed if no override or specific form is present this form will be used. This field is populated by active gravity forms.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "1": "Contact"
+            },
+            "default_value": false,
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
         }
     ],
     "location": [
@@ -44,6 +92,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1627675696,
-    "local_file": "\/var\/www\/html\/wp-content\/themes\/portent_enercare_2021\/acf-json\/group_5dd458c5a322b.json"
+    "modified": 1627932568
 }

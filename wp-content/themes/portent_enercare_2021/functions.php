@@ -39,6 +39,7 @@ include_once( get_template_directory() . '/inc/social-links.php' );
 
 // Plugin Support
 include_once( get_template_directory() . '/inc/acf.php' );
+include_once( get_template_directory() . '/inc/acf-blocks.php');
 include_once( get_template_directory() . '/inc/amp.php' );
 include_once( get_template_directory() . '/inc/shared-counts.php' );
 include_once( get_template_directory() . '/inc/wpforms.php' );
@@ -153,6 +154,19 @@ function ea_setup() {
 		'gallery',
 		'caption',
 	) );
+
+	/**
+	 * Image Sizes
+	 */
+	add_image_size('3-2', 320, 240);
+	add_image_size('3-2-2x', 320, 240);
+	add_image_size('3-2-3x', 320, 240);
+	add_image_size('16-9', 320, 240);
+	add_image_size('16-9-2x', 320, 240);
+	add_image_size('16-9-3x', 320, 240);
+	add_image_size('21-9', 320, 240);
+	add_image_size('21-9-2x', 320, 240);
+	add_image_size('21-9-3x', 320, 240);
 
 	// Gutenberg
 
@@ -299,6 +313,37 @@ endif;
 add_action( 'after_setup_theme', 'ea_setup' );
 
 /**
+ * Gravity Form Filter for ACF Fields
+ */
+function acf_load_gravity_form_choices( $field ) {
+
+	// reset choices
+	$field['choices'] = array();
+
+	//Get all gravity forms
+	if ( is_plugin_active( 'gravityforms/gravityforms.php' ) ) {
+		$forms = GFAPI::get_forms();
+	}
+
+	 //loop through array and add to field 'choices'
+	if( is_array( $forms ) && !empty( $forms )) {
+		foreach( $forms as $form ) {
+			$field['choices'][ $form['id'] ] = $form['title'];
+		}
+	} else {
+		$field['choices'][ 0 ] = 'No Active Gravity Forms Found';
+	}
+
+	// return the field
+	return $field;
+
+}
+
+add_filter('acf/load_field/name=gravity_form', 'acf_load_gravity_form_choices');
+add_filter('acf/load_field/name=default_contact_form', 'acf_load_gravity_form_choices');
+add_filter('acf/load_field/name=default_email_form', 'acf_load_gravity_form_choices');
+
+/**
  * Template Hierarchy
  *
  */
@@ -309,3 +354,4 @@ function ea_template_hierarchy( $template ) {
 	return $template;
 }
 add_filter( 'template_include', 'ea_template_hierarchy' );
+

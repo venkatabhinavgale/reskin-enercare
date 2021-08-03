@@ -124,8 +124,9 @@ class BE_ACF_Customizations {
 	 */
 	function register_blocks() {
 
-		if( ! function_exists('acf_register_block_type') )
+		if( ! function_exists('acf_register_block_type') ){
 			return;
+		}
 
 	}
 }

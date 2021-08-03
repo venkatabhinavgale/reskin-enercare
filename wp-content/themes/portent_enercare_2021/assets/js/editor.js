@@ -29,4 +29,19 @@ wp.domReady( () => {
 		[ 'default', 'large' ]
 	);
 
+	wp.blocks.registerBlockStyle(
+		'acf/card',
+		[
+			{
+				name: 'bordered',
+				label: 'Bordered',
+				isDefault: true,
+			},
+			{
+				name: 'shadowed',
+				label: 'Shadowed',
+			}
+		]
+	);
+
 } );
