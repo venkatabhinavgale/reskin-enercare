@@ -30,9 +30,24 @@ function enercare_register_theme_blocks() {
 		'category'        => 'layout',
 		'mode'            => 'preview',
 		'supports'        => array(
-			'align' => true,
 			'mode'  => false,
-			'jsx'   => true,
+			'color' => array(
+				'background' => true,
+				'text' => false,
+				'gradients' => false
+			)
+		),
+	) );
+
+	acf_register_block_type( array(
+		'name'            => 'tabbed-content-area',
+		'title'           => __( 'Tabbed Content Area' ),
+		'description'     => __( 'Form that allows a user to signup for an email newsletter' ),
+		'render_template' => 'partials/blocks/newsletter-signup/block-newsletter-signup.php',
+		'category'        => 'layout',
+		'mode'            => 'preview',
+		'supports'        => array(
+			'mode'  => false,
 			'color' => array(
 				'background' => true,
 				'text' => false,
