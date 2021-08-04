@@ -71,7 +71,7 @@ class Location_Post_Type_Registrations {
 			'supports'            => $supports,
 			'public'              => true,
 			'capability_type'     => 'page',
-			'rewrite'             => array( 'slug' => 'location', 'with_front' => false ),
+			'rewrite'             => array( 'slug' => 'locations', 'with_front' => false ),
 			'menu_position'       => 31,
 			'menu_icon'           => 'dashicons-store',
 			'has_archive'         => true,
