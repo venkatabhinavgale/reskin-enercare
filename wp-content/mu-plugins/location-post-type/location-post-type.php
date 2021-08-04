@@ -62,3 +62,24 @@ if ( is_admin() ) {
 	$post_type_admin->init();
 
 }
+
+/**
+ * Function that queries locations to find one that services the provided postal code
+ */
+function getLocationByPostalCode($postalcode) {
+  // strip out any spaces
+  $postalcode = str_replace(" ", "", $postalcode);
+  $posts = get_posts(array(
+    'numberposts'   => 1,
+    'post_type'     => 'location',
+    'post_status'   => 'publish',
+    'meta_query'    => array(
+      array(
+        'key' => 'postal_codes',
+        'value' => $postalcode,
+        'compare' => 'LIKE'
+      )
+    )
+  ));
+  return $posts;
+}
