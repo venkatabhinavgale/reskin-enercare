@@ -81,5 +81,8 @@ function getLocationByPostalCode($postalcode) {
       )
     )
   ));
-  return $posts;
+  if (sizeof($posts) > 0)
+    return $posts[0];
+  else
+    return null;
 }
