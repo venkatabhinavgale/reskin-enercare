@@ -158,15 +158,18 @@ function ea_setup() {
 	/**
 	 * Image Sizes
 	 */
-	add_image_size('3-2', 320, 240);
-	add_image_size('3-2-2x', 320, 240);
-	add_image_size('3-2-3x', 320, 240);
-	add_image_size('16-9', 320, 240);
-	add_image_size('16-9-2x', 320, 240);
-	add_image_size('16-9-3x', 320, 240);
-	add_image_size('21-9', 320, 240);
-	add_image_size('21-9-2x', 320, 240);
-	add_image_size('21-9-3x', 320, 240);
+	add_image_size('3-2-small', 372, 248);
+	add_image_size('3-2', 572, 382);
+	add_image_size('3-2-2x', 804, 536);
+	add_image_size('3-2-3x', 1122, 748);
+	add_image_size('16-9-small', 400, 225);
+	add_image_size('16-9', 624, 351);
+	add_image_size('16-9-2x', 960, 540);
+	add_image_size('16-9-3x', 1440, 810);
+	add_image_size('21-9-small', 350, 150);
+	add_image_size('21-9', 728, 312);
+	add_image_size('21-9-2x', 1435, 615);
+	add_image_size('21-9-3x', 1980, 850);
 
 	// Gutenberg
 
