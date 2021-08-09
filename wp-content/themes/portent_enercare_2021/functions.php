@@ -27,6 +27,7 @@ include_once( get_template_directory() . '/inc/navigation.php' );
 include_once( get_template_directory() . '/inc/loop.php' );
 include_once( get_template_directory() . '/inc/template-tags.php' );
 include_once( get_template_directory() . '/inc/site-footer.php' );
+include_once( get_template_directory() . '/inc/schema.php' );
 
 // Editor
 include_once( get_template_directory() . '/inc/disable-editor.php' );
