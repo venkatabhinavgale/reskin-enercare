@@ -1,34 +1,34 @@
 <?php
 /**
- * FAQ Post Type
+ * Location Post Type
  *
- * @package   FAQ_Post_Type
+ * @package   Location_Post_Type
  * @license   GPL-2.0+
  */
 
 /**
  * Register post types and taxonomies.
  *
- * @package FAQ_Post_Type
+ * @package Location_Post_Type
  */
-class FAQ_Post_Type_Registrations {
+class Location_Post_Type_Registrations {
 
-	public $post_type = 'faq';
+	public $post_type = 'location';
 
 	public $taxonomies = array(
-	    'faq-category',
+	    //'lp-year',
     );
 
 	public function init() {
-		// Add the FAQ post type and taxonomies
+		// Add the Location post type and taxonomies
 		add_action( 'init', array( $this, 'register' ) );
 	}
 
 	/**
 	 * Initiate registrations of post type and taxonomies.
 	 *
-	 * @uses FAQ_Post_Type_Registrations::register_post_type()
-	 * @uses FAQ_Post_Type_Registrations::register_taxonomy_category()
+	 * @uses Location_Post_Type_Registrations::register_post_type()
+	 * @uses Location_Post_Type_Registrations::register_taxonomy_category()
 	 */
 	public function register() {
     // register taxonomies first so their similar slugs will match
@@ -46,16 +46,16 @@ class FAQ_Post_Type_Registrations {
 	 */
 	protected function register_post_type() {
 		$labels = array(
-			'name'               => __( 'FAQs', 'faq-post-type' ),
-			'singular_name'      => __( 'FAQ', 'faq-post-type' ),
-			'add_new'            => __( 'Add FAQ', 'faq-post-type' ),
-			'add_new_item'       => __( 'Add FAQ', 'faq-post-type' ),
-			'edit_item'          => __( 'Edit FAQ', 'faq-post-type' ),
-			'new_item'           => __( 'New FAQ', 'faq-post-type' ),
-			'view_item'          => __( 'View FAQ', 'faq-post-type' ),
-			'search_items'       => __( 'Search FAQs', 'faq-post-type' ),
-			'not_found'          => __( 'No FAQs found', 'faq-post-type' ),
-			'not_found_in_trash' => __( 'No FAQs in the trash', 'faq-post-type' ),
+			'name'               => __( 'Locations', 'location-post-type' ),
+			'singular_name'      => __( 'Location', 'location-post-type' ),
+			'add_new'            => __( 'Add Location', 'location-post-type' ),
+			'add_new_item'       => __( 'Add Location', 'location-post-type' ),
+			'edit_item'          => __( 'Edit Location', 'location-post-type' ),
+			'new_item'           => __( 'New Location', 'location-post-type' ),
+			'view_item'          => __( 'View Location', 'location-post-type' ),
+			'search_items'       => __( 'Search Locations', 'location-post-type' ),
+			'not_found'          => __( 'No Locations found', 'location-post-type' ),
+			'not_found_in_trash' => __( 'No Locations in the trash', 'location-post-type' ),
 		);
 
 		$supports = array(
@@ -71,42 +71,43 @@ class FAQ_Post_Type_Registrations {
 			'supports'            => $supports,
 			'public'              => true,
 			'capability_type'     => 'page',
-			'rewrite'             => array( 'slug' => 'faq', 'with_front' => false ),
+			'rewrite'             => array( 'slug' => 'locations', 'with_front' => false ),
 			'menu_position'       => 31,
-			'menu_icon'           => 'dashicons-testimonial',
+			'menu_icon'           => 'dashicons-store',
 			'has_archive'         => true,
 			//'taxonomies'          => $taxonomies,
       'exclude_from_search' => true,
-      'publicly_queryable'  => true
+      'publicly_queryable'  => true,
+      'show_in_rest'        => true
 		);
 
-		$args = apply_filters( 'faq_post_type_args', $args );
+		$args = apply_filters( 'location_post_type_args', $args );
 
 		register_post_type( $this->post_type, $args );
 	}
 
     /**
-     * Register a taxonomy for FAQ Types.
+     * Register a taxonomy for Location Types.
      */
     protected function register_taxonomy_category() {
-      
+      /*
         $labels = array(
-            'name'                       => __( 'FAQ Category', 'faq-post-type' ),
-            'singular_name'              => __( 'FAQ Category', 'faq-post-type' ),
-            'menu_name'                  => __( 'FAQ Categories', 'faq-post-type' ),
-            'edit_item'                  => __( 'Edit FAQ Category', 'faq-post-type' ),
-            'update_item'                => __( 'Update FAQ Category', 'faq-post-type' ),
-            'add_new_item'               => __( 'Add New FAQ Category', 'faq-post-type' ),
-            'new_item_name'              => __( 'New FAQ Category Name', 'faq-post-type' ),
-            'parent_item'                => __( 'Parent Type', 'faq-post-type' ),
-            'parent_item_colon'          => __( 'Parent Type:', 'faq-post-type' ),
-            'all_items'                  => __( 'All FAQ Categories', 'faq-post-type' ),
-            'search_items'               => __( 'Search FAQ Categories', 'faq-post-type' ),
-            'popular_items'              => __( 'Popular FAQ Categories', 'faq-post-type' ),
-            'separate_items_with_commas' => __( 'Separate FAQ Categories with commas', 'faq-post-type' ),
-            'add_or_remove_items'        => __( 'Add or remove FAQ Categories', 'faq-post-type' ),
-            'choose_from_most_used'      => __( 'Choose from the most used FAQ Categories', 'faq-post-type' ),
-            'not_found'                  => __( 'No FAQ Categories found.', 'faq-post-type' ),
+            'name'                       => __( 'Years', 'lp-post-type' ),
+            'singular_name'              => __( 'Year', 'lp-post-type' ),
+            'menu_name'                  => __( 'Years', 'lp-post-type' ),
+            'edit_item'                  => __( 'Edit Year', 'lp-post-type' ),
+            'update_item'                => __( 'Update Year', 'lp-post-type' ),
+            'add_new_item'               => __( 'Add New Year', 'lp-post-type' ),
+            'new_item_name'              => __( 'New Year Name', 'lp-post-type' ),
+            'parent_item'                => __( 'Parent Type', 'lp-post-type' ),
+            'parent_item_colon'          => __( 'Parent Type:', 'lp-post-type' ),
+            'all_items'                  => __( 'All Years', 'lp-post-type' ),
+            'search_items'               => __( 'Search Years', 'lp-post-type' ),
+            'popular_items'              => __( 'Popular Years', 'lp-post-type' ),
+            'separate_items_with_commas' => __( 'Separate Years with commas', 'lp-post-type' ),
+            'add_or_remove_items'        => __( 'Add or remove Years', 'lp-post-type' ),
+            'choose_from_most_used'      => __( 'Choose from the most used Years', 'lp-post-type' ),
+            'not_found'                  => __( 'No Years found.', 'lp-post-type' ),
         );
 
         $args = array(
@@ -116,7 +117,7 @@ class FAQ_Post_Type_Registrations {
             'show_ui'           => true,
             'show_tagcloud'     => true,
             'hierarchical'      => true,
-            'rewrite'           => array( 'slug' => 'faq', 'with_front' => false ),
+            'rewrite'           => array( 'slug' => 'about/FAQ/year', 'with_front' => false ),
             'show_admin_column' => true,
             'query_var'         => true,
         );
@@ -124,7 +125,7 @@ class FAQ_Post_Type_Registrations {
         $args = apply_filters( 'FAQ_post_type_category_args', $args );
         
         register_taxonomy( $this->taxonomies[0], $this->post_type, $args );
-      
+      */
     }
 
     /**
