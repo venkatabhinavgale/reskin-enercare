@@ -16,7 +16,7 @@ class Location_Post_Type_Registrations {
 	public $post_type = 'location';
 
 	public $taxonomies = array(
-	    //'lp-year',
+	    'services',
     );
 
 	public function init() {
@@ -90,42 +90,42 @@ class Location_Post_Type_Registrations {
      * Register a taxonomy for Location Types.
      */
     protected function register_taxonomy_category() {
-      /*
-        $labels = array(
-            'name'                       => __( 'Years', 'lp-post-type' ),
-            'singular_name'              => __( 'Year', 'lp-post-type' ),
-            'menu_name'                  => __( 'Years', 'lp-post-type' ),
-            'edit_item'                  => __( 'Edit Year', 'lp-post-type' ),
-            'update_item'                => __( 'Update Year', 'lp-post-type' ),
-            'add_new_item'               => __( 'Add New Year', 'lp-post-type' ),
-            'new_item_name'              => __( 'New Year Name', 'lp-post-type' ),
-            'parent_item'                => __( 'Parent Type', 'lp-post-type' ),
-            'parent_item_colon'          => __( 'Parent Type:', 'lp-post-type' ),
-            'all_items'                  => __( 'All Years', 'lp-post-type' ),
-            'search_items'               => __( 'Search Years', 'lp-post-type' ),
-            'popular_items'              => __( 'Popular Years', 'lp-post-type' ),
-            'separate_items_with_commas' => __( 'Separate Years with commas', 'lp-post-type' ),
-            'add_or_remove_items'        => __( 'Add or remove Years', 'lp-post-type' ),
-            'choose_from_most_used'      => __( 'Choose from the most used Years', 'lp-post-type' ),
-            'not_found'                  => __( 'No Years found.', 'lp-post-type' ),
-        );
+      $labels = array(
+          'name'                       => __( 'Services', 'location-post-type' ),
+          'singular_name'              => __( 'Service', 'location-post-type' ),
+          'menu_name'                  => __( 'Services', 'location-post-type' ),
+          'edit_item'                  => __( 'Edit Service', 'location-post-type' ),
+          'update_item'                => __( 'Update Service', 'location-post-type' ),
+          'add_new_item'               => __( 'Add New Service', 'location-post-type' ),
+          'new_item_name'              => __( 'New Service Name', 'location-post-type' ),
+          'parent_item'                => __( 'Parent Type', 'location-post-type' ),
+          'parent_item_colon'          => __( 'Parent Type:', 'location-post-type' ),
+          'all_items'                  => __( 'All Services', 'location-post-type' ),
+          'search_items'               => __( 'Search Services', 'location-post-type' ),
+          'popular_items'              => __( 'Popular Services', 'location-post-type' ),
+          'separate_items_with_commas' => __( 'Separate Services with commas', 'location-post-type' ),
+          'add_or_remove_items'        => __( 'Add or remove Services', 'location-post-type' ),
+          'choose_from_most_used'      => __( 'Choose from the most used Services', 'location-post-type' ),
+          'not_found'                  => __( 'No Services found.', 'location-post-type' ),
+      );
 
-        $args = array(
-            'labels'            => $labels,
-            'public'            => true,
-            'show_in_nav_menus' => true,
-            'show_ui'           => true,
-            'show_tagcloud'     => true,
-            'hierarchical'      => true,
-            'rewrite'           => array( 'slug' => 'about/FAQ/year', 'with_front' => false ),
-            'show_admin_column' => true,
-            'query_var'         => true,
-        );
+      $args = array(
+          'labels'            => $labels,
+          'public'            => true,
+          'show_in_nav_menus' => true,
+          'show_ui'           => true,
+          'show_tagcloud'     => true,
+          'hierarchical'      => true,
+          'rewrite'           => array( 'slug' => 'taxonomy/services', 'with_front' => false ),
+          'show_admin_column' => true,
+          'query_var'         => true,
+          'show_in_rest'      => true
+      );
 
-        $args = apply_filters( 'FAQ_post_type_category_args', $args );
-        
-        register_taxonomy( $this->taxonomies[0], $this->post_type, $args );
-      */
+      $args = apply_filters( 'Location_post_type_category_args', $args );
+      
+      register_taxonomy( $this->taxonomies[0], $this->post_type, $args );
+      
     }
 
     /**
