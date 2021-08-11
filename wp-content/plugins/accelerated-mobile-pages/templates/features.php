@@ -1157,6 +1157,9 @@ function ampforwp_remove_schema_data() {
 				remove_action('amp_post_template_css', array('Wppr_Public', 'amp_styles')); 
 				remove_action('wppr_review_option_rating_css', array('Wppr_Public', 'amp_width_support')); 
 			}
+			if (class_exists('WPSEO_Video_Embed')) {
+		 		ampforwp_remove_filters_for_class( 'render_block', 'WPSEO_Video_Embed', 'replace_youtube_block_html', 10 );
+			}		
 	}
 	//Removing the WPTouch Pro social share links from AMP
 		remove_filter( 'the_content', 'foundation_handle_share_links_bottom', 100 );
@@ -3923,8 +3926,8 @@ function ampforwp_remove_rel_on_bp(){
 		}
 		// Removing AMP from WPForo Forums Pages #592
 		if(class_exists('wpForo')){
-			Global $post, $wpdb,$wpforo;
-			$foid = $post->ID;
+			global $wpdb,$wpforo;
+			$foid = ampforwp_get_the_ID();
 			$fid = $wpforo->pageid;
 			if($foid==$fid){
 				remove_action( 'wp_head', 'amp_frontend_add_canonical');
@@ -9540,8 +9543,8 @@ function ampforwp_webp_express_compatibility($content){
 		preg_match_all('/src="(.*?)"/', $content,$src);
 		if(isset($src[1][0])){
 			$img_url = esc_url($src[1][0]);
-			if(file_exists($img_url_webp) && !preg_match('/\.webp/', $img_url)){
-				$img_url_webp = preg_replace('/http(.*?)\/wp-content(.*?)/', 'http$1/wp-content/webp-express/webp-images/doc-root/wp-content$2', $img_url);
+			if(!preg_match('/\.webp/', $img_url)){
+				$img_url_webp = preg_replace('/http(.*?)\/wp-content(.*?)/', 'http$1/wp-content/webp-express/webp-images$2', $img_url);
 				if(!preg_match('/\.webp/', $img_url)){	
 					$img_url_webp = esc_url($img_url_webp).".webp";
 			 		$content = str_replace($img_url, $img_url_webp, $content); 

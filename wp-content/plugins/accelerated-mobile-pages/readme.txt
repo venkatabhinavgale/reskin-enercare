@@ -4,7 +4,7 @@ Tags: AMP, accelerated mobile pages, mobile, amp project, google amp, amp wp, go
 Donate link: https://www.paypal.me/Kaludi/25
 Requires at least: 3.0
 Tested up to: 5.8
-Stable tag: 1.0.77.13
+Stable tag: 1.0.77.18
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -194,20 +194,17 @@ You can contact us from [here](https://ampforwp.com/contact/)
 
 == Changelog ==
 
-= 1.0.77.13 (16th July 2021) =
-* Fixed: FooGallery plugin not working with AMP #5090
-* Fixed: Console error when Back to Top link option is enabled #5091
-* Fixed: Exclude Categories is not working #5088
-* Fixed: Long word post title not breaking in mobile view #5092
+= 1.0.77.18 (5th August 2021) =
+* Improvements: Added License Key information in AMP panel #5110
 
-= 1.0.77.12 (12th July 2021) =
-* Fixed: Exclude categories loop not working #5088
-* Fixed: Endpoint '?amp' not working with plain permalink #5087
+= 1.0.77.17 (3rd August 2021) =
+* Improvements: Added dotmetrics analytics support in amp #5107
+* Improvements: Added support to preserve query string with ?amp #5103
 
-= 1.0.77.11 (6th July 2021) =
-* Improvements: Improved readme.txt for newer features #5080
-* Fixed: SVG images are loading with a bigger size in the AMP version #5084
-* Fixed: Removed the percentage symbol beside AMP icon in dashboard #5082
-* Fixed: Gallery thumbnail image improved #5003
+= 1.0.77.16 (29th July 2021) =
+* Improvements: Added Filter to remove last-modified header in amp #5101
+* Fixed: Webp images are not converting with Webp Express plugin #5108
+* Fixed: Validation error - The tag 'lite-youtube' is disallowed #5102
+* Fixed: Yoast custom breadcrumbs title not working after update #5100
 
 Full changelog available [ at changelog.txt](https://plugins.svn.wordpress.org/accelerated-mobile-pages/trunk/changelog.txt)
