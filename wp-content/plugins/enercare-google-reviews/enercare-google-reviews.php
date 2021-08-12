@@ -52,13 +52,13 @@ class ECReviews {
     add_action('ecreviews_locations_sync_cron', array($this, 'syncLocationsCronCron'));
     if (! wp_next_scheduled ( 'ecreviews_locations_sync_cron' )) {
       // schedule cron for every day
-      //wp_schedule_event(time(), 'daily', 'ecreviews_locations_sync_cron');
+      wp_schedule_event(time(), 'daily', 'ecreviews_locations_sync_cron');
     }
     
     add_action('ecreviews_reviews_sync_cron', array($this, 'syncReviewsCronCron'));
     if (! wp_next_scheduled ( 'ecreviews_reviews_sync_cron' )) {
       // schedule cron for every day
-      //wp_schedule_event(time(), 'daily', 'ecreviews_reviews_sync_cron');
+      wp_schedule_event(time(), 'daily', 'ecreviews_reviews_sync_cron');
     }
     
   }
@@ -70,7 +70,8 @@ class ECReviews {
   }
   
   public function plugin_deactivate($network_wide) {
-    wp_clear_scheduled_hook('ecreviews_sync_cron');
+    wp_clear_scheduled_hook('ecreviews_locations_sync_cron');
+    wp_clear_scheduled_hook('ecreviews_reviews_sync_cron');
   }
   
   // Create Admin Menu
@@ -80,9 +81,6 @@ class ECReviews {
   }
   
   public function settings_manager() {
-    //$this->syncGmbLocations();
-    //$this->syncGmbReviews();
-    
     include_once( dirname( __FILE__ ) . '/act_manager.php' );
     include_once( dirname( __FILE__ ) . '/manager.php' );
   }
