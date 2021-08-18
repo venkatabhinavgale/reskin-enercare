@@ -12,17 +12,17 @@
  * Login Logo URL
  *
  */
-function ea_login_header_url( $url ) {
+function enercare_login_header_url( $url ) {
     return esc_url( home_url() );
 }
-add_filter( 'login_headerurl', 'ea_login_header_url' );
+add_filter( 'login_headerurl', 'enercare_login_header_url' );
 add_filter( 'login_headertext', '__return_empty_string' );
 
 /**
  * Login Logo
  *
  */
-function ea_login_logo() {
+function enercare_login_logo() {
 
 	$logo_path = '/assets/images/logo.svg';
 	if( ! file_exists( get_stylesheet_directory() . $logo_path ) )
@@ -45,4 +45,4 @@ function ea_login_logo() {
     </style>
     <?php
 }
-add_action( 'login_head', 'ea_login_logo' );
+add_action( 'login_head', 'enercare_login_logo' );

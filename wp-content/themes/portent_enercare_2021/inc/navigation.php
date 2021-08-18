@@ -12,31 +12,42 @@
  * Mobile Menu
  *
  */
-function ea_site_header() {
-	echo ea_mobile_menu_toggle();
-	echo ea_search_toggle();
+function enercare_site_header() {
+	echo enercare_mobile_menu_toggle();
+	echo enercare_search_toggle();
 
-	echo '<nav' . ea_amp_class( 'nav-menu', 'active', 'menuActive' ) . ' role="navigation">';
+	echo '<nav' . enercare_amp_class( 'nav-menu', 'active', 'menuActive' ) . ' role="navigation">';
 	if( has_nav_menu( 'primary' ) ) {
 		wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu', 'container_class' => 'nav-primary' ) );
 	}
-	if( has_nav_menu( 'secondary' ) ) {
-		wp_nav_menu( array( 'theme_location' => 'secondary', 'menu_id' => 'secondary-menu', 'container_class' => 'nav-secondary' ) );
-	}
+
 	echo '</nav>';
 
-	echo '<div' . ea_amp_class( 'header-search', 'active', 'searchActive' ) . '>' . get_search_form( array( 'echo' => false ) ) . '</div>';
+	echo '<div' . enercare_amp_class( 'header-search', 'active', 'searchActive' ) . '>' . get_search_form( array( 'echo' => false ) ) . '</div>';
 }
-add_action( 'tha_header_bottom', 'ea_site_header', 11 );
+add_action( 'tha_header_bottom', 'enercare_site_header', 11 );
+
+/**
+ * Super / Secondary Navigation
+ */
+function enercare_secondary_navigation() {
+	if ( has_nav_menu( 'secondary' ) ) {
+		wp_nav_menu( array( 'theme_location'  => 'secondary',
+		                    'menu_id'         => 'secondary-menu',
+		                    'container_class' => 'nav-secondary'
+		) );
+	}
+}
+add_action( 'tha_header_top', 'enercare_secondary_navigation');
 
 /**
  * Nav Extras
  *
  */
-function ea_nav_extras( $menu, $args ) {
+function enercare_nav_extras( $menu, $args ) {
 
 	if( 'primary' === $args->theme_location ) {
-		$menu .= '<li class="menu-item search">' . ea_search_toggle() . '</li>';
+		$menu .= '<li class="menu-item search">' . enercare_search_toggle() . '</li>';
 	}
 
 	if( 'secondary' === $args->theme_location ) {
@@ -45,16 +56,16 @@ function ea_nav_extras( $menu, $args ) {
 
 	return $menu;
 }
-add_filter( 'wp_nav_menu_items', 'ea_nav_extras', 10, 2 );
+add_filter( 'wp_nav_menu_items', 'enercare_nav_extras', 10, 2 );
 
 /**
  * Search toggle
  *
  */
-function ea_search_toggle() {
-	$output = '<button' . ea_amp_class( 'search-toggle', 'active', 'searchActive' ) . ea_amp_toggle( 'searchActive', array( 'menuActive', 'mobileFollow' ) ) . '>';
-		$output .= ea_icon( array( 'icon' => 'search', 'size' => 24, 'class' => 'open' ) );
-		$output .= ea_icon( array( 'icon' => 'close', 'size' => 24, 'class' => 'close' ) );
+function enercare_search_toggle() {
+	$output = '<button' . enercare_amp_class( 'search-toggle', 'active', 'searchActive' ) . enercare_amp_toggle( 'searchActive', array( 'menuActive', 'mobileFollow' ) ) . '>';
+		$output .= enercare_icon( array( 'icon' => 'search', 'size' => 24, 'class' => 'open' ) );
+		$output .= enercare_icon( array( 'icon' => 'close', 'size' => 24, 'class' => 'close' ) );
 		$output .= '<span class="screen-reader-text">Search</span>';
 	$output .= '</button>';
 	return $output;
@@ -64,10 +75,10 @@ function ea_search_toggle() {
  * Mobile menu toggle
  *
  */
-function ea_mobile_menu_toggle() {
-	$output = '<button' . ea_amp_class( 'menu-toggle', 'active', 'menuActive' ) . ea_amp_toggle( 'menuActive', array( 'searchActive', 'mobileFollow' ) ) . '>';
-		$output .= ea_icon( array( 'icon' => 'menu', 'size' => 24, 'class' => 'open' ) );
-		$output .= ea_icon( array( 'icon' => 'close', 'size' => 24, 'class' => 'close' ) );
+function enercare_mobile_menu_toggle() {
+	$output = '<button' . enercare_amp_class( 'menu-toggle', 'active', 'menuActive' ) . enercare_amp_toggle( 'menuActive', array( 'searchActive', 'mobileFollow' ) ) . '>';
+		$output .= enercare_icon( array( 'icon' => 'menu', 'size' => 24, 'class' => 'open' ) );
+		$output .= enercare_icon( array( 'icon' => 'close', 'size' => 24, 'class' => 'close' ) );
 		$output .= '<span class="screen-reader-text">Menu</span>';
 	$output .= '</button>';
 	return $output;
@@ -83,7 +94,7 @@ function ea_mobile_menu_toggle() {
  * @return string Nav menu item start element.
  * Add a dropdown icon to top-level menu items
  */
-function ea_nav_add_dropdown_icons( $output, $item, $depth, $args ) {
+function enercare_nav_add_dropdown_icons( $output, $item, $depth, $args ) {
 
 	if ( ! isset( $args->theme_location ) || 'primary' !== $args->theme_location ) {
 		return $output;
@@ -92,33 +103,33 @@ function ea_nav_add_dropdown_icons( $output, $item, $depth, $args ) {
 	if ( in_array( 'menu-item-has-children', $item->classes, true ) ) {
 
 		// Add SVG icon to parent items.
-		$icon = ea_icon( array( 'icon' => 'navigate-down', 'size' => 8, 'title' => 'Submenu Dropdown' ) );
+		$icon = enercare_icon( array( 'icon' => 'navigate-down', 'size' => 8, 'title' => 'Submenu Dropdown' ) );
 
 		$output .= sprintf(
-			'<button' . ea_amp_nav_dropdown( $args->theme_location, $depth ) . ' tabindex="-1">%s</button>',
+			'<button' . enercare_amp_nav_dropdown( $args->theme_location, $depth ) . ' tabindex="-1">%s</button>',
 			$icon
 		);
 	}
 
 	return $output;
 }
-add_filter( 'walker_nav_menu_start_el', 'ea_nav_add_dropdown_icons', 10, 4 );
+add_filter( 'walker_nav_menu_start_el', 'enercare_nav_add_dropdown_icons', 10, 4 );
 
 /**
  * Previous/Next Archive Navigation (disabled)
  *
  */
-function ea_archive_navigation() {
+function enercare_archive_navigation() {
 	if( ! is_singular() )
 		the_posts_navigation();
 }
-//add_action( 'tha_content_while_after', 'ea_archive_navigation' );
+//add_action( 'tha_content_while_after', 'enercare_archive_navigation' );
 
 /**
  * Archive Paginated Navigation
  *
  */
-function ea_archive_paginated_navigation() {
+function enercare_archive_paginated_navigation() {
 
 	if ( is_singular() ) {
 		return;
@@ -226,4 +237,4 @@ function ea_archive_paginated_navigation() {
 	echo '</ul>';
 	echo '</nav>';
 }
-add_action( 'tha_content_while_after', 'ea_archive_paginated_navigation' );
+add_action( 'tha_content_while_after', 'enercare_archive_paginated_navigation' );

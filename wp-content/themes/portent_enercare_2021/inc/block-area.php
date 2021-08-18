@@ -10,7 +10,7 @@
  * @license      GPL-2.0+
 **/
 
-class EA_Block_Area {
+class enercare_Block_Area {
 
 	/**
 	 * Instance of the class.
@@ -20,11 +20,11 @@ class EA_Block_Area {
 
 	/**
 	 * Class Instance.
-	 * @return EA_Block_Area
+	 * @return enercare_Block_Area
 	 */
 	public static function instance() {
-		if ( ! isset( self::$instance ) && ! ( self::$instance instanceof EA_Block_Area ) ) {
-			self::$instance = new EA_Block_Area();
+		if ( ! isset( self::$instance ) && ! ( self::$instance instanceof enercare_Block_Area ) ) {
+			self::$instance = new enercare_Block_Area();
 
 			// Actions
 			add_action( 'init',              array( self::$instance, 'register_cpt'      )    );
@@ -120,7 +120,7 @@ class EA_Block_Area {
  *
  * @return object
  */
-function ea_block_area() {
-	return EA_Block_Area::instance();
+function enercare_block_area() {
+	return enercare_Block_Area::instance();
 }
-ea_block_area();
+enercare_block_area();

@@ -10,13 +10,13 @@
 
 // Duplicate 'the_content' filters
 global $wp_embed;
-add_filter( 'ea_the_content', array( $wp_embed, 'run_shortcode' ), 8 );
-add_filter( 'ea_the_content', array( $wp_embed, 'autoembed'     ), 8 );
-add_filter( 'ea_the_content', 'wptexturize'        );
-add_filter( 'ea_the_content', 'convert_chars'      );
-add_filter( 'ea_the_content', 'wpautop'            );
-add_filter( 'ea_the_content', 'shortcode_unautop'  );
-add_filter( 'ea_the_content', 'do_shortcode'       );
+add_filter( 'enercare_the_content', array( $wp_embed, 'run_shortcode' ), 8 );
+add_filter( 'enercare_the_content', array( $wp_embed, 'autoembed'     ), 8 );
+add_filter( 'enercare_the_content', 'wptexturize'        );
+add_filter( 'enercare_the_content', 'convert_chars'      );
+add_filter( 'enercare_the_content', 'wpautop'            );
+add_filter( 'enercare_the_content', 'shortcode_unautop'  );
+add_filter( 'enercare_the_content', 'do_shortcode'       );
 
 /**
  * Get the first term attached to post
@@ -26,7 +26,7 @@ add_filter( 'ea_the_content', 'do_shortcode'       );
  * @param int $post_id
  * @return string/object
  */
-function ea_first_term( $args = [] ) {
+function enercare_first_term( $args = [] ) {
 
 	$defaults = [
 		'taxonomy'	=> 'category',
@@ -98,7 +98,7 @@ function ea_first_term( $args = [] ) {
  * @param bool $conditional, whether to add $optional_class or not
  * @return string $classes
  */
-function ea_class( $base_classes, $optional_class, $conditional ) {
+function enercare_class( $base_classes, $optional_class, $conditional ) {
 	return $conditional ? $base_classes . ' ' . $optional_class : $base_classes;
 }
 
@@ -108,7 +108,7 @@ function ea_class( $base_classes, $optional_class, $conditional ) {
  * @param int $image_id
  * @return string $output
  */
-function ea_bg_image_style( $image_id = false, $image_size = 'full' ) {
+function enercare_bg_image_style( $image_id = false, $image_size = 'full' ) {
 	if( !empty( $image_id ) )
 		return ' style="background-image: url(' . wp_get_attachment_image_url( $image_id, $image_size ) . ');"';
 }
@@ -125,7 +125,7 @@ function ea_bg_image_style( $image_id = false, $image_size = 'full' ) {
  * to only specify a `$size` parameter in the svg methods.
  *
  */
-function ea_icon( $atts = array() ) {
+function enercare_icon( $atts = array() ) {
 
 	$atts = shortcode_atts( array(
 		'icon'	=> false,
@@ -169,7 +169,7 @@ function ea_icon( $atts = array() ) {
  * Has Action
  *
  */
-function ea_has_action( $hook ) {
+function enercare_has_action( $hook ) {
 	ob_start();
 	do_action( $hook );
 	$output = ob_get_clean();
@@ -180,7 +180,7 @@ function ea_has_action( $hook ) {
  * Breadcrumbs
  *
  */
-function ea_breadcrumbs() {
+function enercare_breadcrumbs() {
 	if ( function_exists('yoast_breadcrumb') ) {
 		yoast_breadcrumb( '<p id="breadcrumbs" class="breadcrumb">','</p>' );
 	}
