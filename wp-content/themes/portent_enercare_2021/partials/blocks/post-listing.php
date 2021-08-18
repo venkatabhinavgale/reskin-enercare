@@ -27,7 +27,7 @@ $settings = [
 if( !empty( $settings['layout'] ) )
 	$classes[] = $settings['layout'];
 
-$loop = new WP_Query( ea_post_listing_args( $settings ) );
+$loop = new WP_Query( enercare_post_listing_args( $settings ) );
 if( ! $loop->have_posts() )
 	return;
 
@@ -36,9 +36,9 @@ echo '<section class="' . join( ' ', $classes ) . '"' . $anchor . '>';
 	if( !empty( $title ) )
 		echo '<header><h2>' . esc_html( $title ) . '</h2></header>';
 	while( $loop->have_posts() ): $loop->the_post();
-		$partial = ea_post_listing_partial( $settings['layout'], $loop->current_post );
+		$partial = enercare_post_listing_partial( $settings['layout'], $loop->current_post );
 		get_template_part( 'partials/archive', $partial );
 	endwhile;
 	wp_reset_postdata();
-	ea_post_listing_footer( $block );
+	enercare_post_listing_footer( $block );
 echo '</section>';

@@ -134,3 +134,10 @@ h3 {
 h4, h5, h6 {
     @include font-sizes( 18px, 22px );
 }
+
+/**
+Block Styles
+ */
+.is-style-shadowed {
+	box-shadow: 0 4px 8px 0 rgba(56,61,67,0.30);
+}

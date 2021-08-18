@@ -50,8 +50,8 @@ $border-radius: 20px;
 $drop-shadow: 0 4px 8px 0 rgba(56,61,67,0.30);
 
 // Fonts
-$serif: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
-$sans-serif: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+$serif: "Post Grotesk",serif;
+$sans-serif: "Post Grotesk",serif,"Helvetica Neue",sans-serif;
 
 // Content
 $content-width: 768px;
@@ -72,6 +72,9 @@ $menu_width: $logo_width + $grid-gap;
 $persistent_mobile: false; // 49px
 $persistent_desktop: false; // 49px
 
+// Site Footer
+$floating_cta_height: 62px;
+$footer_bottom_margin: $floating_cta_height;
 
 // Include Media
 $breakpoints: (

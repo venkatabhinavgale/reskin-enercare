@@ -10,7 +10,7 @@
 
 echo '<article class="' . join( ' ', get_post_class() ) . '">';
 
-	if( ea_has_action( 'tha_entry_top' ) ) {
+	if( enercare_has_action( 'tha_entry_top' ) ) {
 		echo '<header class="entry-header">';
 		tha_entry_top();
 		echo '</header>';
@@ -29,7 +29,7 @@ echo '<article class="' . join( ' ', get_post_class() ) . '">';
 		tha_entry_content_after();
 	echo '</div>';
 
-	if( ea_has_action( 'tha_entry_bottom' ) ) {
+	if( enercare_has_action( 'tha_entry_bottom' ) ) {
 		echo '<footer class="entry-footer">';
 			tha_entry_bottom();
 		echo '</footer>';

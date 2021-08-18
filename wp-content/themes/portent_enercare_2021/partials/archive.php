@@ -10,11 +10,11 @@
 
 echo '<article class="post-summary">';
 
-	ea_post_summary_image();
+	enercare_post_summary_image();
 
 	echo '<div class="post-summary__content">';
-		ea_entry_category();
-		ea_post_summary_title();
+		enercare_entry_category();
+		enercare_post_summary_title();
 	echo '</div>';
 
 echo '</article>';

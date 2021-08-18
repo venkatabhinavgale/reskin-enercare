@@ -142,3 +142,17 @@
 	}
 
 }
+
+/**
+Floating CTA
+ */
+.floating-cta {
+	background-color: #fff;
+	bottom: 0;
+	height: $floating_cta_height;
+	left: 0;
+	position: fixed;
+	padding: 0.5em;
+	text-align: center;
+	width: 100%;
+}

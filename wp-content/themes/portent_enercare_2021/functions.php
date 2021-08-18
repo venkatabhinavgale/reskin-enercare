@@ -48,9 +48,9 @@ include_once( get_template_directory() . '/inc/wpforms.php' );
 /**
  * Enqueue scripts and styles.
  */
-function ea_scripts() {
+function enercare_scripts() {
 
-	if( ! ea_is_amp() ) {
+	if( ! enercare_is_amp() ) {
 		wp_enqueue_script( 'ea-global', get_template_directory_uri() . '/assets/js/global-min.js', array( 'jquery' ), filemtime( get_template_directory() . '/assets/js/global-min.js' ), true );
 
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -66,31 +66,31 @@ function ea_scripts() {
 
 	}
 
-	wp_enqueue_style( 'ea-fonts', ea_theme_fonts_url() );
+	wp_enqueue_style( 'ea-fonts', enercare_theme_fonts_url() );
 	wp_enqueue_style( 'ea-style', get_template_directory_uri() . '/assets/css/main.css', array(), filemtime( get_template_directory() . '/assets/css/main.css' ) );
 
 }
-add_action( 'wp_enqueue_scripts', 'ea_scripts' );
+add_action( 'wp_enqueue_scripts', 'enercare_scripts' );
 
 /**
  * Gutenberg scripts and styles
  *
  */
-function ea_gutenberg_scripts() {
-	wp_enqueue_style( 'ea-fonts', ea_theme_fonts_url() );
+function enercare_gutenberg_scripts() {
+	wp_enqueue_style( 'ea-fonts', enercare_theme_fonts_url() );
 	wp_enqueue_script( 'ea-editor', get_template_directory_uri() . '/assets/js/editor.js', array( 'wp-blocks', 'wp-dom' ), filemtime( get_template_directory() . '/assets/js/editor.js' ), true );
 }
-add_action( 'enqueue_block_editor_assets', 'ea_gutenberg_scripts' );
+add_action( 'enqueue_block_editor_assets', 'enercare_gutenberg_scripts' );
 
 /**
  * Theme Fonts URL
  *
  */
-function ea_theme_fonts_url() {
+function enercare_theme_fonts_url() {
 	return false;
 }
 
-if ( ! function_exists( 'ea_setup' ) ) :
+if ( ! function_exists( 'enercare_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
@@ -98,7 +98,7 @@ if ( ! function_exists( 'ea_setup' ) ) :
  * runs before the init hook. The init hook is too late for some features, such
  * as indicating support for post thumbnails.
  */
-function ea_setup() {
+function enercare_setup() {
 	/*
 	 * Make theme available for translation.
 	 */
@@ -129,7 +129,7 @@ function ea_setup() {
 	 * Set the content width in pixels, based on the theme's design and stylesheet.
 	 *
 	 */
-	 $GLOBALS['content_width'] = apply_filters( 'ea_content_width', 768 );
+	 $GLOBALS['content_width'] = apply_filters( 'enercare_content_width', 768 );
 
 	/*
 	 * Enable support for Post Thumbnails on posts and pages.
@@ -314,7 +314,7 @@ function ea_setup() {
 
 }
 endif;
-add_action( 'after_setup_theme', 'ea_setup' );
+add_action( 'after_setup_theme', 'enercare_setup' );
 
 /**
  * Gravity Form Filter for ACF Fields
@@ -351,11 +351,11 @@ add_filter('acf/load_field/name=default_email_form', 'acf_load_gravity_form_choi
  * Template Hierarchy
  *
  */
-function ea_template_hierarchy( $template ) {
+function enercare_template_hierarchy( $template ) {
 
 	if( is_home() || is_search() )
 		$template = get_query_template( 'archive' );
 	return $template;
 }
-add_filter( 'template_include', 'ea_template_hierarchy' );
+add_filter( 'template_include', 'enercare_template_hierarchy' );
 

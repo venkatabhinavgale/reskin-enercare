@@ -9,7 +9,7 @@
 **/
 
 // Breadcrumbs above page title
-add_action( 'tha_entry_top', 'ea_breadcrumbs', 8 );
+add_action( 'tha_entry_top', 'enercare_breadcrumbs', 8 );
 
 // Build the page
 require get_template_directory() . '/index.php';
