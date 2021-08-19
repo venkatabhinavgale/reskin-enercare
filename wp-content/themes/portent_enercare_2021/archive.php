@@ -66,5 +66,10 @@ add_action( 'tha_content_while_before', 'enercare_archive_header' );
 // Breadcrumbs
 add_action( 'enercare_archive_header_before', 'enercare_breadcrumbs', 5 );
 
+//Filters
+if (!is_search() && have_posts()) {
+	add_action('enercare_archive_header_after', 'enercare_filter_taxonomy_by_post_type');
+}
+
 // Build the page
 require get_template_directory() . '/index.php';
