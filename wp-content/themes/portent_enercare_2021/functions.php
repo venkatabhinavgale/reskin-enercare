@@ -63,6 +63,10 @@ function enercare_scripts() {
 			wp_register_script( 'jquery', includes_url( '/js/jquery/jquery.js' ), false, NULL, true );
 			wp_enqueue_script( 'jquery' );
 		}
+    
+    if( is_archive() ) {
+      wp_enqueue_script( 'ea-category-filters', get_template_directory_uri() . '/assets/js/category-filters.js', array( 'jquery' ), filemtime( get_template_directory() . '/assets/js/category-filters.js' ), true );
+    }
 
 	}
 

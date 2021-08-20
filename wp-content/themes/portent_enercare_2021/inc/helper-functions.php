@@ -185,3 +185,154 @@ function enercare_breadcrumbs() {
 		yoast_breadcrumb( '<p id="breadcrumbs" class="breadcrumb">','</p>' );
 	}
 }
+
+/**
+ * Taxonomy Filtering
+ *
+ */
+function enercare_filter_taxonomy_by_post_type() {
+  $post_type = get_post_type();
+  if( is_author() ) {
+  	$post_type = 'post';
+  }
+  
+  $output = "";
+  if ($post_type == 'campaign') {
+    $output .= get_campaign_postal_code_filter();
+  }
+  
+  $taxonomies = get_object_taxonomies($post_type, 'object');
+  $output .= '<div class="filter-control__container"><div class="filter-control-header"><h2 class="filter-title has-text-align-center">Filter Results</h2><button class="filter-reset">Reset Filters</button></div><div class="taxonomy-filters flex-grid">';
+
+	if(!empty($taxonomies) ) {
+		//Certain default taxonomies we want to always exclude
+		$tax_exclusions = ['post_tag', 'post_format', 'yst_prominent_words'];
+    foreach ( $taxonomies as $taxonomy ) {
+    	if(!in_array($taxonomy->name, $tax_exclusions)) {
+        $output .= get_taxonomy_filter($taxonomy);
+      }
+    }
+  }
+	$output .= '</div></div>';
+	echo $output;
+}
+/**
+ * Taxonomy Filtering
+ *
+ */
+function get_taxonomy_filter( $taxonomy ) {
+	$output = '<div class="select-container flex-grid-cell">';
+	$output .= '<button class="taxonomy-filters__category-control" for="taxonomy_' . $taxonomy->name . '"><span id="label-' . $taxonomy->name . '">' . ucfirst($taxonomy->label) . '</span>'.enercare_icon( array( 'icon' => 'arrow-down', 'size' => 16, 'title' => 'Filter Dropdown' ) ).'</button>';
+	$output .= '<div class="multiSelect">';
+	$order = "ASC";
+	// if "year" is found in taxonomy name, order by DESC.
+	if (strpos($taxonomy->name, 'year') !== false) {
+		$order = "DESC";
+	}
+	$terms = get_terms(array('taxonomy' => $taxonomy->name, 'hide_empty' => false, 'orderby' => 'name', 'order' => $order));
+	foreach ($terms as $term) {
+		$ariapressed = "false";
+		// check if term and cat are in URL params, if so, mark ariapressed to true
+		if (strpos(esc_attr($_GET['terms-' . $taxonomy->name]), $term->slug) !== false) {
+			$ariapressed = "true";
+		}
+
+		//Check the count number on the taxonomy. If it is empty then disable the button.
+		$disabled = $term->count <= 0 ? 'disabled' : '';
+		$output .= '<button class="multi-dropdown-button" '. $disabled .' data-taxonomy="' . $taxonomy->name . '" aria-pressed="' . $ariapressed . '" data-term="' . esc_attr($term->slug) . '">' . esc_html($term->name) .'</button>';
+	}
+	$output .= '</div></div>';
+
+	return $output;
+}
+/**
+ * Taxonomy Filtering
+ *
+ */
+function enercare_filter_archive( $query ) {
+  if ( is_admin() ) { return; }
+  if ( (is_archive() && $query->is_main_query()) || is_home() || is_author() ) {
+  	$categories = null;
+  	$taxquery = null;
+  	$author = null;
+
+	  /**
+	   * If Author Post Type
+	   */
+  	if( is_author() ) {
+  		$author = get_the_author_meta('ID');
+    }
+
+	  /**
+	   * If the URL parameter 'cat' is set
+	   */
+    if (!empty($_GET['cat']) || !empty($_GET['postal_code'])) {
+      $cats = array();
+      if (!empty($_GET['cat']))
+        $cats = explode(",", $_GET['cat']);
+      $postal_code = $_GET['postal_code'];
+      $taxquery = array();
+      $categories = array();
+      
+      if ($postal_code && $postal_code != "") {
+        $campaigns = getCampaignsByPostalCode($postal_code);
+        $campaign_ids = array();
+        foreach($campaigns as $campaign) {
+          $campaign_ids[] = $campaign->ID;
+        }
+        if( !empty( $campaign_ids) ) {
+          $query->set('post__in', $campaign_ids);
+        }
+      }
+
+		/**
+		 * Loop through each category
+		 */
+      foreach ($cats as $cat) {
+
+      	/*
+      	 * if this category find matching url paramter with its name terms-{category}. Explode those terms into an array, then for each term
+      	 * get the WP category by slug and push the object into the $categories array
+      	 */
+      	if (esc_attr($cat) === 'category') {
+          $categories_raw = explode(",", esc_attr($_GET['terms-' . $cat]));
+          foreach( $categories_raw as $cat ) {
+            $categories[] = get_category_by_slug(esc_attr($cat))->term_id;
+          }
+        } else {
+          $taxquery[] = array(
+            'taxonomy' => esc_attr($cat),
+            'field' => 'slug',
+            'author' => $author,
+            'terms' => explode(",", esc_attr($_GET['terms-' . $cat] ) ),
+          );
+        }
+      }
+
+      if( !empty( $categories) ) {
+        $query->set('category__in', $categories);
+      }
+
+      if( !empty( $taxquery ) ) {
+        $query->set('tax_query', $taxquery);
+      }
+
+      if( !empty( $metaquery ) ) {
+        $query->set('meta_query', $metaquery);
+      }
+      
+    }
+    
+  }
+  return $query;
+}
+add_action( 'pre_get_posts', 'enercare_filter_archive');
+
+function get_campaign_postal_code_filter() {
+  $output = '<div class="campaign-postal-code-input-container flex-grid-cell">';
+  $output .= '<input type="text" id="postalCode" name="postalCode" value="" placeholder="A2A2A2" />';
+  $output .= '<button class="">Search</button>';
+  $output .= '</div>';
+  
+  return $output;
+}
