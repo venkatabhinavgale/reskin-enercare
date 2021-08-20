@@ -14,6 +14,10 @@ function enercare_register_theme_blocks() {
       'render_template' => 'partials/blocks/card/card.php',
       'category'        => 'layout',
       'mode'            => 'preview',
+      'enqueue_assets' => function() {
+	      wp_enqueue_style( 'block-card-style', get_template_directory_uri() . '/assets/css/block--card.css', array('ea-style'), false, 'screen');
+      },
+
       'supports'        => array(
         'align' => true,
         'mode'  => false,
@@ -33,6 +37,9 @@ function enercare_register_theme_blocks() {
       'render_template' => 'partials/blocks/newsletter-signup/block-newsletter-signup.php',
       'category'        => 'layout',
       'mode'            => 'preview',
+      'enqueue_assets' => function() {
+	      wp_enqueue_style( 'block-newsletter-signup-style', get_template_directory_uri() . '/assets/css/block--email-signup.css', array('ea-style'), false, 'screen');
+      },
       'supports'        => array(
         'mode'  => false,
         'color' => array(
@@ -64,11 +71,15 @@ function enercare_register_theme_blocks() {
 	  'name'            => 'location-finder',
 	  'title'           => __( 'Location Finder' ),
 	  'description'     => __( 'Location Finder Block' ),
-	  'render_template' => 'partials/blocks/newsletter-signup/block-location-finder.php',
+	  'render_template' => 'partials/blocks/location-finder/block-location-finder.php',
 	  'category'        => 'layout',
 	  'mode'            => 'preview',
+	  'enqueue_assets' => function() {
+		  wp_enqueue_style( 'block-location-finder-style', get_template_directory_uri() . '/assets/css/block--location-finder.css', array('ea-style'), false, 'screen');
+	  },
 	  'supports'        => array(
 		  'mode'  => false,
+		  'align' => false,
 		  'color' => array(
 			  'background' => true,
 			  'text' => false,
