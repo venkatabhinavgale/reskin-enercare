@@ -182,21 +182,12 @@ img {
 	}
 
 	.wp-block-group__inner-container {
-		max-width: $content_width;
+		max-width: $grid-width;
 		margin: 0 auto;
 		@include clearfix;
 
 		& > *:last-child {
 			margin-bottom: 0;
-		}
-	}
-
-	// Dark background
-	&.has-background:not(.has-grey-background-color) {
-		color: $white;
-
-		h1, h2, h3, h4, h5, h6, p {
-			color: $white;
 		}
 	}
 }
