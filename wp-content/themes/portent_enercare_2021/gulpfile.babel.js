@@ -202,6 +202,37 @@ gulp.task('stylesRTL', () => {
 		);
 });
 
+gulp.task( 'singleJS', () => {
+	return gulp
+		.src( config.jsSingleSRC, { since: gulp.lastRun( 'singleJS' ) }) // Only run on changed files.
+		.pipe( plumber( errorHandler ) )
+		.pipe(
+			babel({
+				presets: [
+					[
+						'@babel/preset-env', // Preset to compile your modern JS to ES5.
+						{
+							targets: { browsers: config.BROWSERS_LIST } // Target browser list to support.
+						}
+					]
+				]
+			})
+		)
+		.pipe( remember( config.jsSingleSRC ) ) // Bring all files back to stream.
+		.pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
+		.pipe( gulp.dest( config.jsSingleDestination ) )
+		.pipe(
+			rename({
+				basename: config.jsSingleFile,
+				suffix: '.min'
+			})
+		)
+		.pipe( uglify() )
+		.pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
+		.pipe( gulp.dest( config.jsSingleDestination ) )
+		.pipe( notify({ message: '\n\n✅  ===> SINGLE JS — completed!\n', onLast: true }) );
+});
+
 /**
  * Task: `vendorsJS`.
  *
@@ -213,6 +244,7 @@ gulp.task('stylesRTL', () => {
  *     3. Renames the JS file with suffix .min.js
  *     4. Uglifes/Minifies the JS file and generates vendors.min.js
  */
+/*
 gulp.task('vendorsJS', () => {
 	return gulp
 		.src(config.jsVendorSRC, {since: gulp.lastRun('vendorsJS')}) // Only run on changed files.
@@ -249,6 +281,7 @@ gulp.task('vendorsJS', () => {
 			})
 		);
 });
+*/
 
 /**
  * Task: `customJS`.
@@ -261,6 +294,7 @@ gulp.task('vendorsJS', () => {
  *     3. Renames the JS file with suffix .min.js
  *     4. Uglifes/Minifies the JS file and generates custom.min.js
  */
+/*
 gulp.task('customJS', () => {
 	return gulp
 		.src(config.jsCustomSRC, {since: gulp.lastRun('customJS')}) // Only run on changed files.
@@ -297,6 +331,7 @@ gulp.task('customJS', () => {
 			})
 		);
 });
+*/
 
 /**
  * Task: `images`.
@@ -399,11 +434,12 @@ gulp.task('zip', () => {
  */
 gulp.task(
 	'default',
-	gulp.parallel('styles', 'vendorsJS', 'customJS', 'images', browsersync, () => {
+	gulp.parallel('styles', 'singleJS', /*'vendorsJS', 'customJS',*/ 'images', browsersync, () => {
 		gulp.watch(config.watchPhp, reload); // Reload on PHP file changes.
 		gulp.watch(config.watchStyles, gulp.parallel('styles')); // Reload on SCSS file changes.
-		gulp.watch(config.watchJsVendor, gulp.series('vendorsJS', reload)); // Reload on vendorsJS file changes.
-		gulp.watch(config.watchJsCustom, gulp.series('customJS', reload)); // Reload on customJS file changes.
+    gulp.watch(config.watchJsSingle, gulp.series( 'singleJS', reload )); // Reload on customJS file changes.
+		//gulp.watch(config.watchJsVendor, gulp.series('vendorsJS', reload)); // Reload on vendorsJS file changes.
+		//gulp.watch(config.watchJsCustom, gulp.series('customJS', reload)); // Reload on customJS file changes.
 		gulp.watch(config.imgSRC, gulp.series('images', reload)); // Reload on customJS file changes.
 	})
 );

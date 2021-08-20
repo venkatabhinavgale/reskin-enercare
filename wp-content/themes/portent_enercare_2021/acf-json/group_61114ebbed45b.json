@@ -22,42 +22,6 @@
             "new_lines": ""
         },
         {
-            "key": "field_611181542278b",
-            "label": "Include FAQ Schema?",
-            "name": "include_faq_schema",
-            "type": "true_false",
-            "instructions": "If there are any FAQ blocks being used on this page, this field controls if schema should be placed in the <HEAD>.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 1,
-            "ui": 1,
-            "ui_on_text": "",
-            "ui_off_text": ""
-        },
-        {
-            "key": "field_61115292550a1",
-            "label": "Schema Examples",
-            "name": "",
-            "type": "accordion",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "open": 0,
-            "multi_expand": 0,
-            "endpoint": 0
-        },
-        {
             "key": "field_6111519559536",
             "label": "AggregateRating",
             "name": "",
@@ -122,6 +86,42 @@
             "message": "",
             "new_lines": "br",
             "esc_html": 0
+        },
+        {
+            "key": "field_61115292550a1",
+            "label": "Schema Examples",
+            "name": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
+            "key": "field_611181542278b",
+            "label": "Include FAQ Schema?",
+            "name": "include_faq_schema",
+            "type": "true_false",
+            "instructions": "If there are any FAQ blocks being used on this page, this field controls if schema should be placed in the <HEAD>.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
         }
     ],
     "location": [
@@ -169,6 +169,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1629146519,
-    "local_file": "\/var\/www\/html\/wp-content\/themes\/portent_enercare_2021\/acf-json\/group_61114ebbed45b.json"
+    "modified": 1629483332,
+    "local_file": "C:wampwww\/wp-content\/themes\/portent_enercare_2021\/acf-json\/group_61114ebbed45b.json"
 }

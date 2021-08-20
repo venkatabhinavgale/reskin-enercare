@@ -16,7 +16,7 @@ class Campaign_Post_Type_Registrations {
 	public $post_type = 'campaign';
 
 	public $taxonomies = array(
-	    /*'regions',*/
+	    'campaign-category',
     );
 
 	public function init() {
@@ -72,11 +72,11 @@ class Campaign_Post_Type_Registrations {
 			'show_in_rest'    => true, // required for Gutenberg
 			'public'          => true,
 			'capability_type' => 'page',
-			'rewrite'         => array( 'slug' => 'campaigns', 'with_front' => false ),
+			'rewrite'         => array( 'slug' => 'special-offers', 'with_front' => false ),
 			'menu_position'   => 31,
 			'menu_icon'       => 'dashicons-tag',
-			'has_archive'     => false,
-			//'taxonomies'      => $taxonomies
+			'has_archive'     => true,
+			'taxonomies'      => $taxonomies
 		);
 
 		$args = apply_filters( 'campaign_post_type_args', $args );
@@ -88,43 +88,41 @@ class Campaign_Post_Type_Registrations {
      * Register a taxonomy for Campaign Regions.
      */
     protected function register_taxonomy_category() {
-      /*
-        $labels = array(
-            'name'                       => __( 'Regions', 'campaign-post-type' ),
-            'singular_name'              => __( 'Region', 'campaign-post-type' ),
-            'menu_name'                  => __( 'Regions', 'campaign-post-type' ),
-            'edit_item'                  => __( 'Edit Region', 'campaign-post-type' ),
-            'update_item'                => __( 'Update Region', 'campaign-post-type' ),
-            'add_new_item'               => __( 'Add New Region', 'campaign-post-type' ),
-            'new_item_name'              => __( 'New Region Name', 'campaign-post-type' ),
-            'parent_item'                => __( 'Parent Region', 'campaign-post-type' ),
-            'parent_item_colon'          => __( 'Parent Region:', 'campaign-post-type' ),
-            'all_items'                  => __( 'All Regions', 'campaign-post-type' ),
-            'search_items'               => __( 'Search Regions', 'campaign-post-type' ),
-            'popular_items'              => __( 'Popular Regions', 'campaign-post-type' ),
-            'separate_items_with_commas' => __( 'Separate regions with commas', 'campaign-post-type' ),
-            'add_or_remove_items'        => __( 'Add or remove Regions', 'campaign-post-type' ),
-            'choose_from_most_used'      => __( 'Choose from the most used Regions', 'campaign-post-type' ),
-            'not_found'                  => __( 'No Regions found.', 'campaign-post-type' ),
-        );
+      $labels = array(
+        'name'                       => __( 'Campaign Category', 'campaign-post-type' ),
+        'singular_name'              => __( 'Campaign Category', 'campaign-post-type' ),
+        'menu_name'                  => __( 'Campaign Categories', 'campaign-post-type' ),
+        'edit_item'                  => __( 'Edit Campaign Category', 'campaign-post-type' ),
+        'update_item'                => __( 'Update Campaign Category', 'campaign-post-type' ),
+        'add_new_item'               => __( 'Add New Campaign Category', 'campaign-post-type' ),
+        'new_item_name'              => __( 'New Campaign Category Name', 'campaign-post-type' ),
+        'parent_item'                => __( 'Parent Type', 'campaign-post-type' ),
+        'parent_item_colon'          => __( 'Parent Type:', 'campaign-post-type' ),
+        'all_items'                  => __( 'All Campaign Categories', 'campaign-post-type' ),
+        'search_items'               => __( 'Search Campaign Categories', 'campaign-post-type' ),
+        'popular_items'              => __( 'Popular Campaign Categories', 'campaign-post-type' ),
+        'separate_items_with_commas' => __( 'Separate Campaign Categories with commas', 'campaign-post-type' ),
+        'add_or_remove_items'        => __( 'Add or remove Campaign Categories', 'campaign-post-type' ),
+        'choose_from_most_used'      => __( 'Choose from the most used Campaign Categories', 'campaign-post-type' ),
+        'not_found'                  => __( 'No Campaign Categories found.', 'campaign-post-type' ),
+      );
 
-        $args = array(
-            'labels'            => $labels,
-            'public'            => true,
-            'show_in_nav_menus' => true,
-            'show_ui'           => true,
-            'show_tagcloud'     => true,
-            'hierarchical'      => true,
-            'rewrite'           => array( 'slug' => 'campaigns/region', 'with_front' => false ),
-            'show_admin_column' => true,
-            'query_var'         => true,
-            'show_in_rest'      => true, // required for Gutenberg
-        );
+      $args = array(
+        'labels'            => $labels,
+        'public'            => true,
+        'show_in_nav_menus' => true,
+        'show_ui'           => true,
+        'show_tagcloud'     => true,
+        'hierarchical'      => true,
+        'rewrite'           => array( 'slug' => 'special-offers', 'with_front' => false ),
+        'show_admin_column' => true,
+        'query_var'         => true,
+        'show_in_rest'      => true
+      );
 
-        $args = apply_filters( 'campaign_post_type_category_args', $args );
+      $args = apply_filters( 'campaign_post_type_category_args', $args );
 
-        register_taxonomy( $this->taxonomies[0], $this->post_type, $args );
-      */
+      register_taxonomy( $this->taxonomies[0], $this->post_type, $args );
     }
 
     /**

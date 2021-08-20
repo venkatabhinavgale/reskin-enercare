@@ -195,12 +195,14 @@ function enercare_filter_taxonomy_by_post_type() {
   if( is_author() ) {
   	$post_type = 'post';
   }
-  $taxonomies = get_object_taxonomies($post_type, 'object');
-  $output = '<div class="filter-control__container"><div class="filter-control-header"><h2 class="filter-title has-text-align-center">Filter Results</h2><button class="filter-reset">Reset Filters</button></div><div class="taxonomy-filters flex-grid">';
   
+  $output = "";
   if ($post_type == 'campaign') {
     $output .= get_campaign_postal_code_filter();
   }
+  
+  $taxonomies = get_object_taxonomies($post_type, 'object');
+  $output .= '<div class="filter-control__container"><div class="filter-control-header"><h2 class="filter-title has-text-align-center">Filter Results</h2><button class="filter-reset">Reset Filters</button></div><div class="taxonomy-filters flex-grid">';
 
 	if(!empty($taxonomies) ) {
 		//Certain default taxonomies we want to always exclude
@@ -264,10 +266,24 @@ function enercare_filter_archive( $query ) {
 	  /**
 	   * If the URL parameter 'cat' is set
 	   */
-    if (!empty($_GET['cat'])) {
-      $cats = explode(",", $_GET['cat']);
+    if (!empty($_GET['cat']) || !empty($_GET['postal_code'])) {
+      $cats = array();
+      if (!empty($_GET['cat']))
+        $cats = explode(",", $_GET['cat']);
+      $postal_code = $_GET['postal_code'];
       $taxquery = array();
       $categories = array();
+      
+      if ($postal_code && $postal_code != "") {
+        $campaigns = getCampaignsByPostalCode($postal_code);
+        $campaign_ids = array();
+        foreach($campaigns as $campaign) {
+          $campaign_ids[] = $campaign->ID;
+        }
+        if( !empty( $campaign_ids) ) {
+          $query->set('post__in', $campaign_ids);
+        }
+      }
 
 		/**
 		 * Loop through each category
@@ -294,15 +310,15 @@ function enercare_filter_archive( $query ) {
       }
 
       if( !empty( $categories) ) {
-        $query->set( 'category__in', $categories );
+        $query->set('category__in', $categories);
       }
 
       if( !empty( $taxquery ) ) {
-        $query->set('tax_query', $taxquery );
+        $query->set('tax_query', $taxquery);
       }
 
       if( !empty( $metaquery ) ) {
-        $query->set( 'meta_query', $metaquery );
+        $query->set('meta_query', $metaquery);
       }
       
     }
@@ -313,5 +329,10 @@ function enercare_filter_archive( $query ) {
 add_action( 'pre_get_posts', 'enercare_filter_archive');
 
 function get_campaign_postal_code_filter() {
+  $output = '<div class="campaign-postal-code-input-container flex-grid-cell">';
+  $output .= '<input type="text" id="postalCode" name="postalCode" value="" placeholder="A2A2A2" />';
+  $output .= '<button class="">Search</button>';
+  $output .= '</div>';
   
+  return $output;
 }
