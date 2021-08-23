@@ -12,7 +12,7 @@
  * Layout Options
  *
  */
-function ea_page_layout_options() {
+function enercare_page_layout_options() {
 	return [
 		'content-sidebar',
 		'content',
@@ -24,10 +24,10 @@ function ea_page_layout_options() {
  * Gutenberg layout style
  *
  */
-function ea_editor_layout_style() {
+function enercare_editor_layout_style() {
 	wp_enqueue_style( 'ea-editor-layout', get_stylesheet_directory_uri() . '/assets/css/editor-layout.css', [], filemtime( get_stylesheet_directory() . '/assets/css/editor-layout.css' ) );
 }
-add_action( 'enqueue_block_editor_assets', 'ea_editor_layout_style' );
+add_action( 'enqueue_block_editor_assets', 'enercare_editor_layout_style' );
 
 /**
  * Editor layout class
@@ -36,31 +36,31 @@ add_action( 'enqueue_block_editor_assets', 'ea_editor_layout_style' );
  * @param string $classes
  * @return string
  */
-function ea_editor_layout_class( $classes ) {
+function enercare_editor_layout_class( $classes ) {
 	$screen = get_current_screen();
 	if( ! $screen->is_block_editor() )
 		return $classes;
 
 	$post_id = isset( $_GET['post'] ) ? intval( $_GET['post'] ) : false;
-	$layout = ea_page_layout( $post_id );
+	$layout = enercare_page_layout( $post_id );
 
 	$classes .= ' ' . $layout . ' ';
 	return $classes;
 }
-add_filter( 'admin_body_class', 'ea_editor_layout_class' );
+add_filter( 'admin_body_class', 'enercare_editor_layout_class' );
 
 
 /**
  * Layout Metabox (ACF)
  *
  */
-function ea_page_layout_metabox() {
+function enercare_page_layout_metabox() {
 
 	if( ! function_exists('acf_add_local_field_group') )
 		return;
 
 	$choices = [];
-	$layouts = ea_page_layout_options();
+	$layouts = enercare_page_layout_options();
 	foreach( $layouts as $layout ) {
 		$label = str_replace( '-', ' ', $layout );
 		$choices[ $layout ] = ucwords( $label );
@@ -73,7 +73,7 @@ function ea_page_layout_metabox() {
 			array(
 				'key' => 'field_5dd715a02eaf0',
 				'label' => 'Page Layout',
-				'name' => 'ea_page_layout',
+				'name' => 'enercare_page_layout',
 				'type' => 'select',
 				'instructions' => '',
 				'required' => 0,
@@ -113,31 +113,31 @@ function ea_page_layout_metabox() {
 		'description' => '',
 	));
 }
-add_action( 'acf/init', 'ea_page_layout_metabox' );
+add_action( 'acf/init', 'enercare_page_layout_metabox' );
 
 /**
 * Register widget area.
 *
 * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
 */
-function ea_widgets_init() {
+function enercare_widgets_init() {
 
-	register_sidebar( ea_widget_area_args( array(
+	register_sidebar( enercare_widget_arenercare_args( array(
 		'name' => esc_html__( 'Primary Sidebar', 'ea-starter' ),
 	) ) );
 
 }
-add_action( 'widgets_init', 'ea_widgets_init' );
+add_action( 'widgets_init', 'enercare_widgets_init' );
 
 /**
 * Layout Body Class
 *
 */
-function ea_layout_body_class( $classes ) {
-	$classes[] = ea_page_layout();
+function enercare_layout_body_class( $classes ) {
+	$classes[] = enercare_page_layout();
 	return $classes;
 }
-add_filter( 'body_class', 'ea_layout_body_class', 5 );
+add_filter( 'body_class', 'enercare_layout_body_class', 5 );
 
 /**
 * Default Widget Area Arguments
@@ -145,7 +145,7 @@ add_filter( 'body_class', 'ea_layout_body_class', 5 );
 * @param array $args
 * @return array $args
 */
-function ea_widget_area_args( $args = array() ) {
+function enercare_widget_arenercare_args( $args = array() ) {
 
 	$defaults = array(
 		'name'          => '',
@@ -169,19 +169,19 @@ function ea_widget_area_args( $args = array() ) {
 * Page Layout
 *
 */
-function ea_page_layout( $id = false ) {
+function enercare_page_layout( $id = false ) {
 
-	$available_layouts = ea_page_layout_options();
+	$available_layouts = enercare_page_layout_options();
 	$layout = 'content-sidebar';
 
 	if( is_singular() || $id ) {
 		$id = $id ? intval( $id ) : get_the_ID();
-		$selected = get_post_meta( $id, 'ea_page_layout', true );
+		$selected = get_post_meta( $id, 'enercare_page_layout', true );
 		if( !empty( $selected ) && in_array( $selected, $available_layouts ) )
 			$layout = $selected;
 	}
 
-	$layout = apply_filters( 'ea_page_layout', $layout );
+	$layout = apply_filters( 'enercare_page_layout', $layout );
 	$layout = in_array( $layout, $available_layouts ) ? $layout : $available_layouts[0];
 
 	return sanitize_title_with_dashes( $layout );
@@ -189,24 +189,24 @@ function ea_page_layout( $id = false ) {
 
 /**
 * Return Full Width Content
-* used when filtering 'ea_page_layout'
+* used when filtering 'enercare_page_layout'
 */
-function ea_return_full_width_content() {
+function enercare_return_full_width_content() {
 	return 'full-width-content';
 }
 
 /**
 * Return Content Sidebar
-* used when filtering 'ea_page_layout'
+* used when filtering 'enercare_page_layout'
 */
-function ea_return_content_sidebar() {
+function enercare_return_content_sidebar() {
 	return 'content-sidebar';
 }
 
 /**
 * Return Content
-* used when filtering 'ea_page_layout'
+* used when filtering 'enercare_page_layout'
 */
-function ea_return_content() {
+function enercare_return_content() {
 	return 'content';
 }

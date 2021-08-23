@@ -12,7 +12,7 @@
  * Is AMP?
  * Conditional tag
  */
-function ea_is_amp() {
+function enercare_is_amp() {
 	return function_exists( 'is_amp_endpoint' ) && is_amp_endpoint();
 }
 
@@ -21,7 +21,7 @@ function ea_is_amp() {
  *
  */
 function be_wpforms_amp_support( $is_pro ) {
-	if( ea_is_amp() )
+	if( enercare_is_amp() )
 		$is_pro = false;
 	return $is_pro;
 }
@@ -35,9 +35,9 @@ add_filter( 'wpforms_amp_pro', 'be_wpforms_amp_support' );
  * @param string $state   State variable to toggle based on.
  * @return string HTML attributes.
  */
-function ea_amp_class( $default, $active, $state ) {
+function enercare_amp_class( $default, $active, $state ) {
 	$output = '';
-	if( ea_is_amp() ) {
+	if( enercare_is_amp() ) {
 		$output .= sprintf(
 			' [class]="%s"',
 			esc_attr(
@@ -61,8 +61,8 @@ function ea_amp_class( $default, $active, $state ) {
  * @param array $disable, list of states to disable
  * @return string The 'on' attribute.
  */
-function ea_amp_toggle( $state = '', $disable = array() ) {
-	if( ! ea_is_amp() )
+function enercare_amp_toggle( $state = '', $disable = array() ) {
+	if( ! enercare_is_amp() )
 		return;
 
 	$settings = sprintf(
@@ -93,7 +93,7 @@ function ea_amp_toggle( $state = '', $disable = array() ) {
  * @param int    $depth          Depth.
  * @return string The class and on attributes.
  */
-function ea_amp_nav_dropdown( $theme_location = false, $depth = 0 ) {
+function enercare_amp_nav_dropdown( $theme_location = false, $depth = 0 ) {
 
 	$key = 'nav';
 	if( !empty( $theme_location ) )
@@ -106,5 +106,5 @@ function ea_amp_nav_dropdown( $theme_location = false, $depth = 0 ) {
 	if( 1 < $depth )
 		$key .= 'Depth' . $depth;
 
-	return ea_amp_toggle( $key ) . ea_amp_class( 'submenu-expand', 'expanded', $key );
+	return enercare_amp_toggle( $key ) . enercare_amp_class( 'submenu-expand', 'expanded', $key );
 }

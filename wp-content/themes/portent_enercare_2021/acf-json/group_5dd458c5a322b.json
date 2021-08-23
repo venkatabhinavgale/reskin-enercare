@@ -5,7 +5,7 @@
         {
             "key": "field_5dd458cd3c3fd",
             "label": "Default Image",
-            "name": "ea_default_image",
+            "name": "enercare_default_image",
             "type": "image",
             "instructions": "",
             "required": 0,
@@ -39,9 +39,9 @@
                 "class": "",
                 "id": ""
             },
-            "choices": {
-                "1": "Contact"
-            },
+            "choices": [
+                "No Active Gravity Forms Found"
+            ],
             "default_value": false,
             "allow_null": 0,
             "multiple": 0,
@@ -63,9 +63,9 @@
                 "class": "",
                 "id": ""
             },
-            "choices": {
-                "1": "Contact"
-            },
+            "choices": [
+                "No Active Gravity Forms Found"
+            ],
             "default_value": false,
             "allow_null": 0,
             "multiple": 0,
@@ -73,6 +73,61 @@
             "return_format": "value",
             "ajax": 0,
             "placeholder": ""
+        },
+        {
+            "key": "field_611ad42cf41e1",
+            "label": "Footer",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_611ad438f41e2",
+            "label": "Floating CTA Link",
+            "name": "floating_cta_link",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        },
+        {
+            "key": "field_611ad4ccf41e3",
+            "label": "Floating CTA Icon",
+            "name": "floating_cta_icon",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": 30,
+            "min_height": 30,
+            "min_size": "",
+            "max_width": 30,
+            "max_height": 30,
+            "max_size": "",
+            "mime_types": ""
         }
     ],
     "location": [
@@ -92,5 +147,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1627932568
+    "modified": 1629483332,
+    "local_file": "C:wampwww\/wp-content\/themes\/portent_enercare_2021\/acf-json\/group_5dd458c5a322b.json"
 }

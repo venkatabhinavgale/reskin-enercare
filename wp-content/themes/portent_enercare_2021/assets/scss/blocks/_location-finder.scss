@@ -1,0 +1,54 @@
+.block-location-finder {
+	display: grid;
+	grid-template-columns: 50% 50%;
+	justify-content: center;
+	align-items: center;
+
+	&__content {
+		background-color: $black;
+		color: $white;
+		flex-basis: 50%;
+		padding: 13% 3% 13% 18.5%;
+	}
+
+	&__form {
+		background-color: $grey_3;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100%;
+		text-align: center;
+	}
+
+	&__list {
+		column-count: 3;
+		column-fill: balance;
+		padding-left: 0;
+
+		li {
+			font-size: 0.85em;
+			list-style: none;
+		}
+	}
+
+	&__postal-form {
+
+		label {
+			font-size: 0.85em;
+		}
+
+		.field-group {
+			display: flex;
+		}
+
+
+	}
+
+	&__form-container {
+		background-color: $white;
+		border-top: 8px solid brand-color('red');
+		box-shadow: $drop-shadow;
+		padding: 12% 15.5%;
+		width: 65%;
+	}
+}

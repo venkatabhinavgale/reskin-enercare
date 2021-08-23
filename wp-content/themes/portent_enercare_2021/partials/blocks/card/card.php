@@ -8,6 +8,10 @@ if( !empty($block['align']) ) {
 	$classes .= sprintf( ' align%s', $block['align'] );
 }
 
+if( !empty($block['backgroundColor'] ) ) {
+	$classes .= sprintf(' has-%s-background-color', $block['backgroundColor']);
+}
+
 $allowed_blocks = array(
 	'core/image',
 	'core/paragraph',

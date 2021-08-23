@@ -12,7 +12,7 @@ get_header();
 
 tha_content_before();
 
-	echo '<div class="' . ea_class( 'content-area', 'wrap', apply_filters( 'ea_content_area_wrap', true ) ) . '">';
+	echo '<div class="' . enercare_class( 'content-area', 'wrap', apply_filters( 'enercare_content_arenercare_wrap', true ) ) . '">';
 	tha_content_wrap_before();
 	echo '<main class="site-main" role="main">';
 	tha_content_top();

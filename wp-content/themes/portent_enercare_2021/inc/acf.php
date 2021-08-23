@@ -62,10 +62,10 @@ class BE_ACF_Customizations {
 		if ( ! function_exists( 'acf_get_field_groups' ) )
 			return;
 
-		$version = get_option( 'ea_acf_json_version' );
+		$version = get_option( 'enercare_acf_json_version' );
 
 		if ( defined( 'portent_VERSION' ) && version_compare( portent_VERSION, $version ) ) {
-			update_option( 'ea_acf_json_version', portent_VERSION );
+			update_option( 'enercare_acf_json_version', portent_VERSION );
 			$groups = acf_get_field_groups();
 
 			if ( empty( $groups ) )

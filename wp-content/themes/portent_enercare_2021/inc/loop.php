@@ -12,7 +12,7 @@
  * Default Loop
  *
  */
-function ea_default_loop() {
+function enercare_default_loop() {
 
 	if ( have_posts() ) :
 
@@ -23,8 +23,8 @@ function ea_default_loop() {
 
 			tha_entry_before();
 
-			$partial = apply_filters( 'ea_loop_partial', is_singular() ? 'content' : 'archive' );
-			$context = apply_filters( 'ea_loop_partial_context', is_search() ? 'search' : get_post_type() );
+			$partial = apply_filters( 'enercare_loop_partial', is_singular() ? 'content' : 'archive' );
+			$context = apply_filters( 'enercare_loop_partial_context', is_search() ? 'search' : get_post_type() );
 			get_template_part( 'partials/' . $partial, $context );
 
 			tha_entry_after();
@@ -36,23 +36,23 @@ function ea_default_loop() {
 	else :
 
 		tha_entry_before();
-		$context = apply_filters( 'ea_empty_loop_partial_context', 'none' );
+		$context = apply_filters( 'enercare_empty_loop_partial_context', 'none' );
 		get_template_part( 'partials/archive', $context );
 		tha_entry_after();
 
 	endif;
 
 }
-add_action( 'tha_content_loop', 'ea_default_loop' );
+add_action( 'tha_content_loop', 'enercare_default_loop' );
 
 /**
  * Entry Title
  *
  */
-function ea_entry_title() {
+function enercare_entry_title() {
 	echo '<h1 class="entry-title">' . get_the_title() . '</h1>';
 }
-add_action( 'tha_entry_top', 'ea_entry_title' );
+add_action( 'tha_entry_top', 'enercare_entry_title' );
 
 /**
  * Remove entry-title if h1 block used
@@ -68,11 +68,11 @@ function be_remove_entry_title() {
 	$has_h1 = be_has_h1_block( $blocks );
 
 	if( $has_h1 ) {
-		remove_action( 'tha_entry_top', 'ea_breadcrumbs', 8 );
-		remove_action( 'tha_entry_top', 'ea_entry_category', 8 );
-		remove_action( 'tha_entry_top', 'ea_entry_title' );
-		remove_action( 'tha_entry_top', 'ea_entry_author', 12 );
-		remove_action( 'tha_entry_top', 'ea_entry_header_share', 13 );
+		remove_action( 'tha_entry_top', 'enercare_breadcrumbs', 8 );
+		remove_action( 'tha_entry_top', 'enercare_entry_category', 8 );
+		remove_action( 'tha_entry_top', 'enercare_entry_title' );
+		remove_action( 'tha_entry_top', 'enercare_entry_author', 12 );
+		remove_action( 'tha_entry_top', 'enercare_entry_header_share', 13 );
 	}
 }
 add_action( 'tha_entry_before', 'be_remove_entry_title' );
@@ -114,11 +114,11 @@ function be_has_h1_block( $blocks = array() ) {
  * Post Comments
  *
  */
-function ea_comments() {
+function enercare_comments() {
 
 	if ( is_single() && ( comments_open() || get_comments_number() ) ) {
 		comments_template();
 	}
 
 }
-add_action( 'tha_content_while_after', 'ea_comments' );
+add_action( 'tha_content_while_after', 'enercare_comments' );

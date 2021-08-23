@@ -9,23 +9,23 @@
 **/
 
 // Full width
-add_filter( 'ea_page_layout', 'ea_return_full_width_content' );
+add_filter( 'enercare_page_layout', 'enercare_return_full_width_content' );
 
 /**
  * Body Class
  *
  */
-function ea_archive_body_class( $classes ) {
+function enercare_archive_body_class( $classes ) {
 	$classes[] = 'archive';
 	return $classes;
 }
-add_filter( 'body_class', 'ea_archive_body_class' );
+add_filter( 'body_class', 'enercare_archive_body_class' );
 
 /**
  * Archive Header
  *
  */
-function ea_archive_header() {
+function enercare_archive_header() {
 
 	$title = $subtitle = $description = $more = false;
 
@@ -50,21 +50,37 @@ function ea_archive_header() {
 		$classes[] = 'author-archive-description';
 
 	echo '<header class="' . join( ' ', $classes ) . '">';
-	do_action ('ea_archive_header_before' );
+	do_action ('enercare_archive_header_before' );
 	if( ! empty( $title ) )
 		echo '<h1 class="archive-title">' . $title . '</h1>';
 	if( !empty( $subtitle ) )
 		echo '<h4>' . $subtitle . '</h4>';
-	echo apply_filters( 'ea_the_content', $description );
+	echo apply_filters( 'enercare_the_content', $description );
 	echo $more;
-	do_action ('ea_archive_header_after' );
+	do_action ('enercare_archive_header_after' );
 	echo '</header>';
 
 }
-add_action( 'tha_content_while_before', 'ea_archive_header' );
+add_action( 'tha_content_while_before', 'enercare_archive_header' );
 
 // Breadcrumbs
-add_action( 'ea_archive_header_before', 'ea_breadcrumbs', 5 );
+add_action( 'enercare_archive_header_before', 'enercare_breadcrumbs', 5 );
+
+//Filters
+if (!is_search() && have_posts()) {
+	add_action('enercare_archive_header_after', 'enercare_filter_taxonomy_by_post_type');
+}
+
+// add section wrapper -- we'll use this on our ajax calls to replace the results
+function enercare_archive_wrapper_top() {
+  echo '<section class="archive-wrapper">';
+}
+add_action('tha_content_while_before', 'enercare_archive_wrapper_top', 99999);
+
+function enercare_archive_wrapper_bottom() {
+  echo '</section>';
+}
+add_action('tha_content_bottom', 'enercare_archive_wrapper_bottom');
 
 // Build the page
 require get_template_directory() . '/index.php';

@@ -9,7 +9,7 @@ $default: nth( nth( $brand_colors, 1 ), 1 ); // first color in $brand_colors arr
 	font-size: 1rem;
 	font-weight: 700;
 	line-height: 22px;
-	padding: 0.375em 1em;
+	padding: 0.70em 1em 0.375em;
 	text-decoration: none;
 
 	.is-style-full &,
@@ -182,21 +182,12 @@ img {
 	}
 
 	.wp-block-group__inner-container {
-		max-width: $content_width;
+		max-width: $grid-width;
 		margin: 0 auto;
 		@include clearfix;
 
 		& > *:last-child {
 			margin-bottom: 0;
-		}
-	}
-
-	// Dark background
-	&.has-background:not(.has-grey-background-color) {
-		color: $white;
-
-		h1, h2, h3, h4, h5, h6, p {
-			color: $white;
 		}
 	}
 }

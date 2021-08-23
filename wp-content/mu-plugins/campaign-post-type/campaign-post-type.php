@@ -62,3 +62,30 @@ if ( is_admin() ) {
 	$post_type_admin->init();
 
 }
+
+function getCampaignsByPostalCode($postalcode) {
+  // strip out any spaces
+  $postalcode = str_replace(" ", "", $postalcode);
+  // grab the location/patch that defines this postal code as being serviced
+  $location = getLocationByPostalCode($postalcode);
+  
+  if ($location) {
+    $posts = get_posts(array(
+      'numberposts'   => 1,
+      'post_type'     => 'campaign',
+      'post_status'   => 'publish',
+      'meta_query'    => array(
+        array(
+          'key' => 'locations',
+          'value' => $location->ID,
+          'compare' => 'LIKE'
+        )
+      )
+    ));
+    if (sizeof($posts) > 0)
+      return $posts;
+    else
+      return array(-1);
+  }
+  return array(-1);
+}

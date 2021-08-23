@@ -12,7 +12,7 @@
  * Social Links
  *
  */
-function ea_social_links() {
+function enercare_social_links() {
 	$socials = [
 		'facebook'	=> [
 			'key'	=> 'facebook_site',
@@ -44,10 +44,10 @@ function ea_social_links() {
 		if( !empty( $url ) && !empty( $settings['prepend'] ) )
 			$url = $settings['prepend'] . $url;
 		if( !empty( $url ) )
-			$output[] = '<li><a href="' . esc_url_raw( $url ) . '" target="_blank" rel="noopener noreferrer">' . ea_icon( array( 'icon' => $social, 'group' => 'social', 'label' => $settings['label'] ) ) . '<span class="label">' . esc_html( $settings['label'] ) . '</span></a></li>';
+			$output[] = '<li><a href="' . esc_url_raw( $url ) . '" target="_blank" rel="noopener noreferrer">' . enercare_icon( array( 'icon' => $social, 'group' => 'social', 'label' => $settings['label'] ) ) . '<span class="label">' . esc_html( $settings['label'] ) . '</span></a></li>';
 	}
 
 	if( !empty( $output ) )
 		return '<ul class="social-links">' . join( PHP_EOL, $output ) . '</ul>';
 }
-add_shortcode( 'social_links', 'ea_social_links' );
+add_shortcode( 'social_links', 'enercare_social_links' );

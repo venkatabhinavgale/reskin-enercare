@@ -77,16 +77,17 @@ p {
 
 	&.large,
 	&.has-large-font-size {
-    	@include font-sizes( 21px, 24px );
+    	@include large-font-style();
 	}
 
 	&.has-normal-font-size {
-		@include font-sizes( 18px, 20px );
+		@include font-sizes( 1em, 1em );
+		line-height: 1.375em;
 	}
 
 	&.small,
 	&.has-small-font-size {
-	    font-size: 14px;
+	    font-size: .875em;
 	}
 }
 
@@ -133,4 +134,15 @@ h3 {
 
 h4, h5, h6 {
     @include font-sizes( 18px, 22px );
+}
+
+/**
+Block Styles
+ */
+.is-style-shadowed {
+	box-shadow: 0 4px 8px 0 rgba(56,61,67,0.30);
+}
+
+.is-style-bordered {
+	border: 1px solid brand-color('red');
 }
