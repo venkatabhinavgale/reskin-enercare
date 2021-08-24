@@ -197,8 +197,8 @@ function enercare_filter_taxonomy_by_post_type() {
   }
   
   $output = "";
-  if ($post_type == 'campaign') {
-    $output .= get_campaign_postal_code_filter();
+  if ($post_type == 'campaign' || $post_type == 'location') {
+    $output .= get_postal_code_filter();
   }
   
   $taxonomies = get_object_taxonomies($post_type, 'object');
@@ -274,15 +274,30 @@ function enercare_filter_archive( $query ) {
       $taxquery = array();
       $categories = array();
       
+      // check if postal_code URL param exists
       if ($postal_code && $postal_code != "") {
-        $campaigns = getCampaignsByPostalCode($postal_code);
-        $campaign_ids = array();
-        foreach($campaigns as $campaign) {
-          $campaign_ids[] = $campaign->ID;
+        // if we're on the campaign archive page, get campaigns by postal code
+        if (is_post_type_archive('campaign')) {
+          $campaigns = getCampaignsByPostalCode($postal_code);
+          $campaign_ids = array();
+          foreach($campaigns as $campaign) {
+            $campaign_ids[] = $campaign->ID;
+          }
+          if( !empty( $campaign_ids) ) {
+            $query->set('post__in', $campaign_ids);
+          }
+        // if we're on the location archive page, get locations by postal code
+        } elseif (is_post_type_archive('location')) {
+          $location = getLocationByPostalCode($postal_code);
+          $location_ids = array();
+          if ($location) {
+            $location_ids[] = $location->ID;
+          }
+          if( !empty( $location_ids) ) {
+            $query->set('post__in', $location_ids);
+          }
         }
-        if( !empty( $campaign_ids) ) {
-          $query->set('post__in', $campaign_ids);
-        }
+        
       }
 
 		/**
@@ -328,8 +343,8 @@ function enercare_filter_archive( $query ) {
 }
 add_action( 'pre_get_posts', 'enercare_filter_archive');
 
-function get_campaign_postal_code_filter() {
-  $output = '<div class="campaign-postal-code-input-container flex-grid-cell">';
+function get_postal_code_filter() {
+  $output = '<div class="postal-code-input-container flex-grid-cell">';
   $output .= '<input type="text" id="postalCode" name="postalCode" value="" placeholder="A2A2A2" />';
   $output .= '<button class="">Search</button>';
   $output .= '</div>';

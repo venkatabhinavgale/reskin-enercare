@@ -182,8 +182,8 @@ jQuery(function ($) {
   }); //Start the page load with a filter check
 
   flagActiveFilters();
-  $('.campaign-postal-code-input-container button').on('click', function (event) {
-    var searchedPostalCode = $('.campaign-postal-code-input-container #postalCode').val();
+  $('.postal-code-input-container button').on('click', function (event) {
+    var searchedPostalCode = $('.postal-code-input-container #postalCode').val();
     console.log(searchedPostalCode);
     var currentUrl = new URL(window.location.href);
     var postalCode = currentUrl.searchParams.get('postal_code');
