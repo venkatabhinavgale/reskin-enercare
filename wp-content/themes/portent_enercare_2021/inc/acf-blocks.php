@@ -14,6 +14,7 @@ function enercare_register_theme_blocks() {
       'render_template' => 'partials/blocks/card/card.php',
       'category'        => 'layout',
       'mode'            => 'preview',
+      'keywords'        => array('card', 'frame', 'enercare', 'portent'),
       'enqueue_assets' => function() {
 	      wp_enqueue_style( 'block-card-style', get_template_directory_uri() . '/assets/css/block--card.css', array('ea-style'), false, 'screen');
       },
@@ -37,6 +38,7 @@ function enercare_register_theme_blocks() {
       'render_template' => 'partials/blocks/newsletter-signup/block-newsletter-signup.php',
       'category'        => 'layout',
       'mode'            => 'preview',
+      'keywords'        => array('email', 'signup', 'newsletter', 'form', 'enercare', 'portent'),
       'enqueue_assets' => function() {
 	      wp_enqueue_style( 'block-newsletter-signup-style', get_template_directory_uri() . '/assets/css/block--email-signup.css', array('ea-style'), false, 'screen');
       },
@@ -57,6 +59,7 @@ function enercare_register_theme_blocks() {
       'render_template' => 'partials/blocks/newsletter-signup/block-newsletter-signup.php',
       'category'        => 'layout',
       'mode'            => 'preview',
+      'keywords'        => array('tabbed', 'content', 'tab', 'enercare', 'portent'),
       'supports'        => array(
         'mode'  => false,
         'color' => array(
@@ -74,6 +77,7 @@ function enercare_register_theme_blocks() {
 	  'render_template' => 'partials/blocks/location-finder/block-location-finder.php',
 	  'category'        => 'layout',
 	  'mode'            => 'preview',
+    'keywords'        => array('location', 'finder', 'search', 'form', 'enercare', 'portent'),
 	  'enqueue_assets' => function() {
 		  wp_enqueue_style( 'block-location-finder-style', get_template_directory_uri() . '/assets/css/block--location-finder.css', array('ea-style'), false, 'screen');
 	  },
