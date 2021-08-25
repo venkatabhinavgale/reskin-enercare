@@ -577,6 +577,7 @@ function ecreviews_location_block_render_callback( $attributes, $content ) {
     $output .= '<!-- enercare reviews for ' . $location_name . ' -->' . "\n";
     //$output .= '<h2>Reviews for ' . $location_name . '</h2>' . "\n";
     $output .= '<section class="block-reviews alignwide">';
+        //@todo need to find a way to pull this out of this template and make the image and text editable
         $output .= '<div class="block-reviews__section-heading">';
             $output .= '<img width="160px" height="160px" class="block-reviews__stamp" alt="" role="presentation" src="' . plugin_dir_url(__FILE__) . 'img/canadian-owned-operated.svg">';
             $output .= '<div class="block-reviews__section-heading__title">';
