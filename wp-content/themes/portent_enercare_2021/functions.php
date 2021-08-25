@@ -50,6 +50,12 @@ include_once( get_template_directory() . '/inc/wpforms.php' );
  */
 function enercare_scripts() {
 
+	/**
+	 * Script Registrations
+	 */
+	wp_register_script( 'glider-js', get_template_directory_uri() . '/assets/js/glider/glider.min.js', null , null );
+	wp_register_style( 'glider-css', get_template_directory_uri() . '/assets/js/glider/glider.min.css', null , null );
+
 	if( ! enercare_is_amp() ) {
 		wp_enqueue_script( 'ea-global', get_template_directory_uri() . '/assets/js/global-min.js', array( 'jquery' ), filemtime( get_template_directory() . '/assets/js/global-min.js' ), true );
 
@@ -63,7 +69,7 @@ function enercare_scripts() {
 			wp_register_script( 'jquery', includes_url( '/js/jquery/jquery.js' ), false, NULL, true );
 			wp_enqueue_script( 'jquery' );
 		}
-    
+
     if( is_archive() ) {
       wp_enqueue_script( 'ea-category-filters', get_template_directory_uri() . '/assets/js/category-filters.js', array( 'jquery' ), filemtime( get_template_directory() . '/assets/js/category-filters.js' ), true );
     }
@@ -72,6 +78,16 @@ function enercare_scripts() {
 
 	wp_enqueue_style( 'ea-fonts', enercare_theme_fonts_url() );
 	wp_enqueue_style( 'ea-style', get_template_directory_uri() . '/assets/css/main.css', array(), filemtime( get_template_directory() . '/assets/css/main.css' ) );
+
+	/*
+	 * Block level enqueues
+	 */
+	if( has_block( 'enercare-google-reviews/ecreviews-block' ) ) {
+		wp_enqueue_script('glider-js');
+		wp_enqueue_style('glider-css');
+		wp_enqueue_script( 'enercare-reviews-scripts', get_template_directory_uri() . '/assets/js/block--reviews.js', array( 'glider-js' ), null );
+		wp_enqueue_style( 'enercare-reviews-style', get_template_directory_uri() . '/assets/css/block--reviews-block.css', array( 'ea-style', 'glider-css' ), null );
+	}
 }
 add_action( 'wp_enqueue_scripts', 'enercare_scripts' );
 
