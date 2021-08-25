@@ -247,7 +247,6 @@ function Edit(props) {
   const {
     setAttributes
   } = props;
-  console.log("attributes", attributes);
   const PostsDropdownControl = wp.compose.compose( // withDispatch allows to save the selected post ID into post meta
   withDispatch(function (dispatch, props) {
     return {
@@ -375,10 +374,16 @@ __webpack_require__.r(__webpack_exports__);
 
 Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__["registerBlockType"])('enercare-google-reviews/ecreviews-block', {
   attributes: {
-    /*title: {
-      source: 'text',
-      selector: '.card__title'
-    },*/
+    title: {
+      type: 'text',
+      selector: '.reviews__title'
+    },
+    arrows: {
+      type: 'boolean'
+    },
+    dots: {
+      type: 'boolean'
+    },
     locationId: {
       type: 'number'
     }
@@ -392,9 +397,8 @@ Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__["registerBlockType"])('ene
   /**
    * @see ./save.js
    */
-  save: () => {
-    return null;
-  }
+  //save: () => { return null },
+  save: _save__WEBPACK_IMPORTED_MODULE_3__["default"]
 });
 
 /***/ }),
@@ -442,7 +446,10 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 function save() {
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("p", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["useBlockProps"].save(), Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('Ecreviews Block – hello from the saved content!', 'ecreviews-block'));
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(ServerSideRender, {
+    block: "enercare-google-reviews/ecreviews-block",
+    attributes: attributes
+  }));
 }
 
 /***/ }),

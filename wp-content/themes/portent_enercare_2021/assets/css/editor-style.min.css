@@ -18,7 +18,7 @@ p{margin:0 0 16px;padding:0}
 p.large,p.has-large-font-size{font-size:1.125em;line-height:1.5em}
 p.has-normal-font-size{font-size:1em;line-height:1.375em}
 p.small,p.has-small-font-size{font-size:.875em}
-h1,h2,h3,h4,h5,h6{color:#212121;font-family:"Post Grotesk",serif;font-weight:400;line-height:1.2;margin:0 0 16px}
+h1,h2,h3,h4,h5,h6{color:#212121;font-family:"Post Grotesk",serif;font-weight:700;line-height:1.2;letter-spacing:-0.45px;margin:0 0 16px}
 h1 a,h2 a,h3 a,h4 a,h5 a,h6 a{color:#212121}
 h1 a:hover,h2 a:hover,h3 a:hover,h4 a:hover,h5 a:hover,h6 a:hover{color:#dc1c28;text-decoration:none}
 h1:focus,h2:focus,h3:focus,h4:focus,h5:focus,h6:focus{outline:0}
@@ -184,6 +184,27 @@ ul.wp-block-gallery li,ol.wp-block-gallery li{padding-bottom:0}
 .block-location-finder__postal-form .field-group{display:-webkit-box;display:-ms-flexbox;display:flex}
 .block-location-finder__form-container{background-color:#fff;border-top:8px solid #dc1c28;-webkit-box-shadow:0 4px 8px 0 rgba(56,61,67,0.3);box-shadow:0 4px 8px 0 rgba(56,61,67,0.3);padding:12% 15.5%;width:65%}
 .block-card{padding:6.45%;height:100%}
+.block-reviews__stars{display:-webkit-box;display:-ms-flexbox;display:flex;margin:1em 0}
+.block-reviews__star{margin:0 .15em}
+.block-reviews__star:first-of-type,.block-reviews__star:last-of-type{margin:0}
+.block-reviews__section-heading{background-color:#e6e4e4;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-preferred-size:75%;flex-basis:75%;padding:0 20%;-webkit-box-align:center;-ms-flex-align:center;align-items:center;font-size:1.125em;line-height:1.5em}
+.block-reviews__section-heading__title{-ms-flex-preferred-size:75%;flex-basis:75%;-webkit-box-flex:1;-ms-flex-positive:1;flex-grow:1;text-align:center}
+.block-reviews__section-heading__header{font-weight:900;font-size:3.5em;line-height:1;margin-bottom:0}
+.block-reviews__section-heading__stars{display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;margin-right:.5em}
+.block-reviews__stamp{-webkit-transform:scale(1.2);transform:scale(1.2)}
+.block-reviews__wrapper{padding:50px 0;position:relative}
+.block-reviews__dots{margin:1.5em 0 1em}
+.block-reviews__dots button{background-color:#d3d1d1;margin:0 .75em}
+.block-reviews__dots button.active{background-color:#dc1c28}
+.block-reviews__prev,.block-reviews__next{background-color:transparent;border:0;height:50px;position:absolute;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%);width:50px}
+.block-reviews__prev{left:0;-webkit-transform:translateX(-100%);transform:translateX(-100%)}
+.block-reviews__next{right:0;-webkit-transform:translateX(100%);transform:translateX(100%)}
+.block-reviews__review{border-left:1px solid #d3d1d1;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start;padding:24px}
+.block-reviews__review:first-of-type{border-left:0}
+.block-reviews__review__content{font-size:1.125em;line-height:1.5em;-webkit-box-flex:1;-ms-flex-positive:1;flex-grow:1;margin:.025em 0}
+.block-reviews__review__content:before,.block-reviews__review__content:after{content:'"'}
+.block-reviews__review__reviewer{display:block;font-size:1.125em;line-height:1.5em;font-weight:700;margin:.025em 0 .015em;text-transform:capitalize}
+.block-reviews__review__date{display:block;margin:.015em 0 0}
 @media(min-width:768px){body{font-size:1em}
 p.large,p.has-large-font-size{font-size:1.125em}
 p.has-normal-font-size{font-size:1em}
@@ -198,11 +219,17 @@ div.wpforms-container.one-line .wpforms-field-container{display:table;width:calc
 div.wpforms-container.one-line .wpforms-field-container .wpforms-field{display:table-cell;padding-right:16px;margin:0}
 div.wpforms-container.one-line .wpforms-submit-container{float:right;width:110px;clear:none;margin:0}
 body,p{font-size:1em}
+.block-reviews__section-heading{font-size:1.125em}
+.block-reviews__section-heading__header{font-size:3em}
+.block-reviews__review__content{font-size:1.125em}
+.block-reviews__review__reviewer{font-size:1.125em}
 }@media(min-width:769px){.post-summary__image{margin-bottom:12px}
 }@media(min-width:992px){h1{font-size:46px}
 h2{font-size:36px}
 h3{font-size:28px}
 .wp-block-group{padding:70px 16px}
+.block-reviews__section-heading__header{font-size:3.5em}
+}@media(min-width:1200px){.block-reviews__section-heading__header{font-size:3.5em}
 }@media print{body{font-family:sans-serif}
 body,p{font-family:sans-serif}
 }

@@ -5,7 +5,7 @@
 	"title": "Enercare Reviews Block",
 	"category": "widgets",
 	"icon": "smiley",
-	"description": "Example block written with ESNext standard and JSX support – build step required.",
+	"description": "This block will populate GMB reviews based on the selected location in a carousel",
 	"supports": {
 		"html": false
 	},
@@ -13,7 +13,18 @@
   "attributes": {
     "locationId": {
       "type": "number"
-    }
+    },
+	"title": {
+	  "type": "text",
+	  "source": "html",
+	  "selector": ".block-reviews__title"
+	},
+	"dots": {
+	  "type": "boolean"
+	},
+	"arrows": {
+	  "type": "boolean"
+	}
   },
 	"editorScript": "file:./build/index.js",
 	"editorStyle": "file:./build/index.css",

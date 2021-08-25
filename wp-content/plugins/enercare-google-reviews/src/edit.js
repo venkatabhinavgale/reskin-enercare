@@ -31,18 +31,17 @@ import './editor.scss';
  * @return {WPElement} Element to render.
  */
 export default function Edit(props) {
-  
-  const { 
+
+  const {
 		TextControl, // text field
 		SelectControl, // select field
 	} = wp.components;
-	const { withSelect, withDispatch } = wp.data;
+  const { withSelect, withDispatch } = wp.data;
   const { compose } = wp.compose;
   var el = wp.element.createElement;
   const { attributes } = props;
   const { setAttributes } = props;
-  console.log("attributes", attributes);
-  
+
   const PostsDropdownControl = wp.compose.compose(
     // withDispatch allows to save the selected post ID into post meta
     withDispatch( function( dispatch, props ) {
@@ -56,7 +55,7 @@ export default function Edit(props) {
     } ),
     // withSelect allows to get posts for our SelectControl and also to get the post meta value
     withSelect( function( select, props ) {
-      var query = { 
+      var query = {
         per_page : -1,
         orderby : 'title',
         order : 'asc',
@@ -70,10 +69,10 @@ export default function Edit(props) {
         //metaValue: select( 'core/editor' ).getEditedPostAttribute( 'meta' )[ props.metaKey ],
       }
     } ) )( function( props ) {
-      
+
       // options for SelectControl
       var options = [];
-      
+
       // if posts found
       if( props.locations ) {
         options.push( { value: 0, label: 'Select a location' } );
@@ -99,7 +98,7 @@ export default function Edit(props) {
     }
 
   );
-  
+
 	return (
     <div>
       <PostsDropdownControl
