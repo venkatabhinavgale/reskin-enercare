@@ -30,10 +30,10 @@ $form_content = get_field('form_content');
 		<div class="block-location-finder__form-container">
 			<h3 class="has-black-color"><?= $form_header ?></h3>
 			<p class="has-black-color"><?= $form_content ?></p>
-			<form class="block-location-finder__postal-form">
+			<form method="get" action="<?= get_bloginfo('url'); ?>/locations/" class="block-location-finder__postal-form">
 				<label for="location_finder__input">Postal Code</label>
 				<div class="field-group">
-					<input data-interface="location-finder-input" id="location_finder__input" type="text" />
+					<input data-interface="location-finder-input" id="location_finder__input" type="text" name="postal_code" maxlength="7" />
 					<input class="has-red-background-color has-background" data-interface="location-finder-submit" type="submit" value="Submit" />
 				</div>
 			</form>
