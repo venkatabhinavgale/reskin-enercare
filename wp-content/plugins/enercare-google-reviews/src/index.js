@@ -18,7 +18,7 @@ import './style.scss';
  * Internal dependencies
  */
 import Edit from './edit';
-import save from './save';
+import Save from './save';
 
 /**
  * Every block starts by registering a new block type definition.
@@ -27,15 +27,21 @@ import save from './save';
  */
 registerBlockType( 'enercare-google-reviews/ecreviews-block', {
   attributes: {
-    /*title: {
-      source: 'text',
-      selector: '.card__title'
-    },*/
+    title: {
+      type: 'text',
+      selector: '.reviews__title'
+    },
+  	arrows: {
+    	type: 'boolean',
+	},
+  	dots: {
+		type: 'boolean'
+  	},
     locationId: {
       type: 'number'
     },
   },
-  
+
 	/**
 	 * @see ./edit.js
 	 */
@@ -44,5 +50,6 @@ registerBlockType( 'enercare-google-reviews/ecreviews-block', {
 	/**
 	 * @see ./save.js
 	 */
-	save: () => { return null },
+	//save: () => { return null },
+	save: Save,
 } );

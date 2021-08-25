@@ -24,11 +24,11 @@ import { useBlockProps } from '@wordpress/block-editor';
  */
 export default function save() {
 	return (
-		<p { ...useBlockProps.save() }>
-			{ __(
-				'Ecreviews Block – hello from the saved content!',
-				'ecreviews-block'
-			) }
-		</p>
+		<div>
+			<ServerSideRender
+				block="enercare-google-reviews/ecreviews-block"
+				attributes={ attributes }
+			/>
+		</div>
 	);
 }
