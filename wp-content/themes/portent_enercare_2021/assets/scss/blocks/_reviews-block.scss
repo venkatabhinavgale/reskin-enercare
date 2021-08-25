@@ -1,0 +1,124 @@
+.block-reviews {
+
+	&__stars {
+		display: flex;
+		margin: 1em 0;
+	}
+
+	&__star {
+		margin: 0 0.15em;
+
+		&:first-of-type,
+		&:last-of-type {
+			margin: 0;
+		}
+	}
+
+	&__section-heading {
+		background-color: $grey_2;
+		display: flex;
+		flex-basis: 75%;
+		padding: 0 20%;
+		align-items: center;
+		@include large-font-style();
+
+		&__title {
+			flex-basis: 75%;
+			flex-grow: 1;
+			text-align: center;
+		}
+
+		&__header {
+			font-weight: 900;
+			@include font-sizes(3.5em, 3em, 3.5em, 3.5em );
+			line-height: 1;
+			margin-bottom: 0;
+		}
+
+		&__stars {
+			display: inline-flex;
+			justify-content: center;
+			margin-right: 0.5em;
+		}
+	}
+
+	&__stamp {
+		transform: scale(1.2);
+	}
+
+	&__wrapper {
+		padding: 50px 0;
+		position: relative;
+	}
+
+	&__dots {
+
+		margin: 1.5em 0 1em;
+
+		button {
+			background-color: $grey_3;
+			margin: 0 0.75em;
+		}
+
+		button.active {
+			background-color: brand-color('red');
+		}
+	}
+
+	&__prev,
+	&__next {
+		background-color: transparent;
+		border: 0;
+		height: 50px;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		width: 50px;
+	}
+
+	&__prev {
+		left: 0;
+		transform: translateX(-100%);
+	}
+
+	&__next {
+		right: 0;
+		transform: translateX(100%);
+	}
+
+	&__review {
+		border-left: 1px solid $grey_3;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		padding: 24px;
+
+		&:first-of-type {
+			border-left: 0;
+		}
+
+		&__content {
+			@include large-font-style();
+			flex-grow: 1;
+			margin: 0.025em 0;
+
+			&:before,
+			&:after {
+				content: '"';
+			}
+		}
+
+		&__reviewer {
+			display: block;
+			@include large-font-style();
+			font-weight: 700;
+			margin: 0.025em 0 0.015em;
+			text-transform: capitalize;
+		}
+
+		&__date {
+			display: block;
+			margin: 0.015em 0 0;
+		}
+	}
+}
