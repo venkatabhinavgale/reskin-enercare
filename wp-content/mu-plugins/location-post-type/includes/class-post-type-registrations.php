@@ -63,7 +63,8 @@ class Location_Post_Type_Registrations {
 			'editor',
 			'thumbnail',
 			'custom-fields',
-			'revisions'
+			'revisions',
+      'page-attributes'
 		);
 
 		$args = array(
@@ -78,6 +79,7 @@ class Location_Post_Type_Registrations {
 			'taxonomies'          => $this->taxonomies,
       'exclude_from_search' => true,
       'publicly_queryable'  => true,
+      'hierarchical'        => true,
       'show_in_rest'        => true
 		);
 
