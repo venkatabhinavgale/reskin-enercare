@@ -16,8 +16,8 @@ class Location_Post_Type_Registrations {
 	public $post_type = 'location';
 
 	public $taxonomies = array(
-	    'services',
-    );
+	  'services'
+  );
 
 	public function init() {
 		// Add the Location post type and taxonomies
@@ -63,7 +63,7 @@ class Location_Post_Type_Registrations {
 			'editor',
 			'thumbnail',
 			'custom-fields',
-			'revisions',
+			'revisions'
 		);
 
 		$args = array(
@@ -75,7 +75,7 @@ class Location_Post_Type_Registrations {
 			'menu_position'       => 31,
 			'menu_icon'           => 'dashicons-store',
 			'has_archive'         => true,
-			//'taxonomies'          => $taxonomies,
+			'taxonomies'          => $this->taxonomies,
       'exclude_from_search' => true,
       'publicly_queryable'  => true,
       'show_in_rest'        => true
