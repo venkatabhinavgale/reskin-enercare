@@ -16,8 +16,8 @@ class FAQ_Post_Type_Registrations {
 	public $post_type = 'faq';
 
 	public $taxonomies = array(
-	    'faq-category',
-    );
+	  'faq-category'
+  );
 
 	public function init() {
 		// Add the FAQ post type and taxonomies
@@ -63,7 +63,7 @@ class FAQ_Post_Type_Registrations {
 			'editor',
 			'thumbnail',
 			'custom-fields',
-			'revisions',
+			'revisions'
 		);
 
 		$args = array(
@@ -75,7 +75,7 @@ class FAQ_Post_Type_Registrations {
 			'menu_position'       => 31,
 			'menu_icon'           => 'dashicons-testimonial',
 			'has_archive'         => true,
-			//'taxonomies'          => $taxonomies,
+			'taxonomies'          => $this->taxonomies,
       'exclude_from_search' => true,
       'publicly_queryable'  => true
 		);
