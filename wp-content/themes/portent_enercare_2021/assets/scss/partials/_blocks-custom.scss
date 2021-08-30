@@ -14,13 +14,14 @@
 	background-color: transparent;
 	font-weight: 700;
 	@include font-sizes(24px);
-	padding: 8px 24px;
+	padding: 8px 24px 4px;
+	border-bottom: 2px solid transparent;
 
 	img {
 		filter: hue-rotate(180deg) contrast(100%) brightness(0) grayscale(100%);
 		width: 20px;
 		height: 20px;
-		margin: 0 10px;
+		margin: 0 10px 0 0;
 	}
 
 	&:hover {
@@ -44,6 +45,10 @@
 
 		&:hover {
 			color: $white;
+
+			img {
+				filter: brightness(0) invert(1);
+			}
 		}
 	}
 }
