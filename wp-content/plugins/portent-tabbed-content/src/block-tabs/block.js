@@ -97,14 +97,14 @@ registerBlockType( 'portent/block-tabbed-content', {
 		const blockProps = useBlockProps.save();
 		const unpackedTabs = JSON.parse(props.attributes.tabs);
 		const SaveTabs = () => (
-			<div className="block-tabbed-content__tabs">
+			<div className="block-tabbed-content__tabs init">
 				<PrintTabs tabs={unpackedTabs}/>
 			</div>
 		)
 		return (
 			<div { ...blockProps }>
 				<SaveTabs />
-				<div className="block-tabbed-content__tab-panels">
+				<div className="block-tabbed-content__tab-panels init">
 					<InnerBlocks.Content />
 				</div>
 			</div>

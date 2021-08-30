@@ -28,7 +28,10 @@
 		border-top-left-radius: 20px;
 		border-top-right-radius: 20px;
 		color: $white;
-		filter: brightness(0) invert(1);
+
+		img {
+			filter: brightness(0) invert(1);
+		}
 	}
 
 	&.active {
@@ -45,19 +48,27 @@
 	}
 }
 
-.wp-block-portent-block-tabbed-content--tab {
+.block-tabbed-content__tab-panels.init {
+
+	.block-tabbed-content__panel:first-of-type .block-tabbed-content__tab-content {
+		display: block;
+		position: relative;
+	}
+}
+
+.block-tabbed-content__panel {
+	display: block;
+	position: relative;
+	width: 100%;
+}
+
+.block-tabbed-content__tab-content {
 	display: none;
 	position: absolute;
 
 	&.active {
 		display: block;
 		position: relative;
-	}
-
-	&.block-tabbed-content__panel {
-		display: block;
-		position: relative;
-		width: 100%;
 	}
 }
 

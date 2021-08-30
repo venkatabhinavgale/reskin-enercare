@@ -144,11 +144,11 @@ registerBlockType( 'portent/block-tabbed-content--tab', {
 	 * @returns {Mixed} JSX Frontend HTML.
 	 */
 	save: ( props ) => {
-		const blockProps = useBlockProps.save();
+		//const blockProps = useBlockProps.save();
 		return (
-			<div className={"block-tabbed-content__panel"}>
-				<h3 className={"block-tabbed-content__tab__title"} data-tab={props.attributes.tabid}>{props.attributes.title}</h3>
-				<div { ...blockProps } data-tab={props.attributes.tabid}>
+			<div className="block-tabbed-content__panel">
+				<h3 className="block-tabbed-content__tab__title" data-tab={props.attributes.tabid}>{props.attributes.title}</h3>
+				<div className="block-tabbed-content__tab-content" data-tab={props.attributes.tabid}>
 					<InnerBlocks.Content />
 				</div>
 			</div>
