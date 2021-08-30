@@ -88,3 +88,8 @@ function portent_tabbed_content_cgb_block_assets() { // phpcs:ignore
 
 // Hook: Block assets.
 add_action( 'init', 'portent_tabbed_content_cgb_block_assets' );
+
+function portent_tabbed_content__frontend() {
+	wp_enqueue_script( 'block-tabbed-content-script', plugins_url( 'frontend.js', dirname( __FILE__ )), null, null );
+}
+add_action( 'enqueue_block_assets', 'portent_tabbed_content__frontend');

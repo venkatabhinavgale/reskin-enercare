@@ -15,7 +15,10 @@ const ALLOWED_BLOCKS = [ 'portent/block-portent-tabbed-content--tab' ];
 import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
 const { withSelect } = wp.data;
 
-//import TabSelect from "./components/tabSelect";
+const PrintTabs = (props) => {
+	const tabs = props.tabs;
+	return(tabs.map(tab => <button className="block-tabbed-content__tab" data-interface="tab-button" data-tab={tab[0]}><img width="20px" height="20px" alt="" src={tab[2]}/>{tab[1]}</button>));
+}
 
 /**
  * Register: aa Gutenberg Block.
@@ -64,20 +67,18 @@ registerBlockType( 'portent/block-tabbed-content', {
 			innerBlocks: select( 'core/block-editor' ).getBlocks( blockData.clientId )
 		};
 	} )( ( { innerBlocks, className, attributes, setAttributes } ) => {
-		const tabsArray = innerBlocks.map( tab => [tab.clientId,tab.attributes.title] );
+		const tabsArray = innerBlocks.map( tab => [tab.clientId,tab.attributes.title,tab.attributes.iconid] );
 		const serialTabs = JSON.stringify(tabsArray);
 		if( attributes.tabs !== serialTabs ) {
 			setAttributes({tabs:serialTabs});
-			console.log(attributes.tabs);
 		}
-		const TabsList = () => (
-			<div class="block-tabbed-content__tabs">
-				{innerBlocks.map(tab => <button class="block-tabbed-content__tab" data-tab={tab.clientId}><img width="20px" height="20px" alt="" src=""/>{tab.attributes.title}</button>)}
-			</div>
-		);
 	return <div className={className}>
-		<TabsList/>
-		<InnerBlocks allowedBlocks={ALLOWED_BLOCKS}/>
+		<div className="block-tabbed-content__tabs">
+			<PrintTabs tabs={tabsArray}/>
+		</div>
+		<div className="block-tabbed-content__tab-panels">
+			<InnerBlocks allowedBlocks={ALLOWED_BLOCKS}/>
+		</div>
 	</div>
 } ),
 
@@ -94,18 +95,18 @@ registerBlockType( 'portent/block-tabbed-content', {
 	 */
 	save: ( props) => {
 		const blockProps = useBlockProps.save();
-		console.log(props);
 		const unpackedTabs = JSON.parse(props.attributes.tabs);
-		console.log(unpackedTabs);
 		const SaveTabs = () => (
 			<div className="block-tabbed-content__tabs">
-				{unpackedTabs.map(tab => <button class="block-tabbed-content__tab" data-interface="tab-button" data-tab={tab[0]}><img width="20px" height="20px" alt="" src=""/>{tab[1]}</button>)}
+				<PrintTabs tabs={unpackedTabs}/>
 			</div>
 		)
 		return (
 			<div { ...blockProps }>
 				<SaveTabs />
-				<InnerBlocks.Content />
+				<div className="block-tabbed-content__tab-panels">
+					<InnerBlocks.Content />
+				</div>
 			</div>
 		);
 	},

@@ -11,8 +11,9 @@ import './style.scss';
 
 const { __ } = wp.i18n; // Import __() from wp.i18n
 const { registerBlockType } = wp.blocks; // Import registerBlockType() from wp.blocks
-import { InnerBlocks, useBlockProps, InspectorControls } from '@wordpress/block-editor';
-import { TextControl, Panel, PanelBody, PanelRow } from '@wordpress/components';
+import { InnerBlocks, useBlockProps, InspectorControls, MediaUpload, MediaUploadCheck } from '@wordpress/block-editor';
+import { TextControl, Button, Panel, PanelBody, PanelRow, Spinner } from '@wordpress/components';
+const ALLOWED_MEDIA_TYPES = [ 'image' ];
 
 /**
  * Register: aa Gutenberg Block.
@@ -30,7 +31,7 @@ import { TextControl, Panel, PanelBody, PanelRow } from '@wordpress/components';
 registerBlockType( 'portent/block-tabbed-content--tab', {
 	// Block name. Block names must be string that contains a namespace prefix. Example: my-plugin/my-custom-block.
 	title: __( 'Tab' ), // Block title.
-	description: __( 'Inner child block type for tabbed content. fuck my life I hate react' ),
+	description: __( 'Inner child block type for tabbed content.' ),
 	parent: [ 'portent/block-tabbed-content' ],
 	icon: 'tablet', // Block icon from Dashicons → https://developer.wordpress.org/resource/dashicons/.
 	category: 'common', // Block category — Group blocks together based on common traits E.g. common, formatting, layout widgets, embed.
@@ -43,8 +44,8 @@ registerBlockType( 'portent/block-tabbed-content--tab', {
 		title: {
 			type: 'string'
 		},
-		icon : {
-			type: 'string'
+		iconid : {
+			type: 'string',
 		},
 		tabid: {
 			type: 'string'
@@ -63,12 +64,24 @@ registerBlockType( 'portent/block-tabbed-content--tab', {
 	 * @returns {Mixed} JSX Component.
 	 */
 	edit: ( props) => {
-		// Creates a <p class='wp-block-cgb-block-portent-tabbed-content'></p>.
-		const { attributes:{ title, icon, tabid }, setAttributes} = props;
+		const { attributes:{ title, iconid, tabid }, setAttributes} = props;
 		props.setAttributes({tabid: props.clientId})
 		const blockProps = useBlockProps();
+
+		const onUpdateImage = ( image ) => {
+			setAttributes( {
+				iconid: image.url,
+			} );
+		};
+
+		const onRemoveImage = () => {
+			setAttributes( {
+				iconid: undefined,
+			} );
+		};
+
 		return (
-			<div { ...useBlockProps() } data-tab={props.attributes.tabid} data-interface="tab-panel">
+			<div className="block-tabbed-content__panel" data-tab={props.attributes.tabid} data-interface="tab-panel">
 				<InspectorControls key="setting">
 					<div id="tab-controls">
 						<Panel header="">
@@ -81,11 +94,39 @@ registerBlockType( 'portent/block-tabbed-content--tab', {
 										onChange = { title => setAttributes( {title} ) }
 										/>
 								</PanelRow>
+								<PanelRow>
+									<label className="portent-tabbed-content__tab-icon-label">Tab Icon</label>
+									<MediaUploadCheck>
+										<MediaUpload
+											title={ __( 'Tab Icon', 'portent-tabbed-content' ) }
+											onSelect={ onUpdateImage }
+											allowedTypes={ ALLOWED_MEDIA_TYPES }
+											value={ props.attributes.iconid }
+											render={ ( { open } ) => (
+												<Button
+													className={ __('portent-tabbed-content__tab-icon-label', 'portent-tabbed-content')}
+													onClick={ open }>
+													{ ! iconid && ( __( 'Set Tab Icon', 'portent-tabbed-content' ) ) }
+													{ !! iconid &&
+														<img width="90" height="90" src={ iconid } alt={ __( 'Tab Icon', 'portent-tabbed-content' ) } />
+													}
+												</Button>
+											) }
+										/>
+									</MediaUploadCheck>
+									{ !! iconid &&
+									<MediaUploadCheck>
+										<Button onClick={ onRemoveImage } isLink isDestructive>
+											{ __( 'Remove Tab Icon', 'image-selector-example' ) }
+										</Button>
+									</MediaUploadCheck>
+									}
+								</PanelRow>
 							</PanelBody>
 						</Panel>
 					</div>
 				</InspectorControls>
-				<h3>{props.attributes.title}</h3>
+					<h3 className={"block-tabbed-content__tab__title"}>{props.attributes.title}</h3>
 					<InnerBlocks orientation="horizontal"/>
 			</div>
 		);
@@ -105,9 +146,9 @@ registerBlockType( 'portent/block-tabbed-content--tab', {
 	save: ( props ) => {
 		const blockProps = useBlockProps.save();
 		return (
-			<div className={ props.className } data-tab={props.attributes.tabid}>
-				<h3 class={"block-tabbed-content__tab__title"}>{props.attributes.title}</h3>
-				<div { ...blockProps }>
+			<div className={"block-tabbed-content__panel"}>
+				<h3 className={"block-tabbed-content__tab__title"} data-tab={props.attributes.tabid}>{props.attributes.title}</h3>
+				<div { ...blockProps } data-tab={props.attributes.tabid}>
 					<InnerBlocks.Content />
 				</div>
 			</div>

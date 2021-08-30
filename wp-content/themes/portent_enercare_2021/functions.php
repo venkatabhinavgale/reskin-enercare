@@ -88,6 +88,10 @@ function enercare_scripts() {
 		wp_enqueue_script( 'enercare-reviews-scripts', get_template_directory_uri() . '/assets/js/block--reviews.js', array( 'glider-js' ), null );
 		wp_enqueue_style( 'enercare-reviews-style', get_template_directory_uri() . '/assets/css/block--reviews-block.css', array( 'ea-style', 'glider-css' ), null );
 	}
+
+	if( has_block( 'core/cover') ) {
+		wp_enqueue_style( 'enercare-cover-styles', get_template_directory_uri() . '/assets/css/block--cover.min.css', array('ea-style'), null );
+	}
 }
 add_action( 'wp_enqueue_scripts', 'enercare_scripts' );
 

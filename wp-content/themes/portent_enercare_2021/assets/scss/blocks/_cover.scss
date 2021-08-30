@@ -1,0 +1,12 @@
+.wp-block-cover {
+
+	&__inner-container {
+		margin: calc( 2 * #{$block-margin} ) calc(50% - 50vw);
+		max-width: $grid-width;
+		width: auto;
+
+		@include media(">=tablet") {
+			margin: calc( 2 * #{$block-margin}) calc(25% - 25vw);
+		}
+	}
+}
