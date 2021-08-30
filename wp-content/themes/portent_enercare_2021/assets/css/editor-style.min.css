@@ -153,6 +153,20 @@ div.wpforms-container.one-line:after{content:"";display:table;clear:both}
 .shared-counts-wrap.style-button .shared-counts-button.twitter{background:#00b6f1}
 .shared-counts-wrap.style-button .shared-counts-button.twitter:hover{background:#008fbe}
 .shared-counts-wrap.style-button .shared-counts-count{display:none}
+.block-tabbed-content__tab__title{display:none}
+.block-tabbed-content__tabs{display:-webkit-box;display:-ms-flexbox;display:flex;margin-bottom:32px}
+.block-tabbed-content__tab{border:0;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;background-color:transparent;font-weight:700;font-size:24px;padding:8px 24px 4px;border-bottom:2px solid transparent}
+.block-tabbed-content__tab img{-webkit-filter:hue-rotate(180deg) contrast(100%) brightness(0) grayscale(100%);filter:hue-rotate(180deg) contrast(100%) brightness(0) grayscale(100%);width:20px;height:20px;margin:0 10px 0 0}
+.block-tabbed-content__tab:hover{background-color:#dc1c28;border-top-left-radius:20px;border-top-right-radius:20px;color:#fff}
+.block-tabbed-content__tab:hover img{-webkit-filter:brightness(0) invert(1);filter:brightness(0) invert(1)}
+.block-tabbed-content__tab.active{border-bottom:2px solid #dc1c28;color:#dc1c28}
+.block-tabbed-content__tab.active img{-webkit-filter:hue-rotate(0) contrast(100%) brightness(100%) grayscale(0);filter:hue-rotate(0) contrast(100%) brightness(100%) grayscale(0)}
+.block-tabbed-content__tab.active:hover{color:#fff}
+.block-tabbed-content__tab.active:hover img{-webkit-filter:brightness(0) invert(1);filter:brightness(0) invert(1)}
+.block-tabbed-content__tab-panels.init .block-tabbed-content__panel:first-of-type .block-tabbed-content__tab-content{display:block;position:relative}
+.block-tabbed-content__panel{display:block;position:relative;width:100%}
+.block-tabbed-content__tab-content{display:none;position:absolute}
+.block-tabbed-content__tab-content.active{display:block;position:relative}
 .post-summary{margin-bottom:32px}
 .post-summary__title{font-size:18px;font-weight:400;margin:0}
 .post-summary__title a{color:#212121;text-decoration:none}
