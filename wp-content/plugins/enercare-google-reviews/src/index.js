@@ -50,6 +50,6 @@ registerBlockType( 'enercare-google-reviews/ecreviews-block', {
 	/**
 	 * @see ./save.js
 	 */
-	//save: () => { return null },
-	save: Save,
+	save: () => { return null },
+	//save: Save,
 } );
