@@ -16,8 +16,8 @@ class Campaign_Post_Type_Registrations {
 	public $post_type = 'campaign';
 
 	public $taxonomies = array(
-	    'campaign-category',
-    );
+	  'campaign-category'
+  );
 
 	public function init() {
 		// Add the Campaign post type and taxonomies
@@ -63,7 +63,7 @@ class Campaign_Post_Type_Registrations {
 			'editor',
 			'thumbnail',
 			'custom-fields',
-			'revisions',
+			'revisions'
 		);
 
 		$args = array(

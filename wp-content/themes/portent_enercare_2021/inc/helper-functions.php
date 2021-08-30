@@ -262,6 +262,11 @@ function enercare_filter_archive( $query ) {
   	if( is_author() ) {
   		$author = get_the_author_meta('ID');
     }
+    
+    // exclude child pages from the location archive page
+    if (is_post_type_archive('location')) {
+      $query->set('post_parent', 0);
+    }
 
 	  /**
 	   * If the URL parameter 'cat' is set
