@@ -76,7 +76,7 @@ class Campaign_Post_Type_Registrations {
 			'menu_position'   => 31,
 			'menu_icon'       => 'dashicons-tag',
 			'has_archive'     => true,
-			'taxonomies'      => $taxonomies
+			'taxonomies'      => $this->taxonomies
 		);
 
 		$args = apply_filters( 'campaign_post_type_args', $args );
