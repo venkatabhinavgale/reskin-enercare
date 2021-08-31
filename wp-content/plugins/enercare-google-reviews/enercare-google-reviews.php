@@ -319,8 +319,11 @@ class ECReviews {
 
     }
   }
-
-
+  
+  public function postsWhereContentNotEmpty($where = '') {
+    $where .= " AND trim(coalesce(post_content, '')) <>''";
+    return $where;
+  }
   public function getLocations() {
     $posts = get_posts(array(
       'numberposts'   => -1,
@@ -341,13 +344,18 @@ class ECReviews {
   }
 
   public function getReviewsByLocation($location_id, $limit = 25) {
+    // add filter to query to omit reviews with no comments. ie. post_content is empty
+    add_filter('posts_where', array(__CLASS__, 'postsWhereContentNotEmpty'));
     $posts = get_posts(array(
       'numberposts'   => $limit,
       'post_type'     => 'gmb_review',
       'meta_key'      => 'gmb_location_id',
       'meta_value'    => $location_id,
-      'post_status'   => 'publish'
+      'post_status'   => 'publish',
+      'suppress_filters' => false
     ));
+    // remove the filter
+    remove_filter('posts_where', array(__CLASS__, 'postsWhereContentNotEmpty'));
     return $posts;
   }
   public function getReviewsCount($location_id = null) {
