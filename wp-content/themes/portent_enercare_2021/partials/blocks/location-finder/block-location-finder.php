@@ -18,8 +18,11 @@ $form_content = get_field('form_content');
 		<ul class="block-location-finder__list">
 			<?php
 				foreach( $locations_locations as $location ) {
+          $location_title = get_the_title($location);
+          if (get_field('display_title', $location))
+            $location_title = get_field('display_title', $location);
 					echo '<li>';
-						echo '<a class="has-white-color" href="'.get_the_permalink( $location ).'">'. get_the_title( $location ) .'</a>';
+						echo '<a class="has-white-color" href="'.get_the_permalink( $location ).'">'. $location_title .'</a>';
 					echo '</li>';
 				}
 			?>
