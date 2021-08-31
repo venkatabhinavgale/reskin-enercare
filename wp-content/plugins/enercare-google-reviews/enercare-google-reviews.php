@@ -319,8 +319,11 @@ class ECReviews {
 
     }
   }
-
-
+  
+  public function postsWhereContentNotEmpty($where = '') {
+    $where .= " AND trim(coalesce(post_content, '')) <>''";
+    return $where;
+  }
   public function getLocations() {
     $posts = get_posts(array(
       'numberposts'   => -1,
@@ -341,13 +344,18 @@ class ECReviews {
   }
 
   public function getReviewsByLocation($location_id, $limit = 25) {
+    // add filter to query to omit reviews with no comments. ie. post_content is empty
+    add_filter('posts_where', array(__CLASS__, 'postsWhereContentNotEmpty'));
     $posts = get_posts(array(
       'numberposts'   => $limit,
       'post_type'     => 'gmb_review',
       'meta_key'      => 'gmb_location_id',
       'meta_value'    => $location_id,
-      'post_status'   => 'publish'
+      'post_status'   => 'publish',
+      'suppress_filters' => false
     ));
+    // remove the filter
+    remove_filter('posts_where', array(__CLASS__, 'postsWhereContentNotEmpty'));
     return $posts;
   }
   public function getReviewsCount($location_id = null) {
@@ -563,7 +571,17 @@ function ecreviews_location_block_render_callback( $attributes, $content ) {
     $location_post = get_post($attributes['locationId']);
     $location_name = $location_post->post_title;
   }
-
+  
+  // check to see if the transient cache exists and user is not logged in. if so, grab it and return
+  if (function_exists('get_transient') && !is_user_logged_in()) {
+    $output = get_transient('ec_reviews_' . $location_id);
+    if (!empty($output)) {
+      if (isset($_GET['ecreviewsdebug']))
+        $output = '<!-- debug: from transient cache -->' . "\n" . $output;
+      return $output;
+    }
+  }
+  
   $reviews = ECReviews::getReviewsByLocation($location_id, 12);
   if ( count( $reviews ) === 0 ) {
     $output = 'No reviews were found.';
@@ -574,7 +592,9 @@ function ecreviews_location_block_render_callback( $attributes, $content ) {
   }
 
   if ($location_name && $location_name != "") {
-    $output .= '<!-- enercare reviews for ' . $location_name . ' -->' . "\n";
+    if (!is_admin()) {
+      $output .= '<!-- enercare reviews for ' . $location_name . ' -->' . "\n";  
+    }
     //$output .= '<h2>Reviews for ' . $location_name . '</h2>' . "\n";
     $output .= '<section class="block-reviews alignwide">';
         //@todo need to find a way to pull this out of this template and make the image and text editable
@@ -587,7 +607,7 @@ function ecreviews_location_block_render_callback( $attributes, $content ) {
   $total_reviews = ECReviews::getReviewsCount($location_id);
   $aggregate_rating = ECReviews::getAggregateRating($location_id);
   if ($total_reviews && $aggregate_rating) {
-  	$output .= '<div class="block-reviews__section-heading__stars block-reviews__stars">';
+    $output .= '<div class="block-reviews__section-heading__stars block-reviews__stars">';
     for($x = 1; $x <= $aggregate_rating; $x++) {
       $output .= '<img width="15px" height="15px" class="block-reviews__star" alt="" role="presentation" src="' . plugin_dir_url(__FILE__) . 'img/full-star-enercare.svg">';
       // if on last loop iteration, check if rating is less than or equal to .5 and if so, show half star. otherwise round up to full star
@@ -608,24 +628,30 @@ function ecreviews_location_block_render_callback( $attributes, $content ) {
   $output .= '<div class="block-reviews__wrapper">';
   $output .= '<div class="block-reviews__glider">';
   foreach ($reviews as $review) {
-	  if ( $review->post_content !== '' ) {
-		  $output .= '<div class="block-reviews__review">';
+    if ( $review->post_content !== '' ) {
+      $output .= '<div class="block-reviews__review">';
 
-		  $review_rating = get_post_meta( $review->ID, 'gmb_review_rating', true );
-		  $output        .= '<div class="block-reviews__stars">';
-		  for ( $x = 1; $x <= $review_rating; $x ++ ) {
-			  $output .= '<img width="15px" height="15px" class="block-reviews__star" alt="" role="presentation" src="' . plugin_dir_url( __FILE__ ) . 'img/full-star-enercare.svg">';
-		  }
-		  $output .= '</div>';
+      $review_rating = get_post_meta( $review->ID, 'gmb_review_rating', true );
+      $output        .= '<div class="block-reviews__stars">';
+      for ( $x = 1; $x <= $review_rating; $x ++ ) {
+        $output .= '<img width="15px" height="15px" class="block-reviews__star" alt="" role="presentation" src="' . plugin_dir_url( __FILE__ ) . 'img/full-star-enercare.svg">';
+      }
+      $output .= '</div>';
 
-		  $output .= '<p class="block-reviews__review__content">' . $review->post_content . '</p>';
-		  $output .= '<span class="block-reviews__review__reviewer">' . get_post_meta( $review->ID, 'gmb_review_reviewer', true ) . '</span>';
-		  $output .= '<span class="block-reviews__review__date">' . $review->post_date . '</span>';
-		  $output .= '</div>';
-	  }
+      $output .= '<p class="block-reviews__review__content">' . $review->post_content . '</p>';
+      $output .= '<span class="block-reviews__review__reviewer">' . get_post_meta( $review->ID, 'gmb_review_reviewer', true ) . '</span>';
+      $output .= '<span class="block-reviews__review__date">' . $review->post_date . '</span>';
+      $output .= '</div>';
+    }
   }
   $output .= '</div>';
   $output .= '</div>';
   $output .= '</section>';
+  
+  if (!is_admin() && !is_user_logged_in() && function_exists('set_transient')) {
+    // if the output was processed, set transient cache for 1 day.
+    set_transient('ec_reviews_' . $location_id, $output, DAY_IN_SECONDS);
+  }
+  
   return $output;
 }
