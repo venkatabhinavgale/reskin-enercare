@@ -3,6 +3,25 @@
     "title": "Locations",
     "fields": [
         {
+            "key": "field_612d7a8008d46",
+            "label": "Display Title",
+            "name": "display_title",
+            "type": "text",
+            "instructions": "This field will be used to display a more succinct title of a location on the locations archive\/listing pages and location finder block.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_6112a29d9b782",
             "label": "Location Info",
             "name": "location_info",
@@ -20,43 +39,6 @@
             "toolbar": "full",
             "media_upload": 0,
             "delay": 0
-        },
-        {
-            "key": "field_610988e81e760",
-            "label": "Postal Codes Serviced",
-            "name": "postal_codes",
-            "type": "textarea",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "maxlength": "",
-            "rows": 20,
-            "new_lines": ""
-        },
-        {
-            "key": "field_610988491e75f",
-            "label": "Address",
-            "name": "address",
-            "type": "google_map",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "center_lat": "",
-            "center_lng": "",
-            "zoom": "",
-            "height": ""
         },
         {
             "key": "field_6112a365bb3be",
@@ -89,6 +71,43 @@
             },
             "default_value": "",
             "placeholder": ""
+        },
+        {
+            "key": "field_610988491e75f",
+            "label": "Address",
+            "name": "address",
+            "type": "google_map",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "center_lat": "",
+            "center_lng": "",
+            "zoom": "",
+            "height": ""
+        },
+        {
+            "key": "field_610988e81e760",
+            "label": "Postal Codes Serviced",
+            "name": "postal_codes",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 20,
+            "new_lines": ""
         },
         {
             "key": "field_610989a2758b1",
@@ -134,6 +153,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1629411437,
-    "local_file": "\/var\/www\/html\/wp-content\/themes\/portent_enercare_2021\/acf-json\/group_610988139e296.json"
+    "modified": 1630370526
 }

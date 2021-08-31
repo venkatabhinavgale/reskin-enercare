@@ -25,7 +25,10 @@ function enercare_entry_category() {
 function enercare_post_summary_title() {
 	global $wp_query;
 	$tag = ( is_singular() || -1 === $wp_query->current_post ) ? 'h3' : 'h2';
-	echo '<' . $tag . ' class="post-summary__title"><a href="' . get_permalink() . '">' . get_the_title() . '</a></' . $tag . '>';
+  $the_title = get_the_title();
+  if (get_field('display_title'))
+    $the_title = get_field('display_title');
+	echo '<' . $tag . ' class="post-summary__title"><a href="' . get_permalink() . '">' . $the_title . '</a></' . $tag . '>';
 }
 
 /**
