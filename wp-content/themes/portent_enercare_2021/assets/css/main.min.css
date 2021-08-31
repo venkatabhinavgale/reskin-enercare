@@ -221,6 +221,8 @@ div.wpforms-container.one-line:after{content:"";display:table;clear:both}
 .block-tabbed-content__panel{display:block;position:relative;width:100%}
 .block-tabbed-content__tab-content{display:none;position:absolute}
 .block-tabbed-content__tab-content.active{display:block;position:relative}
+.block-slide__wrapper{position:relative}
+.block-slide__image{position:absolute;-o-object-fit:cover;object-fit:cover;-o-object-position:center center;object-position:center center;height:100%;width:100%}
 .site-header{background:#fff;border-bottom:1px solid #e6e4e4;position:relative;min-height:49px}
 .title-area{float:left;width:100%;max-width:300px;text-align:left;margin:0 auto}
 .title-area h1.site-title,.title-area p.site-title{margin:0;font-size:24px;line-height:30px;padding:8px}

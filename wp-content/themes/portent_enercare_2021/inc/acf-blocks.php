@@ -30,6 +30,70 @@ function enercare_register_theme_blocks() {
       ),
     ));
 
+    acf_register_block_type( array(
+		  'name'            => 'ecm-card',
+		  'title'           => __( 'EMC Profile Card' ),
+		  'description'     => __( 'Card that displays a photo, and some information for an Enercare EMC. This card has an additional text area for supplying biographical content about the EMC that will open in a modal view' ),
+		  'render_template' => 'partials/blocks/modal-card/block-modal-card.php',
+		  'category'        => 'layout',
+		  'mode'            => 'preview',
+		  'keywords'        => array('card', 'emc', 'enercare', 'portent'),
+		  'enqueue_assets' => function() {
+			  wp_enqueue_style( 'block-card-style', get_template_directory_uri() . '/assets/css/block--emc-card.css', array('ea-style'), false, 'screen');
+		  },
+		  'supports'        => array(
+			  'align' => true,
+			  'mode'  => false,
+			  'color' => array(
+				  'background' => true,
+				  'text' => false
+			  )
+		  ),
+	  ));
+
+	  acf_register_block_type( array(
+		  'name'            => 'offer-card',
+		  'title'           => __( 'Offer Card' ),
+		  'description'     => __( 'This card sets up a "campaign spot". Active campaigns will be queried based on the settings provided' ),
+		  'render_template' => 'partials/blocks/offer-card/block-offer-card.php',
+		  'category'        => 'layout',
+		  'mode'            => 'preview',
+		  'keywords'        => array('card', 'offer', 'enercare', 'portent'),
+		  'enqueue_assets' => function() {
+			  wp_enqueue_style( 'block-card-style', get_template_directory_uri() . '/assets/css/block--offer-card.css', array('ea-style'), false, 'screen');
+		  },
+
+		  'supports'        => array(
+			  'align' => true,
+			  'mode'  => false,
+			  'color' => array(
+				  'background' => true,
+				  'text' => false
+			  )
+		  ),
+	  ));
+
+	  acf_register_block_type( array(
+		  'name'            => 'mega-button',
+		  'title'           => __( 'Mega Button' ),
+		  'description'     => __( 'This block setups a large clickable link that has color options, and a spot for a prominent icon' ),
+		  'render_template' => 'partials/blocks/modal-card/block-modal-card.php',
+		  'category'        => 'layout',
+		  'mode'            => 'preview',
+		  'keywords'        => array('card', 'emc', 'enercare', 'portent'),
+		  'enqueue_assets' => function() {
+			  wp_enqueue_style( 'block-card-style', get_template_directory_uri() . '/assets/css/block--emc-card.css', array('ea-style'), false, 'screen');
+		  },
+		  'supports'        => array(
+			  'align' => true,
+			  'mode'  => false,
+			  'color' => array(
+				  'background' => true,
+				  'text' => false
+			  )
+		  ),
+	  ));
+
     // Register a email newsletter form block.
     acf_register_block_type( array(
       'name'            => 'email-signup',
@@ -44,6 +108,7 @@ function enercare_register_theme_blocks() {
       },
       'supports'        => array(
         'mode'  => false,
+        'jsx'   => true,
         'color' => array(
           'background' => true,
           'text' => false,
@@ -53,22 +118,50 @@ function enercare_register_theme_blocks() {
     ));
 
     acf_register_block_type( array(
-      'name'            => 'tabbed-content-area',
-      'title'           => __( 'Tabbed Content Area' ),
-      'description'     => __( 'Form that allows a user to signup for an email newsletter' ),
-      'render_template' => 'partials/blocks/newsletter-signup/block-newsletter-signup.php',
+      'name'            => 'glider-carousel',
+      'title'           => __( 'Carousel (Glider.js)' ),
+      'description'     => __( 'Block that sets up the carousel container for slides. This block uses the Glider.js library to render the carousel. Glider.js is very low weight in terms of styles and scripting, but lacks the ability to infinitely loop' ),
+      'render_template' => 'partials/blocks/carousel-glider/block-carousel-glider.php',
       'category'        => 'layout',
       'mode'            => 'preview',
-      'keywords'        => array('tabbed', 'content', 'tab', 'enercare', 'portent'),
+      'keywords'        => array('carousel', 'glider', 'slide', 'enercare', 'portent'),
       'supports'        => array(
         'mode'  => false,
+        'align' => true,
+        'jsx'   => true,
         'color' => array(
           'background' => true,
           'text' => false,
           'gradients' => false
-        )
+        ),
       ),
+      'enqueue_assets' => function() {
+	      wp_enqueue_script( 'glider-js');
+	      wp_enqueue_style( 'glider-css');
+	      wp_enqueue_script( 'block--carousel-script', get_template_directory_uri() . '/assets/js/block--carousel.js', array('glider-js'), null, true);
+      },
     ));
+
+	  acf_register_block_type( array(
+		  'name'            => 'glider-slide',
+		  'title'           => __( 'Slide (Glider.js)' ),
+		  'description'     => __( 'Block to setup individual slides within a Glider Carousel block' ),
+		  'render_template' => 'partials/blocks/carousel-glider/slide-glider/block-slide-glider.php',
+		  'category'        => 'layout',
+		  'parent'          => array('acf/glider-carousel'),
+		  'mode'            => 'preview',
+		  'keywords'        => array('carousel', 'glider', 'slide', 'enercare', 'portent'),
+		  'supports'        => array(
+			  'mode'  => false,
+			  'align' => true,
+			  'jsx'   => true,
+			  'color' => array(
+				  'background' => true,
+				  'text' => false,
+				  'gradients' => true
+			  ),
+		  ),
+	  ));
 
 	acf_register_block_type( array(
 	  'name'            => 'location-finder',

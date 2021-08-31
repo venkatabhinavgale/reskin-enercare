@@ -77,3 +77,18 @@
 	}
 }
 
+
+/*
+Slide
+ */
+.block-slide__wrapper {
+	position: relative;
+}
+
+.block-slide__image {
+	position: absolute;
+	object-fit: cover;
+	object-position: center center;
+	height: 100%;
+	width: 100%;
+}
