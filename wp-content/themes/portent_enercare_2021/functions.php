@@ -44,6 +44,7 @@ include_once( get_template_directory() . '/inc/acf-blocks.php');
 include_once( get_template_directory() . '/inc/amp.php' );
 include_once( get_template_directory() . '/inc/shared-counts.php' );
 include_once( get_template_directory() . '/inc/wpforms.php' );
+include_once( get_template_directory() . '/inc/gforms.php' );
 
 /**
  * Enqueue scripts and styles.
