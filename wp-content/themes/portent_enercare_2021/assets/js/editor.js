@@ -15,6 +15,10 @@ wp.domReady( () => {
 			{
 				name: 'full',
 				label: 'Full Width',
+			},
+			{
+				name: 'large',
+				label: 'Large'
 			}
 		]
 	);
@@ -27,6 +31,24 @@ wp.domReady( () => {
 	wp.blocks.unregisterBlockStyle(
 		'core/quote',
 		[ 'default', 'large' ]
+	);
+
+	wp.blocks.registerBlockStyle(
+		'core/list',
+		[
+			{
+				name: 'checkmarked',
+				label: 'Checkmarked'
+			},
+			{
+				name: 'pros',
+				label: 'Pros'
+			},
+			{
+				name: 'cons',
+				label: 'Cons'
+			}
+		]
 	);
 
 	wp.blocks.registerBlockStyle(

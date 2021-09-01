@@ -77,7 +77,7 @@ function enercare_register_theme_blocks() {
 		  'name'            => 'mega-button',
 		  'title'           => __( 'Mega Button' ),
 		  'description'     => __( 'This block setups a large clickable link that has color options, and a spot for a prominent icon' ),
-		  'render_template' => 'partials/blocks/modal-card/block-modal-card.php',
+		  'render_template' => 'partials/blocks/mega-button/block-mega-button.php',
 		  'category'        => 'layout',
 		  'mode'            => 'preview',
 		  'keywords'        => array('card', 'emc', 'enercare', 'portent'),

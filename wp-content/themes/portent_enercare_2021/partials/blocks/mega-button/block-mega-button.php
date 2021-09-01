@@ -1,6 +1,6 @@
 <?php
 // Create class attribute allowing for custom "className" and "align" values.
-$classes = '';
+$classes = 'block-mega-button';
 if( !empty($block['className']) ) {
 	$classes .= sprintf( ' %s', $block['className'] );
 }
@@ -12,15 +12,12 @@ if( !empty($block['backgroundColor'] ) ) {
 	$classes .= sprintf(' has-%s-background-color', $block['backgroundColor']);
 }
 
-$allowed_blocks = array(
-	'core/image',
-	'core/paragraph',
-	'core/header',
-	'core/buttons'
-);
-
+// ACF Fields
+	$link = get_field('link');
+	$image = get_field( 'image');
 ?>
 
-<div class="block-card <?php echo esc_attr($classes); ?>">
-	<InnerBlocks allowedBlocks="' . esc_attr( wp_json_encode( $allowed_blocks ) ) . '" />
-</div>
+<a class="<?php echo esc_attr($classes); ?>" href="<?= $link['url'] ?>">
+	<?= wp_get_attachment_image( $image, '1-1', false, array( 'alt' => '', 'class' => 'block-mega-button__image' )); ?>
+	<span class="block-mega-button__text"><?= $link['title'] ?></span>
+</a>

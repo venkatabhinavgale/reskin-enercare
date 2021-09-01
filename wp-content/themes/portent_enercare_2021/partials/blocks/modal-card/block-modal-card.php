@@ -1,4 +1,18 @@
 <?php
+// Create class attribute allowing for custom "className" and "align" values.
+$classes = 'block-emc-card';
+if( !empty($block['className']) ) {
+	$classes .= sprintf( ' %s', $block['className'] );
+}
+if( !empty($block['align']) ) {
+	$classes .= sprintf( ' align%s', $block['align'] );
+}
+
+if( !empty($block['backgroundColor'] ) ) {
+	$classes .= sprintf(' has-%s-background-color', $block['backgroundColor']);
+}
+
+//ACF Fields
 	$emc_image = get_field('image') ? get_field('image') : get_field( 'enercare_default_image', 'options');
 	$emc_name = get_field('name') ? get_field('name') : __( 'EMC Name', 'portent-enercare');
 	$emc_title = get_field('title') ? get_field('title') : __( 'EMC Title', 'portent-enercare');
@@ -7,7 +21,7 @@
 ?>
 
 <div class="block-emc-card__wrapper">
-<button>
+<button class="<?php echo esc_attr($classes); ?>">
 	<?= wp_get_attachment_image( $emc_image, '1-1-3x', false, array( 'class' =>'block-emc-card__image', 'alt'=>'') ); ?>
 	<h3><?= $emc_name ?></h3>
 	<em><?= $emc_title ?></em>
