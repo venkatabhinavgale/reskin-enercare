@@ -44,6 +44,7 @@ include_once( get_template_directory() . '/inc/acf-blocks.php');
 include_once( get_template_directory() . '/inc/amp.php' );
 include_once( get_template_directory() . '/inc/shared-counts.php' );
 include_once( get_template_directory() . '/inc/wpforms.php' );
+include_once( get_template_directory() . '/inc/gforms.php' );
 
 /**
  * Enqueue scripts and styles.
@@ -182,6 +183,10 @@ function enercare_setup() {
 	/**
 	 * Image Sizes
 	 */
+	add_image_size( '1-1-small', 100, 100);
+	add_image_size( '1-1', 300, 300);
+	add_image_size( '1-1-2x', 600, 600);
+	add_image_size( '1-1-3x', 900, 900);
 	add_image_size('3-2-small', 372, 248);
 	add_image_size('3-2', 572, 382);
 	add_image_size('3-2-2x', 804, 536);
