@@ -60,7 +60,7 @@ class Campaign_Post_Type_Registrations {
 
 		$supports = array(
 			'title',
-			'editor',
+			//'editor',
 			'thumbnail',
 			'custom-fields',
 			'revisions'

@@ -3,6 +3,44 @@
     "title": "Campaigns",
     "fields": [
         {
+            "key": "field_612fd67fbfc61",
+            "label": "Heading",
+            "name": "heading",
+            "type": "text",
+            "instructions": "This will be the main heading used on the all deals page and all offer blocks.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_612fd6cdbfc62",
+            "label": "Subheading",
+            "name": "subheading",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_611eaea17df12",
             "label": "Start Date",
             "name": "start_date",
@@ -24,7 +62,7 @@
             "label": "End Date",
             "name": "end_date",
             "type": "date_picker",
-            "instructions": "",
+            "instructions": "The campaign will be active through the end of the day defined in this field. This will typically be the last day of the month. ie. October 31st",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -49,7 +87,7 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "array",
+            "return_format": "id",
             "preview_size": "thumbnail",
             "library": "all",
             "min_width": "",
@@ -59,6 +97,21 @@
             "max_height": "",
             "max_size": "",
             "mime_types": ""
+        },
+        {
+            "key": "field_611eb0017df17",
+            "label": "Destination (Link)",
+            "name": "destination",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url"
         },
         {
             "key": "field_611eaf9e7df16",
@@ -78,48 +131,6 @@
             "prepend": "",
             "append": "",
             "maxlength": 15
-        },
-        {
-            "key": "field_611eb0017df17",
-            "label": "Destination (Link)",
-            "name": "destination",
-            "type": "link",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array"
-        },
-        {
-            "key": "field_611eb8c4ffde8",
-            "label": "Associated Locations",
-            "name": "locations",
-            "type": "relationship",
-            "instructions": "Select one or more locations\/patches associated with this campaign. If none are selected, this campaign is assumed to be \"global\"",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "post_type": [
-                "location"
-            ],
-            "taxonomy": "",
-            "filters": [
-                "search",
-                "post_type",
-                "taxonomy"
-            ],
-            "elements": "",
-            "min": "",
-            "max": "",
-            "return_format": "object"
         },
         {
             "key": "field_611eb03d7df18",
@@ -159,6 +170,33 @@
             "maxlength": "",
             "rows": "",
             "new_lines": ""
+        },
+        {
+            "key": "field_611eb8c4ffde8",
+            "label": "Associated Locations",
+            "name": "locations",
+            "type": "relationship",
+            "instructions": "Select one or more locations\/patches associated with this campaign. If none are selected, this campaign is assumed to be \"global\"",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "location"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search",
+                "post_type",
+                "taxonomy"
+            ],
+            "elements": "",
+            "min": "",
+            "max": "",
+            "return_format": "object"
         }
     ],
     "location": [
@@ -175,9 +213,14 @@
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
-    "hide_on_screen": "",
+    "hide_on_screen": [
+        "the_content",
+        "excerpt",
+        "discussion",
+        "comments",
+        "author"
+    ],
     "active": true,
     "description": "",
-    "modified": 1629934238,
-    "local_file": "\/var\/www\/html\/wp-content\/themes\/portent_enercare_2021\/acf-json\/group_611eae89ba2f4.json"
+    "modified": 1630526437
 }
