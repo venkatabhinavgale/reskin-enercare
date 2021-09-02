@@ -58,9 +58,10 @@ function enercare_register_theme_blocks() {
 		  'render_template' => 'partials/blocks/offer-card/block-offer-card.php',
 		  'category'        => 'layout',
 		  'mode'            => 'preview',
-		  'keywords'        => array('card', 'offer', 'enercare', 'portent'),
+		  'keywords'        => array('card', 'offer', 'campaign', 'deal', 'enercare', 'portent'),
 		  'enqueue_assets' => function() {
 			  wp_enqueue_style( 'block-card-style', get_template_directory_uri() . '/assets/css/block--offer-card.css', array('ea-style'), false, 'screen');
+        wp_enqueue_script( 'block--offer-card-script', get_template_directory_uri() . '/assets/js/block--offer-card.js', null, null, true);
 		  },
 
 		  'supports'        => array(
