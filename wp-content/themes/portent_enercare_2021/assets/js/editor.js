@@ -49,6 +49,10 @@ wp.domReady( () => {
 		'core/list',
 		[
 			{
+				name: 'bulleted',
+				label: 'Bulleted'
+			},
+			{
 				name: 'checkmarked',
 				label: 'Checkmarked'
 			},
@@ -66,6 +70,10 @@ wp.domReady( () => {
 	wp.blocks.registerBlockStyle(
 		'acf/card',
 		[
+			{
+				name: 'plain',
+				label: 'Plain'
+			},
 			{
 				name: 'bordered',
 				label: 'Bordered',
