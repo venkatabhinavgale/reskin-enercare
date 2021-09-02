@@ -1,6 +1,35 @@
 .block-mega-button {
+	max-width: 122px;
+	max-height: 88px;
+	background-color: #FFF;
+	text-align: center;
+	text-decoration: none;
+	margin-top: 1em;
+	margin-bottom: 1em;
+
+	@include media(">=tablet") {
+		max-width: 144px;
+		max-height: 128px;
+	}
 
 	&__image {
+		max-height: 2em;
+		max-width: 2em;
+		margin: 0.5em auto;
 
+		@include media(">=tablet") {
+			max-width: 40px;
+			max-height: 64px;
+
+		}
+	}
+
+	&__text {
+		display: block;
+		color: #000;
+		font-size: 18px;
+		line-height: 24px;
+		font-weight: 700;
+		text-align: center;
 	}
 }
