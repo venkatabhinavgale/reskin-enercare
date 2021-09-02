@@ -8,17 +8,29 @@ wp.domReady( () => {
 		'core/button',
 		[
 			{
+				name: 'x-small',
+				label: "Extra Small"
+			},
+			{
+				name: 'small',
+				label: 'Small'
+			},
+			{
 				name: 'default',
 				label: 'Default',
 				isDefault: true,
 			},
 			{
-				name: 'full',
-				label: 'Full Width',
+				name: 'featured',
+				label: 'Featured'
 			},
 			{
-				name: 'large',
-				label: 'Large'
+				name: 'hero',
+				label: 'Hero'
+			},
+			{
+				name: 'x-large',
+				label: 'Extra Large'
 			}
 		]
 	);
