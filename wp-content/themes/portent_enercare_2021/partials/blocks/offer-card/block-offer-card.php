@@ -78,8 +78,8 @@
     if ($terms_and_conditions && !empty($terms_and_conditions)) {
       $campaign_terms = '
         <div class="block-offer-card__terms">
-          <strong>Need more Details?</strong> Read the fine print
-          <div class="block-offer-card__terms-details">' . $terms_and_conditions . '</div>
+          <button class="block-offer-card__terms-toggle"><strong>Need more Details?</strong> Read the fine print</button>
+          <div class="block-offer-card__terms-details" data-state="closed">' . $terms_and_conditions . '</div>
         </div>
       ';
     }
@@ -89,17 +89,17 @@
 
   <?php } elseif ($variation == "Offer with Icon") { ?>
   <div class="block-offer-card__wrapper">
-  <a href="<?= get_field('destination', $campaign->ID); ?>">
-  <button>
-    <?= $campaign_icon; ?>
-    <?php if ($campaign_subheading) { ?>
-      <p><?php echo $campaign_subheading; ?></p>
-    <?php } ?>
-    <h3><?= $campaign_heading; ?></h3>
-    <span class="wp-block-button__link has-red-background-color has-background"><?= $cta_text ?></span>
+    <a href="<?= get_field('destination', $campaign->ID); ?>">
+    <button>
+      <?= $campaign_icon; ?>
+      <?php if ($campaign_subheading) { ?>
+        <p><?php echo $campaign_subheading; ?></p>
+      <?php } ?>
+      <h3><?= $campaign_heading; ?></h3>
+      <span class="wp-block-button__link has-red-background-color has-background"><?= $cta_text ?></span>
+    </button>
+    </a>
     <?= $campaign_terms; ?>
-  </button>
-  </a>
   </div>
 
   <?php } elseif ($variation == "Full Width with Image") { ?>
