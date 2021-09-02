@@ -223,6 +223,9 @@ ul.wp-block-gallery li,ol.wp-block-gallery li{padding-bottom:0}
 .block-reviews__review__content:before,.block-reviews__review__content:after{content:'"'}
 .block-reviews__review__reviewer{display:block;font-size:1.125em;line-height:1.5em;font-weight:700;margin:.025em 0 .015em;text-transform:capitalize}
 .block-reviews__review__date{display:block;margin:.015em 0 0}
+.block-mega-button{max-width:122px;max-height:88px;background-color:#FFF;text-align:center;text-decoration:none;margin-top:1em;margin-bottom:1em}
+.block-mega-button__image{max-height:2em;max-width:2em;margin:.5em auto}
+.block-mega-button__text{display:block;color:#000;font-size:18px;line-height:24px;font-weight:700;text-align:center}
 @media(min-width:768px){body{font-size:1em}
 p.large,p.has-large-font-size{font-size:1.125em}
 p.has-normal-font-size{font-size:1em}
@@ -241,6 +244,8 @@ body,p{font-size:1em}
 .block-reviews__section-heading__header{font-size:3em}
 .block-reviews__review__content{font-size:1.125em}
 .block-reviews__review__reviewer{font-size:1.125em}
+.block-mega-button{max-width:144px;max-height:128px}
+.block-mega-button__image{max-width:40px;max-height:64px}
 }@media(min-width:769px){.post-summary__image{margin-bottom:12px}
 }@media(min-width:992px){h1{font-size:46px}
 h2{font-size:36px}
