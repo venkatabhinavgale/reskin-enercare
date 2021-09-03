@@ -1,11 +1,14 @@
 .block-mega-button {
+	display: block;
 	max-width: 122px;
 	max-height: 88px;
 	background-color: $white;
 	text-align: center;
 	text-decoration: none;
+	padding: 1em;
 	margin-top: 1em;
 	margin-bottom: 1em;
+	border-radius: $border-radius;
 
 	@include media(">=tablet") {
 		max-width: 144px;
