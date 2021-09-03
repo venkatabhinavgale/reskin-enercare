@@ -79,3 +79,53 @@ add_action( 'gform_after_update_entry', function ( $form, $entry_id ) {
     gf_feed_processor()->save()->dispatch();
   }
 }, 10, 2 );
+
+// customize the progress bar
+add_filter( 'gform_progress_bar', function( $progress_bar, $form, $confirmation_message ) {
+  $progress_bar = str_replace("class='gf_progressbar gf_progressbar_custom'", "class='gf_progressbar gf_progressbar_custom' data-state='closed'", $progress_bar);
+  return $progress_bar;
+}, 10, 3 );
+
+// move progress bar to bottom of form if 'progress-bar-bottom' is put in top page custom css
+// https://gist.github.com/n7studios/f0b3ce229fa686ea0184
+function gravity_forms_move_progress_bar( $form_string, $form ) {
+  // Check if Pagination is enabled on this form
+  if ( ! is_array( $form['pagination'] ) ) {
+    return $form_string;
+  } 
+  if ( empty( $form['pagination']['type'] ) ) {
+    return $form_string;
+  }
+
+  // Check if the first page CSS class is progress-bar-bottom
+  if ( ! isset( $form['firstPageCssClass'] ) ) {
+    return $form_string;
+  }
+  if ( strpos($form['firstPageCssClass'], 'progress-bar-bottom' ) === false) {
+    return $form_string;
+  }
+
+  // If here, the progress bar needs to be at the end of the form
+  // Load form string into DOMDocument
+  $dom = new DOMDocument;
+  @$dom->loadHTML( $form_string );
+
+  // Load Xpath
+  $xpath = new DOMXPath( $dom );
+
+  // Find Progress Bar
+  $progress_bar = $xpath->query( '//div[@class="gf_progressbar_wrapper"]' )->item(0);
+
+  // Find Form
+  $form = $xpath->query( '//form' )->item(0);
+
+  // Move Progress Bar to end of the Form
+  $form->appendChild( $progress_bar );
+
+  // Get HTML string
+  $form_string = $dom->saveHTML();
+
+  // Return modified HTML string
+  return $form_string;
+}
+add_filter( 'gform_get_form_filter', 'gravity_forms_move_progress_bar', 10, 3 );
