@@ -65,4 +65,3 @@ assets/bower_components/*
 # PhpStrom Project Files #
 .idea/
 library/vendors/composer
-assets/img/.DS_Store
