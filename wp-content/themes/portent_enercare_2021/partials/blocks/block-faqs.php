@@ -24,7 +24,7 @@ if( !empty( $faqs ) )  {
     echo '<div class="block-faqs--faq-container">';
     echo esc_html($faq->post_title);
     
-    echo '<div class="block-faqs--faq-answer-container">';
+    echo '<div class="block-faqs--faq-answer-container" data-state="closed">';
     echo esc_html($faq->post_content);
     echo '</div>';
     
