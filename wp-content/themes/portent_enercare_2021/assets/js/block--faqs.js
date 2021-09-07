@@ -5,7 +5,14 @@ window.addEventListener('load', function () {
   tcToggle.forEach(function (tc) {
     tc.addEventListener("click", function () {
       var faqContent = tc.querySelector('.block-faqs--faq-answer-container');
-      if (faqContent.getAttribute("data-state") == "open") faqContent.setAttribute("data-state", "closed");else faqContent.setAttribute("data-state", "open");
+
+      if (faqContent.getAttribute("aria-expanded") == "true") {
+        faqContent.setAttribute("aria-expanded", "false");
+        faqContent.setAttribute("data-state", "closed");
+      } else {
+        faqContent.setAttribute("aria-expanded", "true");
+        faqContent.setAttribute("data-state", "open");
+      }
     });
   });
 });
