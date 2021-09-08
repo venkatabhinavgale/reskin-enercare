@@ -78,8 +78,8 @@
     if ($terms_and_conditions && !empty($terms_and_conditions)) {
       $campaign_terms = '
         <div class="block-offer-card__terms">
-          <button class="block-offer-card__terms-toggle"><strong>Need more Details?</strong> Read the fine print</button>
-          <div class="block-offer-card__terms-details" data-state="closed">' . $terms_and_conditions . '</div>
+          <button class="block-offer-card__terms-toggle" aria-controls="terms_' . $campaign->ID . '"><strong>Need more Details?</strong> Read the fine print</button>
+          <div class="block-offer-card__terms-details" aria-expanded="false" data-state="closed" aria-labelledby="terms_' . $campaign->ID . '">' . $terms_and_conditions . '</div>
         </div>
       ';
     }
@@ -88,7 +88,7 @@
   <?php if ($variation == "Offer Card") { ?>
 
   <?php } elseif ($variation == "Offer with Icon") { ?>
-  <div class="block-offer-card__wrapper">
+  <div class="block-offer-card__wrapper" data-allow-multiple>
     <a href="<?= get_field('destination', $campaign->ID); ?>">
     <button>
       <?= $campaign_icon; ?>

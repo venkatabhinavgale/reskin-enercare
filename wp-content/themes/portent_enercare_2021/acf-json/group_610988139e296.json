@@ -3,6 +3,22 @@
     "title": "Locations",
     "fields": [
         {
+            "key": "field_6137af523c0df",
+            "label": "Info",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
             "key": "field_612d7a8008d46",
             "label": "Display Title",
             "name": "display_title",
@@ -41,38 +57,6 @@
             "delay": 0
         },
         {
-            "key": "field_6112a365bb3be",
-            "label": "Google Maps URL",
-            "name": "google_maps_url",
-            "type": "url",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": ""
-        },
-        {
-            "key": "field_6112a336bb3bd",
-            "label": "Google Reviews URL",
-            "name": "google_reviews_url",
-            "type": "url",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": ""
-        },
-        {
             "key": "field_610988491e75f",
             "label": "Address",
             "name": "address",
@@ -89,6 +73,246 @@
             "center_lng": "",
             "zoom": "",
             "height": ""
+        },
+        {
+            "key": "field_6137afbdb283d",
+            "label": "Phone Numbers",
+            "name": "phone_numbers",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "",
+            "sub_fields": [
+                {
+                    "key": "field_6137afcab283e",
+                    "label": "Phone label",
+                    "name": "phone_label",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_6137aff3b283f",
+                    "label": "Phone number",
+                    "name": "phone_number",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                }
+            ]
+        },
+        {
+            "key": "field_6137b034b2840",
+            "label": "Hours",
+            "name": "hours",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "",
+            "sub_fields": [
+                {
+                    "key": "field_6137b034b2841",
+                    "label": "Hours label",
+                    "name": "hours_label",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_6137b034b2842",
+                    "label": "Hours open",
+                    "name": "hours_open",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                }
+            ]
+        },
+        {
+            "key": "field_6137b075b2843",
+            "label": "Service Area",
+            "name": "service_area",
+            "type": "text",
+            "instructions": "Enter a comma-delimited list of service areas, typically cities.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_6137b099b2844",
+            "label": "Override Service Links?",
+            "name": "override_service_links",
+            "type": "true_false",
+            "instructions": "By choosing to override the service links, every service needs to be defined below with a link. If you do not override the service links, this location will list and link to the default\/main service pages as defined in the taxonomy.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_6137b128b2845",
+            "label": "Services",
+            "name": "services",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6137b099b2844",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "",
+            "sub_fields": [
+                {
+                    "key": "field_6137b13fb2846",
+                    "label": "Service Link",
+                    "name": "service_link",
+                    "type": "link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_6137b099b2844",
+                                "operator": "==",
+                                "value": "1"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array"
+                }
+            ]
+        },
+        {
+            "key": "field_6112a365bb3be",
+            "label": "Google Maps URL",
+            "name": "google_maps_url",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_6137af763c0e0",
+            "label": "Postal Codes",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
         },
         {
             "key": "field_610988e81e760",
@@ -108,6 +332,22 @@
             "maxlength": "",
             "rows": 20,
             "new_lines": ""
+        },
+        {
+            "key": "field_6137af8e3c0e1",
+            "label": "GMB",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
         },
         {
             "key": "field_610989a2758b1",
@@ -134,6 +374,22 @@
             "min": "",
             "max": "",
             "return_format": "object"
+        },
+        {
+            "key": "field_6112a336bb3bd",
+            "label": "Google Reviews URL",
+            "name": "google_reviews_url",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
         }
     ],
     "location": [
@@ -153,5 +409,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1630370526
+    "modified": 1631050066
 }

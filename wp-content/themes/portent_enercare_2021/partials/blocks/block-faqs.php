@@ -12,7 +12,7 @@ $heading = get_field( 'header' );
 $content = get_field( 'content' );
 $faqs = get_field( 'faqs' );
 
-echo '<div class="block-faqs block-faqs--tablet--'.$tablet_appearance.'">';
+echo '<div class="block-faqs block-faqs--tablet--'.$tablet_appearance.'" data-allow-multiple>';
 
 if( !empty( $heading ) )
 	echo '<h3 class="block-faqs--header">' . esc_html( $heading ) . '</h3>';
@@ -21,10 +21,10 @@ if( !empty( $content ) )
 
 if( !empty( $faqs ) )  {
   foreach ($faqs as $faq) {
-    echo '<div class="block-faqs--faq-container">';
+    echo '<div class="block-faqs--faq-container" aria-controls="faq_' . $faq->ID . '">';
     echo esc_html($faq->post_title);
     
-    echo '<div class="block-faqs--faq-answer-container">';
+    echo '<div class="block-faqs--faq-answer-container" aria-expanded="false" data-state="closed" aria-labelledby="faq_' . $faq->ID . '">';
     echo esc_html($faq->post_content);
     echo '</div>';
     

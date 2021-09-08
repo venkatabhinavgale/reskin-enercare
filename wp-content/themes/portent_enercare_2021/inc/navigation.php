@@ -131,7 +131,7 @@ function enercare_archive_navigation() {
  */
 function enercare_archive_paginated_navigation() {
 
-	if ( is_singular() ) {
+	if ( is_singular() || is_search() ) {
 		return;
 	}
 
