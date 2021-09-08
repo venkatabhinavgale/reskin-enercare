@@ -82,6 +82,12 @@ h3{font-size:22px}
 h4,h5,h6{font-size:18px}
 .is-style-shadowed{-webkit-box-shadow:0 4px 8px 0 rgba(56,61,67,0.3);box-shadow:0 4px 8px 0 rgba(56,61,67,0.3)}
 .is-style-bordered{border:1px solid #dc1c28}
+.is-style-pros{padding-left:0 !important}
+.is-style-pros li{list-style:none}
+.is-style-pros li::before{content:'';display:inline-block;background-image:url("../icons/utility/thumb_up_green.svg");background-repeat:no-repeat;background-position:center;width:22px;height:19px;margin-right:9px;vertical-align:middle}
+.is-style-cons{padding-left:0 !important}
+.is-style-cons li{list-style:none}
+.is-style-cons li::before{content:'';display:inline-block;background-image:url("../icons/utility/thumb_down_red.svg");background-repeat:no-repeat;background-position:center;width:22px;height:19px;margin-right:9px;vertical-align:middle}
 .wp-block-button__link{border-radius:20px;font-size:1rem;font-weight:700;line-height:22px;padding:.70em 1em .375em;text-decoration:none}
 .is-style-full .wp-block-button__link,.wp-block-button__link.full{display:block;width:100%}
 .wp-block-button__link:not(.has-text-color){color:white}
