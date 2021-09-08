@@ -26,6 +26,9 @@ h1{font-size:34px}
 h2{font-size:26px}
 h3{font-size:22px}
 h4,h5,h6{font-size:18px}
+blockquote,blockquote.wp-block-quote{background:none !important}
+blockquote p,blockquote.wp-block-quote p{font-style:italic !important;margin-left:24px;position:relative;font-size:20px !important;font-weight:300 !important}
+blockquote p:before,blockquote.wp-block-quote p:before{content:"";display:block;width:5px;height:100%;background:#b9d9ec;position:absolute;left:-2%}
 .is-style-shadowed{-webkit-box-shadow:0 4px 8px 0 rgba(56,61,67,0.3);box-shadow:0 4px 8px 0 rgba(56,61,67,0.3)}
 .is-style-bordered{border:1px solid #dc1c28}
 .is-style-pros{padding-left:0 !important}
