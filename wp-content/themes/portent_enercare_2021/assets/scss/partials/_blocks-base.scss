@@ -138,6 +138,32 @@ h4, h5, h6 {
 }
 
 /**
+Blockquote
+ */
+
+blockquote, blockquote.wp-block-quote {
+	background: none !important;
+
+	p {
+		font-style: italic !important;
+		margin-left: 24px;
+		position: relative;
+		font-size: 20px !important;
+		font-weight: 300 !important;
+
+		&:before {
+			content: "";
+			display: block;
+			width: 5px;
+			height: 100%;
+			background: #B9D9EC;
+			position: absolute;
+			left: -2%;
+		}
+	}
+}
+
+/**
 Block Styles
  */
 .is-style-shadowed {
