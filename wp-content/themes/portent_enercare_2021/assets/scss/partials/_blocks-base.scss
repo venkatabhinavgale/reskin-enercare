@@ -156,7 +156,7 @@ blockquote, blockquote.wp-block-quote {
 			display: block;
 			width: 5px;
 			height: 100%;
-			background: #B9D9EC;
+			background: map.get($brand_colors, 'blue');
 			position: absolute;
 			left: -2%;
 		}
