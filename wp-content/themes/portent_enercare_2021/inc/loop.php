@@ -131,10 +131,10 @@ add_action( 'tha_content_while_after', 'enercare_comments' );
 function enercare_location_info() {
   $content = '';
   if (get_field('address'))
-    $content .= '<div class="location-group"><img src="" class="location-group__icon" /><div class="location-group__content"><strong>Address</strong><br />' . get_field('address') . '</div></div>';
+    $content .= '<div class="location-group"><img src="' . get_template_directory_uri() . '/assets/icons/maps/place_black_24dp_rounded.svg" class="location-group__icon" /><div class="location-group__content"><strong>Address</strong><br />' . get_field('address') . '</div></div>';
   
   if (have_rows('phone_numbers')) {
-    $content .= '<div class="location-group"><img src="" class="location-group__icon" /><div class="location-group__content"><strong>Phone number</strong><br />';
+    $content .= '<div class="location-group"><img src="' . get_template_directory_uri() . '/assets/icons/communication/phone_black_24dp_rounded.svg" class="location-group__icon" /><div class="location-group__content"><strong>Phone number</strong><br />';
     $rowCount = count(get_field('phone_numbers'));
     while ( have_rows('phone_numbers') ) { the_row();
       $content .= '<strong>' . get_sub_field('phone_label') . ':</strong> ';
@@ -150,7 +150,7 @@ function enercare_location_info() {
   }
   
   if (have_rows('hours')) {
-    $content .= '<div class="location-group"><img src="" class="location-group__icon" /><div class="location-group__content"><strong>Hours</strong><br />';
+    $content .= '<div class="location-group"><img src="' . get_template_directory_uri() . '/assets/icons/action/schedule_black_24dp_rounded.svg" class="location-group__icon" /><div class="location-group__content"><strong>Hours</strong><br />';
     $rowCount = count(get_field('hours'));
     while ( have_rows('hours') ) { the_row();
       $content .= '<strong>' . get_sub_field('hours_label') . ':</strong> ';
@@ -162,9 +162,9 @@ function enercare_location_info() {
   }
   
   if (get_field('service_area'))
-    $content .= '<div class="location-group"><img src="" class="location-group__icon" /><div class="location-group__content"><strong>Service Area</strong><br />' . get_field('service_area') . '</div>';
+    $content .= '<div class="location-group"><img src="' . get_template_directory_uri() . '/assets/icons/maps/my_location_black_24dp_rounded.svg" class="location-group__icon" /><div class="location-group__content"><strong>Service Area</strong><br />' . get_field('service_area') . '</div>';
   
-  $content .= '<div class="location-group"><img src="" class="location-group__icon" /><div class="location-group__content"><strong>Services</strong><br />';
+  $content .= '<div class="location-group"><img src="' . get_template_directory_uri() . '/assets/icons/maps/local_offer_black_24dp_rounded.svg" class="location-group__icon" /><div class="location-group__content"><strong>Services</strong><br />';
   if (get_field('override_service_links') && have_rows('services')) {
     $services = get_field('services');
     foreach ($services as $i => $s) {
