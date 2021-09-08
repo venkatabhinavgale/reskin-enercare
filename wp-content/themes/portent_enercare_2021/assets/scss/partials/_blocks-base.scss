@@ -147,3 +147,43 @@ Block Styles
 .is-style-bordered {
 	border: 1px solid brand-color('red');
 }
+
+.is-style-pros {
+	padding-left: 0 !important;
+
+	li {
+		list-style: none;
+
+		&::before {
+			content: '';
+			display: inline-block;
+			background-image: url('../icons/utility/thumb_up_green.svg');
+			background-repeat: no-repeat;
+			background-position: center;
+			width: 22px;
+			height: 19px;
+			margin-right: 9px;
+			vertical-align: middle;
+		}
+	}
+}
+
+.is-style-cons {
+	padding-left: 0 !important;
+
+	li {
+		list-style: none;
+
+		&::before {
+			content: '';
+			display: inline-block;
+			background-image: url('../icons/utility/thumb_down_red.svg');
+			background-repeat: no-repeat;
+			background-position: center;
+			width: 22px;
+			height: 19px;
+			margin-right: 9px;
+			vertical-align: middle;
+		}
+	}
+}
