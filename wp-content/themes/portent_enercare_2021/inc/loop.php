@@ -130,8 +130,14 @@ add_action( 'tha_content_while_after', 'enercare_comments' );
  */
 function enercare_location_info() {
   $content = '';
-  if (get_field('address'))
-    $content .= '<div class="location-group"><img src="' . get_template_directory_uri() . '/assets/icons/maps/place_black_24dp_rounded.svg" class="location-group__icon" /><div class="location-group__content"><strong>Address</strong><br />' . get_field('address') . '</div></div>';
+  if (get_field('address')) {
+    $address_url = trim(get_field('address'));
+    $address_url = str_replace("<br />", "+", $address_url);
+    $address_url = str_replace("\n", "+", $address_url);
+    $address_url = str_replace(" ", "+", $address_url);
+    $address_url = "https://www.google.com/maps/place/" . $address_url;
+    $content .= '<div class="location-group"><img src="' . get_template_directory_uri() . '/assets/icons/maps/place_black_24dp_rounded.svg" class="location-group__icon" /><div class="location-group__content"><strong>Address</strong><br /><a href="' . $address_url . '"  target="_blank">' . get_field('address') . '</a></div></div>';
+  }
   
   if (have_rows('phone_numbers')) {
     $content .= '<div class="location-group"><img src="' . get_template_directory_uri() . '/assets/icons/communication/phone_black_24dp_rounded.svg" class="location-group__icon" /><div class="location-group__content"><strong>Phone number</strong><br />';

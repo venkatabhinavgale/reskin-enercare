@@ -60,7 +60,7 @@
             "key": "field_610988491e75f",
             "label": "Address",
             "name": "address",
-            "type": "google_map",
+            "type": "textarea",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -69,10 +69,11 @@
                 "class": "",
                 "id": ""
             },
-            "center_lat": "",
-            "center_lng": "",
-            "zoom": "",
-            "height": ""
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": "br"
         },
         {
             "key": "field_6137afbdb283d",
@@ -409,5 +410,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1631050066
+    "modified": 1631151252
 }
