@@ -26,9 +26,6 @@ h1{font-size:34px}
 h2{font-size:26px}
 h3{font-size:22px}
 h4,h5,h6{font-size:18px}
-blockquote,blockquote.wp-block-quote{background:none !important}
-blockquote p,blockquote.wp-block-quote p{font-style:italic !important;margin-left:24px;position:relative;font-size:20px !important;font-weight:300 !important}
-blockquote p:before,blockquote.wp-block-quote p:before{content:"";display:block;width:5px;height:100%;background:#b9d9ec;position:absolute;left:-2%}
 .is-style-shadowed{-webkit-box-shadow:0 4px 8px 0 rgba(56,61,67,0.3);box-shadow:0 4px 8px 0 rgba(56,61,67,0.3)}
 .is-style-bordered{border:1px solid #dc1c28}
 .is-style-pros{padding-left:0 !important}
@@ -37,6 +34,13 @@ blockquote p:before,blockquote.wp-block-quote p:before{content:"";display:block;
 .is-style-cons{padding-left:0 !important}
 .is-style-cons li{list-style:none}
 .is-style-cons li::before{content:'';display:inline-block;background-image:url("../icons/utility/thumb_down_red.svg");background-repeat:no-repeat;background-position:center;width:22px;height:19px;margin-right:9px;vertical-align:middle}
+.is-style-checkmarked{padding-left:0 !important}
+.is-style-checkmarked li{list-style:none}
+.is-style-checkmarked li::before{content:'';display:inline-block;background-image:url("../icons/toggle/check_box_black_24dp_rounded.svg");background-repeat:no-repeat;background-position:center;width:22px;height:19px;margin-right:9px;vertical-align:middle}
+.breadcrumb a,.yoast-breadcrumbs a{color:#000;font-size:12px;text-decoration:none}
+.breadcrumb a:after,.yoast-breadcrumbs a:after{padding:8px 0 8px 8px;color:#000;content:"/\00a0"}
+.breadcrumb a:last-child,.yoast-breadcrumbs a:last-child{font-weight:600}
+.breadcrumb a:last-child:after,.yoast-breadcrumbs a:last-child:after{content:""}
 .wp-block-button__link{border-radius:20px;font-size:1rem;font-weight:700;line-height:22px;padding:.70em 1em .375em;text-decoration:none}
 .is-style-full .wp-block-button__link,.wp-block-button__link.full{display:block;width:100%}
 .wp-block-button__link:not(.has-text-color){color:white}
@@ -83,8 +87,9 @@ blockquote p:before,blockquote.wp-block-quote p:before{content:"";display:block;
 .wp-block-button__link.has-grey-10-background-color:hover,.wp-block-button__link.has-grey-10-background-color:focus{background-color:#dfd5d5}
 .wp-block-button__link.has-white-color:hover,.wp-block-button__link.has-white-color:focus{color:#fff}
 .wp-block-button__link.has-white-background-color:hover,.wp-block-button__link.has-white-background-color:focus{background-color:#e6e5e5}
-blockquote,blockquote.wp-block-quote{background:transparent url(../icons/utility/quote.svg) no-repeat top left;background-size:36px auto;padding-top:47px;text-align:left}
-blockquote p,blockquote.wp-block-quote p{color:#29292c;font-size:24px;font-style:normal;font-weight:400}
+blockquote,blockquote.wp-block-quote{background:0}
+blockquote p,blockquote.wp-block-quote p{color:#29292c;font-style:italic;margin-left:24px;position:relative;font-size:20px;font-weight:300}
+blockquote p:before,blockquote.wp-block-quote p:before{content:"";display:block;width:5px;height:100%;background:#b9d9ec;position:absolute;left:-2%}
 blockquote cite,blockquote .wp-block-quote__citation,blockquote.wp-block-quote cite,blockquote.wp-block-quote .wp-block-quote__citation{color:#29292c;display:block;font-size:16px;font-weight:700;margin-top:12px;opacity:.5;text-transform:uppercase}
 blockquote p:last-of-type,blockquote.wp-block-quote p:last-of-type{margin-bottom:0}
 .wp-block-separator,hr{background:transparent;border:0;width:100%;height:32px;position:relative}
