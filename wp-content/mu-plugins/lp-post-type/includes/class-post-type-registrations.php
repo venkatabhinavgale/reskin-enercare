@@ -77,7 +77,8 @@ class LP_Post_Type_Registrations {
 			'has_archive'         => true,
 			//'taxonomies'          => $taxonomies,
       'exclude_from_search' => true,
-      'publicly_queryable'  => true
+      'publicly_queryable'  => true,
+      'show_in_rest'        => true
 		);
 
 		$args = apply_filters( 'lp_post_type_args', $args );

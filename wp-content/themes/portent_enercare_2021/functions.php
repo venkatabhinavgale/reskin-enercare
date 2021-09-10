@@ -79,6 +79,11 @@ function enercare_scripts() {
 
 	wp_enqueue_style( 'ea-fonts', enercare_theme_fonts_url() );
 	wp_enqueue_style( 'ea-style', get_template_directory_uri() . '/assets/css/main.css', array(), filemtime( get_template_directory() . '/assets/css/main.css' ) );
+  
+  // Only load legal terms toggle functionality on post types that use it
+  if( get_post_type() == 'landing-page' ) {
+    wp_enqueue_script( 'legal-terms', get_template_directory_uri() . '/assets/js/legal-terms.js', null, null, true );
+  }
 
 	/*
 	 * Block level enqueues
