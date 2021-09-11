@@ -11,14 +11,40 @@ import './style.scss';
 
 const { __ } = wp.i18n; // Import __() from wp.i18n
 const { registerBlockType } = wp.blocks; // Import registerBlockType() from wp.blocks
-const ALLOWED_BLOCKS = [ 'portent/block-portent-tabbed-content--tab' ];
-import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
+const { compose } = wp.compose;
 const { withSelect } = wp.data;
+import { InnerBlocks, useBlockProps, AlignmentToolbar, BlockControls } from '@wordpress/block-editor';
+
+const ALLOWED_BLOCKS = [ 'portent/block-portent-tabbed-content--tab' ];
 
 const PrintTabs = (props) => {
 	const tabs = props.tabs;
 	return(tabs.map(tab => <button className="block-tabbed-content__tab" data-interface="tab-button" data-tab={tab[0]}><img width="20px" height="20px" alt="" src={tab[2]}/>{tab[1]}</button>));
 }
+
+const ChildTabs = (props) => {
+	console.log('ChildTabs');
+	const { innerBlocks, className, attributes, setAttributes } = props;
+	console.log(innerBlocks);
+		const tabsArray = innerBlocks.map( tab => [tab.clientId,tab.attributes.title,tab.attributes.iconid] );
+		const serialTabs = JSON.stringify(tabsArray);
+		if( attributes.tabs !== serialTabs ) {
+			setAttributes({tabs:serialTabs});
+		}
+		return <PrintTabs tabs={tabsArray}/>
+}
+
+const TabSelect = withSelect( ( select, blockData ) => {
+	console.log('with Select');
+	console.log(blockData.clientId);
+	return {
+		innerBlocks: select( 'core/block-editor' ).getBlocks( blockData.clientId )
+	};
+});
+
+const GetChildTabs = compose(
+	TabSelect
+)(ChildTabs);
 
 /**
  * Register: aa Gutenberg Block.
@@ -48,8 +74,13 @@ registerBlockType( 'portent/block-tabbed-content', {
 		tabs: {
 			type: 'string',
 			default: null
+		},
+		tabAlignment: {
+			type: 'string',
+			default: 'left'
 		}
 	},
+
 
 	/**
 	 * The edit function describes the structure of your block in the context of the editor.
@@ -62,25 +93,28 @@ registerBlockType( 'portent/block-tabbed-content', {
 	 * @param {Object} props Props.
 	 * @returns {Mixed} JSX Component.
 	 */
-	edit: withSelect( ( select, blockData ) => {
-		return {
-			innerBlocks: select( 'core/block-editor' ).getBlocks( blockData.clientId )
-		};
-	} )( ( { innerBlocks, className, attributes, setAttributes } ) => {
-		const tabsArray = innerBlocks.map( tab => [tab.clientId,tab.attributes.title,tab.attributes.iconid] );
-		const serialTabs = JSON.stringify(tabsArray);
-		if( attributes.tabs !== serialTabs ) {
-			setAttributes({tabs:serialTabs});
-		}
-	return <div className={className}>
-		<div className="block-tabbed-content__tabs">
-			<PrintTabs tabs={tabsArray}/>
-		</div>
-		<div className="block-tabbed-content__tab-panels">
-			<InnerBlocks allowedBlocks={ALLOWED_BLOCKS}/>
-		</div>
-	</div>
-} ),
+	edit: ( props ) => {
+		const {
+			attributes: { tabAlignment },
+			isSelected, className, setAttributes } = props;
+
+		return( <div className={className}>
+			{ isSelected && (
+				<BlockControls>
+					<AlignmentToolbar
+						value={ tabAlignment }
+						onChange={ tabAlignment => setAttributes( {tabAlignment } ) }
+					/>
+				</BlockControls>
+			) }
+					<div className={"block-tabbed-content__tabs block-tabbed-content__tabs--" + tabAlignment }>
+						<GetChildTabs {...props}/>
+					</div>
+					<div className="block-tabbed-content__tab-panels">
+						<InnerBlocks allowedBlocks={ALLOWED_BLOCKS}/>
+					</div>
+				</div> )
+	},
 
 	/**
 	 * The sve function defines the way in which the different attributes should be combined
@@ -95,12 +129,15 @@ registerBlockType( 'portent/block-tabbed-content', {
 	 */
 	save: ( props) => {
 		const blockProps = useBlockProps.save();
+		const {attributes: {tabAlignment} } = props;
 		const unpackedTabs = JSON.parse(props.attributes.tabs);
 		const SaveTabs = () => (
-			<div className="block-tabbed-content__tabs init">
+			<div className={"block-tabbed-content__tabs init block-tabbed-content__tabs--" + tabAlignment}>
 				<PrintTabs tabs={unpackedTabs}/>
 			</div>
 		)
+		console.log( 'Block Props' );
+		console.log( blockProps);
 		return (
 			<div { ...blockProps }>
 				<SaveTabs />
