@@ -32,11 +32,19 @@ function enercare_post_summary_title() {
 }
 
 /**
+ * Post Summary
+ *
+ */
+function enercare_post_summary() {
+  the_excerpt();
+}
+
+/**
  * Post Summary Image
  *
  */
 function enercare_post_summary_image( $size = 'thumbnail_medium' ) {
-	echo '<a class="post-summary__image" href="' . get_permalink() . '" tabindex="-1" aria-hidden="true">' . wp_get_attachment_image( enercare_entry_image_id(), $size ) . '</a>';
+  echo wp_get_attachment_image( enercare_entry_image_id(), $size, null, array("class" => "post-summary__image") );
 }
 
 
@@ -55,4 +63,12 @@ function enercare_entry_image_id() {
 function enercare_entry_author() {
 	$id = get_the_author_meta( 'ID' );
 	echo '<p class="entry-author"><a href="' . get_author_posts_url( $id ) . '" aria-hidden="true" tabindex="-1">' . get_avatar( $id, 40 ) . '</a><em>by</em> <a href="' . get_author_posts_url( $id ) . '">' . get_the_author() . '</a></p>';
+}
+
+/**
+ * Post Date
+ *
+ */
+function enercare_post_date() {
+  echo '<p class="publish-date single-post__date">' . get_the_date( 'F j, Y' ) . '</p>';
 }

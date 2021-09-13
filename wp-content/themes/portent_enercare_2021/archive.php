@@ -55,10 +55,15 @@ function enercare_archive_header() {
 		echo '<h1 class="archive-title">' . $title . '</h1>';
 	if( !empty( $subtitle ) )
 		echo '<h4>' . $subtitle . '</h4>';
+  
 	echo apply_filters( 'enercare_the_content', $description );
 	echo $more;
 	do_action ('enercare_archive_header_after' );
 	echo '</header>';
+  
+  if (is_home()) {
+    get_template_part('partials/blog-featured', 'featured-post');
+  }
 
 }
 add_action( 'tha_content_while_before', 'enercare_archive_header' );
