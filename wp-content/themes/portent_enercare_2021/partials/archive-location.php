@@ -11,7 +11,7 @@ echo '<article class="location-summary block-card wp-block-acf-card is-style-sha
 		//enercare_entry_category();
 		enercare_post_summary_title();
   echo '<hr />';
-    enercare_location_info();
+    getLocationInfo(get_the_ID());
 	echo '</div>';
 
 echo '</article>';

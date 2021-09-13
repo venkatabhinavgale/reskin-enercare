@@ -1,6 +1,6 @@
 <?php
 /**
- * Card Block
+ * FAQs Block
  *
  * @package      Enercare
  * @author       Portent
