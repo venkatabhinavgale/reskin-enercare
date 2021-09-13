@@ -44,7 +44,7 @@ function enercare_post_summary() {
  *
  */
 function enercare_post_summary_image( $size = 'thumbnail_medium' ) {
-	echo '<a class="post-summary__image" href="' . get_permalink() . '" tabindex="-1" aria-hidden="true">' . wp_get_attachment_image( enercare_entry_image_id(), $size ) . '</a>';
+  echo wp_get_attachment_image( enercare_entry_image_id(), $size, null, array("class" => "post-summary__image") );
 }
 
 
