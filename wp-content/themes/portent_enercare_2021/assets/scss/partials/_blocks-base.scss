@@ -138,32 +138,6 @@ h4, h5, h6 {
 }
 
 /**
-Blockquote
- */
-
-blockquote, blockquote.wp-block-quote {
-	background: none !important;
-
-	p {
-		font-style: italic !important;
-		margin-left: 24px;
-		position: relative;
-		font-size: 20px !important;
-		font-weight: 300 !important;
-
-		&:before {
-			content: "";
-			display: block;
-			width: 5px;
-			height: 100%;
-			background: map.get($brand_colors, 'blue');
-			position: absolute;
-			left: -2%;
-		}
-	}
-}
-
-/**
 Block Styles
  */
 .is-style-shadowed {
@@ -210,6 +184,50 @@ Block Styles
 			height: 19px;
 			margin-right: 9px;
 			vertical-align: middle;
+		}
+	}
+}
+
+.is-style-checkmarked {
+	padding-left: 0 !important;
+
+	li {
+		list-style: none;
+
+		&::before {
+			content: '';
+			display: inline-block;
+			background-image: url('../icons/toggle/check_box_black_24dp_rounded.svg');
+			background-repeat: no-repeat;
+			background-position: center;
+			width: 22px;
+			height: 19px;
+			margin-right: 9px;
+			vertical-align: middle;
+		}
+	}
+}
+
+.breadcrumb, 
+.yoast-breadcrumbs {
+	
+	a {
+		color: $black;
+		font-size: 12px;
+		text-decoration: none;
+
+		&:after {
+			padding: 8px 0px 8px 8px;
+	  		color: $black;
+	  		content: "/\00a0";
+		}
+
+		&:last-child {
+			font-weight: 600;
+
+			&:after {
+		  		content: "";
+			}
 		}
 	}
 }

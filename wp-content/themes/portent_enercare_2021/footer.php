@@ -8,6 +8,17 @@
  * @license      GPL-2.0+
 **/
 
+function footer_legal() {
+	if( get_field('terms_and_conditions') ) {
+		$terms = get_field('terms_and_conditions');
+		echo '<div class="legal__terms">';
+      echo '<button class="legal__terms-toggle" aria-controls="terms_' . get_the_ID() . '">Legal <img src="' . get_template_directory_uri() . '/assets/icons/utility/navigate-down.svg" /></button>';
+      echo '<div class="legal__terms-details" aria-expanded="false" data-state="closed" aria-labelledby="terms_' . get_the_ID() . '">' . $terms . '</div>';
+    echo '</div>';
+	}
+}
+add_action( 'tha_footer_before', 'footer_legal' );
+
 function footer_cta() {
 	if( get_field('floating_cta_link', 'options') ) {
 		$footer_link = get_field( 'floating_cta_link', 'options');
