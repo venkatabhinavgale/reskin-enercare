@@ -86,3 +86,98 @@ function getLocationByPostalCode($postalcode) {
   else
     return null;
 }
+
+/**
+ * Location Info
+ *
+ */
+function getLocationInfo($post_id, $cta_type = 'location') {
+  $content = '';
+  if (get_field('address', $post_id)) {
+    $address_url = trim(get_field('address', $post_id));
+    $address_url = str_replace("<br />", "+", $address_url);
+    $address_url = str_replace("\n", "+", $address_url);
+    $address_url = str_replace(" ", "+", $address_url);
+    $address_url = "https://www.google.com/maps/place/" . $address_url;
+    $content .= '<div class="location-group"><img src="' . get_template_directory_uri() . '/assets/icons/maps/place_black_24dp_rounded.svg" class="location-group__icon" /><div class="location-group__content"><strong>Address</strong><br /><a href="' . $address_url . '"  target="_blank">' . get_field('address', $post_id) . '</a></div></div>';
+  }
+  
+  if (have_rows('phone_numbers', $post_id)) {
+    $content .= '<div class="location-group"><img src="' . get_template_directory_uri() . '/assets/icons/communication/phone_black_24dp_rounded.svg" class="location-group__icon" /><div class="location-group__content"><strong>Phone number</strong><br />';
+    $rowCount = count(get_field('phone_numbers', $post_id));
+    while ( have_rows('phone_numbers', $post_id) ) { the_row();
+      $content .= '<strong>' . get_sub_field('phone_label') . ':</strong> ';
+      $phone_url = str_replace(' ','',get_sub_field('phone_number'));
+      $phone_url = str_replace('-','',$phone_url);
+      $phone_url = str_replace('(','',$phone_url);
+      $phone_url = str_replace(')','',$phone_url);
+      $content .= '<a href="tel:' . $phone_url  . '">' . get_sub_field('phone_number') . '</a>';
+      if (get_row_index() < $rowCount)
+        $content .= '<br />';
+    }
+    $content .= '</div></div>';
+  }
+  
+  if (have_rows('hours', $post_id)) {
+    $content .= '<div class="location-group"><img src="' . get_template_directory_uri() . '/assets/icons/action/schedule_black_24dp_rounded.svg" class="location-group__icon" /><div class="location-group__content"><strong>Hours</strong><br />';
+    $rowCount = count(get_field('hours', $post_id));
+    while ( have_rows('hours', $post_id) ) { the_row();
+      $content .= '<strong>' . get_sub_field('hours_label') . ':</strong> ';
+      $content .= get_sub_field('hours_open');
+      if (get_row_index() < $rowCount)
+        $content .= '<br />';
+    }
+    $content .= '</div></div>';
+  }
+  
+  if (get_field('service_area', $post_id))
+    $content .= '<div class="location-group"><img src="' . get_template_directory_uri() . '/assets/icons/maps/my_location_black_24dp_rounded.svg" class="location-group__icon" /><div class="location-group__content"><strong>Service Area</strong><br />' . get_field('service_area', $post_id) . '</div></div>';
+  
+  $content .= '<div class="location-group"><img src="' . get_template_directory_uri() . '/assets/icons/maps/local_offer_black_24dp_rounded.svg" class="location-group__icon" /><div class="location-group__content"><strong>Services</strong><br />';
+  if (get_field('override_service_links', $post_id) && have_rows('services', $post_id)) {
+    $services = get_field('services', $post_id);
+    foreach ($services as $i => $s) {
+      $content .= '<a href="' . $s['service_link']['url'] . '">' . $s['service_link']['title'] . '</a>';
+      if ($i+1 < sizeof($services))
+        $content .= ', ';
+    }
+  } else {
+    $services = get_the_terms($post_id, 'services');
+    foreach ($services as $i => $s) {
+      $link = get_field('service_link', $s);
+      $content .= '<a href="' . $link . '">' . $s->name . '</a>';
+      if ($i+1 < sizeof($services))
+        $content .= ', ';
+    }
+  }
+  $content .= '</div></div>';
+  
+  $location_shortname = get_field('display_title', $post_id);
+  if (!$location_shortname || empty($location_shortname))
+    $location_shortname = get_the_title();
+  $location_shortname = explode(",", $location_shortname);
+  $location_shortname = trim($location_shortname[0]);
+  
+  
+  if ($cta_type == "location")
+    $content .= '<div class=""><a href="' . get_the_permalink() . '" class="wp-block-button__link has-red-background-color has-background">View ' . $location_shortname . ' info</a></div>';
+  elseif ($cta_type == "phone") {
+    $phone_number = get_field('default_phone_number', 'option');
+    if (get_field('phone_number', $post_id))
+      $phone_number = get_field('phone_number', $post_id);
+    
+    if ($phone_number && $phone_number != "") {
+      $phone_number_href = str_replace(" ","",$phone_number);
+      $phone_number_href = str_replace("(","",$phone_number_href);
+      $phone_number_href = str_replace(")","",$phone_number_href);
+      $phone_number_href = str_replace(".","",$phone_number_href);
+      $phone_number_href = str_replace("-","",$phone_number_href);
+      $content .= '<div class=""><a href="tel:' . $phone_number_href . '" class="wp-block-button__link has-red-background-color has-background">' . $phone_number . ' </a></div>';
+    }
+  }
+  
+  if (get_field('google_reviews_url', $post_id))
+    $content .= '<div class=""><a href="' . get_field('google_reviews_url', $post_id) . '">Write a review for ' . $location_shortname . '</a></div>';
+  
+  echo $content;
+}
