@@ -159,6 +159,7 @@ function getLocationInfo($post_id, $cta_type = 'location') {
   $location_shortname = trim($location_shortname[0]);
   
   
+  $content .= '<div class="location-ctas">';
   if ($cta_type == "location")
     $content .= '<div class=""><a href="' . get_the_permalink() . '" class="wp-block-button__link has-red-background-color has-background">View ' . $location_shortname . ' info</a></div>';
   elseif ($cta_type == "phone") {
@@ -175,9 +176,9 @@ function getLocationInfo($post_id, $cta_type = 'location') {
       $content .= '<div class=""><a href="tel:' . $phone_number_href . '" class="wp-block-button__link has-red-background-color has-background">' . $phone_number . ' </a></div>';
     }
   }
-  
   if (get_field('google_reviews_url', $post_id))
     $content .= '<div class=""><a href="' . get_field('google_reviews_url', $post_id) . '">Write a review for ' . $location_shortname . '</a></div>';
+  $content .= '</div>';
   
   echo $content;
 }
