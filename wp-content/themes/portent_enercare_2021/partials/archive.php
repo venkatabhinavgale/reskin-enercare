@@ -8,13 +8,15 @@
  * @license      GPL-2.0+
 **/
 
-echo '<article class="post-summary">';
+echo '<article class="post-summary block-card block-card--archive">';
 
 	enercare_post_summary_image();
 
-	echo '<div class="post-summary__content">';
-		enercare_entry_category();
+	echo '<div class="post-summary__content block-card--content">';
+		//enercare_entry_category();
+    enercare_post_date();
 		enercare_post_summary_title();
+    enercare_post_summary();
 	echo '</div>';
 
 echo '</article>';

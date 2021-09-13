@@ -172,7 +172,7 @@ function enercare_widget_arenercare_args( $args = array() ) {
 function enercare_page_layout( $id = false ) {
 
 	$available_layouts = enercare_page_layout_options();
-	$layout = 'content-sidebar';
+  $layout = 'full-width-content';
 
 	if( is_singular() || $id ) {
 		$id = $id ? intval( $id ) : get_the_ID();

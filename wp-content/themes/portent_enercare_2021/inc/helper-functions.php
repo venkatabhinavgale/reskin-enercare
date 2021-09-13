@@ -263,6 +263,21 @@ function enercare_filter_archive( $query ) {
   		$author = get_the_author_meta('ID');
     }
     
+    // exclude featured post from showing up in main query
+    if (is_home()) {
+      // grab the ID of the page we're using to get posts
+      $posts_page_ID = get_option( 'page_for_posts' );
+      // grab the 'featured_post' field to exclude from query. 
+      // have to use wpdb to make a side query otherwise the world falls down using ACF's get_field function, which also uses WP_QUERY
+      global $wpdb;
+      $featured_post = $wpdb->get_var( $wpdb->prepare( "SELECT meta_value FROM $wpdb->postmeta WHERE meta_key = 'featured_post' AND post_id = %s", $posts_page_ID ) );
+      if (!$featured_post)
+        $featured_post = get_the_ID();
+      
+      //var_dump($featured_post);exit;
+      $query->set('post__not_in', array($featured_post));
+    }
+    
     // exclude child pages from the location archive page
     if (is_post_type_archive('location')) {
       $query->set('post_parent', 0);
@@ -344,6 +359,7 @@ function enercare_filter_archive( $query ) {
     }
     
   }
+  
   return $query;
 }
 add_action( 'pre_get_posts', 'enercare_filter_archive');
