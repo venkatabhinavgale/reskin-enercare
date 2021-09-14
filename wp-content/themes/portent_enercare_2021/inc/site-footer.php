@@ -30,14 +30,15 @@ add_action( 'widgets_init', 'enercare_register_footer_widget_areas' );
  *
  */
 function enercare_site_footer_widgets() {
-	echo '<div class="footer-widgets"><div class="wrap">';
-	for( $i = 1; $i < 4; $i++ ) {
-		dynamic_sidebar( 'footer-' . $i );
-	}
-	echo '</div></div>';
+  if (get_post_type(get_the_ID()) != "landing-page") {
+    echo '<div class="footer-widgets"><div class="wrap">';
+    for( $i = 1; $i < 4; $i++ ) {
+      dynamic_sidebar( 'footer-' . $i );
+    }
+    echo '</div></div>';  
+  }
 }
-if (get_post_type() != "landing-page")
-  add_action( 'tha_footer_before', 'enercare_site_footer_widgets', 2 );
+add_action( 'tha_footer_before', 'enercare_site_footer_widgets', 2 );
 
 
 /**
