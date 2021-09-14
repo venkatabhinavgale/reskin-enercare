@@ -16,12 +16,14 @@
   
   $tax_query = array();
   $tax_query['relation'] = $tax_relation;
-  foreach($campaign_categories as $cc) {
-    $tax_query[] = array(
-      'taxonomy'  => 'campaign-category',
-      'field'     => 'id',
-      'terms'     => $cc
-    );
+  if ($campaign_categories && sizeof($campaign_categories) > 0) {
+    foreach($campaign_categories as $cc) {
+      $tax_query[] = array(
+        'taxonomy'  => 'campaign-category',
+        'field'     => 'id',
+        'terms'     => $cc
+      );
+    }  
   }
   
   if (!$override) {
