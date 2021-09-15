@@ -200,7 +200,7 @@ function enercare_banner() {
   if ($post_banner_text && !empty(trim($post_banner_text)))
     $banner_text = $post_banner_text;
   
-  if ($post_banner_toggle && $global_banner_toggle) {
+  if (!$post_banner_toggle && $global_banner_toggle) {
     $output = '<div class="">' . $banner_text . '</div>';
   }
   
