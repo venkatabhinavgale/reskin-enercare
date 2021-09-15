@@ -9,7 +9,6 @@
 **/
 
 // Breadcrumbs above page title
-add_action( 'tha_content_loop', 'enercare_breadcrumbs', 1 );
 //add_action( 'tha_content_wrap_before', 'enercare_breadcrumbs', 8 );
 
 // Build the page
