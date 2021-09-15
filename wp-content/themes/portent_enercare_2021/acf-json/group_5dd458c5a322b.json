@@ -96,6 +96,52 @@
             "maxlength": ""
         },
         {
+            "key": "field_6140ff7bc0682",
+            "label": "Banner Toggle",
+            "name": "banner_toggle",
+            "type": "true_false",
+            "instructions": "This controls whether the banner (ie. covid) displays on the site.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_6140ffb9c0683",
+            "label": "Default Banner Text",
+            "name": "banner_text",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6140ff7bc0682",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
             "key": "field_611ad42cf41e1",
             "label": "Footer",
             "name": "",
@@ -168,5 +214,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1631562226
+    "modified": 1631649802
 }

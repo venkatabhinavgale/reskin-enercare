@@ -36,6 +36,7 @@ include_once( get_template_directory() . '/inc/tinymce.php' );
 // Functionality
 include_once( get_template_directory() . '/inc/login-logo.php' );
 include_once( get_template_directory() . '/inc/block-area.php' );
+include_once( get_template_directory() . '/inc/block-overrides.php' );
 include_once( get_template_directory() . '/inc/social-links.php' );
 
 // Plugin Support
