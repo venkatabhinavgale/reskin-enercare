@@ -16,10 +16,10 @@
                 "id": ""
             },
             "message": "",
-            "default_value": 1,
+            "default_value": 0,
             "ui": 1,
-            "ui_on_text": "",
-            "ui_off_text": ""
+            "ui_on_text": "Off",
+            "ui_off_text": "On"
         },
         {
             "key": "field_614100ab5b5da",
@@ -72,5 +72,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1631650020
+    "modified": 1631720865
 }
