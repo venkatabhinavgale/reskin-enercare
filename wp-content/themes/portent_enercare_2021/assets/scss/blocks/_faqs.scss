@@ -1,0 +1,41 @@
+.block-faqs {
+	&--header {
+		font-weight: 900;
+		text-align: center; 
+	}
+
+	&--faq-container {
+		font-size: 18px;
+		font-weight: 700;
+
+		&:after {
+			content: '';
+			display: inline-block;
+			background-color: $grey_3;
+			width: 100%;
+			height: 2px;
+			margin-right: 9px;
+			vertical-align: middle;
+		}
+
+		&:before {
+			content: '';
+			display: inline-block;
+			background-image: url('../icons/utility/add_circle_black_24dp_rounded.svg');
+			background-repeat: no-repeat;
+			background-position: center;
+			width: 22px;
+			height: 19px;
+			margin-right: 8px;
+			vertical-align: middle;
+		} 
+	}
+
+	&--faq-answer-container {
+		font-size: 16px;
+		font-weight: 300;
+		line-height: 22px;
+		margin-top: 8px;
+		margin-left: 1.8em;
+	}
+}
