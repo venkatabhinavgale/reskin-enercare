@@ -27,7 +27,9 @@ $form_content = get_field('form_content');
 				}
 			?>
 		</ul>
+    <?php if ($locations_cta && sizeof($locations_cta) > 0) { ?>
 		<a class="wp-block-button__link has-red-background-color has-background" href="<?= $locations_cta['url'] ?>"><?= $locations_cta['title'] ?></a>
+    <?php } ?>
 	</div>
 	<div class="block-location-finder__form" style="background-image:<?= $form_background ?>">
 		<div class="block-location-finder__form-container">
