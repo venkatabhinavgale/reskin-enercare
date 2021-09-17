@@ -143,11 +143,13 @@ function getLocationInfo($post_id, $cta_type = 'location') {
     }
   } else {
     $services = get_the_terms($post_id, 'services');
-    foreach ($services as $i => $s) {
-      $link = get_field('service_link', $s);
-      $content .= '<a href="' . $link . '">' . $s->name . '</a>';
-      if ($i+1 < sizeof($services))
-        $content .= ', ';
+    if ($services && sizeof($services) > 0) {
+      foreach ($services as $i => $s) {
+        $link = get_field('service_link', $s);
+        $content .= '<a href="' . $link . '">' . $s->name . '</a>';
+        if ($i+1 < sizeof($services))
+          $content .= ', ';
+      }  
     }
   }
   $content .= '</div></div>';
