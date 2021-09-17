@@ -17,6 +17,7 @@ $form_content = get_field('form_content');
 		<h3 class="has-white-color"><?= $locations_header ?></h3>
 		<ul class="block-location-finder__list">
 			<?php
+      if ($locations_locations && sizeof($locations_locations) > 0) {
 				foreach( $locations_locations as $location ) {
           $location_title = get_the_title($location);
           if (get_field('display_title', $location))
@@ -25,6 +26,7 @@ $form_content = get_field('form_content');
 						echo '<a class="has-white-color" href="'.get_the_permalink( $location ).'">'. $location_title .'</a>';
 					echo '</li>';
 				}
+      }
 			?>
 		</ul>
     <?php if ($locations_cta && sizeof($locations_cta) > 0) { ?>
