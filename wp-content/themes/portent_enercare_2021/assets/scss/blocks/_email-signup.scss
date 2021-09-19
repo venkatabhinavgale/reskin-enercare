@@ -1,0 +1,117 @@
+.block-newsletter-form {
+
+	&__container {
+		display: flex;
+		flex-direction: column;
+		padding: 32px 24px;
+
+		@include media(">=tablet") {
+			flex-direction: row;
+			justify-content: space-evenly;
+			padding: 64px 0;
+		}
+
+	}
+
+	&__content-container {
+
+		@include media(">=tablet") {
+			display: flex;
+			flex-direction: row;
+		}
+
+		@include media(">=desktop") {
+
+			&:after {
+				content: '';
+				display: inline-block;
+				background-color: $grey_3;
+				width: 1px;
+				height: 136px;
+				margin-right: 9px;
+				position: relative;
+				left: 90%;
+			}
+		}
+
+	}
+
+	&__image {
+		display: none;
+
+		@include media(">=tablet") {
+			height: 100px;
+			width: 100px;
+			max-width: 100px;
+			background-image: url("../icons/utility/email-signup--black.svg");
+			display: inline-block;
+		}
+	}
+
+	&__heading {
+		font-size: 18px;
+		text-align: center;
+		font-weight: 700;
+
+		@include media(">=tablet") {
+			position: absolute;
+			left: 27%;
+		}
+
+	}
+
+	&__content {
+		font-size: 24px;
+		line-height: 28px;
+		font-weight: 900;
+		margin-bottom: 24px;
+		order: 1;
+		align-self: center;
+		margin-left: 24px;
+	}
+
+	&__form-container {
+		form {
+			display: flex;
+			flex-direction: row;
+
+			.gform_body {
+				label.gfield_label {
+					font-size: 14px;
+					font-weight: 300;
+					margin-bottom: 2px;
+				}
+
+				input[type=text] {
+					border-radius: 5px 0 0 5px;
+					padding: 8px 12px;
+					max-height: 40px;
+					line-height: 24px;
+				}
+			}
+
+			.gform_footer {
+
+				input[type=submit] {
+					width: auto;
+					border-radius: 0 5px 5px 0;
+					font-size: 1.125rem;
+					font-weight: 700;
+					line-height: 24px;
+					padding: 2px 16px;
+					text-decoration: none;
+					background-color: brand-color('red');
+					color: $white;
+					margin-bottom: 0;
+					margin-top: 3px;
+					max-height: 40px;
+
+					@include media(">=tablet") {
+						padding: 8px 16px;
+					}
+				}
+			}
+		}
+	}
+
+}
