@@ -20,6 +20,17 @@ Tabbed Content
 
 }
 
+[data-type="portent/block-tabbed-content"] {
+
+	border: dashed 1.25px transparent;
+	padding: 0.25em 0.5em 0 0;
+
+	&.is-selected,
+	&.has-child-selected {
+		border: dashed 1.25px lightblue;
+	}
+}
+
 	.block-tabbed-content__panel {
 		border: dashed 1.25px rgba(0, 0, 0, 0.45);
 		margin: 0.25em;

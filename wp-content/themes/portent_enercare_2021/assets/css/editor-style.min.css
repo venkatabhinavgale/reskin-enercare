@@ -209,6 +209,8 @@ ul.wp-block-gallery,ol.wp-block-gallery{padding-left:0}
 ul.wp-block-gallery li,ol.wp-block-gallery li{padding-bottom:0}
 [data-empty="true"].block-editor-block-list__block{border:dashed 2px rgba(0,0,0,0.3);padding:.5em 0}
 .wp-block-portent-block-tabbed-content .block-tabbed-content__tab-panels .block-editor-inner-blocks .block-editor-block-list__layout>.block-list-appender .block-editor-button-block-appender:after{content:'Add Tab';display:inline-block;color:#fff}
+[data-type="portent/block-tabbed-content"]{border:dashed 1.25px transparent;padding:.25em .5em 0 0}
+[data-type="portent/block-tabbed-content"].is-selected,[data-type="portent/block-tabbed-content"].has-child-selected{border:dashed 1.25px lightblue}
 .block-tabbed-content__panel{border:dashed 1.25px rgba(0,0,0,0.45);margin:.25em;padding:.25em}
 .block-tabbed-content__tab__title{border:1px dashed #fff;display:block;font-size:14px;background:black;color:white;padding:.55em .25em .25em .25em;border-radius:10px;-webkit-transform:translateY(-50%);transform:translateY(-50%);position:relative;margin:0}
 .block-tabbed-content__tab__title:before{content:'TAB: ';display:inline}
