@@ -21,6 +21,7 @@
 		}
 
 		@include media(">=desktop") {
+			margin-right: -13em;
 
 			&:after {
 				content: '';
@@ -30,7 +31,7 @@
 				height: 136px;
 				margin-right: 9px;
 				position: relative;
-				left: 90%;
+				left: 91%;
 			}
 		}
 
@@ -55,7 +56,11 @@
 
 		@include media(">=tablet") {
 			position: absolute;
-			left: 27%;
+			left: 27.9%;
+		}
+
+		@include media(">=desktop") {
+			left: 23.4%;
 		}
 
 	}
