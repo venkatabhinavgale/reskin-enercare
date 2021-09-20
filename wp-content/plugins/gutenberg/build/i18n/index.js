@@ -525,10 +525,7 @@ function sprintf_sprintf(format, ...args) {
   try {
     return sprintf_default().sprintf(format, ...args);
   } catch (error) {
-    if (error instanceof Error) {
-      logErrorOnce('sprintf error: \n\n' + error.toString());
-    }
-
+    logErrorOnce('sprintf error: \n\n' + error.toString());
     return format;
   }
 }

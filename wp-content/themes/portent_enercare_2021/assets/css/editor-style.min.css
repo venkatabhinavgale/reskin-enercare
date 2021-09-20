@@ -22,9 +22,10 @@ h1,h2,h3,h4,h5,h6{color:#212121;font-family:"Post Grotesk",serif;font-weight:700
 h1 a,h2 a,h3 a,h4 a,h5 a,h6 a{color:#212121}
 h1 a:hover,h2 a:hover,h3 a:hover,h4 a:hover,h5 a:hover,h6 a:hover{color:#dc1c28;text-decoration:none}
 h1:focus,h2:focus,h3:focus,h4:focus,h5:focus,h6:focus{outline:0}
-h1{font-size:34px}
-h2{font-size:26px}
-h3{font-size:22px}
+h1.has-background,h2.has-background,h3.has-background,h4.has-background,h5.has-background,h6.has-background{padding:0;width:-webkit-fit-content;width:-moz-fit-content;width:fit-content}
+h1{font-size:32px}
+h2{font-size:28px}
+h3{font-size:24px}
 h4,h5,h6{font-size:18px}
 .is-style-shadowed{-webkit-box-shadow:0 4px 8px 0 rgba(56,61,67,0.3);box-shadow:0 4px 8px 0 rgba(56,61,67,0.3)}
 .is-style-bordered{border:1px solid #dc1c28}
@@ -36,12 +37,12 @@ h4,h5,h6{font-size:18px}
 .is-style-cons li::before{content:'';display:inline-block;background-image:url("../icons/utility/thumb_down_red.svg");background-repeat:no-repeat;background-position:center;width:22px;height:19px;margin-right:9px;vertical-align:middle}
 .is-style-checkmarked{padding-left:0 !important}
 .is-style-checkmarked li{list-style:none}
-.is-style-checkmarked li::before{content:'';display:inline-block;background-image:url("../icons/toggle/check_box_black_24dp_rounded.svg");background-repeat:no-repeat;background-position:center;width:22px;height:19px;margin-right:9px;vertical-align:middle}
+.is-style-checkmarked li::before{content:'';display:inline-block;background-image:url("../icons/utility/check_black_24dp_rounded.svg");background-repeat:no-repeat;background-position:center;width:22px;height:19px;margin-right:9px;vertical-align:middle}
 .breadcrumb .breadcrumb_last,.breadcrumb a,.yoast-breadcrumbs .breadcrumb_last,.yoast-breadcrumbs a{color:#000;font-size:12px;text-decoration:none}
 .breadcrumb .breadcrumb_last:after,.breadcrumb a:after,.yoast-breadcrumbs .breadcrumb_last:after,.yoast-breadcrumbs a:after{padding:8px 0 8px 8px;color:#000;content:"/\00a0"}
 .breadcrumb .breadcrumb_last:last-child,.breadcrumb a:last-child,.yoast-breadcrumbs .breadcrumb_last:last-child,.yoast-breadcrumbs a:last-child{font-weight:600}
 .breadcrumb .breadcrumb_last:last-child:after,.breadcrumb a:last-child:after,.yoast-breadcrumbs .breadcrumb_last:last-child:after,.yoast-breadcrumbs a:last-child:after{content:""}
-.wp-block-button__link{border-radius:20px;font-size:1rem;font-weight:700;line-height:22px;padding:.70em 1em .375em;text-decoration:none}
+.wp-block-button__link{border-radius:20px;font-size:1.125rem;font-weight:700;line-height:24px;padding:.50em 1.50em;text-decoration:none}
 .is-style-full .wp-block-button__link,.wp-block-button__link.full{display:block;width:100%}
 .wp-block-button__link:not(.has-text-color){color:white}
 .wp-block-button__link:not(.has-text-color):hover{color:white}
@@ -245,6 +246,15 @@ ul.wp-block-gallery li,ol.wp-block-gallery li{padding-bottom:0}
 .block-emc-card h3{font-size:20px;margin-bottom:0}
 .block-emc-card__text{font-weight:300}
 .block-emc-card .wp-block-button__link{margin-top:1.5em}
+.block-newsletter-form__container{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;padding:32px 24px}
+.block-newsletter-form__image{display:none}
+.block-newsletter-form__heading{font-size:18px;text-align:center;font-weight:700}
+.block-newsletter-form__content{font-size:24px;line-height:28px;font-weight:900;margin-bottom:24px;-webkit-box-ordinal-group:2;-ms-flex-order:1;order:1;-ms-flex-item-align:center;align-self:center;margin-left:24px}
+.block-newsletter-form__form-container{margin:0 auto}
+.block-newsletter-form__form-container form{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}
+.block-newsletter-form__form-container form .gform_body label.gfield_label{font-size:14px;font-weight:300;margin-bottom:2px}
+.block-newsletter-form__form-container form .gform_body input[type=text]{border-radius:5px 0 0 5px;padding:8px 12px;max-height:40px;line-height:24px}
+.block-newsletter-form__form-container form .gform_footer input[type=submit]{width:auto;border-radius:0 5px 5px 0;font-size:1.125rem;font-weight:700;line-height:24px;padding:2px 16px;text-decoration:none;background-color:#dc1c28;color:#fff;margin-bottom:0;margin-top:3px;max-height:40px}
 @media(min-width:768px){body{font-size:1em}
 p.large,p.has-large-font-size{font-size:1.125em}
 p.has-normal-font-size{font-size:1em}
@@ -267,13 +277,22 @@ body,p{font-size:1em}
 .block-mega-button__image{max-width:40px;max-height:64px}
 .block-emc-card{max-width:272px}
 .block-emc-card__image{margin:0 3.125em 1.5em}
+.block-newsletter-form__container{-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-pack:space-evenly;-ms-flex-pack:space-evenly;justify-content:space-evenly;padding:64px 0}
+.block-newsletter-form__content-container{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}
+.block-newsletter-form__image{height:100px;width:100px;max-width:100px;background-image:url("../icons/utility/email-signup--black.svg");display:inline-block}
+.block-newsletter-form__heading{position:absolute;left:27.9%}
+.block-newsletter-form__form-container{margin:unset}
+.block-newsletter-form__form-container form .gform_footer input[type=submit]{padding:8px 16px}
 }@media(min-width:769px){.post-summary__image{margin-bottom:12px}
-}@media(min-width:992px){h1{font-size:46px}
-h2{font-size:36px}
-h3{font-size:28px}
+}@media(min-width:992px){h1{font-size:52px}
+h2{font-size:48px}
+h3{font-size:40px}
 .wp-block-group{padding:70px 16px}
 .block-reviews__section-heading__header{font-size:3.5em}
 }@media(min-width:1200px){.block-reviews__section-heading__header{font-size:3.5em}
+.block-newsletter-form__content-container{margin-right:-13em}
+.block-newsletter-form__content-container:after{content:'';display:inline-block;background-color:#d3d1d1;width:1px;height:136px;margin-right:9px;position:relative;left:91%}
+.block-newsletter-form__heading{left:23.4%}
 }@media print{body{font-family:sans-serif}
 body,p{font-family:sans-serif}
 }

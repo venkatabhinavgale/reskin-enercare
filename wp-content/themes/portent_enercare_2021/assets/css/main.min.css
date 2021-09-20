@@ -76,9 +76,10 @@ h1,h2,h3,h4,h5,h6{color:#212121;font-family:"Post Grotesk",serif;font-weight:700
 h1 a,h2 a,h3 a,h4 a,h5 a,h6 a{color:#212121}
 h1 a:hover,h2 a:hover,h3 a:hover,h4 a:hover,h5 a:hover,h6 a:hover{color:#dc1c28;text-decoration:none}
 h1:focus,h2:focus,h3:focus,h4:focus,h5:focus,h6:focus{outline:0}
-h1{font-size:34px}
-h2{font-size:26px}
-h3{font-size:22px}
+h1.has-background,h2.has-background,h3.has-background,h4.has-background,h5.has-background,h6.has-background{padding:0;width:-webkit-fit-content;width:-moz-fit-content;width:fit-content}
+h1{font-size:32px}
+h2{font-size:28px}
+h3{font-size:24px}
 h4,h5,h6{font-size:18px}
 .is-style-shadowed{-webkit-box-shadow:0 4px 8px 0 rgba(56,61,67,0.3);box-shadow:0 4px 8px 0 rgba(56,61,67,0.3)}
 .is-style-bordered{border:1px solid #dc1c28}
@@ -90,12 +91,12 @@ h4,h5,h6{font-size:18px}
 .is-style-cons li::before{content:'';display:inline-block;background-image:url("../icons/utility/thumb_down_red.svg");background-repeat:no-repeat;background-position:center;width:22px;height:19px;margin-right:9px;vertical-align:middle}
 .is-style-checkmarked{padding-left:0 !important}
 .is-style-checkmarked li{list-style:none}
-.is-style-checkmarked li::before{content:'';display:inline-block;background-image:url("../icons/toggle/check_box_black_24dp_rounded.svg");background-repeat:no-repeat;background-position:center;width:22px;height:19px;margin-right:9px;vertical-align:middle}
+.is-style-checkmarked li::before{content:'';display:inline-block;background-image:url("../icons/utility/check_black_24dp_rounded.svg");background-repeat:no-repeat;background-position:center;width:22px;height:19px;margin-right:9px;vertical-align:middle}
 .breadcrumb .breadcrumb_last,.breadcrumb a,.yoast-breadcrumbs .breadcrumb_last,.yoast-breadcrumbs a{color:#000;font-size:12px;text-decoration:none}
 .breadcrumb .breadcrumb_last:after,.breadcrumb a:after,.yoast-breadcrumbs .breadcrumb_last:after,.yoast-breadcrumbs a:after{padding:8px 0 8px 8px;color:#000;content:"/\00a0"}
 .breadcrumb .breadcrumb_last:last-child,.breadcrumb a:last-child,.yoast-breadcrumbs .breadcrumb_last:last-child,.yoast-breadcrumbs a:last-child{font-weight:600}
 .breadcrumb .breadcrumb_last:last-child:after,.breadcrumb a:last-child:after,.yoast-breadcrumbs .breadcrumb_last:last-child:after,.yoast-breadcrumbs a:last-child:after{content:""}
-.wp-block-button__link{border-radius:20px;font-size:1rem;font-weight:700;line-height:22px;padding:.70em 1em .375em;text-decoration:none}
+.wp-block-button__link{border-radius:20px;font-size:1.125rem;font-weight:700;line-height:24px;padding:.50em 1.50em;text-decoration:none}
 .is-style-full .wp-block-button__link,.wp-block-button__link.full{display:block;width:100%}
 .wp-block-button__link:not(.has-text-color){color:white}
 .wp-block-button__link:not(.has-text-color):hover{color:white}
@@ -364,6 +365,11 @@ div.wpforms-container.one-line:after{content:"";display:table;clear:both}
 .footer--menus .menu-item-has-children>a{font-size:1.125em;line-height:1.5em;font-weight:700;display:block;padding:1em 0}
 .footer--menus .sub-menu a{font-weight:300}
 .floating-cta{background-color:#fff;bottom:0;height:62px;left:0;position:fixed;padding:.5em;text-align:center;width:100%}
+.is-style-x-small .wp-block-button__link{background-color:#f5f2f2;color:#000;font-weight:300;padding:4px 8px;height:1.875em;font-size:16px}
+.is-style-x-small .wp-block-button__link:hover{background-color:#b3b1b1;color:#000}
+.is-style-small .wp-block-button__link{padding:6px 16px}
+.is-style-featured .wp-block-button__link{line-height:24px;font-size:18px;padding:12px 24px;border-radius:1.563em}
+.is-style-hero .wp-block-button__link{font-size:24px;line-height:32px;padding:16px 48px;border-radius:2.25em}
 @media(min-width:768px){.site-inner{padding:48px 0}
 body{font-size:1em}
 p.large,p.has-large-font-size{font-size:1.125em}
@@ -420,9 +426,9 @@ div.wpforms-container.one-line .wpforms-submit-container{float:right;width:110px
 }@media(min-width:783px){.admin-bar .site-container{padding-top:32px}
 }@media(min-width:992px){.content-sidebar .site-main{float:left;width:65.7534246575%}
 .content-sidebar .sidebar-primary{float:right;width:28.6815068493%}
-h1{font-size:46px}
-h2{font-size:36px}
-h3{font-size:28px}
+h1{font-size:52px}
+h2{font-size:48px}
+h3{font-size:40px}
 .wp-block-group{padding:70px 16px}
 .archive .site-main>article{float:left;margin-left:2.7397260274%;width:22.9452054795%}
 .archive .site-main>article:nth-of-type(4n+1){clear:both;margin-left:0}

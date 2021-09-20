@@ -3,7 +3,7 @@
 	"name": "core/table",
 	"title": "Table",
 	"category": "text",
-	"description": "Create structured content in rows and columns to display information.",
+	"description": "Insert a table — perfect for sharing charts and data.",
 	"textdomain": "default",
 	"attributes": {
 		"hasFixedLayout": {

@@ -1,0 +1,67 @@
+/* X-Small
+--------------------------------------------- */
+
+.is-style-x-small {
+
+	.wp-block-button {
+
+		&__link {
+			background-color: $grey_1;
+			color: $black;
+			font-weight: 300;
+			padding: 4px 8px;
+			height: 1.875em;
+			font-size: 16px;
+
+			&:hover {
+				background-color: $grey_4;
+				color: $black
+			}
+		}
+	}
+}
+
+/* Small
+--------------------------------------------- */
+
+.is-style-small {
+
+	.wp-block-button {
+
+		&__link {
+			padding: 6px 16px;
+		}
+	}
+}
+
+/* Featured
+--------------------------------------------- */
+
+.is-style-featured {
+
+	.wp-block-button {
+
+		&__link {
+			line-height: 24px;
+			font-size: 18px;
+			padding: 12px 24px;
+			border-radius: 1.563em;
+		}
+	}
+}
+
+/* Hero
+--------------------------------------------- */
+
+.is-style-hero {
+
+	.wp-block-button {
+
+		&__link {
+			font-size: 24px;
+			line-height: 32px;
+			padding: 16px 48px;
+			border-radius: 2.25em;
+		}
+	}
+}

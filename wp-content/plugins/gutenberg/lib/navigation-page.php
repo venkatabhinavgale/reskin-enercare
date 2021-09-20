@@ -32,19 +32,10 @@ function gutenberg_navigation_init( $hook ) {
 			return;
 	}
 
-	$preload_paths = array(
-		'/__experimental/menu-locations',
-		array( '/wp/v2/pages', 'OPTIONS' ),
-		array( '/wp/v2/posts', 'OPTIONS' ),
-	);
-
 	$settings = array_merge(
 		gutenberg_get_default_block_editor_settings(),
 		array(
-			'blockNavMenus' => false,
-			// We should uncomment the line below when the block-nav-menus feature becomes stable.
-			// @see https://github.com/WordPress/gutenberg/issues/34265.
-			/*'blockNavMenus' => get_theme_support( 'block-nav-menus' ),*/
+			'blockNavMenus' => get_theme_support( 'block-nav-menus' ),
 		)
 	);
 	$settings = gutenberg_experimental_global_styles_settings( $settings );
@@ -55,7 +46,6 @@ function gutenberg_navigation_init( $hook ) {
 		array(
 			'initializer_name' => 'initialize',
 			'editor_settings'  => $settings,
-			'preload_paths'    => $preload_paths,
 		)
 	);
 

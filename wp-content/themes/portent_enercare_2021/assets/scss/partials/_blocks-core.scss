@@ -6,10 +6,10 @@ $default: nth( nth( $brand_colors, 1 ), 1 ); // first color in $brand_colors arr
 .wp-block-button__link {
 	//border: 2px solid brand-color( $default, 'darken' );
 	border-radius: $border-radius;
-	font-size: 1rem;
+	font-size: 1.125rem;
 	font-weight: 700;
-	line-height: 22px;
-	padding: 0.70em 1em 0.375em;
+	line-height: 24px;
+	padding: 0.50em 1.50em;
 	text-decoration: none;
 
 	.is-style-full &,
