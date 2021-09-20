@@ -10,7 +10,7 @@
  * the corresponding stylesheet.
  *
  * @param WP_Theme_JSON_Gutenberg $tree Input tree.
- * @param string                  $type Type of stylesheet we want accepts 'all', 'block_styles', 'css_variables', and 'presets'.
+ * @param string                  $type Type of stylesheet we want accepts 'all', 'block_styles', and 'css_variables'.
  *
  * @return string Stylesheet.
  */
@@ -48,14 +48,16 @@ function gutenberg_experimental_global_styles_get_stylesheet( $tree, $type = 'al
  * and enqueues the resulting stylesheet.
  */
 function gutenberg_experimental_global_styles_enqueue_assets() {
+	if (
+		! get_theme_support( 'experimental-link-color' ) && // link color support needs the presets CSS variables regardless of the presence of theme.json file.
+		! WP_Theme_JSON_Resolver_Gutenberg::theme_has_support() ) {
+		return;
+	}
+
 	$settings = gutenberg_get_default_block_editor_settings();
 	$all      = WP_Theme_JSON_Resolver_Gutenberg::get_merged_data( $settings );
 
-	$type = 'all';
-	if ( ! WP_Theme_JSON_Resolver_Gutenberg::theme_has_support() ) {
-		$type = 'presets';
-	}
-	$stylesheet = gutenberg_experimental_global_styles_get_stylesheet( $all, $type );
+	$stylesheet = gutenberg_experimental_global_styles_get_stylesheet( $all );
 	if ( empty( $stylesheet ) ) {
 		return;
 	}
@@ -139,17 +141,15 @@ function gutenberg_experimental_global_styles_settings( $settings ) {
 		}
 
 		// Reset existing global styles.
-		$styles_without_existing_global_styles = array();
-		foreach ( $settings['styles'] as $style ) {
-			if ( ! isset( $style['__unstableType'] ) || 'globalStyles' !== $style['__unstableType'] ) {
-				$styles_without_existing_global_styles[] = $style;
+		foreach ( $settings['styles'] as $key => $style ) {
+			if ( isset( $style['__unstableType'] ) && 'globalStyles' === $style['__unstableType'] ) {
+				unset( $settings['styles'][ $key ] );
 			}
 		}
 
 		// Add the new ones.
-		$styles_without_existing_global_styles[] = $css_variables;
-		$styles_without_existing_global_styles[] = $block_styles;
-		$settings['styles']                      = $styles_without_existing_global_styles;
+		$settings['styles'][] = $css_variables;
+		$settings['styles'][] = $block_styles;
 	}
 
 	// Copied from get_block_editor_settings() at wordpress-develop/block-editor.php.

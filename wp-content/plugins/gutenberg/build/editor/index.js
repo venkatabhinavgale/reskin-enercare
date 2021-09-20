@@ -930,7 +930,6 @@ __webpack_require__.d(__webpack_exports__, {
   "SkipToSelectedBlock": function() { return /* reexport */ SkipToSelectedBlock; },
   "TableOfContents": function() { return /* reexport */ table_of_contents; },
   "TextEditorGlobalKeyboardShortcuts": function() { return /* reexport */ TextEditorGlobalKeyboardShortcuts; },
-  "ThemeSupportCheck": function() { return /* reexport */ theme_support_check; },
   "URLInput": function() { return /* reexport */ URLInput; },
   "URLInputButton": function() { return /* reexport */ URLInputButton; },
   "URLPopover": function() { return /* reexport */ URLPopover; },
@@ -965,6 +964,7 @@ __webpack_require__.d(selectors_namespaceObject, {
   "__experimentalGetDefaultTemplateType": function() { return __experimentalGetDefaultTemplateType; },
   "__experimentalGetDefaultTemplateTypes": function() { return __experimentalGetDefaultTemplateTypes; },
   "__experimentalGetTemplateInfo": function() { return __experimentalGetTemplateInfo; },
+  "__unstableGetBlockWithoutInnerBlocks": function() { return __unstableGetBlockWithoutInnerBlocks; },
   "__unstableIsEditorReady": function() { return __unstableIsEditorReady; },
   "canInsertBlockType": function() { return canInsertBlockType; },
   "canUserUseUnfilteredHTML": function() { return canUserUseUnfilteredHTML; },
@@ -1193,12 +1193,7 @@ const PREFERENCES_DEFAULTS = {
  *  allowedBlockTypes  boolean|Array Allowed block types
  *  richEditingEnabled boolean       Whether rich editing is enabled or not
  *  codeEditingEnabled boolean       Whether code editing is enabled or not
- *  enableCustomFields boolean       Whether the WordPress custom fields are enabled or not.
- *                                     true  = the user has opted to show the Custom Fields panel at the bottom of the editor.
- *                                     false = the user has opted to hide the Custom Fields panel at the bottom of the editor.
- *                                     undefined = the current environment does not support Custom Fields,
- *                                                 so the option toggle in Preferences -> Panels to
- *                                                 enable the Custom Fields panel is not displayed.
+ *  enableCustomFields boolean       Whether the WordPress custom fields are enabled or not
  *  autosaveInterval   number        Autosave Interval
  *  availableTemplates array?        The available post templates
  *  disablePostFormats boolean       Whether or not the post formats are disabled
@@ -1210,7 +1205,7 @@ const PREFERENCES_DEFAULTS = {
 const EDITOR_SETTINGS_DEFAULTS = { ...external_wp_blockEditor_namespaceObject.SETTINGS_DEFAULTS,
   richEditingEnabled: true,
   codeEditingEnabled: true,
-  enableCustomFields: undefined,
+  enableCustomFields: false,
   supportsLayout: true
 };
 //# sourceMappingURL=defaults.js.map
@@ -3194,6 +3189,11 @@ const getBlock = getBlockEditorSelector('getBlock');
  */
 
 const getBlocks = getBlockEditorSelector('getBlocks');
+/**
+ * @see __unstableGetBlockWithoutInnerBlocks in core/block-editor store.
+ */
+
+const __unstableGetBlockWithoutInnerBlocks = getBlockEditorSelector('__unstableGetBlockWithoutInnerBlocks');
 /**
  * @see getClientIdsOfDescendants in core/block-editor store.
  */
@@ -5892,7 +5892,7 @@ function useAutosaveNotice() {
   }), []);
   const {
     getEditedPostAttribute
-  } = (0,external_wp_data_namespaceObject.useSelect)(store);
+  } = (0,external_wp_data_namespaceObject.useSelect)('core/editor');
   const {
     createWarningNotice,
     removeNotice
@@ -11673,7 +11673,6 @@ const withFontSizes = deprecateFunction('withFontSizes', external_wp_blockEditor
 ;// CONCATENATED MODULE: ./packages/editor/build-module/components/index.js
 // Block Creation Components
  // Post Related Components
-
 
 
 

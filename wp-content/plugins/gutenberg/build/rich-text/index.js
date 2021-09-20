@@ -4291,8 +4291,7 @@ function useInputAndSelection(props) {
       const {
         record,
         isSelected,
-        onSelectionChange,
-        applyRecord
+        onSelectionChange
       } = propsRef.current;
 
       if (!isSelected) {
@@ -4307,7 +4306,6 @@ function useInputAndSelection(props) {
         };
         onSelectionChange(index, index);
       } else {
-        applyRecord(record.current);
         onSelectionChange(record.current.start, record.current.end);
       } // Update selection as soon as possible, which is at the next animation
       // frame. The event listener for selection changes may be added too late
@@ -4591,7 +4589,6 @@ function useRichText({
 
 
   function handleChange(newRecord) {
-    record.current = newRecord;
     applyRecord(newRecord);
 
     if (disableFormats) {
@@ -4606,6 +4603,7 @@ function useRichText({
       });
     }
 
+    record.current = newRecord;
     const {
       start,
       end,
@@ -4646,6 +4644,12 @@ function useRichText({
     applyFromProps();
     hadSelectionUpdate.current = false;
   }, [hadSelectionUpdate.current]);
+
+  function focus() {
+    ref.current.focus();
+    applyRecord(record.current);
+  }
+
   const mergedRefs = (0,external_wp_compose_namespaceObject.useMergeRefs)([ref, useDefaultStyle(), useBoundaryStyle({
     record
   }), useCopyHandler({
@@ -4677,6 +4681,7 @@ function useRichText({
   return {
     value: record.current,
     onChange: handleChange,
+    onFocus: focus,
     ref: mergedRefs
   };
 }
