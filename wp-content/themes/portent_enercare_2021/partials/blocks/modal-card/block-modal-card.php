@@ -21,10 +21,10 @@ if( !empty($block['backgroundColor'] ) ) {
 ?>
 
 <div class="block-emc-card__wrapper">
-<button class="<?php echo esc_attr($classes); ?>">
+<div class="<?php echo esc_attr($classes); ?>">
 	<?= wp_get_attachment_image( $emc_image, '1-1-2x', false, array( 'class' =>'block-emc-card__image', 'alt'=>'') ); ?>
 	<h3><?= $emc_name ?></h3>
 	<span class="block-emc-card__text"><?= $emc_title ?></span>
-	<span class="wp-block-button__link has-red-background-color has-background"><?= $cta_text ?></span>
-</button>
+	<button class="wp-block-button__link has-red-background-color has-background"><?= $cta_text ?></button>
+</div>
 </div>

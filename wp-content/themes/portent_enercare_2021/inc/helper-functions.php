@@ -199,11 +199,11 @@ function enercare_banner() {
   $post_banner_text = get_field('banner_text');
   if ($post_banner_text && !empty(trim($post_banner_text)))
     $banner_text = $post_banner_text;
-  
+
   if (!$post_banner_toggle && $global_banner_toggle) {
-    $output = '<div class="">' . $banner_text . '</div>';
+    $output = '<div class="banner-operational alignfull">' . $banner_text . '</div>';
   }
-  
+
   return $output;
 }
 
@@ -216,12 +216,12 @@ function enercare_filter_taxonomy_by_post_type() {
   if( is_author() ) {
   	$post_type = 'post';
   }
-  
+
   $output = "";
   if ($post_type == 'campaign' || $post_type == 'location') {
     $output .= get_postal_code_filter();
   }
-  
+
   $taxonomies = get_object_taxonomies($post_type, 'object');
   $output .= '<div class="filter-control__container"><div class="filter-control-header"><h2 class="filter-title has-text-align-center">Filter Results</h2><button class="filter-reset">Reset Filters</button></div><div class="taxonomy-filters flex-grid">';
 
@@ -283,22 +283,22 @@ function enercare_filter_archive( $query ) {
   	if( is_author() ) {
   		$author = get_the_author_meta('ID');
     }
-    
+
     // exclude featured post from showing up in main query
     if (is_home()) {
       // grab the ID of the page we're using to get posts
       $posts_page_ID = get_option( 'page_for_posts' );
-      // grab the 'featured_post' field to exclude from query. 
+      // grab the 'featured_post' field to exclude from query.
       // have to use wpdb to make a side query otherwise the world falls down using ACF's get_field function, which also uses WP_QUERY
       global $wpdb;
       $featured_post = $wpdb->get_var( $wpdb->prepare( "SELECT meta_value FROM $wpdb->postmeta WHERE meta_key = 'featured_post' AND post_id = %s", $posts_page_ID ) );
       if (!$featured_post)
         $featured_post = get_the_ID();
-      
+
       //var_dump($featured_post);exit;
       $query->set('post__not_in', array($featured_post));
     }
-    
+
     // exclude child pages from the location archive page
     if (is_post_type_archive('location')) {
       $query->set('post_parent', 0);
@@ -314,7 +314,7 @@ function enercare_filter_archive( $query ) {
       $postal_code = $_GET['postal_code'];
       $taxquery = array();
       $categories = array();
-      
+
       // check if postal_code URL param exists
       if ($postal_code && $postal_code != "") {
         // if we're on the campaign archive page, get campaigns by postal code
@@ -338,7 +338,7 @@ function enercare_filter_archive( $query ) {
             $query->set('post__in', $location_ids);
           }
         }
-        
+
       }
 
 		/**
@@ -376,11 +376,11 @@ function enercare_filter_archive( $query ) {
       if( !empty( $metaquery ) ) {
         $query->set('meta_query', $metaquery);
       }
-      
+
     }
-    
+
   }
-  
+
   return $query;
 }
 add_action( 'pre_get_posts', 'enercare_filter_archive');
@@ -390,6 +390,6 @@ function get_postal_code_filter() {
   $output .= '<input type="text" id="postalCode" name="postalCode" value="" placeholder="A2A2A2" />';
   $output .= '<button class="">Search</button>';
   $output .= '</div>';
-  
+
   return $output;
 }

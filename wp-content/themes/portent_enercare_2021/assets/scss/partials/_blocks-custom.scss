@@ -1,3 +1,4 @@
+//Tabbed Content
 .block-tabbed-content__tab__title {
 	display: none;
 }
@@ -5,6 +6,26 @@
 .block-tabbed-content__tabs {
 	display: flex;
 	margin-bottom: 32px;
+}
+
+
+.block-tabbed-content__tabs.init {
+	.block-tabbed-content__tab:first-of-type {
+		border-bottom: 2px solid brand-color('red');
+		color: brand-color('red');
+
+		img {
+			filter: hue-rotate(0) contrast(100%) brightness(100%) grayscale(0);
+		}
+
+		&:hover {
+			color: $white;
+
+			img {
+				filter: brightness(0) invert(1);
+			}
+		}
+	}
 }
 
 .block-tabbed-content__tab {
