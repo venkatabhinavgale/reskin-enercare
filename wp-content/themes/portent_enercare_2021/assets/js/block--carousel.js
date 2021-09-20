@@ -19,6 +19,8 @@ window.addEventListener('load', function () {
   new Glider(document.querySelector('.wp-block-acf-glider-carousel'), {
     slidesToShow: $slidesToShow,
     slidesToScroll: $slidesToScroll,
+	  scrollLock: true,
+	  itemWidth: 272,
     arrows: {
       prev: '.glider-prev',
       next: '.glider-next'

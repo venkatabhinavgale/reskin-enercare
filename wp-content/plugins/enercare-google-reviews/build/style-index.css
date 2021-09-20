@@ -10,4 +10,8 @@
   padding: 2px;
 }
 
+.block-reviews__star {
+  filter: invert(86%) sepia(90%) saturate(6585%) hue-rotate(318deg) brightness(99%) contrast(99%);
+}
+
 /*# sourceMappingURL=style-index.css.map*/
