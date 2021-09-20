@@ -1,0 +1,76 @@
+{
+    "key": "group_61410060e835d",
+    "title": "Banner Controls",
+    "fields": [
+        {
+            "key": "field_61410061091f7",
+            "label": "Banner Toggle",
+            "name": "banner_toggle",
+            "type": "true_false",
+            "instructions": "This controls whether the banner (ie. covid) displays on this page. Overrides the global setting.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Off",
+            "ui_off_text": "On"
+        },
+        {
+            "key": "field_614100ab5b5da",
+            "label": "Banner Text",
+            "name": "banner_text",
+            "type": "wysiwyg",
+            "instructions": "This field will override the contents of the banner.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "location"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "landing-page"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1631720865
+}

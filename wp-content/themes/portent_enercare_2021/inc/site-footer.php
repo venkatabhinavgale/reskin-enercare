@@ -30,13 +30,31 @@ add_action( 'widgets_init', 'enercare_register_footer_widget_areas' );
  *
  */
 function enercare_site_footer_widgets() {
-	echo '<div class="footer-widgets"><div class="wrap">';
-	for( $i = 1; $i < 4; $i++ ) {
-		dynamic_sidebar( 'footer-' . $i );
-	}
-	echo '</div></div>';
+  if (get_post_type(get_the_ID()) != "landing-page") {
+    echo '<div class="footer-widgets"><div class="wrap">';
+    for( $i = 1; $i < 4; $i++ ) {
+      dynamic_sidebar( 'footer-' . $i );
+    }
+    echo '</div></div>';  
+  }
 }
-add_action( 'tha_footer_before', 'enercare_site_footer_widgets' );
+add_action( 'tha_footer_before', 'enercare_site_footer_widgets', 2 );
+
+
+/**
+ * Footer Legal area
+ *
+ */
+function footer_legal() {
+	if( get_field('terms_and_conditions') ) {
+		$terms = get_field('terms_and_conditions');
+		echo '<div class="legal__terms">';
+      echo '<button class="legal__terms-toggle" aria-controls="terms_' . get_the_ID() . '">Legal <img src="' . get_template_directory_uri() . '/assets/icons/utility/navigate-down.svg" /></button>';
+      echo '<div class="legal__terms-details" aria-expanded="false" data-state="closed" aria-labelledby="terms_' . get_the_ID() . '">' . $terms . '</div>';
+    echo '</div>';
+	}
+}
+add_action( 'tha_footer_before', 'footer_legal', 1 );
 
 /**
  * Site Footer

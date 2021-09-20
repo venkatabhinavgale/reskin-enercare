@@ -35,12 +35,16 @@ include_once( get_template_directory() . '/inc/tinymce.php' );
 
 // Functionality
 include_once( get_template_directory() . '/inc/login-logo.php' );
-include_once( get_template_directory() . '/inc/block-area.php' );
 include_once( get_template_directory() . '/inc/social-links.php' );
+
+// Blocks
+include_once( get_template_directory() . '/inc/acf-blocks.php');
+include_once( get_template_directory() . '/inc/block-area.php' );
+include_once( get_template_directory() . '/inc/block-area.php' );
+include_once( get_template_directory() . '/inc/block-patterns.php' );
 
 // Plugin Support
 include_once( get_template_directory() . '/inc/acf.php' );
-include_once( get_template_directory() . '/inc/acf-blocks.php');
 include_once( get_template_directory() . '/inc/amp.php' );
 include_once( get_template_directory() . '/inc/shared-counts.php' );
 include_once( get_template_directory() . '/inc/wpforms.php' );
@@ -79,7 +83,7 @@ function enercare_scripts() {
 
 	wp_enqueue_style( 'ea-fonts', enercare_theme_fonts_url() );
 	wp_enqueue_style( 'ea-style', get_template_directory_uri() . '/assets/css/main.css', array(), filemtime( get_template_directory() . '/assets/css/main.css' ) );
-  
+
   // Only load legal terms toggle functionality on post types that use it
   if( get_field('terms_and_conditions') ) {
     wp_enqueue_script( 'legal-terms', get_template_directory_uri() . '/assets/js/legal-terms.js', null, null, true );
@@ -188,10 +192,10 @@ function enercare_setup() {
 	/**
 	 * Image Sizes
 	 */
-	add_image_size( '1-1-small', 100, 100);
-	add_image_size( '1-1', 300, 300);
-	add_image_size( '1-1-2x', 600, 600);
-	add_image_size( '1-1-3x', 900, 900);
+	add_image_size( '1-1-small', 100, 100, true);
+	add_image_size( '1-1', 300, 300, true);
+	add_image_size( '1-1-2x', 600, 600, true);
+	add_image_size( '1-1-3x', 900, 900, true);
 	add_image_size('3-2-small', 372, 248);
 	add_image_size('3-2', 572, 382);
 	add_image_size('3-2-2x', 804, 536);

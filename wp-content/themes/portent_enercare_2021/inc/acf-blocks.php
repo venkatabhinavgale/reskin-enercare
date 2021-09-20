@@ -164,66 +164,66 @@ function enercare_register_theme_blocks() {
 		  ),
 	  ));
 
-	acf_register_block_type( array(
-	  'name'            => 'location-finder',
-	  'title'           => __( 'Location Finder' ),
-	  'description'     => __( 'Location Finder Block' ),
-	  'render_template' => 'partials/blocks/location-finder/block-location-finder.php',
-	  'category'        => 'layout',
-	  'mode'            => 'preview',
-    'keywords'        => array('location', 'finder', 'search', 'form', 'enercare', 'portent'),
-	  'enqueue_assets' => function() {
-		  wp_enqueue_style( 'block-location-finder-style', get_template_directory_uri() . '/assets/css/block--location-finder.css', array('ea-style'), false, 'screen');
-	  },
-	  'supports'        => array(
-		  'mode'  => false,
-		  'align' => false,
-		  'color' => array(
-			  'background' => true,
-			  'text' => false,
-			  'gradients' => false
-		  )
-	  ),
-	));
+    acf_register_block_type( array(
+      'name'            => 'location-finder',
+      'title'           => __( 'Location Finder' ),
+      'description'     => __( 'Location Finder Block' ),
+      'render_template' => 'partials/blocks/location-finder/block-location-finder.php',
+      'category'        => 'layout',
+      'mode'            => 'preview',
+      'keywords'        => array('location', 'finder', 'search', 'form', 'enercare', 'portent'),
+      'enqueue_assets' => function() {
+        wp_enqueue_style( 'block-location-finder-style', get_template_directory_uri() . '/assets/css/block--location-finder.css', array('ea-style'), false, 'screen');
+      },
+      'supports'        => array(
+        'mode'  => false,
+        'align' => false,
+        'color' => array(
+          'background' => true,
+          'text' => false,
+          'gradients' => false
+        )
+      ),
+    ));
 
-	acf_register_block_type(array(
-		'name'              => 'enercare-faqs',
-		'title'             => __('FAQs', 'enercare'),
-		'render_template'   => 'partials/blocks/block-faqs.php',
-		'category'          => 'formatting',
-		'icon'              => 'testimonial',
-		'mode'              => 'auto',
-		'keywords'          => array('faq', 'frequently', 'question', 'answer', 'enercare', 'portent'),
-    'enqueue_assets' => function() {
-      wp_enqueue_style( 'block-faqs-style', get_template_directory_uri() . '/assets/css/block--faqs.css', array('ea-style'), false, 'screen');
-      wp_enqueue_script( 'block--faqs-script', get_template_directory_uri() . '/assets/js/block--faqs.js', null, null, true);
-    }
-	));
-  
-  acf_register_block_type(array(
-		'name'              => 'location-info',
-		'title'             => __('Location Info', 'enercare'),
-		'render_template'   => 'partials/blocks/block-location-info.php',
-		'category'          => 'layout',
-		'mode'              => 'auto',
-		'keywords'          => array('location', 'info', 'enercare', 'portent'),
-    'enqueue_assets' => function() {
-      //wp_enqueue_style( 'block-location-info-style', get_template_directory_uri() . '/assets/css/block--location-info.css', array('ea-style'), false, 'screen');
-    }
-	));
-  
-  acf_register_block_type(array(
-		'name'              => 'location-map',
-		'title'             => __('Location Map', 'enercare'),
-		'render_template'   => 'partials/blocks/block-location-map.php',
-		'category'          => 'layout',
-    'icon'              => 'admin-site',
-		'mode'              => 'auto',
-		'keywords'          => array('location', 'map', 'google', 'enercare', 'portent'),
-    'enqueue_assets' => function() {
-      //wp_enqueue_style( 'block-location-map-style', get_template_directory_uri() . '/assets/css/block--location-map.css', array('ea-style'), false, 'screen');
-    }
-	));
+    acf_register_block_type(array(
+      'name'              => 'enercare-faqs',
+      'title'             => __('FAQs', 'enercare'),
+      'render_template'   => 'partials/blocks/block-faqs.php',
+      'category'          => 'formatting',
+      'icon'              => 'testimonial',
+      'mode'              => 'auto',
+      'keywords'          => array('faq', 'frequently', 'question', 'answer', 'enercare', 'portent'),
+      'enqueue_assets' => function() {
+        //wp_enqueue_style( 'block-faqs-style', get_template_directory_uri() . '/assets/css/block--faqs.css', array('ea-style'), false, 'screen');
+        wp_enqueue_script( 'block--faqs-script', get_template_directory_uri() . '/assets/js/block--faqs.js', null, null, true);
+      }
+    ));
+    
+    acf_register_block_type(array(
+      'name'              => 'location-info',
+      'title'             => __('Location Info', 'enercare'),
+      'render_template'   => 'partials/blocks/block-location-info.php',
+      'category'          => 'layout',
+      'mode'              => 'auto',
+      'keywords'          => array('location', 'info', 'enercare', 'portent'),
+      'enqueue_assets' => function() {
+        //wp_enqueue_style( 'block-location-info-style', get_template_directory_uri() . '/assets/css/block--location-info.css', array('ea-style'), false, 'screen');
+      }
+    ));
+    
+    acf_register_block_type(array(
+      'name'              => 'location-map',
+      'title'             => __('Location Map', 'enercare'),
+      'render_template'   => 'partials/blocks/block-location-map.php',
+      'category'          => 'layout',
+      'icon'              => 'admin-site',
+      'mode'              => 'auto',
+      'keywords'          => array('location', 'map', 'google', 'enercare', 'portent'),
+      'enqueue_assets' => function() {
+        //wp_enqueue_style( 'block-location-map-style', get_template_directory_uri() . '/assets/css/block--location-map.css', array('ea-style'), false, 'screen');
+      }
+    ));
   
   }
 }

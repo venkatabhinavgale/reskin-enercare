@@ -16,12 +16,14 @@
   
   $tax_query = array();
   $tax_query['relation'] = $tax_relation;
-  foreach($campaign_categories as $cc) {
-    $tax_query[] = array(
-      'taxonomy'  => 'campaign-category',
-      'field'     => 'id',
-      'terms'     => $cc
-    );
+  if ($campaign_categories && sizeof($campaign_categories) > 0) {
+    foreach($campaign_categories as $cc) {
+      $tax_query[] = array(
+        'taxonomy'  => 'campaign-category',
+        'field'     => 'id',
+        'terms'     => $cc
+      );
+    }  
   }
   
   if (!$override) {
@@ -73,6 +75,7 @@
     $campaign_heading = get_field('heading', $campaign->ID);
     $campaign_subheading = get_field('subheading', $campaign->ID);
     $campaign_icon = wp_get_attachment_image( get_field('icon', $campaign->ID), 'thumbnail', false, array( 'class' =>'block-offer-card__image', 'alt'=>'') );
+    $campaign_expiration = get_field('end_date', $campaign->ID);
     $terms_and_conditions = get_field('terms_and_conditions', $campaign->ID);
     $campaign_terms = '';
     if ($terms_and_conditions && !empty($terms_and_conditions)) {
@@ -86,6 +89,19 @@
 ?>
 
   <?php if ($variation == "Offer Card") { ?>
+  <div class="block-offer-card__wrapper" data-allow-multiple>
+    <a href="<?= get_field('destination', $campaign->ID); ?>">
+    <button>
+      <?= $campaign_icon; ?>
+      <?php if ($campaign_subheading) { ?>
+        <p><?php echo $campaign_subheading; ?></p>
+      <?php } ?>
+      <h3><?= $campaign_heading; ?></h3>
+      <span class="wp-block-button__link has-red-background-color has-background"><?= $cta_text ?></span>
+    </button>
+    </a>
+    <?= $campaign_terms; ?>
+  </div>
 
   <?php } elseif ($variation == "Offer with Icon") { ?>
   <div class="block-offer-card__wrapper" data-allow-multiple>
@@ -100,6 +116,26 @@
     </button>
     </a>
     <?= $campaign_terms; ?>
+  </div>
+  
+  <?php } elseif ($variation == "Masthead Offer Card") { ?>
+  <div class="block-offer-card__wrapper" data-allow-multiple>
+    <?php if ($campaign_subheading) { ?>
+      <p><?php echo $campaign_subheading; ?></p>
+    <?php } ?>
+    <h3><?= $campaign_heading; ?></h3>
+    <p>Offer expires <?= date('F d, Y', strtotime($campaign_expiration)); ?>
+      <span class="block-offer-card__terms">
+        <button class="block-offer-card__terms-toggle" aria-controls="terms_<?= $campaign->ID; ?>">View Details</button>
+        <div class="block-offer-card__terms-details" aria-expanded="false" data-state="closed" aria-labelledby="terms_<?= $campaign->ID; ?>"><?= $terms_and_conditions; ?></div>
+      </span>
+    </p>
+      
+    <a href="<?= get_field('destination', $campaign->ID); ?>">
+    <button>
+      <span class="wp-block-button__link has-red-background-color has-background"><?= $cta_text ?></span>
+    </button>
+    </a>
   </div>
 
   <?php } elseif ($variation == "Full Width with Image") { ?>

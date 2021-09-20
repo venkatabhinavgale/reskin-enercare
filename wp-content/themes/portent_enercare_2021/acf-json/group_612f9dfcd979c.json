@@ -18,6 +18,7 @@
             "choices": {
                 "Default": "Default",
                 "Offer Card": "Offer Card",
+                "Masthead Offer Card": "Masthead Offer Card",
                 "Offer with Icon": "Offer with Icon",
                 "Full Width with Image": "Full Width with Image",
                 "Enercare Classic (2019 offer style)": "Enercare Classic (2019 offer style)"
@@ -223,5 +224,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1630519108
+    "modified": 1631647804
 }

@@ -180,10 +180,31 @@ function enercare_has_action( $hook ) {
  * Breadcrumbs
  *
  */
-function enercare_breadcrumbs() {
+function enercare_breadcrumbs($display = true) {
 	if ( function_exists('yoast_breadcrumb') ) {
-		yoast_breadcrumb( '<p id="breadcrumbs" class="breadcrumb">','</p>' );
+    $breadcrumbs = yoast_breadcrumb( '<p id="breadcrumbs" class="breadcrumb">','</p>',$display );
+    if (!$display)
+      return $breadcrumbs;
 	}
+}
+
+/**
+ * Banner (Covid)
+ *
+ */
+function enercare_banner() {
+  $global_banner_toggle = get_field('banner_toggle', 'option');
+  $banner_text = get_field('banner_text', 'option');
+  $post_banner_toggle = get_field('banner_toggle');
+  $post_banner_text = get_field('banner_text');
+  if ($post_banner_text && !empty(trim($post_banner_text)))
+    $banner_text = $post_banner_text;
+  
+  if (!$post_banner_toggle && $global_banner_toggle) {
+    $output = '<div class="">' . $banner_text . '</div>';
+  }
+  
+  return $output;
 }
 
 /**
