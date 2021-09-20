@@ -40,7 +40,7 @@ include_once( get_template_directory() . '/inc/social-links.php' );
 // Blocks
 include_once( get_template_directory() . '/inc/acf-blocks.php');
 include_once( get_template_directory() . '/inc/block-area.php' );
-include_once( get_template_directory() . '/inc/block-area.php' );
+include_once( get_template_directory() . '/inc/block-overrides.php' );
 include_once( get_template_directory() . '/inc/block-patterns.php' );
 
 // Plugin Support
