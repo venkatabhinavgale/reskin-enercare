@@ -6,6 +6,10 @@ function enercare_block_patterns() {
 		array( 'label' => __( 'Enercare', 'portent_enercare' ) )
 	);
   register_block_pattern_category(
+		'locations',
+		array( 'label' => __( 'Locations', 'portent_enercare' ) )
+	);
+  register_block_pattern_category(
 		'tabs',
 		array( 'label' => __( 'Tabs', 'portent_enercare' ) )
 	);
@@ -307,7 +311,7 @@ function enercare_block_patterns() {
 		array(
 			'title' => __( 'Tabbed 2 Column Content - Locations', 'portent_enercare'),
 			'description' => _x('Tabs of 2 column content for location pages', 'portent_enercare'),
-			'categories' => array('enercare', 'tabs'),
+			'categories' => array('enercare', 'locations', 'tabs'),
 			'content' => "
 <!-- wp:group -->
 <div class=\"wp-block-group\"><!-- wp:heading {\"textAlign\":\"center\"} -->
@@ -519,7 +523,7 @@ function enercare_block_patterns() {
 		array(
 			'title' => __( 'Mega Buttons with Icons - Locations', 'portent_enercare'),
 			'description' => _x('Mega buttons with icons for location pages', 'portent_enercare'),
-			'categories' => array('enercare', 'buttons'),
+			'categories' => array('enercare', 'locations', 'buttons'),
 			'content' => "
 <!-- wp:group {\"align\":\"full\",\"backgroundColor\":\"grey-10\"} -->
 <div class=\"wp-block-group alignfull has-grey-10-background-color has-background\"><!-- wp:acf/mega-button {\"id\":\"block_6144d9f8d771f\",\"name\":\"acf/mega-button\",\"data\":{\"image\":3302,\"_image\":\"field_612e949ed0c97\",\"link\":{\"title\":\"Water Heater\",\"url\":\"https://dev-enercare.pantheonsite.io/heating-buyers-guide-furnaces/\",\"target\":\"\"},\"_link\":\"field_612e948ad0c96\"},\"align\":\"left\",\"mode\":\"preview\",\"wpClassName\":\"wp-block-acf-mega-button alignleft Test\",\"className\":\"Test\"} /-->
@@ -545,7 +549,7 @@ function enercare_block_patterns() {
 		array(
 			'title' => __( 'ECM Bios Carousel - Locations', 'portent_enercare'),
 			'description' => _x('ECM Bios in a carousel for location pages', 'portent_enercare'),
-			'categories' => array('enercare', 'carousels'),
+			'categories' => array('enercare', 'locations', 'carousels'),
 			'content' => "
 <!-- wp:group -->
 <div class=\"wp-block-group\"><!-- wp:heading {\"textAlign\":\"center\"} -->
@@ -573,7 +577,7 @@ function enercare_block_patterns() {
 		array(
 			'title' => __( 'Location About Info', 'portent_enercare'),
 			'description' => _x('Location about info for location pages', 'portent_enercare'),
-			'categories' => array('enercare', 'text'),
+			'categories' => array('enercare', 'locations', 'text'),
 			'content' => "
 <!-- wp:group {\"align\":\"full\",\"backgroundColor\":\"grey-10\"} -->
 <div class=\"wp-block-group alignfull has-grey-10-background-color has-background\"><!-- wp:heading {\"textAlign\":\"center\",\"align\":\"wide\",\"textColor\":\"grey\"} -->
