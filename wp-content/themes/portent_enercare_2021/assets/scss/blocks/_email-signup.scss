@@ -76,6 +76,12 @@
 	}
 
 	&__form-container {
+		margin: 0 auto;
+
+		@include media(">=tablet") {
+			margin: unset;
+		}
+
 		form {
 			display: flex;
 			flex-direction: row;
