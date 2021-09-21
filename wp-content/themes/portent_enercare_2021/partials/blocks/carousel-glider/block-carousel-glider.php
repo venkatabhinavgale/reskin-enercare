@@ -26,16 +26,6 @@ while ( have_rows('breakpoints') ) { the_row();
 }
 ?>
 
-<style>
-.glider-track {
-  min-height: 500px;
-}
-.glider-prev, .glider-next {
-  position: relative !important;
-  color: black !important;
-}
-</style>
-
 <div class="block-carousel__wrapper" data-num-slides="<?= $slides_to_show; ?>" data-num-advance="<?= $slides_to_advance; ?>" data-breakpoints='<?= json_encode($breakpoints_arr); ?>'>
 	<div style="min-height: 500px;" class="<?php echo esc_attr($classes); ?>">
 		<?php echo '<InnerBlocks allowedBlocks="' . esc_attr( wp_json_encode( $allowed_blocks ) ) . '" />'; ?>
@@ -47,7 +37,7 @@ while ( have_rows('breakpoints') ) { the_row();
   <?php } ?>
 	<button aria-label="Next" class="glider-next wp-block-button__link has-red-background-color has-background">»</button>
   <?php } ?>
-  
+
   <?php if (get_field('dots')) { ?>
 	<div role="tablist" class="dots"></div>
   <?php } ?>
