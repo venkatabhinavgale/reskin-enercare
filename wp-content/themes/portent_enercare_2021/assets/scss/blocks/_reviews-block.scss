@@ -119,12 +119,33 @@
 	&__prev,
 	&__next {
 		background-color: transparent;
-		border: 0;
+		border: 1px dotted transparent;
 		height: 50px;
 		position: absolute;
 		top: 50%;
+		opacity: 1;
 		transform: translateY(-50%);
+		transition: opacity 0.3s ease-in;
 		width: 50px;
+		border-radius: 100%;
+
+		img {
+			margin: 0 auto;
+		}
+
+		&:hover {
+			background-color: $grey_2;
+			transition: background-color 0.3s ease-in;
+		}
+
+		&:focus {
+			border: 1px dotted $grey_8;
+		}
+
+		&.disabled {
+			opacity: 0.3;
+			transition: opacity 0.3s ease-in;
+		}
 	}
 
 	&__prev {

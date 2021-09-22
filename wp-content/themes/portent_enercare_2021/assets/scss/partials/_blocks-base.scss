@@ -248,16 +248,20 @@ Block Styles
 Button Block
  */
 
-.wp-block-buttons > .wp-block-button {
+.wp-block-buttons {
 
-	&__width-25,
-	&__width-50,
-	&__width-75,
-	&__width-100 {
+	margin: 1em 0;
+	& > .wp-block-button {
 
-		@include media( '<tablet' ) {
-			//I don't love an !important but this is to keep buttons from looking weird on mobile
-			width: auto !important;
+		&__width-25,
+		&__width-50,
+		&__width-75,
+		&__width-100 {
+
+			@include media('<tablet') {
+				//I don't love an !important but this is to keep buttons from looking weird on mobile
+				width: auto !important;
+			}
 		}
 	}
 }
@@ -399,6 +403,8 @@ Carousel
 		transform: translateY(-50%);
 		width: 40px;
 		padding: 5px;
+		transition: background-color 0.2s ease-in;
+		border-radius: 100%;
 
 		img {
 			margin: 0 auto;
@@ -406,7 +412,16 @@ Carousel
 
 		&:hover {
 			background-color: $grey_2;
-			border-radius: 100%;
+			transition: background-color 0.3s ease-in;
+		}
+
+		&:focus {
+			border: 1px dotted $grey_8;
+		}
+
+		&.disabled {
+			opacity: 0.3;
+			transition: opacity 0.3s ease-in;
 		}
 	}
 
