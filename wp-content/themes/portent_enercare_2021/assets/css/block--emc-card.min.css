@@ -4,5 +4,5 @@
 .block-emc-card__text{font-weight:300}
 .block-emc-card .wp-block-button__link{margin-top:1.5em}
 .block-emc-card button{border:0}
-@media(min-width:768px){.block-emc-card__image{margin:0 3.125em 1.5em;width:75%}
+@media(min-width:768px){.block-emc-card__image{margin:0 3.125em 1.5em;width:75%;max-width:172px !important;height:auto}
 }
