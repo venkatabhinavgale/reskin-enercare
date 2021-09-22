@@ -23,7 +23,7 @@ window.addEventListener('load', function () {
       prev: '.glider-prev',
       next: '.glider-next'
     },
-    dots: '.dots',
+    dots: '.block-carousel__dots',
     responsive: $responsive_obj
     /* example
     responsive: [

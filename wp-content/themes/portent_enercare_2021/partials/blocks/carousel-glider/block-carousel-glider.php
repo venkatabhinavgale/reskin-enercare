@@ -27,18 +27,18 @@ while ( have_rows('breakpoints') ) { the_row();
 ?>
 
 <div class="block-carousel__wrapper" data-num-slides="<?= $slides_to_show; ?>" data-num-advance="<?= $slides_to_advance; ?>" data-breakpoints='<?= json_encode($breakpoints_arr); ?>'>
-	<div style="min-height: 500px;" class="<?php echo esc_attr($classes); ?>">
+	<div class="<?php echo esc_attr($classes); ?>">
 		<?php echo '<InnerBlocks allowedBlocks="' . esc_attr( wp_json_encode( $allowed_blocks ) ) . '" />'; ?>
 	</div>
 
   <?php if (get_field('arrows')) { ?>
   <?php if (get_field('rewind')) { ?>
-	<button aria-label="Previous" class="glider-prev wp-block-button__link has-red-background-color has-background">«</button>
+	<button aria-label="Previous" class="glider-prev">«</button>
   <?php } ?>
-	<button aria-label="Next" class="glider-next wp-block-button__link has-red-background-color has-background">»</button>
+	<button aria-label="Next" class="glider-next">»</button>
   <?php } ?>
 
   <?php if (get_field('dots')) { ?>
-	<div role="tablist" class="dots"></div>
+	<div role="tablist" class="dots block-carousel__dots"></div>
   <?php } ?>
 </div>

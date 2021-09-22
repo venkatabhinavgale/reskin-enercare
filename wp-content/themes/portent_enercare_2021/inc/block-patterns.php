@@ -526,17 +526,21 @@ function enercare_block_patterns() {
 			'categories' => array('enercare', 'locations', 'buttons'),
 			'content' => "
 <!-- wp:group {\"align\":\"full\",\"backgroundColor\":\"grey-10\"} -->
-<div class=\"wp-block-group alignfull has-grey-10-background-color has-background\"><!-- wp:acf/mega-button {\"id\":\"block_6144d9f8d771f\",\"name\":\"acf/mega-button\",\"data\":{\"image\":3302,\"_image\":\"field_612e949ed0c97\",\"link\":{\"title\":\"Water Heater\",\"url\":\"https://dev-enercare.pantheonsite.io/heating-buyers-guide-furnaces/\",\"target\":\"\"},\"_link\":\"field_612e948ad0c96\"},\"align\":\"left\",\"mode\":\"preview\",\"wpClassName\":\"wp-block-acf-mega-button alignleft Test\",\"className\":\"Test\"} /-->
+<div class=\"wp-block-group alignfull has-grey-10-background-color has-background\"><!-- wp:acf/mega-button {\"id\":\"block_6144d9f8d771f\",\"name\":\"acf/mega-button\",\"data\":{\"image\":3302,\"_image\":\"field_612e949ed0c97\",\"link\":{\"title\":\"Offers\",\"url\":\"/special-offers/\",\"target\":\"\"},\"_link\":\"field_612e948ad0c96\"},\"align\":\"left\",\"mode\":\"preview\",\"wpClassName\":\"wp-block-acf-mega-button alignleft Test\",\"className\":\"Test\"} /-->
 
-<!-- wp:acf/mega-button {\"id\":\"block_6144e28ed7724\",\"name\":\"acf/mega-button\",\"data\":{\"image\":3302,\"_image\":\"field_612e949ed0c97\",\"link\":{\"title\":\"Water Heater\",\"url\":\"https://dev-enercare.pantheonsite.io/heating-buyers-guide-furnaces/\",\"target\":\"\"},\"_link\":\"field_612e948ad0c96\"},\"align\":\"left\",\"mode\":\"preview\",\"wpClassName\":\"wp-block-acf-mega-button alignleft Test\",\"className\":\"Test\"} /-->
+<!-- wp:acf/mega-button {\"id\":\"block_6144e28ed7724\",\"name\":\"acf/mega-button\",\"data\":{\"image\":3297,\"_image\":\"field_612e949ed0c97\",\"link\":{\"title\":\"Boiler \u0026 Furnace\",\"url\":\"/heating\",\"target\":\"\"},\"_link\":\"field_612e948ad0c96\"},\"align\":\"left\",\"mode\":\"preview\",\"wpClassName\":\"wp-block-acf-mega-button alignleft Test\",\"className\":\"Test\"} /-->
 
-<!-- wp:acf/mega-button {\"id\":\"block_6144e2c2d7725\",\"name\":\"acf/mega-button\",\"data\":{\"image\":3302,\"_image\":\"field_612e949ed0c97\",\"link\":{\"title\":\"Water Heater\",\"url\":\"https://dev-enercare.pantheonsite.io/heating-buyers-guide-furnaces/\",\"target\":\"\"},\"_link\":\"field_612e948ad0c96\"},\"align\":\"left\",\"mode\":\"preview\",\"wpClassName\":\"wp-block-acf-mega-button alignleft Test\",\"className\":\"Test\"} /-->
+<!-- wp:acf/mega-button {\"id\":\"block_6144e2c2d7725\",\"name\":\"acf/mega-button\",\"data\":{\"image\":3313,\"_image\":\"field_612e949ed0c97\",\"link\":{\"title\":\"Air Conditioner\",\"url\":\"/cooling\",\"target\":\"\"},\"_link\":\"field_612e948ad0c96\"},\"align\":\"left\",\"mode\":\"preview\",\"wpClassName\":\"wp-block-acf-mega-button alignleft Test\",\"className\":\"Test\"} /-->
 
-<!-- wp:acf/mega-button {\"id\":\"block_6144e2c4d7726\",\"name\":\"acf/mega-button\",\"data\":{\"image\":3302,\"_image\":\"field_612e949ed0c97\",\"link\":{\"title\":\"Water Heater\",\"url\":\"https://dev-enercare.pantheonsite.io/heating-buyers-guide-furnaces/\",\"target\":\"\"},\"_link\":\"field_612e948ad0c96\"},\"align\":\"left\",\"mode\":\"preview\",\"wpClassName\":\"wp-block-acf-mega-button alignleft Test\",\"className\":\"Test\"} /-->
+<!-- wp:acf/mega-button {\"id\":\"block_6144e2c4d7726\",\"name\":\"acf/mega-button\",\"data\":{\"image\":3308,\"_image\":\"field_612e949ed0c97\",\"link\":{\"title\":\"Water Heater\",\"url\":\"/water/water-heating\",\"target\":\"\"},\"_link\":\"field_612e948ad0c96\"},\"align\":\"left\",\"mode\":\"preview\",\"wpClassName\":\"wp-block-acf-mega-button alignleft Test\",\"className\":\"Test\"} /-->
 
-<!-- wp:acf/mega-button {\"id\":\"block_6144e2c7d7727\",\"name\":\"acf/mega-button\",\"data\":{\"image\":3302,\"_image\":\"field_612e949ed0c97\",\"link\":{\"title\":\"Water Heater\",\"url\":\"https://dev-enercare.pantheonsite.io/heating-buyers-guide-furnaces/\",\"target\":\"\"},\"_link\":\"field_612e948ad0c96\"},\"align\":\"left\",\"mode\":\"preview\",\"wpClassName\":\"wp-block-acf-mega-button alignleft Test\",\"className\":\"Test\"} /-->
+<!-- wp:acf/mega-button {\"id\":\"block_6144e2c7d7727\",\"name\":\"acf/mega-button\",\"data\":{\"image\":3301,\"_image\":\"field_612e949ed0c97\",\"link\":{\"title\":\"Plumbing\",\"url\":\"/plumbing-electrical/plumbing-repair\",\"target\":\"\"},\"_link\":\"field_612e948ad0c96\"},\"align\":\"left\",\"mode\":\"preview\",\"wpClassName\":\"wp-block-acf-mega-button alignleft Test\",\"className\":\"Test\"} /-->
 
-<!-- wp:acf/mega-button {\"id\":\"block_6144e2ccd7728\",\"name\":\"acf/mega-button\",\"data\":{\"image\":3302,\"_image\":\"field_612e949ed0c97\",\"link\":{\"title\":\"Water Heater\",\"url\":\"https://dev-enercare.pantheonsite.io/heating-buyers-guide-furnaces/\",\"target\":\"\"},\"_link\":\"field_612e948ad0c96\"},\"align\":\"left\",\"mode\":\"preview\",\"wpClassName\":\"wp-block-acf-mega-button alignleft Test\",\"className\":\"Test\"} /--></div>
+<!-- wp:acf/mega-button {\"id\":\"block_6144e2ccd7728\",\"name\":\"acf/mega-button\",\"data\":{\"image\":3303,\"_image\":\"field_612e949ed0c97\",\"link\":{\"title\":\"Location Info\",\"url\":\"/locations/barrie/#location\",\"target\":\"\"},\"_link\":\"field_612e948ad0c96\"},\"align\":\"left\",\"mode\":\"preview\",\"wpClassName\":\"wp-block-acf-mega-button alignleft Test\",\"className\":\"Test\"} /-->
+
+<!-- wp:paragraph -->
+<p></p>
+<!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 ",
 		)

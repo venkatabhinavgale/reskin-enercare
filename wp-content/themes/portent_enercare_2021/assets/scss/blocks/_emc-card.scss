@@ -16,6 +16,8 @@
 		@include media(">=tablet") {
 			margin: 0 3.125em 1.5em;
 			width: 75%;
+			max-width: 172px !important;
+			height: auto;
 		}
 	}
 
