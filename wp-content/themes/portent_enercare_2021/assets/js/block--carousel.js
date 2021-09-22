@@ -20,8 +20,8 @@ window.addEventListener('load', function () {
     slidesToShow: $slidesToShow,
     slidesToScroll: $slidesToScroll,
     arrows: {
-      prev: '.glider-prev',
-      next: '.glider-next'
+      prev: '.block-carousel__prev',
+      next: '.block-carousel__next'
     },
     dots: '.block-carousel__dots',
     responsive: $responsive_obj

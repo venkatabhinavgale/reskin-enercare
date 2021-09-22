@@ -367,6 +367,58 @@ Carousel
 		top: 50%;
 		transform: translateY(-50%);
 	}
+
+	.glider-track {
+		padding: 1em 0 1.5em 0;
+	}
+}
+
+.block-carousel {
+
+	&__dots {
+
+		margin: 1.5em 0 1em;
+
+		button {
+			background-color: $grey_3;
+			margin: 0 0.75em 0.5em;
+		}
+
+		button.active {
+			background-color: brand-color('red');
+		}
+	}
+
+	&__prev,
+	&__next {
+		background-color: transparent;
+		border: 0;
+		height: 40px;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		width: 40px;
+		padding: 5px;
+
+		img {
+			margin: 0 auto;
+		}
+
+		&:hover {
+			background-color: $grey_2;
+			border-radius: 100%;
+		}
+	}
+
+	&__prev {
+		left: 0;
+		transform: translateX(-100%);
+	}
+
+	&__next {
+		right: 0;
+		transform: translateX(100%);
+	}
 }
 
 .block-carousel__wrapper:not([data-num-slides="1"]) {

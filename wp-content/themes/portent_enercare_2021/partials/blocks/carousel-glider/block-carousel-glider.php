@@ -33,9 +33,9 @@ while ( have_rows('breakpoints') ) { the_row();
 
   <?php if (get_field('arrows')) { ?>
   <?php if (get_field('rewind')) { ?>
-	<button aria-label="Previous" class="glider-prev">«</button>
+	<button aria-label="Previous" class="block-carousel__prev"><img alt="Previous" src="<?= get_template_directory_uri() . '/assets/icons/utility/arrow_back.svg' ?>" /></button>
   <?php } ?>
-	<button aria-label="Next" class="glider-next">»</button>
+	<button aria-label="Next" class="block-carousel__next"><img alt="Next" src="<?= get_template_directory_uri() . '/assets/icons/utility/arrow_forward.svg' ?>" /></button>
   <?php } ?>
 
   <?php if (get_field('dots')) { ?>
