@@ -565,11 +565,15 @@ function ecreviews_location_block_render_callback( $attributes, $content ) {
 
   $location_id = null;
   $location_name = null;
+  $location_reviews_url = null;
+  $location_see_reviews_url = null;
   $output = "";
   if (!empty($attributes['locationId'])) {
     $location_id = get_post_meta($attributes['locationId'], 'gmb_location_id', true);
     $location_post = get_post($attributes['locationId']);
     $location_name = $location_post->post_title;
+    $location_reviews_url = get_post_meta($post->ID, 'google_reviews_url', true);
+    $location_see_reviews_url = get_post_meta($post->ID, 'google_see_reviews_url', true);
   }
   
   // check to see if the transient cache exists and user is not logged in. if so, grab it and return
@@ -646,6 +650,16 @@ function ecreviews_location_block_render_callback( $attributes, $content ) {
   }
   $output .= '</div>';
   $output .= '</div>';
+  
+  $output .= '<div class="block-reviews__section-footer">';
+  if ($location_reviews_url && $location_reviews_url != "") {
+    $output .= '<div class="block-reviews__section-footer__add-review"><a href="' . $location_reviews_url . '" class="wp-block-button__link has-red-background-color has-background" target="_blank">Add a Review</a></div>';
+  }
+  if ($location_see_reviews_url && $location_see_reviews_url != "") {
+    $output .= '<div class="block-reviews__section-footer__see-reviews"><a href="' . $location_see_reviews_url . '" class="" target="_blank">See All Google Reviews</a></div>';
+  }
+  $output .= '</div><!-- end block-reviews__section-footer -->';
+  
   $output .= '</section>';
   
   if (!is_admin() && !is_user_logged_in() && function_exists('set_transient')) {
