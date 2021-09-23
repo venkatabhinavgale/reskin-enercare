@@ -330,7 +330,7 @@ body,p{font-size:1em}
 .block-newsletter-form__content-container{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}
 .block-newsletter-form__image{height:100px;width:100px;max-width:100px;background-image:url("../icons/utility/email-signup--black.svg");display:inline-block}
 .block-newsletter-form__heading{position:absolute;left:27.9%}
-.block-newsletter-form__form-container{margin:unset}
+.block-newsletter-form__form-container{margin:unset;width:30%}
 .block-newsletter-form__form-container form .gform_footer input[type=submit]{padding:8px 16px}
 }@media(min-width:769px){.post-summary__image{margin-bottom:12px}
 }@media(min-width:992px){h1{font-size:52px}
@@ -341,7 +341,7 @@ h3{font-size:40px}
 }@media(min-width:1200px){.block-reviews__section-heading__header{font-size:3.5em}
 .block-newsletter-form__content-container{margin-right:-13em}
 .block-newsletter-form__content-container:after{content:'';display:inline-block;background-color:#d3d1d1;width:1px;height:136px;margin-right:9px;position:relative;left:91%}
-.block-newsletter-form__heading{left:23.4%}
+.block-newsletter-form__heading{left:18.8%}
 }@media(max-width:767px){.wp-block-buttons>.wp-block-button__width-25,.wp-block-buttons>.wp-block-button__width-50,.wp-block-buttons>.wp-block-button__width-75,.wp-block-buttons>.wp-block-button__width-100{width:auto !important}
 }@media print{body{font-family:sans-serif}
 body,p{font-family:sans-serif}
