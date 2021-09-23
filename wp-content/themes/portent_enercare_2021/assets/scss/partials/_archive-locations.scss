@@ -14,11 +14,9 @@
 
 
 		.archive-wrapper {
-			@include media(">small", "<medium") {
-				@include columns(1);
-			}
+			@include columns(1);
 
-			@include media(">=medium") {
+			@include media(">=tablet") {
 				@include columns(2);
 				grid-column-gap: 1.5em;
 				grid-row-gap: 1.5em;

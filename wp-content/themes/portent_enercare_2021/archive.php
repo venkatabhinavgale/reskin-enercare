@@ -63,6 +63,7 @@ function enercare_archive_header() {
 			$description = get_the_archive_description();
 	} elseif( is_post_type_archive( 'location' ) ) {
 		$title = 'Find an Enercare Location';
+		$description = 'Location archive text';
 	}
 
 	if( empty( $title ) && empty( $description ) )
