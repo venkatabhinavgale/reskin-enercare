@@ -218,9 +218,10 @@ function enercare_filter_taxonomy_by_post_type() {
   }
 
   $output = "";
-  if ($post_type == 'campaign' || $post_type == 'location') {
-    $output .= get_postal_code_filter();
-  }
+  //Jeremiah: Commenting this call out and separating it into a different call to more tightly control the output within an individual archive
+//  if ($post_type == 'campaign' || $post_type == 'location') {
+//    $output .= get_postal_code_filter();
+//  }
 
   $taxonomies = get_object_taxonomies($post_type, 'object');
   $output .= '<div class="filter-control__container"><div class="filter-control-header"><h2 class="filter-title has-text-align-center">Filter Results</h2><button class="filter-reset">Reset Filters</button></div><div class="taxonomy-filters flex-grid">';
@@ -385,6 +386,28 @@ function enercare_filter_archive( $query ) {
 }
 add_action( 'pre_get_posts', 'enercare_filter_archive');
 
+/**
+ * Province Filter
+ */
+function get_province_filter() {
+	$output = '<div class="province-filter">';
+		$output .= '<select class="province-filter__select" data-taxonomy="province">';
+		//@todo get actual taxonmy in here
+			$output .= '<option value="barrie">Barrie</option>';
+		$output .= '</select>';
+	$output .= '</div>';
+	return $output;
+}
+
+function the_province_filter() {
+	echo get_province_filter();
+}
+
+/**
+ * @return string
+ *
+ * Postal Code Filter
+ */
 function get_postal_code_filter() {
   $output = '<div class="postal-code-input-container flex-grid-cell">';
   $output .= '<input type="text" id="postalCode" name="postalCode" value="" placeholder="A2A2A2" />';
@@ -392,4 +415,12 @@ function get_postal_code_filter() {
   $output .= '</div>';
 
   return $output;
+}
+
+
+/**
+ * Rendering function for postal code filter
+ */
+function the_postal_code_filter() {
+	echo get_postal_code_filter();
 }

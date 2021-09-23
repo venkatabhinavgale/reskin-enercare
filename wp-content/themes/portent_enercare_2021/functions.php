@@ -89,6 +89,13 @@ function enercare_scripts() {
     wp_enqueue_script( 'legal-terms', get_template_directory_uri() . '/assets/js/legal-terms.js', null, null, true );
   }
 
+	/**
+	 * Archive Enqueues
+	 */
+	if( is_post_type_archive( 'location' ) ) {
+		wp_enqueue_style( 'enercare-archive-locations', get_template_directory_uri() . '/assets/css/archive--locations.css', array( 'ea-style' ), null );
+	}
+
 	/*
 	 * Block level enqueues
 	 */

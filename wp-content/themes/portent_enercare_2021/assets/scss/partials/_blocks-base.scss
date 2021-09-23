@@ -310,46 +310,6 @@ Legal Panel In Footer Area
 }
 
 /**
-Location Info Card
- */
-.block-location-info {
-	padding: 1.5em;
-
-	a {
-		text-decoration: none;
-
-		&:hover,
-		&:focus {
-			text-decoration: underline;
-		}
-
-		&:focus {
-			border: 1px dashed brand-color('red');
-		}
-
-	}
-
-	.location-group {
-		display: flex;
-		margin: 0 0 1em 0;
-	}
-
-	.location-group__icon {
-		width: 25px;
-		height: 25px;
-		margin-right:.75em;
-	}
-
-	.location-ctas {
-		margin-top: 0.5em;
-	}
-
-	.location-ctas__location-cta {
-		margin-bottom: 1.5em;
-	}
-}
-
-/**
 Location Map Block
  */
 .block-location-map {

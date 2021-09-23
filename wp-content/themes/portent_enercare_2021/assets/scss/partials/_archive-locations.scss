@@ -1,0 +1,53 @@
+.post-type-archive-location {
+
+	.site-main {
+
+		.block-area,
+		.no-results {
+			grid-column: 1 / -1;
+			margin-bottom: 48px;
+		}
+
+
+		.archive-wrapper {
+			@include media(">small", "<medium") {
+				@include columns(1);
+			}
+
+			@include media(">=medium") {
+				@include columns(2);
+				grid-column-gap: 1.5em;
+				grid-row-gap: 1.5em;
+			}
+		}
+	}
+
+	.archive-filters {
+
+	}
+
+	.location-archive-filters {
+		display: grid;
+		grid-template-columns: 1fr 60px 1fr;
+		align-items: center;
+
+		&__header {
+			@include font-sizes(1.2em);
+		}
+
+		&__filter {
+			background-color: $grey_2;
+			padding: 24px;
+			text-align: left;
+		}
+
+		&__divider {
+			font-weight: 700;
+			font-size: 24px;
+			text-transform: capitalize;
+		}
+	}
+
+	@import "../pieces/postal-code-filter";
+}
+

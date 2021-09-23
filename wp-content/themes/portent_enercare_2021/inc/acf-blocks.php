@@ -199,7 +199,7 @@ function enercare_register_theme_blocks() {
         wp_enqueue_script( 'block--faqs-script', get_template_directory_uri() . '/assets/js/block--faqs.js', null, null, true);
       }
     ));
-    
+
     acf_register_block_type(array(
       'name'              => 'location-info',
       'title'             => __('Location Info', 'enercare'),
@@ -208,10 +208,10 @@ function enercare_register_theme_blocks() {
       'mode'              => 'auto',
       'keywords'          => array('location', 'info', 'enercare', 'portent'),
       'enqueue_assets' => function() {
-        //wp_enqueue_style( 'block-location-info-style', get_template_directory_uri() . '/assets/css/block--location-info.css', array('ea-style'), false, 'screen');
+        wp_enqueue_style( 'block-location-info-style', get_template_directory_uri() . '/assets/css/block--location-info.css', array('ea-style'), false, 'screen');
       }
     ));
-    
+
     acf_register_block_type(array(
       'name'              => 'location-map',
       'title'             => __('Location Map', 'enercare'),
@@ -224,6 +224,6 @@ function enercare_register_theme_blocks() {
         //wp_enqueue_style( 'block-location-map-style', get_template_directory_uri() . '/assets/css/block--location-map.css', array('ea-style'), false, 'screen');
       }
     ));
-  
+
   }
 }
