@@ -16,7 +16,8 @@ class Location_Post_Type_Registrations {
 	public $post_type = 'location';
 
 	public $taxonomies = array(
-	  'services'
+	  'services',
+    'provinces'
   );
 
 	public function init() {
@@ -125,9 +126,42 @@ class Location_Post_Type_Registrations {
       );
 
       $args = apply_filters( 'Location_post_type_category_args', $args );
+      register_taxonomy( $this->taxonomies[0], array($this->post_type, 'page'), $args );
       
-      register_taxonomy( $this->taxonomies[0], $this->post_type, $args );
-      
+      $labels = array(
+          'name'                       => __( 'Provinces', 'location-post-type' ),
+          'singular_name'              => __( 'Province', 'location-post-type' ),
+          'menu_name'                  => __( 'Provinces', 'location-post-type' ),
+          'edit_item'                  => __( 'Edit Province', 'location-post-type' ),
+          'update_item'                => __( 'Update Province', 'location-post-type' ),
+          'add_new_item'               => __( 'Add New Province', 'location-post-type' ),
+          'new_item_name'              => __( 'New Province Name', 'location-post-type' ),
+          'parent_item'                => __( 'Parent Type', 'location-post-type' ),
+          'parent_item_colon'          => __( 'Parent Type:', 'location-post-type' ),
+          'all_items'                  => __( 'All Provinces', 'location-post-type' ),
+          'search_items'               => __( 'Search Provinces', 'location-post-type' ),
+          'popular_items'              => __( 'Popular Provinces', 'location-post-type' ),
+          'separate_items_with_commas' => __( 'Separate Provinces with commas', 'location-post-type' ),
+          'add_or_remove_items'        => __( 'Add or remove Provinces', 'location-post-type' ),
+          'choose_from_most_used'      => __( 'Choose from the most used Provinces', 'location-post-type' ),
+          'not_found'                  => __( 'No Provinces found.', 'location-post-type' ),
+      );
+
+      $args = array(
+          'labels'            => $labels,
+          'public'            => true,
+          'show_in_nav_menus' => true,
+          'show_ui'           => true,
+          'show_tagcloud'     => true,
+          'hierarchical'      => true,
+          'rewrite'           => array( 'slug' => 'taxonomy/provinces', 'with_front' => false ),
+          'show_admin_column' => true,
+          'query_var'         => true,
+          'show_in_rest'      => true
+      );
+
+      $args = apply_filters( 'Location_post_type_category_args', $args );
+      register_taxonomy( $this->taxonomies[1], array($this->post_type, 'campaign'), $args );
     }
 
     /**
