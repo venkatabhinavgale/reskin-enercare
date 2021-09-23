@@ -1,4 +1,4 @@
-.block-location-info{padding:1.5em}
+.block-location-info{background-color:#fff;padding:1.5em}
 .block-location-info a{text-decoration:none}
 .block-location-info a:hover,.block-location-info a:focus{text-decoration:underline}
 .block-location-info a:focus{border:1px dashed #dc1c28}

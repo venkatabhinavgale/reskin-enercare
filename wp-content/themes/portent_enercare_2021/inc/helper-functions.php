@@ -391,8 +391,10 @@ add_action( 'pre_get_posts', 'enercare_filter_archive');
  */
 function get_province_filter() {
 	$output = '<div class="province-filter">';
-		$output .= '<select class="province-filter__select" data-taxonomy="province">';
+		$output .= '<label for="province-select">Province</label>';
+		$output .= '<select id="province-select" class="province-filter__select" data-taxonomy="province">';
 		//@todo get actual taxonmy in here
+			$output .= '<option selected disabled value="">- Select A Province -</option>';
 			$output .= '<option value="barrie">Barrie</option>';
 		$output .= '</select>';
 	$output .= '</div>';
@@ -409,9 +411,13 @@ function the_province_filter() {
  * Postal Code Filter
  */
 function get_postal_code_filter() {
-  $output = '<div class="postal-code-input-container flex-grid-cell">';
-  $output .= '<input type="text" id="postalCode" name="postalCode" value="" placeholder="A2A2A2" />';
-  $output .= '<button class="">Search</button>';
+  $output = '<div class="postal-code-filter postal-code-input-container flex-grid-cell">';
+    $output .= '<label class="postal-code-filter__label" for="postalCode">Postal Code</label>';
+    $output .= '<div class="postal-code-filter__form">';
+        $output .= '<input class="postal-code-filter__input" type="text" id="postalCode" name="postalCode" value="" />';
+        $output .= '<button class="postal-code-filter__submit">Go</button>';
+    $output .= '</div>';
+    $output .= '<label for="postalCode" class="postal-code-filter__message">eg: A1A1A1</label>';
   $output .= '</div>';
 
   return $output;
