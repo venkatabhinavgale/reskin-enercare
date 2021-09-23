@@ -186,6 +186,10 @@ div.wpforms-container.one-line:after{content:"";display:table;clear:both}
 .block-tabbed-content__tab-content.active{display:block;position:relative}
 .block-slide__wrapper{position:relative}
 .block-slide__image{position:absolute;-o-object-fit:cover;object-fit:cover;-o-object-position:center center;object-position:center center;height:100%;width:100%}
+.single-post__title{font-size:20px;line-height:28px}
+.single-post__title a{text-decoration:none}
+.single-post__read-more a{color:#000;text-decoration:none;font-weight:700}
+.single-post__read-more a:after{content:'>';margin-left:17px}
 .post-summary{margin-bottom:32px}
 .post-summary__title{font-size:18px;font-weight:400;margin:0}
 .post-summary__title a{color:#212121;text-decoration:none}
@@ -255,6 +259,11 @@ ul.wp-block-gallery li,ol.wp-block-gallery li{padding-bottom:0}
 .block-newsletter-form__form-container form .gform_body label.gfield_label{font-size:14px;font-weight:300;margin-bottom:2px}
 .block-newsletter-form__form-container form .gform_body input[type=text]{border-radius:5px 0 0 5px;padding:8px 12px;max-height:40px;line-height:24px}
 .block-newsletter-form__form-container form .gform_footer input[type=submit]{width:auto;border-radius:0 5px 5px 0;font-size:1.125rem;font-weight:700;line-height:24px;padding:2px 16px;text-decoration:none;background-color:#dc1c28;color:#fff;margin-bottom:0;margin-top:3px;max-height:40px}
+.block-faqs--header{font-weight:900;text-align:center}
+.block-faqs--faq-container{font-size:18px;font-weight:700}
+.block-faqs--faq-container:after{content:'';display:inline-block;background-color:#d3d1d1;width:100%;height:2px;margin-right:9px;vertical-align:middle}
+.block-faqs--faq-container:before{content:'';display:inline-block;background-image:url("../icons/utility/add_circle_black_24dp_rounded.svg");background-repeat:no-repeat;background-position:center;padding:.70em;width:22px;height:19px;margin-right:8px;margin-top:-0.3em;vertical-align:middle;-webkit-filter:invert(11%) sepia(99%) saturate(5418%) hue-rotate(352deg) brightness(98%) contrast(86%);filter:invert(11%) sepia(99%) saturate(5418%) hue-rotate(352deg) brightness(98%) contrast(86%)}
+.block-faqs--faq-answer-container{font-size:16px;font-weight:300;line-height:22px;margin-top:8px;margin-left:1.8em}
 @media(min-width:768px){body{font-size:1em}
 p.large,p.has-large-font-size{font-size:1.125em}
 p.has-normal-font-size{font-size:1em}
