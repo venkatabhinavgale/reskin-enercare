@@ -94,7 +94,7 @@ textarea {
 }
 
 
-/* Product Form
+/* Product Form && Buy/Rent/Rebates Lead Form
 --------------------------------------------- */
 
 .gform_wrapper.product-form {
@@ -141,12 +141,6 @@ textarea {
 						border-radius: $border-radius;
 						margin-top: -3em;
 					}
-				}
-
-				&:after {
-					content: "";
- 		 			display: table;
-  					clear: both;
 				}
 			}
 
