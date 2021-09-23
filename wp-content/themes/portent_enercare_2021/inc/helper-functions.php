@@ -308,11 +308,12 @@ function enercare_filter_archive( $query ) {
 	  /**
 	   * If the URL parameter 'cat' is set
 	   */
-    if (!empty($_GET['cat']) || !empty($_GET['postal_code'])) {
+    if (!empty($_GET['cat']) || !empty($_GET['postal_code']) || !empty($_GET['province'])) {
       $cats = array();
       if (!empty($_GET['cat']))
         $cats = explode(",", $_GET['cat']);
-      $postal_code = $_GET['postal_code'];
+      $postal_code = esc_attr($_GET['postal_code']);
+      $province = esc_attr($_GET['province']);
       $taxquery = array();
       $categories = array();
 
@@ -339,7 +340,25 @@ function enercare_filter_archive( $query ) {
             $query->set('post__in', $location_ids);
           }
         }
-
+      }
+      
+      // check if province URL param exists
+      if ($province && $province != "") {
+        // if we're on the campaign archive page, get campaigns by postal code
+        if (is_post_type_archive('campaign')) {
+          $taxquery[] = array(
+            'taxonomy' => 'provinces',
+            'field' => 'slug',
+            'terms' => array($province),
+          );
+        // if we're on the location archive page, get locations by postal code
+        } elseif (is_post_type_archive('location')) {
+          $taxquery[] = array(
+            'taxonomy' => 'provinces',
+            'field' => 'slug',
+            'terms' => array($province),
+          );
+        }
       }
 
 		/**
@@ -393,9 +412,19 @@ function get_province_filter() {
 	$output = '<div class="province-filter">';
 		$output .= '<label for="province-select">Province</label>';
 		$output .= '<select id="province-select" class="province-filter__select" data-taxonomy="province">';
-		//@todo get actual taxonmy in here
-			$output .= '<option selected disabled value="">- Select A Province -</option>';
-			$output .= '<option value="barrie">Barrie</option>';
+		
+      $provinces = get_terms( array(
+        'taxonomy' => 'provinces',
+        'hide_empty' => false,
+      ));
+			$output .= '<option value="">- Select A Province -</option>';
+      foreach ($provinces as $province) {
+        $selected = "";
+        if (isset($_GET['province']) && esc_attr($_GET['province']) == $province->slug)
+          $selected = " selected";
+        $output .= '<option value="' . $province->slug . '"' . $selected . '>' . $province->name . '</option>';
+      }
+			
 		$output .= '</select>';
 	$output .= '</div>';
 	return $output;
