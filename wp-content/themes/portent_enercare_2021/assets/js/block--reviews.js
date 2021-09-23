@@ -2,15 +2,22 @@
 
 window.addEventListener('load', function () {
   var blockReviews = document.querySelector('.block-reviews__glider');
-  var prevArrow, nextArrow, dots;
+  var prevArrow, prevArrowImage, nextArrow, nextArrowImage, dots, imagePath;
+  imagePath = './wp-content/themes/portent_enercare_2021/assets/icons/utility/';
   prevArrow = document.createElement('button');
+  prevArrowImage = document.createElement('img');
   prevArrow.classList.add('button__prev', 'block-reviews__prev');
   prevArrow.setAttribute('aria-label', 'Previous');
-  prevArrow.innerHTML = '«';
+  prevArrowImage.setAttribute('src', "".concat(imagePath, "arrow_back.svg"));
+  prevArrowImage.setAttribute('alt', 'Previous');
+  prevArrow.appendChild(prevArrowImage);
   nextArrow = document.createElement('button');
+  nextArrowImage = document.createElement('img');
   nextArrow.classList.add('button__next', 'block-reviews__next');
   nextArrow.setAttribute('aria-label', 'Next');
-  nextArrow.innerHTML = '»';
+  nextArrowImage.setAttribute('src', "".concat(imagePath, "arrow_forward.svg"));
+  nextArrowImage.setAttribute('alt', 'Next');
+  nextArrow.appendChild(nextArrowImage);
   dots = document.createElement('div');
   dots.classList.add('dots', 'block-reviews__dots');
   dots.setAttribute('role', 'tablist');
