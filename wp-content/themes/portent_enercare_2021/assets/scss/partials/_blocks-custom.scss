@@ -6,6 +6,8 @@
 .block-tabbed-content__tabs {
 	display: flex;
 	margin-bottom: 32px;
+	overflow-x: scroll;
+	overflow-y: hidden;
 }
 
 
@@ -37,6 +39,7 @@
 	@include font-sizes(24px);
 	padding: 8px 24px 4px;
 	border-bottom: 2px solid transparent;
+	flex-shrink: 0;
 
 	img {
 		filter: hue-rotate(180deg) contrast(100%) brightness(0) grayscale(100%);
