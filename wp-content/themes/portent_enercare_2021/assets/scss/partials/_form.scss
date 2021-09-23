@@ -64,3 +64,65 @@ textarea {
 
 	}
 }
+
+
+/* Product Form
+--------------------------------------------- */
+
+.gform_wrapper.product-form {
+
+	&_wrapper {
+
+		.product-form {
+			
+			
+			.gform_body {
+
+
+				.gform {
+
+					&__disclaimer {
+						width: 100%;
+						font-size: 10px;
+						line-height: 12px;
+
+						@include media(">=tablet") {
+							width: 75%;
+						}
+					}
+				}
+			}
+
+			.gform_footer {
+				display: flex;
+				justify-content: flex-end;
+
+				input[type=submit] {
+					width: 140px;
+					border-radius: 30px;
+					font-size: 1rem;
+					font-weight: 700;
+					line-height: 22px;
+					padding: 8px 16px;
+					text-decoration: none;
+					background-color: brand-color('red');
+					color: $white;
+
+					@include media(">=tablet") {
+						padding: 8px 24px;	
+						border-radius: $border-radius;
+						margin-top: -3em;
+					}
+				}
+
+				&:after {
+					content: "";
+ 		 			display: table;
+  					clear: both;
+				}
+			}
+
+		}
+	}
+}
+
