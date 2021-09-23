@@ -163,7 +163,7 @@ function getLocationInfo($post_id, $cta_type = 'location') {
   
   $content .= '<div class="location-ctas">';
   if ($cta_type == "location")
-    $content .= '<div class=""><a href="' . get_the_permalink() . '" class="wp-block-button__link has-red-background-color has-background">View ' . $location_shortname . ' info</a></div>';
+    $content .= '<div class="location-ctas__location-cta"><a href="' . get_the_permalink() . '" class="wp-block-button__link has-red-background-color has-background">View ' . $location_shortname . ' info</a></div>';
   elseif ($cta_type == "phone") {
     $phone_number = get_field('default_phone_number', 'option');
     if (get_field('phone_number', $post_id))
@@ -175,11 +175,11 @@ function getLocationInfo($post_id, $cta_type = 'location') {
       $phone_number_href = str_replace(")","",$phone_number_href);
       $phone_number_href = str_replace(".","",$phone_number_href);
       $phone_number_href = str_replace("-","",$phone_number_href);
-      $content .= '<div class=""><a href="tel:' . $phone_number_href . '" class="wp-block-button__link has-red-background-color has-background">' . $phone_number . ' </a></div>';
+      $content .= '<div class="location-ctas__location-cta location-ctas__location-cta--phone"><a href="tel:' . $phone_number_href . '" class="wp-block-button__link has-red-background-color has-background">' . $phone_number . ' </a></div>';
     }
   }
   if (get_field('google_reviews_url', $post_id))
-    $content .= '<div class=""><a href="' . get_field('google_reviews_url', $post_id) . '">Write a review for ' . $location_shortname . '</a></div>';
+    $content .= '<div class="location-ctas__write-review"><a href="' . get_field('google_reviews_url', $post_id) . '">Write a review for ' . $location_shortname . '</a></div>';
   $content .= '</div>';
   
   echo $content;

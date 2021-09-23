@@ -8,8 +8,7 @@
 	"textdomain": "default",
 	"attributes": {
 		"orientation": {
-			"type": "string",
-			"default": "horizontal"
+			"type": "string"
 		},
 		"textColor": {
 			"type": "string"

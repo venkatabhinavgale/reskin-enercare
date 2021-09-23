@@ -8,6 +8,23 @@ Styles just for the editor
 }
 
 /**
+Carousel
+ */
+.wp-block-acf-glider-carousel {
+	.block-editor-block-list__layout {
+		display: flex;
+
+		& > .wp-block {
+			order: 1;
+		}
+
+		.block-list-appender {
+			order: 0;
+		}
+	}
+}
+
+/**
 Tabbed Content
  */
 .wp-block-portent-block-tabbed-content .block-tabbed-content__tab-panels .block-editor-inner-blocks .block-editor-block-list__layout > .block-list-appender .block-editor-button-block-appender {

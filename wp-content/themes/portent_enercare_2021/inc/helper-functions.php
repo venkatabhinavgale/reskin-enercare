@@ -199,11 +199,11 @@ function enercare_banner() {
   $post_banner_text = get_field('banner_text');
   if ($post_banner_text && !empty(trim($post_banner_text)))
     $banner_text = $post_banner_text;
-  
+
   if (!$post_banner_toggle && $global_banner_toggle) {
-    $output = '<div class="">' . $banner_text . '</div>';
+    $output = '<div class="banner-operational alignfull">' . $banner_text . '</div>';
   }
-  
+
   return $output;
 }
 
@@ -216,12 +216,13 @@ function enercare_filter_taxonomy_by_post_type() {
   if( is_author() ) {
   	$post_type = 'post';
   }
-  
+
   $output = "";
-  if ($post_type == 'campaign' || $post_type == 'location') {
-    $output .= get_postal_code_filter();
-  }
-  
+  //Jeremiah: Commenting this call out and separating it into a different call to more tightly control the output within an individual archive
+//  if ($post_type == 'campaign' || $post_type == 'location') {
+//    $output .= get_postal_code_filter();
+//  }
+
   $taxonomies = get_object_taxonomies($post_type, 'object');
   $output .= '<div class="filter-control__container"><div class="filter-control-header"><h2 class="filter-title has-text-align-center">Filter Results</h2><button class="filter-reset">Reset Filters</button></div><div class="taxonomy-filters flex-grid">';
 
@@ -283,22 +284,22 @@ function enercare_filter_archive( $query ) {
   	if( is_author() ) {
   		$author = get_the_author_meta('ID');
     }
-    
+
     // exclude featured post from showing up in main query
     if (is_home()) {
       // grab the ID of the page we're using to get posts
       $posts_page_ID = get_option( 'page_for_posts' );
-      // grab the 'featured_post' field to exclude from query. 
+      // grab the 'featured_post' field to exclude from query.
       // have to use wpdb to make a side query otherwise the world falls down using ACF's get_field function, which also uses WP_QUERY
       global $wpdb;
       $featured_post = $wpdb->get_var( $wpdb->prepare( "SELECT meta_value FROM $wpdb->postmeta WHERE meta_key = 'featured_post' AND post_id = %s", $posts_page_ID ) );
       if (!$featured_post)
         $featured_post = get_the_ID();
-      
+
       //var_dump($featured_post);exit;
       $query->set('post__not_in', array($featured_post));
     }
-    
+
     // exclude child pages from the location archive page
     if (is_post_type_archive('location')) {
       $query->set('post_parent', 0);
@@ -307,14 +308,15 @@ function enercare_filter_archive( $query ) {
 	  /**
 	   * If the URL parameter 'cat' is set
 	   */
-    if (!empty($_GET['cat']) || !empty($_GET['postal_code'])) {
+    if (!empty($_GET['cat']) || !empty($_GET['postal_code']) || !empty($_GET['province'])) {
       $cats = array();
       if (!empty($_GET['cat']))
         $cats = explode(",", $_GET['cat']);
-      $postal_code = $_GET['postal_code'];
+      $postal_code = esc_attr($_GET['postal_code']);
+      $province = esc_attr($_GET['province']);
       $taxquery = array();
       $categories = array();
-      
+
       // check if postal_code URL param exists
       if ($postal_code && $postal_code != "") {
         // if we're on the campaign archive page, get campaigns by postal code
@@ -338,7 +340,25 @@ function enercare_filter_archive( $query ) {
             $query->set('post__in', $location_ids);
           }
         }
-        
+      }
+      
+      // check if province URL param exists
+      if ($province && $province != "") {
+        // if we're on the campaign archive page, get campaigns by postal code
+        if (is_post_type_archive('campaign')) {
+          $taxquery[] = array(
+            'taxonomy' => 'provinces',
+            'field' => 'slug',
+            'terms' => array($province),
+          );
+        // if we're on the location archive page, get locations by postal code
+        } elseif (is_post_type_archive('location')) {
+          $taxquery[] = array(
+            'taxonomy' => 'provinces',
+            'field' => 'slug',
+            'terms' => array($province),
+          );
+        }
       }
 
 		/**
@@ -376,20 +396,66 @@ function enercare_filter_archive( $query ) {
       if( !empty( $metaquery ) ) {
         $query->set('meta_query', $metaquery);
       }
-      
+
     }
-    
+
   }
-  
+
   return $query;
 }
 add_action( 'pre_get_posts', 'enercare_filter_archive');
 
+/**
+ * Province Filter
+ */
+function get_province_filter() {
+	$output = '<div class="province-filter">';
+		$output .= '<label for="province-select">Province</label>';
+		$output .= '<select id="province-select" class="province-filter__select" data-taxonomy="province">';
+		
+      $provinces = get_terms( array(
+        'taxonomy' => 'provinces',
+        'hide_empty' => false,
+      ));
+			$output .= '<option value="">- Select A Province -</option>';
+      foreach ($provinces as $province) {
+        $selected = "";
+        if (isset($_GET['province']) && esc_attr($_GET['province']) == $province->slug)
+          $selected = " selected";
+        $output .= '<option value="' . $province->slug . '"' . $selected . '>' . $province->name . '</option>';
+      }
+			
+		$output .= '</select>';
+	$output .= '</div>';
+	return $output;
+}
+
+function the_province_filter() {
+	echo get_province_filter();
+}
+
+/**
+ * @return string
+ *
+ * Postal Code Filter
+ */
 function get_postal_code_filter() {
-  $output = '<div class="postal-code-input-container flex-grid-cell">';
-  $output .= '<input type="text" id="postalCode" name="postalCode" value="" placeholder="A2A2A2" />';
-  $output .= '<button class="">Search</button>';
+  $output = '<div class="postal-code-filter postal-code-input-container flex-grid-cell">';
+    $output .= '<label class="postal-code-filter__label" for="postalCode">Postal Code</label>';
+    $output .= '<div class="postal-code-filter__form">';
+        $output .= '<input class="postal-code-filter__input" type="text" id="postalCode" name="postalCode" value="" />';
+        $output .= '<button class="postal-code-filter__submit">Go</button>';
+    $output .= '</div>';
+    $output .= '<label for="postalCode" class="postal-code-filter__message">eg: A1A1A1</label>';
   $output .= '</div>';
-  
+
   return $output;
+}
+
+
+/**
+ * Rendering function for postal code filter
+ */
+function the_postal_code_filter() {
+	echo get_postal_code_filter();
 }

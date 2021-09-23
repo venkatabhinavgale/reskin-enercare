@@ -1,0 +1,8 @@
+.block-location-info{background-color:#fff;padding:1.5em}
+.block-location-info a{text-decoration:none}
+.block-location-info a:hover,.block-location-info a:focus{text-decoration:underline}
+.block-location-info a:focus{border:1px dashed #dc1c28}
+.block-location-info .location-group{display:-webkit-box;display:-ms-flexbox;display:flex;margin:0 0 1em 0}
+.block-location-info .location-group__icon{width:25px;height:25px;margin-right:.75em}
+.block-location-info .location-ctas{margin-top:.5em}
+.block-location-info .location-ctas__location-cta{margin-bottom:1.5em}

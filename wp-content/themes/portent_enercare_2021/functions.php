@@ -40,7 +40,7 @@ include_once( get_template_directory() . '/inc/social-links.php' );
 // Blocks
 include_once( get_template_directory() . '/inc/acf-blocks.php');
 include_once( get_template_directory() . '/inc/block-area.php' );
-include_once( get_template_directory() . '/inc/block-area.php' );
+include_once( get_template_directory() . '/inc/block-overrides.php' );
 include_once( get_template_directory() . '/inc/block-patterns.php' );
 
 // Plugin Support
@@ -88,6 +88,13 @@ function enercare_scripts() {
   if( get_field('terms_and_conditions') ) {
     wp_enqueue_script( 'legal-terms', get_template_directory_uri() . '/assets/js/legal-terms.js', null, null, true );
   }
+
+	/**
+	 * Archive Enqueues
+	 */
+	if( is_post_type_archive( 'location' ) ) {
+		wp_enqueue_style( 'enercare-archive-locations', get_template_directory_uri() . '/assets/css/archive--locations.css', array( 'ea-style' ), null );
+	}
 
 	/*
 	 * Block level enqueues

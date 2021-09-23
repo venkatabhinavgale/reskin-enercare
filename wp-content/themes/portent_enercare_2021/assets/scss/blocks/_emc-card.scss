@@ -1,7 +1,4 @@
 .block-emc-card {
-	max-height: 304px;
-	max-width: 260px;
-	padding: 0;
 	background-color: $white;
 	border: none;
 	box-shadow: 0 4px 8px 0 rgba(56,61,67,0.30);
@@ -9,19 +6,18 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-
-	@include media(">=tablet") {
-		max-width: 272px;
-	}
+	padding: 8%;
 
 	&__image {
 		border-radius: 100%;
-		max-height: 172px;
-		max-width: 172px;
 		margin: 0 2.75em 1.5em;
+		width: 90%;
 
-		@include media(">=tablet") { 
+		@include media(">=tablet") {
 			margin: 0 3.125em 1.5em;
+			width: 75%;
+			max-width: 172px !important;
+			height: auto;
 		}
 	}
 
@@ -36,6 +32,10 @@
 
 	.wp-block-button__link {
 		margin-top: 1.5em;
+	}
+
+	button {
+		border: 0;
 	}
 
 }

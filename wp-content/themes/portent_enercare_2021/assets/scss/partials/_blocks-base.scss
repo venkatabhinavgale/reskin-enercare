@@ -198,6 +198,9 @@ Block Styles
 
 	li {
 		list-style: none;
+		display: flex;
+		align-items: center;
+		margin: 0 0 1em 0;
 
 		&::before {
 			content: '';
@@ -205,18 +208,24 @@ Block Styles
 			background-image: url('../icons/utility/check_black_24dp_rounded.svg');
 			background-repeat: no-repeat;
 			background-position: center;
-			width: 22px;
-			height: 19px;
-			margin-right: 9px;
-			vertical-align: middle;
+			width: 24px;
+			height: 24px;
+			filter: invert(11%) sepia(99%) saturate(5418%) hue-rotate(352deg) brightness(98%) contrast(86%);
+			position: relative;
+			margin: 0 0.5em 0 0;
 		}
 	}
 }
 
-.breadcrumb, 
+/**
+Breadcrumbs
+ */
+.breadcrumb,
 .yoast-breadcrumbs {
-	
-	.breadcrumb_last, 
+
+	text-align: left;
+
+	.breadcrumb_last,
 	a {
 		color: $black;
 		font-size: 12px;
@@ -237,3 +246,108 @@ Block Styles
 		}
 	}
 }
+
+
+
+/**
+Location Map Block
+ */
+.block-location-map {
+
+	iframe {
+		max-width: 100%;
+	}
+}
+
+/**
+Carousel
+ */
+.block-carousel__wrapper {
+	position: relative;
+
+	.glider-prev,
+	.glider-next {
+		color: brand-color('black');
+		top: 50%;
+		transform: translateY(-50%);
+	}
+
+	.glider-track {
+		padding: 1em 0 1.5em 0;
+	}
+}
+
+.block-carousel {
+
+	&__dots {
+
+		margin: 1.5em 0 1em;
+
+		button {
+			background-color: $grey_3;
+			margin: 0 0.75em 0.5em;
+		}
+
+		button.active {
+			background-color: brand-color('red');
+		}
+	}
+
+	&__prev,
+	&__next {
+		background-color: transparent;
+		border: 0;
+		height: 40px;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		width: 40px;
+		padding: 5px;
+		transition: background-color 0.2s ease-in;
+		border-radius: 100%;
+
+		img {
+			margin: 0 auto;
+		}
+
+		&:hover {
+			background-color: $grey_2;
+			transition: background-color 0.3s ease-in;
+		}
+
+		&:focus {
+			border: 1px dotted $grey_8;
+		}
+
+		&.disabled {
+			opacity: 0.3;
+			transition: opacity 0.3s ease-in;
+		}
+	}
+
+	&__prev {
+		left: 0;
+		transform: translateX(-100%);
+	}
+
+	&__next {
+		right: 0;
+		transform: translateX(100%);
+	}
+}
+
+.block-carousel__wrapper:not([data-num-slides="1"]) {
+
+	.glider-slide {
+		margin: 1em;
+
+		&:first-of-type {
+			margin-left: 0.5em;
+		}
+
+		&:last-of-type {
+			margin-right: 0.5em;
+		}
+	}
+}
+
