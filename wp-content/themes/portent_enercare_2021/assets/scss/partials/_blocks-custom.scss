@@ -6,6 +6,8 @@
 .block-tabbed-content__tabs {
 	display: flex;
 	margin-bottom: 32px;
+	overflow-x: scroll;
+	overflow-y: hidden;
 }
 
 
@@ -37,6 +39,7 @@
 	@include font-sizes(24px);
 	padding: 8px 24px 4px;
 	border-bottom: 2px solid transparent;
+	flex-shrink: 0;
 
 	img {
 		filter: hue-rotate(180deg) contrast(100%) brightness(0) grayscale(100%);
@@ -98,6 +101,75 @@
 	}
 }
 
+/**
+Button Block
+ */
+
+.wp-block-buttons {
+
+	margin: 1em 0;
+	& > .wp-block-button {
+
+		&__width-25,
+		&__width-50,
+		&__width-75,
+		&__width-100 {
+
+			@include media('<tablet') {
+				//I don't love an !important but this is to keep buttons from looking weird on mobile
+				width: auto !important;
+			}
+		}
+	}
+}
+
+/**
+Operational Banner
+ */
+.banner-operational {
+	background-color: brand-color('grey');
+	color: brand-color('white');
+	padding: 0.5em;
+	margin-top: 0 !important;
+	text-align: center;
+
+	p {
+		margin: 0;
+		padding: 0;
+	}
+
+	a {
+		color: brand-color( 'white' );
+	}
+}
+
+/**
+Legal Panel In Footer Area
+ */
+.legal__terms-toggle {
+	display: block;
+	width: 100%;
+	max-width: 100%;
+	justify-content: space-between;
+	padding: 1.5em;
+	border: 0;
+	text-align: left;
+
+	img {
+		display: inline-block;
+		height: 20px;
+		width: 15px;
+		vertical-align: middle;
+		margin: 0 .5em;
+		object-fit: contain;
+		object-position: top;
+	}
+}
+
+.legal__terms-details {
+	background-color: $grey_1;
+	padding: 1em;
+}
 
 /*
 Slide

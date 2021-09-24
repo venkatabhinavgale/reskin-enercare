@@ -217,6 +217,9 @@ Block Styles
 	}
 }
 
+/**
+Breadcrumbs
+ */
 .breadcrumb,
 .yoast-breadcrumbs {
 
@@ -244,70 +247,7 @@ Block Styles
 	}
 }
 
-/**
-Button Block
- */
 
-.wp-block-buttons {
-
-	margin: 1em 0;
-	& > .wp-block-button {
-
-		&__width-25,
-		&__width-50,
-		&__width-75,
-		&__width-100 {
-
-			@include media('<tablet') {
-				//I don't love an !important but this is to keep buttons from looking weird on mobile
-				width: auto !important;
-			}
-		}
-	}
-}
-
-/**
-Operational Banner
- */
-.banner-operational {
-	background-color: brand-color('grey');
-	color: brand-color('white');
-	padding: 0.5em;
-	margin-top: 0 !important;
-	text-align: center;
-
-	p {
-		margin: 0;
-		padding: 0;
-	}
-
-	a {
-		color: brand-color( 'white' );
-	}
-}
-
-/**
-Legal Panel In Footer Area
- */
-.legal__terms-toggle {
-	display: flex;
-	width: 100%;
-	max-width: 100%;
-	justify-content: space-between;
-	padding: 0.75em 1em 0.5em;
-	border: 0;
-	align-items: center;
-
-	img {
-		height: 24px;
-		width: 24px;
-	}
-}
-
-.legal__terms-details {
-	background-color: brand-color('grey-20');
-	padding: 1em;
-}
 
 /**
 Location Map Block

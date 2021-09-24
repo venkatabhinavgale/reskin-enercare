@@ -7,6 +7,7 @@ window.onload = (event) => {
 				child.classList.remove('active');
 			});
 
+			parent.classList.remove('init');
 			let topLevelParent =  event.target.parentElement.parentElement;
 			let tabPanelContainer = topLevelParent.querySelector('.block-tabbed-content__tab-panels');
 				let panels = topLevelParent.querySelectorAll('.block-tabbed-content__tab-content');
