@@ -1,7 +1,7 @@
 .block-faqs {
 	&--header {
 		font-weight: 900;
-		text-align: center; 
+		text-align: center;
 	}
 
 	&--faq-container {
@@ -14,7 +14,7 @@
 			background-color: $grey_3;
 			width: 100%;
 			height: 2px;
-			margin-right: 9px;
+			margin-right: 0.55em;
 			vertical-align: middle;
 		}
 
@@ -31,7 +31,11 @@
 			margin-top: -0.3em;
 			vertical-align: middle;
 			filter: invert(11%) sepia(99%) saturate(5418%) hue-rotate(352deg) brightness(98%) contrast(86%);
-		} 
+		}
+
+		&[data-child="open"]:before {
+			background-image: url('../icons/utility/remove_circle_black_24dp_rounded.svg');
+		}
 	}
 
 	&--faq-answer-container {
