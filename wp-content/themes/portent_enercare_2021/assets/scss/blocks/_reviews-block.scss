@@ -88,8 +88,9 @@
 
 		text-align: center;
 
-		&__add-review {
-
+		&__add-review,
+		&__see-reviews {
+			margin: 0.5em;
 		}
 	}
 
