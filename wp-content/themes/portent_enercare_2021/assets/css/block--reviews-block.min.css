@@ -7,6 +7,7 @@
 .block-reviews__section-heading__header{font-weight:900;font-size:1.75em;line-height:1;margin-bottom:0;padding-bottom:0}
 .block-reviews__section-heading__stars{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;margin-right:.5em}
 .block-reviews__section-footer{text-align:center}
+.block-reviews__section-footer__add-review,.block-reviews__section-footer__see-reviews{margin:.5em}
 .block-reviews__stamp{-webkit-transform:scale(1);transform:scale(1);z-index:1}
 .block-reviews__wrapper{padding:0;position:relative}
 .block-reviews__dots{margin:1.5em 0 1em}

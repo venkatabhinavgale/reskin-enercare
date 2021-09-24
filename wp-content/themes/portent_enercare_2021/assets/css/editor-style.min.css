@@ -215,10 +215,6 @@ div.wpforms-container.one-line:after{content:"";display:table;clear:both}
 .legal__terms-details{background-color:#f5f2f2;padding:1em}
 .block-slide__wrapper{position:relative}
 .block-slide__image{position:absolute;-o-object-fit:cover;object-fit:cover;-o-object-position:center center;object-position:center center;height:100%;width:100%}
-.single-post__title{font-size:20px;line-height:28px}
-.single-post__title a{text-decoration:none}
-.single-post__read-more a{color:#000;text-decoration:none;font-weight:700}
-.single-post__read-more a:after{content:'>';margin-left:17px}
 .post-summary{margin-bottom:32px}
 .post-summary__title{font-size:18px;font-weight:400;margin:0}
 .post-summary__title a{color:#212121;text-decoration:none}
@@ -259,6 +255,7 @@ ul.wp-block-gallery li,ol.wp-block-gallery li{padding-bottom:0}
 .block-reviews__section-heading__header{font-weight:900;font-size:1.75em;line-height:1;margin-bottom:0;padding-bottom:0}
 .block-reviews__section-heading__stars{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;margin-right:.5em}
 .block-reviews__section-footer{text-align:center}
+.block-reviews__section-footer__add-review,.block-reviews__section-footer__see-reviews{margin:.5em}
 .block-reviews__stamp{-webkit-transform:scale(1);transform:scale(1);z-index:1}
 .block-reviews__wrapper{padding:0;position:relative}
 .block-reviews__dots{margin:1.5em 0 1em}
