@@ -84,6 +84,16 @@
 		}
 	}
 
+	&__section-footer {
+
+		text-align: center;
+
+		&__add-review,
+		&__see-reviews {
+			margin: 0.5em;
+		}
+	}
+
 	&__stamp {
 		transform: scale(1);
 		z-index: 1;
@@ -96,6 +106,8 @@
 	&__wrapper {
 		padding: 0;
 		position: relative;
+		max-width: 100%;
+		overflow-x: hidden;
 
 		@include media('>=tablet') {
 			padding: 50px 0;

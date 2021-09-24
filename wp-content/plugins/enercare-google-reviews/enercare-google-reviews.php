@@ -642,7 +642,12 @@ function ecreviews_location_block_render_callback( $attributes, $content ) {
       }
       $output .= '</div>';
 
-      $output .= '<p class="block-reviews__review__content">' . $review->post_content . '</p>';
+      // cap review content at 500 characters
+      $post_content = $review->post_content;
+      if (strlen($post_content) > 300)
+        $post_content = substr($post_content, 0, 300) . "...";
+      
+      $output .= '<p class="block-reviews__review__content">' . $post_content . '</p>';
       $output .= '<span class="block-reviews__review__reviewer">' . get_post_meta( $review->ID, 'gmb_review_reviewer', true ) . '</span>';
       $output .= '<span class="block-reviews__review__date">' . $review->post_date . '</span>';
       $output .= '</div>';
