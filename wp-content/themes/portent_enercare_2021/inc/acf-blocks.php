@@ -39,7 +39,8 @@ function enercare_register_theme_blocks() {
 		  'mode'            => 'preview',
 		  'keywords'        => array('card', 'emc', 'enercare', 'portent'),
 		  'enqueue_assets' => function() {
-			  wp_enqueue_style( 'block-card-style', get_template_directory_uri() . '/assets/css/block--emc-card.css', array('ea-style'), false, 'screen');
+		  	  wp_enqueue_script('block-emc-card-script', get_template_directory_uri() . '/assets/js/block--emc-card.js', null, false, true);
+			  wp_enqueue_style( 'block-emc-card-style', get_template_directory_uri() . '/assets/css/block--emc-card.css', array('ea-style'), false, 'screen');
 		  },
 		  'supports'        => array(
 			  'align' => true,
