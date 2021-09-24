@@ -257,7 +257,7 @@ ul.wp-block-gallery li,ol.wp-block-gallery li{padding-bottom:0}
 .block-reviews__section-footer{text-align:center}
 .block-reviews__section-footer__add-review,.block-reviews__section-footer__see-reviews{margin:.5em}
 .block-reviews__stamp{-webkit-transform:scale(1);transform:scale(1);z-index:1}
-.block-reviews__wrapper{padding:0;position:relative}
+.block-reviews__wrapper{padding:0;position:relative;max-width:100%;overflow-x:hidden}
 .block-reviews__dots{margin:1.5em 0 1em}
 .block-reviews__dots button{background-color:#d3d1d1;margin:0 .75em .5em}
 .block-reviews__dots button.active{background-color:#dc1c28}
