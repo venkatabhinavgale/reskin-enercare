@@ -7,7 +7,7 @@
 
 		@include media(">=tablet") {
 			flex-direction: row;
-			justify-content: space-evenly;
+			justify-content: center;
 			padding: 64px 0;
 		}
 
@@ -21,7 +21,7 @@
 		}
 
 		@include media(">=desktop") {
-			margin-right: -13em;
+			margin-right: -3em;
 
 			&:after {
 				content: '';
@@ -31,7 +31,7 @@
 				height: 136px;
 				margin-right: 9px;
 				position: relative;
-				left: 91%;
+				left: 92%;
 			}
 		}
 
@@ -60,7 +60,7 @@
 		}
 
 		@include media(">=desktop") {
-			left: 18.8%;
+			left: 23.4%;
 		}
 
 	}
