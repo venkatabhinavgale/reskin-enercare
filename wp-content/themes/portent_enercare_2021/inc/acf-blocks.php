@@ -196,7 +196,7 @@ function enercare_register_theme_blocks() {
       'mode'              => 'auto',
       'keywords'          => array('faq', 'frequently', 'question', 'answer', 'enercare', 'portent'),
       'enqueue_assets' => function() {
-        //wp_enqueue_style( 'block-faqs-style', get_template_directory_uri() . '/assets/css/block--faqs.css', array('ea-style'), false, 'screen');
+        wp_enqueue_style( 'block-faqs-style', get_template_directory_uri() . '/assets/css/block--faqs.css', array('ea-style'), false, 'screen');
         wp_enqueue_script( 'block--faqs-script', get_template_directory_uri() . '/assets/js/block--faqs.js', null, null, true);
       }
     ));

@@ -3209,6 +3209,13 @@ function ampforwp_auto_add_amp_in_menu_link( $atts, $item, $args ) {
 	if($item->type=='taxonomy' && !in_array($item->object, ampforwp_get_all_post_types()) ){
 		return $atts;
 	}
+	$mob_pres_link = false;
+	if(function_exists('ampforwp_mobile_redirect_preseve_link')){
+	  $mob_pres_link = ampforwp_mobile_redirect_preseve_link();
+	}
+	if(ampforwp_get_setting('ampforwp-amp-takeover') || $mob_pres_link == true){
+		return $atts;
+	}
 	$url = $atts['href'];
 	if($url){
 		$is_external = ampforwp_isexternal($url);
@@ -4472,6 +4479,7 @@ add_filter( 'amp_skip_post', 'ampforwp_cat_specific_skip_amp_post', 10, 3 );
 function ampforwp_cat_specific_skip_amp_post( $skip, $post_id, $post ) {
 	$skip_this_post = '';
 	$skip_this_post = ampforwp_posts_to_remove();
+	$skip_this_post = apply_filters( 'ampforwp_skip_category', $skip_this_post );
 	wp_reset_postdata();
 	if ( $skip_this_post ) {
 	  $skip = true;
