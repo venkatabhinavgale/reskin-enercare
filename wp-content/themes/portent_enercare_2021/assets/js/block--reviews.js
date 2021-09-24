@@ -3,7 +3,7 @@
 window.addEventListener('load', function () {
   var blockReviews = document.querySelector('.block-reviews__glider');
   var prevArrow, prevArrowImage, nextArrow, nextArrowImage, dots, imagePath;
-  imagePath = './wp-content/themes/portent_enercare_2021/assets/icons/utility/';
+  imagePath = '/wp-content/themes/portent_enercare_2021/assets/icons/utility/';
   prevArrow = document.createElement('button');
   prevArrowImage = document.createElement('img');
   prevArrow.classList.add('button__prev', 'block-reviews__prev');

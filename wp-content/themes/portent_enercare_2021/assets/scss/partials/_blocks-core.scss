@@ -9,7 +9,7 @@ $default: nth( nth( $brand_colors, 1 ), 1 ); // first color in $brand_colors arr
 	font-size: 1.125rem;
 	font-weight: 700;
 	line-height: 24px;
-	padding: 0.50em 1.50em;
+	padding: 0.50em 1.50em 0.25em;
 	text-decoration: none;
 
 	.is-style-full &,
