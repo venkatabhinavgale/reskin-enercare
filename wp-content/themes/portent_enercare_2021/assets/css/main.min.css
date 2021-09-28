@@ -337,7 +337,7 @@ div.wpforms-container.one-line:after{content:"";display:table;clear:both}
 .pagination ul li.pagination-next a,.pagination ul li.pagination-previous a{width:auto}
 .pagination ul li:hover>a{color:#dc1c28}
 .pagination ul li.active>a{background:#dc1c28;color:#fff;font-weight:700}
-.entry-content ul,.entry-content ol{padding-left:1.5rem}
+.entry-content ul,.entry-content ol{padding-left:1.5rem;margin-bottom:1em}
 .entry-content ul li,.entry-content ol li{padding-bottom:.5rem}
 .entry-content ul li:last-child,.entry-content ol li:last-child{padding-bottom:0}
 .entry-content ul li ul,.entry-content ul li ol,.entry-content ol li ul,.entry-content ol li ol{padding-top:.5rem}

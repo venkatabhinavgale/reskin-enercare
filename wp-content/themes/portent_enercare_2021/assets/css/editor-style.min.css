@@ -233,7 +233,7 @@ body,p{color:#29292c;font-family:"Post Grotesk",serif,"Helvetica Neue",sans-seri
 .wp-block-image{line-height:0}
 .wp-block-button.is-style-full,.wp-block-button.is-style-full .block-editor-rich-text,div[data-type="core/button"] div[data-block]{display:block}
 .wp-block-separator:not(.is-style-wide):not(.is-style-dots){max-width:100%}
-ul,ol{padding-left:1.5rem}
+ul,ol{padding-left:1.5rem;margin-bottom:1em}
 ul li,ol li{padding-bottom:.5rem}
 ul li:last-child,ol li:last-child{padding-bottom:0}
 ul li ul,ul li ol,ol li ul,ol li ol{padding-top:.5rem}
