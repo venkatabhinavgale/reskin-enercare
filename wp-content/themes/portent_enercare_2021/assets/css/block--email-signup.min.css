@@ -7,13 +7,13 @@
 .block-newsletter-form__form-container form .gform_body label.gfield_label{font-size:14px;font-weight:300;margin-bottom:2px}
 .block-newsletter-form__form-container form .gform_body input[type=text]{border-radius:5px 0 0 5px;padding:8px 12px;max-height:40px;line-height:24px}
 .block-newsletter-form__form-container form .gform_footer input[type=submit]{width:auto;border-radius:0 5px 5px 0;font-size:1.125rem;font-weight:700;line-height:24px;padding:2px 16px;text-decoration:none;background-color:#dc1c28;color:#fff;margin-bottom:0;margin-top:3px;max-height:40px}
-@media(min-width:768px){.block-newsletter-form__container{-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;padding:64px 0}
+@media(min-width:768px){.block-newsletter-form__container{-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-pack:space-evenly;-ms-flex-pack:space-evenly;justify-content:space-evenly;padding:64px 0}
 .block-newsletter-form__content-container{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}
 .block-newsletter-form__image{height:100px;width:100px;max-width:100px;background-image:url("../icons/utility/email-signup--black.svg");display:inline-block}
 .block-newsletter-form__heading{position:absolute;left:27.9%}
-.block-newsletter-form__form-container{margin:unset;width:30%}
+.block-newsletter-form__form-container{margin:unset}
 .block-newsletter-form__form-container form .gform_footer input[type=submit]{padding:8px 16px}
-}@media(min-width:1200px){.block-newsletter-form__content-container{margin-right:-3em}
-.block-newsletter-form__content-container:after{content:'';display:inline-block;background-color:#d3d1d1;width:1px;height:136px;margin-right:9px;position:relative;left:92%}
+}@media(min-width:1200px){.block-newsletter-form__content-container{margin-right:-13em}
+.block-newsletter-form__content-container:after{content:'';display:inline-block;background-color:#d3d1d1;width:1px;height:136px;margin-right:9px;position:relative;left:91%}
 .block-newsletter-form__heading{left:23.4%}
 }
