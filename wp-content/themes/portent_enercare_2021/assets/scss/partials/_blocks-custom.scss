@@ -185,3 +185,28 @@ Slide
 	height: 100%;
 	width: 100%;
 }
+
+/**
+Cover
+ */
+.wp-block-cover {
+	@include media('<tablet') {
+		padding: 0;
+		flex-direction: column;
+	}
+
+	img.wp-block-cover__image-background {
+		@include media('<tablet') {
+			position: relative;
+		}
+	}
+
+	.wp-block-columns {
+		margin-bottom: 1em;
+	}
+
+	.wp-block-cover__inner-container {
+		padding: 1em 1em 0.25em 1em;
+		margin-bottom: 0;
+	}
+}
