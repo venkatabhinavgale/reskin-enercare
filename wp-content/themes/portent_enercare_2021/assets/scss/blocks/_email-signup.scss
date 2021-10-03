@@ -7,7 +7,7 @@
 
 		@include media(">=tablet") {
 			flex-direction: row;
-			justify-content: center;
+			justify-content: space-evenly;
 			padding: 64px 0;
 		}
 
@@ -21,7 +21,7 @@
 		}
 
 		@include media(">=desktop") {
-			margin-right: -3em;
+			margin-right: -13em;
 
 			&:after {
 				content: '';
@@ -31,7 +31,7 @@
 				height: 136px;
 				margin-right: 9px;
 				position: relative;
-				left: 92%;
+				left: 91%;
 			}
 		}
 
@@ -80,8 +80,6 @@
 
 		@include media(">=tablet") {
 			margin: unset;
-			width: 30%;
-
 		}
 
 		form {

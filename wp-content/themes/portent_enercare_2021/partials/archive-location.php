@@ -2,8 +2,8 @@
 /**
  * Location Information Card
  */
-
-echo '<article class="location-summary block-location-info wp-block-acf-card is-style-shadowed">';
+ 
+echo '<article class="location-summary block-card wp-block-acf-card is-style-shadowed">';
 
 	//enercare_post_summary_image();
 
