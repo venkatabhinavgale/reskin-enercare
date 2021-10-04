@@ -119,7 +119,7 @@
   </div>
   
   <?php } elseif ($variation == "Masthead Offer Card") { ?>
-  <div class="block-offer-card__wrapper" data-allow-multiple>
+  <div class="block-offer-card__wrapper__masthead" data-allow-multiple>
     <?php if ($campaign_subheading) { ?>
       <p><?php echo $campaign_subheading; ?></p>
     <?php } ?>
