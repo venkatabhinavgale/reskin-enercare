@@ -10,6 +10,10 @@
 		//marked important to preserve theme
 		width: 24px !important;
 	}
+
+	&:hover {
+		text-decoration: none;
+	}
 }
 
 .is-style-x-small {
