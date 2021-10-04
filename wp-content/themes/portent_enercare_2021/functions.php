@@ -23,7 +23,8 @@ include_once( get_template_directory() . '/inc/wordpress-cleanup.php' );
 include_once( get_template_directory() . '/inc/tha-theme-hooks.php' );
 include_once( get_template_directory() . '/inc/layouts.php' );
 include_once( get_template_directory() . '/inc/helper-functions.php' );
-include_once( get_template_directory() . '/inc/navigation.php' );
+// include_once( get_template_directory() . '/inc/navigation.php' );
+include_once( get_template_directory() . '/inc/enercare-nav.php' );
 include_once( get_template_directory() . '/inc/loop.php' );
 include_once( get_template_directory() . '/inc/template-tags.php' );
 include_once( get_template_directory() . '/inc/site-footer.php' );
@@ -79,6 +80,12 @@ function enercare_scripts() {
       wp_enqueue_script( 'ea-category-filters', get_template_directory_uri() . '/assets/js/category-filters.js', array( 'jquery' ), filemtime( get_template_directory() . '/assets/js/category-filters.js' ), true );
     }
 
+	wp_enqueue_script( 'ea-slider-poly', get_template_directory_uri() . '/assets/js/sliding-menu-polyfills.js', array(), filemtime( get_template_directory() . '/assets/js/sliding-menu-polyfills.js' ), true );
+
+	wp_enqueue_script( 'ea-slider-menu', get_template_directory_uri() . '/assets/js/sliding-menu.js', array( 'ea-slider-poly' ), filemtime( get_template_directory() . '/assets/js/sliding-menu.js' ), true );
+
+	wp_enqueue_script( 'ea-slider-init', get_template_directory_uri() . '/assets/js/slide-intiate.js', array( 'ea-slider-menu' ), filemtime( get_template_directory() . '/assets/js/slide-intiate.js' ), true );
+
 	}
 
 	wp_enqueue_style( 'ea-fonts', enercare_theme_fonts_url() );
@@ -88,13 +95,6 @@ function enercare_scripts() {
   if( get_field('terms_and_conditions') ) {
     wp_enqueue_script( 'legal-terms', get_template_directory_uri() . '/assets/js/legal-terms.js', null, null, true );
   }
-
-	/**
-	 * Archive Enqueues
-	 */
-	if( is_post_type_archive( 'location' ) ) {
-		wp_enqueue_style( 'enercare-archive-locations', get_template_directory_uri() . '/assets/css/archive--locations.css', array( 'ea-style' ), null );
-	}
 
 	/*
 	 * Block level enqueues

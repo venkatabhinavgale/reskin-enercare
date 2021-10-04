@@ -1,5 +1,8 @@
 /* Box Sizing
 --------------------------------------------- */
+html, body {
+	overflow-x: hidden;
+}
 
 html,
 input[type="search"] {

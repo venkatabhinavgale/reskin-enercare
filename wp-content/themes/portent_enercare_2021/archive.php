@@ -21,27 +21,6 @@ function enercare_archive_body_class( $classes ) {
 }
 add_filter( 'body_class', 'enercare_archive_body_class' );
 
-
-/**
- * Filter Divider
- */
-function location_filters() {
-	echo '<section class="location-archive-filters">';
-	echo '<div class="location-archive-filters__filter location-archive-filters__postal-code">';
-		echo '<h2 class="location-archive-filters__header location-archive-filters__header--postal-code">Location By Postal Code</h2>';
-		echo '<div class="location-archive-filters__postal-code-form">';
-			the_postal_code_filter();
-		echo '</div>';
-	echo '</div>';
-	echo '<div class="location-archive-filters__divider" role="presentation">or</div>';
-	echo '<div class="location-archive-filters__filter location-archive-filters__province">';
-		echo '<h2 class="location-archive-filters__header location-archive-filters__header--province">Location By Province</h2>';
-		echo '<div class="location-archive-filters__province-form">';
-			the_province_filter();
-		echo '</div>';
-	echo '</div>';
-	echo '</section>';
-}
 /**
  * Archive Header
  *
@@ -61,9 +40,6 @@ function enercare_archive_header() {
 		$title = get_the_archive_title();
 		if( ! get_query_var( 'paged' ) )
 			$description = get_the_archive_description();
-	} elseif( is_post_type_archive( 'location' ) ) {
-		$title = 'Find an Enercare Location';
-		$description = 'Location archive text';
 	}
 
 	if( empty( $title ) && empty( $description ) )
@@ -79,14 +55,12 @@ function enercare_archive_header() {
 		echo '<h1 class="archive-title">' . $title . '</h1>';
 	if( !empty( $subtitle ) )
 		echo '<h4>' . $subtitle . '</h4>';
-
+  
 	echo apply_filters( 'enercare_the_content', $description );
 	echo $more;
-	echo '<div class="archive-header__after">';
-		do_action ('enercare_archive_header_after' );
-	echo '</div>';
+	do_action ('enercare_archive_header_after' );
 	echo '</header>';
-
+  
   if (is_home()) {
     get_template_part('partials/blog-featured', 'featured-post');
   }
@@ -98,15 +72,7 @@ add_action( 'tha_content_while_before', 'enercare_archive_header' );
 add_action( 'enercare_archive_header_before', 'enercare_breadcrumbs', 5 );
 
 //Filters
-if( !is_search() && ( is_post_type_archive( 'location' ) || is_post_type_archive( 'campaign' ) ) ) {
-	//add_action( 'enercare_archive_header_after', 'the_postal_code_filter' );
-}
-
-if(!is_search() && is_post_type_archive( 'location' ) ) {
-	add_action( 'enercare_archive_header_after', 'location_filters' );
-}
-
-if (!is_search() && have_posts() && is_post_type_archive( 'post' )) {
+if (!is_search() && have_posts()) {
 	add_action('enercare_archive_header_after', 'enercare_filter_taxonomy_by_post_type');
 }
 
@@ -131,7 +97,6 @@ function addSearch_embed() {
   </div>
 	<?php
 }
-
 if (is_search()) {
 	add_action('tha_content_bottom', 'addSearch_embed');
 }

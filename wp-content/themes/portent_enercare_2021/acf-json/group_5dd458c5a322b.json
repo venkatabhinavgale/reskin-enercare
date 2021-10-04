@@ -27,11 +27,11 @@
             "mime_types": ""
         },
         {
-            "key": "field_610846ae5d9ad",
-            "label": "Default Contact Form",
-            "name": "default_contact_form",
-            "type": "select",
-            "instructions": "In places where a contact form is needed if no override or specific form is present this form will be used. This field is populated by active gravity forms.",
+            "key": "field_614b6b444f6e6",
+            "label": "Default Logo",
+            "name": "enercare_default_logo",
+            "type": "image",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -39,42 +39,16 @@
                 "class": "",
                 "id": ""
             },
-            "choices": {
-                "1": "Buy\/Rent\/Rebates Lead Form",
-                "2": "Request a call back (multi-step)"
-            },
-            "default_value": false,
-            "allow_null": 0,
-            "multiple": 0,
-            "ui": 0,
-            "return_format": "value",
-            "ajax": 0,
-            "placeholder": ""
-        },
-        {
-            "key": "field_610847239c1eb",
-            "label": "Default Email Form",
-            "name": "default_email_form",
-            "type": "select",
-            "instructions": "In places where a newsletter signup form is needed if no override or specific form is present this form will be used. This field is populated by active gravity forms.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "1": "Buy\/Rent\/Rebates Lead Form",
-                "2": "Request a call back (multi-step)"
-            },
-            "default_value": false,
-            "allow_null": 0,
-            "multiple": 0,
-            "ui": 0,
-            "return_format": "value",
-            "ajax": 0,
-            "placeholder": ""
+            "return_format": "id",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
         },
         {
             "key": "field_613fa935315dc",
@@ -195,6 +169,62 @@
             "max_height": 30,
             "max_size": "",
             "mime_types": ""
+        },
+        {
+            "key": "field_610846ae5d9ad",
+            "label": "Default Contact Form",
+            "name": "default_contact_form",
+            "type": "select",
+            "instructions": "In places where a contact form is needed if no override or specific form is present this form will be used. This field is populated by active gravity forms.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "1": "Basic Product Form",
+                "2": "Contact",
+                "3": "Email Subscribe",
+                "4": "Buy\/Rent\/Rebates Lead Form",
+                "5": "Request a call back (multi-step)"
+            },
+            "default_value": false,
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_610847239c1eb",
+            "label": "Default Email Form",
+            "name": "default_email_form",
+            "type": "select",
+            "instructions": "In places where a newsletter signup form is needed if no override or specific form is present this form will be used. This field is populated by active gravity forms.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "1": "Basic Product Form",
+                "2": "Contact",
+                "3": "Email Subscribe",
+                "4": "Buy\/Rent\/Rebates Lead Form",
+                "5": "Request a call back (multi-step)"
+            },
+            "default_value": false,
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
         }
     ],
     "location": [
@@ -214,5 +244,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1631649802
+    "modified": 1632332636
 }
