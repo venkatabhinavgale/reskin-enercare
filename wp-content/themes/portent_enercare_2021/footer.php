@@ -29,3 +29,5 @@ tha_body_bottom();
 wp_footer();
 
 echo '</body></html>';
+
+?>

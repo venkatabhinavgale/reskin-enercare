@@ -378,24 +378,8 @@
         },
         {
             "key": "field_6112a336bb3bd",
-            "label": "Write a Google Review URL",
+            "label": "Google Reviews URL",
             "name": "google_reviews_url",
-            "type": "url",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": ""
-        },
-        {
-            "key": "field_614c9b3b7bb4d",
-            "label": "See Google Reviews URL",
-            "name": "google_see_reviews_url",
             "type": "url",
             "instructions": "",
             "required": 0,
@@ -426,5 +410,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1632410483
+    "modified": 1631151252
 }
