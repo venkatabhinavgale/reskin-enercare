@@ -1,0 +1,88 @@
+.block-offer-card {
+
+	&__wrapper {
+		text-align: center;
+
+		a {
+			button {
+				border-style: none;
+				background: none;
+				padding: 48px;
+
+				.wp-block-button {
+
+					&__link {
+						padding: 12px 24px;
+						border-radius: 24px;
+					}
+				}
+			}
+		}
+
+		&__masthead {
+			background-color: rgba(0, 0, 0, 0.8) !important;
+			border-style: none;
+			background: none;
+			padding: 48px;
+
+			h3 {
+				font-size: 52px;
+				line-height: 60px;
+			}
+
+			p {
+
+				&:first-child {
+					font-size: 28px;
+					line-height: 36px;
+				}
+
+				&:nth-of-type(2) {
+					font-size: 12px;
+					line-height: 16px;
+				}
+			}
+
+			.block-offer-card {
+
+				&__terms-toggle {
+					font-size: 12px;
+					color: $white;
+					text-decoration: none;
+					line-height: 16px;
+				}
+			}
+
+			button {
+				background: none;
+				border-style: none;
+			}
+
+			.wp-block-button {
+
+				&__link {
+					padding: 16px 48px;
+					border-radius: 36px;
+				}
+			}
+		}
+
+	}
+
+	&__terms {
+		text-align: center;
+	}
+
+	&__terms-toggle {
+		 border: none;
+		 background: none;
+		 color: $grey_6;
+		 font-size: 14px;
+		 line-height: 20px;	
+		 text-decoration: underline;	 
+	}
+
+	&__terms-details {
+
+	}
+}

@@ -415,6 +415,7 @@ div.wpforms-container.one-line:after{content:"";display:table;clear:both}
 .floating-cta{background-color:#fff;bottom:0;height:62px;left:0;position:fixed;padding:.5em;text-align:center;width:100%;z-index:200}
 .wp-block-button__link{display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
 .wp-block-button__link img{margin:0 .25em;height:24px;width:24px !important}
+.wp-block-button__link:hover{text-decoration:none}
 .is-style-x-small .wp-block-button__link{background-color:#f5f2f2;color:#000;font-weight:300;padding:4px 8px;height:1.875em;font-size:16px}
 .is-style-x-small .wp-block-button__link:hover{background-color:#b3b1b1;color:#000}
 .is-style-small .wp-block-button__link{padding:6px 16px}

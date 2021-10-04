@@ -7,7 +7,6 @@
 
 		@include media(">=tablet") {
 			flex-direction: row;
-			justify-content: center;
 			padding: 64px 0;
 		}
 
@@ -17,22 +16,13 @@
 
 		@include media(">=tablet") {
 			display: flex;
-			flex-direction: row;
+			flex-flow: row wrap;
 		}
 
 		@include media(">=desktop") {
 			margin-right: -3em;
-
-			&:after {
-				content: '';
-				display: inline-block;
-				background-color: $grey_3;
-				width: 1px;
-				height: 136px;
-				margin-right: 9px;
-				position: relative;
-				left: 92%;
-			}
+			border-right: 1px solid $grey_3;
+			padding-right: 1.5em;
 		}
 
 	}
@@ -53,14 +43,14 @@
 		font-size: 18px;
 		text-align: center;
 		font-weight: 700;
+		align-self: baseline;
 
 		@include media(">=tablet") {
-			position: absolute;
-			left: 27.9%;
+
 		}
 
 		@include media(">=desktop") {
-			left: 23.4%;
+
 		}
 
 	}
@@ -79,8 +69,8 @@
 		margin: 0 auto;
 
 		@include media(">=tablet") {
-			margin: unset;
-			width: 30%;
+			margin: 0;
+			flex-grow: 1;
 
 		}
 
