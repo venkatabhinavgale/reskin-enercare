@@ -5,8 +5,9 @@
 		flex-direction: column;
 		padding: 32px 24px;
 
-		@include media(">=tablet") {
+		@include media(">=desktop") {
 			flex-direction: row;
+			justify-content: center;
 			padding: 64px 0;
 		}
 
@@ -14,15 +15,16 @@
 
 	&__content-container {
 
-		@include media(">=tablet") {
-			display: flex;
-			flex-flow: row wrap;
-		}
-
 		@include media(">=desktop") {
-			margin-right: -3em;
+			display: grid;
 			border-right: 1px solid $grey_3;
 			padding-right: 1.5em;
+  			grid-template-columns: .25fr 1fr 1fr; 
+  			grid-template-rows: .2fr 1fr; 
+  			gap: 0px 24px; 
+  			grid-template-areas: 
+    		". heading heading"
+    		"image content content"; 
 		}
 
 	}
@@ -30,7 +32,8 @@
 	&__image {
 		display: none;
 
-		@include media(">=tablet") {
+		@include media(">=desktop") {
+			grid-area: image;
 			height: 100px;
 			width: 100px;
 			max-width: 100px;
@@ -45,12 +48,10 @@
 		font-weight: 700;
 		align-self: baseline;
 
-		@include media(">=tablet") {
-
-		}
-
 		@include media(">=desktop") {
-
+			grid-area: heading;
+			text-align: left;
+			margin-bottom: -20px;
 		}
 
 	}
@@ -60,18 +61,29 @@
 		line-height: 28px;
 		font-weight: 900;
 		margin-bottom: 24px;
-		order: 1;
 		align-self: center;
 		margin-left: 24px;
+
+		@include media(">=desktop") {
+			grid-area: content;
+			text-align: left;
+			margin-left: 0;
+
+		}
 	}
 
 	&__form-container {
 		margin: 0 auto;
 
-		@include media(">=tablet") {
-			margin: 0;
-			flex-grow: 1;
+		@include media(">=desktop") {
+			margin: 0 0 0 24px;
+			align-self: center;
+		}
 
+		.gform_wrapper {
+			@include media(">=desktop") {
+				width: 100%;
+			}
 		}
 
 		form {
