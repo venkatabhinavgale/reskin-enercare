@@ -87,38 +87,8 @@
       ';
     }
 ?>
-
-  <?php if ($variation == "Offer Card") { ?>
-  <div class="block-offer-card__wrapper" data-allow-multiple>
-    <a href="<?= get_field('destination', $campaign->ID); ?>">
-    <button>
-      <?= $campaign_icon; ?>
-      <?php if ($campaign_subheading) { ?>
-        <p><?php echo $campaign_subheading; ?></p>
-      <?php } ?>
-      <h3><?= $campaign_heading; ?></h3>
-      <span class="wp-block-button__link has-red-background-color has-background"><?= $cta_text ?></span>
-    </button>
-    </a>
-    <?= $campaign_terms; ?>
-  </div>
-
-  <?php } elseif ($variation == "Offer with Icon") { ?>
-  <div class="block-offer-card__wrapper" data-allow-multiple>
-    <a href="<?= get_field('destination', $campaign->ID); ?>">
-    <button>
-      <?= $campaign_icon; ?>
-      <?php if ($campaign_subheading) { ?>
-        <p><?php echo $campaign_subheading; ?></p>
-      <?php } ?>
-      <h3><?= $campaign_heading; ?></h3>
-      <span class="wp-block-button__link has-red-background-color has-background"><?= $cta_text ?></span>
-    </button>
-    </a>
-    <?= $campaign_terms; ?>
-  </div>
   
-  <?php } elseif ($variation == "Masthead Offer Card") { ?>
+  <?php if ($variation == "Masthead Offer Card") { ?>
   <div class="block-offer-card__wrapper__masthead" data-allow-multiple>
     <?php if ($campaign_subheading) { ?>
       <p><?php echo $campaign_subheading; ?></p>
@@ -137,13 +107,23 @@
     </button>
     </a>
   </div>
-
   <?php } elseif ($variation == "Full Width with Image") { ?>
+  
 
-  <?php } elseif ($variation == "Enercare Classic (2019 offer style)") { ?>
-
-  <?php } else { //default ?>
-
+  <?php } else { // "Offer Card" is default ?>
+  <div class="block-offer-card__wrapper" data-allow-multiple>
+    <a href="<?= get_field('destination', $campaign->ID); ?>">
+    <button>
+      <?= $campaign_icon; ?>
+      <?php if ($campaign_subheading) { ?>
+        <p><?php echo $campaign_subheading; ?></p>
+      <?php } ?>
+      <h3><?= $campaign_heading; ?></h3>
+      <span class="wp-block-button__link has-red-background-color has-background"><?= $cta_text ?></span>
+    </button>
+    </a>
+    <?= $campaign_terms; ?>
+  </div>
   <?php } ?>
 
 <?php } elseif (is_admin()) { ?>
