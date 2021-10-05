@@ -217,9 +217,6 @@ Block Styles
 	}
 }
 
-/**
-Breadcrumbs
- */
 .breadcrumb,
 .yoast-breadcrumbs {
 
@@ -247,95 +244,52 @@ Breadcrumbs
 	}
 }
 
+/**
+Operational Banner
+ */
+.banner-operational {
+	background-color: brand-color('grey');
+	color: brand-color('white');
+	padding: 0.5em;
+	margin-top: 0 !important;
+	text-align: center;
 
+	p {
+		margin: 0;
+		padding: 0;
+	}
+
+	a {
+		color: brand-color( 'white' );
+	}
+}
 
 /**
-Location Map Block
+Legal Panel In Footer Area
  */
-.block-location-map {
+.legal__terms-toggle {
+	display: flex;
+	width: 100%;
+	max-width: 100%;
+	justify-content: space-between;
+	padding: 0.75em 1em 0.5em;
+	border: 0;
+	align-items: center;
 
-	iframe {
-		max-width: 100%;
+	img {
+		height: 24px;
+		width: 24px;
 	}
+}
+
+.legal__terms-details {
+	background-color: brand-color('grey-20');
+	padding: 1em;
 }
 
 /**
 Carousel
  */
-.block-carousel__wrapper {
-	position: relative;
-
-	.glider-prev,
-	.glider-next {
-		color: brand-color('black');
-		top: 50%;
-		transform: translateY(-50%);
-	}
-
-	.glider-track {
-		padding: 1em 0 1.5em 0;
-	}
-}
-
-.block-carousel {
-
-	&__dots {
-
-		margin: 1.5em 0 1em;
-
-		button {
-			background-color: $grey_3;
-			margin: 0 0.75em 0.5em;
-		}
-
-		button.active {
-			background-color: brand-color('red');
-		}
-	}
-
-	&__prev,
-	&__next {
-		background-color: transparent;
-		border: 0;
-		height: 40px;
-		position: absolute;
-		top: 50%;
-		transform: translateY(-50%);
-		width: 40px;
-		padding: 5px;
-		transition: background-color 0.2s ease-in;
-		border-radius: 100%;
-
-		img {
-			margin: 0 auto;
-		}
-
-		&:hover {
-			background-color: $grey_2;
-			transition: background-color 0.3s ease-in;
-		}
-
-		&:focus {
-			border: 1px dotted $grey_8;
-		}
-
-		&.disabled {
-			opacity: 0.3;
-			transition: opacity 0.3s ease-in;
-		}
-	}
-
-	&__prev {
-		left: 0;
-		transform: translateX(-100%);
-	}
-
-	&__next {
-		right: 0;
-		transform: translateX(100%);
-	}
-}
-
 .block-carousel__wrapper:not([data-num-slides="1"]) {
 
 	.glider-slide {

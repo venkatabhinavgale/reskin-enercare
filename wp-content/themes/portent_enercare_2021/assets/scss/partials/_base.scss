@@ -10,8 +10,8 @@ $grey_7: #505156;
 $grey_8: #3D3D43;
 $grey_9: #29292C;
 $grey_10: #212121;
+$grey_11: #2C2929; //nav a
 $black: #000;
-
 // Brand Colors
 $brand_colors: (
 	'red' : #DC1C28,
@@ -67,8 +67,7 @@ $margin_2x: $base-margin * 2;
 $margin_4x: $base-margin * 4;
 
 // Site Header
-$logo_width: 300px;
-$menu_width: $logo_width + $grid-gap;
+// $menu_width: $logo_width + $grid-gap;
 $persistent_mobile: false; // 49px
 $persistent_desktop: false; // 49px
 

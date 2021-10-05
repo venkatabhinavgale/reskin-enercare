@@ -9,7 +9,7 @@ $default: nth( nth( $brand_colors, 1 ), 1 ); // first color in $brand_colors arr
 	font-size: 1.125rem;
 	font-weight: 700;
 	line-height: 24px;
-	padding: 0.50em 1.50em 0.25em;
+	padding: 0.50em 1.50em;
 	text-decoration: none;
 
 	.is-style-full &,
@@ -204,18 +204,12 @@ img {
 /* Open/Closed Options
 --------------------------------------------- */
 [data-state="open"] {
+  display:inherit;
   height: 100%;
-	opacity: 1;
-	transform: scaleY(1);
   visibility: visible;
-	transition: opacity 0.3s ease-in, visibility 0.3s ease, transform 0.2s ease-in;
-	transform-origin: top;
 }
 [data-state="closed"] {
+  display:none;
   height: 0;
-	opacity: 0;
-	transform: scaleY(0);
   visibility: hidden;
-	transition: opacity 0.3s ease-in, visibility 0.3s ease;
-	transform-origin: top;
 }

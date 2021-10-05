@@ -7,111 +7,48 @@
 
 	&__star {
 		margin: 0 0.15em;
-		height: 24px;
-		width: 24px;
 
 		&:first-of-type,
 		&:last-of-type {
 			margin: 0;
-
 		}
 	}
 
 	&__section-heading {
-		background-color: $white;
+		background-color: $grey_2;
 		display: flex;
 		flex-basis: 75%;
-		padding: 0 1em;
+		padding: 0 20%;
 		align-items: center;
-		flex-direction: column;
 		@include large-font-style();
-		position: relative;
-
-		@include media('>=tablet') {
-			background-color: $grey_2;
-			flex-direction: row;
-			padding: 0 20%;
-		}
-
-		&:after {
-			content: '';
-			display: block;
-			background-color: $grey_2;
-			position: absolute;
-			bottom: 0;
-			left: 0;
-			height: 77%;
-			width: 100%;
-			z-index: 0;
-
-			@include media('>=tablet') {
-				height: 100%;
-			}
-
-		}
 
 		&__title {
 			flex-basis: 75%;
 			flex-grow: 1;
-			margin-top: 1.5em;
-			padding-bottom: 1em;
 			text-align: center;
-			z-index: 1;
-
-			@include media('>=tablet') {
-				margin-top: 0;
-				padding-bottom: 0;
-			}
 		}
 
 		&__header {
 			font-weight: 900;
-			@include font-sizes(1.75em, 3em, 3.5em, 3.5em );
+			@include font-sizes(3.5em, 3em, 3.5em, 3.5em );
 			line-height: 1;
 			margin-bottom: 0;
-			padding-bottom: 0;
 		}
 
 		&__stars {
-			display: flex;
+			display: inline-flex;
 			justify-content: center;
 			margin-right: 0.5em;
-
-			@include media('>=tablet') {
-				display: inline-flex;
-				vertical-align: sub;
-			}
-		}
-	}
-
-	&__section-footer {
-
-		text-align: center;
-
-		&__add-review,
-		&__see-reviews {
-			margin: 0.5em;
 		}
 	}
 
 	&__stamp {
-		transform: scale(1);
-		z-index: 1;
-
-		@include media('>=tablet') {
-			transform: scale(1.2);
-		}
+		transform: scale(1.2);
 	}
 
 	&__wrapper {
-		padding: 0;
+		padding: 50px 0;
 		position: relative;
-		max-width: 100%;
-		overflow-x: hidden;
-
-		@include media('>=tablet') {
-			padding: 50px 0;
-		}
 	}
 
 	&__dots {
@@ -120,7 +57,7 @@
 
 		button {
 			background-color: $grey_3;
-			margin: 0 0.75em 0.5em;
+			margin: 0 0.75em;
 		}
 
 		button.active {
@@ -131,33 +68,12 @@
 	&__prev,
 	&__next {
 		background-color: transparent;
-		border: 1px dotted transparent;
+		border: 0;
 		height: 50px;
 		position: absolute;
 		top: 50%;
-		opacity: 1;
 		transform: translateY(-50%);
-		transition: opacity 0.3s ease-in;
 		width: 50px;
-		border-radius: 100%;
-
-		img {
-			margin: 0 auto;
-		}
-
-		&:hover {
-			background-color: $grey_2;
-			transition: background-color 0.3s ease-in;
-		}
-
-		&:focus {
-			border: 1px dotted $grey_8;
-		}
-
-		&.disabled {
-			opacity: 0.3;
-			transition: opacity 0.3s ease-in;
-		}
 	}
 
 	&__prev {

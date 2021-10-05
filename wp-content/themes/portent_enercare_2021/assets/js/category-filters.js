@@ -192,15 +192,4 @@ jQuery(function ($) {
     pushHistoryState(updatedUrl);
     displayFilteredResults(updatedUrl);
   }); //Single filter criteria control hookup
-
-  $('.province-filter__select').on('change', function (event) {
-    var searchedProvince = this.value;
-    console.log(searchedProvince);
-    var currentUrl = new URL(window.location.href);
-    var province = currentUrl.searchParams.get('province');
-    currentUrl.searchParams.set('province', searchedProvince);
-    var updatedUrl = currentUrl.href;
-    pushHistoryState(updatedUrl);
-    displayFilteredResults(updatedUrl);
-  }); //Single filter criteria control hookup
 });
