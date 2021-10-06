@@ -61,7 +61,7 @@ function enercare_archive_header() {
 	do_action ('enercare_archive_header_after' );
 	echo '</header>';
   
-  if (is_home()) {
+  if (is_home() && !is_paged()) {
     get_template_part('partials/blog-featured', 'featured-post');
   }
 

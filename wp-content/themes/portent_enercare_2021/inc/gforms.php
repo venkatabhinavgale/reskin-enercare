@@ -1,4 +1,21 @@
 <?php
+/*
+ * Function to manipulate all Gravity Form submissions before submitting to the database. $_POST array is available
+ */
+function enercare_gform_pre_submission( $form ) {
+  // find the hidden form fields and copy them to their gform field
+  foreach ($form['fields'] as $field_key => $field) {
+    if (isset($_POST[$field->label])) {
+      $_POST['input_'. $field->id] = $_POST[$field->label];
+    } elseif (isset($_POST[$field->inputName])) {
+      $_POST['input_'. $field->id] = $_POST[$field->inputName];
+    } else if (isset($_POST[$field->adminLabel])) {
+      $_POST['input_'. $field->id] = $_POST[$field->adminLabel];
+    }
+  }
+}
+add_action('gform_pre_submission', 'enercare_gform_pre_submission');
+
 /* 
 ----------------------------------------------------------
 CUSTOM GRAVITY FORMS ADD ON CLASS

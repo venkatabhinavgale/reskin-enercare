@@ -30,7 +30,7 @@ module.exports = {
 	// JS Custom options.
 	jsCustomSRC: './assets/js/src/*.js', // Path to JS custom scripts folder.
 	jsCustomDestination: './assets/js/', // Path to place the compiled JS custom scripts file.
-	jsCustomFile: 'global-min', // Compiled JS custom file name. Default set to custom i.e. custom.js.
+	jsCustomFile: 'global', // Compiled JS custom file name. Default set to custom i.e. custom.js.
 
 	// JS Single options.
 	jsSingleSRC: './assets/js/single/*.js', // Path to JS custom scripts folder.
