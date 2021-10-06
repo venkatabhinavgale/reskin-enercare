@@ -74,7 +74,7 @@
   if (isset($campaign) && !empty($campaign)) {
     $campaign_heading = get_field('heading', $campaign->ID);
     $campaign_subheading = get_field('subheading', $campaign->ID);
-    $campaign_image = wp_get_attachment_image( get_field('image', $campaign->ID), 'thumbnail', false, array( 'class' =>'block-offer-card__image', 'alt'=>'') );
+    $campaign_image = wp_get_attachment_image( get_field('icon', $campaign->ID), 'thumbnail', false, array( 'class' =>'block-offer-card__image', 'alt'=>'') );
     $campaign_expiration = get_field('end_date', $campaign->ID);
     $terms_and_conditions = get_field('terms_and_conditions', $campaign->ID);
     $campaign_terms = '';
