@@ -74,7 +74,7 @@
   if (isset($campaign) && !empty($campaign)) {
     $campaign_heading = get_field('heading', $campaign->ID);
     $campaign_subheading = get_field('subheading', $campaign->ID);
-    $campaign_icon = wp_get_attachment_image( get_field('icon', $campaign->ID), 'thumbnail', false, array( 'class' =>'block-offer-card__image', 'alt'=>'') );
+    $campaign_image = wp_get_attachment_image( get_field('image', $campaign->ID), 'thumbnail', false, array( 'class' =>'block-offer-card__image', 'alt'=>'') );
     $campaign_expiration = get_field('end_date', $campaign->ID);
     $terms_and_conditions = get_field('terms_and_conditions', $campaign->ID);
     $campaign_terms = '';
@@ -91,10 +91,10 @@
   <?php if ($variation == "Masthead Offer Card") { ?>
   <div class="block-offer-card__wrapper__masthead" data-allow-multiple>
     <?php if ($campaign_subheading) { ?>
-      <p><?php echo $campaign_subheading; ?></p>
+      <p class="block-offer-card__subheading"><?php echo $campaign_subheading; ?></p>
     <?php } ?>
     <h3><?= $campaign_heading; ?></h3>
-    <p>Offer expires <?= date('F d, Y', strtotime($campaign_expiration)); ?>
+    <p class="block-offer-card__offer-expiration">Offer expires <?= date('F d, Y', strtotime($campaign_expiration)); ?>
       <span class="block-offer-card__terms">
         <button class="block-offer-card__terms-toggle" aria-controls="terms_<?= $campaign->ID; ?>">View Details</button>
         <div class="block-offer-card__terms-details" aria-expanded="false" data-state="closed" aria-labelledby="terms_<?= $campaign->ID; ?>"><?= $terms_and_conditions; ?></div>
@@ -108,21 +108,39 @@
     </a>
   </div>
   <?php } elseif ($variation == "Full Width with Image") { ?>
-  
+    <div class="block-offer-card__wrapper__full-width" data-allow-multiple>
+      <div class="block-offer-card__container">
+        <a href="<?= get_field('destination', $campaign->ID); ?>">
+        <button>
+          <?php if ($campaign_subheading) { ?>
+            <p class="block-offer-card__subheading"><?php echo $campaign_subheading; ?></p>
+          <?php } ?>
+          <h3><?= $campaign_heading; ?></h3>
+          <p class="block-offer-card__offer-expiration">Offer expires <?= date('F d, Y', strtotime($campaign_expiration)); ?></p>
+          <span class="wp-block-button__link has-red-background-color has-background"><?= $cta_text ?></span>
+        </button>
+        </a>
+        <?= $campaign_terms; ?>
+    </div>
+    <?= $campaign_image; ?>
+  </div>
 
   <?php } else { // "Offer Card" is default ?>
   <div class="block-offer-card__wrapper" data-allow-multiple>
-    <a href="<?= get_field('destination', $campaign->ID); ?>">
-    <button>
-      <?= $campaign_icon; ?>
-      <?php if ($campaign_subheading) { ?>
-        <p><?php echo $campaign_subheading; ?></p>
-      <?php } ?>
-      <h3><?= $campaign_heading; ?></h3>
-      <span class="wp-block-button__link has-red-background-color has-background"><?= $cta_text ?></span>
-    </button>
-    </a>
-    <?= $campaign_terms; ?>
+    <div class="block-offer-card__container">
+      <a href="<?= get_field('destination', $campaign->ID); ?>">
+      <button>
+        <?php if ($campaign_subheading) { ?>
+          <p class="block-offer-card__subheading"><?php echo $campaign_subheading; ?></p>
+        <?php } ?>
+        <h3><?= $campaign_heading; ?></h3>
+        <p class="block-offer-card__offer-expiration">Offer expires <?= date('F d, Y', strtotime($campaign_expiration)); ?></p>
+        <span class="wp-block-button__link has-red-background-color has-background"><?= $cta_text ?></span>
+      </button>
+      </a>
+      <?= $campaign_terms; ?>
+    </div>
+    <?= $campaign_image; ?>
   </div>
   <?php } ?>
 
