@@ -62,7 +62,7 @@ add_action( 'tha_footer_before', 'footer_legal', 1 );
  */
 function enercare_site_footer() {
 	echo '<div class="footer-left">';
-		echo '<p class="copyright">Copyright &copy; ' . date( 'Y' ) . ' ' . get_bloginfo( 'name' ) . '®. All Rights Reserved.</p>';
+		echo '<p class="copyright">Copyright &copy; ' . date( 'Y' ) . ' ' . get_bloginfo( 'name' ) . '<sup>®</sup>. All Rights Reserved.</p>';
 		echo '<p class="footer-links"><a href="' . home_url( 'privacy-policy' ) . '">Privacy Policy</a> <a href="' . home_url( 'terms' ) . '">Terms</a></p>';
 		echo '<p class="cafemedia">An Elite Cafemedia Food Publisher</p>';
 	echo '</div>';
