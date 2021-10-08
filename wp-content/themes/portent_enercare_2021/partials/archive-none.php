@@ -22,6 +22,9 @@ echo '<section class="no-results not-found">';
 	} else {
 
 		echo '<p>' . esc_html__( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'ea-starter' ) . '</p>';
+		/**
+		 * @todo there will be more development required for the 404 view after launch
+		 */
 		get_search_form();
 	}
 
