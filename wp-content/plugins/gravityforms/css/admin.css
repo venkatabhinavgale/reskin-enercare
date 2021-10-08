@@ -4500,7 +4500,7 @@ to no.
 ----------------------------------------------------------------
 */
 
-html[dir="rtl"] .gform_wrapper *, html[dir="rtl"] .gform_wrapper form, html[dir="rtl"] .gform_wrapper .gform_body, html[dir="rtl"] .gform_wrapper ul li, html[dir="rtl"] .gform_wrapper ul li.gfield, html[dir="rtl"] .gform_wrapper ul li.gfield.gfield_html, html[dir="rtl"] .gform_wrapper ul li.gfield input, html[dir="rtl"] .gform_wrapper ul li.gfield textarea, html[dir="rtl"] .gform_wrapper textarea, html[dir="rtl"] .gform_wrapper ul li.gfield select, html[dir="rtl"] .gform_wrapper select, html[dir="rtl"] .gform_wrapper input[type="text"], html[dir="rtl"] .gform_wrapper input[type="email"], html[dir="rtl"] .gform_wrapper input[type="password"], html[dir="rtl"] .gform_wrapper input[type="url"], html[dir="rtl"] .gform_wrapper input[type="tel"], html[dir="rtl"] .gform_wrapper input[type="submit"], html[dir="rtl"] .gform_wrapper input[type="button"], html[dir="rtl"] .gform_wrapper button, html[dir="rtl"] .gform_wrapper table tr td.gfield_list_icons, html[dir="rtl"] .gform_wrapper div.validation_error, html[dir="rtl"] .gform_wrapper h3.gform_title, html[dir="rtl"] .gform_wrapper span.gform_description, html[dir="rtl"] .gform_wrapper .gform_footer {
+html[dir="rtl"] .gform_wrapper *, html[dir="rtl"] .gform_wrapper form, html[dir="rtl"] .gform_wrapper .gform_body, html[dir="rtl"] .gform_wrapper ul li, html[dir="rtl"] .gform_wrapper ul li.gfield, html[dir="rtl"] .gform_wrapper ul li.gfield.gfield_html, html[dir="rtl"] .gform_wrapper ul li.gfield input, html[dir="rtl"] .gform_wrapper ul li.gfield textarea, html[dir="rtl"] .gform_wrapper textarea, html[dir="rtl"] .gform_wrapper ul li.gfield select, html[dir="rtl"] .gform_wrapper select, html[dir="rtl"] .gform_wrapper input[type="text"], html[dir="rtl"] .gform_wrapper input[type="email"], html[dir="rtl"] .gform_wrapper input[type="password"], html[dir="rtl"] .gform_wrapper input[type="url"], html[dir="rtl"] .gform_wrapper input[type="tel"], html[dir="rtl"] .gform_wrapper input[type="submit"], html[dir="rtl"] .gform_wrapper input[type="button"], html[dir="rtl"] .gform_wrapper button, html[dir="rtl"] .gform_wrapper div.validation_error, html[dir="rtl"] .gform_wrapper h3.gform_title, html[dir="rtl"] .gform_wrapper span.gform_description, html[dir="rtl"] .gform_wrapper .gform_footer {
 	text-align: right;
 	direction: rtl;
 }
@@ -4524,7 +4524,7 @@ html[dir="rtl"] .gform_wrapper table.gfield_list th, html[dir="rtl"] .gform_wrap
 	padding-right: 0;
 }
 
-.gform_wrapper table.gfield_list tr td.gfield_list_icons, .gform_wrapper table.gfield_list tr td:last-child {
+.gform_legacy_markup_wrapper table.gfield_list tbody td.gfield_list_icons, .gform_legacy_markup_wrapper table.gfield_list thead tr td:last-child {
 	padding: 0 4px 0 0 !important;
 }
 
@@ -4546,7 +4546,7 @@ html[dir="rtl"] .gform_wrapper .chosen-container ul.chosen-choices li.search-fie
 	float: right !important;
 }
 
-body.rtl .gform_wrapper *, body.rtl .gform_wrapper form, body.rtl .gform_wrapper .gform_body, body.rtl .gform_wrapper ul li, body.rtl .gform_wrapper ul li.gfield, body.rtl .gform_wrapper ul li.gfield.gfield_html, body.rtl .gform_wrapper ul li.gfield input, body.rtl .gform_wrapper ul li.gfield textarea, body.rtl .gform_wrapper textarea, body.rtl .gform_wrapper ul li.gfield select, body.rtl .gform_wrapper select, body.rtl .gform_wrapper input[type="text"], body.rtl .gform_wrapper input[type="email"], body.rtl .gform_wrapper input[type="password"], body.rtl .gform_wrapper input[type="url"], body.rtl .gform_wrapper input[type="tel"], body.rtl .gform_wrapper input[type="submit"], body.rtl .gform_wrapper input[type="button"], body.rtl .gform_wrapper button, body.rtl .gform_wrapper table tr td.gfield_list_icons, body.rtl .gform_wrapper div.validation_error, body.rtl .gform_wrapper h3.gform_title, body.rtl .gform_wrapper span.gform_description, body.rtl .gform_wrapper .gform_footer, body .gform_wrapper.gf_rtl_wrapper ul li, body .gform_wrapper.gf_rtl_wrapper ul li.gfield, body .gform_wrapper.gf_rtl_wrapper ul li.gfield.gfield_html, body .gform_wrapper.gf_rtl_wrapper ul li.gfield input, body .gform_wrapper.gf_rtl_wrapper ul li.gfield textarea, body .gform_wrapper.gf_rtl_wrapper textarea, body .gform_wrapper.gf_rtl_wrapper ul li.gfield select, body .gform_wrapper.gf_rtl_wrapper select, body .gform_wrapper.gf_rtl_wrapper input[type="text"], body .gform_wrapper.gf_rtl_wrapper input[type="email"], body .gform_wrapper.gf_rtl_wrapper input[type="password"], body .gform_wrapper.gf_rtl_wrapper input[type="url"], body .gform_wrapper.gf_rtl_wrapper input[type="tel"], body .gform_wrapper.gf_rtl_wrapper input[type="submit"], body .gform_wrapper.gf_rtl_wrapper input[type="button"], body .gform_wrapper.gf_rtl_wrapper button, body .gform_wrapper.gf_rtl_wrapper table tr td.gfield_list_icons, body .gform_wrapper.gf_rtl_wrapper div.validation_error, body .gform_wrapper.gf_rtl_wrapper .gform_heading, body .gform_wrapper.gf_rtl_wrapper h3.gform_title, body .gform_wrapper.gf_rtl_wrapper span.gform_description, body .gform_wrapper.gf_rtl_wrapper .gform_footer {
+body.rtl .gform_wrapper *, body.rtl .gform_wrapper form, body.rtl .gform_wrapper .gform_body, body.rtl .gform_wrapper ul li, body.rtl .gform_wrapper ul li.gfield, body.rtl .gform_wrapper ul li.gfield.gfield_html, body.rtl .gform_wrapper ul li.gfield input, body.rtl .gform_wrapper ul li.gfield textarea, body.rtl .gform_wrapper textarea, body.rtl .gform_wrapper ul li.gfield select, body.rtl .gform_wrapper select, body.rtl .gform_wrapper input[type="text"], body.rtl .gform_wrapper input[type="email"], body.rtl .gform_wrapper input[type="password"], body.rtl .gform_wrapper input[type="url"], body.rtl .gform_wrapper input[type="tel"], body.rtl .gform_wrapper input[type="submit"], body.rtl .gform_wrapper input[type="button"], body.rtl .gform_wrapper button, body.rtl .gform_wrapper div.validation_error, body.rtl .gform_wrapper h3.gform_title, body.rtl .gform_wrapper span.gform_description, body.rtl .gform_wrapper .gform_footer, body .gform_wrapper.gf_rtl_wrapper ul li, body .gform_wrapper.gf_rtl_wrapper ul li.gfield, body .gform_wrapper.gf_rtl_wrapper ul li.gfield.gfield_html, body .gform_wrapper.gf_rtl_wrapper ul li.gfield input, body .gform_wrapper.gf_rtl_wrapper ul li.gfield textarea, body .gform_wrapper.gf_rtl_wrapper textarea, body .gform_wrapper.gf_rtl_wrapper ul li.gfield select, body .gform_wrapper.gf_rtl_wrapper select, body .gform_wrapper.gf_rtl_wrapper input[type="text"], body .gform_wrapper.gf_rtl_wrapper input[type="email"], body .gform_wrapper.gf_rtl_wrapper input[type="password"], body .gform_wrapper.gf_rtl_wrapper input[type="url"], body .gform_wrapper.gf_rtl_wrapper input[type="tel"], body .gform_wrapper.gf_rtl_wrapper input[type="submit"], body .gform_wrapper.gf_rtl_wrapper input[type="button"], body .gform_wrapper.gf_rtl_wrapper button, body .gform_wrapper.gf_rtl_wrapper div.validation_error, body .gform_wrapper.gf_rtl_wrapper .gform_heading, body .gform_wrapper.gf_rtl_wrapper h3.gform_title, body .gform_wrapper.gf_rtl_wrapper span.gform_description, body .gform_wrapper.gf_rtl_wrapper .gform_footer {
 	text-align: right !important;
 	direction: rtl !important;
 }
@@ -7844,6 +7844,15 @@ tr.gf-locking.wp-locked img.gform_active_icon {
 	font-size: 1.5rem;
 	text-decoration: none;
 }
+
+/* List field */
+
+@media (max-width: 640px) {
+
+	html[dir="rtl"] .gforms_edit_form .gform_wrapper.gravity-theme .ginput_list input {
+			float: none !important
+	}
+		}
 
 .gf-pagebreak {
 	align-items: center;
