@@ -106,6 +106,11 @@ function enercare_scripts() {
 		wp_enqueue_style( 'enercare-reviews-style', get_template_directory_uri() . '/assets/css/block--reviews-block.css', array( 'ea-style', 'glider-css' ), null );
 	}
 
+	if( has_block( 'core/table' ) ) {
+		wp_enqueue_style( 'enercare-table-styles', get_template_directory_uri() . '/assets/css/block--table.min.css', array('ea-style'), null );
+
+	}
+
 	if( has_block( 'core/cover') ) {
 		wp_enqueue_style( 'enercare-cover-styles', get_template_directory_uri() . '/assets/css/block--cover.min.css', array('ea-style'), null );
 	}

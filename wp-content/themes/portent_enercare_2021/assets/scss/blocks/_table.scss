@@ -1,0 +1,44 @@
+.is-style-feature-table {
+	overflow-x: auto;
+
+	.has-fixed-layout {
+		table-layout: auto;
+
+		@include media('>tablet') {
+			table-layout: fixed;
+		}
+	}
+
+	th {
+		border-top: 1px solid $grey_2;
+		border-left: 1px solid $grey_2;
+		border-right: 1px solid $grey_2;
+		border-bottom: 2px solid brand-color('red');
+
+		padding: 1em 1em 0.875em 1em;
+
+		min-width: 200px;
+	}
+
+	.has-text-align-center {
+
+		img {
+			margin: 0 auto;
+		}
+	}
+
+	tbody {
+
+		tr {
+			&:nth-child(odd) {
+				background-color: $grey_1;
+			}
+		}
+
+		td {
+			border: 1px solid $grey_2;
+			padding: 1em;
+			min-width: 200px;
+		}
+	}
+}

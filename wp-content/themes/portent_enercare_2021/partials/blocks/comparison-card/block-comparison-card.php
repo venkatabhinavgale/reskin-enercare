@@ -22,13 +22,13 @@ if( !empty($block['backgroundColor'] ) ) {
   <div class="block-comparison-card">
     <div class="block-comparison-card__title"><?= get_sub_field('title'); ?></div>
     <div class="block-comparison-card__contents">
-      <div class="block-comparison-card__contents-heading"><?= get_sub_field('heading'); ?></div>
+      <h3 class="block-comparison-card__contents-heading"><?= get_sub_field('heading'); ?></h3>
       <div class="block-comparison-card__contents-subheading"><?= get_sub_field('subheading'); ?></div>
       <div class="block-comparison-card__contents-description"><?= get_sub_field('description'); ?></div>
       
       <?php if (have_rows('comparison_table')) { ?>
-      <span style="color:red" class="block-comparison-card__contents-toggle" data-id="<?= $hash; ?>" aria-controls="comparison_card_<?= $hash; ?>" data-toggle-open="<?= $toggle_open_text; ?>" data-toggle-close="<?= $toggle_close_text; ?>">
-        <img style="max-width:1em;display:inline" src="<?= get_template_directory_uri(); ?>/assets/icons/utility/navigate-down.svg" />
+      <span class="block-comparison-card__contents-toggle" data-id="<?= $hash; ?>" aria-controls="comparison_card_<?= $hash; ?>" data-toggle-open="<?= $toggle_open_text; ?>" data-toggle-close="<?= $toggle_close_text; ?>">
+        <img src="<?= get_template_directory_uri(); ?>/assets/icons/utility/navigate-down.svg" />
         <?= $toggle_open_text; ?>
       </span>
       <div class="block-comparison-card__contents-table comparison_card_<?= $hash; ?>" aria-expanded="false" data-state="closed" aria-labelledby="comparison_card_<?= $hash; ?>">
