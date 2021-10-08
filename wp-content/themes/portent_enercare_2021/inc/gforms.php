@@ -39,15 +39,15 @@ function enercare_gf_addon() {
   return EnercareGFAddOn::get_instance();
 }
 
-function enercare_gform_webhooks_post_request($response, $feed, $entry, $form_id) {
+function enercare_gform_webhooks_post_request($response, $feed, $entry, $form) {
   $updated_entry = array();
   $updated_entry['webhookStatus_field_id'] = null;
   $updated_entry['webhookDate_field_id'] = null;
   
   // get instance of EnercareGFAddOn class for writing entry notes
   $enercareGFAddOn = enercare_gf_addon();
-  $form = GFAPI::get_form($form_id);
-  /*
+  
+  /* uncomment to debug
   error_log(print_r($form,true));
   error_log(print_r($entry,true));
   error_log(print_r($feed,true));
@@ -55,13 +55,17 @@ function enercare_gform_webhooks_post_request($response, $feed, $entry, $form_id
   */
   
   foreach ($form['fields'] as $field_key => $field) {
-     // grab the MoveType field id for populating
-    if ($field->adminLabel == "webhookStatus" || $field->inputName == "webhookStatus") {
-      $updated_entry['webhookStatus_field_id'] = $field->id;
-    } elseif ($field->adminLabel == "webhookDate" || $field->inputName == "webhookDate") {
-      $updated_entry['webhookDate_field_id'] = $field->id;
-    } elseif ($field->adminLabel == "webhookDetails" || $field->inputName == "webhookDetails") {
-      $updated_entry['webhookDetails_field_id'] = $field->id;
+    /* uncomment to debug
+    error_log(print_r($field,true));
+    error_log("field id: " . $field['id']);
+    error_log("field->adminLabel: " . $field['adminLabel']);
+    error_log("field->inputName: " . $field['inputName']);
+    */
+    // grab the MoveType field id for populating
+    if ($field['adminLabel'] == "webhookStatus" || $field['inputName'] == "webhookStatus") {
+      $updated_entry['webhookStatus_field_id'] = $field['id'];
+    } elseif ($field['adminLabel'] == "webhookDate" || $field['inputName'] == "webhookDate") {
+      $updated_entry['webhookDate_field_id'] = $field['id'];
     }
   }
   
@@ -81,6 +85,14 @@ function enercare_gform_webhooks_post_request($response, $feed, $entry, $form_id
       $enercareGFAddOn->add_note( $entry['id'], sprintf( esc_html__( 'Webhook response returned HTTP code %d (%s)', 'gravityformswebhooks' ),$response['response']['code'],$response['response']['message'] ), null );
     }
   }
+  
+  /* uncomment to debug
+  error_log("entryid: " . $entry['id']);
+  error_log("webhookStatus: " . $webhookStatus);
+  error_log("webhookStatus_field_id: " . $updated_entry['webhookStatus_field_id']);
+  error_log("webhookDate: " . $webhookDate);
+  error_log("webhookDate_field_id: " . $updated_entry['webhookDate_field_id']);
+  */
   
   // update the webhook fields for the entry
   GFAPI::update_entry_field( $entry['id'], $updated_entry['webhookStatus_field_id'], $webhookStatus );
