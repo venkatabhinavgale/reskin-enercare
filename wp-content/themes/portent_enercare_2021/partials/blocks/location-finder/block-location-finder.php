@@ -5,6 +5,7 @@ $section_content = get_field('content');
 $locations_header = get_field('locations_heading');
 $locations_locations = get_field('locations');
 $locations_cta = get_field('locations_cta');
+$form_image = wp_get_attachment_image( get_field('form_image') , 'full' );
 $form_background = wp_get_attachment_image_src( get_field('form_background_image'), 'medium');
 $form_header = get_field('form_header');
 $form_content = get_field('form_content');
@@ -33,8 +34,9 @@ $form_content = get_field('form_content');
 		<a class="wp-block-button__link has-red-background-color has-background" href="<?= $locations_cta['url'] ?>"><?= $locations_cta['title'] ?></a>
     <?php } ?>
 	</div>
-	<div class="block-location-finder__form" style="background-image:<?= $form_background ?>">
+	<div class="block-location-finder__form" style="background-image:url(<?= $form_background[0] ?>)">
 		<div class="block-location-finder__form-container">
+			<?= $form_image ?>
 			<h3 class="has-black-color"><?= $form_header ?></h3>
 			<p class="has-black-color"><?= $form_content ?></p>
 			<form method="get" action="<?= get_bloginfo('url'); ?>/locations/" class="block-location-finder__postal-form">
