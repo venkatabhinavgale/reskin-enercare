@@ -1,13 +1,52 @@
 .block-offer-card {
 
+	/* Default Offer Card */
+
+	&__offer-expiration {
+		font-size: 14px;
+		color: $grey_6;
+		line-height: 20px;
+
+		@include media("<=tablet") {
+			font-size: 1em;
+			line-height: 22px;
+		}
+	}
+
+	&__terms {
+		text-align: center;
+	}
+
+	&__terms-toggle {
+		 border: none;
+		 background: none;
+		 color: $grey_6;
+		 font-size: 14px;
+		 line-height: 20px;	
+		 text-decoration: underline;	
+
+		 @include media("<=tablet") {
+			font-size: 1em;
+			line-height: 22px;
+		} 
+	}
+
+	&__container {
+		text-align: center;
+		padding: 48px;
+	}
+
 	&__wrapper {
 		text-align: center;
+		display: flex;
+		flex-flow: column wrap;
+		padding: 0;
+
 
 		a {
 			button {
 				border-style: none;
 				background: none;
-				padding: 48px;
 
 				.wp-block-button {
 
@@ -16,8 +55,23 @@
 						border-radius: 24px;
 					}
 				}
+
+				@include media("<=tablet") {
+					h3 {
+						font-size: 24px;
+						line-height: 28px;
+					}
+				}
 			}
 		}
+
+		img {
+			width: 100%;
+			object-fit: contain;
+
+		}
+
+		/* Masthead Offer Card */
 
 		&__masthead {
 			background-color: rgba(0, 0, 0, 0.8) !important;
@@ -30,20 +84,17 @@
 				line-height: 60px;
 			}
 
-			p {
+			.block-offer-card {
 
-				&:first-child {
-					font-size: 28px;
-					line-height: 36px;
-				}
-
-				&:nth-of-type(2) {
+				&__offer-expiration {
 					font-size: 12px;
 					line-height: 16px;
 				}
-			}
 
-			.block-offer-card {
+				&__subheading {
+					font-size: 28px;
+					line-height: 36px;
+				}
 
 				&__terms-toggle {
 					font-size: 12px;
@@ -67,22 +118,55 @@
 			}
 		}
 
+		/* Full Width Offer Card */
+
+		&__full-width {
+			display: flex;
+			flex-direction: row;
+			a {
+
+				button {
+					border-style: none;
+					background: none;
+
+					.wp-block-button {
+
+						&__link {
+							padding: 12px 24px;
+							border-radius: 24px;
+						}
+					}
+				}
+			}
+
+			.block-offer-card {
+
+				&__container {
+					width: fit-content;
+					align-self: center;
+					padding: 0 48px;
+				}
+
+				&__subheading {
+					font-size: 1.125em;
+				}
+
+				&__offer-expiration {
+					font-size: 1em;
+				}
+
+				&__terms-toggle {
+					font-size: 1em;
+				}
+
+			}
+
+			img {
+				width: 66%;
+				object-fit: contain;
+			}
+		}
+
 	}
 
-	&__terms {
-		text-align: center;
-	}
-
-	&__terms-toggle {
-		 border: none;
-		 background: none;
-		 color: $grey_6;
-		 font-size: 14px;
-		 line-height: 20px;	
-		 text-decoration: underline;	 
-	}
-
-	&__terms-details {
-
-	}
 }

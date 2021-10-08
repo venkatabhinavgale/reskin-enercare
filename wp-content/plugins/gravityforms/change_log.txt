@@ -1,3 +1,8 @@
+### 2.5.12 | 2021-10-01
+- Fixed an issue with the address field merge tag when selecting the option to use the values from a previous address field
+- Fixed an issue for the list field where multi-column headers are misaligned when max rows are set to 1.
+- Fixed an issue which causes calls to the License API to occur more often than necessary.
+
 ### 2.5.11 | 2021-09-29
 - Added security enhancements.
 - Added a new UI for License Settings which shows more-thorough details about your License Key.

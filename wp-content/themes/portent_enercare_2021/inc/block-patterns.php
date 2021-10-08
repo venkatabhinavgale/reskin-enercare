@@ -569,6 +569,98 @@ function enercare_block_patterns() {
   /**
 	 * Location About Info
 	 */
+	register_block_pattern( 'portent_enercare/why-enercare-five-column-cards',
+		array(
+			'title' => __( 'Why Enercare? 5 Column Cards', 'portent_enercare'),
+			'description' => _x('Why choose Enercare? 5 Column Cards with icons.', 'portent_enercare'),
+			'categories' => array('enercare', 'cards', 'text'),
+			'content' => "
+<!-- wp:group -->
+<div class=\"wp-block-group\"><!-- wp:image {\"align\":\"center\",\"id\":3310,\"width\":130,\"height\":130,\"sizeSlug\":\"large\",\"linkDestination\":\"none\"} -->
+<div class=\"wp-block-image\"><figure class=\"aligncenter size-large is-resized\"><img src=\"https://dev-enercare.pantheonsite.io/wp-content/uploads/2021/09/billing-picto-dc1c28.svg\" alt=\"\" class=\"wp-image-3310\" width=\"130\" height=\"130\"/></figure></div>
+<!-- /wp:image -->
+
+<!-- wp:heading {\"textAlign\":\"center\"} -->
+<h2 class=\"has-text-align-center\">Why Choose Enercare?</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {\"align\":\"center\",\"fontSize\":\"normal\"} -->
+<p class=\"has-text-align-center has-normal-font-size\">When you choose Enercare, you get expert advice and quality work from one of our friendly, professional and fully licensed electricians along with:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:columns -->
+<div class=\"wp-block-columns\"><!-- wp:column {\"width\":\"100%\"} -->
+<div class=\"wp-block-column\" style=\"flex-basis:100%\"><!-- wp:columns -->
+<div class=\"wp-block-columns\"><!-- wp:column -->
+<div class=\"wp-block-column\"><!-- wp:acf/card {\"id\":\"block_6141246acb720\",\"name\":\"acf/card\",\"align\":\"\",\"mode\":\"preview\",\"wpClassName\":\"wp-block-acf-card is-style-shadowed has-white-background-color has-background\",\"className\":\"is-style-shadowed\",\"backgroundColor\":\"white\"} -->
+<!-- wp:image {\"align\":\"center\",\"id\":3310,\"width\":150,\"height\":150,\"sizeSlug\":\"large\",\"linkDestination\":\"none\"} -->
+<div class=\"wp-block-image\"><figure class=\"aligncenter size-large is-resized\"><img src=\"https://dev-enercare.pantheonsite.io/wp-content/uploads/2021/09/billing-picto-dc1c28.svg\" alt=\"\" class=\"wp-image-3310\" width=\"150\" height=\"150\"/></figure></div>
+<!-- /wp:image -->
+
+<!-- wp:paragraph {\"fontSize\":\"normal\"} -->
+<p class=\"has-normal-font-size\">A fixed price quote upfront, including all parts and labour — no hidden charges</p>
+<!-- /wp:paragraph -->
+<!-- /wp:acf/card --></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class=\"wp-block-column\"><!-- wp:acf/card {\"id\":\"block_61412554cb73a\",\"name\":\"acf/card\",\"align\":\"\",\"mode\":\"preview\",\"wpClassName\":\"wp-block-acf-card is-style-shadowed has-white-background-color has-background\",\"className\":\"is-style-shadowed\",\"backgroundColor\":\"white\"} -->
+<!-- wp:image {\"align\":\"center\",\"id\":3299,\"width\":150,\"height\":150,\"sizeSlug\":\"large\",\"linkDestination\":\"none\"} -->
+<div class=\"wp-block-image\"><figure class=\"aligncenter size-large is-resized\"><img src=\"https://dev-enercare.pantheonsite.io/wp-content/uploads/2021/09/maintenance-plans-tools-picto-dc1c28.svg\" alt=\"\" class=\"wp-image-3299\" width=\"150\" height=\"150\"/></figure></div>
+<!-- /wp:image -->
+
+<!-- wp:paragraph {\"align\":\"center\",\"fontSize\":\"normal\"} -->
+<p class=\"has-text-align-center has-normal-font-size\">1-year parts and a 90-day labour guarantee for all repair work completed<sup>†</sup></p>
+<!-- /wp:paragraph -->
+<!-- /wp:acf/card --></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class=\"wp-block-column\"><!-- wp:acf/card {\"id\":\"block_61412559cb73e\",\"name\":\"acf/card\",\"align\":\"\",\"mode\":\"preview\",\"wpClassName\":\"wp-block-acf-card is-style-shadowed has-white-background-color has-background\",\"className\":\"is-style-shadowed\",\"backgroundColor\":\"white\"} -->
+<!-- wp:image {\"align\":\"center\",\"id\":3305,\"width\":150,\"height\":150,\"sizeSlug\":\"large\",\"linkDestination\":\"none\"} -->
+<div class=\"wp-block-image\"><figure class=\"aligncenter size-large is-resized\"><img src=\"https://dev-enercare.pantheonsite.io/wp-content/uploads/2021/09/smart-home-picto-dc1c28.svg\" alt=\"\" class=\"wp-image-3305\" width=\"150\" height=\"150\"/></figure></div>
+<!-- /wp:image -->
+
+<!-- wp:paragraph {\"align\":\"center\",\"fontSize\":\"normal\"} -->
+<p class=\"has-text-align-center has-normal-font-size\">Service and repairs for a wide range of devices and brands, often on the same day<sup>1</sup></p>
+<!-- /wp:paragraph -->
+<!-- /wp:acf/card --></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class=\"wp-block-column\"><!-- wp:acf/card {\"id\":\"block_61491d5a50d4d\",\"name\":\"acf/card\",\"align\":\"\",\"mode\":\"preview\",\"wpClassName\":\"wp-block-acf-card is-style-shadowed has-white-background-color has-background\",\"className\":\"is-style-shadowed\",\"backgroundColor\":\"white\"} -->
+<!-- wp:image {\"align\":\"center\",\"id\":3307,\"width\":150,\"height\":150,\"sizeSlug\":\"large\",\"linkDestination\":\"none\"} -->
+<div class=\"wp-block-image\"><figure class=\"aligncenter size-large is-resized\"><img src=\"https://dev-enercare.pantheonsite.io/wp-content/uploads/2021/09/van-picto-dc1c28.svg\" alt=\"\" class=\"wp-image-3307\" width=\"150\" height=\"150\"/></figure></div>
+<!-- /wp:image -->
+
+<!-- wp:paragraph {\"align\":\"center\",\"fontSize\":\"normal\"} -->
+<p class=\"has-text-align-center has-normal-font-size\">An expedited approval process for any required permits</p>
+<!-- /wp:paragraph -->
+<!-- /wp:acf/card --></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class=\"wp-block-column\"><!-- wp:acf/card {\"id\":\"block_61491d5c50d4e\",\"name\":\"acf/card\",\"align\":\"\",\"mode\":\"preview\",\"wpClassName\":\"wp-block-acf-card is-style-shadowed has-white-background-color has-background\",\"className\":\"is-style-shadowed\",\"backgroundColor\":\"white\"} -->
+<!-- wp:image {\"align\":\"center\",\"id\":3302,\"width\":150,\"height\":150,\"sizeSlug\":\"large\",\"linkDestination\":\"none\"} -->
+<div class=\"wp-block-image\"><figure class=\"aligncenter size-large is-resized\"><img src=\"https://dev-enercare.pantheonsite.io/wp-content/uploads/2021/09/protection-ribbon-picto-dc1c28.svg\" alt=\"\" class=\"wp-image-3302\" width=\"150\" height=\"150\"/></figure></div>
+<!-- /wp:image -->
+
+<!-- wp:paragraph {\"align\":\"center\",\"fontSize\":\"normal\"} -->
+<p class=\"has-text-align-center has-normal-font-size\">Service from a team of licensed electricians with a 4.8 score on Google and 93% 5-star reviews, our customers agree that we work hard to deliver the best service<sup>2</sup></p>
+<!-- /wp:paragraph -->
+<!-- /wp:acf/card --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns --></div>
+<!-- /wp:group -->
+",
+		)
+	);
+  
+  /**
+	 * Location About Info
+	 */
 	register_block_pattern( 'portent_enercare/location-about-info',
 		array(
 			'title' => __( 'Location About Info', 'portent_enercare'),

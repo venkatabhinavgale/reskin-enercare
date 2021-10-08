@@ -294,7 +294,6 @@ gulp.task('vendorsJS', () => {
  *     3. Renames the JS file with suffix .min.js
  *     4. Uglifes/Minifies the JS file and generates custom.min.js
  */
-/*
 gulp.task('customJS', () => {
 	return gulp
 		.src(config.jsCustomSRC, {since: gulp.lastRun('customJS')}) // Only run on changed files.
@@ -331,7 +330,6 @@ gulp.task('customJS', () => {
 			})
 		);
 });
-*/
 
 /**
  * Task: `images`.
@@ -434,12 +432,12 @@ gulp.task('zip', () => {
  */
 gulp.task(
 	'default',
-	gulp.parallel('styles', 'singleJS', /*'vendorsJS', 'customJS',*/ 'images', browsersync, () => {
+	gulp.parallel('styles', 'singleJS', /*'vendorsJS',*/ 'customJS', 'images', browsersync, () => {
 		gulp.watch(config.watchPhp, reload); // Reload on PHP file changes.
 		gulp.watch(config.watchStyles, gulp.parallel('styles')); // Reload on SCSS file changes.
     gulp.watch(config.watchJsSingle, gulp.series( 'singleJS', reload )); // Reload on customJS file changes.
 		//gulp.watch(config.watchJsVendor, gulp.series('vendorsJS', reload)); // Reload on vendorsJS file changes.
-		//gulp.watch(config.watchJsCustom, gulp.series('customJS', reload)); // Reload on customJS file changes.
+		gulp.watch(config.watchJsCustom, gulp.series('customJS', reload)); // Reload on customJS file changes.
 		gulp.watch(config.imgSRC, gulp.series('images', reload)); // Reload on customJS file changes.
 	})
 );

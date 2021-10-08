@@ -75,45 +75,6 @@
             "first_day": 1
         },
         {
-            "key": "field_611eaf7e7df15",
-            "label": "Icon",
-            "name": "icon",
-            "type": "image",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "id",
-            "preview_size": "thumbnail",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": ""
-        },
-        {
-            "key": "field_611eb0017df17",
-            "label": "Destination (Link)",
-            "name": "destination",
-            "type": "link",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "url"
-        },
-        {
             "key": "field_611eaf9e7df16",
             "label": "Phone Number",
             "name": "phone_number",
@@ -131,6 +92,48 @@
             "prepend": "",
             "append": "",
             "maxlength": 15
+        },
+        {
+            "key": "field_611eb0017df17",
+            "label": "Destination (Link)",
+            "name": "destination",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url"
+        },
+        {
+            "key": "field_611eb8c4ffde8",
+            "label": "Associated Locations",
+            "name": "locations",
+            "type": "relationship",
+            "instructions": "Select one or more locations\/patches associated with this campaign. If none are selected, this campaign is assumed to be \"global\"",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "location"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search",
+                "post_type",
+                "taxonomy"
+            ],
+            "elements": "",
+            "min": "",
+            "max": "",
+            "return_format": "object"
         },
         {
             "key": "field_611eb03d7df18",
@@ -172,11 +175,11 @@
             "new_lines": ""
         },
         {
-            "key": "field_611eb8c4ffde8",
-            "label": "Associated Locations",
-            "name": "locations",
-            "type": "relationship",
-            "instructions": "Select one or more locations\/patches associated with this campaign. If none are selected, this campaign is assumed to be \"global\"",
+            "key": "field_611eaf7e7df15",
+            "label": "Image \/ Icon",
+            "name": "icon",
+            "type": "image",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -184,19 +187,16 @@
                 "class": "",
                 "id": ""
             },
-            "post_type": [
-                "location"
-            ],
-            "taxonomy": "",
-            "filters": [
-                "search",
-                "post_type",
-                "taxonomy"
-            ],
-            "elements": "",
-            "min": "",
-            "max": "",
-            "return_format": "object"
+            "return_format": "id",
+            "preview_size": "thumbnail",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
         }
     ],
     "location": [
@@ -222,5 +222,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1630526437
+    "modified": 1633550782
 }

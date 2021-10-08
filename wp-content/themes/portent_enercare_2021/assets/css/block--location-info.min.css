@@ -1,0 +1,7 @@
+.block-location-info{background-color:#fff;padding:24px}
+.block-location-info .location-group{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-flow:row nowrap;flex-flow:row nowrap}
+.block-location-info .location-group img{-ms-flex-item-align:baseline;align-self:baseline;margin-right:11px}
+.block-location-info .location-group__content{margin-bottom:1em}
+.block-location-info .location-group__content a{text-decoration:none}
+.block-location-info .location-group__content:last-of-type{margin-bottom:1.5em}
+.block-location-info .location-ctas__location-cta{margin-bottom:1.5em}
