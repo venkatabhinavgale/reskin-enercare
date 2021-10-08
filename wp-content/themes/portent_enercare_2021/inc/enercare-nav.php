@@ -13,19 +13,19 @@ if ( ! class_exists( 'Enercare_Nav_Walker' ) ) :
 			if($has_url) {
 				array_push($item->classes, "has-url");
 			}
-		
+
 			//Start output of list item
 			$output .= "<li class='" .  implode(" ", $item->classes) . "'>";
-	 
+
 			//use span if using hash as URL
 			if ($has_url) {
 				$output .= '<a href="' . $item->url . '">';
-				
+
 			} else {
 				$output .= '<span>';
 			}
 
-			
+
 			$icon_image_url = get_field('enercare_nav_icon', $item->ID);
 
 			if($icon_image_url) {
@@ -36,10 +36,10 @@ if ( ! class_exists( 'Enercare_Nav_Walker' ) ) :
 			} else {
 				$output .= $item->title;
 			}
-		
-				
-			
-			//Closing 
+
+
+
+			//Closing
 			if ($item->url && $item->url != '#') {
 				$output .= '</a>';
 			} else {
@@ -68,7 +68,7 @@ function enercare_site_header() {
 	echo '<span class="header-phone__cta"><strong>Speak with an expert</strong></span>';
 	echo '<a class="header-phone__link" href="tel:+'.$phone_number.'">';
 	echo '<span class="screen-reader-text">Click to call Enercare'. $phone_number . '</span>';
-	echo file_get_contents( get_stylesheet_directory_uri() . '/assets/icons/communication/phone_black_24dp_rounded.svg' );
+	echo file_get_contents( get_template_directory() . '/assets/icons/communication/phone_black_24dp_rounded.svg' );
 	echo '<strong class="header-phone__number">'.$phone_number.'</strong>';
 	echo '</a>';
 	echo '</div>';
