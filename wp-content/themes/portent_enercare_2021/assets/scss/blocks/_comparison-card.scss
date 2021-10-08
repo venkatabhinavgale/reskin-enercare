@@ -1,10 +1,13 @@
 .block-comparison-card {
-	border-top: 4px solid brand-color('red');
 	text-align: center;
 
 	&__wrapper {
 		display: flex;
 		flex-flow: row nowrap;
+
+		@include media("<=tablet") {
+			flex-wrap: wrap;
+		}
 	}
 
 	&__title {
@@ -15,10 +18,21 @@
 		background-color: $grey_1;
 		padding-top: 20px;
 		padding-bottom: 1em;
+		border-top: 4px solid brand-color('red');
+
+		@include media("<=tablet") {
+			border-top: none;
+			border-bottom: 4px solid brand-color('red');
+			padding: 30px 4px;
+		}
 	}
 
 	&__contents {
 		padding: 38px 24px 24px;
+
+		@include media("<=tablet") {
+			padding: 38px 11px 24px;
+		}
 	}
 
 	&__contents-heading {
@@ -59,7 +73,6 @@
 
 		table {
 			width: 100%; 
-			margin-bottom: 1.5em;
 
 
 			tbody {
@@ -92,7 +105,7 @@
 
 		&__cta {
 			font-weight: 700;
-			margin-bottom: 1em;
+			margin: 1.5em 1.75em 1em;
 			line-height: 22px;
 		}
 
