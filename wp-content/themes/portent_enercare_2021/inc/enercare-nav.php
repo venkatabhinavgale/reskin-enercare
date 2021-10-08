@@ -59,7 +59,12 @@ function enercare_site_header() {
 
 	echo '<nav role="navigation" id="slider-menu" class="nav-menu">';
 	if( has_nav_menu( 'primary' ) ) {
-		wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu', 'container' => false, 'walker' => new Enercare_Nav_Walker() ) );
+    // check if page has Commercial site override. Display the commercial primary nav if so
+    if (get_field('site_override') && get_field('site_override') == 'Commercial') {
+      wp_nav_menu( array( 'menu' => 66, 'container' => false, 'walker' => new Enercare_Nav_Walker() ) );
+    } else {
+      wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu', 'container' => false, 'walker' => new Enercare_Nav_Walker() ) );
+    }
 	}
 	echo '</nav>';
 

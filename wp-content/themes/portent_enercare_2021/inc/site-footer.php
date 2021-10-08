@@ -20,6 +20,10 @@ function enercare_register_footer_widget_areas() {
 			'name' => esc_html__( 'Footer ' . $i, 'ea-starter' ),
 		) ) );
 	}
+  
+  register_sidebar( enercare_widget_arenercare_args( array(
+    'name' => esc_html__( 'Commercial Footer', 'ea-starter' ),
+  ) ) );
 
 }
 add_action( 'widgets_init', 'enercare_register_footer_widget_areas' );
@@ -32,8 +36,13 @@ add_action( 'widgets_init', 'enercare_register_footer_widget_areas' );
 function enercare_site_footer_widgets() {
   if (get_post_type(get_the_ID()) != "landing-page") {
     echo '<div class="footer-widgets"><div class="wrap">';
-    for( $i = 1; $i < 4; $i++ ) {
-      dynamic_sidebar( 'footer-' . $i );
+    // check if page has Commercial site override. Display the commercial footer if so
+    if (get_field('site_override') && get_field('site_override') == 'Commercial') {
+      dynamic_sidebar( 'commercial-footer' );
+    } else {
+      for( $i = 1; $i < 4; $i++ ) {
+        dynamic_sidebar( 'footer-' . $i );
+      }
     }
     echo '</div></div>';  
   }
