@@ -68,6 +68,16 @@ wp.domReady( () => {
 	);
 
 	wp.blocks.registerBlockStyle(
+		'core/table',
+		[
+			{
+				name: 'feature-table',
+				label: 'Feature Table'
+			},
+		]
+	);
+
+	wp.blocks.registerBlockStyle(
 		'acf/card',
 		[
 			{
