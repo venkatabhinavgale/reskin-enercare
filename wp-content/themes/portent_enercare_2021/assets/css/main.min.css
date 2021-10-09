@@ -459,8 +459,8 @@ div.wpforms-container.one-line .wpforms-submit-container{float:right;width:110px
 .nav-menu .menu>.menu-item:hover>.sub-menu{opacity:1;left:0}
 .site-header .wrap>.menu-toggle{display:none}
 .post-summary__image{margin-bottom:12px}
-}@media(min-width:769px) and (max-width:991px){.archive .site-main>article{float:left;margin-left:2.7397260274%;width:48.6301369863%}
-.archive .site-main>article:nth-of-type(2n+1){clear:both;margin-left:0}
+}@media(min-width:769px) and (max-width:991px){.archive .site-main .archive-wrapper>article{float:left;margin-left:2.7397260274%;width:48.6301369863%}
+.archive .site-main .archive-wrapper>article:nth-of-type(2n+1){clear:both;margin-left:0}
 }@media(min-width:783px){.admin-bar .site-container{padding-top:32px}
 }@media(min-width:992px){.content-sidebar .site-main{float:left;width:65.7534246575%}
 .content-sidebar .sidebar-primary{float:right;width:28.6815068493%}
@@ -468,8 +468,8 @@ h1{font-size:52px}
 h2{font-size:48px}
 h3{font-size:40px}
 .wp-block-group{padding:70px 16px}
-.archive .site-main>article{float:left;margin-left:2.7397260274%;width:22.9452054795%}
-.archive .site-main>article:nth-of-type(4n+1){clear:both;margin-left:0}
+.archive .site-main .archive-wrapper>article{float:left;margin-left:2.7397260274%;width:22.9452054795%}
+.archive .site-main .archive-wrapper>article:nth-of-type(4n+1){clear:both;margin-left:0}
 }@media(min-width:1200px){.gform_wrapper{width:54%}
 .gform_wrapper.product-form_wrapper .product-form .gform_footer input[type=submit]{padding:8px 24px;border-radius:20px;margin-top:-4.5em}
 .top-bar .search-form{-ms-flex-preferred-size:36%;flex-basis:36%}

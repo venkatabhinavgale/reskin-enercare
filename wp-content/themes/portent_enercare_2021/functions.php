@@ -88,6 +88,13 @@ function enercare_scripts() {
 
 	}
 
+	/**
+	 * Archive Enqueues
+	 */
+	if( is_post_type_archive( 'location' ) ) {
+		wp_enqueue_style( 'enercare-archive-locations', get_template_directory_uri() . '/assets/css/archive--locations.css', array( 'ea-style' ), null );
+	}
+
 	wp_enqueue_style( 'ea-fonts', enercare_theme_fonts_url() );
 	wp_enqueue_style( 'ea-style', get_template_directory_uri() . '/assets/css/main.css', array(), filemtime( get_template_directory() . '/assets/css/main.css' ) );
 

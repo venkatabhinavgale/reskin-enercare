@@ -106,6 +106,8 @@
 	&__wrapper {
 		padding: 0;
 		position: relative;
+		max-width: 100%;
+		overflow-x: hidden;
 
 		@include media('>=tablet') {
 			padding: 50px 0;
