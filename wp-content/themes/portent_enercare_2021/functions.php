@@ -396,7 +396,6 @@ function acf_load_gravity_form_choices( $field ) {
 
 	// return the field
 	return $field;
-
 }
 
 add_filter('acf/load_field/name=gravity_form', 'acf_load_gravity_form_choices');
@@ -415,3 +414,21 @@ function enercare_template_hierarchy( $template ) {
 }
 add_filter( 'template_include', 'enercare_template_hierarchy' );
 
+/**
+ * Insert Adobe Analytics Script
+ *
+ * Injects the adobe script if the current path matches one of the paths in the defined array.
+ */
+function enercare_adobe_script() {
+  $paths = array(
+    '/commercial/',
+    '/contact-us/',
+    '/support/accounts/'
+  );
+  foreach ($paths as $path) {
+    if (strpos($_SERVER['REQUEST_URI'], $path) !== false) {
+      echo '<script src="//assets.adobedtm.com/c876840ac68fc41c08a580a3fb1869c51ca83380/satelliteLib-846373831618e1c6db472950fa3697426ef78cda.js"></script>';
+    }
+  }
+}
+add_action('tha_head_bottom', 'enercare_adobe_script');
