@@ -1,4 +1,4 @@
-.block-location-info{background-color:#fff;padding:24px}
+.block-location-info{background-color:#fff;height:100%;padding:24px}
 .block-location-info .location-group{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-flow:row nowrap;flex-flow:row nowrap}
 .block-location-info .location-group img{-ms-flex-item-align:baseline;align-self:baseline;margin-right:11px}
 .block-location-info .location-group__content{margin-bottom:1em}
