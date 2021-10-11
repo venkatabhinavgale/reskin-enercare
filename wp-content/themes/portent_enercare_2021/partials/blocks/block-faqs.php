@@ -25,7 +25,7 @@ if( !empty( $faqs ) )  {
     echo esc_html($faq->post_title);
     
     echo '<div class="block-faqs--faq-answer-container" aria-expanded="false" data-state="closed" aria-labelledby="faq_' . $faq->ID . '">';
-    echo esc_html($faq->post_content);
+    echo $faq->post_content;
     echo '</div>';
     
     echo '</div>';
