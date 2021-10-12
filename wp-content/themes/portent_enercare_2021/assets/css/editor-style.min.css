@@ -243,7 +243,7 @@ ul.wp-block-gallery li,ol.wp-block-gallery li{padding-bottom:0}
 .block-location-finder__postal-form .field-group{display:-webkit-box;display:-ms-flexbox;display:flex}
 .block-location-finder__form-container{background-color:#fff;border-top:8px solid #dc1c28;-webkit-box-shadow:0 4px 8px 0 rgba(56,61,67,0.3);box-shadow:0 4px 8px 0 rgba(56,61,67,0.3);padding:5%;margin:2em 0 0 0;width:85%}
 ul.block-location-finder__list{padding-left:0}
-.block-location-info{background-color:#fff;padding:24px}
+.block-location-info{background-color:#fff;height:100%;padding:24px}
 .block-location-info .location-group{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-flow:row nowrap;flex-flow:row nowrap}
 .block-location-info .location-group img{-ms-flex-item-align:baseline;align-self:baseline;margin-right:11px}
 .block-location-info .location-group__content{margin-bottom:1em}
