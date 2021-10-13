@@ -143,6 +143,7 @@ Split into its own file later
 
 		&__title {
 			margin: 1.2em 0;
+			border: none;
 			@include font-sizes(1.5em);
 			a {
 				&:after {
