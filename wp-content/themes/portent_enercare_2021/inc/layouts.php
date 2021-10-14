@@ -126,6 +126,11 @@ function enercare_widgets_init() {
 		'name' => esc_html__( 'Primary Sidebar', 'ea-starter' ),
 	) ) );
 
+	register_sidebar( enercare_widget_arenercare_args( array(
+		'name' => esc_html__( 'Block Archive Sidebar', 'ea-starter' ),
+		'id' => 'blog-archive'
+	) ) );
+
 }
 add_action( 'widgets_init', 'enercare_widgets_init' );
 

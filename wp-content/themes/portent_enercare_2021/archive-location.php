@@ -23,6 +23,26 @@ add_filter( 'body_class', 'enercare_archive_body_class' );
 
 
 /**
+ * Filter Divider
+ */
+function location_filters() {
+	echo '<section class="location-archive-filters">';
+	echo '<div class="location-archive-filters__filter location-archive-filters__postal-code">';
+		echo '<h2 class="location-archive-filters__header location-archive-filters__header--postal-code">Location By Postal Code</h2>';
+		echo '<div class="location-archive-filters__postal-code-form">';
+			the_postal_code_filter();
+		echo '</div>';
+	echo '</div>';
+	echo '<div class="location-archive-filters__divider" role="presentation">or</div>';
+	echo '<div class="location-archive-filters__filter location-archive-filters__province">';
+		echo '<h2 class="location-archive-filters__header location-archive-filters__header--province">Location By Province</h2>';
+		echo '<div class="location-archive-filters__province-form">';
+			the_province_filter();
+		echo '</div>';
+	echo '</div>';
+	echo '</section>';
+}
+/**
  * Archive Header
  *
  */
@@ -67,42 +87,26 @@ function enercare_archive_header() {
 	echo '</div>';
 	echo '</header>';
 
-  if (is_home()) {
-    get_template_part('partials/blog-featured', 'featured-post');
-  }
-
 }
 add_action( 'tha_content_while_before', 'enercare_archive_header' );
 
 // Breadcrumbs
 add_action( 'enercare_archive_header_before', 'enercare_breadcrumbs', 5 );
 
-//Filters
-if (!is_search() && have_posts()) {
-	add_action('enercare_archive_header_after', 'enercare_filter_taxonomy_by_post_type');
+if(!is_search() && is_post_type_archive( 'location' ) ) {
+	add_action( 'enercare_archive_header_after', 'location_filters' );
 }
 
 // add section wrapper -- we'll use this on our ajax calls to replace the results
 function enercare_archive_wrapper_top() {
-	echo '<div class="archive-containment-field">';
-	echo '<h2>Recent Articles</h2>';
   echo '<section class="archive-wrapper">';
 }
-add_action('tha_content_while_before', 'enercare_archive_wrapper_top');
+add_action('tha_content_while_before', 'enercare_archive_wrapper_top', 99999);
 
 function enercare_archive_wrapper_bottom() {
   echo '</section>';
-  echo '</div>';
 }
 add_action('tha_content_bottom', 'enercare_archive_wrapper_bottom');
-
-/**
- * Archive Sidebar
- */
-function enercare_archive_sidebar() {
-	get_sidebar( 'blog-archive' );
-}
-add_action('tha_content_bottom', 'enercare_archive_sidebar');
 
 function addSearch_embed() {
 	?>

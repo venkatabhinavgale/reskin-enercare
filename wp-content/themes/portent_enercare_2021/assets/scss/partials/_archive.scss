@@ -113,9 +113,95 @@ Split into its own file later
  */
 .blog {
 
+	background-color: $grey_1;
+
 	.archive-description {
 		display: none;
 	}
+
+	.site-main {
+		display: grid;
+		grid-template-columns: 65% 35%;
+
+		.archive-wrapper {
+			display: block;
+		}
+	}
+
+	h2 {
+		@include font-sizes(2em);
+		border-bottom: 1px solid $grey_2;
+		padding-bottom: 0.25em;
+		margin-bottom: 1.5em;
+	}
+
+	.post-summary {
+		display: flex;
+		background-color: $white;
+		box-shadow: $drop-shadow;
+		position: relative;
+
+		&__title {
+			margin: 1.2em 0;
+			border: none;
+			@include font-sizes(1.5em);
+			a {
+				&:after {
+					content: '';
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+				}
+			}
+		}
+
+		&__image {
+			max-width: 50%;
+			margin: 0;
+			object-fit: cover;
+			object-position: center center;
+			height: auto;
+		}
+
+		&__content {
+			padding: 1.2em;
+		}
+	}
+
+	.archive-sidebar {
+		padding: 0 0 0 2em;
+
+		.wp-block-group {
+			padding: 2em 0;
+
+			&:first-of-type {
+				padding-top: 0;
+			}
+		}
+	}
+
+	/*
+	Likely this needs to be pulled out into a global style but for now its specific
+	 */
+	.wp-block-categories-list {
+
+		li {
+			display: inline-block;
+			background-color: $grey_2;
+			border-radius: 20px;
+			padding: 0.25em 0.35em;
+			margin: 0.25em;
+		}
+
+		a {
+			color: $base-color;
+			@include font-sizes(0.8em);
+			text-decoration: none;
+		}
+	}
+
 	.single-post {
 
 		&__featured {
@@ -133,6 +219,7 @@ Split into its own file later
 			background-position: center center;
 			@include alignfull();
 			padding: 5em 0;
+			grid-column-end: span 2;
 
 			&__container {
 				background-color: $white;
