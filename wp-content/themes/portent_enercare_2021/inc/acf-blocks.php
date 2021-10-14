@@ -74,7 +74,7 @@ function enercare_register_theme_blocks() {
 			  )
 		  ),
 	  ));
-    
+
     acf_register_block_type( array(
 		  'name'            => 'comparison-card',
 		  'title'           => __( 'Comparison Card' ),
@@ -249,5 +249,14 @@ function enercare_register_theme_blocks() {
       }
     ));
 
+    acf_register_block_type( array(
+	    'name'              => 'blog-posts',
+	    'title'             => __('Blog Posts', 'enercare'),
+	    'render_template'   => 'partials/blocks/blog-posts/block-blog-posts.php',
+	    'category'          => 'layout',
+	    'icon'              => 'admin-site',
+	    'mode'              => 'preview',
+	    'keywords'          => array('blog', 'posts', 'featured', 'enercare', 'portent'),
+    ));
   }
 }
