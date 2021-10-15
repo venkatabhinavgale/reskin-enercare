@@ -33,6 +33,44 @@ textarea {
 	@include media( '>=desktop') {
 		width: 54%;
 	}
+
+	.ginput_container_consent {
+		display: flex;
+		justify-content: flex-start;
+
+		input[type=checkbox] {
+			max-width: 25%;
+			margin: 0;
+			width: 1em;
+		}
+
+		.gfield_consent_label {
+			align-self: center;
+			margin-left: 0.5em;
+		}
+	}
+
+	// Submit Button Style
+	.gform_footer {
+
+		input[type=submit] {
+			width: 140px;
+			border-radius: 30px;
+			font-size: 1rem;
+			font-weight: 700;
+			line-height: 22px;
+			padding: 5px 16px;
+			text-decoration: none;
+			background-color: brand-color('red');
+			color: $white;
+
+			@include media(">=desktop") {
+				padding: 8px 24px;	
+				border-radius: $border-radius;
+				margin-top: -4.5em;
+			}
+		}
+	}
 }
 
 .ginput_container_checkbox {
@@ -94,7 +132,7 @@ textarea {
 }
 
 
-/* Product Form && Buy/Rent/Rebates Lead Form
+/* Product Form & Buy/Rent/Rebates Lead Form
 --------------------------------------------- */
 
 .gform_wrapper.product-form {
@@ -147,4 +185,3 @@ textarea {
 		}
 	}
 }
-
