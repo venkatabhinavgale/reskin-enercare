@@ -10,9 +10,9 @@
 @media(min-width:768px){.block-newsletter-form__form-container form .gform_footer input[type=submit]{padding:8px 16px}
 }@media(min-width:1200px){.block-newsletter-form__container{-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;padding:64px 0}
 .block-newsletter-form__content-container{display:grid;border-right:1px solid #d3d1d1;padding-right:1.5em;grid-template-columns:.25fr 1fr 1fr;grid-template-rows:.2fr 1fr;gap:0 24px;grid-template-areas:". heading heading" "image content content"}
-.block-newsletter-form__image{grid-area:image;height:100px;width:100px;max-width:100px;background-image:url("../icons/utility/email-signup--black.svg");display:inline-block}
-.block-newsletter-form__heading{grid-area:heading;text-align:left;margin-bottom:-20px}
-.block-newsletter-form__content{grid-area:content;text-align:left;margin-left:0}
+.block-newsletter-form__image{grid-area:image;background:no-repeat center;background-size:contain;height:100px;width:100px;max-width:100px;content:url("../icons/utility/email-signup--black.svg");display:block}
+.block-newsletter-form__heading{grid-area:heading;text-align:left;margin-bottom:0}
+.block-newsletter-form__content{grid-area:content;text-align:left;margin-left:0;font-size:40px;line-height:48px;margin-bottom:0;margin-top:16px}
 .block-newsletter-form__form-container{margin:0 0 0 24px;-ms-flex-item-align:center;align-self:center}
 .block-newsletter-form__form-container .gform_wrapper{width:100%}
 }
