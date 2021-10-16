@@ -127,8 +127,18 @@ function enercare_widgets_init() {
 	) ) );
 
 	register_sidebar( enercare_widget_arenercare_args( array(
-		'name' => esc_html__( 'Block Archive Sidebar', 'ea-starter' ),
+		'name' => esc_html__( 'Blog Archive Sidebar', 'ea-starter' ),
 		'id' => 'blog-archive'
+	) ) );
+
+	register_sidebar( enercare_widget_arenercare_args( array(
+		'name' => esc_html__( 'Blog Archive Footer', 'ea-starter' ),
+		'id' => 'blog-archive-footer'
+	) ) );
+
+	register_sidebar( enercare_widget_arenercare_args( array(
+		'name' => esc_html__( 'Offers Header', 'ea-starter' ),
+		'id' => 'offers-header'
 	) ) );
 
 }

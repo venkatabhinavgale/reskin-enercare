@@ -2,18 +2,18 @@
 	$variation = get_field('variation');
   $block_style = get_field('block_style');
   $campaign_categories = get_field('campaign_categories');
-  
+
   $and_or = get_field('and_or');
   $tax_relation = "AND";
   if (!$and_or)
     $tax_relation = "OR";
-  
+
   $unique = get_field('unique');
   $override = get_field('override');
   $campaign = get_field('campaign');
   $cta_image = get_field('cta_image');
   $cta_text = get_field('cta_text') ? get_field('cta_text') : __( 'Shop Plans', 'portent-enercare');
-  
+
   $tax_query = array();
   $tax_query['relation'] = $tax_relation;
   if ($campaign_categories && sizeof($campaign_categories) > 0) {
@@ -23,9 +23,9 @@
         'field'     => 'id',
         'terms'     => $cc
       );
-    }  
+    }
   }
-  
+
   if (!$override) {
     $today = date("Ymd");
     $args = array(
@@ -63,19 +63,20 @@
     $query = new WP_Query($args);
     echo $query->request; exit;
     */
-    
+
     $campaigns = get_posts($args);
     if (isset($campaigns) && !empty($campaigns)) {
       $campaign = $campaigns[0];
     }
   }
-  
+
   //only display block if valid campaign found
   if (isset($campaign) && !empty($campaign)) {
     $campaign_heading = get_field('heading', $campaign->ID);
     $campaign_subheading = get_field('subheading', $campaign->ID);
     $campaign_image = wp_get_attachment_image( get_field('icon', $campaign->ID), 'thumbnail', false, array( 'class' =>'block-offer-card__image', 'alt'=>'') );
     $campaign_expiration = get_field('end_date', $campaign->ID);
+    $campaign_destination = get_field('destination', $campaign->ID);
     $terms_and_conditions = get_field('terms_and_conditions', $campaign->ID);
     $campaign_terms = '';
     if ($terms_and_conditions && !empty($terms_and_conditions)) {
@@ -87,7 +88,7 @@
       ';
     }
 ?>
-  
+
   <?php if ($variation == "Masthead Offer Card") { ?>
   <div class="block-offer-card__wrapper__masthead" data-allow-multiple>
     <?php if ($campaign_subheading) { ?>
@@ -100,7 +101,7 @@
         <div class="block-offer-card__terms-details" aria-expanded="false" data-state="closed" aria-labelledby="terms_<?= $campaign->ID; ?>"><?= $terms_and_conditions; ?></div>
       </span>
     </p>
-      
+
     <a href="<?= get_field('destination', $campaign->ID); ?>">
     <button>
       <span class="wp-block-button__link has-red-background-color has-background"><?= $cta_text ?></span>
@@ -125,23 +126,8 @@
     <?= $campaign_image; ?>
   </div>
 
-  <?php } else { // "Offer Card" is default ?>
-  <div class="block-offer-card__wrapper" data-allow-multiple>
-    <div class="block-offer-card__container">
-      <a href="<?= get_field('destination', $campaign->ID); ?>">
-      <button>
-        <?php if ($campaign_subheading) { ?>
-          <p class="block-offer-card__subheading"><?php echo $campaign_subheading; ?></p>
-        <?php } ?>
-        <h3><?= $campaign_heading; ?></h3>
-        <p class="block-offer-card__offer-expiration">Offer expires <?= date('F d, Y', strtotime($campaign_expiration)); ?></p>
-        <span class="wp-block-button__link has-red-background-color has-background"><?= $cta_text ?></span>
-      </button>
-      </a>
-      <?= $campaign_terms; ?>
-    </div>
-    <?= $campaign_image; ?>
-  </div>
+  <?php } else { // "Offer Card" is default @todo refactor to this to be cleaner ?>
+  	<?php require get_template_directory() . '/partials/campaign-default.php'; ?>
   <?php } ?>
 
 <?php } elseif (is_admin()) { ?>
