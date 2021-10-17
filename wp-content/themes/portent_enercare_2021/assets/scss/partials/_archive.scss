@@ -275,4 +275,9 @@ Split into its own file later
 	.wp-block-cover__inner-container {
 		max-width: $grid-width;
 	}
+
+	.block-offer-card__wrapper {
+		box-shadow: $drop-shadow;
+		height: 100%;
+	}
 }
