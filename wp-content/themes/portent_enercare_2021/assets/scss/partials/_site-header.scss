@@ -156,3 +156,45 @@
 		}
 	}
 }
+
+/**
+Appointment Banner
+ */
+.appointment-banner {
+	position: absolute;
+	background: $white;
+	box-shadow: $drop-shadow;
+	display: flex;
+	justify-content: space-between;
+	top: 0;
+	left: 50%;
+	z-index: 10;
+	clip-path: polygon(0 0, 100% 0, 90% 100%, 10% 100%);
+	padding: 1em 8em;
+	transform: translateX(-50%);
+	align-items: center;
+
+	&__icon {
+		margin:0 1em 0 0;
+		height: 24px;
+		width: 24px;
+	}
+
+	&__title {
+		display: block;
+		font-weight: bold;
+		@include font-sizes(1em);
+	}
+
+	&__link {
+		background-color: brand-color('red');
+		color: $white;
+		padding: 0.25em 0.5em 0 0.5em;
+		border-radius: 1em;
+		text-decoration: none;
+		margin: 0 0 0 1em;
+		font-weight: 700;
+
+		@include font-sizes(1em);
+	}
+}

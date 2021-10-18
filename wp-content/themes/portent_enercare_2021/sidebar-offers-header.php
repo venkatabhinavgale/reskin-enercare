@@ -7,15 +7,15 @@
  * @since        1.0.0
  * @license      GPL-2.0+
 **/
-$sidebar = 'blog-archive';
+$sidebar = 'offers-header';
 
 $display = is_active_sidebar( $sidebar );
 if ( ! apply_filters( 'enercare_display_sidebar', $display ) )
 	return;
 
-echo '<aside class="archive-widget-area archive-sidebar" role="complementary">';
+echo '<section class="archive-widget-area archive" role="complementary">';
 	tha_sidebar_top();
 	if ( is_active_sidebar( $sidebar ) )
 		dynamic_sidebar( $sidebar );
 	tha_sidebar_bottom();
-echo '</aside>';
+echo '</section>';

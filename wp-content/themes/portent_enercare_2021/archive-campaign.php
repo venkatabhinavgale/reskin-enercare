@@ -59,6 +59,8 @@ function enercare_archive_header() {
 	if( !empty( $subtitle ) )
 		echo '<h4>' . $subtitle . '</h4>';
 
+	get_sidebar('offers-header');
+
 	echo apply_filters( 'enercare_the_content', $description );
 	echo $more;
 	echo '<div class="archive-header__after">';
