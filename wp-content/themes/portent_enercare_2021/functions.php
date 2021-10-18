@@ -415,6 +415,22 @@ function enercare_template_hierarchy( $template ) {
 add_filter( 'template_include', 'enercare_template_hierarchy' );
 
 /**
+ * Replace 's' search param with 'addsearch'
+ */
+add_filter('init', function() {
+  global $wp;
+
+  $wp->add_query_var( 'addsearch' );
+  $wp->remove_query_var( 's' );
+});
+add_filter('request', function($request) {
+  if ( isset( $_REQUEST['addsearch'] ) ){
+    $request['s'] = $_REQUEST['addsearch'];
+  }
+  return $request;
+});
+
+/**
  * Insert Adobe Analytics Script
  *
  * Injects the adobe script if the current path matches one of the paths in the defined array.
