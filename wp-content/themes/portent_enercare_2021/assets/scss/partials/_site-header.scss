@@ -172,14 +172,18 @@ Appointment Banner
 	clip-path: polygon(0 0, 100% 0, 90% 100%, 10% 100%);
 	padding: 1em 8em;
 	transform: translateX(-50%);
+	align-items: center;
 
 	&__icon {
 		margin:0 1em 0 0;
+		height: 24px;
+		width: 24px;
 	}
 
 	&__title {
 		display: block;
 		font-weight: bold;
+		@include font-sizes(1em);
 	}
 
 	&__link {
@@ -189,6 +193,8 @@ Appointment Banner
 		border-radius: 1em;
 		text-decoration: none;
 		margin: 0 0 0 1em;
-		align-items: center;
+		font-weight: 700;
+
+		@include font-sizes(1em);
 	}
 }

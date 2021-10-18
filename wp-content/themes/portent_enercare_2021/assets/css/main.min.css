@@ -292,10 +292,10 @@ div.wpforms-container.one-line:after{content:"";display:table;clear:both}
 .top-bar__nav .menu li:not(:last-of-type){margin-right:1rem}
 .top-bar__nav a{color:#2c2929}
 .top-bar .search-form{margin-left:auto;-ms-flex-preferred-size:25%;flex-basis:25%}
-.appointment-banner{position:absolute;background:#fff;-webkit-box-shadow:0 4px 8px 0 rgba(56,61,67,0.3);box-shadow:0 4px 8px 0 rgba(56,61,67,0.3);display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;top:0;left:50%;z-index:10;-webkit-clip-path:polygon(0 0,100% 0,90% 100%,10% 100%);clip-path:polygon(0 0,100% 0,90% 100%,10% 100%);padding:1em 8em;-webkit-transform:translateX(-50%);transform:translateX(-50%)}
-.appointment-banner__icon{margin:0 1em 0 0}
-.appointment-banner__title{display:block;font-weight:bold}
-.appointment-banner__link{background-color:#dc1c28;color:#fff;padding:.25em .5em 0 .5em;border-radius:1em;text-decoration:none;margin:0 0 0 1em;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
+.appointment-banner{position:absolute;background:#fff;-webkit-box-shadow:0 4px 8px 0 rgba(56,61,67,0.3);box-shadow:0 4px 8px 0 rgba(56,61,67,0.3);display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;top:0;left:50%;z-index:10;-webkit-clip-path:polygon(0 0,100% 0,90% 100%,10% 100%);clip-path:polygon(0 0,100% 0,90% 100%,10% 100%);padding:1em 8em;-webkit-transform:translateX(-50%);transform:translateX(-50%);-webkit-box-align:center;-ms-flex-align:center;align-items:center}
+.appointment-banner__icon{margin:0 1em 0 0;height:24px;width:24px}
+.appointment-banner__title{display:block;font-weight:bold;font-size:1em}
+.appointment-banner__link{background-color:#dc1c28;color:#fff;padding:.25em .5em 0 .5em;border-radius:1em;text-decoration:none;margin:0 0 0 1em;font-weight:700;font-size:1em}
 .menu li{list-style:none}
 .menu a{text-decoration:none;display:block}
 .nav-menu .menu-item__icon{display:none}

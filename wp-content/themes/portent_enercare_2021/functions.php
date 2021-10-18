@@ -445,15 +445,15 @@ function enercare_appointment_banner() {
 	$is_banner_active_page = get_field( 'appointment_banner_toggle');
 
 	if( $is_banner_active_global && !$is_banner_active_page ) {
-		$appointment_banner_icon_id = get_field('appointment_banner_icon', 'options');
-		$appointment_banner_title = get_field('appointment_banner_title') ? get_field('appointment_banner_title') : 'Schedule an Appointment';
-		$appointment_banner_link_array = get_field('appointment_banner_link','options');
-		$appointment_banner_link_text = get_field('appointment_banner_link_text', 'options');
+		$appointment_banner_icon_id = get_field('appointment_banner_icon' ) ? get_field('appointment_banner_icon' ) : get_field('appointment_banner_icon', 'options');
+		$appointment_banner_title = get_field('appointment_banner_title') ? get_field('appointment_banner_title') : get_field('appointment_banner_title', 'options');
+		$appointment_banner_link_array = get_field('appointment_banner_link') ? get_field('appointment_banner_link') : get_field('appointment_banner_link','options');
+		$appointment_banner_link_text = get_field('appointment_banner_link_text') ? get_field('appointment_banner_link_text') : get_field('appointment_banner_link_text', 'options');
 
 		echo '<aside class="appointment-banner">';
 			echo wp_get_attachment_image( $appointment_banner_icon_id, '1-1', false, array( 'class' => 'appointment-banner__icon', 'alt' => '' ) );
 			echo '<span class="appointment-banner__title">'.$appointment_banner_title.'</span>';
-			echo '<a class="appointment-banner__link" href="'.$appointment_banner_link_array.'">'.$appointment_banner_link_text.'</a>';
+			echo '<a class="appointment-banner__link" target="'.$appointment_banner_link_array['target'].'" href="'.$appointment_banner_link_array['url'].'">'.$appointment_banner_link_text.'</a>';
 		echo '</aside>';
 	}
 }
