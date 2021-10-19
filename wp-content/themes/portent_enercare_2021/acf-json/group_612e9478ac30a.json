@@ -40,6 +40,57 @@
                 "id": ""
             },
             "return_format": "array"
+        },
+        {
+            "key": "field_616f2bd334d20",
+            "label": "Sizing",
+            "name": "sizing",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "constrain": "Constrained",
+                "auto": "Auto",
+                "full": "Full Width"
+            },
+            "default_value": "auto",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_616f2c6c34d21",
+            "label": "Icon placement",
+            "name": "icon_placement",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "top": "Top Aligned",
+                "side": "Left Aligned"
+            },
+            "default_value": "top",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
         }
     ],
     "location": [
@@ -59,5 +110,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1630450256
+    "modified": 1634679531
 }
