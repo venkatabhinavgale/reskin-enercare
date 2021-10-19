@@ -70,7 +70,6 @@ function enercare_archive_header() {
   if (is_home()) {
     get_template_part('partials/blog-featured', 'featured-post');
   }
-
 }
 add_action( 'tha_content_while_before', 'enercare_archive_header' );
 
@@ -85,8 +84,8 @@ if (!is_search() && have_posts()) {
 // add section wrapper -- we'll use this on our ajax calls to replace the results
 function enercare_archive_wrapper_top() {
 	echo '<div class="archive-containment-field">';
-	echo '<h2>Recent Articles</h2>';
-  echo '<section class="archive-wrapper">';
+		echo '<h2>Recent Articles</h2>';
+    echo '<section class="archive-wrapper">';
 }
 add_action('tha_content_while_before', 'enercare_archive_wrapper_top');
 

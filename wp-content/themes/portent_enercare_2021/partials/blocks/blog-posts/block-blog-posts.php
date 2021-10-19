@@ -76,7 +76,7 @@ $blog_posts = new WP_Query( $blog_post_args );
 			}
 			echo '</div>';
 
-			if ( $blog_cats ) {
+			if ( $blog_cats && get_field('show_category_link') ) {
 				echo '<div class="block-blog-posts__archive-links">';
 				echo '<a class="wp-block-button__link has-red-background-color has-background block-blog-posts__archive-link" href="' . get_category_link( $blog_cats[0] ) . '">View all ' . get_cat_name( $blog_cats[0] ) . ' posts</a>';
 				echo '</div>';
