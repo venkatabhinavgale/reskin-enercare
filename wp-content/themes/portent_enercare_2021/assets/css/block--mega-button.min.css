@@ -1,5 +1,6 @@
 .block-mega-button{display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex;padding:0 .5em;width:auto}
-.block-mega-button a{display:block;background-color:#fff;text-align:center;text-decoration:none;padding:1em;margin-top:1em;margin-bottom:1em;border-radius:20px}
+.block-mega-button a{display:block;background-color:#fff;text-align:center;text-decoration:none;padding:1em;margin-top:1em;margin-bottom:1em;border-radius:20px;-webkit-transition:background-color .2s ease,border .3s ease;transition:background-color .2s ease,border .3s ease;border:1px solid transparent}
+.block-mega-button a:hover,.block-mega-button a:focus{background-color:#f5f2f2;border:1px solid #d3d1d1;-webkit-transition:background-color .3s ease,border .4s ease;transition:background-color .3s ease,border .4s ease}
 .block-mega-button.alignleft{-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}
 .block-mega-button.aligncenter{-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
 .block-mega-button.alignright{-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end}
