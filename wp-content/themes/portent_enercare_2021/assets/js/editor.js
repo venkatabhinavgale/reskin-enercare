@@ -96,4 +96,23 @@ wp.domReady( () => {
 		]
 	);
 
+	wp.blocks.registerBlockStyle(
+		'acf/offer-card',
+		[
+			{
+				name: 'plain',
+				label: 'Plain'
+			},
+			{
+				name: 'bordered',
+				label: 'Bordered',
+				isDefault: true,
+			},
+			{
+				name: 'shadowed',
+				label: 'Shadowed',
+			}
+		]
+	);
+
 } );

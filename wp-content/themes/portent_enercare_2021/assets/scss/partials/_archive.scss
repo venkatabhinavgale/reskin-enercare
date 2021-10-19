@@ -276,8 +276,8 @@ Split into its own file later
 		max-width: $grid-width;
 	}
 
-	.block-offer-card__wrapper {
-		box-shadow: $drop-shadow;
+	.block-offer-card__wrapper,
+	.block-offer-card__container {
 		height: 100%;
 	}
 }

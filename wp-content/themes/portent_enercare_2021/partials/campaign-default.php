@@ -2,7 +2,7 @@
 // Template for default campaign card.
 ?>
 <div class="block-offer-card__wrapper" data-allow-multiple>
-    <div class="block-offer-card__container">
+    <div class="block-offer-card__container <?= $classes ?>">
       <a href="<?= $campaign_destination ?>">
       <button>
         <?php if ($campaign_subheading) { ?>
