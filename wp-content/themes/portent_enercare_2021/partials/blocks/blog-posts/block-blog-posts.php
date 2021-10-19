@@ -53,6 +53,19 @@ $blog_posts = new WP_Query( $blog_post_args );
 				}
 
 				echo '<div class="block-blog-posts__post__summary">';
+
+				if( $post_display === 'full') {
+					$id = get_the_author_meta( 'ID' );
+					echo '<div class="block-blog-posts__post__post-meta">';
+						echo get_avatar( $id, 40 );
+							echo '<div class="block-blog-posts__post__author-meta">';
+								echo '<div class="block-blog-posts__post__author-meta__name">' . get_the_author() . '</div>';
+								echo '<div class="block-blog-posts__post__author-meta__date">'.get_the_date('F j').'</div>';
+								echo do_shortcode( '[rt_reading_time label="" postfix="min read"]');
+						echo '</div>';
+					echo '</div>';
+				}
+
 				echo '<h2 class="block-blog-posts__post__title"><a class="block-blog-posts__post__link" href="' . get_the_permalink() . '">' . get_the_title() . '</a></h2>';
 
 				if ( $post_display === 'full' ) {
