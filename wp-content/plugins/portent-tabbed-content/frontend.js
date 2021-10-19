@@ -3,7 +3,8 @@ window.onload = (event) => {
 	tabs.forEach( tab => {
 		tab.addEventListener( 'click', (event) => {
 			let parent = event.target.parentElement;
-			parent.childNodes.forEach( child => {
+      let children = Array.prototype.slice.call(parent.children);
+			children.forEach( child => {
 				child.classList.remove('active');
 			});
 

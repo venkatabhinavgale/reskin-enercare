@@ -408,11 +408,29 @@ add_filter('acf/load_field/name=default_email_form', 'acf_load_gravity_form_choi
  */
 function enercare_template_hierarchy( $template ) {
 
-	if( is_home() || is_search() )
+	if( is_home() )
 		$template = get_query_template( 'archive' );
+  elseif ( is_search() )
+    $template = get_query_template( 'search' );
 	return $template;
 }
 add_filter( 'template_include', 'enercare_template_hierarchy' );
+
+/**
+ * Replace 's' search param with 'addsearch'
+ */
+add_filter('init', function() {
+  global $wp;
+
+  $wp->add_query_var( 'addsearch' );
+  $wp->remove_query_var( 's' );
+});
+add_filter('request', function($request) {
+  if ( isset( $_REQUEST['addsearch'] ) ){
+    $request['s'] = $_REQUEST['addsearch'];
+  }
+  return $request;
+});
 
 /**
  * Insert Adobe Analytics Script
