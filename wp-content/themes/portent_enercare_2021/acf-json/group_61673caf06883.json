@@ -140,6 +140,31 @@
             "return_format": "value",
             "ajax": 0,
             "placeholder": ""
+        },
+        {
+            "key": "field_616dcccc2f59c",
+            "label": "Image Size",
+            "name": "image_size",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "1-1": "Square (1:1)",
+                "2-3": "Standard (2-3)"
+            },
+            "default_value": "1-1",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
         }
     ],
     "location": [
@@ -159,5 +184,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1634167208
+    "modified": 1634586346
 }
