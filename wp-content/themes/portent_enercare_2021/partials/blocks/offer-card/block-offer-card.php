@@ -1,5 +1,18 @@
 <?php
-	$variation = get_field('variation');
+  $classes = 'block-offer-card';
+
+if( !empty($block['className']) ) {
+	$classes .= sprintf( ' %s', $block['className'] );
+}
+if( !empty($block['align']) ) {
+	$classes .= sprintf( ' align%s', $block['align'] );
+}
+
+if( !empty($block['backgroundColor'] ) ) {
+	$classes .= sprintf(' has-%s-background-color', $block['backgroundColor']);
+}
+
+  $variation = get_field('variation');
   $block_style = get_field('block_style');
   $campaign_categories = get_field('campaign_categories');
 
@@ -110,7 +123,7 @@
   </div>
   <?php } elseif ($variation == "Full Width with Image") { ?>
     <div class="block-offer-card__wrapper__full-width" data-allow-multiple>
-      <div class="block-offer-card__container">
+      <div class="block-offer-card__container <?= $background_color_setting ?>">
         <a href="<?= get_field('destination', $campaign->ID); ?>">
         <button>
           <?php if ($campaign_subheading) { ?>

@@ -119,6 +119,10 @@ Split into its own file later
 		display: none;
 	}
 
+	.site-inner {
+		padding-top: 0;
+	}
+
 	.site-main {
 		display: grid;
 		grid-template-columns: 65% 35%;
@@ -140,9 +144,10 @@ Split into its own file later
 		background-color: $white;
 		box-shadow: $drop-shadow;
 		position: relative;
+		flex-direction: column;
 
 		@include media(">=tablet") {
-			flex-direction: column;
+			flex-direction: row;
 		}
 
 		&__title {
@@ -168,14 +173,14 @@ Split into its own file later
 		}
 
 		&__image {
-			max-width: 50%;
+			max-width: 100%;
 			margin: 0;
 			object-fit: cover;
 			object-position: center center;
 			height: auto;
 
 			@include media(">=tablet") {
-				max-width: 100%;
+				max-width: 50%;
 			}
 		}
 
@@ -238,12 +243,17 @@ Split into its own file later
 			background-size: cover;
 			background-position: center center;
 			@include alignfull();
-			padding: 5em 0;
+			padding: 10vh 0;
 			grid-column-end: span 2;
+			margin-top: 0;
+
+			&__inner-blocks {
+				@include alignwide();
+			}
 
 			&__container {
 				background-color: $white;
-				max-width: 50%;
+				max-width: 60%;
 				margin: 0 auto;
 				padding: 1.5em;
 			}
@@ -276,8 +286,8 @@ Split into its own file later
 		max-width: $grid-width;
 	}
 
-	.block-offer-card__wrapper {
-		box-shadow: $drop-shadow;
+	.block-offer-card__wrapper,
+	.block-offer-card__container {
 		height: 100%;
 	}
 }

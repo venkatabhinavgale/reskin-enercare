@@ -7,11 +7,12 @@ if (!$featured_post)
 
 $post_image_url = get_the_post_thumbnail_url($featured_post->ID);
 echo '<div class="single-post__header" style="background-image:url(' . $post_image_url . ');">';
-  //the_post_thumbnail('12-5-header-image', array( 'role' => 'presentation') );
-	echo '<div class="single-post__header__container">';
-  echo '<div class="single-post__featured">Featured Article</div>';
-	echo '<h1 class="entry-title single-post__title">' . get_the_title($featured_post->ID) . '</h1>';
-  the_excerpt();
-  echo '<div class="single-post__read-more"><a href="' . get_the_permalink($featured_post->ID) . '">Read more ></a></div>';
+	echo '<div class="single-post__header__inner-blocks">';
+		echo '<div class="single-post__header__container">';
+            echo '<div class="single-post__featured">Featured Article</div>';
+				echo '<h1 class="entry-title single-post__title">' . get_the_title($featured_post->ID) . '</h1>';
+                the_excerpt();
+            echo '<div class="single-post__read-more"><a href="' . get_the_permalink($featured_post->ID) . '">Read more ></a></div>';
+		echo '</div>';
 	echo '</div>';
 echo '</div>';

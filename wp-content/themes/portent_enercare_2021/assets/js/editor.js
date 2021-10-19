@@ -5,6 +5,21 @@ wp.domReady( () => {
 	);
 
 	wp.blocks.registerBlockStyle(
+		'core/group',
+		[
+			{
+				name: 'default',
+				label: 'Default (no alignment)',
+				isDefault: true,
+			},
+			{
+				name: 'center',
+				label: 'Center Align',
+			},
+		]
+	);
+
+	wp.blocks.registerBlockStyle(
 		'core/button',
 		[
 			{
@@ -88,6 +103,46 @@ wp.domReady( () => {
 				name: 'bordered',
 				label: 'Bordered',
 				isDefault: true,
+			},
+			{
+				name: 'shadowed',
+				label: 'Shadowed',
+			}
+		]
+	);
+
+
+	wp.blocks.registerBlockStyle(
+		'acf/offer-card',
+		[
+			{
+				name: 'plain',
+				label: 'Plain'
+			},
+			{
+				name: 'bordered',
+				label: 'Bordered',
+				isDefault: true,
+			},
+			{
+				name: 'shadowed',
+				label: 'Shadowed',
+			}
+		]
+	);
+
+
+	wp.blocks.registerBlockStyle(
+		'acf/mega-button',
+		[
+			{
+				name: 'plain',
+				label: 'Plain',
+				isDefault: true,
+			},
+			{
+				name: 'bordered',
+				label: 'Bordered',
 			},
 			{
 				name: 'shadowed',
