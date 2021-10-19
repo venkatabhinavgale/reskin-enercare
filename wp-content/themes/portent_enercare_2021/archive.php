@@ -104,20 +104,6 @@ function enercare_archive_sidebar() {
 }
 add_action('tha_content_bottom', 'enercare_archive_sidebar');
 
-function addSearch_embed() {
-	?>
-	<div class="addsearch-container">
-    <!-- Search results will be rendered to this div -->
-    <div id="addsearch-results"></div>
-    <!-- Script must be below search field and addsearch-results div -->
-    <script src="https://addsearch.com/js/?key=3145819e621ccfb6dbf5116b2c92967b&type=resultpage"></script>
-  </div>
-	<?php
-}
-
-if (is_search()) {
-	add_action('tha_content_bottom', 'addSearch_embed');
-}
 
 // Build the page
 require get_template_directory() . '/index.php';
