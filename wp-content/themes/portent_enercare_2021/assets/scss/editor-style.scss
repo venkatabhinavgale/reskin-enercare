@@ -18,3 +18,17 @@
 @import "blocks/faqs";
 @import "blocks/offer-card";
 @import "blocks/comparison-card";
+
+/**
+Editor Specific
+ */
+.block-mega-button {
+
+	a {
+		pointer-events: none;
+	}
+}
+
+.wp-block-acf-mega-button.is-style-shadowed {
+	box-shadow: none;
+}
