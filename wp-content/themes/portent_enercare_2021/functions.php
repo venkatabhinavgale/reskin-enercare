@@ -459,21 +459,39 @@ function enercare_appointment_banner() {
 	//We expect this to be TRUE
 	$is_banner_active_global = get_field( 'appointment_banner_toggle', 'options');
 
+	//Grab emergency setting
+	$is_banner_emergency = get_field( 'appointnent_banner_is_emergency', 'options' );
+
 	//By default we assume this is FALSE because banners need to be explicitly turned off
 	$is_banner_active_page = get_field( 'appointment_banner_toggle');
 
-	if( $is_banner_active_global && !$is_banner_active_page ) {
-		$appointment_banner_icon_id = get_field('appointment_banner_icon' ) ? get_field('appointment_banner_icon' ) : get_field('appointment_banner_icon', 'options');
-		$appointment_banner_title = get_field('appointment_banner_title') ? get_field('appointment_banner_title') : get_field('appointment_banner_title', 'options');
-		$appointment_banner_link_array = get_field('appointment_banner_link') ? get_field('appointment_banner_link') : get_field('appointment_banner_link','options');
-		$appointment_banner_link_text = get_field('appointment_banner_link_text') ? get_field('appointment_banner_link_text') : get_field('appointment_banner_link_text', 'options');
+		if ( $is_banner_active_global && ! $is_banner_active_page ) {
+			//If the banner is active lets get it setup
+			$appointment_banner_icon_id = get_field( 'appointment_banner_icon' ) ? get_field( 'appointment_banner_icon' ) : get_field( 'appointment_banner_icon', 'options' );
+			$appointment_banner_title = get_field( 'appointment_banner_title' ) ? get_field( 'appointment_banner_title' ) : get_field( 'appointment_banner_title', 'options' );
+			$appointment_banner_link_array = get_field( 'appointment_banner_link' ) ? get_field( 'appointment_banner_link' ) : get_field( 'appointment_banner_link', 'options' );
+			$appointment_banner_link_text = get_field( 'appointment_banner_link_text' ) ? get_field( 'appointment_banner_link_text' ) : get_field( 'appointment_banner_link_text', 'options' );
+			$appointment_banner_is_emergency = '';
 
-		echo '<aside class="appointment-banner">';
-			echo wp_get_attachment_image( $appointment_banner_icon_id, '1-1', false, array( 'class' => 'appointment-banner__icon', 'alt' => '' ) );
-			echo '<span class="appointment-banner__title">'.$appointment_banner_title.'</span>';
-			echo '<a class="appointment-banner__link" target="'.$appointment_banner_link_array['target'].'" href="'.$appointment_banner_link_array['url'].'">'.$appointment_banner_link_text.'</a>';
-		echo '</aside>';
-	}
+			//if the banner is an emergency roll values back to global
+			if( $is_banner_emergency ) {
+				$appointment_banner_icon_id =  get_field( 'appointment_banner_icon', 'options' );
+				$appointment_banner_title = get_field( 'appointment_banner_title', 'options' );
+				$appointment_banner_link_array = get_field( 'appointment_banner_link', 'options' );
+				$appointment_banner_link_text = get_field( 'appointment_banner_link_text', 'options' );
+				$appointment_banner_is_emergency = 'appointment-banner--emergency';
+			}
+
+			echo '<aside class="appointment-banner ' . $appointment_banner_is_emergency . '" >';
+			echo wp_get_attachment_image( $appointment_banner_icon_id, '1-1', false, array(
+				'class' => 'appointment-banner__icon',
+				'alt'   => ''
+			) );
+			echo '<span class="appointment-banner__title">' . $appointment_banner_title . '</span>';
+			echo '<a class="appointment-banner__link" target="' . $appointment_banner_link_array['target'] . '" href="' . $appointment_banner_link_array['url'] . '">' . $appointment_banner_link_text . '</a>';
+			echo '</aside>';
+		}
+
 }
 
 add_action('tha_content_before', 'enercare_appointment_banner');
