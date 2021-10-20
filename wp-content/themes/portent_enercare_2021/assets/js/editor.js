@@ -141,10 +141,6 @@ wp.domReady( () => {
 				isDefault: true,
 			},
 			{
-				name: 'bordered',
-				label: 'Bordered',
-			},
-			{
 				name: 'shadowed',
 				label: 'Shadowed',
 			}
