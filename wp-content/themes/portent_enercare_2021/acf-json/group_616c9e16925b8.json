@@ -3,6 +3,25 @@
     "title": "Global Appointment Banner Options",
     "fields": [
         {
+            "key": "field_6170918ce8b92",
+            "label": "Emergency \/ Prominent",
+            "name": "appointnent_banner_is_emergency",
+            "type": "true_false",
+            "instructions": "Turn this setting on if the banner contains an emergency or very high priority message. If this setting is turned on all overridden controls for the banner on all pages will be ignored while this setting is enabled.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_616c9e27ee2a1",
             "label": "Icon",
             "name": "appointment_banner_icon",
@@ -97,25 +116,6 @@
             "ui": 0,
             "ui_on_text": "",
             "ui_off_text": ""
-        },
-        {
-            "key": "field_6170918ce8b92",
-            "label": "Emergency \/ Prominent",
-            "name": "appointnent_banner_is_emergency",
-            "type": "true_false",
-            "instructions": "Turn this setting on if the banner contains an emergency or very high priority message. If this setting is turned on all overridden controls for the banner on all pages will be ignored while this setting is enabled.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 0,
-            "ui": 1,
-            "ui_on_text": "",
-            "ui_off_text": ""
         }
     ],
     "location": [
@@ -135,5 +135,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1634767342
+    "modified": 1634773145,
+    "local_file": "\/Users\/jeremiah\/Local Sites\/enercare-2021\/app\/public\/wp-content\/themes\/portent_enercare_2021\/acf-json\/group_616c9e16925b8.json"
 }

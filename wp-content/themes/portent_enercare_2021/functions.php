@@ -62,6 +62,12 @@ function enercare_scripts() {
 	wp_register_script( 'glider-js', get_template_directory_uri() . '/assets/js/glider/glider.min.js', null , null );
 	wp_register_style( 'glider-css', get_template_directory_uri() . '/assets/js/glider/glider.min.css', null , null );
 
+	/**
+	 * Youtube Lite Registrations
+	 */
+	wp_register_script('lite-youtube-embed-script', get_template_directory_uri() . '/assets/js/lite-youtube-embed/src/lite-yt-embed.js', null, true );
+	wp_register_style('lite-youtube-embed-style', get_template_directory_uri() . '/assets/js/lite-youtube-embed/src/lite-yt-embed.css', null, null );
+
 	if( ! enercare_is_amp() ) {
 		wp_enqueue_script( 'ea-global', get_template_directory_uri() . '/assets/js/global.min.js', array( 'jquery' ), filemtime( get_template_directory() . '/assets/js/global.min.js' ), true );
 

@@ -2,11 +2,14 @@
 	text-align: center;
 
 	&__wrapper {
-		display: flex;
-		flex-flow: row nowrap;
+		display: none;
+		visibility: hidden;
 
-		@include media("<=tablet") {
-			flex-wrap: wrap;
+		@include media(">=tablet") {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+			grid-column-gap: 28px;
+			visibility: visible;
 		}
 	}
 
@@ -64,15 +67,15 @@
 	&__contents-table {
 		margin-top: 1.5em;
 
-		table, 
+		table,
 		tr,
 		td {
 			border: 1px solid $grey_2;
 			border-spacing: 0;
-		} 
+		}
 
 		table {
-			width: 100%; 
+			width: 100%;
 
 
 			tbody {
@@ -112,5 +115,49 @@
 		&__cta-button {
 
 		}
+	}
+}
+
+.block-comparison-card__mobile-wrapper {
+	box-shadow: $drop-shadow;
+	display: block;
+	visibility: visible;
+
+	@include media(">=tablet") {
+		display: none;
+		visibility: hidden;
+	}
+
+	.block-tabbed-content__tab {
+		font-size: 16px;
+		padding: 10px 10px 7px;
+		border: 1px solid $grey_2;
+		flex: 1;
+		justify-content: center;
+		position: relative;
+
+		&.active {
+			background-color: $grey_1;
+			color: $base-color;
+
+			&:after {
+				background-color: brand-color('red');
+				content: '';
+				position: absolute;
+				bottom: 0;
+				height: 4px;
+				width: 100%;
+
+			}
+		}
+
+		&:hover,
+		&:focus {
+			border-radius: 0;
+		}
+	}
+
+	.block-tabbed-content__tab-panels {
+		padding: 0 24px;
 	}
 }
