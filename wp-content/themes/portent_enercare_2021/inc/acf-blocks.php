@@ -249,6 +249,20 @@ function enercare_register_theme_blocks() {
       }
     ));
 
+	  acf_register_block_type(array(
+		  'name' => 'enercare-youtube-lite',
+		  'title' => __('Youtube (Lazy)', 'clientname'),
+		  'render_template' => 'partials/blocks/youtube-lazy/youtube-lazy.php',
+		  'category' => 'formatting',
+		  'icon' => 'video-alt3',
+		  'mode' => 'preview',
+		  'keywords' => array('video', 'youtube', 'expedia', 'portent'),
+		  'enqueue_assets' => function() {
+			  wp_enqueue_script('lite-youtube-embed-script');
+			  wp_enqueue_style('lite-youtube-embed-style');
+		  },
+	  ));
+
     acf_register_block_type( array(
 	    'name'              => 'blog-posts',
 	    'title'             => __('Blog Posts', 'enercare'),

@@ -280,3 +280,19 @@ Blog Posts
 		}
 	}
 }
+
+/**
+Youtube Lazy
+ */
+.block-youtube-lazy {
+
+	&.aligncenter {
+		float: none !important;
+		margin: 0 auto;
+	}
+
+	&.alignright {
+		float: none !important;
+		margin:0 0 0 auto;
+	}
+}
