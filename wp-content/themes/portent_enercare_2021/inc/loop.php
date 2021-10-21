@@ -14,7 +14,7 @@
  */
 function enercare_default_loop() {
 
-	if ( have_posts() ) :
+	if ( have_posts() && !is_404()) :
 
 		tha_content_while_before();
 
@@ -37,7 +37,13 @@ function enercare_default_loop() {
 
 		tha_entry_before();
 		$context = apply_filters( 'enercare_empty_loop_partial_context', 'none' );
-		get_template_part( 'partials/archive', $context );
+    
+    if(is_404()) {
+			get_template_part( 'partials/four', 'oh-four' );
+		} else {
+			get_template_part('partials/archive', $context);
+		}
+		
 		tha_entry_after();
 
 	endif;
