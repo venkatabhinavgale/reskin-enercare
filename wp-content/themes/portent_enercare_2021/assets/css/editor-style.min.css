@@ -346,7 +346,7 @@ ul.block-location-finder__list{padding-left:0}
 .block-faqs--faq-container{font-size:18px;font-weight:700}
 .block-faqs--faq-container:after{content:'';display:inline-block;background-color:#d3d1d1;width:100%;height:2px;margin-right:.55em;vertical-align:middle}
 .block-faqs--faq-container:before{content:'';display:inline-block;background-image:url("../icons/utility/add_circle_black_24dp_rounded.svg");background-repeat:no-repeat;background-position:center;padding:.70em;width:22px;height:19px;margin-right:8px;margin-top:-0.3em;vertical-align:middle;-webkit-filter:invert(11%) sepia(99%) saturate(5418%) hue-rotate(352deg) brightness(98%) contrast(86%);filter:invert(11%) sepia(99%) saturate(5418%) hue-rotate(352deg) brightness(98%) contrast(86%)}
-.block-faqs--faq-container[data-child="open"]:before{background-image:url("../icons/utility/remove_circle_black_24dp_rounded.svg")}
+.block-faqs--faq-container[data-child="open"]:before{background-image:url("../icons/utility/minus_circle_black_24dp_rounded.svg")}
 .block-faqs--faq-answer-container{font-size:16px;font-weight:300;line-height:22px;margin-top:8px;margin-left:1.8em}
 .block-offer-card__offer-expiration{font-size:14px;color:#646469;line-height:20px}
 .block-offer-card__terms{text-align:center}
