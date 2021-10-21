@@ -78,7 +78,7 @@ function enercare_register_theme_blocks() {
     acf_register_block_type( array(
 		  'name'            => 'comparison-card',
 		  'title'           => __( 'Comparison Card' ),
-		  'description'     => __( 'This card sets up a "campaign spot". Active campaigns will be queried based on the settings provided' ),
+		  'description'     => __( 'Card that builds a comparison chart/table of attributes.' ),
 		  'render_template' => 'partials/blocks/comparison-card/block-comparison-card.php',
 		  'category'        => 'layout',
 		  'mode'            => 'preview',
