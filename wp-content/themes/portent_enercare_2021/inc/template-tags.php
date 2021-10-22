@@ -19,6 +19,21 @@ function enercare_entry_category() {
 }
 
 /**
+ * Entry Categories
+ *
+ */
+function enercare_entry_categories() {
+  $terms = get_the_terms( get_the_id(), 'category' );
+  if ($terms && sizeof($terms) > 0) {
+    echo '<p class="entry-category">';
+    foreach ($terms as $term) {
+      echo '<a href="' . get_term_link( $term, 'category' ) . '" class="button">' . $term->name . '</a>';
+    }
+    echo '</p>';
+  }
+}
+
+/**
  * Post Summary Title
  *
  */
@@ -71,4 +86,98 @@ function enercare_entry_author() {
  */
 function enercare_post_date() {
   echo '<p class="publish-date single-post__date">' . get_the_date( 'F j, Y' ) . '</p>';
+}
+
+/**
+ * Entry Byline
+ *
+ */
+function enercare_entry_byline() {
+  $id = get_the_author_meta( 'ID' );
+  echo '<div class="post-meta">';
+    echo get_avatar( $id, 40 );
+      echo '<div class="post-meta__author-meta">';
+        echo '<div class="post-meta__author-meta__name">' . get_the_author() . '</div>';
+        echo '<div class="post-meta__author-meta__date">'.get_the_date('F j').'</div>';
+        echo do_shortcode( '[rt_reading_time label="" postfix="min read"]');
+    echo '</div>';
+    enercare_share_buttons();
+  echo '</div>';
+}
+
+/**
+ * Share
+ */
+function enercare_share_buttons() {
+	$post_url = get_the_permalink();
+	$post_title = rawurlencode( get_the_title() );
+	echo '<div class="single-post__share-menu">';
+		//echo '<a class="share-menu__link dashicons dashicons-twitter" href="https://twitter.com/intent/tweet?text='.$post_title.'&url='.$post_url.'"><span class="screen-reader-text">Share '. get_the_title() .' on Twitter</span></a>';
+    echo '<a class="share-menu__link dashicons dashicons-facebook-alt" href="https://www.facebook.com/sharer.php?u='.$post_url.'"><span class="screen-reader-text">Share '. get_the_title() .' on Facebook</span></a>';
+		echo '<a class="share-menu__link dashicons dashicons-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url='.$post_url.'&title='.$post_title.'"><span class="screen-reader-text">Share '. get_the_title() .' on LinkedIn</span></a>';
+	echo '</div>';
+}
+
+/**
+ * Related Posts
+ *
+ */
+function enercare_related_posts($blog_num_posts = 4) {
+  $terms = get_the_terms( get_the_id(), 'category' );
+  $blog_cats = array();
+  foreach($terms as $term) {
+    $blog_cats[] = $term->term_id;
+  }
+  
+  if (!$blog_num_posts) {
+    $blog_num_posts = 4;
+  }
+  
+  /*
+   * Query Posts
+   */
+  $blog_post_args = array(
+    'category__in' => $blog_cats,
+    'posts_per_page' =>  $blog_num_posts
+  );
+  $blog_posts = new WP_Query( $blog_post_args );
+
+  if( $blog_posts->have_posts()) {
+    echo '<div class="wp-block-group alignfull"><div class="wp-block-group__inner-container">';
+    echo '<h2 class="has-text-align-center">Related Articles</h2>';
+    
+    echo '<div class="block-blog-posts block-blog-posts--row">';
+    while ( $blog_posts->have_posts() ) {
+      $blog_posts->the_post();
+      $excerpt = get_the_excerpt() ? get_the_excerpt() : get_the_content();
+      echo '<div class="block-blog-posts__post block-blog-posts__post--vertical block-blog-posts__post--full">';
+
+      if ( has_post_thumbnail() ) {
+        the_post_thumbnail( $post_image_size, array(
+            'class' => 'block-blog-posts__post__image block-blog-posts__post__image--' . $post_image_size . '',
+            'alt'   => ''
+        ) );
+      } elseif ( ! has_post_thumbnail() ) {
+        $default_image = get_field( 'enercare_default_image', 'options' );
+        echo wp_get_attachment_image( $default_image, $post_image_size, false, array(
+            'class' => 'block-blog-posts__post__image block-blog-posts__post__image--' . $post_image_size . '',
+            'alt'   => ''
+        ) );
+      }
+
+      echo '<div class="block-blog-posts__post__summary">';
+      
+        echo '<div class="block-blog-posts__post__author-meta__date">'.get_the_date('F j, Y').'</div>';
+        echo '<h2 class="block-blog-posts__post__title"><a class="block-blog-posts__post__link" href="' . get_the_permalink() . '">' . get_the_title() . '</a></h2>';
+        echo '<p class="block-blog-posts__post__except">' . wp_trim_words( $excerpt, 25 ) . '</p>';
+        echo '<div class="block-blog-posts__post__link"><a href="' . get_the_permalink() . '">Read more &gt;</a></div>';
+      
+      echo '</div>';
+      echo '</div>';
+    }
+    echo '</div>';
+    
+    echo '</div></div>';
+  }
+  
 }

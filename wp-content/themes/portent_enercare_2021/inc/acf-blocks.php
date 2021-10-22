@@ -61,8 +61,9 @@ function enercare_register_theme_blocks() {
 		  'mode'            => 'preview',
 		  'keywords'        => array('card', 'offer', 'campaign', 'deal', 'enercare', 'portent'),
 		  'enqueue_assets' => function() {
+		  	  wp_enqueue_script( 'micromodal-script' );
 			  wp_enqueue_style( 'block-offer-card-style', get_template_directory_uri() . '/assets/css/block--offer-card.css', array('ea-style'), false, 'screen');
-        wp_enqueue_script( 'block--offer-card-script', get_template_directory_uri() . '/assets/js/block--offer-card.js', null, null, true);
+			  wp_enqueue_script( 'block--offer-card-script', get_template_directory_uri() . '/assets/js/block--offer-card.js', null, null, true);
 		  },
 
 		  'supports'        => array(
@@ -78,7 +79,7 @@ function enercare_register_theme_blocks() {
     acf_register_block_type( array(
 		  'name'            => 'comparison-card',
 		  'title'           => __( 'Comparison Card' ),
-		  'description'     => __( 'This card sets up a "campaign spot". Active campaigns will be queried based on the settings provided' ),
+		  'description'     => __( 'Card that builds a comparison chart/table of attributes.' ),
 		  'render_template' => 'partials/blocks/comparison-card/block-comparison-card.php',
 		  'category'        => 'layout',
 		  'mode'            => 'preview',
@@ -248,6 +249,20 @@ function enercare_register_theme_blocks() {
         //wp_enqueue_style( 'block-location-map-style', get_template_directory_uri() . '/assets/css/block--location-map.css', array('ea-style'), false, 'screen');
       }
     ));
+
+	  acf_register_block_type(array(
+		  'name' => 'enercare-youtube-lite',
+		  'title' => __('Youtube (Lazy)', 'clientname'),
+		  'render_template' => 'partials/blocks/youtube-lazy/youtube-lazy.php',
+		  'category' => 'formatting',
+		  'icon' => 'video-alt3',
+		  'mode' => 'preview',
+		  'keywords' => array('video', 'youtube', 'expedia', 'portent'),
+		  'enqueue_assets' => function() {
+			  wp_enqueue_script('lite-youtube-embed-script');
+			  wp_enqueue_style('lite-youtube-embed-style');
+		  },
+	  ));
 
     acf_register_block_type( array(
 	    'name'              => 'blog-posts',

@@ -62,6 +62,14 @@ function enercare_scripts() {
 	wp_register_script( 'glider-js', get_template_directory_uri() . '/assets/js/glider/glider.min.js', null , null );
 	wp_register_style( 'glider-css', get_template_directory_uri() . '/assets/js/glider/glider.min.css', null , null );
 
+	/**
+	 * Youtube Lite Registrations
+	 */
+	wp_register_script('lite-youtube-embed-script', get_template_directory_uri() . '/assets/js/lite-youtube-embed/src/lite-yt-embed.js', null, true );
+	wp_register_style('lite-youtube-embed-style', get_template_directory_uri() . '/assets/js/lite-youtube-embed/src/lite-yt-embed.css', null, null );
+
+	wp_register_script('micromodal-script', get_template_directory_uri() . '/assets/js/micromodal.min.js', null, null );
+
 	if( ! enercare_is_amp() ) {
 		wp_enqueue_script( 'ea-global', get_template_directory_uri() . '/assets/js/global.min.js', array( 'jquery' ), filemtime( get_template_directory() . '/assets/js/global.min.js' ), true );
 
@@ -458,6 +466,13 @@ add_action('tha_head_bottom', 'enercare_adobe_script');
 function enercare_appointment_banner() {
 	//We expect this to be TRUE
 	$is_banner_active_global = get_field( 'appointment_banner_toggle', 'options');
+
+	/**
+	 * Turn off for specific locations
+	 */
+	if(is_singular( 'post' ) ) {
+		$is_banner_active_global = false;
+	}
 
 	//Grab emergency setting
 	$is_banner_emergency = get_field( 'appointnent_banner_is_emergency', 'options' );

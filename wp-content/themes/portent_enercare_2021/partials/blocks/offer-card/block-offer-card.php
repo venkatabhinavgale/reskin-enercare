@@ -1,5 +1,5 @@
 <?php
-  $classes = 'block-offer-card';
+$classes = 'block-offer-card';
 
 if( !empty($block['className']) ) {
 	$classes .= sprintf( ' %s', $block['className'] );
@@ -12,94 +12,106 @@ if( !empty($block['backgroundColor'] ) ) {
 	$classes .= sprintf(' has-%s-background-color', $block['backgroundColor']);
 }
 
-  $variation = get_field('variation');
-  $block_style = get_field('block_style');
-  $campaign_categories = get_field('campaign_categories');
+$variation = get_field('variation');
+$block_style = get_field('block_style');
+$campaign_categories = get_field('campaign_categories');
 
-  $and_or = get_field('and_or');
-  $tax_relation = "AND";
-  if (!$and_or)
-    $tax_relation = "OR";
+$and_or = get_field('and_or');
+$tax_relation = "AND";
+if (!$and_or)
+  $tax_relation = "OR";
 
-  $unique = get_field('unique');
-  $override = get_field('override');
-  $campaign = get_field('campaign');
-  $cta_image = get_field('cta_image');
-  $cta_text = get_field('cta_text') ? get_field('cta_text') : __( 'Shop Plans', 'portent-enercare');
+$unique = get_field('unique');
+$override = get_field('override');
+$campaign = get_field('campaign');
+$cta_image = get_field('cta_image');
+$cta_text = get_field('cta_text') ? get_field('cta_text') : __( 'Shop Plans', 'portent-enercare');
 
-  $tax_query = array();
-  $tax_query['relation'] = $tax_relation;
-  if ($campaign_categories && sizeof($campaign_categories) > 0) {
-    foreach($campaign_categories as $cc) {
-      $tax_query[] = array(
-        'taxonomy'  => 'campaign-category',
-        'field'     => 'id',
-        'terms'     => $cc
-      );
-    }
-  }
-
-  if (!$override) {
-    $today = date("Ymd");
-    $args = array(
-      'post_type'     => 'campaign',
-      'post_status'   => 'publish',
-      'numberposts'   => 1,
-      'meta_query'    => array(
-        array(
-          'relation' => 'AND',
-          'start_date' => array(
-            'key'       => 'start_date',
-            'value'     => $today,
-            'compare'   => '<='
-          ),
-          'end_date' => array(
-            'key'       => 'end_date',
-            'value'     => $today,
-            'compare'   => '>='
-          ),
-        ),
-        array(
-          'priority' => array(
-            'key'       => 'priority',
-            'compare'   => 'EXISTS',
-          ),
-        )
-      ),
-      'tax_query'     => $tax_query,
-      'orderby' => array(
-        'priority'       => 'DESC',
-        'start_date'     => 'ASC',
-      )
+$tax_query = array();
+$tax_query['relation'] = $tax_relation;
+if ($campaign_categories && sizeof($campaign_categories) > 0) {
+  foreach($campaign_categories as $cc) {
+    $tax_query[] = array(
+      'taxonomy'  => 'campaign-category',
+      'field'     => 'id',
+      'terms'     => $cc
     );
-    /*
-    $query = new WP_Query($args);
-    echo $query->request; exit;
-    */
-
-    $campaigns = get_posts($args);
-    if (isset($campaigns) && !empty($campaigns)) {
-      $campaign = $campaigns[0];
-    }
   }
+}
 
-  //only display block if valid campaign found
-  if (isset($campaign) && !empty($campaign)) {
-    $campaign_heading = get_field('heading', $campaign->ID);
-    $campaign_subheading = get_field('subheading', $campaign->ID);
-    $campaign_image = wp_get_attachment_image( get_field('icon', $campaign->ID), 'thumbnail', false, array( 'class' =>'block-offer-card__image', 'alt'=>'') );
-    $campaign_expiration = get_field('end_date', $campaign->ID);
-    $campaign_destination = get_field('destination', $campaign->ID);
-    $terms_and_conditions = get_field('terms_and_conditions', $campaign->ID);
-    $campaign_terms = '';
-    if ($terms_and_conditions && !empty($terms_and_conditions)) {
-      $campaign_terms = '
-        <div class="block-offer-card__terms">
-          <button class="block-offer-card__terms-toggle" aria-controls="terms_' . $campaign->ID . '"><strong>Need more Details?</strong> Read the fine print</button>
-          <div class="block-offer-card__terms-details" aria-expanded="false" data-state="closed" aria-labelledby="terms_' . $campaign->ID . '">' . $terms_and_conditions . '</div>
+if (!$override) {
+  $today = date("Ymd");
+  $args = array(
+    'post_type'     => 'campaign',
+    'post_status'   => 'publish',
+    'numberposts'   => 1,
+    'meta_query'    => array(
+      array(
+        'relation' => 'AND',
+        'start_date' => array(
+          'key'       => 'start_date',
+          'value'     => $today,
+          'compare'   => '<='
+        ),
+        'end_date' => array(
+          'key'       => 'end_date',
+          'value'     => $today,
+          'compare'   => '>='
+        ),
+      ),
+      array(
+        'priority' => array(
+          'key'       => 'priority',
+          'compare'   => 'EXISTS',
+        ),
+      )
+    ),
+    'tax_query'     => $tax_query,
+    'orderby' => array(
+      'priority'       => 'DESC',
+      'start_date'     => 'ASC',
+    )
+  );
+  /*
+  $query = new WP_Query($args);
+  echo $query->request; exit;
+  */
+
+  $campaigns = get_posts($args);
+  if (isset($campaigns) && !empty($campaigns)) {
+    $campaign = $campaigns[0];
+  }
+} elseif (isset($campaign) && !empty($campaign)) {
+  $campaign = $campaign[0];
+}
+
+//only display block if valid campaign found
+if (isset($campaign) && !empty($campaign)) {
+  $campaign_heading = get_field('heading', $campaign->ID);
+  $campaign_subheading = get_field('subheading', $campaign->ID);
+  $campaign_image = wp_get_attachment_image( get_field('icon', $campaign->ID), 'thumbnail', false, array( 'class' =>'block-offer-card__image', 'alt'=>'') );
+  $campaign_expiration = get_field('end_date', $campaign->ID);
+  $campaign_destination = get_field('destination', $campaign->ID);
+  $terms_and_conditions = get_field('terms_and_conditions', $campaign->ID);
+  $campaign_terms = '';
+  if ($terms_and_conditions && !empty($terms_and_conditions)) {
+    $campaign_terms = '
+      <span class="block-offer-card__terms">
+        <button class="block-offer-card__terms-toggle" aria-controls="terms_' . $campaign->ID . '" data-micromodal-trigger="modal-' . $campaign->ID . '"><strong>Need more Details?</strong> Read the fine print</button>
+        <div class="block-offer-card__terms-details modal" id="modal-' . $campaign->ID . '" aria-hidden="true">
+          <div tabindex="-1" data-micromodal-close>
+            <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-' . $campaign->ID . '-title">
+              <div class="modal__header">
+                <h2 class="modal__heading" id="modal-' . $campaign->ID . '-title">' . $campaign_heading . ' terms and conditions</h2>
+                <button class="block-offer-card__terms-details__close" aria-label="Close modal" data-micromodal-close>Close</button>
+              </div>
+              <div class="modal__body block-offer-card__terms-details__content">' . $terms_and_conditions . '</div>
+            </div>
+          </div>
         </div>
-      ';
-    }
+      </span>
+    ';
+  }
 ?>
 
   <?php if ($variation == "Masthead Offer Card") { ?>
@@ -111,7 +123,17 @@ if( !empty($block['backgroundColor'] ) ) {
     <p class="block-offer-card__offer-expiration">Offer expires <?= date('F d, Y', strtotime($campaign_expiration)); ?>
       <span class="block-offer-card__terms">
         <button class="block-offer-card__terms-toggle" aria-controls="terms_<?= $campaign->ID; ?>">View Details</button>
-        <div class="block-offer-card__terms-details" aria-expanded="false" data-state="closed" aria-labelledby="terms_<?= $campaign->ID; ?>"><?= $terms_and_conditions; ?></div>
+        <div class="block-offer-card__terms-details" data-modal="trigger" data-modal-id="" aria-expanded="false" data-state="closed" aria-labelledby="terms_<?= $campaign->ID; ?>">
+          <div class="modal__container" aria-hidden="true" data-modal="view" data-modal-id="">
+            <div class="modal__header">
+              <h2 class="modal__heading"><?= $campaign_heading ?> terms and conditions</h2>
+              <button class="block-offer-card__terms-details__close" data-action="close">Close</button>
+            </div>
+              <div class="modal__body block-offer-card__terms-details__content">
+              <?= $terms_and_conditions; ?>
+              </div>
+          </div>
+        </div>
       </span>
     </p>
 

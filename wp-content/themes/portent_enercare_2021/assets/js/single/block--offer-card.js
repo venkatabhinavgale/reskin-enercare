@@ -1,5 +1,5 @@
 window.addEventListener('load', function(){
-  let tcToggle = document.querySelectorAll('.block-offer-card__terms');
+  /*let tcToggle = document.querySelectorAll('.block-offer-card__terms');
   tcToggle.forEach(function(tc) {
     tc.addEventListener("click", function() {
       let termsContent = tc.querySelector('.block-offer-card__terms-details');
@@ -11,6 +11,6 @@ window.addEventListener('load', function(){
         termsContent.setAttribute("data-state", "open");
       }
     });
-  });
-  
+  });*/
+  MicroModal.init();
 });

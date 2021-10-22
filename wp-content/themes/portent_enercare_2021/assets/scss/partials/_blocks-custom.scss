@@ -137,6 +137,10 @@ Cover
 		padding: 1em 1em 0.25em 1em;
 		margin-bottom: 0;
 	}
+
+	@include media('>tablet') {
+		min-height: 640px;
+	}
 }
 
 /**
@@ -278,5 +282,21 @@ Blog Posts
 				margin-bottom: 0;
 			}
 		}
+	}
+}
+
+/**
+Youtube Lazy
+ */
+.block-youtube-lazy {
+
+	&.aligncenter {
+		float: none !important;
+		margin: 0 auto;
+	}
+
+	&.alignright {
+		float: none !important;
+		margin:0 0 0 auto;
 	}
 }
