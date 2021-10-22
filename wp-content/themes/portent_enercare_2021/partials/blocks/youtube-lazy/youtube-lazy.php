@@ -10,6 +10,10 @@ if( !empty($block['className']) ) {
 if( !empty($block['align']) ) {
 	$classes .= sprintf( ' align%s', $block['align'] );
 }
-?>
 
-<lite-youtube class="<?= $classes ?>" videoid="<?= $video_id ?>" playlabel=""></lite-youtube>
+if(is_admin() && empty($video_id) ) {
+	echo '<div class="block-youtube-lazy">Please Enter a Video ID</div>';
+} else {
+	echo '<lite-youtube class="'.$classes.'" videoid="'.$video_id.'" playlabel=""></lite-youtube>';
+}
+?>

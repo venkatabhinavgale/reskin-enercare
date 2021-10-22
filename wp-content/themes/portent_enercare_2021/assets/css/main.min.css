@@ -558,7 +558,8 @@ div.wpforms-container.one-line .wpforms-submit-container{float:right;width:110px
 .site-footer .copyright,.site-footer .footer-links{display:inline-block;margin-right:20px}
 .site-footer .backtotop{float:right}
 .footer--menus .menu-item-has-children>a{font-size:1.125em}
-}@media(min-width:769px){.site-header{padding:0}
+}@media(min-width:769px){.wp-block-cover{min-height:640px}
+.site-header{padding:0}
 .site-header .wrap{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-wrap:nowrap;flex-wrap:nowrap;position:relative}
 .header-phone__link{margin-right:0}
 .header-phone__number,.header-phone__cta{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end}

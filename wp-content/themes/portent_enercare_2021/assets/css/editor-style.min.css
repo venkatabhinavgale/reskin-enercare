@@ -440,7 +440,8 @@ body,p{font-size:1em}
 .block-newsletter-form__form-container form .gform_footer input[type=submit]{padding:8px 16px}
 .block-comparison-card__wrapper{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));grid-column-gap:28px;visibility:visible}
 .block-comparison-card__mobile-wrapper{display:none;visibility:hidden}
-}@media(min-width:769px){.post-summary__image{margin-bottom:12px}
+}@media(min-width:769px){.wp-block-cover{min-height:640px}
+.post-summary__image{margin-bottom:12px}
 }@media(min-width:992px){h1{font-size:52px}
 h2{font-size:48px}
 h3{font-size:40px}

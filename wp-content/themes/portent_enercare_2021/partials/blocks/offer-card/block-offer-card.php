@@ -111,7 +111,17 @@ if( !empty($block['backgroundColor'] ) ) {
     <p class="block-offer-card__offer-expiration">Offer expires <?= date('F d, Y', strtotime($campaign_expiration)); ?>
       <span class="block-offer-card__terms">
         <button class="block-offer-card__terms-toggle" aria-controls="terms_<?= $campaign->ID; ?>">View Details</button>
-        <div class="block-offer-card__terms-details" aria-expanded="false" data-state="closed" aria-labelledby="terms_<?= $campaign->ID; ?>"><?= $terms_and_conditions; ?></div>
+        <div class="block-offer-card__terms-details" data-modal="trigger" data-modal-id="" aria-expanded="false" data-state="closed" aria-labelledby="terms_<?= $campaign->ID; ?>">
+		  <div class="modal__container" aria-hidden="true" data-modal="view" data-modal-id="">
+			  <div class="modal__header">
+			  	<h2 class="modal__heading"><?= $campaign_heading ?> terms and conditions</h2>
+		  		<button class="block-offer-card__terms-details__close" data-action="close">Close</button>
+			  </div>
+			  	<div class="modal__body block-offer-card__terms-details__content">
+					<?= $terms_and_conditions; ?>
+			  	</div>
+		  </div>
+	  	</div>
       </span>
     </p>
 

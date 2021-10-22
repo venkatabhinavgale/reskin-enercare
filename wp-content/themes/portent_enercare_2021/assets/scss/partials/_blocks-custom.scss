@@ -137,6 +137,10 @@ Cover
 		padding: 1em 1em 0.25em 1em;
 		margin-bottom: 0;
 	}
+
+	@include media('>tablet') {
+		min-height: 640px;
+	}
 }
 
 /**
