@@ -209,7 +209,6 @@ img {
 Columns
  */
 .wp-block-column {
-
 	@include media('<tablet') {
 		margin-bottom: 1.5em;
 	}
