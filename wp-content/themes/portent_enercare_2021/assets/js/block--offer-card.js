@@ -1,11 +1,10 @@
 "use strict";
 
 window.addEventListener('load', function () {
-  var tcToggle = document.querySelectorAll('.block-offer-card__terms');
-  tcToggle.forEach(function (tc) {
-    tc.addEventListener("click", function () {
-      var termsContent = tc.querySelector('.block-offer-card__terms-details');
-
+  /*let tcToggle = document.querySelectorAll('.block-offer-card__terms');
+  tcToggle.forEach(function(tc) {
+    tc.addEventListener("click", function() {
+      let termsContent = tc.querySelector('.block-offer-card__terms-details');
       if (termsContent.getAttribute("aria-expanded") == "true") {
         termsContent.setAttribute("aria-expanded", "false");
         termsContent.setAttribute("data-state", "closed");
@@ -14,5 +13,6 @@ window.addEventListener('load', function () {
         termsContent.setAttribute("data-state", "open");
       }
     });
-  });
+  });*/
+  MicroModal.init();
 });
