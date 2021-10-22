@@ -10,11 +10,11 @@ window.addEventListener('load', function () {
       if (termsContent.getAttribute("aria-expanded") == "true") {
         termsContent.setAttribute("aria-expanded", "false");
         termsContent.setAttribute("data-state", "closed");
-        termsButton.innerHTML = termsButton.innerHTML.replace("navigate-right", "navigate-down");
+        termsButton.innerHTML = termsButton.innerHTML.replace("navigate-up", "navigate-down");
       } else {
         termsContent.setAttribute("aria-expanded", "true");
         termsContent.setAttribute("data-state", "open");
-        termsButton.innerHTML = termsButton.innerHTML.replace("navigate-down", "navigate-right");
+        termsButton.innerHTML = termsButton.innerHTML.replace("navigate-down", "navigate-up");
       }
     });
   });

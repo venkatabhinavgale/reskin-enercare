@@ -271,20 +271,25 @@ Legal Panel In Footer Area
 	display: flex;
 	width: 100%;
 	max-width: 100%;
-	justify-content: space-between;
-	padding: 0.75em 1em 0.5em;
+	justify-content: flex-start;
+	padding: 0 1.5em;
 	border: 0;
 	align-items: center;
 
 	img {
-		height: 24px;
-		width: 24px;
+		height: 15px;
+		width: 15px;
+		margin: 1.5em 0 1.5em 0.902em;
 	}
 }
 
 .legal__terms-details {
 	background-color: brand-color('grey-20');
 	padding: 1em;
+	font-size: 10px;
+	line-height: 12px;
+	letter-spacing: 0;
+	padding: 10px 24px;
 }
 
 /**

@@ -46,9 +46,9 @@ h4,h5,h6{font-size:18px}
 .banner-operational{background-color:#29292c;color:#fff;padding:.5em;margin-top:0 !important;text-align:center}
 .banner-operational p{margin:0;padding:0}
 .banner-operational a{color:#fff}
-.legal__terms-toggle{display:-webkit-box;display:-ms-flexbox;display:flex;width:100%;max-width:100%;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;padding:.75em 1em .5em;border:0;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
-.legal__terms-toggle img{height:24px;width:24px}
-.legal__terms-details{background-color:#e6e4e4;padding:1em}
+.legal__terms-toggle{display:-webkit-box;display:-ms-flexbox;display:flex;width:100%;max-width:100%;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start;padding:0 1.5em;border:0;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
+.legal__terms-toggle img{height:15px;width:15px;margin:1.5em 0 1.5em .902em}
+.legal__terms-details{background-color:#e6e4e4;padding:1em;font-size:10px;line-height:12px;letter-spacing:0;padding:10px 24px}
 .block-carousel__wrapper:not([data-num-slides="1"]) .glider-slide{margin:1em}
 .block-carousel__wrapper:not([data-num-slides="1"]) .glider-slide:first-of-type{margin-left:.5em}
 .block-carousel__wrapper:not([data-num-slides="1"]) .glider-slide:last-of-type{margin-right:.5em}
