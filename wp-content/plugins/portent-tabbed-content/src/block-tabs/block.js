@@ -19,7 +19,7 @@ const ALLOWED_BLOCKS = [ 'portent/block-portent-tabbed-content--tab' ];
 
 const PrintTabs = (props) => {
 	const tabs = props.tabs;
-	return(tabs.map(tab => <button className="block-tabbed-content__tab" data-interface="tab-button" data-tab={tab[0]}><img width="20px" height="20px" alt="" src={tab[2]}/>{tab[1]}</button>));
+	return(tabs.map(tab => <button className="block-tabbed-content__tab" data-interface="tab-button" data-tab={tab[0]}><img width="30px" height="30px" alt="" src={tab[2]}/>{tab[1]}</button>));
 }
 
 const ChildTabs = (props) => {
