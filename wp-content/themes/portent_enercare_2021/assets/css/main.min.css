@@ -253,7 +253,7 @@ div.wpforms-container.one-line:after{content:"";display:table;clear:both}
 .block-tabbed-content__tabs.init .block-tabbed-content__tab:first-of-type:hover{color:#fff}
 .block-tabbed-content__tabs.init .block-tabbed-content__tab:first-of-type:hover img{-webkit-filter:brightness(0) invert(1);filter:brightness(0) invert(1)}
 .block-tabbed-content__tab{border:0;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;background-color:transparent;font-weight:700;font-size:24px;padding:8px 24px 4px;border-bottom:2px solid transparent}
-.block-tabbed-content__tab img{-webkit-filter:hue-rotate(180deg) contrast(100%) brightness(0) grayscale(100%);filter:hue-rotate(180deg) contrast(100%) brightness(0) grayscale(100%);max-width:30px;height:30px;margin:0 10px 0 0}
+.block-tabbed-content__tab img{-webkit-filter:hue-rotate(180deg) contrast(100%) brightness(0) grayscale(100%);filter:hue-rotate(180deg) contrast(100%) brightness(0) grayscale(100%);width:30px;height:30px;margin:0 10px 0 0}
 .block-tabbed-content__tab:hover{background-color:#dc1c28;border-top-left-radius:20px;border-top-right-radius:20px;color:#fff}
 .block-tabbed-content__tab:hover img{-webkit-filter:brightness(0) invert(1);filter:brightness(0) invert(1)}
 .block-tabbed-content__tab.active{border-bottom:2px solid #dc1c28;color:#dc1c28}
@@ -461,6 +461,8 @@ div.wpforms-container.one-line:after{content:"";display:table;clear:both}
 .is-style-small .wp-block-button__link{padding:6px 16px}
 .is-style-featured .wp-block-button__link{line-height:24px;font-size:18px;padding:12px 24px;border-radius:1.563em}
 .is-style-hero .wp-block-button__link{font-size:24px;line-height:32px;padding:16px 48px;border-radius:2.25em}
+.modal{display:none}
+.modal.is-open{display:block}
 /*!
  * Mmenu Light
  * mmenujs.com/mmenu-light
@@ -613,8 +615,6 @@ h3{font-size:40px}
 .title-area .site-title a{padding-bottom:0;height:48px;background-size:auto 42px}
 .site-header .wrap{padding:0 24px;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
 }@media(max-width:767px){.wp-block-column{margin-bottom:1.5em}
-.block-tabbed-content__tab{font-size:18px;line-height:1.5em}
-.block-tabbed-content__tab img{max-width:20px;height:20px}
 .wp-block-cover{padding:0;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}
 .wp-block-cover img.wp-block-cover__image-background{position:relative}
 .footer-widgets .social-links li{display:inline-block;margin:0}

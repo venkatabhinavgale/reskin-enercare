@@ -5,13 +5,13 @@
 .block-comparison-card__contents-heading{margin-bottom:0;font-weight:900}
 .block-comparison-card__contents-subheading{margin-bottom:1em}
 .block-comparison-card__contents-description{margin-bottom:1.5em}
-.block-comparison-card__contents-toggle{color:#dc1c28;font-weight:700;line-height:22px;-webkit-filter:invert(16%) sepia(93%) saturate(5648%) hue-rotate(350deg) brightness(91%) contrast(89%);filter:invert(16%) sepia(93%) saturate(5648%) hue-rotate(350deg) brightness(91%) contrast(89%)}
+.block-comparison-card__contents-toggle{color:#dc1c28;font-weight:700;line-height:22px;-webkit-filter:invert(16%) sepia(93%) saturate(5648%) hue-rotate(350deg) brightness(91%) contrast(89%);filter:invert(16%) sepia(93%) saturate(5648%) hue-rotate(350deg) brightness(91%) contrast(89%);cursor:pointer}
 .block-comparison-card__contents-toggle img{max-width:.75em;margin-right:.875em;display:inline}
 .block-comparison-card__contents-table{margin-top:1.5em}
 .block-comparison-card__contents-table table,.block-comparison-card__contents-table tr,.block-comparison-card__contents-table td{border:1px solid #e6e4e4;border-spacing:0}
 .block-comparison-card__contents-table table{width:100%}
 .block-comparison-card__contents-table table tbody tr:nth-child(odd){background-color:#f5f2f2}
-.block-comparison-card__contents-table table tbody td{padding:1em}
+.block-comparison-card__contents-table table tbody td{padding:1em;max-width:240px}
 .block-comparison-card__contents-table table img{-webkit-filter:invert(24%) sepia(97%) saturate(3466%) hue-rotate(343deg) brightness(85%) contrast(104%);filter:invert(24%) sepia(97%) saturate(3466%) hue-rotate(343deg) brightness(85%) contrast(104%);margin:0 auto}
 .block-comparison-card__contents-table__subtext{display:block;font-size:10px;color:#000;font-weight:300;line-height:12px}
 .block-comparison-card__contents-table__cta{font-weight:700;margin:1.5em 1.75em 1em;line-height:22px}
