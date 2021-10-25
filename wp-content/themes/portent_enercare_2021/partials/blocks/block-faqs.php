@@ -30,7 +30,6 @@ if( !empty( $faqs ) )  {
     
     echo '</div>';
   }
-  echo '<div class="block-faqs--cta"><a href="' . get_bloginfo('url') . '/faqs" class="btn">See All FAQs</a></div>';
 }
 
 echo '</div>';
