@@ -461,6 +461,8 @@ div.wpforms-container.one-line:after{content:"";display:table;clear:both}
 .is-style-small .wp-block-button__link{padding:6px 16px}
 .is-style-featured .wp-block-button__link{line-height:24px;font-size:18px;padding:12px 24px;border-radius:1.563em}
 .is-style-hero .wp-block-button__link{font-size:24px;line-height:32px;padding:16px 48px;border-radius:2.25em}
+.modal{display:none}
+.modal.is-open{display:block}
 /*!
  * Mmenu Light
  * mmenujs.com/mmenu-light
