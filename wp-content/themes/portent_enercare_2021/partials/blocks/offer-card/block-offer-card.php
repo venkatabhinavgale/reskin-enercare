@@ -92,6 +92,10 @@ if (isset($campaign) && !empty($campaign)) {
   $campaign_image = wp_get_attachment_image( get_field('icon', $campaign->ID), 'thumbnail', false, array( 'class' =>'block-offer-card__image', 'alt'=>'') );
   $campaign_expiration = get_field('end_date', $campaign->ID);
   $campaign_destination = get_field('destination', $campaign->ID);
+  // if defined, we're overriding the offer destination URL
+  if (get_field('cta_url_override')) {
+    $campaign_destination = get_field('cta_url_override');
+  }
   $terms_and_conditions = get_field('terms_and_conditions', $campaign->ID);
   $campaign_terms = '';
   if ($terms_and_conditions && !empty($terms_and_conditions)) {
@@ -137,7 +141,7 @@ if (isset($campaign) && !empty($campaign)) {
       </span>
     </p>
 
-    <a href="<?= get_field('destination', $campaign->ID); ?>">
+    <a href="<?= $campaign_destination; ?>">
     <button>
       <span class="wp-block-button__link has-red-background-color has-background"><?= $cta_text ?></span>
     </button>
@@ -146,7 +150,7 @@ if (isset($campaign) && !empty($campaign)) {
   <?php } elseif ($variation == "Full Width with Image") { ?>
     <div class="block-offer-card__wrapper__full-width" data-allow-multiple>
       <div class="block-offer-card__container <?= $background_color_setting ?>">
-        <a href="<?= get_field('destination', $campaign->ID); ?>">
+        <a href="<?= $campaign_destination; ?>">
         <button>
           <?php if ($campaign_subheading) { ?>
             <p class="block-offer-card__subheading"><?php echo $campaign_subheading; ?></p>
