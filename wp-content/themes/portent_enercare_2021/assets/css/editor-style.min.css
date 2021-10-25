@@ -345,7 +345,7 @@ ul.block-location-finder__list{padding-left:0}
 .block-newsletter-form__form-container form .gform_body input[type=text]{border-radius:5px 0 0 5px;padding:8px 12px;max-height:40px;line-height:24px}
 .block-newsletter-form__form-container form .gform_footer input[type=submit]{width:auto;border-radius:0 5px 5px 0;font-size:1.125rem;font-weight:700;line-height:24px;padding:2px 16px;text-decoration:none;background-color:#dc1c28;color:#fff;margin-bottom:0;margin-top:3px;max-height:40px}
 .block-faqs--header{font-weight:900;text-align:center}
-.block-faqs--faq-container{font-size:18px;font-weight:700}
+.block-faqs--faq-container{font-size:18px;font-weight:700;cursor:pointer}
 .block-faqs--faq-container:after{content:'';display:inline-block;background-color:#d3d1d1;width:100%;height:2px;margin-right:.55em;vertical-align:middle}
 .block-faqs--faq-container:before{content:'';display:inline-block;background-image:url("../icons/utility/add_circle_black_24dp_rounded.svg");background-repeat:no-repeat;background-position:center;padding:.70em;width:22px;height:19px;margin-right:8px;margin-top:-0.3em;vertical-align:middle;-webkit-filter:invert(11%) sepia(99%) saturate(5418%) hue-rotate(352deg) brightness(98%) contrast(86%);filter:invert(11%) sepia(99%) saturate(5418%) hue-rotate(352deg) brightness(98%) contrast(86%)}
 .block-faqs--faq-container[data-child="open"]:before{background-image:url("../icons/utility/minus_circle_black_24dp_rounded.svg")}
@@ -386,7 +386,7 @@ ul.block-location-finder__list{padding-left:0}
 .block-comparison-card__contents-table table,.block-comparison-card__contents-table tr,.block-comparison-card__contents-table td{border:1px solid #e6e4e4;border-spacing:0}
 .block-comparison-card__contents-table table{width:100%}
 .block-comparison-card__contents-table table tbody tr:nth-child(odd){background-color:#f5f2f2}
-.block-comparison-card__contents-table table tbody td{padding:1em}
+.block-comparison-card__contents-table table tbody td{padding:1em;max-width:240px}
 .block-comparison-card__contents-table table img{-webkit-filter:invert(24%) sepia(97%) saturate(3466%) hue-rotate(343deg) brightness(85%) contrast(104%);filter:invert(24%) sepia(97%) saturate(3466%) hue-rotate(343deg) brightness(85%) contrast(104%);margin:0 auto}
 .block-comparison-card__contents-table__subtext{display:block;font-size:10px;color:#000;font-weight:300;line-height:12px}
 .block-comparison-card__contents-table__cta{font-weight:700;margin:1.5em 1.75em 1em;line-height:22px}
