@@ -380,7 +380,7 @@ ul.block-location-finder__list{padding-left:0}
 .block-comparison-card__contents-heading{margin-bottom:0;font-weight:900}
 .block-comparison-card__contents-subheading{margin-bottom:1em}
 .block-comparison-card__contents-description{margin-bottom:1.5em}
-.block-comparison-card__contents-toggle{color:#dc1c28;font-weight:700;line-height:22px;-webkit-filter:invert(16%) sepia(93%) saturate(5648%) hue-rotate(350deg) brightness(91%) contrast(89%);filter:invert(16%) sepia(93%) saturate(5648%) hue-rotate(350deg) brightness(91%) contrast(89%)}
+.block-comparison-card__contents-toggle{color:#dc1c28;font-weight:700;line-height:22px;-webkit-filter:invert(16%) sepia(93%) saturate(5648%) hue-rotate(350deg) brightness(91%) contrast(89%);filter:invert(16%) sepia(93%) saturate(5648%) hue-rotate(350deg) brightness(91%) contrast(89%);cursor:pointer}
 .block-comparison-card__contents-toggle img{max-width:.75em;margin-right:.875em;display:inline}
 .block-comparison-card__contents-table{margin-top:1.5em}
 .block-comparison-card__contents-table table,.block-comparison-card__contents-table tr,.block-comparison-card__contents-table td{border:1px solid #e6e4e4;border-spacing:0}
