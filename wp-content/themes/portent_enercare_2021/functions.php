@@ -508,5 +508,43 @@ function enercare_appointment_banner() {
 		}
 
 }
-
 add_action('tha_content_before', 'enercare_appointment_banner');
+
+/**
+ * Critical CSS
+ */
+function enercare_critical_css() {
+  // don't use critical styles if this URL param is present. used for regenerating critical styles
+  if (!isset($_GET['nocritical'])) {
+    global $post;
+    $base_crit_dir = get_template_directory() . '/assets/css/critical/';
+    echo '<!--Start Critical CSS --><style>';
+    // these conditionals should match what we are generating in our gulpfile
+    if (is_front_page()) {
+      echo "/* critical/front.css */ ";
+      include_once ( $base_crit_dir . 'front.css' );
+    } else if (is_home()) {
+      echo "/* critical/blog.css */ ";
+      include_once ( $base_crit_dir . 'blog.css' );
+    } else if (is_single() && $post->post_type == "post") {
+      echo "/* critical/blog-single.css */ ";
+      include_once ( $base_crit_dir . 'blog-single.css' );
+    } else if (is_archive() && $post->post_type == "location") {
+      echo "/* critical/locations.css */ ";
+      include_once ( $base_crit_dir . 'locations.css' );
+    } else if (is_single() && $post->post_type == "location") {
+      echo "/* critical/single-location.css */ ";
+      include_once ( $base_crit_dir . 'single-location.css' );
+    } else if (is_archive() && $post->post_type == "campaign") {
+      echo "/* critical/special-offers.css */ ";
+      include_once ( $base_crit_dir . 'special-offers.css' );
+    } else if (is_search()) {
+      echo "/* critical/search.css */ ";
+      include_once ( $base_crit_dir . 'search.css' );
+    } else {
+      include_once ( $base_crit_dir . 'default.css' );
+    }
+    echo '</style><!--End Critical CSS -->';
+  }
+}
+add_action( 'wp_head', 'enercare_critical_css', 0, 1 );

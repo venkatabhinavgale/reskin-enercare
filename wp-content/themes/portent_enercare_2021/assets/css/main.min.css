@@ -179,6 +179,7 @@ img.aligncenter{margin-left:auto;margin-right:auto}
 .wp-block-image figcaption{color:#505156;text-align:left;font-size:14px;font-style:normal}
 .wp-block-table{border-collapse:collapse;width:100%}
 .wp-block-table td,.wp-block-table th{padding:.5em;border:1px solid}
+.wp-block-table img.emoji{max-width:1em}
 .has-red-color{color:#dc1c28}
 .has-red-background-color{background-color:#dc1c28}
 .has-dark-red-color{color:#c30d18}
