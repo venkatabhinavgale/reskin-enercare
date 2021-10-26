@@ -371,6 +371,56 @@ gulp.task('images', () => {
 		);
 });
 
+/*********** https://github.com/addyosmani/critical CRITICAL CSS ******************/
+const critical = require("critical");
+
+gulp.task("criticalcss", function () {
+  //var baseurl = "http://enercare.test";
+  var baseurl = "https://dev-enercare.pantheonsite.io";
+  var criticalurls = {
+    "front.css": baseurl,
+    "blog.css": baseurl + "/blog/",
+    "blog-single.css": baseurl + "/blog/plumbing/simple-tips-to-winterize-your-homes-plumbing",
+    "special-offers.css": baseurl + "/special-offers",
+    "locations.css": baseurl + "/locations",
+    "single-location.css": baseurl + "/locations/toronto",
+    "search.css": baseurl + "/?addsearch=heating&nocritical",
+    "default.css": baseurl + "/heating"
+  };
+
+  for (var dest in criticalurls) {
+    critical.generate({
+      base: "assets/css/critical",
+      src: criticalurls[dest] + "?nocritical",
+      dest: dest,
+      dimensions: [
+        {
+          // mobile
+          height: 640,
+          width: 360,
+        },
+        {
+          // tablet
+          height: 800,
+          width: 768,
+        },
+        {
+          // desktop
+          height: 900,
+          width: 1200,
+        },
+      ],
+      // ignore: {
+      //   atrule: ["@font-face"],
+      //   decl: (node, value) => /url\(/.test(value),
+      // },
+    });
+  }
+
+  return;
+});
+/*********** END CRITICAL CSS ******************/
+
 /**
  * Task: `clear-images-cache`.
  *
