@@ -111,9 +111,11 @@ h4,h5,h6{font-size:18px}
 .banner-operational{background-color:#29292c;color:#fff;padding:.5em;margin-top:0 !important;text-align:center}
 .banner-operational p{margin:0;padding:0}
 .banner-operational a{color:#fff}
-.legal__terms-toggle{display:-webkit-box;display:-ms-flexbox;display:flex;width:100%;max-width:100%;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start;padding:0 1.5em;border:0;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
+.legal__terms{width:100%;background-color:#f5f2f2}
+.legal__terms-toggle{display:-webkit-box;display:-ms-flexbox;display:flex;margin:0 auto;width:66%;max-width:100%;padding:0 1.5em;border:0;-webkit-box-align:center;-ms-flex-align:center;align-items:center;background:0}
 .legal__terms-toggle img{height:15px;width:15px;margin:1.5em 0 1.5em .902em}
-.legal__terms-details{background-color:#e6e4e4;padding:1em;font-size:10px;line-height:12px;letter-spacing:0;padding:10px 24px}
+.legal__terms-details{background-color:#e6e4e4;padding:1em;font-size:10px;line-height:12px;letter-spacing:0;width:100%}
+.legal__terms-details p{width:66%;margin:0 auto;padding:5px 0 5px 16px}
 .block-carousel__wrapper:not([data-num-slides="1"]) .glider-slide{margin:1em}
 .block-carousel__wrapper:not([data-num-slides="1"]) .glider-slide:first-of-type{margin-left:.5em}
 .block-carousel__wrapper:not([data-num-slides="1"]) .glider-slide:last-of-type{margin-right:.5em}
@@ -297,7 +299,7 @@ div.wpforms-container.one-line:after{content:"";display:table;clear:both}
 .header-phone__link{display:-webkit-box;display:-ms-flexbox;display:flex;margin-right:1.5rem;text-decoration:none}
 .header-phone__number,.header-phone__cta{display:none}
 .header-phone svg{fill:currentColor}
-.title-area{width:100%;max-width:7.25rem;text-align:left;margin-right:auto}
+.title-area{width:100%;max-width:10.75rem;text-align:left;margin-right:3rem}
 .title-area h1.site-title,.title-area p.site-title{margin:0;font-size:24px;line-height:30px;padding:8px}
 .title-area h1.site-title a,.title-area p.site-title a{color:#29292c;text-decoration:none}
 .top-bar{background-color:#e6e4e4;display:none;padding:.75rem 0}
@@ -611,7 +613,9 @@ h3{font-size:40px}
 .header-phone__number{font-size:1.25rem}
 }@media(max-width:991px){.sidebar-primary{display:none}
 }@media(max-width:782px){#wpadminbar{display:none !important}
-}@media(max-width:768px){.title-area{text-align:center}
+}@media(max-width:768px){.legal__terms-toggle{margin:0;padding:0 1.5em;width:100%}
+.legal__terms-details p{margin:0 0 10px;width:100%;padding:10px 0 0}
+.title-area{text-align:center}
 .title-area .site-title a{padding-bottom:0;height:48px;background-size:auto 42px}
 .site-header .wrap{padding:0 24px;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
 }@media(max-width:767px){.wp-block-column{margin-bottom:1.5em}
