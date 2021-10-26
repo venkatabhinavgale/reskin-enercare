@@ -57,7 +57,7 @@ input:focus::-webkit-input-placeholder,input:focus::-moz-placeholder,input:focus
 .gform_wrapper .ginput_container_consent{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}
 .gform_wrapper .ginput_container_consent input[type=checkbox]{max-width:25%;margin:0;width:1em}
 .gform_wrapper .ginput_container_consent .gfield_consent_label{-ms-flex-item-align:center;align-self:center;margin-left:.5em}
-.gform_wrapper .gform_footer input[type=submit]{width:140px;border-radius:30px;font-size:1rem;font-weight:700;line-height:22px;padding:5px 16px;text-decoration:none;background-color:#dc1c28;color:#fff}
+.gform_wrapper .gform_footer input[type=submit]{width:140px;border-radius:30px;font-size:1rem;font-weight:700;line-height:22px;padding:5px 16px;text-decoration:none;background-color:#dc1c28;color:#fff;cursor:pointer}
 .ginput_container_checkbox .gchoice{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;height:42px}
 .ginput_container_checkbox input[type="checkbox"]{-webkit-box-flex:0;-ms-flex-positive:0;flex-grow:0;height:auto;width:auto;margin:0 .5em 0 0}
 .search-form{border:1px solid #e6e4e4;max-width:400px;position:relative;overflow:hidden}
