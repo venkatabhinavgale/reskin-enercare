@@ -22,6 +22,7 @@
 .block-reviews__next{right:0;-webkit-transform:translateX(100%);transform:translateX(100%)}
 .block-reviews__review{border-left:1px solid #f5f2f2;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start;padding:0 52px 0 24px}
 .block-reviews__review__content{font-size:1em;-webkit-box-flex:1;-ms-flex-positive:1;flex-grow:1;margin:.025em 0}
+.block-reviews__review__content img{max-width:1em}
 .block-reviews__review__content:before,.block-reviews__review__content:after{content:'"'}
 .block-reviews__review__reviewer{display:block;font-size:1.125em;line-height:1.5em;font-weight:700;margin:.025em 0 .015em;text-transform:capitalize}
 .block-reviews__review__date{display:block;margin:.015em 0 0;font-size:14px}
