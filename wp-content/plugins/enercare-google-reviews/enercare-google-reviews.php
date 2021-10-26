@@ -649,7 +649,22 @@ function ecreviews_location_block_render_callback( $attributes, $content ) {
       
       $output .= '<p class="block-reviews__review__content">' . $post_content . '</p>';
       $output .= '<span class="block-reviews__review__reviewer">' . get_post_meta( $review->ID, 'gmb_review_reviewer', true ) . '</span>';
-      $output .= '<span class="block-reviews__review__date">' . $review->post_date . '</span>';
+      
+      $today = date_create();
+      $review_date = date_create($review->post_date);
+      $interval = date_diff($today, $review_date);
+      
+      if ($interval->format('%d') > 182) {
+        $review_date = "More than 6 months ago";
+      } elseif ($interval->format('%d') > 31) {
+        $review_date = "In the last 6 months";
+      } elseif ($interval->format('%d') > 7) {
+        $review_date = "In the last 30 days";
+      } else {
+        $review_date = "In the last week";
+      }
+      
+      $output .= '<span class="block-reviews__review__date">' . $review_date . '</span>';
       $output .= '</div>';
     }
   }
