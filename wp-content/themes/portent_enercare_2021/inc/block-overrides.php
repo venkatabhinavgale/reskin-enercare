@@ -5,7 +5,7 @@ function enercare_render_block( $block_content, $block ) {
 		return $block_content;
 	}
 	
-  $block_content .= enercare_banner();
+  $block_content .= enercare_banner(false);
   $block_content .= enercare_breadcrumbs(false);
 	return $block_content;
 }
