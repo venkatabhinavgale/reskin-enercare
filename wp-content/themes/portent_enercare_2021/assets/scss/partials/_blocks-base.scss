@@ -267,14 +267,27 @@ Operational Banner
 /**
 Legal Panel In Footer Area
  */
+
+ .legal__terms {
+ 	width: 100%;
+ 	background-color: $grey_1;
+ }
+
 .legal__terms-toggle {
 	display: flex;
-	width: 100%;
+	margin: 0 auto;
+	width: 66%;
 	max-width: 100%;
-	justify-content: flex-start;
 	padding: 0 1.5em;
 	border: 0;
 	align-items: center;
+	background: none;
+
+	@include media("<=tablet") {
+		margin: 0;
+		padding: 0 1.5em;
+		width: 100%;
+	}
 
 	img {
 		height: 15px;
@@ -289,7 +302,19 @@ Legal Panel In Footer Area
 	font-size: 10px;
 	line-height: 12px;
 	letter-spacing: 0;
-	padding: 10px 24px;
+	width: 100%;
+
+	p {
+		width: 66%;
+		margin: 0 auto;
+		padding: 5px 0 5px 16px;
+
+		@include media("<=tablet") {
+			margin: 0 0 10px;
+			width: 100%;
+			padding: 10px 0 0;
+		}
+	}
 }
 
 /**
