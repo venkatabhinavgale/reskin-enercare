@@ -46,9 +46,11 @@ h4,h5,h6{font-size:18px}
 .banner-operational{background-color:#29292c;color:#fff;padding:.5em;margin-top:0 !important;text-align:center}
 .banner-operational p{margin:0;padding:0}
 .banner-operational a{color:#fff}
-.legal__terms-toggle{display:-webkit-box;display:-ms-flexbox;display:flex;width:100%;max-width:100%;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start;padding:0 1.5em;border:0;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
+.legal__terms{width:100%;background-color:#f5f2f2}
+.legal__terms-toggle{display:-webkit-box;display:-ms-flexbox;display:flex;margin:0 auto;width:66%;max-width:100%;padding:0 1.5em;border:0;-webkit-box-align:center;-ms-flex-align:center;align-items:center;background:0}
 .legal__terms-toggle img{height:15px;width:15px;margin:1.5em 0 1.5em .902em}
-.legal__terms-details{background-color:#e6e4e4;padding:1em;font-size:10px;line-height:12px;letter-spacing:0;padding:10px 24px}
+.legal__terms-details{background-color:#e6e4e4;padding:1em;font-size:10px;line-height:12px;letter-spacing:0;width:100%}
+.legal__terms-details p{width:66%;margin:0 auto;padding:5px 0 5px 16px}
 .block-carousel__wrapper:not([data-num-slides="1"]) .glider-slide{margin:1em}
 .block-carousel__wrapper:not([data-num-slides="1"]) .glider-slide:first-of-type{margin-left:.5em}
 .block-carousel__wrapper:not([data-num-slides="1"]) .glider-slide:last-of-type{margin-right:.5em}
@@ -456,7 +458,9 @@ h3{font-size:40px}
 .block-newsletter-form__content{grid-area:content;text-align:left;margin-left:0;font-size:40px;line-height:48px;margin-bottom:0;margin-top:16px}
 .block-newsletter-form__form-container{margin:0 0 0 24px;-ms-flex-item-align:center;align-self:center}
 .block-newsletter-form__form-container .gform_wrapper{width:100%}
-}@media(max-width:768px){.block-reviews__stars{margin-top:.5em;margin-bottom:.25em}
+}@media(max-width:768px){.legal__terms-toggle{margin:0;padding:0 1.5em;width:100%}
+.legal__terms-details p{margin:0 0 10px;width:100%;padding:10px 0 0}
+.block-reviews__stars{margin-top:.5em;margin-bottom:.25em}
 .block-reviews__review .block-reviews__stars{margin-top:1.5em;margin-bottom:.75em}
 .block-offer-card__offer-expiration{font-size:1em;line-height:22px}
 .block-offer-card__terms-toggle{font-size:1em;line-height:22px}
