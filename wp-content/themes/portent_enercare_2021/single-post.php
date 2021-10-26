@@ -9,8 +9,10 @@
 **/
 
 
+// Covid banner in header
+add_action( 'tha_header_after', 'enercare_banner', 8 );
 // Breadcrumbs in header
-add_action( 'tha_entry_top', 'enercare_breadcrumbs', 8 );
+add_action( 'tha_header_after', 'enercare_breadcrumbs', 10 );
 // Featured image in header
 add_action( 'tha_entry_top', 'enercare_post_summary_image', 10, 1 );
 // Entry byline in header

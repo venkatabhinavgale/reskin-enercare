@@ -182,6 +182,18 @@ function enercare_has_action( $hook ) {
  */
 function enercare_breadcrumbs($display = true) {
 	if ( function_exists('yoast_breadcrumb') ) {
+    global $post;
+    // exclude breadcrumbs on these post_types, pages, etc.
+    if (
+        is_front_page() || 
+        (is_single() && $post->post_type == "landing-page")
+       ) {
+      return false;
+    }
+    
+    if ($display == "" && $display !== false)
+      $display = true;
+    
     $breadcrumbs = yoast_breadcrumb( '<p id="breadcrumbs" class="breadcrumb">','</p>',$display );
     if (!$display)
       return $breadcrumbs;
@@ -192,7 +204,7 @@ function enercare_breadcrumbs($display = true) {
  * Banner (Covid)
  *
  */
-function enercare_banner() {
+function enercare_banner($display = true) {
   $global_banner_toggle = get_field('banner_toggle', 'option');
   $banner_text = get_field('banner_text', 'option');
   $post_banner_toggle = get_field('banner_toggle');
@@ -204,7 +216,13 @@ function enercare_banner() {
     $output = '<div class="banner-operational alignfull">' . $banner_text . '</div>';
   }
 
-  return $output;
+  if ($display == "" && $display !== false)
+    $display = true;
+  
+  if (!$display)
+    return $output;
+  else
+    echo $output;
 }
 
 /**
