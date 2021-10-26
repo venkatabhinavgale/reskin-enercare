@@ -2,7 +2,12 @@
 
 	&__stars {
 		display: flex;
-		margin: 1em 0;
+		margin: 0.563em 0 1em;
+
+		@include media('<=tablet') {
+			margin-top: 0.5em;
+			margin-bottom: 0.25em;
+		}
 	}
 
 	&__star {
@@ -28,7 +33,7 @@
 		position: relative;
 
 		@include media('>=tablet') {
-			background-color: $grey_2;
+			background-color: $grey_1;
 			flex-direction: row;
 			padding: 0 20%;
 		}
@@ -36,7 +41,7 @@
 		&:after {
 			content: '';
 			display: block;
-			background-color: $grey_2;
+			background-color: $grey_1;
 			position: absolute;
 			bottom: 0;
 			left: 0;
@@ -57,6 +62,7 @@
 			padding-bottom: 1em;
 			text-align: center;
 			z-index: 1;
+			font-size: 16px;
 
 			@include media('>=tablet') {
 				margin-top: 0;
@@ -110,7 +116,7 @@
 		overflow-x: hidden;
 
 		@include media('>=tablet') {
-			padding: 50px 0;
+			padding: 32px 0;
 		}
 	}
 
@@ -171,20 +177,20 @@
 	}
 
 	&__review {
-		border-left: 1px solid $grey_3;
+		border-left: 1px solid $grey_1;
 		display: flex;
 		flex-direction: column;
 		justify-content: flex-start;
-		padding: 24px;
-
-		&:first-of-type {
-			border-left: 0;
-		}
+		padding: 0 52px 0 24px;
 
 		&__content {
-			@include large-font-style();
+			font-size: 1em;
 			flex-grow: 1;
 			margin: 0.025em 0;
+      
+      img {
+        max-width: 1em;
+      }
 
 			&:before,
 			&:after {
@@ -203,6 +209,21 @@
 		&__date {
 			display: block;
 			margin: 0.015em 0 0;
+			font-size: 14px;
+		}
+
+		.block-reviews__stars {
+			margin-bottom: 15px;
+
+			@include media('<=tablet') {
+				margin-top: 1.5em;
+				margin-bottom: 0.75em;
+			}
+		}
+
+		.block-reviews__star {
+			height: 20px;
+			width: 20px;
 		}
 	}
 }
