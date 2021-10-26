@@ -187,6 +187,10 @@
 			font-size: 1em;
 			flex-grow: 1;
 			margin: 0.025em 0;
+      
+      img {
+        max-width: 1em;
+      }
 
 			&:before,
 			&:after {
