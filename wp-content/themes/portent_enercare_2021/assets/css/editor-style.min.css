@@ -161,7 +161,6 @@ img.aligncenter{margin-left:auto;margin-right:auto}
 .wp-block-group .wp-block-group__inner-container{max-width:1168px;margin:0 auto}
 .wp-block-group .wp-block-group__inner-container:after{content:"";display:table;clear:both}
 .wp-block-group .wp-block-group__inner-container>*:last-child{margin-bottom:0}
-.wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column:not(:first-child){margin-left:1.75em}
 [data-state="open"]{display:inherit;height:100%;visibility:visible}
 [data-state="closed"]{display:none;height:0;visibility:hidden}
 div.wpforms-container .wpforms-title{font-size:24px;font-weight:700;line-height:1.2;margin:0 0 16px;padding:0}
@@ -361,12 +360,12 @@ ul.block-location-finder__list{padding-left:0}
 .block-offer-card__terms{text-align:center}
 .block-offer-card__terms-toggle{border:0;background:0;color:#646469;font-size:14px;line-height:20px;text-decoration:underline;display:inline;cursor:pointer}
 .block-offer-card__container{text-align:center;padding:48px}
+.block-offer-card__subheading{font-size:1.125em;font-weight:700;line-height:1.5em;letter-spacing:-0.17px}
+.block-offer-card__heading{font-size:1.5em;line-height:1.75rem;letter-spacing:-0.15px;font-weight:900;margin-bottom:0}
+.block-offer-card__image{width:100%;-o-object-fit:cover;object-fit:cover;aspect-ratio:3 / 2;-o-object-position:center;object-position:center}
 .block-offer-card__wrapper{text-align:center;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-flow:column wrap;flex-flow:column wrap;padding:0}
-.block-offer-card__wrapper .block-offer-card__subheading{font-size:1.125em;font-weight:700;line-height:1.5em;letter-spacing:-0.17px}
-.block-offer-card__wrapper .block-offer-card__heading{font-size:1.5em;line-height:1.75rem;letter-spacing:-0.15px;font-weight:900;margin-bottom:0}
 .block-offer-card__wrapper a button{border-style:none;background:0}
 .block-offer-card__wrapper a button .wp-block-button__link{padding:12px 24px;border-radius:24px}
-.block-offer-card__wrapper img{width:100%;-o-object-fit:cover;object-fit:cover;aspect-ratio:3 / 2;-o-object-position:center;object-position:center}
 .block-offer-card__wrapper__masthead{background-color:rgba(0,0,0,0.8) !important;border-style:none;background:0;padding:48px}
 .block-offer-card__wrapper__masthead h3{font-size:2.5em;line-height:48px;font-weight:900}
 .block-offer-card__wrapper__masthead .block-offer-card__offer-expiration{font-size:12px;line-height:16px}
@@ -447,8 +446,8 @@ body,p{font-size:1em}
 .block-emc-card__image{margin:0 3.125em 1.5em;width:75%;max-width:172px !important;height:auto}
 .block-newsletter-form__form-container form .gform_footer input[type=submit]{padding:8px 16px}
 .block-offer-card__offer-expiration{font-size:.875em}
-.block-offer-card__wrapper .block-offer-card__heading{font-size:2em}
-.block-offer-card__wrapper .block-offer-card__heading{line-height:3rem;letter-spacing:-0.38px}
+.block-offer-card__heading{font-size:2em}
+.block-offer-card__heading{line-height:3rem;letter-spacing:-0.38px}
 .block-comparison-card__wrapper{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));grid-column-gap:28px;visibility:visible}
 .block-comparison-card__mobile-wrapper{display:none;visibility:hidden}
 }@media(min-width:769px){.wp-block-cover{min-height:640px}
@@ -458,7 +457,7 @@ h2{font-size:48px}
 h3{font-size:40px}
 .wp-block-group{padding:70px 16px}
 .block-reviews__section-heading__header{font-size:3.5em}
-.block-offer-card__wrapper .block-offer-card__heading{font-size:2.5em}
+.block-offer-card__heading{font-size:2.5em}
 }@media(min-width:1200px){.block-reviews__section-heading__header{font-size:3.5em}
 .block-newsletter-form__container{-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;padding:64px 0}
 .block-newsletter-form__content-container{display:grid;border-right:1px solid #d3d1d1;padding-right:1.5em;grid-template-columns:.25fr 1fr 1fr;grid-template-rows:.2fr 1fr;gap:0 24px;grid-template-areas:". heading heading" "image content content"}
@@ -467,7 +466,7 @@ h3{font-size:40px}
 .block-newsletter-form__content{grid-area:content;text-align:left;margin-left:0;font-size:40px;line-height:48px;margin-bottom:0;margin-top:16px}
 .block-newsletter-form__form-container{margin:0 0 0 24px;-ms-flex-item-align:center;align-self:center}
 .block-newsletter-form__form-container .gform_wrapper{width:100%}
-.block-offer-card__wrapper .block-offer-card__heading{font-size:2.5em}
+.block-offer-card__heading{font-size:2.5em}
 }@media(max-width:768px){.legal__terms-toggle{margin:0;padding:0 1.5em;width:100%}
 .legal__terms-details p{margin:0 0 10px;width:100%;padding:10px 0 0}
 .block-reviews__stars{margin-top:.5em;margin-bottom:.25em}
