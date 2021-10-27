@@ -101,15 +101,15 @@ if (isset($campaign) && !empty($campaign)) {
   if ($terms_and_conditions && !empty($terms_and_conditions)) {
     $campaign_terms = '
       <span class="block-offer-card__terms">
-        <button class="block-offer-card__terms-toggle" aria-controls="terms_' . $campaign->ID . '" data-micromodal-trigger="modal-' . $campaign->ID . '"><strong>Need more Details?</strong> Read the fine print</button>
         <div class="block-offer-card__terms-details modal" id="modal-' . $campaign->ID . '" aria-hidden="true">
-          <div tabindex="-1" data-micromodal-close>
+          <div class="modal__overlay" tabindex="-1" data-micromodal-close>
             <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-' . $campaign->ID . '-title">
               <div class="modal__header">
                 <h2 class="modal__heading" id="modal-' . $campaign->ID . '-title">' . $campaign_heading . ' terms and conditions</h2>
                 <button class="block-offer-card__terms-details__close" aria-label="Close modal" data-micromodal-close>Close</button>
               </div>
-              <div class="modal__body block-offer-card__terms-details__content">' . $terms_and_conditions . '</div>
+              <div class="modal__content block-offer-card__terms-details__content">' . $terms_and_conditions . '</div>
+              <div class="modal__footer"></div>
             </div>
           </div>
         </div>

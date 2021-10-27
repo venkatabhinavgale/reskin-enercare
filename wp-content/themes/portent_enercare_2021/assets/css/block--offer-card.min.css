@@ -1,6 +1,6 @@
 .block-offer-card__offer-expiration{font-size:14px;color:#646469;line-height:20px}
 .block-offer-card__terms{text-align:center}
-.block-offer-card__terms-toggle{border:0;background:0;color:#646469;font-size:14px;line-height:20px;text-decoration:underline}
+.block-offer-card__terms-toggle{border:0;background:0;color:#646469;font-size:14px;line-height:20px;text-decoration:underline;display:inline}
 .block-offer-card__container{text-align:center;padding:48px}
 .block-offer-card__wrapper{text-align:center;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-flow:column wrap;flex-flow:column wrap;padding:0}
 .block-offer-card__wrapper a button{border-style:none;background:0}
@@ -22,6 +22,6 @@
 .block-offer-card__wrapper__full-width .block-offer-card__terms-toggle{font-size:1em}
 .block-offer-card__wrapper__full-width img{width:66%;-o-object-fit:contain;object-fit:contain}
 @media(max-width:768px){.block-offer-card__offer-expiration{font-size:1em;line-height:22px}
-.block-offer-card__terms-toggle{font-size:1em;line-height:22px}
+.block-offer-card__terms-toggle{font-size:.875em;line-height:22px}
 .block-offer-card__wrapper a button h3{font-size:24px;line-height:28px}
 }

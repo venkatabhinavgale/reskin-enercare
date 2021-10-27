@@ -22,13 +22,14 @@
 		 background: none;
 		 color: $grey_6;
 		 font-size: 14px;
-		 line-height: 20px;	
-		 text-decoration: underline;	
+		 line-height: 20px;
+		 text-decoration: underline;
+		display: inline;
 
 		 @include media("<=tablet") {
-			font-size: 1em;
+			font-size: 0.875em;
 			line-height: 22px;
-		} 
+		}
 	}
 
 	&__container {
