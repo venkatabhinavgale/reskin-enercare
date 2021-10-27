@@ -18,15 +18,16 @@
 	}
 
 	&__terms-toggle {
-		 border: none;
-		 background: none;
-		 color: $grey_6;
-		 font-size: 14px;
-		 line-height: 20px;
-		 text-decoration: underline;
+		border: none;
+		background: none;
+		color: $grey_6;
+		font-size: 14px;
+		line-height: 20px;
+		text-decoration: underline;
 		display: inline;
+    cursor: pointer;
 
-		 @include media("<=tablet") {
+		@include media("<=tablet") {
 			font-size: 0.875em;
 			line-height: 22px;
 		}
