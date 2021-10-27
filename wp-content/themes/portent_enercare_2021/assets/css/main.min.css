@@ -441,6 +441,7 @@ div.wpforms-container.one-line:after{content:"";display:table;clear:both}
 .footer-widgets a:hover{text-decoration:underline}
 .footer-widgets a svg{fill:#fff;width:20px;height:20px;margin-right:12px}
 .site-footer{background:#f5f2f2;color:#000;font-size:12px;padding:20px 0 45px;text-align:center;vertical-align:middle}
+.site-footer .wrap{margin-bottom:.75em}
 .site-footer .wrap>*:last-child{margin-bottom:0}
 .site-footer a{color:rgba(255,255,255,0.75)}
 .site-footer a:hover{color:#fff}
