@@ -213,9 +213,14 @@ img {
 Columns
  */
 .wp-block-column {
+
 	@include media('<tablet') {
 		margin-bottom: 1.5em;
 	}
+}
+
+.wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column:not(:first-child) {
+	margin-left: 1.75em;
 }
 
 /* Open/Closed Options
