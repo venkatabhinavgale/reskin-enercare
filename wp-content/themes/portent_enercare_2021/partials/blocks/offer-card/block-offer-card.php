@@ -106,7 +106,7 @@ if (isset($campaign) && !empty($campaign)) {
             <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-' . $campaign->ID . '-title">
               <div class="modal__header">
                 <h2 class="modal__heading" id="modal-' . $campaign->ID . '-title">' . $campaign_heading . ' terms and conditions</h2>
-                <button class="block-offer-card__terms-details__close" aria-label="Close modal" data-micromodal-close>Close</button>
+                <button class="block-offer-card__terms-details__close modal__close" aria-label="Close modal" data-micromodal-close></button>
               </div>
               <div class="modal__content block-offer-card__terms-details__content">' . $terms_and_conditions . '</div>
               <div class="modal__footer"></div>
