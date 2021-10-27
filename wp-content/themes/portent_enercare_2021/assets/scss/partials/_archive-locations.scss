@@ -53,6 +53,16 @@
 			font-size: 24px;
 			text-transform: capitalize;
 		}
+
+		&__province-form {
+
+			.province-filter {
+
+				&__select {
+					padding: 8px 16px;
+				}
+			}
+		}
 	}
 
 	@import "../pieces/postal-code-filter";
