@@ -81,6 +81,10 @@
 	text-align: center;
 	vertical-align: middle;
 
+	.wrap {
+		margin-bottom: 0.75em;
+	}
+
 	.wrap > *:last-child {
 		margin-bottom: 0;
 	}
