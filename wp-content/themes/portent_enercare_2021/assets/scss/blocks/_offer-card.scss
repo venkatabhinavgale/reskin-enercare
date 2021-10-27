@@ -43,7 +43,14 @@
 		display: flex;
 		flex-flow: column wrap;
 		padding: 0;
-
+    
+    .block-offer-card {
+      &__subheading {
+        font-size: 18px;
+        line-height: 24px;
+        font-weight: 700;
+      }
+    }
 
 		a {
 			button {
