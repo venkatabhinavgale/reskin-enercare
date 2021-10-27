@@ -13,7 +13,7 @@
 .block-reviews__dots{margin:1.5em 0 1em}
 .block-reviews__dots button{background-color:#d3d1d1;margin:0 .75em .5em}
 .block-reviews__dots button.active{background-color:#dc1c28}
-.block-reviews__prev,.block-reviews__next{background-color:transparent;border:1px dotted transparent;height:50px;position:absolute;top:50%;opacity:1;-webkit-transform:translateY(-50%);transform:translateY(-50%);-webkit-transition:opacity .3s ease-in;transition:opacity .3s ease-in;width:50px;border-radius:100%}
+.block-reviews__prev,.block-reviews__next{background-color:transparent;border:1px dotted transparent;height:50px;position:absolute;top:40%;opacity:1;-webkit-transform:translateY(-50%);transform:translateY(-50%);-webkit-transition:opacity .3s ease-in;transition:opacity .3s ease-in;width:50px;border-radius:100%}
 .block-reviews__prev img,.block-reviews__next img{margin:0 auto}
 .block-reviews__prev:hover,.block-reviews__next:hover{background-color:#e6e4e4;-webkit-transition:background-color .3s ease-in;transition:background-color .3s ease-in}
 .block-reviews__prev:focus,.block-reviews__next:focus{border:1px dotted #3d3d43}
@@ -35,7 +35,7 @@
 .block-reviews__section-heading__header{font-size:3em}
 .block-reviews__section-heading__stars{display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex;vertical-align:sub}
 .block-reviews__stamp{-webkit-transform:scale(1.2);transform:scale(1.2)}
-.block-reviews__wrapper{padding:32px 0}
+.block-reviews__wrapper{padding:32px 0;overflow-x:visible}
 .block-reviews__review__reviewer{font-size:1.125em}
 }@media(min-width:992px){.block-reviews__section-heading__header{font-size:3.5em}
 }@media(min-width:1200px){.block-reviews__section-heading__header{font-size:3.5em}
