@@ -187,6 +187,7 @@ Floating CTA
 .floating-cta {
 	background-color: #fff;
 	bottom: 0;
+	display: block;
 	height: $floating_cta_height;
 	left: 0;
 	position: fixed;
@@ -194,4 +195,8 @@ Floating CTA
 	text-align: center;
 	width: 100%;
 	z-index: 200;
+
+	@include media('>=tablet') {
+		display: none;
+	}
 }

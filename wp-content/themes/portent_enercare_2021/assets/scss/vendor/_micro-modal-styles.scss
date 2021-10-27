@@ -43,7 +43,7 @@
 .modal__header {
 	display: flex;
 	justify-content: space-between;
-	align-items: center;
+	align-items: flex-start;
 	padding: 1.5em;
 	border-bottom: 1px solid $grey_2;
 }
@@ -51,7 +51,9 @@
 .modal__heading {
 	@include font-sizes(1.5em);
 	text-align: left;
+	letter-spacing: -0.17px;
 	margin-bottom: 0;
+	margin-right:0.5em;
 }
 
 .modal__title {
@@ -66,13 +68,28 @@
 
 .modal__close {
 	background: transparent;
-	border: 0;
+	height:24px;
+	width: 24px;
+	border-radius: 100%;
+	border: 1px solid transparent;
+	padding: 0 5px;
+
+	&:hover,
+	&:focus {
+		border: 1px dotted $grey_4;
+	}
 }
 
 .modal__header .modal__close:before { content: "\2715"; }
 
+.modal__close__icon {
+	width: 24px;
+	height: 24px;
+	object-fit: contain;
+}
+
 .modal__content {
-	margin-top: 2rem;
+	margin-top: 1rem;
 	margin-bottom: 0.25rem;
 	line-height: 1.5;
 	color: rgba(0,0,0,.8);

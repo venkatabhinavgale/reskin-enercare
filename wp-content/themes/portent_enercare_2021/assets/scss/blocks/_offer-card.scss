@@ -3,13 +3,15 @@
 	/* Default Offer Card */
 
 	&__offer-expiration {
-		font-size: 14px;
+		@include font-sizes(1em, 0.875em);
 		color: $grey_6;
-		line-height: 20px;
+		line-height: 1.25rem;
+		letter-spacing: -0.13px;
 
 		@include media("<=tablet") {
-			font-size: 1em;
-			line-height: 22px;
+			line-height: 1.375rem;
+			margin-top: 10px;
+			letter-spacing: -0.15px;
 		}
 	}
 
@@ -25,7 +27,7 @@
 		line-height: 20px;
 		text-decoration: underline;
 		display: inline;
-    cursor: pointer;
+		cursor: pointer;
 
 		@include media("<=tablet") {
 			font-size: 0.875em;
@@ -38,19 +40,38 @@
 		padding: 48px;
 	}
 
+	&__subheading {
+		@include font-sizes(1.125em);
+		font-weight: 700;
+		line-height: 1.5em;
+		letter-spacing: -0.17px;
+	}
+
+	&__heading {
+		@include font-sizes(1.5em, 2em, 2.5em, 2.5em);
+		line-height: 1.75rem;
+		letter-spacing: -0.15px;
+		font-weight: 900;
+		margin-bottom: 0;
+
+		@include media(">=tablet") {
+			line-height: 3rem;
+			letter-spacing: -0.38px;
+		}
+	}
+
+	&__image {
+		width: 100%;
+		object-fit: cover;
+		aspect-ratio: 3 / 2;
+		object-position: center;
+	}
+
 	&__wrapper {
 		text-align: center;
 		display: flex;
 		flex-flow: column wrap;
 		padding: 0;
-    
-    .block-offer-card {
-      &__subheading {
-        font-size: 18px;
-        line-height: 24px;
-        font-weight: 700;
-      }
-    }
 
 		a {
 			button {
@@ -64,20 +85,7 @@
 						border-radius: 24px;
 					}
 				}
-
-				@include media("<=tablet") {
-					h3 {
-						font-size: 24px;
-						line-height: 28px;
-					}
-				}
 			}
-		}
-
-		img {
-			width: 100%;
-			object-fit: contain;
-
 		}
 
 		/* Masthead Offer Card */
@@ -89,8 +97,9 @@
 			padding: 48px;
 
 			h3 {
-				font-size: 52px;
-				line-height: 60px;
+				@include font-sizes(2.5em);
+				line-height: 48px;
+				font-weight: 900;
 			}
 
 			.block-offer-card {
@@ -101,8 +110,10 @@
 				}
 
 				&__subheading {
-					font-size: 28px;
-					line-height: 36px;
+					@include font-sizes(1.125em);
+					font-weight: 700;
+					line-height: 24px;
+					letter-spacing: -0.17px;
 				}
 
 				&__terms-toggle {
@@ -132,6 +143,7 @@
 		&__full-width {
 			display: flex;
 			flex-direction: row;
+
 			a {
 
 				button {
