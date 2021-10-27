@@ -1,7 +1,7 @@
 .block-reviews__stars{display:-webkit-box;display:-ms-flexbox;display:flex;margin:.563em 0 1em}
 .block-reviews__star{margin:0 .15em;height:24px;width:24px}
 .block-reviews__star:first-of-type,.block-reviews__star:last-of-type{margin:0}
-.block-reviews__section-heading{background-color:#fff;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-preferred-size:75%;flex-basis:75%;padding:0 1em;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;font-size:1.125em;line-height:1.5em;position:relative}
+.block-reviews__section-heading{background-color:#fff;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-preferred-size:75%;flex-basis:75%;padding:0 1em;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;font-size:1.125em;line-height:1.5rem;position:relative}
 .block-reviews__section-heading:after{content:'';display:block;background-color:#f5f2f2;position:absolute;bottom:0;left:0;height:77%;width:100%;z-index:0}
 .block-reviews__section-heading__title{-ms-flex-preferred-size:75%;flex-basis:75%;-webkit-box-flex:1;-ms-flex-positive:1;flex-grow:1;margin-top:1.5em;padding-bottom:1em;text-align:center;z-index:1;font-size:16px}
 .block-reviews__section-heading__header{font-weight:900;font-size:1.75em;line-height:1;margin-bottom:0;padding-bottom:0}
@@ -24,7 +24,7 @@
 .block-reviews__review__content{font-size:1em;-webkit-box-flex:1;-ms-flex-positive:1;flex-grow:1;margin:.025em 0}
 .block-reviews__review__content img{max-width:1em}
 .block-reviews__review__content:before,.block-reviews__review__content:after{content:'"'}
-.block-reviews__review__reviewer{display:block;font-size:1.125em;line-height:1.5em;font-weight:700;margin:.025em 0 .015em;text-transform:capitalize}
+.block-reviews__review__reviewer{display:block;font-size:1.125em;line-height:1.5rem;font-weight:700;margin:.025em 0 .015em;text-transform:capitalize}
 .block-reviews__review__date{display:block;margin:.015em 0 0;font-size:14px}
 .block-reviews__review .block-reviews__stars{margin-bottom:15px}
 .block-reviews__review .block-reviews__star{height:20px;width:20px}
