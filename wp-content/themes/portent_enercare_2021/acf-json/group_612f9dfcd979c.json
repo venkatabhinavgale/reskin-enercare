@@ -3,6 +3,22 @@
     "title": "Block - Offer Card",
     "fields": [
         {
+            "key": "field_6172fe2774507",
+            "label": "CTA URL Override",
+            "name": "cta_url_override",
+            "type": "url",
+            "instructions": "Only fill this out if you want to override the URL an offer\/campaign should link to. The best example of using this field is when an offer card is being used on the page where the lead form exists and you want a jump link to the form. i.e. #form",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
             "key": "field_612f9eba9a6d5",
             "label": "Variation",
             "name": "variation",
@@ -202,22 +218,6 @@
             "prepend": "",
             "append": "",
             "maxlength": ""
-        },
-        {
-            "key": "field_6172fe2774507",
-            "label": "CTA URL Override",
-            "name": "cta_url_override",
-            "type": "url",
-            "instructions": "Only fill this out if you want to override the URL an offer\/campaign should link to. The best example of using this field is when an offer card is being used on the page where the lead form exists and you want a jump link to the form. i.e. #form",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": ""
         }
     ],
     "location": [
@@ -237,5 +237,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1635186725
+    "modified": 1635301891,
+    "local_file": "\/Users\/jeremiah\/Local Sites\/enercare-2021\/app\/public\/wp-content\/themes\/portent_enercare_2021\/acf-json\/group_612f9dfcd979c.json"
 }
