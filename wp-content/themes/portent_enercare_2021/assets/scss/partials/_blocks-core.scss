@@ -220,7 +220,8 @@ Columns
 }
 
 .wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column:not(:first-child) {
-	margin-left: 1.75em;
+	//Not sure where this came from but it is disrupting mobile flow for columns. Commenting out
+	//margin-left: 1.75em;
 }
 
 /* Open/Closed Options
