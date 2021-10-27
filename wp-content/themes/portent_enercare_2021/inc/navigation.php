@@ -65,7 +65,7 @@ add_filter( 'wp_nav_menu_items', 'enercare_nav_extras', 10, 2 );
 function enercare_search_toggle() {
 	$output = '<button' . enercare_amp_class( 'search-toggle', 'active', 'searchActive' ) . enercare_amp_toggle( 'searchActive', array( 'menuActive', 'mobileFollow' ) ) . '>';
 		$output .= enercare_icon( array( 'icon' => 'search', 'size' => 24, 'class' => 'open' ) );
-		$output .= enercare_icon( array( 'icon' => 'close', 'size' => 24, 'class' => 'close' ) );
+		$output .= enercare_icon( array( 'icon' => 'close', 'size' => 24, 'class' => 'close', 'group' => 'navigation' ) );
 		$output .= '<span class="screen-reader-text">Search</span>';
 	$output .= '</button>';
 	return $output;
@@ -77,8 +77,8 @@ function enercare_search_toggle() {
  */
 function enercare_mobile_menu_toggle() {
 	$output = '<button' . enercare_amp_class( 'menu-toggle', 'active', 'menuActive' ) . enercare_amp_toggle( 'menuActive', array( 'searchActive', 'mobileFollow' ) ) . '>';
-		$output .= enercare_icon( array( 'icon' => 'menu', 'size' => 24, 'class' => 'open' ) );
-		$output .= enercare_icon( array( 'icon' => 'close', 'size' => 24, 'class' => 'close' ) );
+		$output .= enercare_icon( array( 'icon' => 'menu', 'size' => 24, 'class' => 'open', 'group' => 'navigation' ) );
+		$output .= enercare_icon( array( 'icon' => 'close', 'size' => 24, 'class' => 'close', 'group' => 'navigation' ) );
 		$output .= '<span class="screen-reader-text">Menu</span>';
 	$output .= '</button>';
 	return $output;

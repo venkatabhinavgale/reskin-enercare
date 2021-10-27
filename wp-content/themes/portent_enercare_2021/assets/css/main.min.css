@@ -300,7 +300,7 @@ div.wpforms-container.one-line:after{content:"";display:table;clear:both}
 .header-phone__link{display:-webkit-box;display:-ms-flexbox;display:flex;margin-right:1.5rem;text-decoration:none}
 .header-phone__number,.header-phone__cta{display:none}
 .header-phone svg{fill:currentColor}
-.title-area{width:100%;max-width:10.75rem;text-align:left;margin-right:3rem}
+.title-area{width:100%;max-width:10.75rem;text-align:left;margin-right:auto}
 .title-area h1.site-title,.title-area p.site-title{margin:0;font-size:24px;line-height:30px;padding:8px}
 .title-area h1.site-title a,.title-area p.site-title a{color:#29292c;text-decoration:none}
 .top-bar{background-color:#e6e4e4;display:none;padding:.75rem 0}
@@ -329,7 +329,7 @@ div.wpforms-container.one-line:after{content:"";display:table;clear:both}
 .nav-menu .menu-item__icon{display:none}
 .menu-toggle{background:transparent;border:0;border-radius:0;-webkit-box-shadow:none;box-shadow:none;padding:0;outline:0;cursor:pointer;line-height:0;text-align:center}
 .menu-toggle .close{display:none}
-.menu-toggle:hover,.menu-toggle.active{background:#d3d1d1}
+.menu-toggle:hover{background:#d3d1d1}
 .menu-toggle.active{margin-right:25px}
 .menu-toggle.active .close{display:inline}
 .menu-toggle.active .open{display:none}
@@ -641,6 +641,7 @@ h3{font-size:40px}
 .legal__terms-details p{margin:0 0 10px;width:100%;padding:10px 0 0}
 .title-area{text-align:center}
 .title-area .site-title a{padding-bottom:0;height:48px;background-size:auto 42px}
+.title-area img{max-height:38px}
 .site-header .wrap{padding:0 24px;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
 }@media(max-width:767px){.wp-block-column{margin-bottom:1.5em}
 .wp-block-cover{padding:0;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}
