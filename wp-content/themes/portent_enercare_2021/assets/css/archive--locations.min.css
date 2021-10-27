@@ -6,6 +6,7 @@
 .post-type-archive-location .location-archive-filters__header{font-size:1.2em}
 .post-type-archive-location .location-archive-filters__filter{background-color:#e6e4e4;padding:24px;height:100%;text-align:left}
 .post-type-archive-location .location-archive-filters__divider{font-weight:700;font-size:24px;text-transform:capitalize}
+.post-type-archive-location .location-archive-filters__province-form .province-filter__select{padding:8px 16px}
 .post-type-archive-location .postal-code-filter__form{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
 .post-type-archive-location .postal-code-filter__input{border-top-right-radius:0;border-bottom-right-radius:0}
 .post-type-archive-location .postal-code-filter__submit{background-color:#dc1c28;border:1px dotted transparent;color:white;height:42px;border-top-right-radius:10px;border-bottom-right-radius:10px;padding:0 1em;vertical-align:middle;line-height:0;padding-top:5px;-webkit-transition:background-color .2s ease;transition:background-color .2s ease}
