@@ -61,7 +61,7 @@
 	width: 100%;
 	max-width: 10.75rem;
 	text-align: left;
-	margin-right: 3rem;
+	margin-right: auto;
 
 	h1.site-title,
 	p.site-title {
@@ -97,6 +97,9 @@
 			height: 48px;
 			background-size: auto 42px;
 		}
+    img {
+      max-height: 38px;
+    }
 	}
 }
 

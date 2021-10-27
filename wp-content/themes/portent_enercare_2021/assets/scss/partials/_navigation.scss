@@ -74,6 +74,7 @@
 			//styles for first menu item with icons
 			> .menu-item {
 				min-width: 14.28%;
+				flex: 1 1 0px; // grow equal width;
 				> a {
 					display: flex;
 					flex-direction: column;
@@ -108,7 +109,8 @@
 
 					span {
 						font-weight: 700;
-						padding: 8px 0;
+						display: block;
+						padding-bottom: 0.5rem;
 					}
 
 					&:before,
@@ -138,6 +140,7 @@
 						&:not(:last-of-type) {
 							border-right: 1px solid brand-color("grey-30");
 							margin-right: 2rem;
+							padding-right: 5px;
 						}
 
 						&:after {
@@ -180,12 +183,13 @@
 		display: none;
 	}
 
-	&:hover,
-	&.active {
+	&:hover {
 		background: $grey_3;
 	}
 
 	&.active {
+		margin-right: 25px;
+
 		.close {
 			display: inline;
 		}
