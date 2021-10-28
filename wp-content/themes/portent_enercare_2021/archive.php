@@ -77,7 +77,7 @@ add_action( 'tha_content_while_before', 'enercare_archive_header' );
 add_action( 'enercare_archive_header_before', 'enercare_breadcrumbs', 5 );
 
 //Filters
-if (!is_search() && have_posts()) {
+if (!is_search() && have_posts() && !is_category()) {
 	add_action('enercare_archive_header_after', 'enercare_filter_taxonomy_by_post_type');
 }
 
