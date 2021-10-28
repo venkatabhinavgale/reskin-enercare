@@ -352,7 +352,14 @@ class ECReviews {
       'meta_key'      => 'gmb_location_id',
       'meta_value'    => $location_id,
       'post_status'   => 'publish',
-      'suppress_filters' => false
+      'suppress_filters' => false,
+      'meta_query' => array(
+                        array(
+                          'key'     => 'gmb_review_rating',
+                          'value'   => '4',
+                          'compare' => '>='
+                        )
+                      )
     ));
     // remove the filter
     remove_filter('posts_where', array(__CLASS__, 'postsWhereContentNotEmpty'));

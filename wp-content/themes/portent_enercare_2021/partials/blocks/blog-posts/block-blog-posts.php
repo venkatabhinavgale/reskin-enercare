@@ -55,7 +55,8 @@ $blog_posts = new WP_Query( $blog_post_args );
 				echo '<div class="block-blog-posts__post__summary">';
 
 				if( $post_display === 'full') {
-					$id = get_the_author_meta( 'ID' );
+					/* 10/28/2021: disabling the author byline until the blog is properly ready.
+          $id = get_the_author_meta( 'ID' );
 					echo '<div class="block-blog-posts__post__post-meta">';
 						echo get_avatar( $id, 40 );
 							echo '<div class="block-blog-posts__post__author-meta">';
@@ -63,7 +64,8 @@ $blog_posts = new WP_Query( $blog_post_args );
 								echo '<div class="block-blog-posts__post__author-meta__date">'.get_the_date('F j').'</div>';
 								echo do_shortcode( '[rt_reading_time label="" postfix="min read"]');
 						echo '</div>';
-					echo '</div>';
+					echo '</div>';*/
+          echo '<p class="publish-date single-post__date">' . get_the_date('F j, Y') . '</p>';
 				}
 
 				echo '<h2 class="block-blog-posts__post__title"><a class="block-blog-posts__post__link" href="' . get_the_permalink() . '">' . get_the_title() . '</a></h2>';

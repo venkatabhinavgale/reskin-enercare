@@ -356,6 +356,8 @@ div.wpforms-container.one-line:after{content:"";display:table;clear:both}
 .archive-description{text-align:center;width:100%;max-width:768px;margin:0 auto 32px}
 .archive-description>*:last-child{margin-bottom:0}
 .archive-description .search-form{margin:0 auto}
+.archive-description .filter-control__container .filter-reset{background-color:#e6e4e4;border-style:none;font-weight:300;line-height:1.375em;letter-spacing:-0.15px;font-size:1em;padding:.250em .5em;border-radius:20px;margin:.25em}
+.archive-description .taxonomy-filters button{background-color:#e6e4e4;border-style:none;font-weight:300;line-height:1.375em;letter-spacing:-0.15px;font-size:1em;padding:.250em .5em;border-radius:20px;margin:.25em}
 .author-archive-description .avatar{border-radius:50%;display:block;margin:0 auto 16px}
 .author-title{color:#3d3d43;font-size:18px;font-weight:700;text-transform:uppercase}
 .pagination{border-top:1px solid #e6e4e4;font-size:16px;text-align:center;padding-top:22px}
