@@ -564,4 +564,8 @@ function enercare_campaign_archive_query( $query ) {
 	if ( is_post_type_archive( 'campaign' ) && $query->is_main_query() ) :
 		$query->set( 'posts_per_page', -1 );
 	endif;
+
+	if ( is_post_type_archive( 'location' ) && $query->is_main_query() ) :
+		$query->set( 'posts_per_page', -1 );
+	endif;
 }
