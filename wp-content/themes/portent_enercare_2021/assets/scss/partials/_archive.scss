@@ -52,6 +52,11 @@
 				padding: 0.250em 0.5em;
 				border-radius: 20px;
 				margin: 0.25em;
+
+				&:hover,
+				&:focus {
+					background-color: $grey_3;
+			}
 			}
 		}
 	}
@@ -69,6 +74,11 @@
 			padding: 0.250em 0.5em;
 			border-radius: 20px;
 			margin: 0.25em;
+
+			&:hover,
+			&:focus {
+				background-color: $grey_3;
+			}
 		}
 	}
 
