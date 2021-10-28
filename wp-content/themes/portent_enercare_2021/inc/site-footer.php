@@ -63,7 +63,9 @@ function footer_legal() {
     echo '</div>';
 	}
 }
-add_action( 'tha_footer_before', 'footer_legal', 1 );
+if (is_single() || is_page()) {
+  add_action( 'tha_footer_before', 'footer_legal', 1 );
+}
 
 /**
  * Site Footer
