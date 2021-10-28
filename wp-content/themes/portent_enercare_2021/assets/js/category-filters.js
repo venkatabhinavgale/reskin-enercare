@@ -182,6 +182,18 @@ jQuery(function ($) {
   }); //Start the page load with a filter check
 
   flagActiveFilters();
+  $('.category-filter__select').on('change', function (event) {
+    var searchedTaxonomy = this.value; //console.log(searchedTaxonomy);
+
+    var currentUrl = new URL(window.location.href);
+    var taxonomySlug = $(this).attr('data-taxonomy');
+    var category = currentUrl.searchParams.get(taxonomySlug);
+    currentUrl.searchParams.set(taxonomySlug, searchedTaxonomy);
+    var updatedUrl = currentUrl.href;
+    pushHistoryState(updatedUrl);
+    displayFilteredResults(updatedUrl);
+  }); //Single filter criteria control hookup
+
   $('.postal-code-input-container button').on('click', function (event) {
     var searchedPostalCode = $('.postal-code-input-container #postalCode').val();
     console.log(searchedPostalCode);

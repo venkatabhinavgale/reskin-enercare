@@ -103,6 +103,13 @@ function enercare_scripts() {
 		wp_enqueue_style( 'enercare-archive-locations', get_template_directory_uri() . '/assets/css/archive--locations.css', array( 'ea-style' ), null );
 	}
 
+	if( is_post_type_archive( 'campaign' ) ) {
+		wp_enqueue_script( 'micromodal-script');
+		wp_enqueue_script( 'block--offer-card-script', get_template_directory_uri() . '/assets/js/block--offer-card.js', array('micromodal-script'), null, true);
+		wp_enqueue_style( 'enercare-archive-campaigns', get_template_directory_uri() . '/assets/css/archive--campaign.css', array( 'ea-style' ), null );
+	}
+
+
 	wp_enqueue_style( 'ea-fonts', enercare_theme_fonts_url() );
 	wp_enqueue_style( 'ea-style', get_template_directory_uri() . '/assets/css/main.css', array(), filemtime( get_template_directory() . '/assets/css/main.css' ) );
 
@@ -548,3 +555,17 @@ function enercare_critical_css() {
   }
 }
 add_action( 'wp_head', 'enercare_critical_css', 0, 1 );
+
+/**
+ * Campaign Archive Filter All Post Results
+ */
+add_action( 'pre_get_posts', 'enercare_campaign_archive_query' );
+function enercare_campaign_archive_query( $query ) {
+	if ( is_post_type_archive( 'campaign' ) && $query->is_main_query() ) :
+		$query->set( 'posts_per_page', -1 );
+	endif;
+
+	if ( is_post_type_archive( 'location' ) && $query->is_main_query() ) :
+		$query->set( 'posts_per_page', -1 );
+	endif;
+}

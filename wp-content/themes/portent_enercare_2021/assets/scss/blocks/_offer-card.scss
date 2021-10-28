@@ -67,10 +67,21 @@
 		object-position: center;
 	}
 
+	&__link {
+
+		align-items: flex-start;
+
+		&__icon {
+			filter: invert(99%) sepia(95%) saturate(0%) hue-rotate(157deg) brightness(103%) contrast(101%);
+			width: 20px !important;
+			height: 20px !important;
+		}
+	}
+
 	&__wrapper {
 		text-align: center;
 		display: flex;
-		flex-flow: column wrap;
+		flex-flow: column;
 		padding: 0;
 
 		a {
