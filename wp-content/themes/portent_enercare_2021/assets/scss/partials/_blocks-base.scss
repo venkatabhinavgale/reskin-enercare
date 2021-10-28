@@ -232,6 +232,13 @@ Block Styles
 	}
 }
 
+.is-style-bulleted {
+
+	li::marker {
+		color: brand-color('red');
+	}
+}
+
 .is-style-checkmarked {
 	padding-left: 0 !important;
 
@@ -250,6 +257,30 @@ Block Styles
 			width: 24px;
 			height: 24px;
 			filter: invert(11%) sepia(99%) saturate(5418%) hue-rotate(352deg) brightness(98%) contrast(86%);
+			position: relative;
+			margin: 0 0.5em 0 0;
+		}
+	}
+}
+
+.is-style-white-checkmarked {
+	padding-left: 0 !important;
+
+	li {
+		list-style: none;
+		display: flex;
+		align-items: center;
+		margin: 0 0 1em 0;
+
+		&::before {
+			content: '';
+			display: inline-block;
+			background-image: url('../icons/utility/check_black_24dp_rounded.svg');
+			background-repeat: no-repeat;
+			background-position: center;
+			width: 24px;
+			height: 24px;
+			filter: invert(100%) sepia(1%) saturate(7402%) hue-rotate(171deg) brightness(122%) contrast(94%);
 			position: relative;
 			margin: 0 0.5em 0 0;
 		}
