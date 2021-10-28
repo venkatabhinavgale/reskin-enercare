@@ -51,6 +51,40 @@ $default: nth( nth( $brand_colors, 1 ), 1 ); // first color in $brand_colors arr
 
 }
 
+/**
+Sub Headings
+ */
+
+.is-style-subhead1 {
+	@include font-sizes(22px, 28px, 28px);
+	line-height: 36px;
+	font-weight: 700;
+
+	@include media('<tablet') {
+		line-height: 24px;
+	}
+}
+
+.is-style-subhead2 {
+	@include font-sizes(20px, 24px, 24px);
+	line-height: 32px;
+	font-weight: 700;
+
+	@include media('<tablet') {
+		line-height: 24px;
+	}
+}
+
+.is-style-subhead3 {
+	@include font-sizes(18px, 20px, 20px);
+	line-height: 36px;
+	font-weight: 700;
+
+	@include media('<tablet') {
+		line-height: 24px;
+	}
+}
+
 /* Blockquote
 --------------------------------------------- */
 

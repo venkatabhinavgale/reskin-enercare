@@ -12,6 +12,14 @@ if( !empty($block['backgroundColor'] ) ) {
 	$classes .= sprintf(' has-%s-background-color', $block['backgroundColor']);
 }
 
+if( get_field( 'justification' ) ) {
+	$classes .= sprintf(' block-card--justify-%s', get_field( 'justification' ) );
+}
+
+if( get_field( 'alignment' ) ) {
+	$classes .= sprintf(' block-card--align-%s', get_field( 'alignment' ) );
+}
+
 $allowed_blocks = array(
 	'core/image',
 	'core/paragraph',
