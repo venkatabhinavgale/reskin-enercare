@@ -56,11 +56,12 @@
 /* Featured
 --------------------------------------------- */
 
-.is-style-featured {
+.wp-block-button {
 
-	.wp-block-button {
+	$featured-button: &;
 
-		&__link {
+	&.is-style-featured {
+		#{$featured-button}__link {
 			line-height: 24px;
 			font-size: 18px;
 			padding: 12px 24px;
@@ -72,15 +73,21 @@
 /* Hero
 --------------------------------------------- */
 
-.is-style-hero {
+.wp-block-button {
 
-	.wp-block-button {
+	$hero-button: &;
 
-		&__link {
-			font-size: 24px;
-			line-height: 32px;
-			padding: 16px 48px;
+	&.is-style-hero {
+
+		#{$hero-button}__link {
+			@include font-sizes(1.250em, 1.5em, 1.5em);
+			line-height: 2.000rem;
+			padding: 16px 48px 13px;
 			border-radius: 2.25em;
+
+			@include media('<tablet') {
+				line-height: 1.5rem;
+			}
 		}
 	}
 }

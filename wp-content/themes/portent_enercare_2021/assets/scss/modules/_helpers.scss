@@ -170,7 +170,7 @@
 
 @mixin large-font-style() {
 	@include font-sizes( 1.125em, 1.125em );
-	line-height: 1.5em;
+	line-height: 1.5rem;
 }
 
 @mixin strong-font-style() {
@@ -178,6 +178,14 @@
 }
 
 @mixin regular-font-style() {
+	@include font-sizes( 1em, 1em, 1em, 1em );
+	line-height: 1.375rem;
+	font-weight: 300;
+}
+
+@mixin small-font-style() {
+	@include font-sizes(0.875em);
+	line-height: 1.250rem;
 	font-weight: 300;
 }
 
