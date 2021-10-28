@@ -186,6 +186,8 @@ function enercare_breadcrumbs($display = true) {
     // exclude breadcrumbs on these post_types, pages, etc.
     if (
         is_front_page() || 
+        is_home() ||
+        is_archive() ||
         (is_single() && $post->post_type == "landing-page")
        ) {
       return false;
