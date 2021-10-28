@@ -101,8 +101,9 @@ add_action('tha_content_bottom', 'enercare_archive_wrapper_bottom');
 function enercare_archive_sidebar() {
 	get_sidebar( 'blog-archive' );
 }
-add_action('tha_content_bottom', 'enercare_archive_sidebar');
-
+if (is_home()) {
+  add_action('tha_content_bottom', 'enercare_archive_sidebar');
+}
 
 // Build the page
 require get_template_directory() . '/index.php';
