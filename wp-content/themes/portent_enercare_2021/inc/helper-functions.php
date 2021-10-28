@@ -246,7 +246,7 @@ function enercare_filter_taxonomy_by_post_type() {
 
 	if(!empty($taxonomies) ) {
 		//Certain default taxonomies we want to always exclude
-		$tax_exclusions = ['post_tag', 'post_format', 'yst_prominent_words'];
+		$tax_exclusions = ['post_tag', 'post_format', 'yst_prominent_words', 'provinces'];
     foreach ( $taxonomies as $taxonomy ) {
     	if(!in_array($taxonomy->name, $tax_exclusions)) {
         $output .= get_taxonomy_filter($taxonomy);
@@ -422,6 +422,34 @@ function enercare_filter_archive( $query ) {
   return $query;
 }
 add_action( 'pre_get_posts', 'enercare_filter_archive');
+
+/**
+ * Taxonomy Dropdown Filtering
+ *
+ */
+function get_taxonomy_dropdown_filter( $taxonomy ) {
+  $taxonomy_details = get_taxonomy($taxonomy);
+	$output = '<div class="select-container">';
+    $output .= '<label for="category-select">' . $taxonomy_details->label . '</label>';
+    $output .= '<select id="category-select" class="category-filter__select" data-taxonomy="' . $taxonomy . '">';
+    
+		$terms = get_terms(array('taxonomy' => $taxonomy, 'hide_empty' => false, 'orderby' => 'name', 'order' => 'ASC'));
+    $output .= '<option value="">- Select A ' . $taxonomy_details->label . ' -</option>';
+    foreach ($terms as $term) {
+      $selected = "";
+      if (isset($_GET[$taxonomy]) && esc_attr($_GET[$taxonomy]) == $term->slug)
+        $selected = " selected";
+      $output .= '<option value="' . $term->slug . '"' . $selected . '>' . $term->name . '</option>';
+    }
+			
+		$output .= '</select>';
+	$output .= '</div>';
+
+	return $output;
+}
+function the_taxonomy_dropdown_filter($taxonomy) {
+	echo get_taxonomy_dropdown_filter($taxonomy);
+}
 
 /**
  * Province Filter

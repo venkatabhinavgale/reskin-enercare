@@ -22,6 +22,27 @@ function enercare_archive_body_class( $classes ) {
 add_filter( 'body_class', 'enercare_archive_body_class' );
 
 /**
+ * Filter Divider
+ */
+function campaign_filters() {
+	echo '<section class="location-archive-filters">';
+	echo '<div class="location-archive-filters__filter location-archive-filters__postal-code">';
+		echo '<h2 class="location-archive-filters__header location-archive-filters__header--postal-code">Offer By Postal Code</h2>';
+		echo '<div class="location-archive-filters__postal-code-form">';
+			the_postal_code_filter();
+		echo '</div>';
+	echo '</div>';
+	echo '<div class="location-archive-filters__divider" role="presentation">or</div>';
+	echo '<div class="location-archive-filters__filter location-archive-filters__category">';
+		echo '<h2 class="location-archive-filters__header location-archive-filters__header--category">Offer By Category</h2>';
+		echo '<div class="location-archive-filters__category-form">';
+			echo the_taxonomy_dropdown_filter('campaign-category');
+		echo '</div>';
+	echo '</div>';
+	echo '</section>';
+}
+
+/**
  * Archive Header
  *
  */
@@ -75,7 +96,7 @@ add_action( 'tha_content_while_before', 'enercare_archive_header' );
 add_action( 'enercare_archive_header_before', 'enercare_breadcrumbs', 5 );
 
 //Filters
-add_action( 'enercare_archive_header_after', 'the_postal_code_filter' );
+add_action( 'enercare_archive_header_after', 'campaign_filters' );
 
 // add section wrapper -- we'll use this on our ajax calls to replace the results
 function enercare_archive_wrapper_top() {
