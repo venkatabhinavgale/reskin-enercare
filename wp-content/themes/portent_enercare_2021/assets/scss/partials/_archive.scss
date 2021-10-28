@@ -38,6 +38,40 @@
 		margin: 0 auto;
 	}
 
+	.filter-control {
+
+		&__container {
+
+			.filter-reset {
+				background-color: $grey_2;
+				border-style: none;
+				font-weight: 300;
+				line-height: 1.375em;
+				letter-spacing: -0.15px;
+				font-size: 1em;
+				padding: 0.250em 0.5em;
+				border-radius: 20px;
+				margin: 0.25em;
+			}
+		}
+	}
+
+
+	.taxonomy-filters {
+
+		button {
+			background-color: $grey_2;
+			border-style: none;
+			font-weight: 300;
+			line-height: 1.375em;
+			letter-spacing: -0.15px;
+			font-size: 1em;
+			padding: 0.250em 0.5em;
+			border-radius: 20px;
+			margin: 0.25em;
+		}
+	}
+
 }
 
 .author-archive-description {
