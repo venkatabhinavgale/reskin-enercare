@@ -3,7 +3,7 @@
  * Location Information Card
  */
 
-echo '<article class="location-summary block-card wp-block-acf-card is-style-shadowed">';
+echo '<article class="location-summary block-card wp-block-acf-card">';
 
 	//enercare_post_summary_image();
 
