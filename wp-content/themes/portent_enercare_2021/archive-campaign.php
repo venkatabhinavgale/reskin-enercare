@@ -33,10 +33,10 @@ function campaign_filters() {
 		echo '</div>';
 	echo '</div>';
 	echo '<div class="location-archive-filters__divider" role="presentation">or</div>';
-	echo '<div class="location-archive-filters__filter location-archive-filters__province">';
-		echo '<h2 class="location-archive-filters__header location-archive-filters__header--province">Offer By Category</h2>';
-		echo '<div class="location-archive-filters__province-form">';
-			enercare_filter_taxonomy_by_post_type();
+	echo '<div class="location-archive-filters__filter location-archive-filters__category">';
+		echo '<h2 class="location-archive-filters__header location-archive-filters__header--category">Offer By Category</h2>';
+		echo '<div class="location-archive-filters__category-form">';
+			echo the_taxonomy_dropdown_filter('campaign-category');
 		echo '</div>';
 	echo '</div>';
 	echo '</section>';
