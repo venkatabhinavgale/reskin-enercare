@@ -1,0 +1,30 @@
+@import "partials/base";
+@import "blocks/offer-card";
+
+.post-type-archive-campaign {
+
+	.archive-title {
+		display: none;
+	}
+
+	.breadcrumb {
+		display: none;
+	}
+
+	.archive-description .archive-widget-area {
+		@include alignfull;
+	}
+
+	.site-main .archive-wrapper {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.wp-block-cover__inner-container {
+		max-width: $grid-width;
+	}
+
+	.block-offer-card__wrapper,
+	.block-offer-card__container {
+		height: 100%;
+	}
+}
