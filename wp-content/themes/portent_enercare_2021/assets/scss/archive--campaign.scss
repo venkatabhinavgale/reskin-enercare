@@ -3,8 +3,17 @@
 
 .post-type-archive-campaign {
 
+	.site-inner {
+		padding-top: 0;
+	}
+	background-color: $grey_1;
+
 	.archive-title {
 		display: none;
+	}
+
+	.archive-description {
+		max-width: $grid-width;
 	}
 
 	.breadcrumb {
@@ -13,6 +22,7 @@
 
 	.archive-description .archive-widget-area {
 		@include alignfull;
+		margin-top: 0;
 	}
 
 	.site-main .archive-wrapper {
