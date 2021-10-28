@@ -260,8 +260,13 @@ Split into its own file later
 			display: inline-block;
 			background-color: $grey_2;
 			border-radius: 20px;
-			padding: 0.25em 0.35em;
+			padding: 0.25em 0.5em;
 			margin: 0.25em;
+
+			&:hover,
+			&:focus {
+				background-color: $grey_3;
+			}
 		}
 
 		a {
