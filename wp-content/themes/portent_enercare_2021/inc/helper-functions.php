@@ -246,7 +246,7 @@ function enercare_filter_taxonomy_by_post_type() {
 
 	if(!empty($taxonomies) ) {
 		//Certain default taxonomies we want to always exclude
-		$tax_exclusions = ['post_tag', 'post_format', 'yst_prominent_words'];
+		$tax_exclusions = ['post_tag', 'post_format', 'yst_prominent_words', 'provinces'];
     foreach ( $taxonomies as $taxonomy ) {
     	if(!in_array($taxonomy->name, $tax_exclusions)) {
         $output .= get_taxonomy_filter($taxonomy);
