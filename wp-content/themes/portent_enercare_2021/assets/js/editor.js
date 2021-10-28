@@ -20,6 +20,16 @@ wp.domReady( () => {
 	);
 
 	wp.blocks.registerBlockStyle(
+		'core/paragraph',
+		[
+			{
+				name: 'overline',
+				label: 'Overline',
+			}
+		]
+	);
+
+	wp.blocks.registerBlockStyle(
 		'core/button',
 		[
 			{
@@ -65,11 +75,15 @@ wp.domReady( () => {
 		[
 			{
 				name: 'bulleted',
-				label: 'Bulleted'
+				label: 'Bulleted (Red)'
 			},
 			{
 				name: 'checkmarked',
-				label: 'Checkmarked'
+				label: 'Checkmarked (Red)'
+			},
+			{
+				name: 'white-checkmarked',
+				label: 'Checkmarked (White)'
 			},
 			{
 				name: 'pros',
@@ -111,7 +125,6 @@ wp.domReady( () => {
 		]
 	);
 
-
 	wp.blocks.registerBlockStyle(
 		'acf/offer-card',
 		[
@@ -130,7 +143,6 @@ wp.domReady( () => {
 			}
 		]
 	);
-
 
 	wp.blocks.registerBlockStyle(
 		'acf/mega-button',
