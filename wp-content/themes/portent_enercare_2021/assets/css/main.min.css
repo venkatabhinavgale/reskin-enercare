@@ -365,7 +365,7 @@ div.wpforms-container.one-line:after{content:"";display:table;clear:both}
 .menu-toggle.active .close{display:inline}
 .menu-toggle.active .open{display:none}
 .post-summary{margin-bottom:32px}
-.post-summary__title{font-size:18px;font-weight:400;margin:0;line-height:28px}
+.post-summary__title{font-size:18px;font-weight:400;margin:0;line-height:28px;letter-spacing:-0.19px}
 .post-summary__title a{color:#212121;text-decoration:none}
 .post-summary__title a:hover{color:#dc1c28}
 .post-summary__image{display:block}
