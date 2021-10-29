@@ -12,7 +12,7 @@
 .block-emc-card__close-button:hover,.block-emc-card__close-button:focus{background-color:#e6e4e4}
 .block-emc-card__close-button:focus{border:1px dotted #3d3d43}
 .block-emc-card__close-button img{height:15px;width:15px}
-.block-emc-card .wp-block-button__link{margin-top:1.5em;padding-bottom:.25em}
+.block-emc-card .wp-block-button__link{margin-top:1.5em}
 .block-emc-card button{border:0}
 .block-carousel__wrapper .block-emc-card__wrapper{margin:0 .75em}
 @media(min-width:768px){.block-emc-card__image{margin:0 3.125em 1.5em;width:75%;max-width:172px !important;height:auto}
