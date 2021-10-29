@@ -195,7 +195,8 @@ Split into its own file later
 		}
 
 		&__title {
-			margin: 1.2em 0;
+			margin: 1em 0 1.5em;
+			padding-bottom: 0;
 			border: none;
 			@include font-sizes(1.5em);
 
