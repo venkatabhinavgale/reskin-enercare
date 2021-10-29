@@ -68,6 +68,9 @@ function enercare_scripts() {
 	wp_register_script('lite-youtube-embed-script', get_template_directory_uri() . '/assets/js/lite-youtube-embed/src/lite-yt-embed.js', null, true );
 	wp_register_style('lite-youtube-embed-style', get_template_directory_uri() . '/assets/js/lite-youtube-embed/src/lite-yt-embed.css', null, null );
 
+	/**
+	 * Micromodal
+	 */
 	wp_register_script('micromodal-script', get_template_directory_uri() . '/assets/js/micromodal.min.js', null, null );
 
 	if( ! enercare_is_amp() ) {
@@ -95,6 +98,12 @@ function enercare_scripts() {
 	wp_enqueue_script( 'ea-slider-init', get_template_directory_uri() . '/assets/js/slide-intiate.js', array( 'ea-slider-menu' ), filemtime( get_template_directory() . '/assets/js/slide-intiate.js' ), true );
 
 	}
+
+	//@todo do this right
+	wp_enqueue_script( 'column-carousels', get_template_directory_uri() . '/assets/js/block--columns-carousel.js', array( 'glider-js' ), filemtime( get_template_directory() . '/assets/js/sliding-menu-polyfills.js' ), true );
+	wp_enqueue_script( 'glider-js', get_template_directory_uri() . '/assets/js/glider/glider.min.js', null , null );
+	wp_enqueue_style( 'glider-css', get_template_directory_uri() . '/assets/js/glider/glider.min.css', null , null );
+
 
 	/**
 	 * Archive Enqueues
