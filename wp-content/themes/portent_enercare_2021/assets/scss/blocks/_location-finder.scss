@@ -21,7 +21,7 @@ $block-location-finder--max-width: 324px;
 
 		@include media('>=tablet') {
 			order: 0;
-			padding: 13% 3% 13% 18.5%;
+			padding: 13% 3% 13% calc((100vw - #{$grid-width}) / 2 );
 			text-align: left;
 		}
 	}
@@ -33,15 +33,17 @@ $block-location-finder--max-width: 324px;
 	&__form {
 		background-color: $black;
 		display: flex;
-		justify-content: center;
+		justify-content: flex-end;
 		align-items: center;
 		height: 100%;
 		text-align: center;
 		background-size: cover;
 		background-repeat: no-repeat;
+		padding-right: calc((100vw - #{$grid-width}) / 2 );
 
 		@include media('<tablet') {
 			background-image: none !important;
+			justify-content: center;
 		}
 	}
 
@@ -123,7 +125,8 @@ $block-location-finder--max-width: 324px;
 		@include media('>=tablet') {
 			padding: 8% 10%;
 			margin: 0;
-			width: 65%;
+			width: 100%;
+			max-width: 450px;
 		}
 	}
 }

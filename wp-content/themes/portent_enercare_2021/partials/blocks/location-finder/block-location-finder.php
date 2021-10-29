@@ -11,7 +11,7 @@ $form_header = get_field('form_header');
 $form_content = get_field('form_content');
 ?>
 
-<section class="block-location-finder alignwide">
+<section class="block-location-finder alignfull">
 	<div class="block-location-finder__content">
 		<h2 class="block-location-finder__block-header has-white-color"><?= $section_header ?></h2>
 		<p class="block-location-finder__block-description has-white-color"><?= $section_content ?></p>
@@ -48,5 +48,5 @@ $form_content = get_field('form_content');
 				<label for="location_finder__label-example">eg: A1A1A1</label>
 			</form>
 		</div>
- 	</div>
+	</div>
 </section>
