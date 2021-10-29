@@ -179,7 +179,7 @@ Appointment Banner
 	transform: translateX(-50%);
 	align-items: center;
 	height: 60px;
-	justify-content: space-around;
+	justify-content: center;
 	max-width: calc( 90% - 80px );
 	width: 100%;
 
@@ -212,15 +212,23 @@ Appointment Banner
 	}
 
 	&__icon {
-		margin:0 1em 0 0;
+		margin:0 0.5em 0 0;
 		height: 24px;
 		width: 24px;
+
+		@include media('<=tablet') {
+			display: none;
+		}
 	}
 
 	&__title {
 		display: block;
 		font-weight: bold;
 		@include font-sizes(1em);
+
+		@include media('<=tablet') {
+			text-align: center;
+		}
 	}
 
 	&__link {
@@ -240,7 +248,7 @@ Appointment Banner
 			margin: 0;
 			width: 50%;
 			border-radius: 30px;
-			
+			text-align: center;
 		}
 
 		&:hover,
