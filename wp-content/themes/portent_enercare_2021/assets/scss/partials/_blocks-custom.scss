@@ -290,6 +290,8 @@ Blog Posts
 			height: auto;
 			object-fit: cover;
 			object-position: center center;
+			min-width: 100%;
+			min-height: 248px;
 
 			&--1-1 {
 				aspect-ratio: 1 / 1;
@@ -297,6 +299,10 @@ Blog Posts
 
 			&--2-3 {
 				aspect-ratio: 3 / 2;
+			}
+
+			@include media('<=tablet') {
+				min-height: 173px;
 			}
 		}
 
