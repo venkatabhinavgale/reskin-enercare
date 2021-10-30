@@ -265,7 +265,7 @@ div.wpforms-container.one-line:after{content:"";display:table;clear:both}
 .post-summary__title{font-size:18px;font-weight:400;margin:0;line-height:28px;letter-spacing:-0.19px}
 .post-summary__title a{color:#212121;text-decoration:none}
 .post-summary__title a:hover{color:#dc1c28}
-.post-summary__image{display:block}
+.post-summary__image{display:block;aspect-ratio:3 / 2;-o-object-fit:cover;object-fit:cover;-o-object-position:center;object-position:center}
 .entry-category{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px}
 .entry-category a{color:#3d3d43;text-decoration:none}
 .entry-category a:hover{color:#dc1c28}
