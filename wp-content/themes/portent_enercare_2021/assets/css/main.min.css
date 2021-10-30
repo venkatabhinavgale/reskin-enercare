@@ -312,7 +312,7 @@ div.wpforms-container.one-line:after{content:"";display:table;clear:both}
 .block-blog-posts__post__title{font-size:1.1rem;font-weight:700;border:none !important;line-height:1.5rem}
 .block-blog-posts__post__link{font-size:1.1rem;font-weight:700;line-height:inherit;text-decoration:none}
 .block-blog-posts__post__link:after{content:'';position:absolute;top:0;left:0;width:100%;height:100%}
-.block-blog-posts__post__image{height:auto;-o-object-fit:cover;object-fit:cover;-o-object-position:center center;object-position:center center}
+.block-blog-posts__post__image{height:auto;-o-object-fit:cover;object-fit:cover;-o-object-position:center center;object-position:center center;min-width:100%;min-height:248px}
 .block-blog-posts__post__image--1-1{aspect-ratio:1 / 1}
 .block-blog-posts__post__image--2-3{aspect-ratio:3 / 2}
 .block-blog-posts__post__post-meta{display:-webkit-box;display:-ms-flexbox;display:flex;margin:.25em 0 1em 0}
@@ -697,6 +697,7 @@ p.has-normal-font-size{font-size:1em}
 }@media(max-width:782px){#wpadminbar{display:none !important}
 }@media(max-width:768px){.legal__terms-toggle{margin:0;padding:0 1.5em;width:100%}
 .legal__terms-details p{margin:0 0 10px;width:100%;padding:10px 0 0}
+.block-blog-posts__post__image{min-height:173px}
 .title-area{text-align:center}
 .title-area .site-title a{padding-bottom:0;height:48px;background-size:auto 42px}
 .title-area img{max-height:38px}
