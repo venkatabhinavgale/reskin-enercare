@@ -68,6 +68,9 @@ function enercare_scripts() {
 	wp_register_script('lite-youtube-embed-script', get_template_directory_uri() . '/assets/js/lite-youtube-embed/src/lite-yt-embed.js', null, true );
 	wp_register_style('lite-youtube-embed-style', get_template_directory_uri() . '/assets/js/lite-youtube-embed/src/lite-yt-embed.css', null, null );
 
+	/**
+	 * Micromodal
+	 */
 	wp_register_script('micromodal-script', get_template_directory_uri() . '/assets/js/micromodal.min.js', null, null );
 
 	if( ! enercare_is_amp() ) {
@@ -95,6 +98,12 @@ function enercare_scripts() {
 	wp_enqueue_script( 'ea-slider-init', get_template_directory_uri() . '/assets/js/slide-intiate.js', array( 'ea-slider-menu' ), filemtime( get_template_directory() . '/assets/js/slide-intiate.js' ), true );
 
 	}
+
+	//@todo do this right
+	wp_enqueue_script( 'column-carousels', get_template_directory_uri() . '/assets/js/block--columns-carousel.js', array( 'glider-js' ), filemtime( get_template_directory() . '/assets/js/sliding-menu-polyfills.js' ), true );
+	wp_enqueue_script( 'glider-js', get_template_directory_uri() . '/assets/js/glider/glider.min.js', null , null );
+	wp_enqueue_style( 'glider-css', get_template_directory_uri() . '/assets/js/glider/glider.min.css', null , null );
+
 
 	/**
 	 * Archive Enqueues
@@ -474,18 +483,20 @@ function enercare_appointment_banner() {
 	//We expect this to be TRUE
 	$is_banner_active_global = get_field( 'appointment_banner_toggle', 'options');
 
-	/**
-	 * Turn off for specific locations
-	 */
-	if(is_singular( 'post' ) ) {
-		$is_banner_active_global = false;
-	}
-
 	//Grab emergency setting
 	$is_banner_emergency = get_field( 'appointnent_banner_is_emergency', 'options' );
 
 	//By default we assume this is FALSE because banners need to be explicitly turned off
 	$is_banner_active_page = get_field( 'appointment_banner_toggle');
+
+	//Specific location activations / deactivations
+	if(is_singular( 'post' ) ) {
+		$is_banner_active_global = false;
+	}
+
+	if( is_category() || is_tax() ) {
+		$is_banner_active_global = false;
+	}
 
 		if ( $is_banner_active_global && ! $is_banner_active_page ) {
 			//If the banner is active lets get it setup

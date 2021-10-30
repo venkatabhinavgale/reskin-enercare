@@ -28,42 +28,7 @@
 
 	}
 
-	.location-archive-filters {
-		display: grid;
-		grid-template-columns: 1fr;
-		align-items: center;
-
-		@include media('>=tablet') {
-			grid-template-columns: 1fr 60px 1fr;
-		}
-
-		&__header {
-			@include font-sizes(1.2em);
-		}
-
-		&__filter {
-			background-color: $grey_2;
-			padding: 24px;
-			height: 100%;
-			text-align: left;
-		}
-
-		&__divider {
-			font-weight: 700;
-			font-size: 24px;
-			text-transform: capitalize;
-		}
-
-		&__province-form {
-
-			.province-filter {
-
-				&__select {
-					padding: 8px 16px;
-				}
-			}
-		}
-	}
+	@import "../pieces/location-filter-area";
 
 	@import "../pieces/postal-code-filter";
 }
