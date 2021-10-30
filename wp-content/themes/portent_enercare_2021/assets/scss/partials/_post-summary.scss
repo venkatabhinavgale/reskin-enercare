@@ -24,6 +24,9 @@
 
 .post-summary__image {
 	display: block;
+	aspect-ratio: 3 / 2;
+	object-fit: cover;
+	object-position: center;
 	@include media(">small") {
 		margin-bottom: 12px;
 	}
