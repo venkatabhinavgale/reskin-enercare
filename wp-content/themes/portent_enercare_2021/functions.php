@@ -483,18 +483,20 @@ function enercare_appointment_banner() {
 	//We expect this to be TRUE
 	$is_banner_active_global = get_field( 'appointment_banner_toggle', 'options');
 
-	/**
-	 * Turn off for specific locations
-	 */
-	if(is_singular( 'post' ) ) {
-		$is_banner_active_global = false;
-	}
-
 	//Grab emergency setting
 	$is_banner_emergency = get_field( 'appointnent_banner_is_emergency', 'options' );
 
 	//By default we assume this is FALSE because banners need to be explicitly turned off
 	$is_banner_active_page = get_field( 'appointment_banner_toggle');
+
+	//Specific location activations / deactivations
+	if(is_singular( 'post' ) ) {
+		$is_banner_active_global = false;
+	}
+
+	if( is_category() || is_tax() ) {
+		$is_banner_active_global = false;
+	}
 
 		if ( $is_banner_active_global && ! $is_banner_active_page ) {
 			//If the banner is active lets get it setup
