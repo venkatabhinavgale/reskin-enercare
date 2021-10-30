@@ -37,4 +37,11 @@
 	.block-offer-card__container {
 		height: 100%;
 	}
+
+	.location-archive-filters {
+		max-width:$content-width;
+		margin: 0 auto;
+	}
+
+	@import "pieces/location-filter-area";
 }
