@@ -24,11 +24,13 @@ $allowed_blocks = array(
 	'core/image',
 	'core/paragraph',
 	'core/header',
-	'core/buttons'
+	'core/buttons',
+	'core/list',
+	'core/heading'
 );
 
 ?>
 
 <div class="block-card <?php echo esc_attr($classes); ?>">
-	<InnerBlocks allowedBlocks="' . esc_attr( wp_json_encode( $allowed_blocks ) ) . '" />
+	<InnerBlocks allowedBlocks="<?= esc_attr( wp_json_encode( $allowed_blocks ) );  ?>" />
 </div>
