@@ -251,6 +251,7 @@ img.aligncenter{margin-left:auto;margin-right:auto}
 .wp-block-group .wp-block-group__inner-container>*:last-child{margin-bottom:0}
 [data-state="open"]{display:inherit;height:100%;visibility:visible}
 [data-state="closed"]{display:none;height:0;visibility:hidden}
+.center-block{margin:0 auto}
 div.wpforms-container .wpforms-title{font-size:24px;font-weight:700;line-height:1.2;margin:0 0 16px;padding:0}
 div.wpforms-container .wpforms-description{margin:0 0 16px;padding:0}
 div.wpforms-container .wpforms-field{padding:0;margin-bottom:32px}
@@ -595,10 +596,12 @@ h1{font-size:3em}
 h2{font-size:2.6em}
 h3{font-size:2.2em}
 h4,h5,h6{font-size:22px}
+.only-mobile{display:none}
 .is-style-subhead1{font-size:28px}
 .is-style-subhead2{font-size:24px}
 .is-style-subhead3{font-size:20px}
 .wp-block-group{padding:60px 16px}
+.force-content-width{max-width:768px}
 div.wpforms-container .wpforms-title{font-size:32px}
 div.wpforms-container .wpforms-recaptcha-container{margin-bottom:-78px}
 div.wpforms-container.one-line .wpforms-field-container{display:table;width:calc(100% - 110px);float:left}
@@ -708,6 +711,10 @@ p.has-normal-font-size{font-size:1em}
 }@media(max-width:767px){h1{line-height:2.375rem}
 h2{line-height:2rem}
 h3{line-height:1.750rem}
+.hide-mobile{display:none}
+.align-center-mobile{-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;display:-webkit-box;display:-ms-flexbox;display:flex;text-align:center}
+.align-left-mobile{-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start;display:-webkit-box;display:-ms-flexbox;display:flex;text-align:left}
+.align-right-mobile{-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end;display:-webkit-box;display:-ms-flexbox;display:flex;text-align:right}
 .is-style-subhead1{line-height:24px}
 .is-style-subhead2{line-height:24px}
 .is-style-subhead3{line-height:24px}

@@ -1,6 +1,7 @@
 .block-mega-button{display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex;padding:0 .5em;width:auto}
-.block-mega-button a{display:block;background-color:#fff;text-align:center;text-decoration:none;padding:1em;margin-top:1em;margin-bottom:1em;border-radius:20px;-webkit-transition:background-color .2s ease,border .3s ease;transition:background-color .2s ease,border .3s ease;border:1px solid transparent}
-.block-mega-button a:hover,.block-mega-button a:focus{background-color:#f5f2f2;border:1px solid #d3d1d1;-webkit-transition:background-color .3s ease,border .4s ease;transition:background-color .3s ease,border .4s ease}
+.block-mega-button__link{display:block;text-align:center;text-decoration:none;padding:1.5em 1em 1.4em;margin-top:1em;margin-bottom:1em;border-radius:20px;-webkit-transition:background-color .2s ease,border .3s ease;transition:background-color .2s ease,border .3s ease;border:1px solid transparent}
+.block-mega-button__link:hover,.block-mega-button__link:focus{background-color:#f5f2f2;border:1px solid #d3d1d1;-webkit-transition:background-color .3s ease,border .4s ease;transition:background-color .3s ease,border .4s ease}
+.block-mega-button__link.has-grey-10-background-color:hover{background-color:#fff}
 .block-mega-button.alignleft{-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}
 .block-mega-button.aligncenter{-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
 .block-mega-button.alignright{-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end}
@@ -12,5 +13,5 @@
 .block-mega-button.is-style-shadowed a{-webkit-box-shadow:0 4px 8px 0 rgba(56,61,67,0.3);box-shadow:0 4px 8px 0 rgba(56,61,67,0.3)}
 .block-mega-button__image{max-height:32px;max-width:32px;margin:.5em auto}
 .block-mega-button__text{display:block;color:#000;font-size:18px;line-height:24px;font-weight:700;text-align:center}
-@media(min-width:768px){.block-mega-button__image{max-width:40px;max-height:64px}
+@media(min-width:768px){.block-mega-button__image{max-width:40px;max-height:40px;aspect-ratio:1 / 1;-o-object-fit:contain;object-fit:contain;-o-object-position:center center;object-position:center center}
 }
