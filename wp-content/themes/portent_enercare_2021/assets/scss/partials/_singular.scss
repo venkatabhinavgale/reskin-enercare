@@ -200,10 +200,6 @@
 						content:"\2022";
 					}
 				}
-
-				@include media("<=tablet") {
-					margin-right: 0;
-				}
 			}
 
 			.single-post__share-menu {
@@ -218,6 +214,10 @@
 				@include media("<=tablet") {
 					align-self: center;
 				}
+			}
+
+			@include media("<=tablet") {
+				margin-right: 0;
 			}
 		}
 
