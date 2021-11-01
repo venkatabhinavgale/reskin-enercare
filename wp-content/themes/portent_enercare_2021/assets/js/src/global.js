@@ -16,6 +16,54 @@ jQuery(function($){
 		$('.search-toggle, .header-search').toggleClass('active');
 		$('.site-header .search-field').focus();
 	});
+  
+  // AddSearch JS client with an example index. Get your own SITEKEY by signing up at www.addsearch.com
+  var client = new AddSearchClient('3145819e621ccfb6dbf5116b2c92967b');
+  var conf = {
+    searchParameter: 'addsearch'
+  }
+  // Search UI instance
+  var searchui = new AddSearchUI(client, conf);
+  // Add components
+  searchui.searchField({
+    containerId: 'searchfield',
+    placeholder: 'Start typing to see results...',
+    icon: false
+  });
+  
+  var autocompleteClient = new AddSearchClient('3145819e621ccfb6dbf5116b2c92967b');
+  autocompleteClient.setPaging(1, 7, 'relevance', 'desc'); // Fetch 7 results by default
+
+  var autocompleteTemplate = `
+    <div class="addsearch-autocomplete" style="position: relative;">
+      {{#gt searchResults.results.length 0}}
+      <span class="addsearch-autocomplete__total-results">{{searchResults.results.length}} results</span>
+        <ul>
+          {{#each ../searchResults.results}}
+            <li>
+              <strong><a href="{{url}}">{{title}}</a></strong>
+            </li>
+          {{/each}}
+        </ul>
+      {{/gt}}
+    </div>
+  `;
+
+  searchui.autocomplete({
+    containerId: 'autocomplete',
+    template: autocompleteTemplate,
+    infiniteScrollElement: document.querySelector('#scrollable'),
+    sources: [
+      {
+        type: AddSearchUI.AUTOCOMPLETE_TYPE.SEARCH,
+        client: autocompleteClient,
+        jsonKey: 'results'
+      }
+    ]
+  });
+  
+  // All components added. Start
+  searchui.start();
 
   //Enercare Specific function
   (function (window,document, undefined) {
