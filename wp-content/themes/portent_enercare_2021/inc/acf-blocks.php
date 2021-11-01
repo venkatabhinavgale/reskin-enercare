@@ -251,6 +251,19 @@ function enercare_register_theme_blocks() {
     ));
 
 	  acf_register_block_type(array(
+		  'name'              => 'enercare-accordion-panel',
+		  'title'             => __('Accordion Panel', 'enercare'),
+		  'render_template'   => 'partials/blocks/accordion-panel/block-accordion-panel.php',
+		  'category'          => 'layout',
+		  'icon'              => 'image-flip-vertical',
+		  'mode'              => 'auto',
+		  'keywords'          => array('accordion', 'panel', 'enercare', 'content', 'portent'),
+		  'enqueue_assets' => function() {
+			  //wp_enqueue_style( 'block-location-map-style', get_template_directory_uri() . '/assets/css/block--location-map.css', array('ea-style'), false, 'screen');
+		  }
+	  ));
+
+	  acf_register_block_type(array(
 		  'name' => 'enercare-youtube-lite',
 		  'title' => __('Youtube (Lazy)', 'clientname'),
 		  'render_template' => 'partials/blocks/youtube-lazy/youtube-lazy.php',
