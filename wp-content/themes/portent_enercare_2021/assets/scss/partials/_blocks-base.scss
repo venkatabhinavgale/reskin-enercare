@@ -479,3 +479,44 @@ Carousel
 	}
 }
 
+/*
+Mobile Modifiers
+ */
+.hide-mobile {
+
+	@include media('<tablet') {
+		display: none;
+	}
+}
+
+.align-center-mobile {
+	@include media('<tablet') {
+		justify-content: center;
+		display: flex;
+		text-align: center;
+	}
+}
+
+.align-left-mobile {
+	@include media('<tablet') {
+		justify-content: flex-start;
+		display: flex;
+		text-align: left;
+	}
+}
+
+.align-right-mobile {
+
+	@include media('<tablet') {
+		justify-content: flex-end;
+		display: flex;
+		text-align: right;
+	}
+}
+
+.only-mobile {
+
+	@include media('>=tablet') {
+		display: none;
+	}
+}

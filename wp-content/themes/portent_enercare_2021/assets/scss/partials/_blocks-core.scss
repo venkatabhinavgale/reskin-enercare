@@ -266,3 +266,14 @@ Columns
   height: 0;
   visibility: hidden;
 }
+
+//@todo document this as a helper class
+.force-content-width {
+	@include media('>=tablet') {
+		max-width: $content-width;
+	}
+}
+
+.center-block {
+	margin: 0 auto;
+}
