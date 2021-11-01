@@ -270,10 +270,11 @@ Columns
 //@todo document this as a helper class
 .force-content-width {
 	@include media('>=tablet') {
-		max-width: $content-width;
+		max-width: $content-width !important;
 	}
 }
 
 .center-block {
-	margin: 0 auto;
+	margin-left: auto !important;
+	margin-right: auto !important;
 }
