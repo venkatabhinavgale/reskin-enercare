@@ -11,6 +11,8 @@ if( !empty($block['align']) ) {
 }
 if( !empty($block['backgroundColor'] ) ) {
 	$background_class = sprintf(' has-%s-background-color has-background', $block['backgroundColor']);
+} else {
+	$background_class = ' has-white-background-color has-background';
 }
 
 if( get_field('sizing' ) ) {
