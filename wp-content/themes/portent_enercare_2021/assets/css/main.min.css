@@ -451,7 +451,15 @@ div.wpforms-container.one-line:after{content:"";display:table;clear:both}
 .archive .author-box{grid-column:1 / -1;max-width:768px;margin:0 auto 32px}
 .author-box .author-box-title{font-size:22px}
 .author-box .avatar{border-radius:50%;position:absolute;top:0;left:0}
-.singular .entry-header{margin-bottom:18px}
+.singular .entry-header{margin-bottom:1.5em}
+.singular .entry-header .post-meta{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;margin-right:2.5em;padding:1.5em 0 0}
+.singular .entry-header .post-meta .avatar{display:none}
+.singular .entry-header .post-meta__author-meta{display:-webkit-box;display:-ms-flexbox;display:flex}
+.singular .entry-header .post-meta__author-meta__name{display:none}
+.singular .entry-header .post-meta__author-meta__date{line-height:1.250em;margin-right:.2em;font-size:.875em}
+.singular .entry-header .post-meta__author-meta .span-reading-time{line-height:1.250em;letter-spacing:-0.13px;font-size:.875em}
+.singular .entry-header .post-meta__author-meta .span-reading-time:before{content:"\2022"}
+.singular .entry-header .post-meta .single-post__share-menu .share-menu__link{color:#000}
 .singular .entry-header *:last-child{margin-bottom:0}
 .after-entry>*{margin:24px 0}
 .after-entry .publish-date{font-size:16px;text-align:center}
@@ -720,6 +728,8 @@ p.has-normal-font-size{font-size:1em}
 .appointment-banner__title{text-align:center}
 .appointment-banner__link{margin:0;width:50%;border-radius:30px;text-align:center}
 .site-header .wrap{padding:0 24px;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
+.singular .entry-header .post-meta .single-post__share-menu{-ms-flex-item-align:center;align-self:center}
+.singular .entry-header .post-meta{margin-right:0}
 }@media(max-width:767px){h1{line-height:2.375rem}
 h2{line-height:2rem}
 h3{line-height:1.750rem}
