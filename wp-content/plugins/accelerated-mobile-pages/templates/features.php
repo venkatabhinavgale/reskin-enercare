@@ -5460,10 +5460,21 @@ if( ! function_exists('ampforwp_get_comments_gravatar') ){
 			return '';
 		}
 		if (class_exists('FV_Gravatar_Cache')) {
+			$options = get_option('fv_gravatar_cache');
+			$size = $options['size'];
+			if (empty($size)) {
+				$size = '96';
+			}
 			$avatar_url = get_avatar_url($comment);
 			$upload_dir = wp_upload_dir(); 
 			$upload_dir = $upload_dir['baseurl'] . '/fv-gravatar-cache/';
 			$avatar_url = preg_replace('/(.*?)avatar\/(.*?)\?s=(.*?)&(.*?)g/', ''.$upload_dir.'$2x$3.png', $avatar_url);
+			preg_match_all('/(.*?)wp-content\/uploads\/fv-gravatar-cache\/(.*?)/U', $avatar_url, $match);
+			$url = $match[0][0];
+			$headers = get_headers($url, 1);
+			if(isset($headers[0]) && !stripos($headers[0], "200 OK")){
+			   $avatar_url = $upload_dir.'mystery'. esc_html($size) .'.png';
+			}
 			return $avatar_url;
 		}
 	$gravatar_exists = '';
@@ -7535,7 +7546,7 @@ function ampforwp_fontawesome_canonical_link(){
 add_action('amp_post_template_head', 'ampforwp_set_dns_preload_urls');
 function ampforwp_set_dns_preload_urls(){
 	// Open graph tag is not loading from the SEO framework #4399
-	if (function_exists('the_seo_framework_boot') && 'seo_framework' == ampforwp_get_setting('ampforwp-seo-selection')) {
+	if (function_exists('the_seo_framework') && 'seo_framework' == ampforwp_get_setting('ampforwp-seo-selection')) {
 		$og_tsf = \the_seo_framework();
 		if($og_tsf){
 			echo $og_tsf->og_image();
@@ -9604,6 +9615,9 @@ function ampforwp_year_shortcode() {
 add_shortcode('ampforwp_current_year', 'ampforwp_year_shortcode');
 
 function ampforwp_litespeed_webp_compatibility($content){
+	if(class_exists( 'WP_Offload_Media_Autoloader')){
+		return $content;
+	}
 	if(function_exists( 'run_litespeed_cache' )){
 		preg_match_all('/src="(.*?)"/', $content,$src);
 		if(isset($src[1][0])){
