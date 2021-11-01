@@ -378,3 +378,43 @@ Youtube Lazy
 		margin:0 0 0 auto;
 	}
 }
+
+/**
+Switchboard
+ */
+.block-switchboard {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: $content-width;
+
+	&.alignwide {
+		max-width: $grid-width;
+	}
+}
+
+.block-switchboard__container {
+
+	display: grid;
+	justify-items: center;
+
+	@for $i from 1 through 8 {
+		&--desktop-col-#{$i} {
+			@include media('>=tablet') {
+				grid-template-columns: repeat(#{$i}, 1fr);
+			}
+		}
+
+		&--mobile-col-#{$i} {
+
+			@include media('<tablet') {
+				grid-template-columns: repeat(#{$i}, 1fr);
+			}
+		}
+	}
+
+	//Forcing mega button behavior while inside the switchboard
+	.block-mega-button,
+	.block-mega-button a {
+		width: 100%;
+	}
+}

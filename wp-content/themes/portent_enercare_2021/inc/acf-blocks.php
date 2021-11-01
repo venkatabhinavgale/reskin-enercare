@@ -264,6 +264,24 @@ function enercare_register_theme_blocks() {
 	  ));
 
 	  acf_register_block_type(array(
+		  'name'              => 'enercare-switchboard',
+		  'title'             => __('Switchboard', 'enercare'),
+		  'render_template'   => 'partials/blocks/switchboard/block-switchboard.php',
+		  'category'          => 'layout',
+		  'icon'              => 'grid-view',
+		  'mode'              => 'preview',
+		  'description'        => 'The switchboard is a highly specialized block that only accepts Mega Buttons inside of its innerblock content. This block addresses some specific use cases for button grids outlined in the original comps for the Enercare 3.0 project',
+		  'supports'        => array(
+			  'align' => true,
+			  'jsx'   => true,
+		  ),
+		  'keywords'          => array('accordion', 'panel', 'enercare', 'content', 'portent'),
+		  'enqueue_assets' => function() {
+			  //wp_enqueue_style( 'block-location-map-style', get_template_directory_uri() . '/assets/css/block--location-map.css', array('ea-style'), false, 'screen');
+		  }
+	  ));
+
+	  acf_register_block_type(array(
 		  'name' => 'enercare-youtube-lite',
 		  'title' => __('Youtube (Lazy)', 'clientname'),
 		  'render_template' => 'partials/blocks/youtube-lazy/youtube-lazy.php',

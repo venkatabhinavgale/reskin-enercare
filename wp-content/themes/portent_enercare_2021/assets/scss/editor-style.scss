@@ -121,3 +121,52 @@ lite-youtube.lyt-activated > .lty-playbtn {
 	white-space: nowrap;
 	width: 1px;
 }
+
+/**
+Switchboard Editor Styles
+ */
+[data-align="wide"]{
+	.block-switchboard,
+	.block-switchboard__container .block-editor-block-list__layout {
+		max-width: $grid-width;
+	}
+}
+
+.block-switchboard {
+	display: block !important;
+}
+
+.block-switchboard .block-switchboard__container {
+	display: block !important;
+}
+
+.block-switchboard__container .block-editor-block-list__layout {
+
+	display: grid;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: $content-width;
+	grid-column-gap: 1.5em;
+	grid-row-gap: 1.5em;
+
+	& > * {
+		margin: 0;
+		width: 100%;
+	}
+
+}
+
+@for $i from 1 through 8 {
+	.block-switchboard__container--desktop-col-#{$i} .block-editor-block-list__layout {
+		@include media('>=tablet') {
+			grid-template-columns: repeat(#{$i}, 1fr);
+		}
+	}
+
+	.block-switchboard__container--mobile-col-#{$i} .block-editor-block-list__layout {
+
+		@include media('<tablet') {
+			grid-template-columns: repeat(#{$i}, 1fr);
+		}
+	}
+}
