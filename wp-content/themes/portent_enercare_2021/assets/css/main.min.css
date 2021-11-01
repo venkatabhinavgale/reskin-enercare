@@ -716,8 +716,8 @@ p.has-normal-font-size{font-size:1em}
 .appointment-banner__title{text-align:center}
 .appointment-banner__link{margin:0;width:50%;border-radius:30px;text-align:center}
 .site-header .wrap{padding:0 24px;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
-.singular .entry-header .post-meta__author-meta{margin-right:0}
 .singular .entry-header .post-meta .single-post__share-menu{-ms-flex-item-align:center;align-self:center}
+.singular .entry-header .post-meta{margin-right:0}
 }@media(max-width:767px){h1{line-height:2.375rem}
 h2{line-height:2rem}
 h3{line-height:1.750rem}
