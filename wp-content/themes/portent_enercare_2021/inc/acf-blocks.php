@@ -272,7 +272,7 @@ function enercare_register_theme_blocks() {
 		  'mode'              => 'preview',
 		  'description'        => 'The switchboard is a highly specialized block that only accepts Mega Buttons inside of its innerblock content. This block addresses some specific use cases for button grids outlined in the original comps for the Enercare 3.0 project',
 		  'supports'        => array(
-			  'align' => true,
+			  'align' => array( 'center', 'wide' ),
 			  'jsx'   => true,
 		  ),
 		  'keywords'          => array('accordion', 'panel', 'enercare', 'content', 'portent'),

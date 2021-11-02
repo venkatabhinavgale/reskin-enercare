@@ -17,7 +17,9 @@
 	</label>
 </form>
 -->
+<div class="search-field__wrapper">
 <div id="searchfield" class="search-field"></div>
-<section id="scrollable" style="max-height: 300px; max-width: 700px; overflow: auto;">
+<section class="search-field__results" id="scrollable" style="max-height: 300px; max-width: 700px; overflow: auto;">
   <div id="autocomplete"></div>
 </section>
+</div>

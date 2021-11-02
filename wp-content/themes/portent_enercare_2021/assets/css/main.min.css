@@ -66,6 +66,14 @@ input:focus::-webkit-input-placeholder,input:focus::-moz-placeholder,input:focus
 .search-form .search-submit{background:transparent;border:0;padding:0;margin:0;min-width:0;width:44px;height:44px;line-height:0;text-align:center;position:absolute;top:50%;margin-top:-22px;right:0}
 .search-form .search-submit svg{fill:#505156;width:20px;height:20px}
 .search-form .search-submit svg:hover{fill:#dc1c28}
+.search-field__wrapper{position:relative}
+.search-field__wrapper .addsearch-autocomplete__total-results{display:none}
+.search-field__wrapper .addsearch-searchfield input[type="search"]{padding:10px 10px 10px 30px;background-image:url(../icons/search/red-search.svg);background-repeat:no-repeat;background-position:10px 8px;background-size:16px 16px}
+.addsearch-autocomplete li{border-bottom:1px solid #f5f2f2;padding:12px 1em;-webkit-transition:background-color .3s ease;transition:background-color .3s ease}
+.addsearch-autocomplete li:hover,.addsearch-autocomplete li:focus{background-color:#f5f2f2;-webkit-transition:background-color .3s ease;transition:background-color .3s ease}
+.addsearch-autocomplete li:hover a,.addsearch-autocomplete li:focus a{color:#dc1c28}
+.addsearch-autocomplete li a{color:#29292c;font-weight:300;font-size:1em;text-decoration:none}
+.search-field__results{background-color:#fff;-webkit-box-shadow:0 4px 8px 0 rgba(56,61,67,0.3);box-shadow:0 4px 8px 0 rgba(56,61,67,0.3);position:absolute;z-index:99}
 .gform_wrapper.product-form_wrapper .product-form .gform_body .gform__disclaimer{width:100%;font-size:10px;line-height:12px}
 .gform_wrapper.product-form_wrapper .product-form .gform_footer{display:-webkit-box;display:-ms-flexbox;display:flex}
 .gform_wrapper.product-form_wrapper .product-form .gform_footer input[type=submit]{width:140px;border-radius:30px;font-size:1rem;font-weight:700;line-height:22px;padding:5px 16px;text-decoration:none;background-color:#dc1c28;color:#fff}

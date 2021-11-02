@@ -61,16 +61,16 @@ function enercare_scripts() {
 	 */
 	wp_register_script( 'glider-js', get_template_directory_uri() . '/assets/js/glider/glider.min.js', null , null );
 	wp_register_style( 'glider-css', get_template_directory_uri() . '/assets/js/glider/glider.min.css', null , null );
-  
+
   /**
 	 * AddSearch Registrations
 	 */
 	wp_register_script('addsearch-client-script', get_template_directory_uri() . '/assets/js/addsearch/addsearch-js-client.min.js', null, null, true );
   wp_enqueue_script( 'addsearch-client-script', get_template_directory_uri() . '/assets/js/addsearch/addsearch-js-client.min.js',null, null, true );
-  
+
   wp_register_script('addsearch-ui-script', get_template_directory_uri() . '/assets/js/addsearch/addsearch-search-ui.min.js', null, null, true );
   wp_enqueue_script( 'addsearch-ui-script', get_template_directory_uri() . '/assets/js/addsearch/addsearch-search-ui.min.js',null, null, true );
-  
+
 	wp_register_style('addsearch-style', get_template_directory_uri() . '/assets/js/addsearch/addsearch-search-ui.min.css', null, null );
   wp_enqueue_style( 'addsearch-style', get_template_directory_uri() . '/assets/js/addsearch/addsearch-search-ui.min.css', null , null );
 
@@ -230,6 +230,7 @@ function enercare_setup() {
 	register_nav_menus( array(
 		'primary' => esc_html__( 'Primary Navigation Menu', 'ea-starter' ),
 		'secondary' => esc_html__( 'Secondary Navigation Menu', 'ea-starter' ),
+		'footer-areas' => esc_html__('Areas We Serve', 'ea-starter')
 	) );
 
 	/*
