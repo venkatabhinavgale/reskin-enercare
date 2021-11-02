@@ -25,12 +25,13 @@ body#{$prefix}-opened {
 	overflow-y: hidden;
 	overscroll-behavior: none;
 	position: fixed;
+	max-width: 100%;
 }
 
 //  The wrapper
 #{$prefix} {
 	position: fixed;
-	top: 59px;
+	top: 0;
 	right: 0;
 	bottom: 100%;
 	left: 0;
@@ -49,6 +50,8 @@ body#{$prefix}-opened {
 		bottom: 0;
 		background: rgba(#000, 0.25);
 		transition-delay: 0s;
+		transform: translateY(59px);
+		// margin-top: 59px;
 	}
 }
 
@@ -84,7 +87,7 @@ body#{$prefix}-opened {
 	}
 
 	#{$prefix}--open & {
-		transform: translate3d(0, 0, 0);
+		transform: translateX(0);
 	}
 }
 
