@@ -158,7 +158,11 @@ Site Footer
  */
 .footer--menus {
 	.wp-block-column {
-		border-right: 1px solid $grey_3;
+		border-right: none;
+
+		@include media('>=tablet') {
+			border-right: 1px solid $grey_3;
+		}
 
 		&:last-of-type {
 			border-right: 0;

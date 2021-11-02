@@ -15,11 +15,12 @@
 
 		.archive-wrapper {
 			@include columns(1);
+			grid-row-gap: 1.5em;
 
 			@include media(">=tablet") {
 				@include columns(2);
 				grid-column-gap: 1.5em;
-				grid-row-gap: 1.5em;
+
 			}
 		}
 	}
