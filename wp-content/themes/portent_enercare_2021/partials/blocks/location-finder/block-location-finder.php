@@ -6,7 +6,7 @@ $locations_header = get_field('locations_heading');
 $locations_locations = get_field('locations');
 $locations_cta = get_field('locations_cta');
 $form_image = wp_get_attachment_image( get_field('form_image') , 'full', null, array( 'alt' => '', 'class' => 'block-location-finder__icon' ));
-$form_background = wp_get_attachment_image_src( get_field('form_background_image'), 'medium');
+$form_background = wp_get_attachment_image_src( get_field('form_background_image'), 'full');
 $form_header = get_field('form_header');
 $form_content = get_field('form_content');
 ?>
