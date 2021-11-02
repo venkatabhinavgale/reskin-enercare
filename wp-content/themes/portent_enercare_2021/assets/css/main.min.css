@@ -68,7 +68,8 @@ input:focus::-webkit-input-placeholder,input:focus::-moz-placeholder,input:focus
 .search-form .search-submit svg:hover{fill:#dc1c28}
 .search-field__wrapper{position:relative}
 .search-field__wrapper .addsearch-autocomplete__total-results{display:none}
-.search-field__wrapper .addsearch-searchfield input[type="search"]{padding:10px 10px 10px 30px;background-image:url(../icons/search/red-search.svg);background-repeat:no-repeat;background-position:10px 8px;background-size:16px 16px}
+.search-field__wrapper .addsearch-searchfield input[type="search"]{padding:10px 10px 7px 30px;background-image:url(../icons/search/red-search.svg);background-repeat:no-repeat;background-position:8px 9px;background-size:16px 16px}
+.search-field__wrapper .addsearch-searchfield input[type="search"]:focus{border:1px solid #dc1c28}
 .addsearch-autocomplete li{border-bottom:1px solid #f5f2f2;padding:12px 1em;-webkit-transition:background-color .3s ease;transition:background-color .3s ease}
 .addsearch-autocomplete li:hover,.addsearch-autocomplete li:focus{background-color:#f5f2f2;-webkit-transition:background-color .3s ease;transition:background-color .3s ease}
 .addsearch-autocomplete li:hover a,.addsearch-autocomplete li:focus a{color:#dc1c28}
