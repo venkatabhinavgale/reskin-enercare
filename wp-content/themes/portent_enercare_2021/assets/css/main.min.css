@@ -355,7 +355,7 @@ div.wpforms-container.one-line:after{content:"";display:table;clear:both}
 .top-bar__nav .menu li:not(:last-of-type){margin-right:1rem}
 .top-bar__nav a{color:#2c2929}
 .top-bar .search-form{margin-left:auto;-ms-flex-preferred-size:25%;flex-basis:25%}
-.appointment-banner{position:absolute;background-image:url(../img/apt-bkgd-gry.svg);background-size:cover;background-position:center top;background-color:transparent;display:-webkit-box;display:-ms-flexbox;display:flex;top:0;left:50%;z-index:10;padding:1em 0;-webkit-transform:translateX(-50%);transform:translateX(-50%);-webkit-box-align:center;-ms-flex-align:center;align-items:center;height:60px;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;max-width:calc(90% - 80px);width:100%}
+.appointment-banner{position:absolute;background-image:url(../img/apt-bkgd-gry.svg);background-size:cover;background-position:center top;background-color:transparent;display:-webkit-box;display:-ms-flexbox;display:flex;top:0;left:50%;z-index:10;padding:1em 0;-webkit-transform:translateX(-50%);transform:translateX(-50%);-webkit-box-align:center;-ms-flex-align:center;align-items:center;height:60px;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;max-width:calc(98% - 80px);width:100%}
 .appointment-banner:before,.appointment-banner:after{content:'';display:inline-block;background-image:url(../img/apt-bkgd-gry.svg);background-repeat:no-repeat;background-size:cover;width:40px;height:60px;position:absolute;z-index:10}
 .appointment-banner:before{left:0;-webkit-transform:translateX(-100%);transform:translateX(-100%)}
 .appointment-banner:after{right:0;-webkit-transform:translateX(100%);transform:translateX(100%);background-position:100% 0}
@@ -514,7 +514,7 @@ div.wpforms-container.one-line:after{content:"";display:table;clear:both}
 .site-footer .backtotop{background:rgba(0,0,0,0.75);border-radius:3px;display:inline-block;line-height:20px;padding:10px;text-decoration:none}
 .site-footer .backtotop svg{fill:#fff;margin-left:4px;vertical-align:middle}
 .site-footer .backtotop:hover{background:#000}
-.footer--menus .wp-block-column{border-right:1px solid #d3d1d1}
+.footer--menus .wp-block-column{border-right:0}
 .footer--menus .wp-block-column:last-of-type{border-right:0}
 .footer--menus a{color:#000}
 .footer--menus .menu-item-has-children>a{font-size:1.125em;line-height:1.5rem;font-weight:700;display:block;padding:1em 0}
@@ -664,6 +664,7 @@ div.wpforms-container.one-line .wpforms-submit-container{float:right;width:110px
 .site-footer .footer-left>*:last-child{margin-bottom:0}
 .site-footer .copyright,.site-footer .footer-links{display:inline-block;margin-right:20px}
 .site-footer .backtotop{float:right}
+.footer--menus .wp-block-column{border-right:1px solid #d3d1d1}
 .footer--menus .menu-item-has-children>a{font-size:1.125em}
 .footer--menus .sub-menu a{font-size:1em}
 .floating-cta{display:none}
@@ -684,7 +685,7 @@ div.wpforms-container.one-line .wpforms-submit-container{float:right;width:110px
 .nav-menu .nav-primary+.nav-secondary{margin-bottom:16px}
 .nav-menu .menu{display:-webkit-box;display:-ms-flexbox;display:flex;width:auto}
 .nav-menu .menu>.menu-item{min-width:14.28%;-webkit-box-flex:1;-ms-flex:1 1 0;flex:1 1 0}
-.nav-menu .menu>.menu-item>a{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;text-align:center;min-height:7.25rem;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
+.nav-menu .menu>.menu-item>a{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;text-align:center;min-height:7.25rem;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start;padding-top:12%}
 .nav-menu .menu>.menu-item:hover{background-color:#f5f2f2}
 .nav-menu .menu>.menu-item:hover>a{color:#dc1c28}
 .nav-menu .menu>.menu-item>.sub-menu{background-color:#f5f2f2;opacity:0;position:absolute;width:100%;z-index:99;top:100%;right:left;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;padding:2rem 0;left:-9999px}
