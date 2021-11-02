@@ -354,6 +354,8 @@ div.wpforms-container.one-line:after{content:"";display:table;clear:both}
 .top-bar__nav .menu{display:-webkit-box;display:-ms-flexbox;display:flex}
 .top-bar__nav .menu li:not(:last-of-type){margin-right:1rem}
 .top-bar__nav a{color:#2c2929}
+.top-bar__nav a:hover,.top-bar__nav afocus{text-decoration:underline}
+.top-bar__nav a:focus{border:1px dotted #000}
 .top-bar .search-form{margin-left:auto;-ms-flex-preferred-size:25%;flex-basis:25%}
 .appointment-banner{position:absolute;background-image:url(../img/apt-bkgd-gry.svg);background-size:cover;background-position:center top;background-color:transparent;display:-webkit-box;display:-ms-flexbox;display:flex;top:0;left:50%;z-index:10;padding:1em 0;-webkit-transform:translateX(-50%);transform:translateX(-50%);-webkit-box-align:center;-ms-flex-align:center;align-items:center;height:60px;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;max-width:calc(98% - 80px);width:100%}
 .appointment-banner:before,.appointment-banner:after{content:'';display:inline-block;background-image:url(../img/apt-bkgd-gry.svg);background-repeat:no-repeat;background-size:cover;width:40px;height:60px;position:absolute;z-index:10}
