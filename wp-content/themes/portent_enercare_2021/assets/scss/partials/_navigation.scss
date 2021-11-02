@@ -80,7 +80,8 @@
 					flex-direction: column;
 					text-align: center;
 					min-height: 7.25rem;
-					justify-content: center;
+					justify-content: flex-start;
+					padding-top: 12%;
 				}
 
 				&:hover {
