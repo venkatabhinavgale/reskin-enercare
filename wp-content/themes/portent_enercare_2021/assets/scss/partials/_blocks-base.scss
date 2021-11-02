@@ -369,8 +369,8 @@ Legal Panel In Footer Area
 .legal__terms-details {
 	background-color: brand-color('grey-20');
 	padding: 1em;
-	font-size: 10px;
-	line-height: 12px;
+	@include font-sizes(1em);
+	line-height: 1.3rem;
 	letter-spacing: 0;
 	width: 100%;
 
