@@ -26,7 +26,7 @@ jQuery(function ($) {
 
   searchui.searchField({
     containerId: 'searchfield',
-    placeholder: 'Start typing to see results...',
+    placeholder: 'Search',
     icon: false
   });
   var autocompleteClient = new AddSearchClient('3145819e621ccfb6dbf5116b2c92967b');

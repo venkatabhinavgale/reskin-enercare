@@ -16,7 +16,7 @@ jQuery(function($){
 		$('.search-toggle, .header-search').toggleClass('active');
 		$('.site-header .search-field').focus();
 	});
-  
+
   // AddSearch JS client with an example index. Get your own SITEKEY by signing up at www.addsearch.com
   var client = new AddSearchClient('3145819e621ccfb6dbf5116b2c92967b');
   var conf = {
@@ -27,10 +27,10 @@ jQuery(function($){
   // Add components
   searchui.searchField({
     containerId: 'searchfield',
-    placeholder: 'Start typing to see results...',
+    placeholder: 'Search',
     icon: false
   });
-  
+
   var autocompleteClient = new AddSearchClient('3145819e621ccfb6dbf5116b2c92967b');
   autocompleteClient.setPaging(1, 7, 'relevance', 'desc'); // Fetch 7 results by default
 
@@ -61,15 +61,15 @@ jQuery(function($){
       }
     ]
   });
-  
+
   // All components added. Start
   searchui.start();
 
   //Enercare Specific function
   (function (window,document, undefined) {
-    
+
     window.Enercare = {};
-    
+
     /**
      * Array of url parameters structured with the key
      * as the key we will store/pull from sessionStorage
@@ -161,7 +161,7 @@ jQuery(function($){
 
       });
     }
-    
+
     /**
      * Loop through PPCparams
      * check to see if sessionStorage item exists for that key
@@ -169,13 +169,13 @@ jQuery(function($){
      * url parameter provided
      */
     window.Enercare.logPPCParamsToStorage();
-    
+
     /** Get the gravity form and handle hidden form field inputs */
     var gravityForm = $('.gform_wrapper form');
     if (gravityForm.length) {
       window.Enercare.handleHiddenFormFields(gravityForm[0]);
     }
-    
+
   })(window,document);
-  
+
 });

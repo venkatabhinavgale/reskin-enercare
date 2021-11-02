@@ -66,7 +66,7 @@ textarea {
       cursor: pointer;
 
 			@include media(">=desktop") {
-				padding: 8px 24px;	
+				padding: 8px 24px;
 				border-radius: $border-radius;
 				margin-top: 0em;
 			}
@@ -132,6 +132,55 @@ textarea {
 	}
 }
 
+.search-field__wrapper {
+	position: relative;
+
+	.addsearch-autocomplete__total-results {
+		display:none;
+	}
+
+	.addsearch-searchfield input[type="search"] {
+		padding: 10px 10px 10px 30px;
+		background-image: url(../icons/search/red-search.svg);
+		background-repeat: no-repeat;
+		background-position: 10px 8px;
+		background-size: 16px 16px;
+	}
+}
+
+.addsearch-autocomplete {
+
+	li {
+		border-bottom: 1px solid $grey_1;
+		padding: 12px 1em;
+		transition: background-color 0.3s ease;
+
+		&:hover,
+		&:focus {
+			background-color: $grey_1;
+			transition: background-color 0.3s ease;
+
+			a {
+				color: brand-color('red');
+			}
+		}
+
+		a {
+			color: $base-color;
+			font-weight: 300;
+			@include font-sizes(1em);
+			text-decoration: none;
+		}
+	}
+}
+
+.search-field__results {
+	background-color: $white;
+	box-shadow: $drop-shadow;
+	position: absolute;
+	z-index: 99;
+}
+
 
 /* Product Form & Buy/Rent/Rebates Lead Form
 --------------------------------------------- */
@@ -141,8 +190,8 @@ textarea {
 	&_wrapper {
 
 		.product-form {
-			
-			
+
+
 			.gform_body {
 
 
@@ -176,7 +225,7 @@ textarea {
 					color: $white;
 
 					@include media(">=desktop") {
-						padding: 8px 24px;	
+						padding: 8px 24px;
 						border-radius: $border-radius;
 						margin-top: 0em;
 					}
