@@ -131,7 +131,7 @@ h4,h5,h6{font-size:18px}
 .legal__terms{width:100%;background-color:#f5f2f2}
 .legal__terms-toggle{display:-webkit-box;display:-ms-flexbox;display:flex;margin:0 auto;width:66%;max-width:100%;padding:0 1.5em;border:0;-webkit-box-align:center;-ms-flex-align:center;align-items:center;background:0}
 .legal__terms-toggle img{height:15px;width:15px;margin:1.5em 0 1.5em .902em}
-.legal__terms-details{background-color:#e6e4e4;padding:1em;font-size:10px;line-height:12px;letter-spacing:0;width:100%}
+.legal__terms-details{background-color:#e6e4e4;padding:1em;font-size:1em;line-height:1.3rem;letter-spacing:0;width:100%}
 .legal__terms-details p{width:66%;margin:0 auto;padding:5px 0 5px 16px}
 .block-carousel__wrapper{position:relative}
 .block-carousel__wrapper .glider-prev,.block-carousel__wrapper .glider-next{color:#000;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%)}
@@ -354,6 +354,8 @@ div.wpforms-container.one-line:after{content:"";display:table;clear:both}
 .top-bar__nav .menu{display:-webkit-box;display:-ms-flexbox;display:flex}
 .top-bar__nav .menu li:not(:last-of-type){margin-right:1rem}
 .top-bar__nav a{color:#2c2929}
+.top-bar__nav a:hover,.top-bar__nav afocus{text-decoration:underline}
+.top-bar__nav a:focus{border:1px dotted #000}
 .top-bar .search-form{margin-left:auto;-ms-flex-preferred-size:25%;flex-basis:25%}
 .appointment-banner{position:absolute;background-image:url(../img/apt-bkgd-gry.svg);background-size:cover;background-position:center top;background-color:transparent;display:-webkit-box;display:-ms-flexbox;display:flex;top:0;left:50%;z-index:10;padding:1em 0;-webkit-transform:translateX(-50%);transform:translateX(-50%);-webkit-box-align:center;-ms-flex-align:center;align-items:center;height:60px;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;max-width:calc(98% - 80px);width:100%}
 .appointment-banner:before,.appointment-banner:after{content:'';display:inline-block;background-image:url(../img/apt-bkgd-gry.svg);background-repeat:no-repeat;background-size:cover;width:40px;height:60px;position:absolute;z-index:10}

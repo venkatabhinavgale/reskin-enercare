@@ -9,6 +9,10 @@
 		}
 	}
 
+	thead {
+		background-color: $white;
+	}
+
 	th {
 		border-top: 1px solid $grey_2;
 		border-left: 1px solid $grey_2;
@@ -30,6 +34,9 @@
 	tbody {
 
 		tr {
+
+			background-color: $white;
+
 			&:nth-child(odd) {
 				background-color: $grey_1;
 			}

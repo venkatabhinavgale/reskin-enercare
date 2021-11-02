@@ -147,6 +147,15 @@
 		}
 		a {
 			color: $grey_11;
+
+			&:hover,
+			&focus {
+				text-decoration: underline;
+			}
+
+			&:focus {
+				border: 1px dotted $black;
+			}
 		}
 	}
 
