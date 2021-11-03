@@ -158,3 +158,42 @@ function gravity_forms_move_progress_bar( $form_string, $form ) {
   return $form_string;
 }
 add_filter( 'gform_get_form_filter', 'gravity_forms_move_progress_bar', 10, 3 );
+
+
+/* 
+----------------------------------------------------------
+GRAVITY LITE EXPORTS CUSTOMIZATIONS
+----------------------------------------------------------
+*/
+// separate all address type fields into multiple columns
+add_filter( 'gfexcel_field_separated_address', function() { return true; } );
+
+function enercare_gfexcel_field_label($label, GF_Field $field) {
+  $labels_to_change = array(
+    "Entry Id" => "Submission ID",
+    "Entry Date" => "Created",
+    "User IP" => "Remote IP Address",
+    "Email Address" => "Email",
+    "Street Address" => "Address: Street Address",
+    "City" => "Address: City",
+    "State / Province" => "Address: Province",
+    "ZIP / Postal Code" => "Address: Postal Code",
+    "Best Time to Call" => "Best Time To Call (Optional)",
+    "Source Url" => "Submission URI",
+  );
+  // "Serial number","Submission ID","Submission URI",Created,Completed,Changed,"Is draft","Current page","Remote IP address","Submitted by: ID","Submitted by: Title","Submitted by: URL",Language,"Submitted to: Entity type","Submitted to: Entity ID",Locked,Sticky,Notes,"Submitted to: Entity title","Submitted to: Entity URL",Name,Email,"Address: Street Address","Address: City","Address: Province","Address: Postal Code","Phone Number","Best Time To Call (Optional)"
+  // "Entry Id","Entry Date","User IP","Name","Phone Number","Best Time to Call","Email Address","Street Address","City","ZIP / Postal Code","Select Equipment","Equipment currently not working","How can we help you?","utm_source","utm_medium","utm_campaign","ruid","webhookStatus","webhookDate","Created By (User Id)","Source Url","Transaction Id","Payment Amount","Payment Date","Payment Status","Post Id","User Agent"
+  
+  foreach ($labels_to_change as $old_label => $new_label) {
+    if ($label == $old_label)
+      $label = $new_label;
+  }
+
+  return $label;
+}
+add_filter('gfexcel_field_label', 'enercare_gfexcel_field_label', 10, 2);
+/* 
+----------------------------------------------------------
+END GRAVITY LITE EXPORTS CUSTOMIZATIONS
+----------------------------------------------------------
+*/
