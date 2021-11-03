@@ -56,6 +56,10 @@ endif;
 function enercare_site_header() {
 	//pulling from ACF options
 	$phone_number = get_field('default_phone_number', 'option');
+  //use default commercial phone number
+  if (get_field('site_override') && get_field('site_override') == 'Commercial') {
+    $phone_number = get_field('default_commercial_phone_number', 'option');
+  }
 
 	echo '<nav role="navigation" id="slider-menu" class="nav-menu">';
 	if( has_nav_menu( 'primary' ) ) {

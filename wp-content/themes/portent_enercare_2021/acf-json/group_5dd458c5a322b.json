@@ -46,6 +46,25 @@
             "maxlength": ""
         },
         {
+            "key": "field_6182bba18747c",
+            "label": "Default Commercial Phone Number",
+            "name": "default_commercial_phone_number",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_6140ff7bc0682",
             "label": "Banner Toggle",
             "name": "banner_toggle",
@@ -111,6 +130,21 @@
             "key": "field_611ad438f41e2",
             "label": "Floating CTA Link",
             "name": "floating_cta_link",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        },
+        {
+            "key": "field_6182bc1b953a2",
+            "label": "Floating CTA Link for Commercial",
+            "name": "floating_cta_link_commercial",
             "type": "link",
             "instructions": "",
             "required": 0,
@@ -250,6 +284,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1633651135,
-    "local_file": "\/Users\/jeremiah\/Local Sites\/enercare-2021\/app\/public\/wp-content\/themes\/portent_enercare_2021\/acf-json\/group_5dd458c5a322b.json"
+    "modified": 1635957817
 }
