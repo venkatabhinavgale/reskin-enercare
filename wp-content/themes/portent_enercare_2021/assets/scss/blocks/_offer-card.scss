@@ -108,18 +108,27 @@
 			border-style: none;
 			background: none;
 			padding: 48px;
+			//display: flex;
+			//flex-direction: column;
+			//justify-content: flex-start;
+			text-align: left;
 
 			h3 {
-				@include font-sizes(2.5em);
+				@include font-sizes(2.5em, 3.750em);
 				line-height: 48px;
 				font-weight: 900;
+
+				@include media('>=tablet') {
+					letter-spacing: -0.49px;
+					line-height: 3.750rem;
+				}
 			}
 
 			.block-offer-card {
 
 				&__offer-expiration {
-					font-size: 12px;
-					line-height: 16px;
+					@include font-sizes(0.750em);
+					line-height: 1rem;
 				}
 
 				&__subheading {
