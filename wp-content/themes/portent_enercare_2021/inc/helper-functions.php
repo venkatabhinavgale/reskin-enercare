@@ -185,17 +185,16 @@ function enercare_breadcrumbs($display = true) {
     global $post;
     // exclude breadcrumbs on these post_types, pages, etc.
     if (
-        is_front_page() || 
+        is_front_page() ||
         is_home() ||
-        is_archive() ||
         (is_single() && $post->post_type == "landing-page")
        ) {
       return false;
     }
-    
+
     if ($display == "" && $display !== false)
       $display = true;
-    
+
     $breadcrumbs = yoast_breadcrumb( '<p id="breadcrumbs" class="breadcrumb">','</p>',$display );
     if (!$display)
       return $breadcrumbs;
@@ -220,7 +219,7 @@ function enercare_banner($display = true) {
 
   if ($display == "" && $display !== false)
     $display = true;
-  
+
   if (!$display)
     return $output;
   else
@@ -361,7 +360,7 @@ function enercare_filter_archive( $query ) {
           }
         }
       }
-      
+
       // check if province URL param exists
       if ($province && $province != "") {
         // if we're on the campaign archive page, get campaigns by postal code
@@ -434,7 +433,7 @@ function get_taxonomy_dropdown_filter( $taxonomy ) {
 	$output = '<div class="select-container">';
     $output .= '<label for="category-select">' . $taxonomy_details->label . '</label>';
     $output .= '<select id="category-select" class="category-filter__select" data-taxonomy="' . $taxonomy . '">';
-    
+
 		$terms = get_terms(array('taxonomy' => $taxonomy, 'hide_empty' => false, 'orderby' => 'name', 'order' => 'ASC'));
     $output .= '<option value="">- Select A ' . $taxonomy_details->label . ' -</option>';
     foreach ($terms as $term) {
@@ -443,7 +442,7 @@ function get_taxonomy_dropdown_filter( $taxonomy ) {
         $selected = " selected";
       $output .= '<option value="' . $term->slug . '"' . $selected . '>' . $term->name . '</option>';
     }
-			
+
 		$output .= '</select>';
 	$output .= '</div>';
 
@@ -460,7 +459,7 @@ function get_province_filter() {
 	$output = '<div class="province-filter">';
 		$output .= '<label for="province-select">Province</label>';
 		$output .= '<select id="province-select" class="province-filter__select" data-taxonomy="province">';
-		
+
       $provinces = get_terms( array(
         'taxonomy' => 'provinces',
         'hide_empty' => false,
@@ -472,7 +471,7 @@ function get_province_filter() {
           $selected = " selected";
         $output .= '<option value="' . $province->slug . '"' . $selected . '>' . $province->name . '</option>';
       }
-			
+
 		$output .= '</select>';
 	$output .= '</div>';
 	return $output;

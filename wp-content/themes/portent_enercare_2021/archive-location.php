@@ -21,7 +21,7 @@ function enercare_archive_body_class( $classes ) {
 }
 add_filter( 'body_class', 'enercare_archive_body_class' );
 
-
+add_filter( 'enercare_the_content', function(){ return get_field('location_archive_description', 'options'); } );
 /**
  * Filter Divider
  */
@@ -76,11 +76,11 @@ function enercare_archive_header() {
 	echo '<header class="' . join( ' ', $classes ) . '">';
 	do_action ('enercare_archive_header_before' );
 	if( ! empty( $title ) )
-		echo '<h1 class="archive-title">' . $title . '</h1>';
+		echo '<h1 class="archive-title">'.get_field('location_archive_title', 'options').'</h1>';
 	if( !empty( $subtitle ) )
 		echo '<h4>' . $subtitle . '</h4>';
 
-	echo apply_filters( 'enercare_the_content', $description );
+	echo '<p class="archive-description-content">'. apply_filters( 'enercare_the_content', $description ) .'</p>';
 	echo $more;
 	echo '<div class="archive-header__after">';
 		do_action ('enercare_archive_header_after' );
