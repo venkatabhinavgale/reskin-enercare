@@ -15,10 +15,10 @@ $terms_and_conditions = get_field('terms_and_conditions');
 $campaign_destination = get_field('destination');
 $classes = 'has-white-background-color has-background has-white-background-color';
 $cta_text = get_field('cta_text') ? get_field('cta_text') : __( 'Shop Plans', 'portent-enercare');
+$campaign = get_post(get_the_ID());
 
 //Get Terms and conditions setup
 require get_template_directory() . '/partials/campaign-terms-conditions.php';
-
 
 echo '<article class="post-summary block-card block-card--archive is-style-shadowed">';
 
