@@ -124,10 +124,25 @@
 	box-shadow: $drop-shadow;
 	display: block;
 	visibility: visible;
+	margin-bottom: $block-margin;
 
 	@include media(">=tablet") {
 		display: none;
 		visibility: hidden;
+	}
+
+	.block-tabbed-content__tabs {
+		display: flex;
+		visibility: visible;
+	}
+
+	.block-comparison-card__contents {
+		padding: 16px 11px 24px;
+	}
+
+	.block-tabbed-content__tab-panels.init .wp-block-portent-block-tabbed-content--tab:first-of-type .block-tabbed-content__tab-content {
+		display: block;
+		position: relative;
 	}
 
 	.block-tabbed-content__tab {
