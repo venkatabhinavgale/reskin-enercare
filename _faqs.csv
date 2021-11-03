@@ -1,0 +1,878 @@
+langcode,type,status,uid,title,created,changed,default_langcode,metatag,path,rh_action,rh_redirect,rh_redirect_response,rh_redirect_fallback_action,publish_on,unpublish_on,menu_link,body,field_faq_category,field_question
+"en","faq_question","1","16","How does an air conditioner work?","1568662203","1574447755","1","","en","","","","","","","","Most central air conditioning systems are made up of two parts or what is called a split system. The outdoor unit contains a condenser coil, compressor, fan and electrical components. The indoor portion sits on top of the natural gas or propane furnace and is called the evaporator coil or “A” coil. The purpose of an air conditioner is to remove the heat and humidity from the home’s air to make it cooler.
+
+
+	A central air conditioning system will start up when the attached thermostat senses that the temperature has increased above a preset level.
+	The liquid refrigerant inside the evaporator coil converts to gas and as the warm humid indoor air passes over it, it absorbs the heat and removes the humidity which cools the air.
+	The furnace’s blower fan then circulates the chilled air up through the home’s ductwork and out into the various living areas.
+	Meanwhile, the refrigerant gas travels outside the house through a copper pipe (line set) to the compressor. The compressor pressurizes the gas and moves the refrigerant through the condenser coil. As the condenser fan pulls cool air through the condenser coil it changes the refrigerant back to liquid form thus continuing the refrigeration cycle.
+	The humidity that was pulled from the air turns into condensation which is removed from the evaporator coil via the condensate drain line.
+	The heated air in the home circulates through the cold air returns and back into the system to be cooled down and dehumidified again.
+
+","126","How does an Air Conditioner work?
+"
+"en","faq_question","1","16","Do I need to change my furnace filter in the summer?","1568662596","1568662642","1","","en","","","","","","","","Yes, if you have a central air conditioner. The air conditioner works with the furnace fan to transfer cool air throughout the home. We recommend that you change or clean your furnace filter every one-to-three months.
+","126","Do I need to change my furnace filter in the summer?"
+"en","faq_question","1","16","What size air conditioner do I need?","1568662708","1623944542","1","","en","","","","","","","","Every home is unique and a number of factors impact the air conditioner size needed, including the size and age of your home, air flow, how many windows you have, insulation, and specific homeowner requirements. To make sure you get the air conditioner size that best suits your needs, it’s critical to have a professional visit your home to complete an evaluation to calculate heat gain and air flow. Incorrect sizing of an air conditioner may cause a shortened life of the equipment, higher utility costs and diminished comfort because the home isn’t cooling down or dehumidifying correctly.
+","321","What size air conditioner do I need?
+"
+"en","faq_question","1","16","What is the lifespan of an air conditioner?","1568662760","1568662798","1","","en","","","","","","","","Your air conditioner’s age is a key indicator when deciding on an AC replacement. The average lifecycle of equipment is 15 years. But age is not the only factor to consider. Other reasons you may need to replace your air conditioner include safety, frequency of breakdowns, installation quality, and improper sizing.","126","What is the lifespan of an air conditioner?"
+"en","faq_question","1","16","What does an air conditioner cost?","1568662809","1623944476","1","","en","","","","","","","","The average price range of a typical new high-efficiency central air conditioner in Ontario ranges from $3,500 to $6,000. This price includes standard installation from a fully-insured, licensed company, at least a one year warranty and all required licenses for installation.
+
+The cost of an air conditioner is dependent on four factors:
+
+
+	Environmental choices, including energy efficiency, sound output, air filtration sizes (which depend on allergies or other sensitivities), and comfort-enhancing options.
+	Personal choices including extended warranties, maintenance plans and guarantees.
+	Technical requirements, including the size of your home, floor plan, number of stories, existing ductwork and BTU load.
+	Code requirements including safety, licensing and building code requirements.
+
+","321","What does an air conditioner cost?
+"
+"en","faq_question","1","16","How does a furnace work?","1568662883","1574448163","1","","en","","","","","","","","
+	A natural gas or propane high-efficiency furnace will start up when an attached thermostat senses that the temperature has dropped below a preset level.
+	Before the furnace starts, the ventor motor does a safety check to ensure that the venting is clear, as determined by the pressure switch. The ignitor then ignites the burners inside the furnace combustion chamber and starts creating heat. The heat is transferred to the primary or &quot;first&quot; heat exchanger which heats the air as it flows through the furnace. Afterwards, the combustion gases are passed through a secondary heat exchanger to further extract heat.
+	The blower motor pushes the warmed air through the plenum and out into the house via the registers.
+	The combustion gases, including carbon monoxide, are safely vented to the outdoors from the furnace.
+	In most cases, outside fresh air is pulled into the burn chamber to provide a more efficient burn. However, this practice isn’t done in old homes.
+	Any cold air left in the home gets circulated into the furnace to be heated up.
+
+","131","How does a furnace work?
+"
+"en","faq_question","1","16","Is a humidifier necessary?","1568663027","1568663111","1","","en","","","","","","","","If the humidity in your home is lower than 30 percent on a hygrometer it is recommended that you consider a humidifier. Health Canada recommends a home’s relative humidity should be between 30 to 55 percent in the winter. Most homes require a humidifier in Canada due to the dry air created by our cold climate.","131","Is a humidifier necessary?"
+"en","faq_question","1","16","How often should I change my furnace filter?","1568663123","1568663146","1","","en","","","","","","","","We recommend that you change or clean your furnace filter every one-to-three months.","131","How often should I change my furnace filter?"
+"en","faq_question","1","16","What are Enercare’s guarantees on new equipment?","1568663152","1571355214","1","","en","","","","","","","","We have five guarantees - Home Comfort Guarantee, No Surprises Guarantee, No Lemon Guarantee, Environmental Focus Guarantee and Property Protection and Client Respect Guarantee.&amp;nbsp;
+","131","What are Enercare’s guarantees on new equipment?
+"
+"en","faq_question","1","16","What size furnace do I need?","1568663179","1568663200","1","","en","","","","","","","","Every home is unique and a number of factors impact the furnace size needed, including the size and age of your home, air flow, how many windows your home has, insulation, and specific homeowner requirements.  To make sure you get the furnace size that best suits your needs, it’s crucial to have a professional visit your home to complete an evaluation to calculate heat loss and air flow. Incorrect sizing of a furnace may cause a shortened life of the equipment, higher utility costs and diminished comfort because your home is not warming up correctly.","131","What size furnace do I need?"
+"en","faq_question","1","16","What is the lifespan of a furnace?","1568663206","1570479792","1","","en","","","","","","","","The average lifecycle of a furnace is 15 years, but age is not the only factor to consider. Other reasons to replace your furnace include safety, frequency of breakdowns, quality of installation and improper sizing.
+","131","What is the lifespan of a furnace?
+"
+"en","faq_question","1","16","What does a furnace cost?","1568663241","1574097398","1","","en","","","","","","","","The average price range of a typical new natural gas or propane high-efficiency furnace in Ontario ranges from $3,500 to $6,000. This price includes standard installation from a fully-insured, licensed company, at least a one year warranty and all required licenses for installation.
+
+The cost of a new furnace is dependent on four factors:
+
+
+	Environmental choices, including energy efficiency, humidification, air filtration sizes (which are dependent on allergies or other sensitivities), and comfort-enhancing options.
+	Personal choices including extended warranties, maintenance plans&amp;nbsp;and guarantees.
+	Technical requirements including the size of the home, floor plan, number of stories, existing ductwork and BTU load.
+	Code requirements including safety, licensing and building code requirements.
+	To get an accurate, no-surprises, no-obligation quote, contact us at 1-855-619-7701
+
+","131","What does a furnace cost?
+"
+"en","faq_question","1","16","What happens if Enercare is unable to repair the air conditioner I rent with Enercare Advantage™?","1568663613","1623944625","1","","en","","","","","","","","If your Enercare AdvantageTM equipment is non-operational and we are unable to repair the equipment, you have the option to replace the equipment under a new rental agreement.
+","326","What happens if Enercare is unable to repair the air conditioner I rent with Enercare Advantage™?
+"
+"en","faq_question","1","16","What brands do you repair?","1568663657","1568663689","1","","en","","","","","","","","We repair all makes and models and we back the repair with a 90 day labour coverage &amp; 1 year parts coverage*.
+
+* Warranty coverage applies only to the original problem. If a new problem appears it would not be covered.","136","What brands do you repair?"
+"en","faq_question","1","16","What types of equipment do you repair?","1568663735","1568663778","1","","en","","","","","","","","Natural gas and propane furnaces, boilers, central air conditioners, natural gas water heaters, plumbing, all of Enercare’s Rental/Advantage equipment.","136","What types of equipment do you repair?"
+"en","faq_question","1","16","What does your repair include?","1568663790","1568663839","1","","en","","","","","","","","Diagnostic and safety check of your equipment
+
+Fixed price quote including all parts and labour required - no hidden charges
+Access to our 24/7 Support Centre
+Access to over 700 fully-licensed, expert technicians
+A call from your technician before arrival so you'll know just when to expect us
+All work fully guaranteed - 90 day labour coverage &amp; 1 year parts coverage*
+Flexible payment options
+A comprehensive HomeCare Report that outlines the health of your heating equipment
+
+
+* Warranty coverage applies only to the original problem. If a new problem appears it would not be covered.","136","What does your repair include?"
+"en","faq_question","1","16","Why didn’t the Enercare technician have the part needed to repair my equipment?","1568663844","1568663873","1","","en","","","","","","","","The number of parts required for every make and model of equipment we cover is lengthy and impossible to carry on our trucks.  We warehouse the parts that we need the most but when we are really busy it’s challenging to keep them in stock.  We work closely with a parts supplier to get the parts needed as quickly as possible. If your equipment is over 15 years old, it can sometimes become harder for us to source the parts to repair your equipment.
+
+To help us, please let our call centre rep know any details you can about your equipment - if it’s not working at all, if it’s making a noise, and what brand, model and year it is if you can.
+","136","Why didn’t the Enercare technician have the part needed to repair my equipment?"
+"en","faq_question","1","16","Received your part? Here’s what to do/next steps:","1568663879","1568663911","1","","en","","","","","","","","Do not open the package! Call 1-888-266-3939 and provide your Name, Address and Subcase Number. We will book your appointment and our technician will be on the way to install the new part.","136","Received your part? Here’s what to do/next steps:"
+"en","faq_question","1","16","I received a package from Enercare. What do I do?","1568663915","1571844954","1","","en","","","","","","","","Please give us a call at 1-888-266-3939. We will book an appointment and one of our technicians will be on the way to install the new part for you.
+","136","I received a package from Enercare. What do I do?
+"
+"en","faq_question","1","16","What is included in my Heating Maintenance Plan?","1568663949","1568664098","1","","en","","","","","","","","With the Enercare Heating Maintenance Plan, you get a comprehensive annual inspection of your furnace, boiler or fireplace by one of our licensed technicians, providing you a HomeCare Report. We will also perform a safety check for carbon monoxide leaks and provide expert assessment and recommendations for your heating equipment, helping to reduce energy costs in the long run.","141","What is included in my Heating Maintenance Plan?"
+"en","faq_question","1","16","What is included in my Heating Protection Plan?","1568664104","1574446958","1","","en","","","","","","","","With the Enercare Cooling Protection Plan, you get 365-day parts and labour protection under your plan terms and conditions. You also get unlimited service calls and peace of mind with same day service if your equipment is non-operational (subject to exclusions in accordance with the Plan Terms and Conditions or Rental Agreement).
+","141","What is included in my Heating Protection Plan?
+"
+"en","faq_question","1","16","What is included in my Cooling Maintenance Plan?","1568660533","1623945092","1","","en","","","","","","","","With the Enercare Cooling Maintenance Plan, you get a comprehensive annual inspection of your central air conditioner by our licensed technician, providing you with a HomeCare Report. We will also perform a safety check for carbon monoxide leaks and provide expert assessment and recommendations for your cooling equipment, helping to reduce energy costs in the long run.
+","336","What is included in my Cooling Maintenance Plan?
+"
+"en","faq_question","1","16","What is covered in my Cooling Protection Plan?","1568664171","1574446858","1","","en","","","","","","","","With the Enercare Cooling Protection Plan, you get 365-day parts and labour protection under your plan terms and conditions. You also get unlimited service calls and peace of mind with same day service if your equipment is non-operational (subject to exclusions in accordance to the Plan Terms and Conditions or Rental Agreement).
+","141","What is covered in my Cooling Protection Plan?
+"
+"en","faq_question","1","16","What parts are covered under my Heating Protection Plan?","1568664203","1568664237","1","","en","","","","","","","","Aquastat Controls, Automatic Vent Damper/Motor, Blower/Blower Components, Condensate Pumps, Door Switch, Electric Ignition System, Fan Control, Fan Motor, Flame Spreader, Flow Switch, Fuel or Air Flappers, Furnace Low Voltage Circuit Fuse, Gas Appliance Regulator, Gas Burner and Orifices, Gas Control Valve, Heating Circuit Transformer, Hot Surface Igniter, Ignition Runner Bar, Internal Wiring, Limit Controls, Pilot Burner, Pilot Tubing, Pressure Relief Valve, Primary Circulator/Pump, Pulley and Belt, Relay, Roll Out Switch, Summer/Winter Switch, Thermocouple/Generator, Vent System Pressure Switch Tubing and Ventor or Motor Assembly.","141","What parts are covered under my Heating Protection Plan?"
+"en","faq_question","1","16","What parts are covered under my Cooling Protection Plan?","1568664244","1623944875","1","","en","","","","","","","","Add-on Fan Centres, Add-on Indoor Fan Relay, Capacitor, Compressor**, Condensate Pumps, Condenser Coil**, Condenser Fan Motor, Cooling Contactor/Relay and Evaporator Coil, Filter Driers, Service Valves, Fan Blades, Internal Copper Tubing, Internal Electrical Wiring, Low Ambient Temperature Sensor, and Thermostatic Expansion Valves.
+
+** Enercare’s annual total parts and labour responsibility is limited to a maximum retail value of $500 (including HST) per year for&amp;nbsp;compressor unit or condenser coil repairs. Refrigerant recovery, vacuuming, and refill not included. See Terms and Conditions for complete details.
+","331","What parts are covered under my Cooling Protection Plan?
+"
+"en","faq_question","1","16","What do I need to do before moving out?","1568664312","1583254956","1","","en","","","","","","","","Please click on the &quot;Let's get started&quot; button above. If you are an Enercare Advantage or Enercare Smarter Advantage customer, you will need to advise your real estate agent lawyer and include these in the Agreement of Purchase and Sale for your Home. If you have a Protection Plan with us, the plan will move with you, subject to the Plan terms and conditions.
+","146","What do I need to do before moving out?
+"
+"en","faq_question","1","16","What do I need to do before moving in?","1568664388","1568664434","1","","en","","","","","","","","When moving in, give us a call at 1-844-ENERCARE to have your heating and cooling equipment safety inspected to ensure it’s running properly so you can avoid unexpected breakdowns. We can also have your ducts cleaned to remove any existing dirt and debris so your air quality is as healthy as possible - especially important following construction or renovations of your new home. It’s also important to check your water quality to ensure you have healthy drinking water. If you have scale build-up on faucets and appliances, you may have hard water and a water softener can help extend the life of your appliances, ultimately saving you money in the long run.","146","What do I need to do before moving in?"
+"en","faq_question","1","16","May I transfer my Protection Plan to my new house?","1568664446","1568664475","1","","en","","","","","","","","Yes you can! If you are currently receiving an Enercare bill, your protection plan will automatically be transferred to your new address when you contact Enbridge and advise them you are moving. If you currently receive an Enercare branded bill, please call us to advise us of the move. We will be happy to assist with the transfer of your plans.","146","May I transfer my Protection Plan to my new house?"
+"en","faq_question","1","16","I am moving from my residence how do I close my account?","1568664480","1583254895","1","","en","","","","","","","","In order to close the account, please click on the &quot;Let's get started&quot; button above. Please note that if you currently have rental equipment with us, you will need to disclose the rental on your purchase and sales agreement if you wish to have the agreement transferred to the purchasers of the property.
+","146","I am moving from my residence how do I close my account?
+"
+"en","faq_question","1","16","I took ownership of property but am now being billed for Enercare Rentals which I did not agree too.","1568664769","1568664823","1","","en","","","","","","","","If your purchase and sales agreement did not include the Rental please attach a copy to the link below showing that the rental was not included. Once received and the proof is validated your account will be closed and all charges will be reversed. If the rental is included in your purchase and sales agreement you would be liable for the product. Back-officebillingreports@enercare.ca","146","I took ownership of property but am now being billed for Enercare Rentals which I did not agree too."
+"en","faq_question","1","16","How often should I receive my bill?","1568665049","1568665071","1","","en","","","","","","","","You will receive your bill on a monthly basis.
+","151","How often should I receive my bill?"
+"en","faq_question","1","16","Why am I receiving two bills each month? One bill has my rental product and the other has my protection plans.","1568665081","1568750167","1","","en","","","","","","","","This occurs when a new product is added and not linked to your original account. Give us a call at 1-888-266-3939 to get this corrected.
+","151","Why am I receiving two bills each month? One bill has my rental product and the other has my protection plans.
+"
+"en","faq_question","1","16","I received my January bill, why has the price increased?","1568665112","1568750235","1","","en","","","","","","","","If you have an Enercare Advantage/Rental product the rates can increase as of Jan 1. An insert would have been attached on your December bill outlining which tanks were subject to the rate increase.
+","151","I received my January bill, why has the price increased?
+"
+"en","faq_question","1","16","A credit was supposed to be applied to my account but I haven’t received this yet.","1568665135","1568750258","1","","en","","","","","","","","Credits can take 1-2 billing cycles to be applied to your account. If you have not seen the credit after this time period, please give us a call at 1-888-266-3939.
+","151","A credit was supposed to be applied to my account but I haven’t received this yet.
+"
+"en","faq_question","1","16","How frequently will I receive an invoice?","1568665157","1568665169","1","","en","","","","","","","","Invoices are sent out on a monthly basis for all customer with charges billed monthly.
+","151","How frequently will I receive an invoice?"
+"en","faq_question","1","16","How do I change the mailing address on my bill?","1568665191","1568750300","1","","en","","","","","","","","Give us a call at 1-888-266-3939.
+","151","How do I change the mailing address on my bill?
+"
+"en","faq_question","1","16","How do I update my account information?","1568665253","1568665524","1","","en","","","","","","","","The following information can be updated by completing the linked form: Back-OfficeBillingReports@enercare.ca
+
+
+SMA (Mailing Address)
+Incorrect spelling of Account Name
+Postal Code or Lot Number Updates
+Phone Number
+Change of Last Name
+
+","151","How do I update my account information?"
+"en","faq_question","1","16","I would like a copy of a previous invoice.","1568665530","1568665555","1","","en","","","","","","","","To view previous invoices we ask that you register your account through our e-billing portal. Here you will be able to view, download, print and review your previous invoices. Link to e-bill FAQ’s.
+","151","I would like a copy of a previous invoice."
+"en","faq_question","1","16","How do I start or cancel my bill because I am moving out?","1568665697","1568665717","1","","en","","","","","","","","Please contact Enercare.","151","How do I start or cancel my bill because I am moving out?"
+"en","faq_question","1","16","How do I escalate Enercare concerns on my Enbridge bill?","1568665726","1568665738","1","","en","","","","","","","","Please contact Enercare.","151","How do I escalate Enercare concerns on my Enbridge bill?"
+"en","faq_question","1","16","What is a pre-authorized payment?","1568666113","1568750508","1","","en","","","","","","","","Our Pre-Authorized Payment Plan (PAP) is an efficient and accurate way of paying your Enercare bill. It can help you save time and avoid late payment charges. When you sign up for the Plan, we automatically withdraw payments from your bank account before the late payment date.
+
+If you are billed by Enbridge, please connect with them to understand their e-billing options.
+","151","What is a pre-authorized payment?
+"
+"en","faq_question","1","16","I made a payment, why does it not appear on my latest invoice?","1568666194","1568750616","1","","en","","","","","","","","Payments can take 3-4 business days to process. If the payment is posted on the account after your new invoice is generated, the payment will not appear on the latest invoice we send you. However, the next invoice you receive will show the applied payments. To avoid this situation, we ask that you make all payments prior to the bill due date.
+","151","I made a payment, why does it not appear on my latest invoice?
+"
+"en","faq_question","1","16","I have a credit on my account, how can I receive this credit?","1568666220","1568666323","1","","en","","","","","","","","If your bill is showing a credit balance, you may request this amount be refunded to you. The fastest way for us to refund the credit balance to you would be via direct deposit, which you may request by emailing a copy of a void cheque to back-officebillingreports@enercare.ca. In the title/subject of your email, please reference the credit amount and your account number. It normally takes 2-4 weeks for the funds to be deposited into your account.
+","151","I have a credit on my account, how can I receive this credit?"
+"en","faq_question","1","16","I submitted my pre-authorized payment form, when will my payment be withdrawn?","1568666340","1568666358","1","","en","","","","","","","","This process normally takes 1-2 billing cycles to be completed. When you see the ***Pre-Authorized Payment Notice*** listed on your bill (on the front page of the bill, under the Customer Care Contact Information) the account balance will begin withdrawing from your bank account on a monthly basis.
+","151","I submitted my pre-authorized payment form, when will my payment be withdrawn?"
+"en","faq_question","1","16","I would like to mail a cheque for charges on my account, how do I do this?","1568666367","1568750743","1","","en","","","","","","","","If you are billed by Enercare and not Enbridge, you may pay your bill by mailing a cheque along with the bill statement stub to the address below. Please include your account number in the memo section of the cheque and allow for postal delivery time when sending your payment.
+
+Enercare Home Service
+P.O Box 9925
+STN A Toronto, ON M5W 2J2
+
+Enercare is not responsible for payments received late due to postal delays. Please allow 7 business days for your payment to reach our office.
+","151","I would like to mail a cheque for charges on my account, how do I do this?
+"
+"en","faq_question","1","16","I’m unable to make a payment towards my account due to financial hardship. What options do I have?","1568666418","1568666468","1","","en","","","","","","","","We ask that you contact our Payment Arrangement Team, we would be happy to assist you with a payment plan going forward. Payment Arrangement Team: 1-855-367-7177
+
+Mon - Fri - 8:00am - 8:00pm
+Sat - 8:30am - 5:00pm
+(Closed Sunday and State Holidays)
+","151","I’m unable to make a payment towards my account due to financial hardship. What options do I have?"
+"en","faq_question","1","16","How do I make an online payment?","1568666486","1568750793","1","","en","","","","","","","","You can make an online payment through your banking institution. If you are billed by Enercare and not Enbridge please ensure the payee is Enercare Home Services and include the 10-digit account number shown at the top of your bill.
+","151","How do I make an online payment?
+"
+"en","faq_question","1","16","I have changed banks, how do I update my pre-authorized payment (PAP) information?","1568666516","1568750836","1","","en","","","","","","","","To avoid any late fees or penalties, make sure to contact us in advance to update this information. If you are billed by Enercare and not Enbridge please complete the pre-authorized payment form with your new banking details and submit to: payment.team@enercare.ca
+","151","I have changed banks, how do I update my pre-authorized payment (PAP) information?
+"
+"en","faq_question","1","16","What is e-billing?","1568666842","1568750862","1","","en","","","","","","","","E-billing is electronic billing where invoices are viewable from an online portal. With this feature, no paper bills will be sent out instead they will be received electronically. This is only available for any customer that is billed directly by Enercare and doesn’t include Enbridge billing.
+","156","What is e-billing?
+"
+"en","faq_question","1","16","Why should I switch to e-billing?","1568666873","1568750882","1","","en","","","","","","","","No, wait times to receive your bill in the mail. Once your bill is ready an email notification will be sent alerting you that your invoice is ready to be viewed. All bills can be viewed for up to 24 months. You can enroll several accounts under one email address.
+","156","Why should I switch to e-billing?
+"
+"en","faq_question","1","16","I already have an account set up for e-billing. How do I add another account to my profile?I already have an account set up for e-billing. How do I add another account to my profile?","1568666901","1568666954","1","","en","","","","","","","","To add a secondary account:
+
+
+Please log into an account associated with the corresponding email address in order to add the secondary account. At the top of your home screen, beside the logout button, you will see ‘Add Account’.
+Please click on this feature and provide the following details for the secondary account (account number, last bill date, and last invoice amount).
+Please continue and verify the current information on file to complete the enrollment
+You will now be able to access both accounts and view bills; click on the drop-down menu which can be found beside add account to switch between bills.
+You will now be able to access both accounts and view bills; click on the drag down which can be found beside add account to switch between bills.
+","156","I already have an account set up for e-billing. How do I add another account to my profile?"
+"en","faq_question","1","16","When will I know if a new bill is ready to be viewed?","1568666963","1568666979","1","","en","","","","","","","","You will receive an email notification each month when a new bill has been generated and is available for viewing.
+","156","When will I know if a new bill is ready to be viewed?"
+"en","faq_question","1","16","I forgot the password to my account, how do I have this reset?","1568666991","1571413525","1","","en","","","","","","","","Go to the online portal: www.enercare.ca/ebilling and select the ‘Forgot your Password’ option. An email will be sent out to the email address on file with instructions on how to complete the reset.
+","156","I forgot the password to my account, how do I have this reset?
+"
+"en","faq_question","1","16","I haven’t received an email alert to complete my registration.","1568667026","1568667058","1","","en","","","","","","","","Check your spam/junk folder to see if the email was sent to you. Ensure you add NoReply@enercare.ca to your safe sender's list or your contacts to avoid having email alerts blocked by spam filters.
+","156","I haven’t received an email alert to complete my registration."
+"en","faq_question","1","16","I’m registered but I did not receive notification that my new bill was ready.","1568667062","1568667120","1","","en","","","","","","","","Check your spam/junk folder to see if the email was sent to you. Ensure you add NoReply@enercare.ca to your safe sender's list or your contacts to avoid having email alerts blocked by spam filters. Please note that you are responsible for paying your bill on time whether you receive an email alert or not. It's good practice to check your bill online monthly by logging into your online account. Your bill will always be available by viewing online according to your regular billing cycle.
+","156","I’m registered but I did not receive notification that my new bill was ready."
+"en","faq_question","1","16","How do I change my email address?","1568667124","1568667150","1","","en","","","","","","","","Log into online billing, click on the option “Update Your Online Account” proceed to change your email by following the instructions.
+","156","How do I change my email address?"
+"en","faq_question","1","16","How do I return to paper billing?","1568667156","1568667198","1","","en","","","","","","","","If you would like to close your online account and return to receiving paper bills in the mail, you will need to fill out a cancellation form linked below [insert form link].
+","156","How do I return to paper billing?"
+"en","faq_question","1","16","Once I enroll for my online account how do I register for e-billing?","1568667206","1568667220","1","","en","","","","","","","","Once you enroll for your online account nothing further needs to be completed to transition your account to paperless billing. The account will show the status of online in 3-5 business days after you sign up for this feature.
+","156","Once I enroll for my online account how do I register for e-billing?"
+"en","faq_question","1","16","Received your part? Here’s what to do/next steps:","1568667583","1568667600","1","","en","","","","","","","","Do not open the package! Call 1-888-266-3939 and provide your Name, Address and Subcase Number. We will book your appointment and our technician will be on the way to install the new part.
+","166","Received your part? Here’s what to do/next steps:"
+"en","faq_question","1","16","Do I really need a maintenance plan on my new furnace or AC still under warranty?","1568667653","1568667692","1","","en","","","","","","","","Yes, this is still recommended. Like a new car, your home comfort equipment requires regular maintenance to both extend the life of your equipment and keep the energy efficiency in your home optimal.
+","171","Do I really need a maintenance plan on my new furnace or AC still under warranty?"
+"en","faq_question","1","16","When should I consider replacing my equipment?","1568667698","1568667771","1","","en","","","","","","","","Refer to DOK articles that provide a rebuttal of age of equipment.
+","171","When should I consider replacing my equipment?"
+"en","faq_question","1","16","I have an appointment booked today, when will my technician arrive?","1568667777","1568667793","1","","en","","","","","","","","The technician will arrive within the 4-hour window provided at the time of the booking. You can also be notified through our Enercare Mobile App when our technician is on route to your location.
+","171","I have an appointment booked today, when will my technician arrive?"
+"en","faq_question","1","16","I have a service appointment booked, what do I need to do next?","1568667798","1568667814","1","","en","","","","","","","","Prior to your appointment, please ensure that there is someone over the age of 18 present at home to let the technician in. There must be a clear pathway to your cooling and/or heating equipment and pets/animals must be caged.
+","171","I have a service appointment booked, what do I need to do next?"
+"en","faq_question","1","16","What is the Enercare Mobile App?","1568667822","1603291773","1","","en","","","","","","","","The Enercare Mobile App allows you to verify, modify and even book new service calls to resolve issues with your home comfort equipment. You can view your current account details, book your next service, maintenance or repair, receive alerts when your technician is on their way and view our most current offers. Our new en route feature provides you with a live map and real-time updates on the technician’s arrival.
+
+The Enercare Mobile App can be downloaded from the Apple or Android App Store.
+","171","What is the Enercare Mobile App?
+"
+"en","faq_question","1","16","What is Enercare Smarter Home?","1568667879","1568667913","1","","en","","","","","","","","Enercare Smarter Home is a simple, integrated system that puts home comfort and peace of mind in the palm of your hand, even when you’re not home. For more information on Enercare Smarter Home and the full suite of Smarter Products, visit [insert link].
+","171","What is Enercare Smarter Home?"
+"en","faq_question","1","16","How do I contact Enercare Home Service?","1568667922","1568751451","1","","en","","","","","","","","You can reach 24 hours a day at 1-888-266-3939.
+","171","How do I contact Enercare Home Service?
+"
+"en","faq_question","1","16","Is there anything I can check at home prior to calling for service?","1568668016","1568668030","1","","en","","","","","","","","Yes, depending on the issues. If you are experiencing no hot water or heat, this could be related to your outdoor venting. If you are able, check to confirm venting is not blocked with snow, debris or equipment is a good idea. For leaking equipment, checking to confirm the source of the leak will ensure the right repair person is sent to your home. It will make a difference if an HVAC technician or plumber will respond.
+","171","Is there anything I can check at home prior to calling for service?"
+"en","faq_question","1","16","I would like all my service addresses under one account number.","1568750367","1568750387","1","","en","","","","","","","","Give us a call at 1-888-266-3939.","151","I would like all my service addresses under one account number."
+"en","faq_question","1","16","How do I set up Pre-authorized Payments (PAP) on my bill?","1568750426","1568750463","1","","en","","","","","","","","If you are billed by Enercare and not Enbridge, please visit our pre-authorized payment page to choose the payment options that work best for you. https://www.enercare.ca/payments
+","151","How do I set up Pre-authorized Payments (PAP) on my bill?"
+"en","faq_question","1","16","How do I sign up for Pre-Authorized Payments?","1568750533","1571844987","1","","en","","","","","","","","If you are billed by Enercare and not Enbridge, please visit our pre-authorized payment page to choose the payment options that work best for you and email the form along with a void cheque to payment.team@enercare.ca. If you prefer to mail in this request, please print out the form and mail it to:
+
+Attention: Payments
+7400 Birchmount Rd.
+Markham Ontario
+L3R 5V4, CA
+","151","How do I sign up for Pre-Authorized Payments?
+"
+"en","faq_question","1","16","Does Enercare go door-to-door?","1568751040","1568751057","1","","en","","","","","","","","Enercare, government agencies and other utility companies will never promote door-to-door sale or exchange of water heaters, furnaces, air conditioners or other home services products. If someone comes to your home claiming to represent Enercare, please call us to confirm if someone is scheduled to be at your home.
+","181","Does Enercare go door-to-door?"
+"en","faq_question","1","16","What is the Enercare Mobile App?","1568751064","1568751110","1","","en","","","","","","","","The Enercare Mobile App allows you to verify, modify and even book new service calls to resolve issues with your home comfort equipment. You can view your current account details, book your next service, maintenance or repair, receive alerts when your technician is on their way and view our most current offers. Our new en route feature provides you with a live map and real-time updates on the technician’s arrival.
+
+The Enercare Mobile App can be downloaded from the Apple or Android App Store.
+","181","What is the Enercare Mobile App?"
+"en","faq_question","1","16","What is Enercare Smarter Home?","1568751136","1568751153","1","","en","","","","","","","","Enercare Smarter Home is a simple, integrated system that puts home comfort and peace of mind in the palm of your hand, even when you’re not home. For more information on Enercare Smarter Home and the full suite of Smarter Products, visit our Smarter Home Hub.
+","181","What is Enercare Smarter Home?"
+"en","faq_question","1","16","I recently experienced great service with Enercare and want to share my feedback. How can I do this?","1568751228","1568751277","1","","en","","","","","","","","Your feedback matters! If you’re pleased with the level of service you received from us, we’d appreciate if you would share your experience with other homeowners on our Google page. Simply visit enercare.ca/reviews and enter your postal code. Select the star rating and write about your experience. Click ‘Post’ and voila! Your feedback will be posted on our Google page for other homeowners to read.
+","186","I recently experienced great service with Enercare and want to share my feedback. How can I do this?"
+"en","faq_question","1","16","How do I contact Enercare Connections/Metered Services?","1568751476","1568751512","1","","en","","","","","","","","Call 1 866-449-4423 - then follow the prompts for metering services.
+","171","How do I contact Enercare Connections/Metered Services?"
+"en","faq_question","1","16","Where can I find the forms for Rental Water Heaters?","1568751540","1571423178","1","","en","","","","","","","","https://www.enercare.ca/water-heating/other-important-information-about-water-heater-rentals
+","171","Where can I find the forms for Rental Water Heaters?
+"
+"en","faq_question","1","16","Where can I find the Terms and Conditions for Advantage/Rental Water Heaters?","1568751642","1571418576","1","","en","","","","","","","","https://www.enercare.ca/water-heating/water-heater-terms-and-conditions
+","171","Where can I find the Terms and Conditions for Advantage/Rental Water Heaters?
+"
+"en","faq_question","1","16","Where can I find the Enercare Advantage/Rental furnace and/or air conditioner buy-out schedule?","1568751667","1571418169","1","","en","","","","","","","","https://www.enercare.ca/heating/furnace-rental-buyout
+","171","Where can I find the Enercare Advantage/Rental furnace and/or air conditioner buy-out schedule?
+"
+"en","faq_question","1","16","Where can I find the Enercare Protection Plans Terms and Conditions?","1568751703","1568751867","1","","en","","","","","","","","https://www.enercare.ca/sites/default/files/assets/library/pdfs/enercare-plan-terms-and-conditions.pdf
+","171","Where can I find the Enercare Protection Plans Terms and Conditions?
+"
+"en","faq_question","1","16","What is hard water?","1568752487","1568752504","1","","en","","","","","","","","Hard water has high mineral content. Hard water minerals primarily consist of positively charged calcium (Ca2+), and magnesium (Mg2+) metal ions, and sometimes other dissolved compounds such as bicarbonates and sulfates.
+","226","What is hard water?"
+"en","faq_question","1","16","How does hard water affect your home/water heater?","1568752511","1568752543","1","","en","","","","","","","","In many places across Ontario, ground water comes into contact with sufficient concentrations of calcium and magnesium. The harder the water, the more problems homeowners will encounter in terms of scale buildup in their pipes, regular and tankless water heaters, and dishwashers. Scale buildup can make water heater and dishwasher units less energy efficient while shortening the life of equipment and clogging your faucets and taps. Hard water can also cause water spotting while lessening the effectiveness of soap and detergent. Producing soft water from hard water involves a process called ion exchange.
+","226","How does hard water affect your home/water heater?"
+"en","faq_question","1","16","How can I best maintain my water heater?","1568752551","1568752569","1","","en","","","","","","","","Install a water softener into your home. The resin or mineral inside the brine tank is specially designed to remove the “hard” particles of lime and calcium, by a simple ion exchange process. This will help to prevent sediment and scale build up in your water heater keeping it in the best shape possible.
+","226","How can I best maintain my water heater?"
+"en","faq_question","1","16","How does a water softener work?","1568752576","1568752595","1","","en","","","","","","","","A concentrated solution of sodium/salt (brine tank) is flushed through beads, also called resin. The resin beads inside the softener tank have a different or opposite electrical charge than the dissolved particles of the incoming water. Because of this electrical charge difference, the dissolved particles suspended in your water will cling to the resin beads on contact, thereby ridding the water of these particles, causing the water exiting the unit to be “soft”. The resin has a limit on the amount of hardness particles it can hold, which is why there are many different sizes of softeners and also why regeneration or brining is required.
+","226","How does a water softener work?"
+"en","faq_question","1","16","Do you know how old your water heater is? Here's how to check:","1568816207","1568816437","1","","en","","","","","","","","
+	Locate the rating plate (sticker) on your tank.
+	The rating plate will have listed:
+	
+		The model number of the tank
+		The serial number of the tank
+		The date the tank was manufactured
+	
+	
+
+
+Note: if the date is a series of numbers and letters, you may have to visit the manufacturers' website guide.
+
+Although the average useful life expectancy of a water heater is approximately 16 years, some tanks can last longer and others can last less. Below are some warning signs to look out for:
+
+
+	Rusty water coming from the water heater/piping
+	Rumbling or odd sounds coming from the water heater
+	Water leakage around the tank
+
+","226","Do you know how old your water heater is? Here's how to check:"
+"en","faq_question","1","16","There are many different types of water heaters. See our guide below to know which is right for your home:","1568816459","1568817703","1","","en","","","","","","","","Conventional Vents (CV) Starting from $15.99/month:
+
+
+	Are installed mostly in homes built previous to 2000 (and usually have a built in chimney) making them one of the more commonly used water heaters in Ontario.
+	Keep a reservoir of hot water available at all times so that when you turn on the tap, it's ready to use.
+	Require an exit drain near the base of tank (usually in basement).
+	Are good for high volume hot water applications.
+	Can be fueled by either natural gas or propane gas.
+
+
+Power Vents (PV) Starting from $26.49/month:
+
+
+	Are installed mostly in homes built after 1995, homes with no chimney or homes that have converted from another water heating source making them one of the more commonly used water heaters in Ontario.
+	Blower motor is attached to the tank and pushes exhaust gas outside the home via the side wall.
+	Usually provide long venting lengths.
+	Can be fueled by either natural gas or propane gas.
+
+
+Direct Vents (DV) Starting from $29.64/month:
+
+
+	Are used where there is insufficient combustible air/where air is unsuitable for combustion (ie. bedroom or bathroom installations).
+
+
+Power Direct Vents (PDV) Starting from $32.93/month:
+
+
+	Are similar to DV but instead use a two-pipe system for venting.
+
+
+Electric Water Heaters Starting from $13.49/month:
+
+
+	Use heating coils instead of natural gas to provide hot water for home.
+
+
+Tankless Water Heaters Starting from $40.99/month:
+
+
+	Do not contain storage tanks and fit compactly on a wall mount.
+	Heat up on demand and deliver an endless supply of hot water by regulating water flow.
+	Use less energy than conventional units, making them more efficient and environmentally friendly.
+
+
+Condensing Water Heaters Starting from $43.75/month:
+
+
+	Are similar to conventional units in that they both burn gas, exhaust flues and store hot water in an insulated tank.
+	Exhaust gas and condensate exits through outlet at bottom of tank.
+	Use less energy than conventional units because of how heat is transferred to water making them more efficient and environmentally friendly.
+
+","226","There are many different types of water heaters. See our guide below to know which is right for your home:"
+"en","faq_question","1","41","Enercare Smarter Home FAQ - General - Can more than one person have the app?","1568823702","1568825255","1","","en","","","","","","","","Yes, all members of your household will be able to download and access the app.
+","176","Can more than one person have the app?
+"
+"en","faq_question","1","41","Enercare Smarter Home FAQs - General - Can I change the language on the Smart Home Hub?","1568824524","1568825229","1","","en","","","","","","","","Yes. Simply log in to the Smarter Home User Portal and select “Settings” from the left-hand window. Next, select “Login Information” and then “Language Preference”. Select your preferred language, then press “Save”.
+","176","Can I change the language on the Smart Home Hub?
+"
+"en","faq_question","1","41","Enercare Smarter Home FAQs - General - Who do I contact if I experience a problem with a device?","1568824634","1568825206","1","","en","","","","","","","","If you have issues or questions, contact our Smarter Home customer support centre at 1 833-99-SMART (1 833-997-6278).
+","176","Who do I contact if I experience a problem with a device?
+"
+"en","faq_question","1","41","Enercare Smarter Home FAQs - General - Who is responsible for the repair and maintenance of the devices?","1568824953","1568825186","1","","en","","","","","","","","Enercare is responsible for repairing your Smarter Home products. If your devices are still under warranty, repairs are at no cost to you.
+","176","Who is responsible for the repair and maintenance of the devices?
+"
+"en","faq_question","1","41","Enercare Smarter Home FAQs - General - Who will install the devices in my home?","1568825267","1568825326","1","","en","","","","","","","","Your Smarter Home devices will be installed by an Enercare Smarter Home technician.
+","176","Who will install the devices in my home?"
+"en","faq_question","1","41","Enercare Smarter Home FAQs - General - Can I build a custom solution for my family’s needs?","1568825393","1568825438","1","","en","","","","","","","","No, as it is not necessary. Enercare Smarter Home is already designed with a curated ecosystem, to ensure that different devices can work together and exchange information seamlessly.","176","Can I build a custom solution for my family’s needs?"
+"en","faq_question","1","41","Enercare Smarter Home FAQs - General - Can I just have a leak sensor?","1568825445","1568825535","1","","en","","","","","","","","No, the leak sensor is only available through the Smarter Home Essentials Plan, which comes with a leak sensor as well as a thermostat and a hub.
+","","Can I just have a leak sensor?
+"
+"en","faq_question","1","41","Enercare Smarter Home FAQs - Thermostat &amp; HVAC - How do I change from Celsius to Fahrenheit, and vice-versa?vices?","1568825542","1568825894","1","","en","","","","","","","","&amp;nbsp;
+
+
+	
+	Log in to the website
+	
+	
+	Click Settings
+	
+	
+	Click Account Management
+	
+	
+	Click System Information
+	
+	
+	Select the desired temperature scale using the Temperature Units dropdown menu
+	
+	
+	Click Update
+	
+
+
+&amp;nbsp;
+","191","How do I change from Celsius to Fahrenheit, and vice-versa?
+"
+"en","faq_question","1","41","Enercare Smarter Home FAQs - Thermostat &amp; HVAC - Does the Smart Thermostat support multi-stage systems?","1568826003","1568826077","1","","en","","","","","","","","Yes, your Smart Thermostat is compatible with up to three stages of heating and two stages of cooling.","","Does the Smart Thermostat support multi-stage systems?"
+"en","faq_question","1","41","Enercare Smarter Home FAQs - Thermostat &amp; HVAC - What is a multistage system?","1568826083","1568826179","1","","en","","","","","","","","Multistage systems use more than one level of heating or cooling (for example, high, medium and low) to save energy and keep the house at a more constant temperature. You set the temperature and the system automatically adjusts the level of heating or cooling. The system will use the lowest level needed to arrive at the right temperature.
+
+Single-stage systems have only one level of heating or cooling and need to turn on and off much more frequently to maintain a constant temperature. This uses more energy than multistage systems and results in more temperature fluctuation.
+","191","What is a multistage system?
+"
+"en","faq_question","1","41","Enercare Smarter Home FAQs - Thermostat &amp; HVAC - How do I tell if I have a multistage system?","1568826253","1568826314","1","","en","","","","","","","","Your Enercare Energy Management Consultant will be able to tell you by performing an inspection in person.","191","How do I tell if I have a multistage system?"
+"en","faq_question","1","41","Enercare Smarter Home FAQs - Thermostat &amp; HVAC -Is a multistage system the same thing as a multi-zone system?","1568819119","1568828470","1","","en","","","","","","","","No. A system can have multiple zones without having multiple stages, and vice versa.","191","Is a multistage system the same thing as a multi-zone system?
+"
+"en","faq_question","1","41","Enercare Smarter Home FAQs - Thermostat &amp; HVAC - Does the Smart Thermostat support systems with multiple zones?","1568828704","1568828770","1","","en","","","","","","","","Yes, the Smart Thermostat supports systems with more than one zone. If you have more than one thermostat in your home, you have a zoned system.","191","Does the Smart Thermostat support systems with multiple zones?"
+"en","faq_question","1","41","Enercare Smarter Home FAQs - Thermostat &amp; HVAC - What is a multi-zoned system?","1568828777","1568828858","1","","en","","","","","","","","An HVAC system that has multiple zones means that different areas of the home can be heated or cooled separately. This can be done using separate thermostats for each zone or by using a damper in the ductwork to direct hot or cool air to the selected zone.
+","191","What is a multi-zoned system?"
+"en","faq_question","1","41","Enercare Smarter Home FAQs - Thermostat &amp; HVAC - What are variable-speed HVAC systems, and is the Smart Thermostat compatible with them?","1568828866","1568828939","1","","en","","","","","","","","Variable-speed systems change the fan speed to push more or less hot or cool air through the vents. The Smart Thermostat can control many variable-speed HVAC systems that use standard 24-volt wiring (for example, with R, G, Y, W, C wiring). However, there are some exceptions. Certain variable-speed HVAC systems use proprietary communication between the thermostat and the main HVAC system to enable variable-speed control, which limits their compatibility with other thermostats.
+
+Your Enercare Energy Management Consultant can inspect your HVAC system and let you know if it is compatible with our Smart Thermostat.
+","","What are variable-speed HVAC systems, and is the Smart Thermostat compatible with them?
+"
+"en","faq_question","1","41","Enercare Smarter Home FAQs - Thermostat &amp; HVAC - Can the Smart Thermostat control my home’s humidifier or dehumidifier?","1568828952","1568829015","1","","en","","","","","","","","This feature is still in development. When it becomes available, it will be added to your features through an app update.","191","Can the Smart Thermostat control my home’s humidifier or dehumidifier?"
+"en","faq_question","1","41","Enercare Smarter Home FAQs - Thermostat &amp; HVAC - What is the expected battery life of the Smart Thermostat?","1568829148","1568829198","1","","en","","","","","","","","With typical use, the Smart Thermostat will last well over one year.","","What is the expected battery life of the Smart Thermostat?"
+"en","faq_question","1","41","Enercare Smarter Home FAQs - Thermostat &amp; HVAC - How can I lock my Smart Thermostat so that target temperatures can only be adjusted within a certain range?","1568829204","1568829285","1","","en","","","","","","","","This can be set up on the Smart Thermostat configuration page under the “User” tab. You can get to the Smart Thermostat configuration page by clicking the gear icon on a thermostat’s card in the mobile app, then clicking on “Advanced Configuration”.","191","How can I lock my Smart Thermostat so that target temperatures can only be adjusted within a certain range?"
+"en","faq_question","1","41","Enercare Smarter Home FAQs - Thermostat &amp; HVAC - Can I set my Smart Thermostat so that it can only be controlled by people who have access to our Smarter Home app, and not manually?","1568829311","1570483387","1","","en","","","","","","","","Local control of the thermostat can be disabled on the Smart Thermostat configuration page under the “User” tab. In the “Thermostat Lock” column, select “Partial” to allow manual temperature changes but disallow mode changes. Select “Enabled” to prevent anyone from using the Smart Thermostat to change either the mode or temperature. You can get to the Smart Thermostat configuration page by clicking the gear icon, then clicking on “Advanced Configuration”.
+","191","Can I set my Smart Thermostat so that it can only be controlled by people who have access to our Smarter Home app, and not manually?
+"
+"en","faq_question","1","41","Enercare Smarter Home FAQs - Thermostat &amp; HVAC - Where do I go to set up a thermostat schedule?","1568829431","1568829505","1","","en","","","","","","","","You can set up a schedule for your Smart Thermostat at www.alarm.com/CAN/Enercare. Navigate to the Thermostats page, then click on the gear icon on the Smart Thermostat card. From there, you’ll click on the Edit Schedule link to set up a schedule. Once you’ve set up your schedule, make sure that you also have Schedule mode turned ON.
+","","Where do I go to set up a thermostat schedule?"
+"en","faq_question","1","41","Enercare Smarter Home FAQs - Water - Is there a Water Management add-on?","1568829514","1568829586","1","","en","","","","","","","","Yes, the Whole Home package is needed for the Water Management solution.","196","Is there a Water Management add-on?"
+"en","faq_question","1","41","Enercare Smarter Home FAQs - Water - Can water alarm sensors be installed without the Water Valve add-on?","1568829599","1568829674","1","","en","","","","","","","","Yes. Water alarm sensors, or leak detectors, can be installed without the Water Valve add-on and will still provide you with notifications if a leak is detected.","196","Can water alarm sensors be installed without the Water Valve add-on?"
+"en","faq_question","1","41","Enercare Smarter Home FAQs - Water - Do water shut-off rules run locally on the hub?","1568829680","1568829775","1","","en","","","","","","","","Yes, once created, a water shut-off rule is stored locally on the Smarter Home Hub. This ensures a faster response when a leak is detected and means only local communication is needed in order for the rule to run.","196","Do water shut-off rules run locally on the hub?"
+"en","faq_question","1","41","Enercare Smarter Home FAQs - Camera - What are the core video features?","1568829790","1568829914","1","","en","","","","","","","","View live video through your web browser login, Enercare Smarter Home app or through any mobile web browser.
+
+Flexible choice of triggers to initiate recordings and optional notifications:
+
+
+	Motion-triggered (built into the camera)
+	Event-triggered-based on contact sensors and locks
+
+
+Recordings can be attached to email/text notifications for immediate review on computers and compatible mobile phones. Recorded clips can be played back through the web and on the Smarter Home mobile site, through compatible mobile phones.
+Connects to customer Local Area Network through Ethernet or WiFi.
+&amp;nbsp;
+","201","What are the core video features?"
+"en","faq_question","1","41","Enercare Smarter Home FAQs - Camera - How much bandwidth should my Internet connection have?","1568829931","1568830014","1","","en","","","","","","","","We recommend that you have 200-250 kbps of upload bandwidth per camera. NOTE: This is the upload, not the download speed of the network. You can test this by running a speed test while on your local network from: www.speedtest.net If your upload bandwidth is lower than recommended, the cameras may still work, but the live view may look “jumpy” as the frame rate will be reduced as a result of the upload bandwidth limitation. If your Internet bandwidth is too low, you can contact your Internet Service Provider to find out how to increase your upload bandwidth.
+","201","How much bandwidth should my Internet connection have?"
+"en","faq_question","1","41","Enercare Smarter Home FAQs - Camera - Will the video features work with any camera or webcam?","1568830022","1568830671","1","","en","","","","","","","","No, only Enercare Smarter Home IP cameras are supported.","","Will the video features work with any camera or webcam?"
+"en","faq_question","1","41","Enercare Smarter Home FAQs - Camera - Which web browsers can be used to view live and recorded video?","1568830677","1568830714","1","","en","","","","","","","","All video features are available on Firefox, Safari and Chrome on both Windows and Macintosh computers.","201","Which web browsers can be used to view live and recorded video?"
+"en","faq_question","1","41","Enercare Smarter Home FAQs - Camera - What kinds of cell phones support live video?","1568830719","1568830792","1","","en","","","","","","","","Streaming of live video is available on your Enercare Smarter Home app, available for iPhone and Android phones. Additionally, any web-enabled cell phone with an HTML browser can view real-time live images. Streaming video is also available on some phones with full HTML browsers.
+
+Please note, data charges by your service provider can be significant for using video features on cell phones when you are not connected to a WiFi network.
+","201","What kinds of cell phones support live video?"
+"en","faq_question","1","41","Enercare Smarter Home FAQs - Camera - What kinds of cell phones support video-clip attachments to emails/text messages?","1568830850","1568830933","1","","en","","","","","","","","Video-enabled cell phones can also view recorded clips and receive video-clip email attachments of new video events, if the service provider allows video emails.
+Please note, data charges by your service provider can be significant for using video features on cell phones when you are not connected to a WiFi network.","","What kinds of cell phones support video-clip attachments to emails/text messages?"
+"en","faq_question","1","41","Enercare Smarter Home FAQs - Camera - Do I need to install any software on my computer?","1568830940","1568831026","1","","en","","","","","","","","Your browser will need to download an ActiveX control or Java Applet plug-in to view live video. If you do not already have this, your browser should automatically prompt you to install it when you access the site.
+
+A Flash plug-in is required on all browsers to view recorded video clips. No plug-ins or applications are needed for the mobile site.","201","Do I need to install any software on my computer?"
+"en","faq_question","1","41","Enercare Smarter Home FAQs - Camera - How is my privacy ensured?","1568831032","1568831100","1","","en","","","","","","","","The cameras use password protection to prevent access from outside the Enercare website, with the Enercare cameras employing advanced MD5-based “digest authentication” for user authentication. More simply, it’s the same kind of technology that banks use to ensure your privacy and security.
+You can see all cameras associated with the account, and additional logins created for the account can be assigned permission to see the cameras as required.
+","201","How is my privacy ensured?"
+"en","faq_question","1","41","Enercare Smarter Home FAQs - Video C - How much video can I record?","1568831109","1568831189","1","","en","","","","","","","","A standard account provides 1,000 clips of online storage (shared by all cameras). Each clip is treated the same regardless of its length, recording resolution or quality.
+","206","How much video can I record?
+"
+"en","faq_question","1","41","Enercare Smarter Home FAQs - Video C - How long is each recording?","1568831209","1568831256","1","","en","","","","","","","","Camera-triggered recordings can be configured from 15 seconds to 40 seconds, in 5-second increments.
+","206","How long is each recording?
+"
+"en","faq_question","1","41","Enercare Smarter Home FAQs - Video C - How much video can be uploaded in a month?","1568831290","1568831340","1","","en","","","","","","","","With a standard account, 1,000 clips can be uploaded per month. Once this number is exceeded, the recording schedule for motion and activation of the doorbell will not be uploaded. At the beginning of the next month another 1,000 videos can be uploaded, however, the account holder is required to remove the pause. This can be found under Video &gt; Recording schedules.
+","201","How much video can be uploaded in a month?"
+"en","faq_question","1","41","Enercare Smarter Home FAQs - Video C - What happens when my video storage is full?","1568831347","1568831419","1","","en","","","","","","","","After the storage limit is reached, the system will overwrite the oldest unsaved recordings (unprotected videos can be overwritten by new videos) to make room for the newest recordings.","206","What happens when my video storage is full?"
+"en","faq_question","1","41","Enercare Smarter Home FAQs - Video C - What if I want to save a recorded clip?","1568831434","1568831485","1","","en","","","","","","","","You can save any particular clip by downloading it to your computer or by marking it “Protected” on the Saved Video Clips page. This will prevent it from being automatically overwritten when the storage limit is met.","206","What if I want to save a recorded clip?"
+"en","faq_question","1","41","Enercare Smarter Home FAQs - Video C - How many days will my recorded clips last before they are overwritten?","1568831492","1568831550","1","","en","","","","","","","","This depends on the recording frequency and video quality settings. It can range from a few hours to a few weeks. Careful camera placement and Video Motion Detection (VMD) window configuration will reduce unwanted recordings and optimize use of online storage capacity.
+","206","How many days will my recorded clips last before they are overwritten?
+"
+"en","faq_question","1","41","Enercare Smarter Home FAQs - Video C -In what formats are snapshots and video clips saved?","1568831594","1568831680","1","","en","","","","","","","","The snapshots are saved as JPEG images (.JPEG or .jpg) files, which can be viewed in most image programs.
+The recorded video clips can be saved as .MOV, .AVI or .MP4 files.
+","206","In what formats are snapshots and video clips saved?"
+"en","faq_question","1","41","Enercare Smarter Home FAQs - Video C - Can I hit a manual button to prompt the system to begin recording a clip?","1568831688","1568831733","1","","en","","","","","","","","Yes, the manually recorded clip will save 10-15 seconds of footage before and 10-15 seconds after the button is pressed.","206","Can I hit a manual button to prompt the system to begin recording a clip?"
+"en","faq_question","1","41","Enercare Smarter Home FAQs - Video R- What is the frame rate for recorded video?","1568831739","1568831784","1","","en","","","","","","","","Video clips are recorded at 3 frames per second (FPS) by default, but you can choose from 1, 2, 3 or 5 frames per second. Some cameras have a maximum record rate of 3 FPS at their highest recording resolution.","211","What is the frame rate for recorded video?"
+"en","faq_question","1","41","Enercare Smarter Home FAQs - Video R - What is the frame rate for live video?","1568831791","1568832108","1","","en","","","","","","","","Enercare cameras stream live video as fast as the network permits, with an upper limit of 10 frames per second (FPS).
+
+On a local LAN, the 10 FPS may be achieved, but the frame rate will likely be slower if the available bandwidth is not high enough, is shared by multiple cameras or is shared by multiple simultaneous viewers. Reducing resolution or image quality will increase the FPS when viewing live video from remote connections.
+","211","What is the frame rate for live video?
+"
+"en","faq_question","1","41","Enercare Smarter Home FAQs - Video R - Will the video use up all of my network’s bandwidth?","1568831864","1568832131","1","","en","","","","","","","","The cameras do not consume any bandwidth unless they are uploading recorded video or someone is actively looking at live video.
+","211","Will the video use up all of my network’s bandwidth?
+"
+"en","faq_question","1","41","Enercare Smarter Home FAQs - Video R - How many users can look at the live video stream simultaneously?","1568831918","1568832146","1","","en","","","","","","","","&amp;nbsp;
+
+Each camera supports up to 10 simultaneous viewers.
+
+&amp;nbsp;
+","211","How many users can look at the live video stream simultaneously?
+"
+"en","faq_question","1","41","Enercare Smarter Home FAQs - Video R - Can Video Motion Detection ignore parts of the scene?","1568831962","1568832022","1","","en","","","","","","","","Yes. Enercare cameras allow you to define up to three separate windows to monitor for motion, called Video Motion Detection (VMD) windows. Motion outside of these windows is ignored, so false recordings are minimized. This applies to the indoor and outdoor camera only and not to the video doorbell.","211","Can Video Motion Detection ignore parts of the scene?"
+"en","faq_question","1","41","Enercare Smarter Home FAQs - Video R -How well can my Enercare cameras see in the dark?","1568832031","1568832086","1","","en","","","","","","","","The outdoor camera has integrated infrared (IR) illuminators that allow you to see up to 40 feet from the camera in complete darkness.
+","211","How well can my Enercare cameras see in the dark?
+"
+"en","faq_question","1","41","Enercare Smarter Home FAQs - Wireless - What kind of wireless security is available on these cameras?","1568832180","1568832234","1","","en","","","","","","","","Our cameras support WEP wireless encryption along with the newer WPA Personal and WPA2 Personal encryption.","216","What kind of wireless security is available on these cameras?"
+"en","faq_question","1","41","Enercare Smarter Home FAQs - Wireless - What is the wireless range on the cameras?","1568832241","1568832287","1","","en","","","","","","","","It depends on the type of building and the internal location where the cameras are installed, but the wireless range is typically about 100 feet. In this case, there would not be an unusual amount of walls in between the camera and wireless router. Of course, the closer the camera is to the router, and the fewer obstructions, the better.","216","What is the wireless range on the cameras?"
+"en","faq_question","1","41","Enercare Smarter Home FAQs - Smart Away - How do I set up my Smart Away location(s)?","1568832293","1568832361","1","","en","","","","","","","","To take advantage of Smart Away functionality, follow these simple steps on your Enercare Smarter Home mobile app:
+
+
+	
+	Enable Smart Away on one or more devices by logging in to the app from an Apple or Android device and enable “Geo-Services” under the Settings menu.
+	
+	
+	To view and manage Smart Away (Geo-Services) online, go to Settings &amp;gt; Geo-Services &amp;gt; Add a Fence to view and edit Smart Away locations on your account. A “Home” location will be created by default around the system address.
+	
+	
+	Set up geo-enabled rules or notifications. Once Smart Away locations are set up, apply these settings to various rules and notifications via the web.
+	
+
+","221","How do I set up my Smart Away location(s)?"
+"en","faq_question","1","41","Water Treatment FAQ - What is Regeneration? ","1570206738","1570208994","1","","en","","","","","","","","Regeneration occurs when a concentrated solution of sodium/salt (brine tank) is flushed through the beads and “scrubs” them, removing the calcium/magnesium ions and flushing them out of the system. The brine tank is also flushed of any excess salt and then refills itself. When the system is regenerating, soft water cannot be produced, so the process may be scheduled during off-peak times (e.g. between 2 am to 4 am) as determined by the homeowner.
+","256","What is regeneration?
+"
+"en","faq_question","1","41","Water Treatment FAQ - Buyout Table","1570207904","1571770133","1","","en","","","","","","","","You can learn the terms of our water softener buyout agreement in this PDF&amp;nbsp;table.&amp;nbsp;
+","256","How Do I Buy Out of My Water Softener Agreement?
+"
+"en","faq_question","1","41","Water Treatment FAQ - Schedule Regeneration","1570209003","1570210621","1","","en","","","","","","","","There are two ways you can schedule your system for regeneration:
+
+
+	On a fixed schedule (e.g. every 5 days). This method is based on old technology which uses more salt and consumes more electricity.
+	Based on the amount of water processed by the water softener. This method triggers a regeneration cycle based on consumption when the resin cannot bond with the calcium/magnesium anymore because it is saturated. Enercare’s water softeners use this method.
+
+","256","How do I schedule a regeneration?
+"
+"en","faq_question","1","41","Water Treatment FAQ - Softener Salt Types","1570210629","1570210784","1","","en","","","","","","","","We recommend buying water softening salt for your water softener that is very clean with high purity, around 99.5% salt content. All softeners can also use Potassium Chloride in place of salt. &amp;nbsp;Using impure salt may cause the injectors in the control valve to clog which will require the expense of a technician to have it fixed.
+","256","What kind of salt can I use for my water softener?
+"
+"en","faq_question","1","41","Water Treatment FAQ - How much salt","1570210790","1570210925","1","","en","","","","","","","","An average water softener with 1 cu. ft. of resins should use about 6 lbs. per regeneration to achieve an economical 22,000 grain capacity (hardness in grains divided into grains of capacity results in the gallons of water that can be treated before resins are exhausted). It is strongly recommended that you do not put more than 40kg of water softening salt or potassium chloride in the brine tank at a time.
+","256","How much salt should my water softener use?
+"
+"en","faq_question","1","41","Water Treatment FAQ - add salt","1570210935","1570210977","1","","en","","","","","","","","It depends on how often your system needs to regenerate. The more your softener regenerates, the more salt it will consume. As for the salt level in the brine tank, you can let the salt get down to the point inside the tank where you can see the water just above the salt. When you see water above the salt, it is time to add more. Generally, you will add salt to your brine tank about every 8 weeks.
+","256","How often do I need to add salt to the brine tank?
+"
+"en","faq_question","1","41","Water Treatment FAQ - Silky Shower","1570210983","1570211024","1","","en","","","","","","","","Hard water contains minerals that cause soap to leave a residue. That residue is left behind everywhere the water makes contact (e.g. your hair, your skin, your tub, etc.). With softened water, soap rinses off completely. So what felt “normal” with hard water was actually caused by the friction you felt between your skin and the soapy residue. Your hair, for example, squeaked when you rubbed it when toweling. Remove that residue/friction and it will feel silky because there is no residue left behind. With softened water, you will use less soap/detergent, your hair will have more shine and bounce, your towels will be fluffier and the pores of your skin will not be as clogged with soap.
+","256","Why does soft water feel silky in the shower?
+"
+"en","faq_question","1","41","Water Treatment FAQ - valve operation","1570211028","1570211065","1","","en","","","","","","","","This could be due to many different reasons, such as:
+
+
+	Valve is not regenerating due to a mechanical problem
+	Salt may be bridged (become solid) above water that is at the bottom of the brine tank
+	The valve could be failing to draw the brine solution out and if you have a float shut off in the brine tank, it would be preventing the brine tank from overflowing (which it would do if the float was not shut off)
+	The brine refill control could be clogged, preventing water from refilling the brine tank
+
+
+Please contact Customer Care at 1 866-887-5567 if your water softener is not functioning properly.
+","256","My valve appears to be operating but the salt is not going down. What could have caused this problem?
+"
+"en","faq_question","1","41","Water Treatment FAQ - resin","1570211070","1570211099","1","","en","","","","","","","","With the proper pretreatment and maintenance, the average water softener will not need its resins replaced in its lifetime (20+ years). It is impossible to accurately determine the life of resin since so many factors contribute to the degradation of the resin itself. Proper pretreatment can be as simple as a sediment filter or as complex as a chemical injection system combined with a multimedia bed. This is determined by having your water tested.
+","256","Why do the resins in the water softener tank need to be changed?
+"
+"en","faq_question","1","41","Water Treatment FAQ - safe water","1570211108","1570211230","1","","en","","","","","","","","No. Your water must be safe to drink before you condition the water with a softener. If you are concerned about the safety of your drinking water, contact your local health department about getting a bacteria test, or full lab analysis on your water.
+","256","Will a water softener make my water safe to drink?
+"
+"en","faq_question","1","41","Water Treatment FAQ - water safety diet","1570211258","1570211351","1","","en","","","","","","","","If you have concerns or are on low sodium diet, consider using a Reverse Osmosis System after your water softener to treat your drinking/cooking water. Please keep in mind that most people’s daily salt intake comes from table salt, processed foods and soft drinks using salt as an ingredient.
+","256","Is softened water safe to drink for people on salt-reduced diets?
+"
+"en","faq_question","1","41","How does a boiler with radiators or radiant floor system work?","1583186330","1583186377","1","","en","","","","","","","","A boiler system is a closed circuit that contains water that circulates throughout the house heating the home’s air.
+
+1. A natural gas or propane high-efficiency boiler will start up when an attached thermostat senses that the temperature has dropped below a preset level.
+
+2. The ignitor ignites and starts heating up the heat exchanger which is a web of copper piping that transfers its heat to water.
+
+3. The heated water is pumped (using an electrically powered pump) throughout the home via radiators or radiant floor systems where the heat radiates to warm the air in the room.
+
+4. As the water travels throughout the home it will start to condense (cools) and when it has gone through all the radiators it travels back to the boiler to be heated up again until the house reaches the temperature set on the thermostat.
+","281","How does a boiler with radiators or radiant floor system work?
+"
+"en","faq_question","1","41","How do radiators work?","1583186385","1583186459","1","","en","","","","","","","","Radiators contain a copper pipe that is bent back and forth many times to create a large surface area. When the screw on the bottom of the rad is open, the water flows through the copper pipe and heats up the air in the room. If the screw is closed, the hot water flows through a pipe through the bottom, bypassing the upper part of the radiator and moving to the next radiator.
+","281","How do radiators work?
+"
+"en","faq_question","1","41","What does a boiler cost?","1583186464","1626893933","1","","en","","","","","","","","The average price range of a typical new natural gas or propane high-efficiency boiler in Ontario starts from $8,000. This price includes standard installation from a fully-insured, licensed company, at least a one year warranty and all required licenses for installation.
+
+The cost of a new boiler is dependent on four factors:
+
+
+	Environmental choices, including energy efficiency, and comfort-enhancing options.
+	Personal choices including extended warranties, maintenance plans and guarantees.
+	Technical requirements including the size of the home, floor plan, number of stories, existing radiators and BTU load.
+	Code requirements including safety, licensing and building code requirements.
+
+
+To get an accurate, no-surprises, no-obligation quote, contact us at 1-855-619-7701.
+","281","How much does a boiler cost?
+"
+"en","faq_question","1","41","What is the lifespan of a boiler?","1583186633","1583186676","1","","en","","","","","","","","The average lifecycle of a boiler is typically between 13 and 17 years but age is not the only factor to consider. Other reasons to replace your boiler include safety, frequency of breakdowns, quality of installation and improper sizing.
+","281","What is the lifespan of a boiler?
+"
+"en","faq_question","1","41","What size boiler do I need?","1583186941","1583187075","1","","en","","","","","","","","Every home is unique and a number of factors impact the boiler size needed, including the size and age of your home, how many windows your home has, insulation, and specific homeowner requirements. To make sure you get the boiler size that best suits your needs, it’s crucial to have a professional visit your home to complete an evaluation to calculate heat loss and airflow. Incorrect sizing of a boiler may cause a shortened life of the equipment, higher utility costs and diminished comfort because your home is not warming up correctly. Combi boilers are a great space-saving option because of their compact size.
+","281","What size boiler do I need?
+"
+"en","faq_question","1","41","What are Enercare’s guarantees on new equipment?","1583187082","1583187108","1","","en","","","","","","","","We have five guarantees - Home Comfort Guarantee, No Surprises Guarantee, No Lemon Guarantee, Environmental Focus Guarantee and Property Protection and Client Respect Guarantee.
+","281","What are Enercare’s guarantees on new equipment?
+"
+"en","faq_question","1","41","Do I need a humidifier if I have a boiler?","1583187112","1583187141","1","","en","","","","","","","","Homeowners could use standalone humidification units.
+","281","Do I need a humidifier if I have a boiler?
+"
+"en","faq_question","1","41","What are the different types of boilers?","1583187148","1583187923","1","","en","","","","","","","","Conventional Boiler
+
+What it does: Provides heat throughout a home
+
+Key features:
+
+
+	Heats your central heating system directly
+	Hot water can be stored for later use (if storage tank installed)
+
+
+Benefits:
+
+
+	Ideal for larger homes that have more than one bathroom
+	Heats on demand
+	Provides basic heating
+
+
+System Boiler – High Efficiency
+
+What it does: Provides heat throughout a home
+
+Key features:
+
+
+	Heats your central heating system directly but has more components built-in, making for easier installation
+	Can be stored in smaller space
+	Provides improved efficiency
+
+
+Benefits:
+
+
+	Ideal for homes that have more than one bathroom
+	Quick response time uses less energy and saves more money
+	Provides basic heating
+
+
+Combination (Combi) Boiler
+
+What it does: Provides heat and hot water throughout a home
+
+Key features:
+
+
+	Heats water as you need it and eliminates the need for a storage tank
+	Acts as both a high-efficiency water heater as well as a central heating boiler and can be stored in smaller space
+	Can provide in-floor heating in multiple zones
+	&amp;nbsp;Best efficiency
+
+
+Benefits:
+
+
+	Ideal for a smaller family home with 1-2 bathrooms
+	Smaller space required for installation
+	Frees up chimney
+
+
+Note: Both combi and heat-only boilers can be either condensing or non-condensing. A non-condensing boiler will typically take air in from inside the room, whereas a condensing boiler will be fully sealed and takes in air directly from the outside.
+","281","What are the different types of boilers?
+"
+"en","faq_question","1","41","Can a combination boiler fit in any home?","1583187581","1583187602","1","","en","","","","","","","","No, combination boilers have certain requirements and cannot be installed in every home.
+","281","Can a combination boiler fit in any home?
+"
+"en","faq_question","1","41","Should I switch to an Energy Star® rated boiler?","1583187609","1583187703","1","","en","","","","","","","","Boilers with an ENERGY STAR label can be up to 19% more efficient than models that simply meet the U.S. federal minimum standard for energy efficiency.1
+
+A boiler’s efficiency rating is dependent on how much fuel is wasted and how much fuel is used to produce a specific amount of heat. This is measured by something called the Annual Fuel Utilization Efficiency Rating (A.F.U.E.). Boilers with an A.F.U.E. rating of 85% or higher are considered to be high efficiency. Boilers with an ENERGY STAR® label are tested to meet strict efficiency specifications and are certified by an independent third party. They perform the same as or better than standard products without compromising performance in any way.**
+
+Legal disclaimers: 1 - https://www.energystar.gov/products/most_efficient/boilers
+
+**- https://www.energystar.gov/products/heating_cooling/boilers&amp;nbsp;
+","281","Should I switch to an Energy Star® rated boiler?
+"
+"en","faq_question","1","41","Venting Methods","1583187708","1583187731","1","","en","","","","","","","","Gas and oil-powered units are especially dependent on a home’s ventilation system. Chimney vented boilers vent exhaust naturally through a chimney whereas power vent and direct vent boilers use fans to push exhaust through vent pipes and can be vented through a roof or a side wall. Condensing boilers are among the most efficient and are excellent options when considering long term cost.
+","281","Venting Methods
+"
+"en","faq_question","1","41","Protection with Maintenance Plan - Paid LP","1605182328","1605909485","1","","en","","","","","","","","Our Heating and Cooling Protection with Maintenance include:&amp;nbsp;
+
+
+	Annual inspection to identify potential problems and avoid unexpected equipment breakdowns for furnaces, air conditioners and boilers.
+	Year-round coverage of your equipment in case of a breakdown with extensive parts and labour‡ on all major models and brands
+	Same day service. Just call by 5:00 PM and we’ll be there as fast as the same day&amp;nbsp;†
+	Unlimited number of service calls and no extra charges for evening or weekend service calls
+
+
+&amp;nbsp;
+
+What parts are covered under a protection plan with maintenance?
+
+Heating Protection Plan with Maintenance
+
+Aquastat Controls, Automatic Vent Damper/Motor, Blower/Blower Components, Condensate Pumps, Door Switch, Electric Ignition System, Fan Control, Fan Motor, Flame Spreader, Flow Switch, Fuel or Air Flappers, Furnace Low Voltage Circuit Fuse, Gas Appliance Regulator, Gas Burner and Orifices, Gas Control Valve, Heating Circuit Transformer, Hot Surface Igniter, Ignition Runner Bar, Internal Wiring, Limit Controls, Pilot Burner, Pilot Tubing, Pressure Relief Valve, Primary Circulator/Pump, Pulley and Belt, Relay, Roll Out Switch, Summer/Winter Switch, Thermocouple/Generator, Vent System Pressure Switch Tubing and Ventor or Motor Assembly.
+
+Cooling Protection Plan with Maintenance
+
+Add-on Fan Centres, Add-on Indoor Fan Relay, Capacitor, Compressor**, Condensate Pumps, Condenser Coil**, Condenser Fan Motor, Cooling Contactor/Relay and Evaporator Coil, Filter Driers, Service Valves, Fan Blades, Internal Copper Tubing, Internal Electrical Wiring, Low Ambient Temperature Sensor, and Thermostatic Expansion Valves.
+
+&amp;nbsp;
+","286","Maintain &amp;amp; Protect
+
+Save when you combine both a maintenance and a protection plan for your heating or cooling equipment.
+"
+"en","faq_question","1","41","Maintenance Plan LP","1605297600","1605304215","1","","en","","","","","","","","Our Maintenance Plans include:
+
+
+	An initial 8-point inspection, followed by a comprehensive 22-point inspection when issues are suspected
+	A fully licensed and certified Enercare technician to recommend best action, in case of identifying any early problems
+	A HomeCare Report, which is a comprehensive assessment of your equipment so you see how your system is operating and can make informed decisions
+
+","286","Maintain
+
+A maintenance plan provides one annual maintenance inspection to identify potential problems and avoid unexpected equipment breakdowns for furnaces, air conditioners and boilers.
+"
+"en","faq_question","1","41","Protection Plan - Paid LP","1605122610","1605909064","1","","en","","","","","","","","Our Protection Plans include:
+
+
+	Plans include extensive parts and labour on all major models and brands
+	Same day service. Just call by 5:00 PM and we’ll be there as fast as the same day.†
+	Unlimited number of service calls and no extra charges for evening or weekend service calls
+
+What parts are covered under a protection plan?
+
+Heating Protection Plan
+
+Aquastat Controls, Automatic Vent Damper/Motor, Blower/Blower Components, Condensate Pumps, Door Switch, Electric Ignition System, Fan Control, Fan Motor, Flame Spreader, Flow Switch, Fuel or Air Flappers, Furnace Low Voltage Circuit Fuse, Gas Appliance Regulator, Gas Burner and Orifices, Gas Control Valve, Heating Circuit Transformer, Hot Surface Igniter, Ignition Runner Bar, Internal Wiring, Limit Controls, Pilot Burner, Pilot Tubing, Pressure Relief Valve, Primary Circulator/Pump, Pulley and Belt, Relay, Roll Out Switch, Summer/Winter Switch, Thermocouple/Generator, Vent System Pressure Switch Tubing and Ventor or Motor Assembly.
+
+Cooling Protection Plan
+
+Add-on Fan Centres, Add-on Indoor Fan Relay, Capacitor, Compressor**, Condensate Pumps, Condenser Coil**, Condenser Fan Motor, Cooling Contactor/Relay and Evaporator Coil, Filter Driers, Service Valves, Fan Blades, Internal Copper Tubing, Internal Electrical Wiring, Low Ambient Temperature Sensor, and Thermostatic Expansion Valves.
+Electrical Protection Plan*
+Components within the electrical panels, Doorbell system repair1, Fluorescent fixtures2, Interior wiring, Outlets, Pot light repairs, Receptacles, Switches, Power surge and Remote controls
+Need more details? Read our full Terms and Conditions.
+Plumbing and Drains Protection Plan
+Coverage of piping and drains inside your home, Waste drains within the boundary of your property to the connection point to the main municipal drain, Diagnosis and repair of hot and cold water pipes, outside hose bibs, stop and waste valves, piping to your humidifier and refrigerator, Diagnosis and repair of blocked toilets, sinks and showers, Diagnosis and repair of moving parts within the toilet tank, Diagnosis of blocked below-grade wastewater drains, If required, a once-per-contract year auger and camera scope of each blocked below-grade drain
+
+Need more details? Read our full Terms and Conditions. 15% discount off our current parts and labour charges for permanent below-grade drain repairs and a 15% discount on fixture upgrades and improvements3 Diagnosis and repair of hot and cold water pipes, outside hose bibs, stop and waste valves, piping to your humidifier and refrigerator, blocked toilets, sinks and showers, moving parts within the toilet tank, blocked below-grade wastewater drains, coverage of piping and drains inside your home. Need more details? Read our full Terms and Conditions.
+","286","Protect
+
+A protection plan provides year-round repair coverage, same-day repair service, and unlimited service calls on furnaces, boilers, air conditioners, electrical, and plumbing and drains.
+"
+"en","faq_question","1","11","Does the call centre have access to more appointment times and availability?","1621553654","1621553738","1","","en","","","","","","","","​​​​​​Our app is up-to-date with the latest appointment availability which are the same options as our call centre.&amp;nbsp;If you have no heating/cooling/hot water or require immediate service, please call our call centre so that they can escalate your request to&amp;nbsp;the appropriate team at Enercare.
+","306","Does the call centre have access to more appointment times and availability?
+"
+"en","faq_question","1","11","My contact information is incorrect","1621553745","1621553799","1","","en","","","","","","","","To update your billing information, please contact us at 1-800-888-8888
+","306","My contact information is incorrect
+"
+"en","faq_question","1","11","How do I access my Enercare Smarter Home® profile and services?","1621553817","1621553865","1","","en","","","","","","","","To access the Enercare Smarter Home app, download “Home by Building 36” App which powers our&amp;nbsp; Smarter Home platform. 
+
+Google Play Link: https://play.google.com/store/apps/details?id=com.alarm.alarmmobile.android.building36&amp;amp;hl=en_CA&amp;amp;gl=US
+
+App Store Link: https://apps.apple.com/ca/app/home-by-building-36/id668025697
+","306","How do I access my Enercare Smarter Home® profile and services?
+"
+"en","faq_question","1","11","I am missing products in my profile, or the products listed are incorrect. ","1621553888","1622467567","1","","en","","","","","","","","There are several reasons why this might happen. The equipment in your home may not have coverage or it might not be from Enercare, or your protection plan may be ready for renewal. A quick call to 1-877-450-4283 can sort these details, we're here to help 24/7. 
+","306","I am missing products in my profile, or the products listed are incorrect. 
+"
+"en","faq_question","1","11","I don’t receive en route technician notifications ","1621553937","1621554054","1","","en","","","","","","","","Check that Push notifications are turned on. Also, you must be logged into the Enercare app.
+","306","I don’t receive en route technician notifications 
+"
+"en","faq_question","1","11","Why should I download the Enercare app?","1621554066","1621554153","1","","en","","","","","","","","
+	Schedule plan appointments in under a minute.&amp;nbsp;
+	Easily cancel or reschedule appointments.
+	Receive notifications when the technician is on the way, so no waiting around.&amp;nbsp;
+	View all your protection plans and coverage in one place.
+
+","306","Why should I download the Enercare app?
+"
+"en","faq_question","1","11","I'm locked out of my account","1621554163","1621554201","1","","en","","","","","","","","​​​​​​If you forgot your password or are locked out, press the 'forgot password' button in the app to reset the password. 
+","306","I'm locked out of my account
+"
+"en","faq_question","1","11","How do I download the Enercare app?","1621554212","1621554274","1","","en","","","","","","","","The app is free to download from the Apple App Store or the Google Play Store
+
+
+	App Store Link: https://apps.apple.com/ca/app/enercare/id1085148225 
+	Google Play Link: https://play.google.com/store/apps/details?id=com.enercareinc.enercare​​​​​​​
+
+","306","How do I download the Enercare app?
+"
+"en","faq_question","1","11","I never received a verification email to aid registration","1621554377","1621554438","1","","en","","","","","","","","&amp;nbsp;
+
+
+	Automated emails can take up to 10-30 minutes to arrive in your inbox.
+	Check your spam and junk folders.
+	If you’re still having issues, call our call center and an agent will verify that the correct email address is on file. They can help simplify your registration.
+
+","306","I never received a verification email to aid registration
+"
+"en","faq_question","1","11","I'm not able to register myself, the app says it cannot find my account","1621554452","1621554490","1","","en","","","","","","","","&amp;nbsp;
+
+
+	This occurs when the information entered does not match our internal system information. 
+	Please enter your account details exactly as they appear on the communications you’ve received from us. 
+	If you’re still having issues, please call our call center and an agent will be able to help simplify your registration.
+
+","306","I'm not able to register myself, the app says it cannot find my account
+"
+"en","faq_question","1","11","How do I register?","1621554501","1622467533","1","","en","","","","","","","","There are two ways to register once you’ve downloaded the app:
+
+
+	Self-register: Open the app, click ‘Sign up’ and enter your Enercare account details exactly as they appear on the communications you’ve received from us. You will be asked to verify your name, phone number, address and email to proceed.
+	Via an Enercare agent: Call 1-877-450-4283 and one of our customer service agents will help with your registration. – They’ll send you an email with an ‘easy log in’ button that will open the app and prompt you to set up a password. Once a password is set, you be logged in and ready to start booking.
+
+","306","How do I register?
+"
+"en","faq_question","1","41","How do you repair an air conditioner?","1623360561","1623944685","1","","en","","","","","","","","For safety reasons, we do not recommend you repair your air conditioner. You should have a licensed technician do any repairs needed.
+","351","How do you repair an air conditioner?
+"
+"en","faq_question","1","41","How much does air conditioner repair cost?","1623360732","1623944755","1","","en","","","","","","","","Costs vary depending on the problem. A one-time replacement cost for a faulty AC fan motor is $731*.
+","351","How much does air conditioner repair cost?
+"
+"en","faq_question","1","1366","How long does an AC unit last?","1623942089","1623942138","1","","en","","","","","","","","With annual maintenance from a qualified AC technician, an air conditioner may last approximately 10-15 years.
+","321","How long does an AC unit last?
+"
+"en","faq_question","1","1366","How to install an air conditioner?","1623942356","1623942391","1","","en","","","","","","","","A central air conditioner should only be installed by a licensed and trained professional.
+","321","How to install an air conditioner?
+"
+"en","faq_question","1","1366","How much is AC installation?","1623942421","1623942449","1","","en","","","","","","","","The cost of an air conditioner installation varies and should always be included in the estimate.
+","321","How much is AC installation?
+"
+"en","faq_question","1","1366","Can I just replace my outside AC unit?","1623942476","1623942500","1","","en","","","","","","","","In the case of major malfunctions or new installations, HVAC technicians recommend simultaneously replacing the inside and outside equipment of the air conditioner.
+","321","Can I just replace my outside AC unit?
+"
+"en","faq_question","1","1366","Do I need to change my furnace filter in the summer?","1623942536","1623942555","1","","en","","","","","","","","Yes, if you have a central air conditioner. The air conditioner works with the furnace fan to transfer cool air throughout the home. We recommend that you change or clean your furnace filter every one-to-three months.
+","321","Do I need to change my furnace filter in the summer?
+"
+"en","faq_question","1","1366","How long does the rental term last?","1623942819","1623942846","1","","en","","","","","","","","The rental term lasts for the useful life of the air conditioner. Typical useful life for an air conditioner with proper maintenance is approximately 10 to 15 years.&amp;nbsp; 
+","326","How long does the rental term last?
+"
+"en","faq_question","1","1366","Can I buy the AC unit after renting?","1623942905","1623942937","1","","en","","","","","","","","Yes
+","326","Can I buy the AC unit after renting?
+"
+"en","faq_question","1","1366","Do I have to replace AC filters myself?","1623942983","1623942994","1","","en","","","","","","","","Yes
+","326","Do I have to replace AC filters myself?
+"
+"en","faq_question","1","1366","Which Air Conditioner brands and models can I rent?","1623943017","1623943036","1","","en","","","","","","","","We carry Lennox, Carrier, Amana and Amana Distinctions. We work with you to find the right make and model for your particular needs.
+","326","Which Air Conditioner brands and models can I rent?
+"
+"en","faq_question","1","1366","Why is my AC not cooling?","1623943083","1623943196","1","","en","","","","","","","","If you turn on your air conditioner but it doesn't provide cold air, there can be several culprits. The AC unit may have a frozen coil, clogged filters, blocked air condenser, a malfunctioning compressor or a refrigerant leak. It's also possible that your thermostat is malfunctioning and needs replacement.
+","351","Why is my AC not cooling?
+"
+"en","faq_question","1","1366","Should I repair or replace my AC unit?","1623943266","1623943301","1","","en","","","","","","","","Foul smells, weird noises, high energy bills, a lack of cool air or limited airflow are all signs that your air conditioner may need to be repaired or replaced. The age of your AC unit is the main factor in choosing between a repair or replacement. Typical useful life for an air conditioner with proper maintenance is approximately 10 to 15 years.
+","351","Should I repair or replace my AC unit?
+"
+"en","faq_question","1","1366","When should an AC be replaced?","1623943402","1623943431","1","","en","","","","","","","","If you perform regular air conditioner maintenance to keep your AC unit in good condition, you likely won't need to replace your air conditioner for 10-15 years. 
+","351","When should an AC be replaced?
+"
+"en","faq_question","1","1366","How can I test if my air conditioner is working?","1623943463","1623943478","1","","en","","","","","","","","You can test if your air conditioner is working by following three easy steps: (i) Wait until the outside temperature is above 13 degrees and remove any protective covers. (ii) Turn down your thermostat by 3 to 5 degrees and turn on your air conditioner for 20 minutes. (iii) Check that cool air is pushed from your vents and that there aren’t any unusual noises, like bangs, squeaks and scrapes from your AC unit.
+","351","How can I test if my air conditioner is working?
+"
+"en","faq_question","1","1366","Which air conditioner brands are covered with a Cooling Protection Plan?","1623943524","1623943562","1","","en","","","","","","","","We repair all makes and models of central air conditioners.
+","331","Which air conditioner brands are covered with a Cooling Protection Plan?
+"
+"en","faq_question","1","1366","When is a Cooling Protection Plan worth it?","1623943570","1623943598","1","","en","","","","","","","","In addition to completing regular maintenance, you should think about protection against potential repair costs. Equipment 7 to 15 years old can be at risk of unexpected and costly breakdowns.
+","331","When is a Cooling Protection Plan worth it?
+"
+"en","faq_question","1","1366","How often should I have my air conditioner serviced?","1623944017","1623944042","1","","en","","","","","","","","AC maintenance should be annual.
+","336","How often should I have my air conditioner serviced?
+"
+"en","faq_question","1","1366","How much does air conditioner maintenance cost?","1623944050","1623944089","1","","en","","","","","","","","Enercare’s Cooling Maintenance Plan is currently $10.99/month for 12 months.
+","336","How much does air conditioner maintenance cost?
+"
+"en","faq_question","1","1366","Are air conditioner maintenance plans worth it?","1623944109","1623944125","1","","en","","","","","","","","Having an annual service check of your equipment makes sure your air conditioner is running to manufacturer specifications. It also includes a safety check and an examination to find anything that may turn into a problem.
+","336","Are air conditioner maintenance plans worth it?
+"
+"en","faq_question","1","1366","What happens if an air conditioner is not serviced?","1623944146","1623944165","1","","en","","","","","","","","The air conditioner may begin to lose efficiency which can lead to increased costs on your energy bill.
+","336","What happens if an air conditioner is not serviced?
+"
+"en","faq_question","1","1366","How does air conditioner maintenance save money?","1623944182","1623944201","1","","en","","","","","","","","Having an annual service check of your equipment makes sure your air conditioner is running to manufacturer specifications which keeps it running as efficient as possible, helping keep energy costs down.
+","336","How does air conditioner maintenance save money?
+"
+"en","faq_question","1","1366","How is the Cooling Protection Plan with Maintenance different from other plans?","1623944234","1623944268","1","","en","","","","","","","","This plan includes both protection and maintenance of your equipment, while other plans only include one service.
+","346","How is the Cooling Protection Plan with Maintenance different from other plans?
+"
+"en","faq_question","1","1366","When is the AC Protection Plan with Maintenance better than buying a new air conditioner?","1623944310","1623944324","1","","en","","","","","","","","Equipment up to seven years old is at a lower risk of breaking down. However, just like a vehicle, regular maintenance is important to help increase the lifespan of your equipment and may reduce your monthly energy bills. In addition to completing regular maintenance, you should think about protection against potential repair costs. Equipment 7 to 15 years old can be at risk of unexpected and costly breakdowns.
+","346","When is the AC Protection Plan with Maintenance better than buying a new air conditioner?
+"
+"en","faq_question","1","1366","Are air filters included in the AC Protection Plan with Maintenance?","1623944339","1623944353","1","","en","","","","","","","","No
+","346","Are air filters included in the AC Protection Plan with Maintenance?
+"
+"en","faq_question","1","1366","What is included in my Cooling Protection Plan?","1623945020","1623945048","1","","en","","","","","","","","With the Enercare Cooling Protection Plan, you get 365-day parts and labour protection** under your plan terms and conditions. You also get unlimited service calls and peace of mind with same day service if your equipment is non-operational and you call before 5:00 p.m. ***
+
+** Enercare’s annual total parts and labour responsibility is limited to a maximum retail value of $500 (including HST) per year for compressor unit or condenser coil repairs. Refrigerant recovery, vacuuming, and refill not included. See Terms and Conditions for complete details.
+
+***Available to Enercare’s heating/cooling protection plan customers, Enercare Advantage™ and Enercare Smarter Advantage™ water heater and/or HVAC customers whose equipment is not operational (i.e. – no hot water, no cooling or no heat). On average, Enercare attends to furnace/boiler, central air conditioner or water heater non-operational calls 90% of the time the same day. Subject to exclusions in accordance with the terms and conditions of the applicable protection plan or rental agreement.
+
+&amp;nbsp;
+","331","What is included in my Cooling Protection Plan?
+"
