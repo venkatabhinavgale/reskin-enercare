@@ -20,7 +20,9 @@ jQuery(function($){
   // AddSearch JS client with an example index. Get your own SITEKEY by signing up at www.addsearch.com
   var client = new AddSearchClient('3145819e621ccfb6dbf5116b2c92967b');
   var conf = {
-    searchParameter: 'addsearch'
+    searchResultsPageUrl: '/',
+    searchParameter: 'addsearch',
+    updateBrowserHistory: false
   }
   // Search UI instance
   var searchui = new AddSearchUI(client, conf);
