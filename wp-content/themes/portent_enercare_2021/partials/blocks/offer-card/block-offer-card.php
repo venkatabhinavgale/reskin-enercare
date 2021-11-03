@@ -100,34 +100,7 @@ if (isset($campaign) && !empty($campaign)) {
 ?>
 
   <?php if ($variation == "Masthead Offer Card") { ?>
-  <div class="block-offer-card__wrapper__masthead" data-allow-multiple>
-    <?php if ($campaign_subheading) { ?>
-      <p class="block-offer-card__subheading"><?php echo $campaign_subheading; ?></p>
-    <?php } ?>
-    <h3><?= $campaign_heading; ?></h3>
-    <p class="block-offer-card__offer-expiration"><?php if ($campaign_expiration && $campaign_expiration != "") { ?>Offer expires <?= date('F d, Y', strtotime($campaign_expiration)); ?><?php } ?>
-      <span class="block-offer-card__terms">
-        <button class="block-offer-card__terms-toggle" aria-controls="terms_<?= $campaign->ID; ?>">View Details</button>
-        <div class="block-offer-card__terms-details" data-modal="trigger" data-modal-id="" aria-expanded="false" data-state="closed" aria-labelledby="terms_<?= $campaign->ID; ?>">
-          <div class="modal__container" aria-hidden="true" data-modal="view" data-modal-id="">
-            <div class="modal__header">
-              <h2 class="modal__heading"><?= $campaign_heading ?> terms and conditions</h2>
-              <button class="block-offer-card__terms-details__close" data-action="close">Close</button>
-            </div>
-              <div class="modal__body block-offer-card__terms-details__content">
-              <?= $terms_and_conditions; ?>
-              </div>
-          </div>
-        </div>
-      </span>
-    </p>
-
-    <a href="<?= $campaign_destination; ?>">
-    <button>
-      <span class="wp-block-button__link has-red-background-color has-background"><?= $cta_text ?></span>
-    </button>
-    </a>
-  </div>
+		<?php require get_template_directory() . '/partials/campaign-masthead.php'; ?>
   <?php } elseif ($variation == "Full Width with Image") { ?>
     <div class="block-offer-card__wrapper__full-width" data-allow-multiple>
       <div class="block-offer-card__container <?= $background_color_setting ?>">

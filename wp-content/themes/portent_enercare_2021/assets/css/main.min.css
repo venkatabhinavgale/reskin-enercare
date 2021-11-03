@@ -534,9 +534,9 @@ div.wpforms-container.one-line:after{content:"";display:table;clear:both}
 .modal{font-family:-apple-system,BlinkMacSystemFont,avenir next,avenir,helvetica neue,helvetica,ubuntu,roboto,noto,segoe ui,arial,sans-serif}
 .modal{display:none}
 .modal.is-open{display:block}
-.modal__overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.6);display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;z-index:9999}
+.modal__overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.6);display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;z-index:999}
 .modal__container{background-color:#fff;max-width:772px;max-height:80vh;border-radius:4px;overflow-y:auto;-webkit-box-sizing:border-box;box-sizing:border-box}
-.modal__header{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;-webkit-box-align:start;-ms-flex-align:start;align-items:flex-start;padding:1.5em;border-bottom:1px solid #e6e4e4}
+.modal__header{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;-webkit-box-align:start;-ms-flex-align:start;align-items:flex-start;padding:1.5em;border-bottom:1px solid #e6e4e4;color:#000}
 .modal__heading{font-size:1.5em;text-align:left;letter-spacing:-0.17px;margin-bottom:0;margin-right:.5em;line-height:2rem}
 .modal__title{margin-top:0;margin-bottom:0;font-weight:600;font-size:1.25rem;line-height:1.25;color:#00449e;-webkit-box-sizing:border-box;box-sizing:border-box}
 .modal__close{background:transparent;height:24px;width:24px;border-radius:100%;border:1px solid transparent;padding:0 5px;color:black;font-size:16px;line-height:0}
