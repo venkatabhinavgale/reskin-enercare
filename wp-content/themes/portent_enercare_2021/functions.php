@@ -603,12 +603,12 @@ function enercare_pre_get_posts( $query ) {
           'compare'   => '>='
         ),
       ),
-      /*array(
+      array(
         'priority' => array(
           'key'       => 'priority',
           'compare'   => 'EXISTS',
         ),
-      )*/
+      )
     ));
     $query->set('orderby', array(
       'priority'       => 'DESC',
