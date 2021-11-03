@@ -347,6 +347,22 @@ Blog Posts
 
 			#{$single-post}__image {
 				width: 50%;
+				min-height: 212px;
+				min-width: auto;
+
+				@include media('<=tablet') {
+					width: 100%;
+				}
+			}
+
+			#{$single-post}__title {
+				line-height: 1.75rem;
+				font-size: 1.250em;
+				letter-spacing: -0.19px;
+			}
+
+			@include media('<=tablet') {
+				flex-direction: column;
 			}
 		}
 
