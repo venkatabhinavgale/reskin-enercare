@@ -265,6 +265,60 @@
             "return_format": "value",
             "ajax": 0,
             "placeholder": ""
+        },
+        {
+            "key": "field_61831ae2035f7",
+            "label": "Archives",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_61831afc035f8",
+            "label": "Location Archive Title",
+            "name": "location_archive_title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_61831b20035f9",
+            "label": "Location Archive Description",
+            "name": "location_archive_description",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": ""
         }
     ],
     "location": [
@@ -284,6 +338,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1635981958,
-    "local_file": "\/code\/wp-content\/themes\/portent_enercare_2021\/acf-json\/group_5dd458c5a322b.json"
+    "modified": 1635982140
 }
