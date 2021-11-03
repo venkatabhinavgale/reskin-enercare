@@ -11,7 +11,11 @@
 function footer_cta() {
 	if( get_field('floating_cta_link', 'options') ) {
 		$footer_link = get_field( 'floating_cta_link', 'options');
-		echo '<div data-interface="floating-cta" class="floating-cta is-style-shadowed"><a class="wp-block-button__link has-red-background-color has-background" href="' . $footer_link['url']. '"> ' . $footer_link['title']. '</a></div>';
+    $cl_phone = "";
+    if (strpos($footer_link, 'tel:') !== false) {
+      $cl_phone = " cl-phone";
+    }
+		echo '<div data-interface="floating-cta" class="floating-cta is-style-shadowed"><a class="wp-block-button__link has-red-background-color has-background' . $cl_phone . '" href="' . $footer_link['url']. '"> ' . $footer_link['title']. '</a></div>';
 	}
 }
 add_action( 'wp_footer', 'footer_cta' );
