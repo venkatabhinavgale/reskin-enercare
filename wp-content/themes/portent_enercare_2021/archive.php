@@ -35,7 +35,7 @@ function enercare_archive_header() {
 
 	} elseif( is_search() ) {
 		$title = 'Search Results';
-		$more = get_search_form( false );
+		//$more = get_search_form( false );
 
 	} elseif( is_archive() ) {
 		$title = get_the_archive_title();
