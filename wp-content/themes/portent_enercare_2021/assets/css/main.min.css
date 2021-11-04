@@ -714,6 +714,7 @@ h3{font-size:2.5em}
 .nav-menu .menu-item a{border:0;color:#29292c;font-size:16px;font-weight:700;line-height:22px;text-decoration:none;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
 .nav-menu .menu-item a:hover{color:#dc1c28}
 .nav-menu .menu-item__icon{display:-webkit-box;display:-ms-flexbox;display:flex;max-width:3rem;min-width:3em}
+.nav-menu .menu-item__icon svg{height:100%;width:100%}
 .nav-menu .nav-primary,.nav-menu .nav-secondary{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end}
 .nav-menu .nav-primary+.nav-secondary{margin-bottom:16px}
 .nav-menu .menu{display:-webkit-box;display:-ms-flexbox;display:flex;width:auto}
