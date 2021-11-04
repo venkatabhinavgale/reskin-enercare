@@ -352,6 +352,7 @@ Legal Panel In Footer Area
 	border: 0;
 	align-items: center;
 	background: none;
+	color: $black;
 
 	@include media("<=tablet") {
 		margin: 0;
