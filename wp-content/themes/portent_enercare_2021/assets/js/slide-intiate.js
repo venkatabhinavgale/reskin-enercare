@@ -3,7 +3,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 	const menu = new MmenuLight(
 		document.querySelector("#slider-menu"),
-		"(max-width: 768px)"
+		"(max-width: 1023px)"
 	);
 
 	const body = document.querySelector("body");
