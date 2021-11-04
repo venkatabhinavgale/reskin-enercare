@@ -185,6 +185,43 @@ textarea {
 	z-index: 99;
 }
 
+/* Archive Search Form
+--------------------------------------------- */
+
+.wp-block-search {
+
+	.wp-block-search {
+
+		&__inside-wrapper {
+			margin-bottom: 1.5em;
+		}
+
+		&__input {
+			padding: 10px 10px 12px 34px;
+			background-image: url(../icons/search/red-search.svg);
+			background-repeat: no-repeat;
+			background-position: 8px 12px;
+			background-size: 16px 16px;
+			border-style: none;
+			font-weight: 300;
+			@include font-sizes(1em);
+		}
+
+		&__button {
+			margin-left: 0;
+			border-radius: 0 6px 6px 0;
+			font-size: 1.125rem;
+			font-weight: 700;
+			line-height: 24px;
+			padding: 0.5em 1em;
+			text-decoration: none;
+			letter-spacing: -.17px;
+			background-color: brand_color('red');
+			color: $white;
+		}
+	}
+}
+
 
 /* Product Form & Buy/Rent/Rebates Lead Form
 --------------------------------------------- */
