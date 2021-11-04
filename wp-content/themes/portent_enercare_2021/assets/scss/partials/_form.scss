@@ -185,6 +185,43 @@ textarea {
 	z-index: 99;
 }
 
+/* Addsearch Form
+--------------------------------------------- */
+
+.addsearch-container {
+
+	input[type='text'] {
+		padding: 10px 10px 9px 34px;
+		background-image: url(../icons/search/red-search.svg);
+		background-repeat: no-repeat;
+		background-position: 8px 12px;
+		background-size: 16px 16px;
+		font-weight: 300;
+		@include font-sizes(1em);
+		max-width: 90%;
+
+		@include media("<=tablet") {
+			max-width: 74%;
+		}
+	}
+
+	button {
+		position: relative;
+		right: 1%;
+		border-radius: 0 6px 6px 0;
+		font-size: 1.125rem;
+		font-weight: 700;
+		line-height: 24px;
+		padding: 0.5em 1em;
+		text-decoration: none;
+		letter-spacing: -.17px;
+		background-color: brand_color('red');
+		color: $white;
+		border-style: none;
+	}
+}
+
+
 /* Archive Search Form
 --------------------------------------------- */
 

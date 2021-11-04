@@ -114,3 +114,13 @@ input[type="search"] {
 		}
 	}
 }
+
+/* Search Results Page -- Specific Padding to account for no masthead
+--------------------------------------------- */
+
+.search-results {
+
+	.site-inner {
+		padding: 70px 0;
+	}
+}
