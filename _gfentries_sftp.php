@@ -16,12 +16,28 @@ if (!empty($_GET['pwd']) && $_GET['pwd'] == 'en3rc@reADMINz0nly') {
   //$yesterday = strtotime("10/20/2021");
   //$today = strtotime("10/21/2021");
   
-  $form_entry_urls = array(
-    "buy-rent-leads" => "http://enercare.test/gf-entries-in-excel/1c11851cdb1550c4ac68de5d0827d265ffafec714bc0f0affe3338b1b5ce9362",
-    "plans-leads" => "http://enercare.test/gf-entries-in-excel/49327079810197e728c5b6782f0ba3b9d6074bed5b9246b06d22db91fed6b34b",
-    "smarter-home-leads" => "http://enercare.test/gf-entries-in-excel/98388c96ac137af6ab5ffc6eb4260baaeed2d2b31a19565a196cfacc0c02db17",
-    "contact-support" => "http://enercare.test/gf-entries-in-excel/354206178643a0edb3962553e26437b66a7c0de3684999177d010724300c4ca5"
-  );
+  if (isset($_SERVER['HTTP_HOST']) && strpos($_SERVER['HTTP_HOST'], 'enercare.test') !== false) {
+    $form_entry_urls = array(
+      "buy-rent-leads" => "http://enercare.test/gf-entries-in-excel/1c11851cdb1550c4ac68de5d0827d265ffafec714bc0f0affe3338b1b5ce9362",
+      "plans-leads" => "http://enercare.test/gf-entries-in-excel/49327079810197e728c5b6782f0ba3b9d6074bed5b9246b06d22db91fed6b34b",
+      "smarter-home-leads" => "http://enercare.test/gf-entries-in-excel/98388c96ac137af6ab5ffc6eb4260baaeed2d2b31a19565a196cfacc0c02db17",
+      "contact-support" => "http://enercare.test/gf-entries-in-excel/354206178643a0edb3962553e26437b66a7c0de3684999177d010724300c4ca5"
+    );
+  } elseif (isset($_SERVER['HTTP_HOST']) && strpos($_SERVER['HTTP_HOST'], 'dev-enercare.pantheonsite.io') !== false) {
+    $form_entry_urls = array(
+      "buy-rent-leads" => "https://dev-enercare.pantheonsite.io/gf-entries-in-excel/89dadbc40e2ef308b7b7b8f3dc0f890c7d4d4db1d62a0ca560b83e540890f3ef",
+      "plans-leads" => "https://dev-enercare.pantheonsite.io/gf-entries-in-excel/138c4701a74adf28c43b219ca87e7697a24dd7bad3288082bd5a3bb0b1315b29",
+      "smarter-home-leads" => "https://dev-enercare.pantheonsite.io/gf-entries-in-excel/c261abd59ac4da581a36cea370c16120dfd15612127db56a7b32e263345518cf",
+      "contact-support" => "https://dev-enercare.pantheonsite.io/gf-entries-in-excel/26c15e95eae600c3417c25c9aa72712b235876c5d838ca34b3c0bd967d8e9b78"
+    );
+  } else if (isset($_SERVER['HTTP_HOST']) && strpos($_SERVER['HTTP_HOST'], 'www.enercare.ca') !== false) {
+    $form_entry_urls = array(
+      "buy-rent-leads" => "",
+      "plans-leads" => "",
+      "smarter-home-leads" => "",
+      "contact-support" => ""
+    );
+  }
   
   // loop through the forms
   $form_count = 1;

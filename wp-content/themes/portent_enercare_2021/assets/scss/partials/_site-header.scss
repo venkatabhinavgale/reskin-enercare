@@ -6,6 +6,10 @@
 	border-bottom: 1px solid $border-color;
 	position: relative;
 	padding: 10px 0;
+	box-shadow: 0 2px 7px rgba(0,0,0,0.5);
+	z-index: 5;
+	position: relative;
+
 	@include media(">mobile_menu") {
 		padding: 0;
 	}
