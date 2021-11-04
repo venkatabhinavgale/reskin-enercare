@@ -6,6 +6,7 @@ $block-location-finder--max-width: 324px;
 	grid-template-rows: auto 1fr;
 	justify-content: center;
 	align-items: center;
+	background-color: $black;
 
 	@include media('>=tablet') {
 		grid-template-columns: 50% 50%;
@@ -56,7 +57,7 @@ $block-location-finder--max-width: 324px;
 	}
 
 	&__icon {
-		margin: 0 auto;
+		margin: 0 auto 0.65em;
 	}
 
 	&__input {
