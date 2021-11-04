@@ -75,6 +75,12 @@ h4,h5,h6{font-size:18px}
 .block-carousel__wrapper:not([data-num-slides="1"]) .glider-slide{margin:1em}
 .block-carousel__wrapper:not([data-num-slides="1"]) .glider-slide:first-of-type{margin-left:.5em}
 .block-carousel__wrapper:not([data-num-slides="1"]) .glider-slide:last-of-type{margin-right:.5em}
+.margin-top-block-margin{margin-bottom:20px !important}
+.margin-top-zero{margin-top:0 !important}
+.margin-bottom-block-margin{margin-bottom:20px !important}
+.margin-bottom-zero{margin-bottom:0 !important}
+.is-font-weight-bold{font-weight:700 !important}
+.is-font-weight-bolder{font-weight:900 !important}
 .wp-block-button__link{border-radius:30px;font-size:1.125rem;font-weight:700;line-height:24px;padding:.750em 1.50em .6em;text-decoration:none;letter-spacing:-.17px}
 .is-style-full .wp-block-button__link,.wp-block-button__link.full{display:block;width:100%}
 .wp-block-button__link:not(.has-text-color){color:white}
