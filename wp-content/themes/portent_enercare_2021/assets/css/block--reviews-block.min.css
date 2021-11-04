@@ -1,3 +1,5 @@
+.block-reviews__glider{scrollbar-width:none}
+.block-reviews__glider::-webkit-scrollbar{display:none}
 .block-reviews__stars{display:-webkit-box;display:-ms-flexbox;display:flex;margin:.563em 0 1em}
 .block-reviews__star{margin:0 .15em;height:24px;width:24px}
 .block-reviews__star:first-of-type,.block-reviews__star:last-of-type{margin:0}
