@@ -1,5 +1,12 @@
 <?php
 
+$block_class_base = 'block-location-finder';
+$classes = $block_class_base;
+$classes .= ' alignfull';
+if( !empty($block['className']) ) {
+	$classes .= sprintf( ' %s', $block['className'] );
+}
+
 $section_header = get_field('title');
 $section_content = get_field('content');
 $locations_header = get_field('locations_heading');
@@ -11,7 +18,7 @@ $form_header = get_field('form_header');
 $form_content = get_field('form_content');
 ?>
 
-<section class="block-location-finder alignfull">
+<section class="<?= $classes ?>">
 	<div class="block-location-finder__content">
 		<h2 class="block-location-finder__block-header has-white-color"><?= $section_header ?></h2>
 		<p class="block-location-finder__block-description has-white-color"><?= $section_content ?></p>
