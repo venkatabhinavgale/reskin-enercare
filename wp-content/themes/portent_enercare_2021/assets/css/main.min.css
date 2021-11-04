@@ -47,6 +47,7 @@ html,input[type="search"]{-webkit-box-sizing:border-box;box-sizing:border-box}
 .genesis-skip-link{display:none}
 .screen-reader-text,.screen-reader-text span,.screen-reader-shortcut{position:absolute !important;clip:rect(0,0,0,0);height:1px;width:1px;border:0;overflow:hidden}
 .screen-reader-text:focus,.screen-reader-shortcut:focus{clip:auto !important;height:auto;width:auto;display:block;font-size:1em;font-weight:bold;padding:15px 23px 14px;color:#333;background:#fff;z-index:100000;text-decoration:none;-webkit-box-shadow:0 0 2px 2px rgba(0,0,0,0.6);box-shadow:0 0 2px 2px rgba(0,0,0,0.6)}
+.search-results .site-inner{padding:70px 0}
 input,select,textarea{background:#fff;border:1px solid #e6e4e4;border-radius:4px;color:#29292c;font-size:18px;height:42px;line-height:24px;padding:14px 16px;width:100%}
 select{line-height:54px}
 textarea{width:100%}
@@ -75,6 +76,11 @@ input:focus::-webkit-input-placeholder,input:focus::-moz-placeholder,input:focus
 .addsearch-autocomplete li:hover a,.addsearch-autocomplete li:focus a{color:#dc1c28}
 .addsearch-autocomplete li a{color:#29292c;font-weight:300;font-size:1em;text-decoration:none}
 .search-field__results{background-color:#fff;-webkit-box-shadow:0 4px 8px 0 rgba(56,61,67,0.3);box-shadow:0 4px 8px 0 rgba(56,61,67,0.3);position:absolute;z-index:99}
+.addsearch-container input[type='text']{padding:10px 10px 9px 34px;background-image:url(../icons/search/red-search.svg);background-repeat:no-repeat;background-position:8px 12px;background-size:16px 16px;font-weight:300;font-size:1em;max-width:90%}
+.addsearch-container button{position:relative;right:1%;border-radius:0 6px 6px 0;font-size:1.125rem;font-weight:700;line-height:24px;padding:.5em 1em;text-decoration:none;letter-spacing:-.17px;background-color:#dc1c28;color:#fff;border-style:none}
+.wp-block-search .wp-block-search__inside-wrapper{margin-bottom:1.5em}
+.wp-block-search .wp-block-search__input{padding:10px 10px 12px 34px;background-image:url(../icons/search/red-search.svg);background-repeat:no-repeat;background-position:8px 12px;background-size:16px 16px;border-style:none;font-weight:300;font-size:1em}
+.wp-block-search .wp-block-search__button{margin-left:0;border-radius:0 6px 6px 0;font-size:1.125rem;font-weight:700;line-height:24px;padding:.5em 1em;text-decoration:none;letter-spacing:-.17px;background-color:#dc1c28;color:#fff}
 .gform_wrapper.product-form_wrapper .product-form .gform_body .gform__disclaimer{width:100%;font-size:10px;line-height:12px}
 .gform_wrapper.product-form_wrapper .product-form .gform_footer{display:-webkit-box;display:-ms-flexbox;display:flex}
 .gform_wrapper.product-form_wrapper .product-form .gform_footer input[type=submit]{width:140px;border-radius:30px;font-size:1rem;font-weight:700;line-height:22px;padding:5px 16px;text-decoration:none;background-color:#dc1c28;color:#fff}
@@ -129,7 +135,7 @@ h4,h5,h6{font-size:18px}
 .banner-operational p{margin:0;padding:0}
 .banner-operational a{color:#fff}
 .legal__terms{width:100%;background-color:#f5f2f2}
-.legal__terms-toggle{display:-webkit-box;display:-ms-flexbox;display:flex;margin:0 auto;width:66%;max-width:100%;padding:0 1.5em;border:0;-webkit-box-align:center;-ms-flex-align:center;align-items:center;background:0}
+.legal__terms-toggle{display:-webkit-box;display:-ms-flexbox;display:flex;margin:0 auto;width:66%;max-width:100%;padding:0 1.5em;border:0;-webkit-box-align:center;-ms-flex-align:center;align-items:center;background:0;color:#000}
 .legal__terms-toggle img{height:15px;width:15px;margin:1.5em 0 1.5em .902em}
 .legal__terms-details{background-color:#e6e4e4;padding:1em;font-size:1em;line-height:1.3rem;letter-spacing:0;width:100%}
 .legal__terms-details p{width:66%;margin:0 auto;padding:5px 0 5px 16px}
@@ -730,7 +736,8 @@ p.has-normal-font-size{font-size:1em}
 .header-phone__number{font-size:1.25rem}
 }@media(max-width:991px){.sidebar-primary{display:none}
 }@media(max-width:782px){#wpadminbar{display:none !important}
-}@media(max-width:768px){.legal__terms-toggle{margin:0;padding:0 1.5em;width:100%}
+}@media(max-width:768px){.addsearch-container input[type='text']{max-width:74%}
+.legal__terms-toggle{margin:0;padding:0 1.5em;width:100%}
 .legal__terms-details p{margin:0 0 10px;width:100%;padding:10px 0 0}
 .block-blog-posts__post__image{min-height:173px}
 .block-blog-posts__post--horizontal .block-blog-posts__post__image{width:100%}
