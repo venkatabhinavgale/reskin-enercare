@@ -241,6 +241,7 @@ Appointment Banner
 		@include font-sizes(1em);
 
 		@include media('<=tablet') {
+			margin-right: 0.5em;
 			text-align: center;
 		}
 	}

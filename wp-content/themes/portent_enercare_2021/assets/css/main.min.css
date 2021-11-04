@@ -758,7 +758,7 @@ p.has-normal-font-size{font-size:1em}
 .block-blog-posts__post--horizontal .block-blog-posts__post__image{width:100%}
 .block-blog-posts__post--horizontal{-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}
 .appointment-banner__icon{display:none}
-.appointment-banner__title{text-align:center}
+.appointment-banner__title{margin-right:.5em;text-align:center}
 .appointment-banner__link{margin:0;width:50%;border-radius:30px;text-align:center}
 .blog .site-main{grid-template-columns:100%;grid-template-areas:"header" "sidebar" "archive"}
 .blog .archive-sidebar{grid-area:sidebar;padding-left:0}
