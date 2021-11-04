@@ -27,6 +27,7 @@ input[type="search"] {
 .site-inner {
 	padding: 36px 0;
 	position: relative;
+	z-index: 0;
 	@include media(">=tablet") {
 		padding: 48px 0;
 	}

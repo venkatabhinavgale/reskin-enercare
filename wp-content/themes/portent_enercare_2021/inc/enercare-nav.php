@@ -56,6 +56,10 @@ endif;
 function enercare_site_header() {
 	//pulling from ACF options
 	$phone_number = get_field('default_phone_number', 'option');
+  //use default commercial phone number
+  if (get_field('site_override') && get_field('site_override') == 'Commercial') {
+    $phone_number = get_field('default_commercial_phone_number', 'option');
+  }
 
 	echo '<nav role="navigation" id="slider-menu" class="nav-menu">';
 	if( has_nav_menu( 'primary' ) ) {
@@ -71,7 +75,7 @@ function enercare_site_header() {
 	//phone section
 	echo '<div class="site-header__header-phone header-phone">';
 	echo '<span class="header-phone__cta"><strong>Speak with an expert</strong></span>';
-	echo '<a class="header-phone__link" href="tel:+'.$phone_number.'">';
+	echo '<a class="header-phone__link cl-phone" href="tel:+'.$phone_number.'">';
 	echo '<span class="screen-reader-text">Click to call Enercare'. $phone_number . '</span>';
 	echo file_get_contents( get_template_directory() . '/assets/icons/communication/phone_black_24dp_rounded.svg' );
 	echo '<strong class="header-phone__number">'.$phone_number.'</strong>';

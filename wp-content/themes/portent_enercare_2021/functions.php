@@ -507,7 +507,7 @@ function enercare_appointment_banner() {
 		$is_banner_active_global = false;
 	}
 
-	if( is_category() || is_tax() ) {
+	if( is_category() || is_tax() || is_post_type_archive('location') ) {
 		$is_banner_active_global = false;
 	}
 
@@ -581,11 +581,39 @@ function enercare_critical_css() {
 add_action( 'wp_head', 'enercare_critical_css', 0, 1 );
 
 /**
- * Campaign Archive Filter All Post Results
+ * Customizing Pre Get Posts. Campaign Archive Filter All Post Results
  */
-add_action( 'pre_get_posts', 'enercare_campaign_archive_query' );
-function enercare_campaign_archive_query( $query ) {
+if (!is_admin()) {
+  add_action( 'pre_get_posts', 'enercare_pre_get_posts' );
+}
+function enercare_pre_get_posts( $query ) {
 	if ( is_post_type_archive( 'campaign' ) && $query->is_main_query() ) :
+    $today = date("Ymd");
+    $query->set('meta_query', array(
+      array(
+        'relation' => 'AND',
+        'start_date' => array(
+          'key'       => 'start_date',
+          'value'     => $today,
+          'compare'   => '<='
+        ),
+        'end_date' => array(
+          'key'       => 'end_date',
+          'value'     => $today,
+          'compare'   => '>='
+        ),
+      ),
+      array(
+        'priority' => array(
+          'key'       => 'priority',
+          'compare'   => 'EXISTS',
+        ),
+      )
+    ));
+    $query->set('orderby', array(
+      'priority'       => 'DESC',
+      'start_date'     => 'ASC',
+    ));
 		$query->set( 'posts_per_page', -1 );
 	endif;
 
