@@ -346,7 +346,7 @@ div.wpforms-container.one-line:after{content:"";display:table;clear:both}
 .block-switchboard__container .block-mega-button,.block-switchboard__container .block-mega-button a{width:100%}
 .site-header{background:#fff;border-bottom:1px solid #e6e4e4;position:relative;padding:10px 0}
 .site-header .wrap{width:100%}
-.header-phone__link{display:-webkit-box;display:-ms-flexbox;display:flex;margin-right:1.5rem;text-decoration:none}
+.header-phone__link{display:-webkit-box;display:-ms-flexbox;display:flex;margin-right:1.5rem;text-decoration:none;font-weight:700}
 .header-phone__number,.header-phone__cta{display:none}
 .header-phone svg{fill:currentColor}
 .title-area{width:100%;max-width:10.75rem;text-align:left;margin-right:auto}

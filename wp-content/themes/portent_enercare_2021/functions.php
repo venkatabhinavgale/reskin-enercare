@@ -507,7 +507,7 @@ function enercare_appointment_banner() {
 		$is_banner_active_global = false;
 	}
 
-	if( is_category() || is_tax() ) {
+	if( is_category() || is_tax() || is_post_type_archive('location') ) {
 		$is_banner_active_global = false;
 	}
 

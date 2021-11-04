@@ -13,6 +13,8 @@ echo '<section class="no-results not-found">';
 
   if ( is_post_type_archive('campaign') ) {
     echo '<header class="entry-header"><h1 class="entry-title">' . esc_html__( 'No Active Offers', 'ea-starter' ) . '</h1></header>';
+  } elseif ( is_search() ) {
+    echo '<header class="archive-description"><h1 class="entry-title">' . esc_html__( 'Search Results', 'ea-starter' ) . '</h1></header>';
   } else {
     echo '<header class="entry-header"><h1 class="entry-title">' . esc_html__( 'Nothing Found', 'ea-starter' ) . '</h1></header>';
   }
@@ -22,8 +24,8 @@ echo '<section class="no-results not-found">';
 
 	if ( is_search() ) {
 
-		echo '<p>' . esc_html__( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'ea-starter' ) . '</p>';
-		get_search_form();
+		//echo '<p>' . esc_html__( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'ea-starter' ) . '</p>';
+		//get_search_form();
 
 	} elseif ( is_post_type_archive('campaign') ) {
     
