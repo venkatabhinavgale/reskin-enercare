@@ -1,5 +1,13 @@
 .block-reviews {
 
+	&__glider {
+		scrollbar-width: none;
+
+		&::-webkit-scrollbar {
+			display: none;
+		}
+	}
+
 	&__stars {
 		display: flex;
 		margin: 0.563em 0 1em;
@@ -188,7 +196,7 @@
 			font-size: 1em;
 			flex-grow: 1;
 			margin: 0.025em 0;
-      
+
       img {
         max-width: 1em;
       }
