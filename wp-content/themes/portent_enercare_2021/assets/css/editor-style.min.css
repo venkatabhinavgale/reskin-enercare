@@ -26,7 +26,7 @@ h1 a,h2 a,h3 a,h4 a,h5 a,h6 a{color:#212121}
 h1 a:hover,h2 a:hover,h3 a:hover,h4 a:hover,h5 a:hover,h6 a:hover{color:#dc1c28;text-decoration:none}
 h1 strong,h2 strong,h3 strong,h4 strong,h5 strong,h6 strong{font-weight:inherit;letter-spacing:inherit;line-height:inherit}
 h1:focus,h2:focus,h3:focus,h4:focus,h5:focus,h6:focus{outline:0}
-h1.has-background,h2.has-background,h3.has-background,h4.has-background,h5.has-background,h6.has-background{padding:0;width:-webkit-fit-content;width:-moz-fit-content;width:fit-content}
+h1.has-background,h2.has-background,h3.has-background,h4.has-background,h5.has-background,h6.has-background{padding:0;width:100%}
 h1{font-size:2em;line-height:3.750rem}
 h2{font-size:1.75em;line-height:3.500rem}
 h3{font-size:1.5em;line-height:3rem}
@@ -296,13 +296,13 @@ ul li:last-child,ol li:last-child{padding-bottom:0}
 ul li ul,ul li ol,ol li ul,ol li ol{padding-top:.5rem}
 ul.wp-block-gallery,ol.wp-block-gallery{padding-left:0}
 ul.wp-block-gallery li,ol.wp-block-gallery li{padding-bottom:0}
-.block-location-finder{display:grid;grid-template-columns:auto;grid-template-rows:auto 1fr;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
+.block-location-finder{display:grid;grid-template-columns:auto;grid-template-rows:auto 1fr;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;background-color:#000}
 .block-location-finder__content{background-color:#000;color:#fff;-webkit-box-ordinal-group:2;-ms-flex-order:1;order:1;-ms-flex-preferred-size:50%;flex-basis:50%;padding:2em 1.5em;text-align:center}
 .block-location-finder__list-header{font-size:1.125em}
 .block-location-finder__form{background-color:#000;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end;-webkit-box-align:center;-ms-flex-align:center;align-items:center;height:100%;text-align:center;background-size:cover;background-repeat:no-repeat;padding-right:calc((100vw - 1168px) / 2)}
 .block-location-finder__header{font-size:1.5em}
 .block-location-finder__text{max-width:324px}
-.block-location-finder__icon{margin:0 auto}
+.block-location-finder__icon{margin:0 auto .65em}
 .block-location-finder__input{border-top-right-radius:0;border-bottom-right-radius:0}
 .block-location-finder__submit{border-top-left-radius:0;border-bottom-left-radius:0;color:#fff;border:1px solid #dc1c28;line-height:18px}
 .block-location-finder__label{font-size:.875em}
