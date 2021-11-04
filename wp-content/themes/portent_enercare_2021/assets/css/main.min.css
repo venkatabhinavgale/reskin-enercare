@@ -106,7 +106,7 @@ h1 a,h2 a,h3 a,h4 a,h5 a,h6 a{color:#212121}
 h1 a:hover,h2 a:hover,h3 a:hover,h4 a:hover,h5 a:hover,h6 a:hover{color:#dc1c28;text-decoration:none}
 h1 strong,h2 strong,h3 strong,h4 strong,h5 strong,h6 strong{font-weight:inherit;letter-spacing:inherit;line-height:inherit}
 h1:focus,h2:focus,h3:focus,h4:focus,h5:focus,h6:focus{outline:0}
-h1.has-background,h2.has-background,h3.has-background,h4.has-background,h5.has-background,h6.has-background{padding:0;width:-webkit-fit-content;width:-moz-fit-content;width:fit-content}
+h1.has-background,h2.has-background,h3.has-background,h4.has-background,h5.has-background,h6.has-background{padding:0;width:100%}
 h1{font-size:2em;line-height:3.750rem}
 h2{font-size:1.75em;line-height:3.500rem}
 h3{font-size:1.5em;line-height:3rem}
