@@ -54,6 +54,12 @@
 				display: flex;
 				max-width: 3rem;
 				min-width: 3em;
+
+				//Explicit settings for width and height to make safari happy
+				svg {
+					height: 100%;
+					width: 100%;
+				}
 			}
 		}
 
