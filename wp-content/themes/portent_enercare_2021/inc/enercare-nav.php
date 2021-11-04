@@ -26,11 +26,11 @@ if ( ! class_exists( 'Enercare_Nav_Walker' ) ) :
 			}
 
 
-			$icon_image_url = get_field('enercare_nav_icon', $item->ID);
+			$icon_image_id = get_field('enercare_nav_icon', $item->ID);
 
-			if($icon_image_url) {
+			if($icon_image_id) {
 				$output .= '<div class="menu-item__icon">';
-				$output .= @file_get_contents($icon_image_url);
+				$output .= @file_get_contents(get_attached_file($icon_image_id));
 				$output .= '</div>';
 				$output .= '<span class="menu-item__icon-title">'.$item->title.'</span>';
 			} else {
