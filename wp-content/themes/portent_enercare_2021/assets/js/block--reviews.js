@@ -28,6 +28,8 @@ window.addEventListener('load', function () {
     slidesToShow: 1,
     slidesToScroll: 1,
     draggable: true,
+    scrollLock: true,
+    duration: 1,
     dots: '.block-reviews__dots',
     arrows: {
       prev: '.block-reviews__prev',
