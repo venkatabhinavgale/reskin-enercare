@@ -40,10 +40,16 @@
 		@include large-font-style();
 		position: relative;
 
-		@include media('>=tablet') {
+		@include media('>=desktop') {
 			background-color: $grey_1;
 			flex-direction: row;
 			padding: 0 20%;
+		}
+
+		@include media('<desktop', '>phone' ) {
+			background-color: $grey_1;
+			flex-direction: row;
+			padding: 0 5%;
 		}
 
 		&:after {
@@ -132,10 +138,15 @@
 	&__dots {
 
 		margin: 1.5em 0 1em;
+		flex-wrap: nowrap;
 
 		button {
 			background-color: $grey_3;
-			margin: 0 0.75em 0.5em;
+			margin: 0 0.4em 0.5em;
+
+			@include media('>=tablet') {
+				margin: 0 0.75em 0.5em;
+			}
 		}
 
 		button.active {
