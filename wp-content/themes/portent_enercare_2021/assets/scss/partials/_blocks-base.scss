@@ -352,6 +352,7 @@ Legal Panel In Footer Area
 	border: 0;
 	align-items: center;
 	background: none;
+	color: $black;
 
 	@include media("<=tablet") {
 		margin: 0;
@@ -519,4 +520,34 @@ Mobile Modifiers
 	@include media('>=tablet') {
 		display: none;
 	}
+}
+
+/**
+Margin Helpers
+ */
+.margin-top-block-margin {
+	margin-bottom: $block-margin !important;
+}
+
+.margin-top-zero {
+	margin-top: 0 !important;
+}
+
+.margin-bottom-block-margin {
+	margin-bottom: $block-margin !important;
+}
+
+.margin-bottom-zero {
+	margin-bottom: 0 !important;
+}
+
+/**
+Text Helpers
+ */
+.is-font-weight-bold {
+	font-weight: 700 !important;
+}
+
+.is-font-weight-bolder {
+	font-weight: 900 !important;
 }
