@@ -55,7 +55,7 @@ h4,h5,h6{font-size:18px}
 .banner-operational p{margin:0;padding:0}
 .banner-operational a{color:#fff}
 .legal__terms{width:100%;background-color:#f5f2f2}
-.legal__terms-toggle{display:-webkit-box;display:-ms-flexbox;display:flex;margin:0 auto;width:66%;max-width:100%;padding:0 1.5em;border:0;-webkit-box-align:center;-ms-flex-align:center;align-items:center;background:0}
+.legal__terms-toggle{display:-webkit-box;display:-ms-flexbox;display:flex;margin:0 auto;width:66%;max-width:100%;padding:0 1.5em;border:0;-webkit-box-align:center;-ms-flex-align:center;align-items:center;background:0;color:#000}
 .legal__terms-toggle img{height:15px;width:15px;margin:1.5em 0 1.5em .902em}
 .legal__terms-details{background-color:#e6e4e4;padding:1em;font-size:1em;line-height:1.3rem;letter-spacing:0;width:100%}
 .legal__terms-details p{width:66%;margin:0 auto;padding:5px 0 5px 16px}

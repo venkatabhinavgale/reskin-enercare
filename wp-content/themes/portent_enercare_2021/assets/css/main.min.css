@@ -75,6 +75,9 @@ input:focus::-webkit-input-placeholder,input:focus::-moz-placeholder,input:focus
 .addsearch-autocomplete li:hover a,.addsearch-autocomplete li:focus a{color:#dc1c28}
 .addsearch-autocomplete li a{color:#29292c;font-weight:300;font-size:1em;text-decoration:none}
 .search-field__results{background-color:#fff;-webkit-box-shadow:0 4px 8px 0 rgba(56,61,67,0.3);box-shadow:0 4px 8px 0 rgba(56,61,67,0.3);position:absolute;z-index:99}
+.wp-block-search .wp-block-search__inside-wrapper{margin-bottom:1.5em}
+.wp-block-search .wp-block-search__input{padding:10px 10px 12px 34px;background-image:url(../icons/search/red-search.svg);background-repeat:no-repeat;background-position:8px 12px;background-size:16px 16px;border-style:none;font-weight:300;font-size:1em}
+.wp-block-search .wp-block-search__button{margin-left:0;border-radius:0 6px 6px 0;font-size:1.125rem;font-weight:700;line-height:24px;padding:.5em 1em;text-decoration:none;letter-spacing:-.17px;background-color:#dc1c28;color:#fff}
 .gform_wrapper.product-form_wrapper .product-form .gform_body .gform__disclaimer{width:100%;font-size:10px;line-height:12px}
 .gform_wrapper.product-form_wrapper .product-form .gform_footer{display:-webkit-box;display:-ms-flexbox;display:flex}
 .gform_wrapper.product-form_wrapper .product-form .gform_footer input[type=submit]{width:140px;border-radius:30px;font-size:1rem;font-weight:700;line-height:22px;padding:5px 16px;text-decoration:none;background-color:#dc1c28;color:#fff}
@@ -129,7 +132,7 @@ h4,h5,h6{font-size:18px}
 .banner-operational p{margin:0;padding:0}
 .banner-operational a{color:#fff}
 .legal__terms{width:100%;background-color:#f5f2f2}
-.legal__terms-toggle{display:-webkit-box;display:-ms-flexbox;display:flex;margin:0 auto;width:66%;max-width:100%;padding:0 1.5em;border:0;-webkit-box-align:center;-ms-flex-align:center;align-items:center;background:0}
+.legal__terms-toggle{display:-webkit-box;display:-ms-flexbox;display:flex;margin:0 auto;width:66%;max-width:100%;padding:0 1.5em;border:0;-webkit-box-align:center;-ms-flex-align:center;align-items:center;background:0;color:#000}
 .legal__terms-toggle img{height:15px;width:15px;margin:1.5em 0 1.5em .902em}
 .legal__terms-details{background-color:#e6e4e4;padding:1em;font-size:1em;line-height:1.3rem;letter-spacing:0;width:100%}
 .legal__terms-details p{width:66%;margin:0 auto;padding:5px 0 5px 16px}
