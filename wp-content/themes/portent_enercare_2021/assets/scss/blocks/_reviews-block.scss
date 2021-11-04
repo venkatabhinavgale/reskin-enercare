@@ -132,10 +132,15 @@
 	&__dots {
 
 		margin: 1.5em 0 1em;
+		flex-wrap: nowrap;
 
 		button {
 			background-color: $grey_3;
-			margin: 0 0.75em 0.5em;
+			margin: 0 0.4em 0.5em;
+
+			@include media('>=tablet') {
+				margin: 0 0.75em 0.5em;
+			}
 		}
 
 		button.active {

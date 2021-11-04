@@ -35,6 +35,7 @@ new Glider(blockReviews, {
 	draggable: true,
 	scrollLock : true,
 	duration: 1,
+	scrollLockDelay: 500,
 	dots: '.block-reviews__dots',
 	arrows: {
 		prev: '.block-reviews__prev',
