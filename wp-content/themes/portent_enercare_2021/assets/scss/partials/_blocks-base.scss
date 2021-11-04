@@ -490,8 +490,23 @@ Mobile Modifiers
 	}
 }
 
+.hide-mobile-menu {
+
+	@include media('<=mobile_menu') {
+		display: none;
+	}
+}
+
 .align-center-mobile {
 	@include media('<tablet') {
+		justify-content: center;
+		display: flex;
+		text-align: center;
+	}
+}
+
+.align-center-mobile-menu {
+	@include media('<=mobile_menu') {
 		justify-content: center;
 		display: flex;
 		text-align: center;
@@ -509,6 +524,15 @@ Mobile Modifiers
 .align-right-mobile {
 
 	@include media('<tablet') {
+		justify-content: flex-end;
+		display: flex;
+		text-align: right;
+	}
+}
+
+.align-right-mobile-menu {
+
+	@include media('<=mobile_menu') {
 		justify-content: flex-end;
 		display: flex;
 		text-align: right;

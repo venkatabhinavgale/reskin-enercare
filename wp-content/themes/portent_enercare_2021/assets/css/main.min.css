@@ -742,7 +742,10 @@ p.has-normal-font-size{font-size:1em}
 .footer--menus .sub-menu a{font-size:1em}
 }@media(min-width:1201px){.header-phone{border-left:1px solid #e6e4e4;padding-left:1.25rem;text-align:right}
 .header-phone__number{font-size:1.25rem}
-}@media(max-width:1023px){.title-area{text-align:center}
+}@media(max-width:1023px){.hide-mobile-menu{display:none}
+.align-center-mobile-menu{-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;display:-webkit-box;display:-ms-flexbox;display:flex;text-align:center}
+.align-right-mobile-menu{-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end;display:-webkit-box;display:-ms-flexbox;display:flex;text-align:right}
+.title-area{text-align:center}
 .title-area .site-title a{padding-bottom:0;height:48px;background-size:auto 42px}
 .title-area img{max-height:38px}
 .site-header .wrap{padding:0 24px;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
