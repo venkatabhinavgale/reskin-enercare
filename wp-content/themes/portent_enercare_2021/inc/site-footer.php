@@ -80,7 +80,7 @@ add_action('tha_footer_top', 'enercare_site_footer_areas');
 function enercare_site_footer() {
 	echo '<div class="footer-left">';
 		echo '<p class="copyright">&copy; ' . date( 'Y' ) . ' ' . get_bloginfo( 'name' ) . '</p>';
-		echo '<p class="footer-links"><a href="' . home_url( 'privacy-policy' ) . '">Privacy Policy</a> <a href="' . home_url( 'terms' ) . '">Terms of Use</a> <a href="#">ECRA/ESA License #7010500</a></p>';
+		echo '<p class="footer-links"><a href="' . home_url( 'legal' ) . '">Privacy Policy</a> <a href="' . home_url( 'legal/terms-of-use' ) . '">Terms of Use</a> <a href="#">ECRA/ESA License #7010500</a></p>';
 	echo '</div>';
 	//echo '<a class="backtotop" href="#main-content">Back to top' . enercare_icon( array( 'icon' => 'arrow-up' ) ) . '</a>';
 }
