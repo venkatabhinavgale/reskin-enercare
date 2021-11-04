@@ -40,10 +40,16 @@
 		@include large-font-style();
 		position: relative;
 
-		@include media('>=tablet') {
+		@include media('>=desktop') {
 			background-color: $grey_1;
 			flex-direction: row;
 			padding: 0 20%;
+		}
+
+		@include media('<desktop', '>phone' ) {
+			background-color: $grey_1;
+			flex-direction: row;
+			padding: 0 5%;
 		}
 
 		&:after {

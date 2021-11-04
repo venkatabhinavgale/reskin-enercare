@@ -31,7 +31,6 @@
 .block-reviews__review .block-reviews__stars{margin-bottom:15px}
 .block-reviews__review .block-reviews__star{height:20px;width:20px}
 @media(min-width:768px){.block-reviews__section-heading{font-size:1.125em}
-.block-reviews__section-heading{background-color:#f5f2f2;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;padding:0 20%}
 .block-reviews__section-heading:after{height:100%}
 .block-reviews__section-heading__title{margin-top:0;padding-bottom:0}
 .block-reviews__section-heading__header{font-size:3em}
@@ -41,7 +40,9 @@
 .block-reviews__dots button{margin:0 .75em .5em}
 .block-reviews__review__reviewer{font-size:1.125em}
 }@media(min-width:992px){.block-reviews__section-heading__header{font-size:3.5em}
-}@media(min-width:1200px){.block-reviews__section-heading__header{font-size:3.5em}
+}@media(max-width:1199px) and (min-width:641px){.block-reviews__section-heading{background-color:#f5f2f2;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;padding:0 5%}
+}@media(min-width:1200px){.block-reviews__section-heading{background-color:#f5f2f2;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;padding:0 20%}
+.block-reviews__section-heading__header{font-size:3.5em}
 }@media(max-width:768px){.block-reviews__stars{margin-top:.5em;margin-bottom:.25em}
 .block-reviews__review .block-reviews__stars{margin-top:1.5em;margin-bottom:.75em}
 }

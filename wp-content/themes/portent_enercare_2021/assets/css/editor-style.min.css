@@ -519,7 +519,6 @@ body,p{font-size:1em}
 .block-location-finder__list{-webkit-column-count:3;-moz-column-count:3;column-count:3}
 .block-location-finder__form-container{padding:8% 10%;margin:0;width:100%;max-width:450px}
 .block-reviews__section-heading{font-size:1.125em}
-.block-reviews__section-heading{background-color:#f5f2f2;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;padding:0 20%}
 .block-reviews__section-heading:after{height:100%}
 .block-reviews__section-heading__title{margin-top:0;padding-bottom:0}
 .block-reviews__section-heading__header{font-size:3em}
@@ -558,7 +557,9 @@ h3{font-size:2.5em}
 .wp-block-group{padding:70px 16px}
 .block-reviews__section-heading__header{font-size:3.5em}
 .block-offer-card__heading{font-size:2.5em}
+}@media(max-width:1199px) and (min-width:641px){.block-reviews__section-heading{background-color:#f5f2f2;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;padding:0 5%}
 }@media(min-width:1200px){p.has-normal-font-size{font-size:1em}
+.block-reviews__section-heading{background-color:#f5f2f2;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;padding:0 20%}
 .block-reviews__section-heading__header{font-size:3.5em}
 .block-newsletter-form__container{-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;padding:64px 0}
 .block-newsletter-form__content-container{display:grid;border-right:1px solid #d3d1d1;padding-right:1.5em;grid-template-columns:.25fr 1fr 1fr;grid-template-rows:.2fr 1fr;gap:0 24px;grid-template-areas:". heading heading" "image content content"}
