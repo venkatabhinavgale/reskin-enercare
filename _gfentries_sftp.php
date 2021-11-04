@@ -3,7 +3,7 @@
 if (!empty($_GET['pwd']) && $_GET['pwd'] == 'en3rc@reADMINz0nly') {
   
   if (isset($_GET['getip'])) {
-    $myip_contents = file_get_contents("https://ipapi.co/json/");
+    $myip_contents = file_get_contents("https://ipapi.co/json/?key=WhUoPiyajREhtmerOaQAhxAfyaGLKMo74G1l0Ra8jlqfwMyee6");
     echo $myip_contents;
     die();
   }
