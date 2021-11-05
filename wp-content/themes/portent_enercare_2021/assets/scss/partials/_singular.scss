@@ -142,8 +142,26 @@
 
 .singular {
 
+	.breadcrumb {		
+		background-color: $grey_2;
+		max-width: 100%;
+		padding: 0.25em 15em;
+
+		@include media("<=tablet") {
+			padding: 0.25em;
+		}
+	}
+
 	.entry-header {
 		margin-bottom: 1.5em;
+
+		.entry-title {
+			text-align: center;
+		}
+
+		.post-summary__image {
+			margin: 0 auto;
+		}
 
 		@include media(">=tablet") {
 			margin-bottom: 48px;
@@ -164,8 +182,10 @@
 			display: flex;
 			flex-direction: row;
 			justify-content: space-between;
-			margin-right: 2.5em;
 			padding: 1.5em 0 0;
+			grid-column: 1 / -1;
+			max-width: $content-width;
+			margin: 0 auto $grid-gap;
 
 			.avatar {
 				// border-radius: 100%;
@@ -208,6 +228,11 @@
 
 					&__link {
 						color: $black;
+						margin-right: .5em;
+
+						&:last-child {
+							margin-right: 0;
+						}
 					}
 				}
 
@@ -223,6 +248,42 @@
 
 		*:last-child {
 			margin-bottom: 0;
+		}
+	}
+
+	.entry-content {
+		grid-column: 1 / -1;
+		max-width: $content-width;
+		margin: 0 auto $grid-gap;
+
+		h2 {
+
+		}
+	}
+
+	.entry-footer {
+
+		.entry-category {
+			grid-column: 1 / -1;
+			max-width: $content-width;
+			margin: 0 auto $grid-gap;
+
+			.button {
+				display: inline-block;
+				background-color: $grey_2;
+				border-radius: 20px;
+				padding: 0.5em;
+				margin: 0.25em 1.25em 0.25em 0;
+				font-weight: 300;
+				color: $base-color;
+				@include font-sizes(1em);
+				text-decoration: none;
+
+				&:hover,
+				&:focus {
+					background-color: $grey_3;
+				}
+			}
 		}
 	}
 }
