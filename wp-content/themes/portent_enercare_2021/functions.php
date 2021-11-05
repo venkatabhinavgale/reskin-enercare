@@ -127,6 +127,7 @@ function enercare_scripts() {
 	 * Blog Post Enqueues
 	 */
 	if( is_singular('post') ) {
+		wp_enqueue_style('dashicons');
 		wp_enqueue_script('related-posts-carousel', get_template_directory_uri() . '/assets/js/related-posts.js', array( 'simple-state-manager', 'glider-js'), null, true);
 	}
 
