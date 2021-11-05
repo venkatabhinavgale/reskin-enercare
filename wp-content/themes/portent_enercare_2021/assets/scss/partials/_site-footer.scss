@@ -70,6 +70,18 @@
 	}
 }
 
+.is-footer-social {
+	justify-content: flex-start;
+
+	 a svg {
+		margin-right: 0;
+	}
+
+	&.wp-block-social-links .wp-social-link.wp-social-link.wp-social-link {
+		margin: 4px 0;
+	}
+}
+
 /* Site Footer
 ---------------------------------------------------------------------------------------------------- */
 
@@ -157,11 +169,21 @@
 Site Footer
  */
 .footer--menus {
+
 	.wp-block-column {
 		border-right: none;
 
 		@include media('>=tablet') {
 			border-right: 1px solid $grey_3;
+		}
+
+		@media screen and (min-width: 782px) and (max-width: 1024px) {
+			margin-left: 1em;
+			padding-right: 1em;
+		}
+
+		@media screen and (min-width: 768px) and (max-width: 782px) {
+			border-right: 0;
 		}
 
 		&:last-of-type {

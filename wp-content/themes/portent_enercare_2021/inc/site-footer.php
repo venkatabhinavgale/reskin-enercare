@@ -14,7 +14,7 @@
  */
 function enercare_register_footer_widget_areas() {
 
-	for( $i = 1; $i <=3; $i++ ) {
+	for( $i = 1; $i <=4; $i++ ) {
 
 		register_sidebar( enercare_widget_arenercare_args( array(
 			'name' => esc_html__( 'Footer ' . $i, 'ea-starter' ),
@@ -81,6 +81,9 @@ function enercare_site_footer() {
 	echo '<div class="footer-left">';
 		echo '<p class="copyright">&copy; ' . date( 'Y' ) . ' ' . get_bloginfo( 'name' ) . '</p>';
 		echo '<p class="footer-links"><a href="' . home_url( 'legal' ) . '">Privacy Policy</a> <a href="' . home_url( 'legal/terms-of-use' ) . '">Terms of Use</a> <a href="#">ECRA/ESA License #7010500</a></p>';
+	echo '</div>';
+	echo '<div class="footer-right">';
+		dynamic_sidebar( 'footer-4' );
 	echo '</div>';
 	//echo '<a class="backtotop" href="#main-content">Back to top' . enercare_icon( array( 'icon' => 'arrow-up' ) ) . '</a>';
 }
