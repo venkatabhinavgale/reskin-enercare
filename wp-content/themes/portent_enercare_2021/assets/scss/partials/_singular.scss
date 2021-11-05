@@ -157,6 +157,7 @@
 
 		.entry-title {
 			text-align: center;
+			margin-bottom: 1em;
 		}
 
 		.post-summary__image {
@@ -228,7 +229,7 @@
 
 					&__link {
 						color: $black;
-						margin-right: .5em;
+						margin-right: 0.75em;
 
 						&:last-child {
 							margin-right: 0;
@@ -257,7 +258,21 @@
 		margin: 0 auto $grid-gap;
 
 		h2 {
+			@include font-sizes( 3.25em );
+			line-height: 3rem;
 
+			@include media("<=tablet") {
+				@include font-sizes( 1.75em );
+			}
+		}
+
+		h3 {
+			@include font-sizes( 3em );
+			line-height: 3rem;
+
+			@include media("<=tablet") {
+				@include font-sizes( 1.5em );
+			}
 		}
 	}
 
