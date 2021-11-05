@@ -6,8 +6,11 @@
 .block-card>p{-webkit-box-flex:1;-ms-flex-positive:1;flex-grow:1}
 .block-card--justify-normal{-webkit-box-pack:normal;-ms-flex-pack:normal;justify-content:normal}
 .block-card--justify-flex-start{-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}
+.block-card--justify-flex-start>p{-webkit-box-flex:0;-ms-flex-positive:0;flex-grow:0}
 .block-card--justify-flex-end{-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end}
+.block-card--justify-flex-end>p{-webkit-box-flex:0;-ms-flex-positive:0;flex-grow:0}
 .block-card--justify-center{-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
+.block-card--justify-center>p{-webkit-box-flex:0;-ms-flex-positive:0;flex-grow:0}
 .block-card--justify-space-between{-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}
 .block-card--align-flex-start{-webkit-box-align:start;-ms-flex-align:start;align-items:flex-start}
 .block-card--align-center{-webkit-box-align:center;-ms-flex-align:center;align-items:center}
