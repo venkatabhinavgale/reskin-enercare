@@ -613,4 +613,10 @@ Social Media Buttons Footer
 /**
 Column Helpers
  */
+.force-tablet-full {
+	@media (min-width:600px) and (max-width:781px) {
+		flex-basis: 100% !important;
+		flex-grow: 1 !important;
+	}
+}
 

@@ -625,7 +625,8 @@ body.mm-ocd-opened{overflow-y:hidden;-ms-scroll-chaining:none;overscroll-behavio
 .mm-spn--open.mm-spn--parent .sub-menu.mm-spn--open .sub-menu:after{display:none}
 .mm-spn--open.mm-spn--parent .sub-menu.mm-spn--open .sub-menu li{padding-left:30px}
 .mm-spn--open.mm-spn--parent .sub-menu.mm-spn--open .menu-item-has-children:before{display:none}
-@media(min-width:641px){.appointment-banner{max-width:496px}
+@media(min-width:600px) and (max-width:781px){.force-tablet-full{-ms-flex-preferred-size:100% !important;flex-basis:100% !important;-webkit-box-flex:1 !important;-ms-flex-positive:1 !important;flex-grow:1 !important}
+}@media(min-width:641px){.appointment-banner{max-width:496px}
 }@media(min-width:768px){.site-inner{padding:48px 0}
 .gform_wrapper.product-form_wrapper .product-form .gform_body .gform__disclaimer{width:75%}
 body{font-size:1em}
