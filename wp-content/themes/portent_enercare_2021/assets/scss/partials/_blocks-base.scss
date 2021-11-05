@@ -134,6 +134,11 @@ h6 {
 		}
 	}
 
+	sup {
+		font-size: 25%;
+		vertical-align: super;
+	}
+
 	strong {
 		font-weight: inherit;
 		letter-spacing: inherit;
@@ -291,6 +296,14 @@ Block Styles
 .yoast-breadcrumbs {
 
 	text-align: left;
+
+	a {
+		
+		&:hover,
+		&:focus {
+			color: brand-color('red');
+		}	
+	}
 
 	.breadcrumb_last,
 	a {
