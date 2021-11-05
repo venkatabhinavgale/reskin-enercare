@@ -142,27 +142,8 @@
 
 .singular {
 
-	.breadcrumb {		
-		background-color: $grey_2;
-		max-width: 100%;
-		padding: 0.25em 15em;
-
-		@include media("<=tablet") {
-			padding: 0.25em;
-		}
-	}
-
 	.entry-header {
 		margin-bottom: 1.5em;
-
-		.entry-title {
-			text-align: center;
-			margin-bottom: 1em;
-		}
-
-		.post-summary__image {
-			margin: 0 auto;
-		}
 
 		@include media(">=tablet") {
 			margin-bottom: 48px;
@@ -196,7 +177,7 @@
 			}
 
 			&__author-meta {
-				display: flex; 
+				display: flex;
 
 				&__name {
 					// font-weight: 700;
@@ -256,24 +237,6 @@
 		grid-column: 1 / -1;
 		max-width: $content-width;
 		margin: 0 auto $grid-gap;
-
-		h2 {
-			@include font-sizes( 3.25em );
-			line-height: 3rem;
-
-			@include media("<=tablet") {
-				@include font-sizes( 1.75em );
-			}
-		}
-
-		h3 {
-			@include font-sizes( 3em );
-			line-height: 3rem;
-
-			@include media("<=tablet") {
-				@include font-sizes( 1.5em );
-			}
-		}
 	}
 
 	.entry-footer {
@@ -484,5 +447,53 @@
 		input[type="submit"] {
 			width: auto;
 		}
+	}
+}
+
+.single-post {
+	h2 {
+		@include font-sizes( 3.25em );
+		line-height: 3rem;
+
+		@include media("<=tablet") {
+			@include font-sizes( 1.75em );
+		}
+	}
+
+	h3 {
+		@include font-sizes( 3em );
+		line-height: 3rem;
+
+		@include media("<=tablet") {
+			@include font-sizes( 1.5em );
+		}
+	}
+
+	.breadcrumb {
+		background-color: $grey_2;
+		max-width: 100vw;
+
+		& > span {
+			display: block;
+			padding: 0.3em 0;
+			margin: 0 auto;
+			max-width: $grid-width;
+		}
+
+		@include media("<=tablet") {
+			
+			& > span {
+				padding: 0.25em;
+			}
+		}
+	}
+
+	.entry-title {
+		text-align: center;
+		margin-bottom: 1em;
+	}
+
+	.post-summary__image {
+		margin: 0 auto;
 	}
 }
