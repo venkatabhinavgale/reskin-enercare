@@ -30,7 +30,9 @@ function enercare_entry_header_share() {
 add_action( 'tha_entry_bottom', 'enercare_entry_categories', 8 );
 
 // Related posts in footer
-add_action( 'tha_entry_bottom', 'enercare_related_posts', 10 );
+add_action( 'tha_entry_bottom', function(){
+	enercare_related_posts(8);
+}, 10 );
 
 // Build the page
 require get_template_directory() . '/index.php';

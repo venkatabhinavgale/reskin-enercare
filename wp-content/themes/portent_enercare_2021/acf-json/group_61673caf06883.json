@@ -78,6 +78,31 @@
             "endpoint": 0
         },
         {
+            "key": "field_616dcccc2f59c",
+            "label": "Image Size",
+            "name": "image_size",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "1-1": "Square (1:1)",
+                "2-3": "Standard (2-3)"
+            },
+            "default_value": "1-1",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
             "key": "field_61673cd81f16d",
             "label": "Group Orientation",
             "name": "group_orientation",
@@ -142,31 +167,6 @@
             "placeholder": ""
         },
         {
-            "key": "field_616dcccc2f59c",
-            "label": "Image Size",
-            "name": "image_size",
-            "type": "select",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "1-1": "Square (1:1)",
-                "2-3": "Standard (2-3)"
-            },
-            "default_value": "1-1",
-            "allow_null": 0,
-            "multiple": 0,
-            "ui": 0,
-            "return_format": "value",
-            "ajax": 0,
-            "placeholder": ""
-        },
-        {
             "key": "field_616f181b40887",
             "label": "Show Category Link?",
             "name": "show_category_link",
@@ -182,6 +182,25 @@
             "message": "",
             "default_value": 0,
             "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_61859e6630474",
+            "label": "Is Mobile Carousel?",
+            "name": "is_mobile_carousel",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 0,
             "ui_on_text": "",
             "ui_off_text": ""
         }
@@ -203,5 +222,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1634670653
+    "modified": 1636146880
 }

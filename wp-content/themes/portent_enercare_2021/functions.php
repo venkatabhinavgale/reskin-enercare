@@ -62,20 +62,26 @@ function enercare_scripts() {
 	wp_register_script( 'glider-js', get_template_directory_uri() . '/assets/js/glider/glider.min.js', null , null );
 	wp_register_style( 'glider-css', get_template_directory_uri() . '/assets/js/glider/glider.min.css', null , null );
 
-  /**
+    /**
 	 * AddSearch Registrations
 	 */
-	wp_register_script('addsearch-client-script', get_template_directory_uri() . '/assets/js/addsearch/addsearch-js-client.min.js', null, null, true );
-  wp_enqueue_script( 'addsearch-client-script', get_template_directory_uri() . '/assets/js/addsearch/addsearch-js-client.min.js',null, null, true );
+	//wp_register_script('addsearch-client-script', get_template_directory_uri() . '/assets/js/addsearch/addsearch-js-client.min.js', null, null, true );
+    wp_enqueue_script( 'addsearch-client-script', get_template_directory_uri() . '/assets/js/addsearch/addsearch-js-client.min.js',null, null, true );
 
-  wp_register_script('addsearch-ui-script', get_template_directory_uri() . '/assets/js/addsearch/addsearch-search-ui.min.js', null, null, true );
-  wp_enqueue_script( 'addsearch-ui-script', get_template_directory_uri() . '/assets/js/addsearch/addsearch-search-ui.min.js',null, null, true );
+    //wp_register_script('addsearch-ui-script', get_template_directory_uri() . '/assets/js/addsearch/addsearch-search-ui.min.js', null, null, true );
+    wp_enqueue_script( 'addsearch-ui-script', get_template_directory_uri() . '/assets/js/addsearch/addsearch-search-ui.min.js',null, null, true );
 
-	wp_register_style('addsearch-style', get_template_directory_uri() . '/assets/js/addsearch/addsearch-search-ui.min.css', null, null );
-  wp_enqueue_style( 'addsearch-style', get_template_directory_uri() . '/assets/js/addsearch/addsearch-search-ui.min.css', null , null );
+	//wp_register_style('addsearch-style', get_template_directory_uri() . '/assets/js/addsearch/addsearch-search-ui.min.css', null, null );
+    wp_enqueue_style( 'addsearch-style', get_template_directory_uri() . '/assets/js/addsearch/addsearch-search-ui.min.css', null , null );
+
+	/**
+	 * Simple State Manager
+	 */
+	wp_enqueue_script('simple-state-manager', get_template_directory_uri() . '/assets/js/SimpleStateManager/dist/ssm.min.js', null, '4.1.0', true);
 
 	/**
 	 * Youtube Lite Registrations
+	 * This script is used to handle the youtube lite lazy loading iframe. Youtube's embed iframe is expensive this helps load it only when it is needed
 	 */
 	wp_register_script('lite-youtube-embed-script', get_template_directory_uri() . '/assets/js/lite-youtube-embed/src/lite-yt-embed.js', null, true );
 	wp_register_style('lite-youtube-embed-style', get_template_directory_uri() . '/assets/js/lite-youtube-embed/src/lite-yt-embed.css', null, null );
@@ -111,11 +117,19 @@ function enercare_scripts() {
 
 	}
 
-	//@todo do this right
-	wp_enqueue_script( 'column-carousels', get_template_directory_uri() . '/assets/js/block--columns-carousel.js', array( 'glider-js' ), filemtime( get_template_directory() . '/assets/js/sliding-menu-polyfills.js' ), true );
+	//@todo do this right eventually
+	wp_enqueue_script( 'column-carousels', get_template_directory_uri() . '/assets/js/block--columns-carousel.js', array( 'glider-js', 'simple-state-manager' ), filemtime( get_template_directory() . '/assets/js/sliding-menu-polyfills.js' ), true );
 	wp_enqueue_script( 'glider-js', get_template_directory_uri() . '/assets/js/glider/glider.min.js', null , null );
 	wp_enqueue_style( 'glider-css', get_template_directory_uri() . '/assets/js/glider/glider.min.css', null , null );
 
+
+	/**
+	 * Blog Post Enqueues
+	 */
+	if( is_singular('post') ) {
+		wp_enqueue_style('dashicons');
+		wp_enqueue_script('related-posts-carousel', get_template_directory_uri() . '/assets/js/related-posts.js', array( 'simple-state-manager', 'glider-js'), null, true);
+	}
 
 	/**
 	 * Archive Enqueues
