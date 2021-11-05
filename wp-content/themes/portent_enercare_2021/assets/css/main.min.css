@@ -104,6 +104,7 @@ p.small,p.has-small-font-size{font-size:.875em;line-height:1.250rem;font-weight:
 h1,h2,h3,h4,h5,h6{color:#212121;font-family:"Post Grotesk",serif;font-weight:900;line-height:1.2;letter-spacing:-0.45px;margin:0 0 16px}
 h1 a,h2 a,h3 a,h4 a,h5 a,h6 a{color:#212121}
 h1 a:hover,h2 a:hover,h3 a:hover,h4 a:hover,h5 a:hover,h6 a:hover{color:#dc1c28;text-decoration:none}
+h1 sup,h2 sup,h3 sup,h4 sup,h5 sup,h6 sup{font-size:25%;vertical-align:super}
 h1 strong,h2 strong,h3 strong,h4 strong,h5 strong,h6 strong{font-weight:inherit;letter-spacing:inherit;line-height:inherit}
 h1:focus,h2:focus,h3:focus,h4:focus,h5:focus,h6:focus{outline:0}
 h1.has-background,h2.has-background,h3.has-background,h4.has-background,h5.has-background,h6.has-background{padding:0;width:100%}
