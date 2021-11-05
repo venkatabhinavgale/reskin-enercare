@@ -547,6 +547,30 @@ Mobile Modifiers
 }
 
 /**
+Tablet Helpers
+ */
+.align-right-tablet {
+
+	@include media('>=tablet') {
+		justify-content: flex-end;
+		display: flex;
+		text-align: right;
+	}
+}
+
+/**
+Desktop Helpers
+ */
+.align-right-desktop {
+
+	@include media('>=desktop') {
+		justify-content: flex-end;
+		display: flex;
+		text-align: right;
+	}
+}
+
+/**
 Margin Helpers
  */
 .margin-top-block-margin {
