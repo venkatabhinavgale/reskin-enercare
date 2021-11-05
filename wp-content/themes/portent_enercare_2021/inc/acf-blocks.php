@@ -303,6 +303,10 @@ function enercare_register_theme_blocks() {
 	    'icon'              => 'admin-site',
 	    'mode'              => 'preview',
 	    'keywords'          => array('blog', 'posts', 'featured', 'enercare', 'portent'),
+	    'enqueue_assets' => function() {
+		    wp_enqueue_script('block-blog-posts-script', get_template_directory_uri() . '/assets/js/block--blog-posts.js', array('glider-js'), null, true);
+	    },
+
     ));
   }
 }

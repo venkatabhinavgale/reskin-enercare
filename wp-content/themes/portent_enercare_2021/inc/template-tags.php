@@ -128,11 +128,11 @@ function enercare_related_posts($blog_num_posts = 4) {
   foreach($terms as $term) {
     $blog_cats[] = $term->term_id;
   }
-  
+
   if (!$blog_num_posts) {
     $blog_num_posts = 4;
   }
-  
+
   /*
    * Query Posts
    */
@@ -143,10 +143,11 @@ function enercare_related_posts($blog_num_posts = 4) {
   $blog_posts = new WP_Query( $blog_post_args );
 
   if( $blog_posts->have_posts()) {
-    echo '<div class="wp-block-group alignfull"><div class="wp-block-group__inner-container">';
+    echo '<section class="wp-block-group alignfull"><div class="wp-block-group__inner-container">';
     echo '<h2 class="has-text-align-center">Related Articles</h2>';
-    
-    echo '<div class="block-blog-posts block-blog-posts--row">';
+
+    echo '<div class="block-blog-posts__wrapper">';
+    echo '<div class="block-carousel block-blog-posts block-blog-posts--row">';
     while ( $blog_posts->have_posts() ) {
       $blog_posts->the_post();
       $excerpt = get_the_excerpt() ? get_the_excerpt() : get_the_content();
@@ -165,18 +166,26 @@ function enercare_related_posts($blog_num_posts = 4) {
         ) );
       }
 
+      //Summary Container
       echo '<div class="block-blog-posts__post__summary">';
-      
         echo '<div class="block-blog-posts__post__author-meta__date">'.get_the_date('F j, Y').'</div>';
-        echo '<h2 class="block-blog-posts__post__title"><a class="block-blog-posts__post__link" href="' . get_the_permalink() . '">' . get_the_title() . '</a></h2>';
-        echo '<p class="block-blog-posts__post__except">' . wp_trim_words( $excerpt, 25 ) . '</p>';
-      
-      echo '</div>';
+            echo '<h2 class="block-blog-posts__post__title"><a class="block-blog-posts__post__link" href="' . get_the_permalink() . '">' . get_the_title() . '</a></h2>';
+            echo '<p class="block-blog-posts__post__except">' . wp_trim_words( $excerpt, 25 ) . '</p>';
+        echo '</div>';
       echo '</div>';
     }
+
+
+    //End block-blog-posts__post container
     echo '</div>';
-    
-    echo '</div></div>';
+
+    echo '<button aria-label="Previous" class="block-carousel__prev related-posts__glider-prev"><img alt="Previous" src="'. get_template_directory_uri() . '/assets/icons/utility/arrow_back.svg" /></button>';
+    echo '<button aria-label="Next" class="block-carousel__next related-posts__glider-next"><img alt="Next" src="'.get_template_directory_uri() . '/assets/icons/utility/arrow_forward.svg" /></button>';
+	echo '<div role="tablist" class="dots block-carousel__dots related-posts__glider-dots"></div>';
+    //End block-blog-posts__wrapper
+    echo '</div>';
+
+    echo '</div></section>';
   }
-  
+
 }
