@@ -170,7 +170,6 @@ function enercare_related_posts($blog_num_posts = 4) {
         echo '<div class="block-blog-posts__post__author-meta__date">'.get_the_date('F j, Y').'</div>';
         echo '<h2 class="block-blog-posts__post__title"><a class="block-blog-posts__post__link" href="' . get_the_permalink() . '">' . get_the_title() . '</a></h2>';
         echo '<p class="block-blog-posts__post__except">' . wp_trim_words( $excerpt, 25 ) . '</p>';
-        echo '<div class="block-blog-posts__post__link"><a href="' . get_the_permalink() . '">Read more &gt;</a></div>';
       
       echo '</div>';
       echo '</div>';
