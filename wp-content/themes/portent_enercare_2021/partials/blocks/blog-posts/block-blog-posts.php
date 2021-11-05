@@ -6,13 +6,14 @@
  */
 $classes = 'block-blog-posts';
 
-$group_orientation = get_field( 'group_orientation' ) ? 'block-blog-posts--column' : 'block-blog-posts--row';
-$block_alignment = get_field('block_orientation') ? 'block-blog-posts__post--horizontal' : 'block-blog-posts__post--vertical';
+$group_orientation = get_field( 'group_orientation' ) ? ' block-blog-posts--column' : ' block-blog-posts--row';
+$block_alignment = get_field('block_orientation') ? ' block-blog-posts__post--horizontal' : ' block-blog-posts__post--vertical';
 $blog_cats = get_field( 'categories'  );
 $blog_num_posts = get_field('number_of_posts') ? get_field('number_of_posts') : 4;
 $post_display = get_field( 'post_display' );
 $post_display_class = 'block-blog-posts__post--' . $post_display;
 $post_image_size = get_field( 'image_size' ) ? get_field( 'image_size' ) : '2-3';
+$is_mobile_carousel = get_field('is_mobile_carousel') ? ' block-carousel is_mobile_carousel' : '';
 
 if( !empty($block['className']) ) {
 	$classes .= sprintf( ' %s', $block['className'] );
@@ -33,7 +34,8 @@ $blog_posts = new WP_Query( $blog_post_args );
 ?>
 	<?php
 		if( $blog_posts->have_posts()) {
-			echo '<div class="block-blog-posts ' . $group_orientation . ' ">';
+			echo '<div class="block-blog-posts__wrapper">';
+			echo '<div class="block-blog-posts ' . $group_orientation . '' . $is_mobile_carousel . '">';
 			while ( $blog_posts->have_posts() ) {
 				$blog_posts->the_post();
 				$excerpt = get_the_excerpt() ? get_the_excerpt() : get_the_content();
@@ -76,6 +78,10 @@ $blog_posts = new WP_Query( $blog_post_args );
 				echo '</div>';
 				echo '</div>';
 			}
+			//End main block container
+			echo '</div>';
+
+			//End Wrapper container
 			echo '</div>';
 
 			if ( $blog_cats && get_field('show_category_link') ) {
