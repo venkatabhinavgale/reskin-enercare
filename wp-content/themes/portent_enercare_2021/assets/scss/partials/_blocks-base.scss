@@ -292,6 +292,14 @@ Block Styles
 
 	text-align: left;
 
+	a {
+		
+		&:hover,
+		&:focus {
+			color: brand-color('red');
+		}	
+	}
+
 	.breadcrumb_last,
 	a {
 		color: $black;
