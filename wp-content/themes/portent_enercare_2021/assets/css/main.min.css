@@ -164,6 +164,7 @@ h4,h5,h6{font-size:18px}
 .is-font-weight-bold{font-weight:700 !important}
 .is-font-weight-bolder{font-weight:900 !important}
 .is-footer-social a svg{margin-right:0}
+.height-auto{height:auto !important}
 .wp-block-button__link{border-radius:30px;font-size:1.125rem;font-weight:700;line-height:24px;padding:.750em 1.50em .6em;text-decoration:none;letter-spacing:-.17px}
 .is-style-full .wp-block-button__link,.wp-block-button__link.full{display:block;width:100%}
 .wp-block-button__link:not(.has-text-color){color:white}
@@ -498,7 +499,7 @@ div.wpforms-container.one-line:after{content:"";display:table;clear:both}
 .singular .entry-header *:last-child{margin-bottom:0}
 .singular .entry-content{grid-column:1 / -1;max-width:768px;margin:0 auto 32px}
 .singular .entry-footer .entry-category{grid-column:1 / -1;max-width:768px;margin:0 auto 32px}
-.singular .entry-footer .entry-category .button{display:inline-block;background-color:#e6e4e4;border-radius:20px;padding:.5em;margin:.25em 1.25em .25em 0;font-weight:300;color:#29292c;font-size:1em;text-decoration:none}
+.singular .entry-footer .entry-category .button{display:inline-block;background-color:#e6e4e4;border-radius:20px;padding:.5em .8em .3em;margin:.25em 1.25em .25em 0;font-weight:300;color:#29292c;font-size:1em;text-decoration:none;text-transform:capitalize}
 .singular .entry-footer .entry-category .button:hover,.singular .entry-footer .entry-category .button:focus{background-color:#d3d1d1}
 .after-entry>*{margin:24px 0}
 .after-entry .publish-date{font-size:16px;text-align:center}
@@ -526,12 +527,13 @@ div.wpforms-container.one-line:after{content:"";display:table;clear:both}
 .comment-respond{margin:30px 0}
 .comment-respond label{display:block;margin-right:12px}
 .comment-respond label[for="subscribe"],.comment-respond label[for="wp-comment-cookies-consent"]{display:inline-block}
-.single-post h2{font-size:3.25em;line-height:3rem}
-.single-post h3{font-size:3em;line-height:3rem}
+.single-post .entry-content h2{font-size:1.75;line-height:3rem;margin-top:1em}
+.single-post .entry-content h3{font-size:1.5em;line-height:3rem;margin-top:1em}
 .single-post .breadcrumb{background-color:#e6e4e4;max-width:100vw}
 .single-post .breadcrumb>span{display:block;padding:.3em 0;margin:0 auto;max-width:1168px}
-.single-post .entry-title{text-align:center;margin-bottom:1em}
+.single-post .entry-title{text-align:center;margin:0 auto 1em;max-width:768px}
 .single-post .post-summary__image{margin:0 auto}
+.single-post .block-blog-posts__wrapper .block-carousel__prev,.single-post .block-blog-posts__wrapper .block-carousel__next{width:50px;height:50px;display:block}
 .footer-widgets{background:#fff;padding:40px 0 10px;position:relative}
 .footer-widgets ul{margin-bottom:30px}
 .footer-widgets li{list-style-type:none;margin-bottom:12px}
@@ -703,6 +705,10 @@ div.wpforms-container.one-line .wpforms-submit-container{float:right;width:110px
 .comment-respond .comment-form-author,.comment-respond .comment-form-email{float:left;width:calc(50% - 16px)}
 .comment-respond .comment-form-email{margin-left:32px}
 .comment-respond input[type="submit"]{width:auto}
+.single-post .entry-content h2{font-size:3.25em}
+.single-post .entry-content h3{font-size:3em}
+.single-post .block-blog-posts__wrapper .block-carousel__prev{left:0}
+.single-post .block-blog-posts__wrapper .block-carousel__next{right:0}
 .site-footer{text-align:left}
 .site-footer .footer-left{float:left}
 .site-footer .footer-left>*:last-child{margin-bottom:0}
@@ -777,6 +783,7 @@ p.has-normal-font-size{font-size:1em}
 }@media(max-width:1023px){.hide-mobile-menu{display:none}
 .align-center-mobile-menu{-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;display:-webkit-box;display:-ms-flexbox;display:flex;text-align:center}
 .align-right-mobile-menu{-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end;display:-webkit-box;display:-ms-flexbox;display:flex;text-align:right}
+.header-phone__number{display:none;visibility:hidden}
 .title-area{text-align:center}
 .title-area .site-title a{padding-bottom:0;height:48px;background-size:auto 42px}
 .title-area img{max-height:38px}
@@ -800,9 +807,7 @@ p.has-normal-font-size{font-size:1em}
 .blog .single-post__header{grid-area:header}
 .singular .entry-header .post-meta .single-post__share-menu{-ms-flex-item-align:center;align-self:center}
 .singular .entry-header .post-meta{margin-right:0}
-.single-post h2{font-size:1.75em}
-.single-post h3{font-size:1.5em}
-.single-post .breadcrumb>span{padding:.25em}
+.single-post .breadcrumb>span{padding:.25em .5em}
 }@media(max-width:767px){h1{line-height:2.375rem}
 h2{line-height:2rem}
 h3{line-height:1.750rem}
