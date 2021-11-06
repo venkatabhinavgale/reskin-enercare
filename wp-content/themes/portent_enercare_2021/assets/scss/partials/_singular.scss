@@ -468,25 +468,6 @@
 		}
 	}
 
-	.breadcrumb {
-		background-color: $grey_2;
-		max-width: 100vw;
-
-		& > span {
-			display: block;
-			padding: 0.3em 0;
-			margin: 0 auto;
-			max-width: $grid-width;
-		}
-
-		@include media("<=tablet") {
-
-			& > span {
-				padding: 0.25em 0.5em;
-			}
-		}
-	}
-
 	.entry-title {
 		text-align: center;
 		margin: 0 auto 1em;
@@ -515,4 +496,9 @@
 			right: 0;
 		}
 	}
+
+	/**
+	Import Grey Breadcrumb Piece
+	 */
+	@import "../pieces/breadcrumbs--grey";
 }

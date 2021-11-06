@@ -124,6 +124,12 @@ function enercare_scripts() {
 
 
 	/**
+	 * Offer Related Registrations
+	 */
+	wp_register_style( 'block-offer-card-style', get_template_directory_uri() . '/assets/css/block--offer-card.css', array('ea-style'), false, 'screen');
+	wp_register_script( 'block--offer-card-script', get_template_directory_uri() . '/assets/js/block--offer-card.js', array('micromodal-script'), null, true);
+
+	/**
 	 * Blog Post Enqueues
 	 */
 	if( is_singular('post') ) {
@@ -138,9 +144,10 @@ function enercare_scripts() {
 		wp_enqueue_style( 'enercare-archive-locations', get_template_directory_uri() . '/assets/css/archive--locations.css', array( 'ea-style' ), null );
 	}
 
-	if( is_post_type_archive( 'campaign' ) ) {
+	if( is_post_type_archive( 'campaign' ) ||
+	    is_tax('campaign-category') ) {
 		wp_enqueue_script( 'micromodal-script');
-		wp_enqueue_script( 'block--offer-card-script', get_template_directory_uri() . '/assets/js/block--offer-card.js', array('micromodal-script'), null, true);
+		wp_enqueue_script( 'block--offer-card-script');
 		wp_enqueue_style( 'enercare-archive-campaigns', get_template_directory_uri() . '/assets/css/archive--campaign.css', array( 'ea-style' ), null );
 	}
 
@@ -601,7 +608,7 @@ if (!is_admin()) {
   add_action( 'pre_get_posts', 'enercare_pre_get_posts' );
 }
 function enercare_pre_get_posts( $query ) {
-	if ( is_post_type_archive( 'campaign' ) && $query->is_main_query() ) :
+	if ( (is_post_type_archive( 'campaign' ) || is_tax('campaign-category')) && $query->is_main_query() ) :
     $today = date("Ymd");
     $query->set('meta_query', array(
       array(
