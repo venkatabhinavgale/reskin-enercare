@@ -236,7 +236,8 @@
 	.entry-content {
 		grid-column: 1 / -1;
 		max-width: $content-width;
-		margin: 0 auto $grid-gap;
+		//This used to have $gridgap for the bottom measurement... removed it... may have caused chaos
+		margin: 0 auto;
 	}
 
 	.entry-footer {
