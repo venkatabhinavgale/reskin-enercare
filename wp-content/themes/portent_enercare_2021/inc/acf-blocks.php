@@ -63,7 +63,7 @@ function enercare_register_theme_blocks() {
 		  'enqueue_assets' => function() {
 			  wp_enqueue_script( 'micromodal-script');
 			  wp_enqueue_script( 'block--offer-card-script');
-			  wp_enqueue_style( 'enercare-archive-campaigns');
+			  wp_enqueue_style( 'block-offer-card-style');
 		  },
 
 		  'supports'        => array(
