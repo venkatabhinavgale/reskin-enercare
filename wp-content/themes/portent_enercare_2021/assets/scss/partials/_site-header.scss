@@ -55,6 +55,11 @@
 		@include media(">desktop") {
 			font-size: 1.25rem;
 		}
+
+		@include media("<=mobile_menu") {
+			display:none;
+			visibility:hidden;
+		}
 	}
 
 	svg {

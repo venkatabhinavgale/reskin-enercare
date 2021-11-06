@@ -298,11 +298,11 @@ Block Styles
 	text-align: left;
 
 	a {
-		
+
 		&:hover,
 		&:focus {
 			color: brand-color('red');
-		}	
+		}
 	}
 
 	.breadcrumb_last,
@@ -631,5 +631,12 @@ Column Helpers
 		flex-basis: 100% !important;
 		flex-grow: 1 !important;
 	}
+}
+
+/*
+Flex Helpers
+ */
+.height-auto {
+	height: auto !important;
 }
 

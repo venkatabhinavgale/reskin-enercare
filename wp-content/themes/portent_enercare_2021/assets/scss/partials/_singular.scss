@@ -250,12 +250,13 @@
 				display: inline-block;
 				background-color: $grey_2;
 				border-radius: 20px;
-				padding: 0.5em;
+				padding: 0.5em 0.8em 0.3em;
 				margin: 0.25em 1.25em 0.25em 0;
 				font-weight: 300;
 				color: $base-color;
 				@include font-sizes(1em);
 				text-decoration: none;
+				text-transform: capitalize;
 
 				&:hover,
 				&:focus {
@@ -451,21 +452,18 @@
 }
 
 .single-post {
-	h2 {
-		@include font-sizes( 3.25em );
-		line-height: 3rem;
 
-		@include media("<=tablet") {
-			@include font-sizes( 1.75em );
+	.entry-content {
+		h2 {
+			@include font-sizes(1.75, 3.25em);
+			line-height: 3rem;
+			margin-top: 1em;
 		}
-	}
 
-	h3 {
-		@include font-sizes( 3em );
-		line-height: 3rem;
-
-		@include media("<=tablet") {
-			@include font-sizes( 1.5em );
+		h3 {
+			@include font-sizes(1.5em, 3em);
+			line-height: 3rem;
+			margin-top: 1em;
 		}
 	}
 
@@ -481,19 +479,39 @@
 		}
 
 		@include media("<=tablet") {
-			
+
 			& > span {
-				padding: 0.25em;
+				padding: 0.25em 0.5em;
 			}
 		}
 	}
 
 	.entry-title {
 		text-align: center;
-		margin-bottom: 1em;
+		margin: 0 auto 1em;
+		max-width: $content-width;
 	}
 
 	.post-summary__image {
 		margin: 0 auto;
+	}
+
+	.block-blog-posts__wrapper .block-carousel__prev,
+	.block-blog-posts__wrapper .block-carousel__next {
+		width: 50px;
+		height: 50px;
+		display: block;
+	}
+
+	.block-blog-posts__wrapper .block-carousel__prev {
+		@include media('>=tablet') {
+			left: 0;
+		}
+	}
+
+	.block-blog-posts__wrapper .block-carousel__next {
+		@include media('>=tablet') {
+			right: 0;
+		}
 	}
 }
