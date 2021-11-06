@@ -17,6 +17,11 @@ add_filter( 'enercare_page_layout', 'enercare_return_full_width_content' );
  */
 function enercare_archive_body_class( $classes ) {
 	$classes[] = 'archive';
+
+	//Place a taxonomy body class to ease with styling and remove the need to specificity on which term or taxonomy is being used
+	if(is_tax() ) {
+		$classes[] = 'taxonomy';
+	}
 	return $classes;
 }
 add_filter( 'body_class', 'enercare_archive_body_class' );
@@ -27,48 +32,14 @@ add_filter( 'body_class', 'enercare_archive_body_class' );
  *
  */
 function enercare_archive_header() {
-	$title = $subtitle = $description = $more = false;
-
-	if( is_archive() ) {
-		$title = get_the_archive_title();
-		if( ! get_query_var( 'paged' ) )
-			$description = get_the_archive_description();
-	}
-
-	if( empty( $title ) && empty( $description ) )
-		return;
-
-	$classes = [ 'archive-description' ];
-	if( is_author() )
-		$classes[] = 'author-archive-description';
-
-	echo '<header class="' . join( ' ', $classes ) . '">';
-	do_action ('enercare_archive_header_before' );
-	if( ! empty( $title ) )
-		echo '<h1 class="archive-title">' . $title . '</h1>';
-	if( !empty( $subtitle ) )
-		echo '<h4>' . $subtitle . '</h4>';
-
-	echo '<div class="category__description is-style-subhead1">'.apply_filters( 'enercare_the_content', $description ).'</div>';
-	echo $more;
-	echo '<div class="archive-header__after">';
-		do_action ('enercare_archive_header_after' );
-	echo '</div>';
-	echo '</header>';
-
-    enercare_breadcrumbs();
+	include_once(get_template_directory() . '/partials/category-archive-header.php' );
 }
 add_action( 'tha_content_while_before', 'enercare_archive_header' );
 
 // Breadcrumbs
-add_action( 'enercare_archive_header_before', 'enercare_breadcrumbs', 5 );
+add_action( 'enercare_archive_header_after', 'enercare_breadcrumbs', 5 );
 
-//Filters
-if (!is_search() && have_posts() && !is_category()) {
-	add_action('enercare_archive_header_after', 'enercare_filter_taxonomy_by_post_type');
-}
-
-// add section wrapper -- we'll use this on our ajax calls to replace the results
+// add section wrapper -- we'll use this on our ajax calls to replace the results, yes the name sucks... roll with it.
 function enercare_archive_wrapper_top() {
 	echo '<div class="archive-containment-field">';
     echo '<section class="archive-wrapper">';
