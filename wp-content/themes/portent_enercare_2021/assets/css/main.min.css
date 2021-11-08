@@ -531,6 +531,7 @@ div.wpforms-container.one-line:after{content:"";display:table;clear:both}
 .comment-respond{margin:30px 0}
 .comment-respond label{display:block;margin-right:12px}
 .comment-respond label[for="subscribe"],.comment-respond label[for="wp-comment-cookies-consent"]{display:inline-block}
+.single-post .entry-content{margin:0 auto;max-width:768px}
 .single-post .entry-content h2{font-size:1.75;line-height:3rem;margin-top:1em}
 .single-post .entry-content h3{font-size:1.5em;line-height:3rem;margin-top:1em}
 .single-post .entry-title{text-align:center;margin:0 auto 1em;max-width:768px}
