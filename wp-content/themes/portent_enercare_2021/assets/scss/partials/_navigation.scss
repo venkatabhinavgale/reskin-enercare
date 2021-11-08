@@ -13,6 +13,20 @@
 }
 
 .nav-menu {
+
+	.only-mobile.mobile-nav-item {
+
+		background-color: $grey_1;
+
+		&:not(.menu-item-has-children):before {
+			content: none;
+		}
+
+		&:first-of-type {
+			margin-top: 2em;
+		}
+	}
+
 	.menu-item {
 		&__icon {
 			display: none;
