@@ -458,6 +458,10 @@
 .single-post {
 
 	.entry-content {
+
+		margin: 0 auto;
+		max-width: $content-width;
+
 		h2 {
 			@include font-sizes(1.75, 3.25em);
 			line-height: 3rem;
