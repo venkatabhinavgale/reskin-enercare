@@ -12,19 +12,21 @@ if ( ! class_exists( 'Enercare_Nav_Walker' ) ) :
 			$has_url = ($item->url && $item->url != '#') ? true : false;
 			if($has_url) {
 				array_push($item->classes, "has-url");
-			}
-
+			} elseif($depth == 0) {
+        array_push($item->classes, "has-url");
+      }
+      
 			//Start output of list item
 			$output .= "<li class='" .  implode(" ", $item->classes) . "'>";
 
 			//use span if using hash as URL
 			if ($has_url) {
 				$output .= '<a href="' . $item->url . '">';
-
+      } elseif ($depth == 0) {
+        $output .= '<a href="#">';
 			} else {
 				$output .= '<span>';
 			}
-
 
 			$icon_image_id = get_field('enercare_nav_icon', $item->ID);
 
@@ -42,7 +44,9 @@ if ( ! class_exists( 'Enercare_Nav_Walker' ) ) :
 			//Closing
 			if ($item->url && $item->url != '#') {
 				$output .= '</a>';
-			} else {
+			} elseif ($depth == 0) {
+        $output .= '</a>';
+      } else {
 				$output .= '</span>';
 			}
 		}

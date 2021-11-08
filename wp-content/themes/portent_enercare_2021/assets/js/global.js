@@ -27,6 +27,7 @@ jQuery(function ($) {
   var searchui = new AddSearchUI(client, conf); // Add components
 
   searchui.searchField({
+    autofocus: false,
     containerId: 'searchfield',
     placeholder: 'Search',
     icon: false
