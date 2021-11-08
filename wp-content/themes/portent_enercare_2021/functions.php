@@ -514,6 +514,11 @@ add_action('tha_head_bottom', 'enercare_adobe_script');
  * Appointment Banner
  */
 function enercare_appointment_banner() {
+  //If page has site override set to Commercial, don't display the banner
+  if (get_field('site_override') && get_field('site_override') == 'Commercial') {
+    return;
+  }
+  
 	//We expect this to be TRUE
 	$is_banner_active_global = get_field( 'appointment_banner_toggle', 'options');
 
