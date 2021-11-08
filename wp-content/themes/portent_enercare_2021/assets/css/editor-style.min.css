@@ -190,11 +190,11 @@ img.aligncenter{margin-left:auto;margin-right:auto}
 .has-grey-10-background-color{background-color:#f5f2f2}
 .has-white-color{color:#fff}
 .has-white-background-color{background-color:#fff}
-.wp-block-group{padding:40px 16px}
-.wp-block-group.is-style-center{text-align:center}
-.wp-block-group .wp-block-group__inner-container{max-width:1168px;margin:0 auto}
-.wp-block-group .wp-block-group__inner-container:after{content:"";display:table;clear:both}
-.wp-block-group .wp-block-group__inner-container>*:last-child{margin-bottom:0}
+div.wp-block-group{padding:40px 16px}
+div.wp-block-group.is-style-center{text-align:center}
+div.wp-block-group .wp-block-group__inner-container{max-width:1168px;margin:0 auto}
+div.wp-block-group .wp-block-group__inner-container:after{content:"";display:table;clear:both}
+div.wp-block-group .wp-block-group__inner-container>*:last-child{margin-bottom:0}
 [data-state="open"]{display:inherit;height:100%;visibility:visible}
 [data-state="closed"]{display:none;height:0;visibility:hidden}
 .center-block{margin-left:auto !important;margin-right:auto !important}
@@ -449,14 +449,14 @@ ul.block-location-finder__list{padding-left:0}
 .block-offer-card__wrapper__masthead .block-offer-card__terms-toggle{font-size:12px;color:#fff;text-decoration:none;line-height:16px}
 .block-offer-card__wrapper__masthead button{background:0;border-style:none}
 .block-offer-card__wrapper__masthead .wp-block-button__link{padding:16px 48px;border-radius:36px}
-.block-offer-card__wrapper__full-width{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}
+.block-offer-card__wrapper__full-width{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}
 .block-offer-card__wrapper__full-width a button{border-style:none;background:0}
 .block-offer-card__wrapper__full-width a button .wp-block-button__link{padding:12px 24px;border-radius:24px}
 .block-offer-card__wrapper__full-width .block-offer-card__container{width:-webkit-fit-content;width:-moz-fit-content;width:fit-content;-ms-flex-item-align:center;align-self:center;padding:0 48px}
 .block-offer-card__wrapper__full-width .block-offer-card__subheading{font-size:1.125em}
 .block-offer-card__wrapper__full-width .block-offer-card__offer-expiration{font-size:1em}
 .block-offer-card__wrapper__full-width .block-offer-card__terms-toggle{font-size:1em}
-.block-offer-card__wrapper__full-width img{width:66%;-o-object-fit:contain;object-fit:contain}
+.block-offer-card__wrapper__full-width .block-offer-card__image{width:100%;-o-object-fit:contain;object-fit:contain;margin-top:1.5em}
 .block-comparison-card{text-align:center}
 .block-comparison-card__wrapper{display:none;visibility:hidden}
 .block-comparison-card__title{font-size:1.5em;font-weight:700;line-height:32px;text-align:center;background-color:#f5f2f2;padding-top:20px;padding-bottom:1em;border-top:4px solid #dc1c28}
@@ -520,7 +520,7 @@ h4,h5,h6{font-size:22px}
 .is-style-subhead1{font-size:28px}
 .is-style-subhead2{font-size:24px}
 .is-style-subhead3{font-size:20px}
-.wp-block-group{padding:60px 16px}
+div.wp-block-group{padding:60px 16px}
 .force-content-width{max-width:768px !important}
 div.wpforms-container .wpforms-title{font-size:32px}
 div.wpforms-container .wpforms-recaptcha-container{margin-bottom:-78px}
@@ -563,6 +563,8 @@ body,p{font-size:1em}
 .block-offer-card__heading{line-height:3rem;letter-spacing:-0.38px}
 .block-offer-card__wrapper__masthead h3{font-size:3.75em}
 .block-offer-card__wrapper__masthead h3{letter-spacing:-0.49px;line-height:3.750rem}
+.block-offer-card__wrapper__full-width{-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}
+.block-offer-card__wrapper__full-width .block-offer-card__image{margin-top:0;width:66%}
 .block-comparison-card__wrapper{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));grid-column-gap:28px;visibility:visible}
 .block-comparison-card__mobile-wrapper{display:none;visibility:hidden}
 .block-switchboard__container--desktop-col-1 .block-editor-block-list__layout{grid-template-columns:repeat(1,1fr)}
@@ -583,7 +585,7 @@ h3{font-size:2.5em}
 .is-style-subhead1{font-size:28px}
 .is-style-subhead2{font-size:24px}
 .is-style-subhead3{font-size:20px}
-.wp-block-group{padding:70px 16px}
+div.wp-block-group{padding:70px 16px}
 .block-reviews__section-heading__header{font-size:3.5em}
 .block-offer-card__heading{font-size:2.5em}
 }@media(max-width:1199px) and (min-width:641px){.block-reviews__section-heading{background-color:#f5f2f2;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;padding:0 5%}

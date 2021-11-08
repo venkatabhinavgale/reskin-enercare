@@ -1,5 +1,8 @@
 .block-offer-card {
 
+	//Store the parent
+	$block-offer-card: &;
+
 	/* Default Offer Card */
 
 	&__offer-expiration {
@@ -164,7 +167,11 @@
 
 		&__full-width {
 			display: flex;
-			flex-direction: row;
+			flex-direction: column;
+
+			@include media('>=tablet') {
+				flex-direction: row;
+			}
 
 			a {
 
@@ -204,9 +211,15 @@
 
 			}
 
-			img {
-				width: 66%;
+			#{$block-offer-card}__image {
+				width: 100%;
 				object-fit: contain;
+				margin-top:1.5em;
+
+				@include media('>=tablet') {
+					margin-top: 0;
+					width: 66%;
+				}
 			}
 		}
 

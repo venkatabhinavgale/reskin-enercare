@@ -233,12 +233,15 @@
 		}
 	}
 
-	.entry-content {
-		grid-column: 1 / -1;
-		max-width: $content-width;
-		//This used to have $gridgap for the bottom measurement... removed it... may have caused chaos
-		margin: 0 auto;
-	}
+	//Commenting this block out. Celina applied it to style single blog content and it applied universally to the site... fixing a bug around alignments with blocks
+	//But it also undid a lot of visual work. We might find we need this later
+	//.entry-content {
+	//	grid-column: 1 / -1;
+	//	//Commenting this out
+	//	//max-width: $content-width;
+	//	//This used to have $gridgap for the bottom measurement... removed it... may have caused chaos
+	//	margin: 0 auto;
+	//}
 
 	.entry-footer {
 
