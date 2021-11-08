@@ -99,29 +99,25 @@ if (isset($campaign) && !empty($campaign)) {
 	require get_template_directory() . '/partials/campaign-terms-conditions.php';
 ?>
 
-  <?php if ($variation == "Masthead Offer Card") { ?>
-		<?php require get_template_directory() . '/partials/campaign-masthead.php'; ?>
-  <?php } elseif ($variation == "Full Width with Image") { ?>
-    <div class="block-offer-card__wrapper__full-width" data-allow-multiple>
-      <div class="block-offer-card__container <?= $background_color_setting ?>">
-        <a href="<?= $campaign_destination; ?>">
-        <button>
-          <?php if ($campaign_subheading) { ?>
-            <p class="block-offer-card__subheading"><?php echo $campaign_subheading; ?></p>
-          <?php } ?>
-          <h3><?= $campaign_heading; ?></h3>
-          <?php if ($campaign_expiration && $campaign_expiration != "") { ?><p class="block-offer-card__offer-expiration">Offer expires <?= date('F d, Y', strtotime($campaign_expiration)); ?></p><?php } ?>
-          <span class="wp-block-button__link has-red-background-color has-background block-offer-card__link"><img class="block-offer-card__link__icon" alt="" role="presentation" src="<?= get_template_directory_uri() .'/assets/icons/action/shopping_cart_black_24dp_rounded.svg'?>"/><?= $cta_text ?></span>
-        </button>
-        </a>
-        <?= $campaign_terms; ?>
-    </div>
-    <?= $campaign_image; ?>
-  </div>
+  <?php
+  	switch($variation) {
+		case 'Masthead Offer Card':
+			require get_template_directory() . '/partials/campaign-masthead.php';
+			break;
 
-  <?php } else { // "Offer Card" is default @todo refactor to this to be cleaner ?>
-  	<?php require get_template_directory() . '/partials/campaign-default.php'; ?>
-  <?php } ?>
+		case 'Full Width with Image':
+			require get_template_directory() . '/partials/campaign-full-width.php';
+			break;
+
+		case 'Classic':
+			require get_template_directory() . '/partials/campaign-classic.php';
+			break;
+
+		default:
+			require get_template_directory() . '/partials/campaign-default.php';
+			break;
+	}
+?>
 
 <?php } elseif (is_admin()) { ?>
   <p>*** <strong>No campaigns found for the defined criteria</strong>. This message will only show in the admin editor. ***</p>

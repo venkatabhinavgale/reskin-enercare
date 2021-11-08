@@ -1,0 +1,22 @@
+<?php
+	/*
+	 * Template partial for the full width variation of the offer card.
+	 */
+?>
+<div class="block-offer-card__wrapper__full-width" data-allow-multiple>
+	<div class="block-offer-card__container <?= $background_color_setting ?>">
+			<?php if ($campaign_subheading) { ?>
+				<p class="block-offer-card__subheading"><?php echo $campaign_subheading; ?></p>
+			<?php } ?>
+			<h3><?= $campaign_heading; ?></h3>
+				<p class="block-offer-card__offer-expiration">
+					<?php if ($campaign_expiration && $campaign_expiration != "") { ?>
+						Offer expires <?= date('F d, Y', strtotime($campaign_expiration)); ?>.
+					<?php } ?>
+					<button class="block-offer-card__terms-toggle" aria-controls="terms_<?= $campaign->ID ?>" data-micromodal-trigger="modal-<?=$campaign->ID ?>">View Details</button>
+				</p>
+			<a href="<?= $campaign_destination; ?>" class="wp-block-button__link has-red-background-color has-background block-offer-card__link"><img class="block-offer-card__link__icon" alt="" role="presentation" src="<?= get_template_directory_uri() .'/assets/icons/action/shopping_cart_black_24dp_rounded.svg'?>"/><?= $cta_text ?></a>
+		<?= $campaign_terms; ?>
+	</div>
+	<?= $campaign_image; ?>
+</div>

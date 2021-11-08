@@ -218,7 +218,7 @@ img {
 /* Group
 --------------------------------------------- */
 
-.wp-block-group {
+div.wp-block-group {
 	padding: 40px 16px;
 
 	@include media(">=tablet") {
