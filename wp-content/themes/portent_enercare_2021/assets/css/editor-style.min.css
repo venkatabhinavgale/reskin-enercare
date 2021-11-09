@@ -57,8 +57,12 @@ h4,h5,h6{font-size:18px}
 .banner-operational p{margin:0;padding:0}
 .banner-operational a{color:#fff}
 .legal__terms{width:100%;background-color:#e6e4e4}
-.legal__terms-toggle{display:-webkit-box;display:-ms-flexbox;display:flex;margin:0 auto;width:100%;max-width:1168px;padding:0;border:0;-webkit-box-align:center;-ms-flex-align:center;align-items:center;background:0;color:#000}
-.legal__terms-toggle img{height:15px;width:15px;margin:1.5em 0 1.5em .902em}
+.legal__terms-toggle{display:-webkit-box;display:-ms-flexbox;display:flex;margin:0 auto;width:100%;max-width:1168px;padding:1px;border:1px dotted transparent;-webkit-box-align:center;-ms-flex-align:center;align-items:center;background:0;color:#000;cursor:pointer}
+.legal__terms-toggle img{height:15px;width:15px;margin:1.5em 0 1.5em .902em;-webkit-transform:translateY(0);transform:translateY(0);-webkit-transition:-webkit-transform .3s ease;transition:-webkit-transform .3s ease;transition:transform .3s ease;transition:transform .3s ease,-webkit-transform .3s ease}
+.legal__terms-toggle span{-webkit-box-align:center;-ms-flex-align:center;align-items:center}
+.legal__terms-toggle:focus{border:1px dotted #000}
+.legal__terms-toggle:hover span{text-decoration:underline}
+.legal__terms-toggle:hover img{-webkit-transform:translateY(2px);transform:translateY(2px);-webkit-transition:-webkit-transform .3s ease;transition:-webkit-transform .3s ease;transition:transform .3s ease;transition:transform .3s ease,-webkit-transform .3s ease}
 .legal__terms-details{background-color:#e6e4e4;padding:1em;font-size:1em;line-height:1.3rem;letter-spacing:0;width:100%}
 .legal__terms-details>*{max-width:1168px}
 .legal__terms-details p{width:100%;max-width:1168px;margin:0 auto;padding:5px 0 5px 16px}
