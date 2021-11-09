@@ -607,6 +607,20 @@ function enercare_critical_css() {
 add_action( 'wp_head', 'enercare_critical_css', 0, 1 );
 
 /**
+ * Adding filter for skipping lazy loading on certain images in the_content
+ */
+function enercare_skip_loading_lazy_images( $value, $image, $context ) {
+  if ( 'the_content' === $context ) {
+    // if an image has a class of wp-block-cover__image-background, skip
+    if ( false !== strpos( $image, 'wp-block-cover__image-background' ) ) {
+      return false;
+    }
+  }
+  return $value;
+}
+add_filter('wp_img_tag_add_loading_attr', 'enercare_skip_loading_lazy_images', 10, 3);
+
+/**
  * Customizing Pre Get Posts. Campaign Archive Filter All Post Results
  */
 if (!is_admin()) {
