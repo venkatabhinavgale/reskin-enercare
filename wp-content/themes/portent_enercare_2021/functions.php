@@ -101,7 +101,7 @@ function enercare_scripts() {
 		// Move jQuery to footer
 		if( ! is_admin() ) {
 			wp_deregister_script( 'jquery' );
-			wp_register_script( 'jquery', includes_url( '/js/jquery/jquery.js' ), false, NULL, true );
+			wp_register_script( 'jquery', includes_url( '/js/jquery/jquery.min.js' ), false, NULL, true );
 			wp_enqueue_script( 'jquery' );
 		}
 
