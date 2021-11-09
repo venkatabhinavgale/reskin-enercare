@@ -59,20 +59,15 @@ function enercare_scripts() {
 	/**
 	 * Script Registrations
 	 */
-	wp_register_script( 'glider-js', get_template_directory_uri() . '/assets/js/glider/glider.min.js', null , null );
+	wp_register_script( 'glider-js', get_template_directory_uri() . '/assets/js/glider/glider.min.js', null , null, true );
 	wp_register_style( 'glider-css', get_template_directory_uri() . '/assets/js/glider/glider.min.css', null , null );
 
-    /**
-	 * AddSearch Registrations
-	 */
-	//wp_register_script('addsearch-client-script', get_template_directory_uri() . '/assets/js/addsearch/addsearch-js-client.min.js', null, null, true );
-    wp_enqueue_script( 'addsearch-client-script', get_template_directory_uri() . '/assets/js/addsearch/addsearch-js-client.min.js',null, null, true );
-
-    //wp_register_script('addsearch-ui-script', get_template_directory_uri() . '/assets/js/addsearch/addsearch-search-ui.min.js', null, null, true );
-    wp_enqueue_script( 'addsearch-ui-script', get_template_directory_uri() . '/assets/js/addsearch/addsearch-search-ui.min.js',null, null, true );
-
-	//wp_register_style('addsearch-style', get_template_directory_uri() . '/assets/js/addsearch/addsearch-search-ui.min.css', null, null );
-    wp_enqueue_style( 'addsearch-style', get_template_directory_uri() . '/assets/js/addsearch/addsearch-search-ui.min.css', null , null );
+  /**
+   * AddSearch Registrations
+   */
+  wp_enqueue_script( 'addsearch-client-script', get_template_directory_uri() . '/assets/js/addsearch/addsearch-js-client.min.js',null, null, true );
+  wp_enqueue_script( 'addsearch-ui-script', get_template_directory_uri() . '/assets/js/addsearch/addsearch-search-ui.min.js',null, null, true );
+	wp_enqueue_style( 'addsearch-style', get_template_directory_uri() . '/assets/js/addsearch/addsearch-search-ui.min.css', null , null );
 
 	/**
 	 * Simple State Manager
@@ -119,7 +114,7 @@ function enercare_scripts() {
 
 	//@todo do this right eventually
 	wp_enqueue_script( 'column-carousels', get_template_directory_uri() . '/assets/js/block--columns-carousel.js', array( 'glider-js', 'simple-state-manager' ), filemtime( get_template_directory() . '/assets/js/sliding-menu-polyfills.js' ), true );
-	wp_enqueue_script( 'glider-js', get_template_directory_uri() . '/assets/js/glider/glider.min.js', null , null );
+	wp_enqueue_script( 'glider-js', get_template_directory_uri() . '/assets/js/glider/glider.min.js', null , null, true );
 	wp_enqueue_style( 'glider-css', get_template_directory_uri() . '/assets/js/glider/glider.min.css', null , null );
 
 
@@ -166,7 +161,7 @@ function enercare_scripts() {
 	if( has_block( 'enercare-google-reviews/ecreviews-block' ) ) {
 		wp_enqueue_script('glider-js');
 		wp_enqueue_style('glider-css');
-		wp_enqueue_script( 'enercare-reviews-scripts', get_template_directory_uri() . '/assets/js/block--reviews.js', array( 'glider-js' ), null );
+		wp_enqueue_script( 'enercare-reviews-scripts', get_template_directory_uri() . '/assets/js/block--reviews.js', array( 'glider-js' ), null, true );
 		wp_enqueue_style( 'enercare-reviews-style', get_template_directory_uri() . '/assets/css/block--reviews-block.css', array( 'ea-style', 'glider-css' ), null );
 	}
 
