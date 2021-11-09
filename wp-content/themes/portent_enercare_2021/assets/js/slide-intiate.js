@@ -11,8 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	const navigator = menu.navigation();
 	const drawer = menu.offcanvas();
 
-	const openerFunction = (evnt) => {
-		//evnt.preventDefault();
+	const openerFunction = () => {
 
 		if (body.classList.contains("mm-ocd-opened")) {
 			jQuery('.menu-toggle, .nav-menu').removeClass('active');
