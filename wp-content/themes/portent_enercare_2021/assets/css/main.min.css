@@ -399,6 +399,9 @@ div.wpforms-container.one-line:after{content:"";display:table;clear:both}
 .appointment-banner--emergency .appointment-banner__link:hover,.appointment-banner--emergency .appointment-banner__link:focus{background-color:#000;color:#fff}
 .menu li{list-style:none}
 .menu a{text-decoration:none;display:block}
+.nav-menu .only-mobile.mobile-nav-item{background-color:#f5f2f2}
+.nav-menu .only-mobile.mobile-nav-item:not(.menu-item-has-children):before{content:none}
+.nav-menu .only-mobile.mobile-nav-item:first-of-type{margin-top:2em}
 .nav-menu .menu-item__icon{display:none}
 .menu-toggle{background:transparent;border:0;border-radius:0;-webkit-box-shadow:none;box-shadow:none;padding:0;outline:0;cursor:pointer;line-height:0;text-align:center}
 .menu-toggle .close{display:none}

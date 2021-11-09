@@ -15,7 +15,7 @@ if ( ! class_exists( 'Enercare_Nav_Walker' ) ) :
 			} elseif($depth == 0) {
         array_push($item->classes, "has-url");
       }
-      
+
 			//Start output of list item
 			$output .= "<li class='" .  implode(" ", $item->classes) . "'>";
 
