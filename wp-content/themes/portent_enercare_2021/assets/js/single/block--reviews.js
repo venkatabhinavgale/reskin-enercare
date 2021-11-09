@@ -10,6 +10,8 @@ window.addEventListener('load', function(){
 	prevArrow.setAttribute('aria-label', 'Previous');
 	prevArrowImage.setAttribute('src', `${imagePath}arrow_back.svg`);
 	prevArrowImage.setAttribute( 'alt', 'Previous');
+  prevArrowImage.setAttribute( 'height', '24');
+  prevArrowImage.setAttribute( 'width', '24');
 	prevArrow.appendChild( prevArrowImage );
 
 	nextArrow = document.createElement( 'button' );
@@ -18,6 +20,8 @@ window.addEventListener('load', function(){
 	nextArrow.setAttribute('aria-label', 'Next');
 	nextArrowImage.setAttribute('src', `${imagePath}arrow_forward.svg`);
 	nextArrowImage.setAttribute( 'alt', 'Next');
+  nextArrowImage.setAttribute( 'height', '24');
+  nextArrowImage.setAttribute( 'width', '24');
 	nextArrow.appendChild( nextArrowImage );
 
 
