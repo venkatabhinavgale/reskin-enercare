@@ -149,7 +149,7 @@ class Location_Post_Type_Registrations {
 
       $args = array(
           'labels'            => $labels,
-          'public'            => true,
+          'public'            => false,
           'show_in_nav_menus' => true,
           'show_ui'           => true,
           'show_tagcloud'     => true,

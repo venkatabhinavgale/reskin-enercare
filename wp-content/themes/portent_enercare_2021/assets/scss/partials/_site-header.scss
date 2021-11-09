@@ -201,6 +201,7 @@ Appointment Banner
 	justify-content: center;
 	max-width: calc( 98% - 80px );
 	width: 100%;
+	line-height: 22px;
 
 	@include media('>phone') {
 		max-width: 496px;
@@ -231,7 +232,7 @@ Appointment Banner
 	}
 
 	&__icon {
-		margin:0 0.5em 0 0;
+		margin:0 0.5em 0.2em 0;
 		height: 24px;
 		width: 24px;
 
@@ -243,6 +244,7 @@ Appointment Banner
 	&__title {
 		display: block;
 		font-weight: bold;
+		line-height: 23px;
 		@include font-sizes(1em);
 
 		@include media('<=tablet') {
@@ -255,12 +257,13 @@ Appointment Banner
 		background-color: brand-color('red');
 		border: 1px solid transparent;
 		color: $white;
-		padding: 0.375em 1em;
+		padding: 6px 16px 4px;
 		border-radius: $border-radius;
 		text-decoration: none;
 		margin: 0 0 0 1em;
 		font-weight: 700;
 		transition: background-color 0.2s ease;
+		line-height: 24px;
 
 		@include font-sizes(1em);
 
