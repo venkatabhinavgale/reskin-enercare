@@ -126,11 +126,11 @@ function enercare_search_toggle() {
  *
  */
 function enercare_mobile_menu_toggle() {
-	$output = '<a' . enercare_amp_class( 'menu-toggle', 'active', 'menuActive' ) . enercare_amp_toggle( 'menuActive', array( 'searchActive', 'mobileFollow' ) ) . ' href="#slider-menu">';
+	$output = '<button' . enercare_amp_class( 'menu-toggle', 'active', 'menuActive' ) . enercare_amp_toggle( 'menuActive', array( 'searchActive', 'mobileFollow' ) ) . ' id="slider-menu-toggle">';
 		$output .= enercare_icon( array( 'icon' => 'menu', 'size' => 24, 'class' => 'open', 'group' => 'navigation' ) );
 		$output .= enercare_icon( array( 'icon' => 'close', 'size' => 24, 'class' => 'close', 'group' => 'navigation' ) );
 		$output .= '<span class="screen-reader-text">Menu</span>';
-	$output .= '</a>';
+	$output .= '</button>';
 	return $output;
 }
 
