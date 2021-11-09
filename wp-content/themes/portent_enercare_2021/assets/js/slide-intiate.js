@@ -11,14 +11,24 @@ document.addEventListener("DOMContentLoaded", () => {
 	const navigator = menu.navigation();
 	const drawer = menu.offcanvas();
 
+	const openerFunction = (evnt) => {
+		//evnt.preventDefault();
+
+		if (body.classList.contains("mm-ocd-opened")) {
+			jQuery('.menu-toggle, .nav-menu').removeClass('active');
+			drawer.close();
+		} else {
+			/**
+			 * LoveDeep be raging clickin on the menu
+			 * Putting in a limited so that he can't do that
+			 */
+			jQuery('.search-toggle, .header-search').removeClass('active');
+			jQuery('.menu-toggle, .nav-menu').addClass('active');
+			drawer.open();
+		}
+	};
+
 	document
-		.querySelector("a[href='#slider-menu']")
-		.addEventListener("click", (evnt) => {
-			evnt.preventDefault();
-			if (body.classList.contains("mm-ocd-opened")) {
-				drawer.close();
-			} else {
-				drawer.open();
-			}
-		});
+		.querySelector("#slider-menu-toggle")
+		.addEventListener("click", openerFunction );
 });
