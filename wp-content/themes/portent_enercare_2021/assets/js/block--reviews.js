@@ -10,6 +10,8 @@ window.addEventListener('load', function () {
   prevArrow.setAttribute('aria-label', 'Previous');
   prevArrowImage.setAttribute('src', "".concat(imagePath, "arrow_back.svg"));
   prevArrowImage.setAttribute('alt', 'Previous');
+  prevArrowImage.setAttribute('height', '24');
+  prevArrowImage.setAttribute('width', '24');
   prevArrow.appendChild(prevArrowImage);
   nextArrow = document.createElement('button');
   nextArrowImage = document.createElement('img');
@@ -17,6 +19,8 @@ window.addEventListener('load', function () {
   nextArrow.setAttribute('aria-label', 'Next');
   nextArrowImage.setAttribute('src', "".concat(imagePath, "arrow_forward.svg"));
   nextArrowImage.setAttribute('alt', 'Next');
+  nextArrowImage.setAttribute('height', '24');
+  nextArrowImage.setAttribute('width', '24');
   nextArrow.appendChild(nextArrowImage);
   dots = document.createElement('div');
   dots.classList.add('dots', 'block-reviews__dots');
