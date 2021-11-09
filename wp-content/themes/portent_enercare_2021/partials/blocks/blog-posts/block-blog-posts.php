@@ -82,8 +82,8 @@ $blog_posts = new WP_Query( $blog_post_args );
 			echo '</div>';
 
 			if( $is_mobile_carousel ) {
-				echo '<button aria-label="Previous" class="block-carousel__prev block-blog-posts__glider-prev"><img alt="Previous" src="'. get_template_directory_uri() . '/assets/icons/utility/arrow_back.svg" /></button>';
-				echo '<button aria-label="Next" class="block-carousel__next block-blog-posts__glider-next"><img alt="Next" src="'.get_template_directory_uri() . '/assets/icons/utility/arrow_forward.svg" /></button>';
+				echo '<button aria-label="Previous" class="block-carousel__prev block-blog-posts__glider-prev"><img height="20" width="20" alt="Previous" src="'. get_template_directory_uri() . '/assets/icons/utility/arrow_back.svg" /></button>';
+				echo '<button aria-label="Next" class="block-carousel__next block-blog-posts__glider-next"><img height="20" width="20" alt="Next" src="'.get_template_directory_uri() . '/assets/icons/utility/arrow_forward.svg" /></button>';
 				echo '<div role="tablist" class="dots block-carousel__dots block-blog-posts__glider-dots"></div>';
 			}
 
