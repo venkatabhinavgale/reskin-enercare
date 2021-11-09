@@ -179,8 +179,8 @@ function enercare_related_posts($blog_num_posts = 4) {
     //End block-blog-posts__post container
     echo '</div>';
 
-    echo '<button aria-label="Previous" class="block-carousel__prev related-posts__glider-prev"><img alt="Previous" src="'. get_template_directory_uri() . '/assets/icons/utility/arrow_back.svg" /></button>';
-    echo '<button aria-label="Next" class="block-carousel__next related-posts__glider-next"><img alt="Next" src="'.get_template_directory_uri() . '/assets/icons/utility/arrow_forward.svg" /></button>';
+    echo '<button aria-label="Previous" class="block-carousel__prev related-posts__glider-prev"><img alt="Previous" width="20" height="20" src="'. get_template_directory_uri() . '/assets/icons/utility/arrow_back.svg" /></button>';
+    echo '<button aria-label="Next" class="block-carousel__next related-posts__glider-next"><img alt="Next" width="20" height="20" src="'.get_template_directory_uri() . '/assets/icons/utility/arrow_forward.svg" /></button>';
 	echo '<div role="tablist" class="dots block-carousel__dots related-posts__glider-dots"></div>';
     //End block-blog-posts__wrapper
     echo '</div>';
