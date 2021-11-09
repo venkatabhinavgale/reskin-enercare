@@ -60,6 +60,8 @@ input:focus::-webkit-input-placeholder,input:focus::-moz-placeholder,input:focus
 .gform_wrapper .ginput_container_consent input[type=checkbox]{max-width:25%;margin:0;width:1em}
 .gform_wrapper .ginput_container_consent .gfield_consent_label{-ms-flex-item-align:center;align-self:center;margin-left:.5em}
 .gform_wrapper .gform_footer input[type=submit]{width:140px;border-radius:30px;font-size:1rem;font-weight:700;line-height:22px;padding:5px 16px;text-decoration:none;background-color:#dc1c28;color:#fff;cursor:pointer}
+.gform_confirmation_message{border:2px solid #dc1c28;padding:2em;margin:5em auto;max-width:768px;text-align:center;position:relative;font-weight:700;font-size:1.2em}
+.gform_confirmation_message:before{content:"";width:40px;height:40px;background-image:url(../icons/utility/check_black_24dp_rounded.svg);display:block;position:absolute;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%);background-size:cover;background-repeat:no-repeat;background-position:center;font-weight:700;left:3%}
 .ginput_container_checkbox .gchoice{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;height:42px}
 .ginput_container_checkbox input[type="checkbox"]{-webkit-box-flex:0;-ms-flex-positive:0;flex-grow:0;height:auto;width:auto;margin:0 .5em 0 0}
 .search-form{border:1px solid #e6e4e4;max-width:400px;position:relative;overflow:hidden}
@@ -137,8 +139,12 @@ h4,h5,h6{font-size:18px}
 .banner-operational p{margin:0;padding:0}
 .banner-operational a{color:#fff}
 .legal__terms{width:100%;background-color:#e6e4e4}
-.legal__terms-toggle{display:-webkit-box;display:-ms-flexbox;display:flex;margin:0 auto;width:100%;max-width:1168px;padding:0;border:0;-webkit-box-align:center;-ms-flex-align:center;align-items:center;background:0;color:#000}
-.legal__terms-toggle img{height:15px;width:15px;margin:1.5em 0 1.5em .902em}
+.legal__terms-toggle{display:-webkit-box;display:-ms-flexbox;display:flex;margin:0 auto;width:100%;max-width:1168px;padding:1px;border:1px dotted transparent;-webkit-box-align:center;-ms-flex-align:center;align-items:center;background:0;color:#000;cursor:pointer}
+.legal__terms-toggle img{height:15px;width:15px;margin:1.5em 0 1.5em .902em;-webkit-transform:translateY(0);transform:translateY(0);-webkit-transition:-webkit-transform .3s ease;transition:-webkit-transform .3s ease;transition:transform .3s ease;transition:transform .3s ease,-webkit-transform .3s ease}
+.legal__terms-toggle span{-webkit-box-align:center;-ms-flex-align:center;align-items:center}
+.legal__terms-toggle:focus{border:1px dotted #000}
+.legal__terms-toggle:hover span{text-decoration:underline}
+.legal__terms-toggle:hover img{-webkit-transform:translateY(2px);transform:translateY(2px);-webkit-transition:-webkit-transform .3s ease;transition:-webkit-transform .3s ease;transition:transform .3s ease;transition:transform .3s ease,-webkit-transform .3s ease}
 .legal__terms-details{background-color:#e6e4e4;padding:1em;font-size:1em;line-height:1.3rem;letter-spacing:0;width:100%}
 .legal__terms-details>*{max-width:1168px}
 .legal__terms-details p{width:100%;max-width:1168px;margin:0 auto;padding:5px 0 5px 16px}
@@ -659,6 +665,7 @@ body.mm-ocd-opened{overflow-y:hidden;-ms-scroll-chaining:none;overscroll-behavio
 @media(min-width:600px) and (max-width:781px){.force-tablet-full{-ms-flex-preferred-size:100% !important;flex-basis:100% !important;-webkit-box-flex:1 !important;-ms-flex-positive:1 !important;flex-grow:1 !important}
 }@media(min-width:641px){.appointment-banner{max-width:496px}
 }@media(min-width:768px){.site-inner{padding:48px 0}
+.gform_confirmation_message:before{width:30px;height:30px}
 .gform_wrapper.product-form_wrapper .product-form .gform_body .gform__disclaimer{width:75%}
 body{font-size:1em}
 p.large,p.has-large-font-size{font-size:1.125em}

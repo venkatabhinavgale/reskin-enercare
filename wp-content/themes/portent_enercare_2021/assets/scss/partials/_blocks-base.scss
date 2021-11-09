@@ -361,12 +361,13 @@ Legal Panel In Footer Area
 	margin: 0 auto;
 	width: 100%;
 	max-width: $grid-width;
-	padding: 0;
-	border: 0;
+	padding: 1px;
+	border: 1px dotted transparent;
 	align-items: center;
 	background: none;
 	color: $black;
 	cursor: pointer;
+
 
 	@include media("<=tablet") {
 		margin: 0;
@@ -378,6 +379,26 @@ Legal Panel In Footer Area
 		height: 15px;
 		width: 15px;
 		margin: 1.5em 0 1.5em 0.902em;
+		transform: translateY(0);
+		transition: transform 0.3s ease;
+	}
+
+	span {
+
+		align-items: center;
+	}
+
+	&:focus {
+		border: 1px dotted $black;
+	}
+
+	&:hover span{
+		text-decoration: underline ;
+	}
+
+	&:hover img {
+		transform: translateY(2px);
+		transition: transform 0.3s ease;
 	}
 }
 
