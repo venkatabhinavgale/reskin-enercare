@@ -55,11 +55,39 @@
             "taxonomy": "category",
             "field_type": "multi_select",
             "allow_null": 0,
-            "add_term": 1,
+            "add_term": 0,
             "save_terms": 0,
             "load_terms": 0,
             "return_format": "id",
             "multiple": 0
+        },
+        {
+            "key": "field_618bff916d5fc",
+            "label": "Include posts",
+            "name": "include_posts",
+            "type": "relationship",
+            "instructions": "Use this option to display specific posts in the query. Posts chosen here will be sorted into the results that come back from the category query. It is possible to fully curate all posts by removing all categories from the previous setting and selecting posts here.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "post"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search",
+                "taxonomy"
+            ],
+            "elements": [
+                "featured_image"
+            ],
+            "min": "",
+            "max": "",
+            "return_format": "id"
         },
         {
             "key": "field_61673cc61f16c",
@@ -76,31 +104,6 @@
             },
             "placement": "top",
             "endpoint": 0
-        },
-        {
-            "key": "field_616dcccc2f59c",
-            "label": "Image Size",
-            "name": "image_size",
-            "type": "select",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "1-1": "Square (1:1)",
-                "2-3": "Standard (2-3)"
-            },
-            "default_value": "1-1",
-            "allow_null": 0,
-            "multiple": 0,
-            "ui": 0,
-            "return_format": "value",
-            "ajax": 0,
-            "placeholder": ""
         },
         {
             "key": "field_61673cd81f16d",
@@ -167,6 +170,31 @@
             "placeholder": ""
         },
         {
+            "key": "field_616dcccc2f59c",
+            "label": "Image Size",
+            "name": "image_size",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "1-1": "Square (1:1)",
+                "2-3": "Standard (2-3)"
+            },
+            "default_value": "1-1",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
             "key": "field_616f181b40887",
             "label": "Show Category Link?",
             "name": "show_category_link",
@@ -222,5 +250,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1636146880
+    "modified": 1636567206
 }
