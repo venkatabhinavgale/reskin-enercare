@@ -8,8 +8,9 @@ $classes = 'block-blog-posts';
 
 $group_orientation = get_field( 'group_orientation' ) ? ' block-blog-posts--column' : ' block-blog-posts--row';
 $block_alignment = get_field('block_orientation') ? ' block-blog-posts__post--horizontal' : ' block-blog-posts__post--vertical';
-$blog_cats = get_field( 'categories'  );
+$blog_cats = get_field( 'categories' );
 $blog_num_posts = get_field('number_of_posts') ? get_field('number_of_posts') : 4;
+$blog_include_posts = get_field( 'include_posts' ) ? get_field( 'include_posts' ) : array();
 $post_display = get_field( 'post_display' );
 $post_display_class = 'block-blog-posts__post--' . $post_display;
 $post_image_size = get_field( 'image_size' ) ? get_field( 'image_size' ) : '2-3';
@@ -24,10 +25,42 @@ if( !empty($block['align']) ) {
 
 /*
  * Query Posts
+ *
+ * First we will query posts with matching categories and only retrieve their IDs.
+ * We will adjust the post count based on the number of expected posts minus the amount of
+ * explictly provided posts.
+ *
+ * We only want to do this is category is set. If it isnt we return an empty array. If we do this query when there
+ * are no categories set we will just get back recent posts
+ *
+ * We also can't let the posts_per_page count drop below 0. If it does the query gets set to infinite
  */
+
+if( $blog_cats && $blog_num_posts > count( $blog_include_posts ) ) {
+	$category_query_args = array(
+		'category__in'   => $blog_cats,
+		'posts_per_page' => $blog_num_posts - count( $blog_include_posts),
+		'post__not_in'   => $blog_include_posts,
+		'fields'         => 'ids'
+	);
+
+	/**
+	 * We have to do this with get_posts, if we use wp_query we will get an object instead of an array
+	 */
+	$category_query = get_posts( $category_query_args );
+} else {
+	$category_query = array();
+}
+
+/**
+ * After we get IDs for posts within categories we merge the two arrays and then do a single query only pulling the IDs
+ * we have collected
+ */
+$merged_posts_ids = array_merge( $blog_include_posts, $category_query );
+
 $blog_post_args = array(
-	'cats' => $blog_cats,
-	'posts_per_page' =>  $blog_num_posts
+	'posts_per_page' =>  $blog_num_posts,
+	'post__in' => $merged_posts_ids
 );
 $blog_posts = new WP_Query( $blog_post_args );
 
