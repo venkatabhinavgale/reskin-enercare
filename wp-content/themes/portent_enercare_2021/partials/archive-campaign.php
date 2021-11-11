@@ -15,6 +15,7 @@ $terms_and_conditions = get_field('terms_and_conditions');
 $campaign_destination = get_field('destination');
 $classes = 'has-white-background-color has-background has-white-background-color';
 $cta_text = get_field('cta_text') ? get_field('cta_text') : __( 'Shop Plans', 'portent-enercare');
+$cta_icon = get_field('cta_icon') ? wp_get_attachment_image_src( get_field('cta_icon'), 'full', false)[0] : get_template_directory_uri() .'/assets/icons/action/shopping_cart_black_24dp_rounded.svg';
 $campaign = get_post(get_the_ID());
 
 //Get Terms and conditions setup

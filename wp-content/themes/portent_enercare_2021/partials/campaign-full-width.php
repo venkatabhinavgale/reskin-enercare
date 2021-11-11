@@ -15,7 +15,7 @@
 					<?php } ?>
 					<button class="block-offer-card__terms-toggle" aria-controls="terms_<?= $campaign->ID ?>" data-micromodal-trigger="modal-<?=$campaign->ID ?>">View Details</button>
 				</p>
-			<a href="<?= $campaign_destination; ?>" class="wp-block-button__link has-red-background-color has-background block-offer-card__link"><img class="block-offer-card__link__icon" alt="" role="presentation" src="<?= get_template_directory_uri() .'/assets/icons/action/shopping_cart_black_24dp_rounded.svg'?>"/><?= $cta_text ?></a>
+			<a href="<?= $campaign_destination; ?>" class="wp-block-button__link has-red-background-color has-background block-offer-card__link"><img class="block-offer-card__link__icon" alt="" role="presentation" src="<?= $cta_icon ?>"/><?= $cta_text ?></a>
 		<?= $campaign_terms; ?>
 	</div>
 	<?= $campaign_image; ?>
