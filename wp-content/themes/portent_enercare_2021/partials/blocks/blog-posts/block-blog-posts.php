@@ -39,7 +39,7 @@ if( !empty($block['align']) ) {
 if( $blog_cats && $blog_num_posts > count( $blog_include_posts ) ) {
 	$category_query_args = array(
 		'category__in'   => $blog_cats,
-		'posts_per_page' => $blog_num_posts - count( $blog_include_posts),
+		'posts_per_page' => $blog_num_posts - count($blog_include_posts),
 		'post__not_in'   => $blog_include_posts,
 		'fields'         => 'ids'
 	);

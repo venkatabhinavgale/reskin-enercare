@@ -193,21 +193,48 @@ Cover
 	@include media('<tablet') {
 		padding: 0;
 		flex-direction: column;
+		justify-content: flex-start;
+		min-height: 0 !important;
 	}
 
 	img.wp-block-cover__image-background {
 		@include media('<tablet') {
 			position: relative;
+			height: 214px;
 		}
 	}
 
 	.wp-block-columns {
 		margin-bottom: 1em;
+
+		@include media('<tablet') {
+			margin-bottom: 0.25em;
+		}
+	}
+
+	.wp-block-column {
+
+		@include media('<tablet') {
+			margin-bottom: 0.25em;
+		}
 	}
 
 	.wp-block-cover__inner-container {
 		padding: 1em 1em 0.25em 1em;
 		margin-bottom: 0;
+
+		@include media('<tablet') {
+			padding: 0em 1em 0.25em 1em;
+			margin-top: 24px;
+		}
+	}
+
+	/**
+	Very specific use case for card in mobile viewport
+	 */
+	.block-card {
+		padding-top:1em;
+		padding-bottom: 0.25em;
 	}
 
 	@include media('>tablet') {
