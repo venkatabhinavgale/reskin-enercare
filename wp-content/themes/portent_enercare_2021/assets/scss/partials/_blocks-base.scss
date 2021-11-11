@@ -252,6 +252,9 @@ Block Styles
 		display: flex;
 		align-items: center;
 		margin: 0 0 1em 0;
+		line-height: 22px;
+		// Needed to override global padding-bottom for li elements in theme
+		padding-bottom: 0 !important;
 
 		&::before {
 			content: '';
