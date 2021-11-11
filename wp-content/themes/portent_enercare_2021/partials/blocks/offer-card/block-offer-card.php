@@ -100,16 +100,13 @@ if (isset($campaign) && !empty($campaign)) {
 	 *
 	 * If we do not have an OFFER CARD override but there is a CAMPAIGN level setting use that
 	 */
-
-	print_r( get_field('cta_text', $campaign->ID ) );
-	print_r( get_field('cta_icon', $campaign->ID ) );
   if(!get_field('cta_text') && get_field('cta_text', $campaign->ID ) ){
-	  $cta_text = get_field('cta_text', $campaign->ID );
+  	$cta_text = get_field('cta_text', $campaign->ID );
+  }
+  if(!get_field('cta_icon') && get_field('cta_icon', $campaign->ID ) ){
+  	$cta_icon = wp_get_attachment_image_src( get_field('cta_icon', $campaign->ID ), 'full', false)[0];
   }
 
-	if(!get_field('cta_icon') && get_field('cta_icon', $campaign->ID ) ){
-		$cta_icon = wp_get_attachment_image_src( get_field('cta_icon', $campaign->ID ), 'full', false)[0];
-	}
   // if defined, we're overriding the offer destination URL
   if ( get_field('cta_url_override') ) {
     $campaign_destination = get_field('cta_url_override');
