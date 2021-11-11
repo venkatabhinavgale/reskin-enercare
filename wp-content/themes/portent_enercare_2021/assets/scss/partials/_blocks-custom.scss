@@ -233,7 +233,7 @@ Cover
 	Very specific use case for card in mobile viewport
 	 */
 	.block-card {
-		@include media('>tablet') {
+		@include media('<tablet') {
 			padding-top: 1em;
 			padding-bottom: 0.25em;
 		}
