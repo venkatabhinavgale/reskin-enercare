@@ -135,57 +135,6 @@
             "ui_off_text": ""
         },
         {
-            "key": "field_612fa098f4196",
-            "label": "Campaign",
-            "name": "campaign",
-            "type": "relationship",
-            "instructions": "Select the campaign you want to override the above settings with and display in this block.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "post_type": [
-                "campaign"
-            ],
-            "taxonomy": "",
-            "filters": [
-                "search",
-                "post_type",
-                "taxonomy"
-            ],
-            "elements": "",
-            "min": "",
-            "max": 1,
-            "return_format": "object"
-        },
-        {
-            "key": "field_612fbefb94fa6",
-            "label": "CTA Icon",
-            "name": "cta_icon",
-            "type": "image",
-            "instructions": "Select an icon to be displayed in the CTA button.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array",
-            "preview_size": "1-1-small",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": ""
-        },
-        {
             "key": "field_612fbd0194fa5",
             "label": "CTA Text",
             "name": "cta_text",
@@ -219,6 +168,57 @@
             },
             "default_value": "",
             "placeholder": ""
+        },
+        {
+            "key": "field_612fbefb94fa6",
+            "label": "CTA Icon",
+            "name": "cta_icon",
+            "type": "image",
+            "instructions": "Select an icon to be displayed in the CTA button.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "1-1-small",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_612fa098f4196",
+            "label": "Campaign",
+            "name": "campaign",
+            "type": "relationship",
+            "instructions": "Select the campaign you want to override the above settings with and display in this block.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "campaign"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search",
+                "post_type",
+                "taxonomy"
+            ],
+            "elements": "",
+            "min": "",
+            "max": 1,
+            "return_format": "object"
         }
     ],
     "location": [
@@ -238,5 +238,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1636399308
+    "show_in_rest": 0,
+    "modified": 1636664016
 }

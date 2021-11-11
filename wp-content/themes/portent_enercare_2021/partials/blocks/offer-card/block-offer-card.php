@@ -26,6 +26,7 @@ $override = get_field('override');
 $campaign = get_field('campaign');
 $cta_image = get_field('cta_image');
 $cta_text = get_field('cta_text') ? get_field('cta_text') : __( 'Shop Plans', 'portent-enercare');
+$cta_icon = get_field('cta_icon') ? get_field('cta_icon')['url'] : get_template_directory_uri() .'/assets/icons/action/shopping_cart_black_24dp_rounded.svg';
 
 $tax_query = array();
 $tax_query['relation'] = $tax_relation;
@@ -72,6 +73,7 @@ if (!$override) {
       'start_date'     => 'ASC',
     )
   );
+
   /*
   $query = new WP_Query($args);
   echo $query->request; exit;
@@ -92,8 +94,21 @@ if (isset($campaign) && !empty($campaign)) {
   $campaign_image = wp_get_attachment_image( get_field('icon', $campaign->ID), '3-2', false, array( 'class' =>'block-offer-card__image', 'alt'=>'') );
   $campaign_expiration = get_field('end_date', $campaign->ID);
   $campaign_destination = get_field('destination', $campaign->ID);
+
+	/**
+	 * Now that we have an ID to work with check CTA text and Icon and decide replacements.
+	 *
+	 * If we do not have an OFFER CARD override but there is a CAMPAIGN level setting use that
+	 */
+  if(!get_field('cta_text') && get_field('cta_text', $campaign->ID ) ){
+  	$cta_text = get_field('cta_text', $campaign->ID );
+  }
+  if(!get_field('cta_icon') && get_field('cta_icon', $campaign->ID ) ){
+  	$cta_icon = wp_get_attachment_image_src( get_field('cta_icon', $campaign->ID ), 'full', false)[0];
+  }
+
   // if defined, we're overriding the offer destination URL
-  if (get_field('cta_url_override')) {
+  if ( get_field('cta_url_override') ) {
     $campaign_destination = get_field('cta_url_override');
   }
 	require get_template_directory() . '/partials/campaign-terms-conditions.php';
