@@ -250,8 +250,11 @@ Block Styles
 	li {
 		list-style: none;
 		display: flex;
-		align-items: center;
+		align-items: flex-start;
 		margin: 0 0 1em 0;
+		line-height: 22px;
+		// Needed to override global padding-bottom for li elements in theme
+		padding-bottom: 0 !important;
 
 		&::before {
 			content: '';
@@ -263,6 +266,7 @@ Block Styles
 			height: 24px;
 			filter: invert(11%) sepia(99%) saturate(5418%) hue-rotate(352deg) brightness(98%) contrast(86%);
 			position: relative;
+			top: -1px;
 			margin: 0 0.5em 0 0;
 		}
 	}
@@ -444,6 +448,15 @@ Carousel
 	.glider-track {
 		padding: 1em 0 1.5em 0;
 	}
+
+	.glider {
+		scrollbar-width: none;
+
+		&::-webkit-scrollbar {
+			display: none;
+		}
+	}
+
 }
 
 .block-carousel {

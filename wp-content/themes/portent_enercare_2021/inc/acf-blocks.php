@@ -164,7 +164,7 @@ function enercare_register_theme_blocks() {
       'enqueue_assets' => function() {
 	      wp_enqueue_script( 'glider-js');
 	      wp_enqueue_style( 'glider-css');
-	      wp_enqueue_script( 'block--carousel-script', get_template_directory_uri() . '/assets/js/block--carousel.js', array('glider-js'), null, true);
+	      wp_enqueue_script( 'block--carousel-script', get_template_directory_uri() . '/assets/js/single/block--carousel.js', array('glider-js'), null, true);
       },
     ));
 
