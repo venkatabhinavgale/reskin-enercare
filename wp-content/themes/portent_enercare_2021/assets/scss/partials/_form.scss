@@ -51,6 +51,14 @@ textarea {
 		}
 	}
 
+	.ginput_container_fileupload {
+
+		input[type=file] {
+			padding: 0.3em;
+			font-size: 1em;
+		}
+	}
+
 	// Submit Button Style
 	.gform_footer {
 
@@ -64,7 +72,7 @@ textarea {
 			text-decoration: none;
 			background-color: brand-color('red');
 			color: $white;
-      cursor: pointer;
+      		cursor: pointer;
 
 			@include media(">=desktop") {
 				padding: 8px 24px;
