@@ -69,6 +69,8 @@ h4,h5,h6{font-size:18px}
 .block-carousel__wrapper{position:relative}
 .block-carousel__wrapper .glider-prev,.block-carousel__wrapper .glider-next{color:#000;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%)}
 .block-carousel__wrapper .glider-track{padding:1em 0 1.5em 0}
+.block-carousel__wrapper .glider{scrollbar-width:none}
+.block-carousel__wrapper .glider::-webkit-scrollbar{display:none}
 .block-carousel__dots{margin:1.5em 0 1em}
 .block-carousel__dots button{background-color:#d3d1d1;margin:0 .75em .5em}
 .block-carousel__dots button.active{background-color:#dc1c28}

@@ -444,6 +444,15 @@ Carousel
 	.glider-track {
 		padding: 1em 0 1.5em 0;
 	}
+
+	.glider {
+		scrollbar-width: none;
+
+		&::-webkit-scrollbar {
+			display: none;
+		}
+	}
+
 }
 
 .block-carousel {

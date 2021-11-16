@@ -1,6 +1,6 @@
 <?php
 // Create class attribute allowing for custom "className" and "align" values.
-$classes = '';
+$classes = 'block-carousel';
 if( !empty($block['className']) ) {
 	$classes .= sprintf( ' %s', $block['className'] );
 }
