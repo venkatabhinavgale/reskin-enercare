@@ -12,6 +12,16 @@
     
     <table class="form-table" cellspacing="0" cellpadding="0">
       <tbody>
+        <tr>
+          <th>
+            Enable Cron API<br />
+            <small>Check this in production to enable the GMB sync cron job to operate.</small>
+          </th>
+          <td>
+            <input type="checkbox" name="ecreviews_enable_cron" value="1"<?php if (get_option('ecreviews_enable_cron')) { ?> checked="checked"<?php } ?> /> Yes<br />
+          </td>
+        </tr>
+      
         <!--
         <tr>
           <th>API Attempts Threshold</th>

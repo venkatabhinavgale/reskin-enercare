@@ -49,13 +49,13 @@ class ECReviews {
       add_action('admin_menu', array($this, 'create_menu'));
     }
 
-    add_action('ecreviews_locations_sync_cron', array($this, 'syncLocationsCronCron'));
+    add_action('ecreviews_locations_sync_cron', array($this, 'syncLocationsCron'));
     if (! wp_next_scheduled ( 'ecreviews_locations_sync_cron' )) {
       // schedule cron for every day
       wp_schedule_event(time(), 'daily', 'ecreviews_locations_sync_cron');
     }
 
-    add_action('ecreviews_reviews_sync_cron', array($this, 'syncReviewsCronCron'));
+    add_action('ecreviews_reviews_sync_cron', array($this, 'syncReviewsCron'));
     if (! wp_next_scheduled ( 'ecreviews_reviews_sync_cron' )) {
       // schedule cron for every day
       wp_schedule_event(time(), 'daily', 'ecreviews_reviews_sync_cron');
@@ -540,10 +540,14 @@ class ECReviews {
   }
 
   public function syncLocationsCron() {
-    $this->syncGmbLocations();
+    if (get_option('ecreviews_enable_cron')) {
+      $this->syncGmbLocations();
+    }
   }
   public function syncReviewsCron() {
-    $this->syncGmbReviews();
+    if (get_option('ecreviews_enable_cron')) {
+      $this->syncGmbReviews();
+    }
   }
 
 
