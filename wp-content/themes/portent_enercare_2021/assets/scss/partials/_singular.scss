@@ -512,6 +512,19 @@ Blog posts specific Styles
 		background-color: $grey_2;
 	}
 
+	.entry-footer {
+
+		.entry-category {
+
+			.button {
+				font-size: 1.125em;
+				letter-spacing: 0;
+				margin-top: 3em;
+				margin-bottom: 1em;
+			}
+		}
+	}
+
 	/**
 	Import Grey Breadcrumb Piece
 	 */
