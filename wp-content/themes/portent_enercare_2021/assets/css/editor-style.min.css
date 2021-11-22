@@ -434,7 +434,7 @@ ul.block-location-finder__list{padding-left:0}
 .block-faqs--faq-container{font-size:18px;font-weight:700;cursor:pointer;padding:0 .5em}
 .block-faqs--faq-container:after{content:'';display:inline-block;background-color:#d3d1d1;width:100%;height:2px;margin-right:.55em;vertical-align:middle}
 .block-faqs--faq-container:before{content:'';display:inline-block;background-image:url("../icons/utility/add_circle_black_24dp_rounded.svg");background-repeat:no-repeat;background-position:center;padding:.70em;width:22px;height:19px;margin-right:8px;margin-top:-0.3em;vertical-align:middle;-webkit-filter:invert(11%) sepia(99%) saturate(5418%) hue-rotate(352deg) brightness(98%) contrast(86%);filter:invert(11%) sepia(99%) saturate(5418%) hue-rotate(352deg) brightness(98%) contrast(86%)}
-.block-faqs--faq-container[data-child="open"]:before{background-image:url("../icons/utility/minus_circle_black_24dp_rounded.svg")}
+.block-faqs--faq-container[data-child="open"]:before{background-image:url("../icons/utility/minus_circle_black_24dp_rounded.svg");padding:.667em .7em}
 .block-faqs--faq-answer-container{font-size:16px;font-weight:300;line-height:24px;margin-top:8px;margin-left:1.8em}
 .block-offer-card__offer-expiration{font-size:1em;color:#646469;line-height:1.25rem;letter-spacing:-0.13px}
 .block-offer-card__terms{text-align:center}
@@ -623,7 +623,7 @@ div.wp-block-group{padding:70px 16px}
 .block-comparison-card__contents{padding:38px 11px 24px}
 }@media(max-width:767px){h1{line-height:2.375rem}
 h2{line-height:2rem}
-h3{line-height:1.750rem}
+h3{line-height:2rem}
 .hide-mobile{display:none}
 .align-center-mobile{-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;display:-webkit-box;display:-ms-flexbox;display:flex;text-align:center}
 .align-left-mobile{-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start;display:-webkit-box;display:-ms-flexbox;display:flex;text-align:left}
