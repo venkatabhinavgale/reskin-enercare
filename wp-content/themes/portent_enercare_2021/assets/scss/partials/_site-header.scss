@@ -233,9 +233,10 @@ Appointment Banner
 	}
 
 	&__icon {
-		margin:0 0.5em 0.2em 0;
+		margin:0 0.5em 0 0;
 		height: 24px;
 		width: 24px;
+		line-height: 22px;
 
 		@include media('<=tablet') {
 			display: none;
@@ -245,7 +246,9 @@ Appointment Banner
 	&__title {
 		display: block;
 		font-weight: bold;
-		line-height: 23px;
+		line-height: 22px;
+		color: $black;
+		align-self: flex-end;
 		@include font-sizes(1em);
 
 		@include media('<=tablet') {
@@ -258,13 +261,14 @@ Appointment Banner
 		background-color: brand-color('red');
 		border: 1px solid transparent;
 		color: $white;
-		padding: 6px 16px 4px;
+		padding: 6px 16px 3.5px;
 		border-radius: $border-radius;
 		text-decoration: none;
 		margin: 0 0 0 1em;
+		align-self: baseline;
 		font-weight: 700;
 		transition: background-color 0.2s ease;
-		line-height: 24px;
+		line-height: 22px;
 
 		@include font-sizes(1em);
 
