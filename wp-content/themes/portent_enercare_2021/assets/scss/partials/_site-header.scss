@@ -276,7 +276,7 @@ Appointment Banner
 			margin: 0;
 			width: 50%;
 			border-radius: 30px;
-			text-align: center;
+			text-align: center;	
 		}
 
 		&:hover,
@@ -287,6 +287,16 @@ Appointment Banner
 
 		&:focus {
 			border: 1px dotted brand-color( 'red', 'lighten' );
+		}
+
+		&::before {
+			content: "";
+		    display: block;
+		    position: absolute;
+		    width: calc(100% + 80px); //Consider the "fins" in the width calculation
+		    height: 100%;
+		    top: 0;
+		    left: -40px; //Consider the left fin when positioning
 		}
 	}
 
