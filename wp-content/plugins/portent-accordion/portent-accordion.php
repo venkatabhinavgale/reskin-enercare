@@ -5,14 +5,14 @@
  * Requires at least: 5.8
  * Requires PHP:      7.0
  * Version:           0.1.0
- * Author:            Bbuilds
+ * Author:            portent
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       bbuilds-accordion
+ * Text Domain:       portent-accordion
  *
- * @package           bbuilds-accordion
+ * @package           portent-accordion
  */
-namespace Bbuilds\Accordion;
+namespace portent\Accordion;
 
 //die haxxers
 if(!defined('ABSPATH')){
@@ -39,7 +39,7 @@ add_action( 'init', __NAMESPACE__ . '\accordion_block_init' );
 function accordion_block_fe_assets() {
     if (!is_admin()) {
         wp_enqueue_script(
-            'bbuilds-accordion-script',
+            'portent-accordion-script',
             plugins_url('build/accordion.js', __FILE__),
             []
         );

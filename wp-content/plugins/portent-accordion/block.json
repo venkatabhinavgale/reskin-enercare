@@ -1,7 +1,7 @@
 {
 	"$schema": "https://json.schemastore.org/block.json",
 	"apiVersion": 2,
-	"name": "bbuilds/accordion",
+	"name": "portent/accordion",
 	"version": "0.5.0",
 	"title": "Mobile Accordion Panel",
 	"category": "layout",
@@ -27,7 +27,7 @@
 			"default": "h2"
 		}
 	},
-	"textdomain": "bbuilds-accordion",
+	"textdomain": "portent-accordion",
 	"editorScript": "file:./build/index.js",
 	"editorStyle": "file:./build/index.css",
 	"style": "file:./build/style-index.css"

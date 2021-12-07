@@ -1,12 +1,12 @@
 const Accordion = () => {
 	//grab all accordion triggers
 	const accordionToggles = document.querySelectorAll(
-		".bbuilds-accordion__toggle"
+		".portent-accordion__toggle"
 	);
 
 	//grab all accordion content
 	const accordionContents = document.querySelectorAll(
-		".bbuilds-accordion__content"
+		".portent-accordion__content"
 	);
 
 	//mobile check
@@ -47,8 +47,9 @@ const Accordion = () => {
 	const switchAccordion = (e) => {
 		e.preventDefault();
 		let thisTrigger = e.target;
+		console.log("thisTrigger", thisTrigger);
 		//if caputring event within button text buubble up to parent.
-		if (!thisTrigger.classList.contains("bbuilds-accordion__toggle")) {
+		if (!thisTrigger.classList.contains("portent-accordion__toggle")) {
 			thisTrigger = thisTrigger.parentNode;
 		}
 		const thisContent = thisTrigger.nextElementSibling;
@@ -111,7 +112,7 @@ const Accordion = () => {
 
 	//toggle crate and destroy for browser events
 	const toggleLifecycle = () => {
-		if (isMobile.matches) {
+		if (!isMobile.matches) {
 			destroyAccordion();
 		} else {
 			initAccordion();

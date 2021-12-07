@@ -1,8 +1,8 @@
 {
-	"name": "bbuilds-accordion",
+	"name": "portent-accordion",
 	"version": "0.1.0",
 	"description": "A custom accordion block that is responsive and accessible. ",
-	"author": "Bbuilds",
+	"author": "portent",
 	"license": "GPL-2.0-or-later",
 	"main": "build/index.js",
 	"scripts": {

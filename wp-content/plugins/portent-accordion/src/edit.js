@@ -61,7 +61,7 @@ export default function Edit({ attributes, setAttributes }) {
 	const excludeSelf = wp.blocks
 		.getBlockTypes()
 		.map((block) => block.name)
-		.filter((name) => name !== "bbuilds/accordion");
+		.filter((name) => name !== "portent/accordion");
 
 	return (
 		<>
@@ -75,20 +75,20 @@ export default function Edit({ attributes, setAttributes }) {
 			</BlockControls>
 			<div
 				{...useBlockProps({
-					className: "bbuilds-accordion",
+					className: "portent-accordion",
 				})}
 			>
 				<RichText
 					tagName={tagName}
-					placeholder={__("Accordion Title", "bbuilds-accordion")}
+					placeholder={__("Accordion Title", "portent-accordion")}
 					value={accordionTitle}
-					className="bbuilds-accordion__title"
+					className="portent-accordion__title"
 					onChange={(val) => {
 						setAttributes({ accordionTitle: val });
 					}}
 					allowedFormats={["core/bold", "core/italic"]}
 				/>
-				<div class="bbuilds-accordion__content">
+				<div class="portent-accordion__content">
 					<InnerBlocks
 						allowedBlocks={excludeSelf}
 						template={[
@@ -97,7 +97,7 @@ export default function Edit({ attributes, setAttributes }) {
 								{
 									placeholder: __(
 										"Add Accordion Content…",
-										"bbuilds-accordion"
+										"portent-accordion"
 									),
 								},
 							],
