@@ -549,16 +549,14 @@ function enercare_appointment_banner() {
 				$appointment_banner_is_emergency = 'appointment-banner--emergency';
 			}
 
-			echo '<a target="' . $appointment_banner_link_array['target'] . '" href="' . $appointment_banner_link_array['url'] . '">';
 			echo '<aside class="appointment-banner ' . $appointment_banner_is_emergency . '" >';
 			echo wp_get_attachment_image( $appointment_banner_icon_id, '1-1', false, array(
 				'class' => 'appointment-banner__icon',
 				'alt'   => ''
 			) );
 			echo '<span class="appointment-banner__title">' . $appointment_banner_title . '</span>';
-			echo '<div class="appointment-banner__link">' . $appointment_banner_link_text . '</div>';
+			echo '<a class="appointment-banner__link" aria-label="Current Offers - Get Deals" target="' . $appointment_banner_link_array['target'] . '" href="' . $appointment_banner_link_array['url'] . '">' . $appointment_banner_link_text . '</a>';
 			echo '</aside>';
-			echo '</a>';
 		}
 
 }

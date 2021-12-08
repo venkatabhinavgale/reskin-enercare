@@ -206,3 +206,8 @@ add_filter( 'excerpt_more', 'enercare_excerpt_more' );
 
 // Remove inline CSS for emoji
 remove_action( 'wp_print_styles', 'print_emoji_styles' );
+
+// Remove the comments RSS feed on /blog
+add_filter('feed_links_show_comments_feed', '__return_false');
+// Remove the comments RSS feed from individual blog posts
+remove_action('wp_head', 'feed_links_extra', 3);
