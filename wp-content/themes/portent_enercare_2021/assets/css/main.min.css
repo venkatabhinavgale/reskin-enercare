@@ -396,9 +396,9 @@ div.wpforms-container.one-line:after{content:"";display:table;clear:both}
 .appointment-banner:before,.appointment-banner:after{content:'';display:inline-block;background-image:url(../img/apt-bkgd-gry.svg);background-repeat:no-repeat;background-size:cover;width:40px;height:60px;position:absolute;z-index:10}
 .appointment-banner:before{left:0;-webkit-transform:translateX(-100%);transform:translateX(-100%)}
 .appointment-banner:after{right:0;-webkit-transform:translateX(100%);transform:translateX(100%);background-position:100% 0}
-.appointment-banner__icon{margin:0 .5em 0 0;height:24px;width:24px;line-height:22px}
+.appointment-banner__icon{margin:0 .5em 0 0;height:24px;width:24px;line-height:22px;-ms-flex-item-align:center;align-self:center}
 .appointment-banner__title{display:block;font-weight:bold;line-height:22px;color:#000;-ms-flex-item-align:end;align-self:flex-end;font-size:1em}
-.appointment-banner__link{background-color:#dc1c28;border:1px solid transparent;color:#fff;padding:6px 16px 3.5px;border-radius:20px;text-decoration:none;margin:0 0 0 1em;-ms-flex-item-align:baseline;align-self:baseline;font-weight:700;-webkit-transition:background-color .2s ease;transition:background-color .2s ease;line-height:22px;font-size:1em}
+.appointment-banner__link{background-color:#dc1c28;border:1px solid transparent;color:#fff;padding:6px 16px 3.5px;border-radius:20px;text-decoration:none;margin:0 0 0 1em;-ms-flex-item-align:start;align-self:flex-start;font-weight:700;-webkit-transition:background-color .2s ease;transition:background-color .2s ease;line-height:22px;font-size:1em}
 .appointment-banner__link:hover,.appointment-banner__link:focus{background-color:#af1620;-webkit-transition:background-color .3s ease;transition:background-color .3s ease}
 .appointment-banner__link:focus{border:1px dotted #e7444e}
 .appointment-banner__link::before{content:"";display:block;position:absolute;width:calc(100% + 80px);height:100%;top:0;left:-40px}
