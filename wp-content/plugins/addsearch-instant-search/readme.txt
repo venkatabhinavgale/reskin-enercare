@@ -1,11 +1,11 @@
-﻿=== AddSearch Site Search ===
+﻿=== AddSearch ===
 Plugin URI: http://www.addsearch.com/support/wordpress-plugin/
 Author URI: http://www.addsearch.com/
 Contributors: AddSearch, Sofokus, sami.keijonen
 Tags: search, instant search, site search, page search, category search, custom search, better search, autocomplete, typeahead
 Requires at least: 3.9
-Tested up to: 5.3.2
-Stable tag: 2.0.6
+Tested up to: 5.8.2
+Stable tag: 2.0.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -75,6 +75,12 @@ For questions and answers, please visit [our documentation](http://addsearch.com
 Try AddSearch for free for 7 days. Pricing starts at $25.00 per month. You can learn more about our pricing [here](https://www.addsearch.com/pricing/?utm_campaign=Wordpress%20Plugin&utm_source=wordpress_plugin).
 
 == Changelog ==
+
+= 2.0.7 =
+* Updated WP compatibility information
+
+= 2.0.4 =
+* Fixed issue with Compatibility check for PHP
 
 = 1.3.1 =
 * Update version number

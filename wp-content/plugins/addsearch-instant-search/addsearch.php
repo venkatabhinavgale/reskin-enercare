@@ -3,7 +3,7 @@
 Plugin Name:       AddSearch Instant Search
 Plugin URI:        https://www.addsearch.com/product/wordpress-search-plugin/?utm_campaign=Wordpress%20Plugin&utm_source=wordpress_plugin
 Description:       AddSearch is an instant site search engine for your website.
-Version:           2.0.6
+Version:           2.0.7
 Author:            AddSearch Ltd.
 Author URI:        https://www.addsearch.com/?utm_campaign=Wordpress%20Plugin&utm_source=wordpress_plugin
 License:           GPL-2.0+
