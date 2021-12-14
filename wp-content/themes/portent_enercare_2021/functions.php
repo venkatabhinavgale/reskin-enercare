@@ -498,7 +498,7 @@ function enercare_adobe_script() {
   );
   foreach ($paths as $path) {
     if (strpos($_SERVER['REQUEST_URI'], $path) !== false) {
-      echo '<script src="//assets.adobedtm.com/c876840ac68fc41c08a580a3fb1869c51ca83380/satelliteLib-846373831618e1c6db472950fa3697426ef78cda.js"></script>';
+      echo '<script src="//assets.adobedtm.com/175f7caa2b90/2cdcc41c4baa/launch-4a4c88c4b872.min.js" async></script>';
     }
   }
 }
@@ -513,7 +513,7 @@ function enercare_appointment_banner() {
   if (get_field('site_override') && get_field('site_override') == 'Commercial') {
     return;
   }
-  
+
 	//We expect this to be TRUE
 	$is_banner_active_global = get_field( 'appointment_banner_toggle', 'options');
 
