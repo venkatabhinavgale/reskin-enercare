@@ -678,7 +678,7 @@ p.large,p.has-large-font-size{font-size:1.125em}
 p.has-normal-font-size{font-size:1em}
 h1{font-size:3em}
 h2{font-size:2.6em}
-h3{font-size:2.2em}
+h3{font-size:1.8em}
 h4,h5,h6{font-size:22px}
 .only-mobile{display:none}
 .align-right-tablet{-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end;display:-webkit-box;display:-ms-flexbox;display:flex;text-align:right}
@@ -753,7 +753,7 @@ div.wpforms-container.one-line .wpforms-submit-container{float:right;width:110px
 p.has-normal-font-size{font-size:1em}
 h1{font-size:3.25em}
 h2{font-size:3em}
-h3{font-size:2.5em}
+h3{font-size:2.25em}
 .is-style-subhead1{font-size:28px}
 .is-style-subhead2{font-size:24px}
 .is-style-subhead3{font-size:20px}
