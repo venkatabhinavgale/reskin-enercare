@@ -11,7 +11,7 @@ echo '<div class="single-post__header" style="background-image:url(' . $post_ima
 		echo '<div class="single-post__header__container">';
             echo '<div class="single-post__featured">Featured Article</div>';
 				echo '<h1 class="entry-title single-post__title">' . get_the_title($featured_post->ID) . '</h1>';
-                the_excerpt();
+                echo get_the_excerpt($featured_post->ID);
             echo '<div class="single-post__read-more"><a href="' . get_the_permalink($featured_post->ID) . '">Read more ></a></div>';
 		echo '</div>';
 	echo '</div>';
