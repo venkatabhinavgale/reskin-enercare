@@ -10,9 +10,10 @@ const ALLOWED_MEDIA_TYPES = [ 'image' ];
 
 class responsiveCoverEdit extends Component {
 	render() {
-		const { attributes, setAttributes, desktopImage, tabletImage, mobileImage } = this.props;
-		const { desktopImageId, tabletImageId, mobileImageId } = attributes;
+		const { className, attributes, setAttributes, desktopImage, tabletImage, mobileImage } = this.props;
+		const { desktopImageId, tabletImageId, mobileImageId, desktopImageUrl, tabletImageUrl, mobileImageUrl } = attributes;
 		const instructions = <p>{ __( 'To edit the background image, you need permission to upload media.', 'portent-responsive-cover' ) }</p>;
+		const defaultClass = 'wp-block-portent-block-portent-responsive-cover';
 
 		const onUpdateImage = ( image, type ) => {
 			switch (type) {
@@ -53,6 +54,21 @@ class responsiveCoverEdit extends Component {
 					break;
 			}
 		}
+
+		//Set urls
+		{!!desktopImageId && desktopImage &&
+			setAttributes({ desktopImageUrl: desktopImage.source_url})
+		}
+
+		{!!tabletImageId && tabletImage &&
+		setAttributes({ tabletImageUrl: tabletImage.source_url})
+		}
+
+		{!!mobileImageId && mobileImage &&
+		setAttributes({ mobileImageUrl: mobileImage.source_url})
+		}
+
+		console.log(this.props);
 
 		return (
 			<Fragment>
@@ -178,7 +194,25 @@ class responsiveCoverEdit extends Component {
 						</div>
 					</PanelBody>
 				</InspectorControls>
-				<div>
+				<div className={className}>
+					<span className={ defaultClass + "__background"} aria-hidden={"true"}>{null}</span>
+					<picture className={defaultClass + "__picture"}>
+						{!!mobileImageId && mobileImage &&
+						<source data-image="mobile" srcSet={mobileImage.source_url} media="(max-width: 767px)"/>
+						}
+
+						{!!tabletImageId && tabletImage &&
+						<source data-image="tablet" srcSet={tabletImage.source_url} media="(max-width: 1023px)"/>
+						}
+
+						{!!desktopImageId && desktopImage &&
+						<source data-image="desktop" srcSet={desktopImage.source_url} media="(min-width: 1024px)"/>
+						}
+
+						{!!desktopImageId && desktopImage &&
+						<img src={desktopImage.source_url} alt=""/>
+						}
+					</picture>
 					<InnerBlocks />
 				</div>
 			</Fragment>
