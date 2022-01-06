@@ -89,3 +89,28 @@ function getCampaignsByPostalCode($postalcode) {
   }
   return array(-1);
 }
+
+// function queries all campaigns that have an associated location
+function getCampaignsWithLocations() {
+  $posts = get_posts(array(
+    'numberposts'   => -1,
+    'post_type'     => 'campaign',
+    'post_status'   => 'publish',
+    'meta_query'    => array(
+      'relation' => 'AND',
+      array(
+        'key' => 'locations',
+        'compare' => 'EXISTS'
+      ),
+      array(
+        'key' => 'locations',
+        'value'   => array(''),
+        'compare' => 'NOT IN'
+      )
+    )
+  ));
+  if (sizeof($posts) > 0)
+    return $posts;
+  else
+    return array(-1);
+}
