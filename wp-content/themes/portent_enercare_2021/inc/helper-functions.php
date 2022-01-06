@@ -343,11 +343,25 @@ function enercare_filter_archive( $query ) {
           $campaigns = getCampaignsByPostalCode($postal_code);
           $campaign_ids = array();
           foreach($campaigns as $campaign) {
-            $campaign_ids[] = $campaign->ID;
+            if (isset($campaign->ID)) {
+              $campaign_ids[] = $campaign->ID;
+            }
           }
-          if( !empty( $campaign_ids) ) {
-            $query->set('post__in', $campaign_ids);
+          
+          // grab all campaigns that have an associated location
+          $campaigns_with_locations = getCampaignsWithLocations();
+          $cwl_ids[] = array();
+          foreach($campaigns_with_locations as $cwl) {
+            // remove any campaigns that have already been queried
+            if (isset($cwl->ID) && !in_array($cwl->ID, $campaign_ids))
+              $cwl_ids[] = $cwl->ID;
           }
+          
+          // don't show all other location-specific campaigns. 
+          if( !empty( $cwl_ids) ) {
+            $query->set('post__not_in', $cwl_ids);
+          }
+          
         // if we're on the location archive page, get locations by postal code
         } elseif (is_post_type_archive('location')) {
           $location = getLocationByPostalCode($postal_code);
