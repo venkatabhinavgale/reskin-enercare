@@ -23,12 +23,12 @@ function enercare_schema() {
         // check if variable ratingValue exists. if so, get value
         if (strpos($schema, '%ratingValue%') !== false) {
           $aggregate_rating = ECReviews::getAggregateRating($location_id);
-          $schema = str_replace("%ratingValue%", number_format($aggregate_rating,1), $schema);
+          $schema = str_replace("%ratingValue%", number_format($aggregate_rating,1,'.',''), $schema);
         }
         // check if variable ratingCount exists. if so, get value
         if (strpos($schema, '%ratingCount%') !== false) {
           $total_reviews = ECReviews::getReviewsCount($location_id);
-          $schema = str_replace("%ratingCount%", number_format($total_reviews,0), $schema);
+          $schema = str_replace("%ratingCount%", number_format($total_reviews,0,'.',''), $schema);
         }
       }
     }
