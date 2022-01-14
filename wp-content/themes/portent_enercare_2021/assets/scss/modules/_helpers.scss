@@ -270,3 +270,14 @@
 		@include columns( $columns, $grid_item_element, $gap );
 	}
 }
+
+/**
+Accordion Icon
+ */
+@mixin accordion-arrow() {
+	background-image: url(../icons/navigation/expand_less_black_24dp_rounded.svg);
+	background-position: center center;
+	background-repeat: no-repeat;
+	height: 12px;
+	width: 12px;
+}

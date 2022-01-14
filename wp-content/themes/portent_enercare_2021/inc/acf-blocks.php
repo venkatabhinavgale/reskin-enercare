@@ -211,6 +211,29 @@ function enercare_register_theme_blocks() {
       ),
     ));
 
+	  acf_register_block_type( array(
+		  'name'            => 'locations-served',
+		  'title'           => __( 'Location We Serve' ),
+		  'description'     => __( 'This overly specific block is for the bottom of the footer. Use this block to display a list of links that will direct users to specific location pages.' ),
+		  'render_template' => 'partials/blocks/locations-served/block-locations-served.php',
+		  'category'        => 'layout',
+		  'mode'            => 'preview',
+		  'keywords'        => array('location', 'finder', 'search', 'form', 'enercare', 'portent'),
+		  'enqueue_assets' => function() {
+			  wp_enqueue_style( 'block-locations-served-style', get_template_directory_uri() . '/assets/css/block--locations-served.css', array('ea-style'), false, 'screen');
+			  wp_enqueue_script( 'block-locations-served-script', get_template_directory_uri() . '/assets/js/block--locations-served.js', null, false, true );
+		  },
+		  'supports'        => array(
+			  'mode'  => false,
+			  'align' => false,
+			  'color' => array(
+				  'background' => true,
+				  'text' => false,
+				  'gradients' => false
+			  )
+		  ),
+	  ));
+
     acf_register_block_type(array(
       'name'              => 'enercare-faqs',
       'title'             => __('FAQs', 'enercare'),

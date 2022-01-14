@@ -1,1 +1,131 @@
-document.addEventListener("DOMContentLoaded",(function(){(()=>{const e=document.querySelectorAll(".portent-accordion__toggle"),t=document.querySelectorAll(".portent-accordion__content"),n=window.matchMedia("(max-width: 768px)"),a="ontouchstart"in window,i="pointerdown"in window;let s;const o=e=>{e.preventDefault(),e.target.click()},l=(e,t,n)=>{e.setAttribute(t,n)},d=(e,t,n)=>{switch(n){case"true":l(e,"aria-expanded","true"),l(t,"aria-hidden","false");break;case"false":l(e,"aria-expanded","false"),l(t,"aria-hidden","true")}},r=e=>{e.preventDefault();let t=e.target;console.log("thisTrigger",t),t.classList.contains("portent-accordion__toggle")||(t=t.parentNode);const n=t.nextElementSibling;n.classList.contains("is-collapsed")?d(t,n,"true"):d(t,n,"false"),t.classList.toggle("is-expanded"),n.classList.toggle("is-collapsed"),n.classList.toggle("is-expanded"),n.classList.toggle("animateIn")},c=()=>{n.matches?(()=>{for(let t=0,n=e.length;t<n;t++)a&&e[t].addEventListener("touchstart",o,!1),i&&e[t].addEventListener("pointerdown",o,!1),l(e[t],"aria-hidden","false"),e[t].addEventListener("click",r,!1);for(let e=0,n=t.length;e<n;e++)l(t[e],"aria-hidden","true"),t[e].classList.add("is-collapsed")})():(()=>{for(let t=0,n=e.length;t<n;t++)l(e[t],"aria-hidden","true"),e[t].removeEventListener("click",r,!1);for(let e=0,n=t.length;e<n;e++)l(t[e],"aria-hidden","false"),t[e].classList.remove("is-collapsed")})()};window.onresize=()=>{clearTimeout(s),s=setTimeout(c,250)},window.onload=c})()}));
+/******/ (function() { // webpackBootstrap
+var __webpack_exports__ = {};
+/*!**************************!*\
+  !*** ./src/accordion.js ***!
+  \**************************/
+const Accordion = () => {
+  //grab all accordion triggers
+  const accordionToggles = document.querySelectorAll(".portent-accordion__toggle"); //grab all accordion content
+
+  const accordionContents = document.querySelectorAll(".portent-accordion__content"); //mobile check
+
+  const isMobile = window.matchMedia("(max-width: 768px)");
+  const touchSupported = ("ontouchstart" in window);
+  const pointerSupported = ("pointerdown" in window);
+  let timeout;
+
+  const skipClickDelay = e => {
+    e.preventDefault();
+    e.target.click();
+  }; //Sets attributes on each element
+
+
+  const setAriaAttr = (el, ariaType, newProperty) => {
+    el.setAttribute(ariaType, newProperty);
+  }; //Set the accesibility for the accordion.
+
+
+  const setAccordionAria = (el1, el2, expanded) => {
+    switch (expanded) {
+      case "true":
+        setAriaAttr(el1, "aria-expanded", "true");
+        setAriaAttr(el2, "aria-hidden", "false");
+        break;
+
+      case "false":
+        setAriaAttr(el1, "aria-expanded", "false");
+        setAriaAttr(el2, "aria-hidden", "true");
+        break;
+
+      default:
+        break;
+    }
+  }; //toggle the accordion properties
+
+
+  const switchAccordion = e => {
+    e.preventDefault();
+    let thisTrigger = e.target;
+    console.log("thisTrigger", thisTrigger); //if caputring event within button text buubble up to parent.
+
+    if (!thisTrigger.classList.contains("portent-accordion__toggle")) {
+      thisTrigger = thisTrigger.parentNode;
+    }
+
+    const thisContent = thisTrigger.nextElementSibling;
+
+    if (thisContent.classList.contains("is-collapsed")) {
+      setAccordionAria(thisTrigger, thisContent, "true");
+    } else {
+      setAccordionAria(thisTrigger, thisContent, "false");
+    } // thisTrigger.classList.toggle("is-collapsed");
+
+
+    thisTrigger.classList.toggle("is-expanded");
+    thisContent.classList.toggle("is-collapsed");
+    thisContent.classList.toggle("is-expanded");
+    thisContent.classList.toggle("animateIn");
+  }; //check if mobile or desktop
+  //if mobile then remove collpased and click events
+
+
+  const initAccordion = () => {
+    for (let i = 0, len = accordionToggles.length; i < len; i++) {
+      if (touchSupported) {
+        accordionToggles[i].addEventListener("touchstart", skipClickDelay, false);
+      }
+
+      if (pointerSupported) {
+        accordionToggles[i].addEventListener("pointerdown", skipClickDelay, false);
+      }
+
+      setAriaAttr(accordionToggles[i], "aria-hidden", "false");
+      accordionToggles[i].addEventListener("click", switchAccordion, false);
+    }
+
+    for (let i = 0, len = accordionContents.length; i < len; i++) {
+      setAriaAttr(accordionContents[i], "aria-hidden", "true");
+      accordionContents[i].classList.add("is-collapsed");
+    }
+  }; //destroy and remove functionality from accordion
+
+
+  const destroyAccordion = () => {
+    for (let i = 0, len = accordionToggles.length; i < len; i++) {
+      setAriaAttr(accordionToggles[i], "aria-hidden", "true");
+      accordionToggles[i].removeEventListener("click", switchAccordion, false);
+    }
+
+    for (let i = 0, len = accordionContents.length; i < len; i++) {
+      setAriaAttr(accordionContents[i], "aria-hidden", "false");
+      accordionContents[i].classList.remove("is-collapsed");
+    }
+  }; //toggle crate and destroy for browser events
+
+
+  const toggleLifecycle = () => {
+    if (!isMobile.matches) {
+      destroyAccordion();
+    } else {
+      initAccordion();
+    }
+  }; //size check on window resize
+
+
+  window.onresize = () => {
+    //debouncing to prevent multiple calls
+    clearTimeout(timeout);
+    timeout = setTimeout(toggleLifecycle, 250);
+  }; //init accordion
+
+
+  window.onload = toggleLifecycle;
+}; //Load the accordion
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  Accordion();
+});
+/******/ })()
+;
+//# sourceMappingURL=accordion.js.map
