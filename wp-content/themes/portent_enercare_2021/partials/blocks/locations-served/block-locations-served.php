@@ -12,7 +12,7 @@ $locations = get_field('locations');
 ?>
 
 <section class="<?= $classes ?>">
-	<div class="<?= $block_class_base ?>__containers">
+	<div class="<?= $block_class_base ?>__containers" data-open=false>
 		<div data-allow-toggle class="<?= $block_class_base ?>__locations">
 			<h2 class="<?= $block_class_base ?>__header">
 				<button aria-expanded="false" class="<?= $block_class_base ?>__trigger" aria-controls="locations-served-list">

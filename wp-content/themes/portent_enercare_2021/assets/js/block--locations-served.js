@@ -37,7 +37,8 @@ Array.prototype.slice.call(document.querySelectorAll('.block-locations-served__l
         // Set the expanded state on the triggering element
         target.setAttribute('aria-expanded', 'true'); // Hide the accordion sections, using aria-controls to specify the desired section
 
-        document.getElementById(target.getAttribute('aria-controls')).removeAttribute('hidden'); // If toggling is not allowed, set disabled state on trigger
+        document.getElementById(target.getAttribute('aria-controls')).removeAttribute('hidden');
+        accordion.parentElement.setAttribute('data-open', true); // If toggling is not allowed, set disabled state on trigger
 
         if (!allowToggle) {
           target.setAttribute('aria-disabled', 'true');
@@ -47,6 +48,7 @@ Array.prototype.slice.call(document.querySelectorAll('.block-locations-served__l
         target.setAttribute('aria-expanded', 'false'); // Hide the accordion sections, using aria-controls to specify the desired section
 
         document.getElementById(target.getAttribute('aria-controls')).setAttribute('hidden', '');
+        accordion.parentElement.setAttribute('data-open', false);
       }
 
       event.preventDefault();
