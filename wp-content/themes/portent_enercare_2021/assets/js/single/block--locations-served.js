@@ -67,7 +67,7 @@ Array.prototype.slice.call(document.querySelectorAll('.block-locations-served__l
 		var target = event.target;
 		var key = event.which.toString();
 
-		var isExpanded = target.getAttribute('aria-expanded') == 'true';
+		var isExpanded = target.getAttribute('aria-expanded') === 'true';
 		var allowToggle = (allowMultiple) ? allowMultiple : accordion.hasAttribute('data-allow-toggle');
 
 		// 33 = Page Up, 34 = Page Down

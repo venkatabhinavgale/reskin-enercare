@@ -196,14 +196,31 @@ Site Footer
 	}
 
 	.menu-item-has-children > a {
-		@include large-font-style();
-		@include strong-font-style();
-		display: block;
+		@include regular-font-style();
 		padding: 1em 0;
 	}
 
 	.sub-menu a {
 		@include regular-font-style();
+	}
+
+
+	.portent-accordion__toggle {
+
+		display: flex;
+
+		h2 {
+			@include large-font-style();
+			@include strong-font-style();
+		}
+
+		.portent-accordion__icon {
+			width: 10px;
+			z-index: 1;
+		}
+
+		@include media('>=tablet') {
+		}
 	}
 }
 
