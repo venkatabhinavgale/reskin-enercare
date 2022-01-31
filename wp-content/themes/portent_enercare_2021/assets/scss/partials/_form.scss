@@ -354,3 +354,62 @@ textarea {
 		}
 	}
 }
+
+/*  Masthead Form
+--------------------------------------------*/
+
+.gform_wrapper.callback-form {
+	&_wrapper {
+		input[type=button] {
+			padding: 0;
+		}
+
+		.gf_progressbar_wrapper {
+			.gf_progressbar_title {
+				color: $white;
+			}
+		}
+
+		div.ginput_counter {
+			color: $white;
+		}
+
+		.gfield_label_before_complex {
+			margin-bottom: 0;
+			line-height: 21px;
+		}
+
+		.gform__disclaimer {
+			@include font-sizes(0.875em);
+		}
+
+		.gfield textarea.large {
+			height: 75px !important; // Override theme form text area height
+		}
+
+		.validation_message,
+		.instruction,
+		.gfield_description.validation_message {
+			padding: 0.2em 1.5em;
+			margin-top: 0;
+		}
+
+		.ginput_container {
+			.validation_message,
+			.instruction,
+			.gfield_description.validation_message {
+				padding: 0.2em 1.5em;
+				margin-top: 0;
+			}
+		}
+
+		.gform_page_footer input+input {
+			margin-left: 0 !important; // Override theme button margin
+		}
+
+		.gform_page_footer input[type=submit] {
+			padding: 0;
+		}
+
+	}
+}
