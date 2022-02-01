@@ -87,16 +87,28 @@ input:focus::-webkit-input-placeholder,input:focus::-moz-placeholder,input:focus
 .gform_wrapper.product-form_wrapper .product-form .gform_body .gform__disclaimer{width:100%;font-size:10px;line-height:12px}
 .gform_wrapper.product-form_wrapper .product-form .gform_footer{display:-webkit-box;display:-ms-flexbox;display:flex}
 .gform_wrapper.product-form_wrapper .product-form .gform_footer input[type=submit]{width:140px;border-radius:30px;font-size:1rem;font-weight:700;line-height:22px;padding:5px 16px;text-decoration:none;background-color:#dc1c28;color:#fff}
-.gform_wrapper.callback-form_wrapper input[type=button]{padding:0}
-.gform_wrapper.callback-form_wrapper .gf_progressbar_wrapper .gf_progressbar_title{color:#fff}
-.gform_wrapper.callback-form_wrapper div.ginput_counter{color:#fff}
+.gform_wrapper.callback-form{position:relative}
+.gform_wrapper.callback-form_wrapper{width:100%;padding:1.5em;background-color:#fff;border-top:4px solid #dc1c28;color:#000;font-weight:300}
+.gform_wrapper.callback-form_wrapper .gf_progressbar_title{text-align:right}
 .gform_wrapper.callback-form_wrapper .gfield_label_before_complex{margin-bottom:0;line-height:21px}
 .gform_wrapper.callback-form_wrapper .gform__disclaimer{font-size:.875em}
 .gform_wrapper.callback-form_wrapper .gfield textarea.large{height:75px !important}
+.gform_wrapper.callback-form_wrapper .gform_ajax_spinner{position:absolute;left:5%;bottom:5%}
 .gform_wrapper.callback-form_wrapper .validation_message,.gform_wrapper.callback-form_wrapper .instruction,.gform_wrapper.callback-form_wrapper .gfield_description.validation_message{padding:.2em 1.5em;margin-top:0}
+.gform_wrapper.callback-form_wrapper select{font-family:"Post Grotesk",serif,"Helvetica Neue",sans-serif}
 .gform_wrapper.callback-form_wrapper .ginput_container .validation_message,.gform_wrapper.callback-form_wrapper .ginput_container .instruction,.gform_wrapper.callback-form_wrapper .ginput_container .gfield_description.validation_message{padding:.2em 1.5em;margin-top:0}
 .gform_wrapper.callback-form_wrapper .gform_page_footer input+input{margin-left:0 !important}
-.gform_wrapper.callback-form_wrapper .gform_page_footer input[type=submit]{padding:0}
+.gform_wrapper.callback-form_wrapper .gform_page_footer{display:-webkit-box;display:-ms-flexbox;display:flex}
+.gform_wrapper.callback-form_wrapper .gform_page_footer input[type=button],.gform_wrapper.callback-form_wrapper .gform_page_footer input[type=submit]{width:100%;border-radius:30px;font-size:1.25em;font-weight:700;line-height:32px;padding:.25em 0 1em;-webkit-box-flex:1;-ms-flex-positive:1;flex-grow:1;text-decoration:none}
+.gform_wrapper.callback-form_wrapper .gform_page_footer input[type=button],.gform_wrapper.callback-form_wrapper .gform_page_footer input[type=submit]{height:3em;padding:.75em .25em .5em}
+.gform_wrapper.callback-form_wrapper .gform_page_footer .gform_next_button{background-color:#dc1c28;color:#fff}
+.gform_wrapper.callback-form_wrapper .gform_page_footer .gform_next_button:hover,.gform_wrapper.callback-form_wrapper .gform_page_footer .gform_next_button:focus{background-color:#af1620}
+.gform_wrapper.callback-form_wrapper .gform_page_footer .gform_previous_button+input{margin-left:.25em !important}
+.gform_wrapper.callback-form_wrapper .gform_page_footer .gform_previous_button:hover,.gform_wrapper.callback-form_wrapper .gform_page_footer .gform_previous_button:focus{background-color:#e6e4e4}
+.gform_wrapper.callback-form_wrapper .gform_page_footer input[type=submit]{background-color:#dc1c28;color:#fff}
+.gform_confirmation_wrapper.callback-form{height:100%}
+.gform_confirmation_wrapper.callback-form .gform_confirmation_message{border-top:4px solid #dc1c28;border-bottom:0;border-left:0;border-right:0;padding:2em;margin:0 auto;max-width:none;text-align:center;position:relative;height:100%;background-color:white;color:black;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
+.gform_confirmation_wrapper.callback-form .gform_confirmation_message:before{content:none}
 body{color:#29292c;font-family:"Post Grotesk",serif,"Helvetica Neue",sans-serif;font-size:1em;font-weight:300;line-height:1.55}
 a{color:#dc1c28;text-decoration:underline}
 a:hover{text-decoration:none}
@@ -811,6 +823,7 @@ div.wp-block-group{padding:70px 16px}
 }@media(min-width:1200px){.gform_wrapper{width:54%}
 .gform_wrapper .gform_footer input[type=submit]{padding:8px 24px;border-radius:20px;margin-top:0}
 .gform_wrapper.product-form_wrapper .product-form .gform_footer input[type=submit]{padding:8px 24px;border-radius:20px;margin-top:0}
+.gform_wrapper.callback-form_wrapper .gform_page_footer input[type=button],.gform_wrapper.callback-form_wrapper .gform_page_footer input[type=submit]{margin-top:0}
 p.has-normal-font-size{font-size:1em}
 .align-right-desktop{-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end;display:-webkit-box;display:-ms-flexbox;display:flex;text-align:right}
 .top-bar .search-form{-ms-flex-preferred-size:36%;flex-basis:36%}

@@ -359,19 +359,19 @@ textarea {
 --------------------------------------------*/
 
 .gform_wrapper.callback-form {
+
+	position: relative;
+
 	&_wrapper {
-		input[type=button] {
-			padding: 0;
-		}
+		width: 100%;
+		padding: 1.5em;
+		background-color: $white;
+		border-top: 4px solid brand-color('red');
+		color: $black;
+		font-weight: 300;
 
-		.gf_progressbar_wrapper {
-			.gf_progressbar_title {
-				color: $white;
-			}
-		}
-
-		div.ginput_counter {
-			color: $white;
+		.gf_progressbar_title {
+			text-align: right;
 		}
 
 		.gfield_label_before_complex {
@@ -387,11 +387,21 @@ textarea {
 			height: 75px !important; // Override theme form text area height
 		}
 
+		.gform_ajax_spinner {
+			position: absolute;
+			left: 5%;
+			bottom: 5%;
+		}
+
 		.validation_message,
 		.instruction,
 		.gfield_description.validation_message {
 			padding: 0.2em 1.5em;
 			margin-top: 0;
+		}
+
+		select {
+			font-family: $sans-serif;
 		}
 
 		.ginput_container {
@@ -407,9 +417,83 @@ textarea {
 			margin-left: 0 !important; // Override theme button margin
 		}
 
-		.gform_page_footer input[type=submit] {
-			padding: 0;
-		}
+		.gform_page_footer {
+				display: flex;
+				/*justify-content: flex-end;*/
 
+				input[type=button],
+				input[type=submit] {
+					width: 100%;
+					border-radius: 30px;
+					font-size: 1.25em;
+					font-weight: 700;
+					line-height: 32px;
+					padding: 0.25em 0 1em;
+					flex-grow: 1;
+					text-decoration: none;
+
+					@include media(">=desktop") {
+						margin-top: 0em;
+					}
+				}
+
+				input[type=button],
+				input[type=submit] {
+					height: 3em;
+					padding: .75em 0.25em .5em;
+				}
+				.gform_next_button {
+					background-color: brand_color('red');
+					color: $white;
+
+					&:hover, &:focus {
+						background-color: brand_color('red', 'darken');
+					}
+				}
+
+				.gform_previous_button {
+
+					& + input {
+						margin-left: 0.25em !important;
+					}
+
+					&:hover, &:focus {
+						background-color: $grey_2;
+					}
+				}
+
+				input[type=submit] {
+					background-color: brand_color('red');
+					color: $white;
+				}
+			}
+	}
+}
+
+.gform_confirmation_wrapper.callback-form {
+
+	height: 100%;
+
+	.gform_confirmation_message {
+		border-top: 4px solid brand_color('red');
+		border-bottom: none;
+		border-left: none;
+		border-right: none;
+		padding: 2em;
+		margin: 0em auto;
+		max-width: none;
+		text-align: center;
+		position: relative;
+		height: 100%;
+		background-color: white;
+		color: black;
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		justify-content: center;
+
+		&:before {
+			content: none;
+		}
 	}
 }
