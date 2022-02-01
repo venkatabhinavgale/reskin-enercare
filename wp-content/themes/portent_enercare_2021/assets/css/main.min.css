@@ -88,6 +88,8 @@ input:focus::-webkit-input-placeholder,input:focus::-moz-placeholder,input:focus
 .gform_wrapper.product-form_wrapper .product-form .gform_footer{display:-webkit-box;display:-ms-flexbox;display:flex}
 .gform_wrapper.product-form_wrapper .product-form .gform_footer input[type=submit]{width:140px;border-radius:30px;font-size:1rem;font-weight:700;line-height:22px;padding:5px 16px;text-decoration:none;background-color:#dc1c28;color:#fff}
 .gform_wrapper.callback-form{position:relative}
+.gform_wrapper.callback-form__header{text-align:center}
+.gform_wrapper.callback-form__header h2{font-size:2.5em}
 .gform_wrapper.callback-form_wrapper{width:100%;padding:1.5em;background-color:#fff;border-top:4px solid #dc1c28;color:#000;font-weight:300}
 .gform_wrapper.callback-form_wrapper .gf_progressbar_title{text-align:right}
 .gform_wrapper.callback-form_wrapper .gfield_label_before_complex{margin-bottom:0;line-height:21px}
