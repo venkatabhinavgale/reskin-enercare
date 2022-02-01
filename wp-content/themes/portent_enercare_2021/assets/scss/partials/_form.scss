@@ -360,23 +360,11 @@ textarea {
 
 .gform_wrapper.callback-form {
 	&_wrapper {
-		width: 75%;
-		padding: 1em;
-		background-color: rgba(0,0,0,0.8);
-
-		input[type=button] {
-			padding: 0;
-		}
-
-		.gf_progressbar_wrapper {
-			.gf_progressbar_title {
-				color: $white;
-			}
-		}
-
-		div.ginput_counter {
-			color: $white;
-		}
+		width: 100%;
+		padding: 1.5em;
+		background-color: $white;
+		border-top: 4px solid brand-color('red');
+		color: $black;
 
 		.gfield_label_before_complex {
 			margin-bottom: 0;
@@ -411,9 +399,27 @@ textarea {
 			margin-left: 0 !important; // Override theme button margin
 		}
 
-		.gform_page_footer input[type=submit] {
-			padding: 0;
-		}
+		.gform_page_footer {
+				display: flex;
+				/*justify-content: flex-end;*/
+
+				input[type=button],
+				input[type=submit] {
+					width: 100%;
+					border-radius: 30px;
+					font-size: 1.5em;
+					font-weight: 700;
+					line-height: 32px;
+					padding: 0.25em 0 1em;
+					text-decoration: none;
+					background-color: brand-color('red');
+					color: $white;
+
+					@include media(">=desktop") {
+						margin-top: 0em;
+					}
+				}
+			}
 
 		// Validation specific styles
 		// Targeting Page 1
