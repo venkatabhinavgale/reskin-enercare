@@ -87,6 +87,7 @@ input:focus::-webkit-input-placeholder,input:focus::-moz-placeholder,input:focus
 .gform_wrapper.product-form_wrapper .product-form .gform_body .gform__disclaimer{width:100%;font-size:10px;line-height:12px}
 .gform_wrapper.product-form_wrapper .product-form .gform_footer{display:-webkit-box;display:-ms-flexbox;display:flex}
 .gform_wrapper.product-form_wrapper .product-form .gform_footer input[type=submit]{width:140px;border-radius:30px;font-size:1rem;font-weight:700;line-height:22px;padding:5px 16px;text-decoration:none;background-color:#dc1c28;color:#fff}
+.gform_wrapper.callback-form_wrapper{width:75%;padding:1em;background-color:rgba(0,0,0,0.8)}
 .gform_wrapper.callback-form_wrapper input[type=button]{padding:0}
 .gform_wrapper.callback-form_wrapper .gf_progressbar_wrapper .gf_progressbar_title{color:#fff}
 .gform_wrapper.callback-form_wrapper div.ginput_counter{color:#fff}
@@ -811,6 +812,12 @@ div.wp-block-group{padding:70px 16px}
 }@media(min-width:1200px){.gform_wrapper{width:54%}
 .gform_wrapper .gform_footer input[type=submit]{padding:8px 24px;border-radius:20px;margin-top:0}
 .gform_wrapper.product-form_wrapper .product-form .gform_footer input[type=submit]{padding:8px 24px;border-radius:20px;margin-top:0}
+.gform_wrapper.callback-form_wrapper #gform_page_11_1 .gfield_error{max-height:90px}
+.gform_wrapper.callback-form_wrapper #gform_page_11_1 #validation_message_11_1{-webkit-transform:translate(100%,-220%);transform:translate(100%,-220%)}
+.gform_wrapper.callback-form_wrapper #gform_page_11_1 .validation_message,.gform_wrapper.callback-form_wrapper #gform_page_11_1 .instruction,.gform_wrapper.callback-form_wrapper #gform_page_11_1 .gfield_description.validation_message{-webkit-transform:translate(100%,-130%);transform:translate(100%,-130%)}
+.gform_wrapper.callback-form_wrapper #gform_page_11_1 .ginput_container .validation_message,.gform_wrapper.callback-form_wrapper #gform_page_11_1 .ginput_container .instruction,.gform_wrapper.callback-form_wrapper #gform_page_11_1 .ginput_container .gfield_description.validation_message{-webkit-transform:translate(100%,-130%);transform:translate(100%,-130%)}
+.gform_wrapper.callback-form_wrapper #gform_page_11_2 .gfield_error{max-height:260px}
+.gform_wrapper.callback-form_wrapper #gform_page_11_2 .validation_message,.gform_wrapper.callback-form_wrapper #gform_page_11_2 .instruction,.gform_wrapper.callback-form_wrapper #gform_page_11_2 .gfield_description.validation_message{-webkit-transform:translate(100%,-290%);transform:translate(100%,-290%)}
 p.has-normal-font-size{font-size:1em}
 .align-right-desktop{-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end;display:-webkit-box;display:-ms-flexbox;display:flex;text-align:right}
 .top-bar .search-form{-ms-flex-preferred-size:36%;flex-basis:36%}
