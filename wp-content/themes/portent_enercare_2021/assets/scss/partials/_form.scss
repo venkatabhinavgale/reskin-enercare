@@ -365,6 +365,11 @@ textarea {
 		background-color: $white;
 		border-top: 4px solid brand-color('red');
 		color: $black;
+		font-weight: 300;
+
+		.gf_progressbar_title {
+			text-align: right;
+		}
 
 		.gfield_label_before_complex {
 			margin-bottom: 0;
@@ -407,72 +412,26 @@ textarea {
 				input[type=submit] {
 					width: 100%;
 					border-radius: 30px;
-					font-size: 1.5em;
+					font-size: 1.25em;
 					font-weight: 700;
 					line-height: 32px;
 					padding: 0.25em 0 1em;
+					flex-grow: 1;
 					text-decoration: none;
-					background-color: brand-color('red');
-					color: $white;
 
 					@include media(">=desktop") {
 						margin-top: 0em;
 					}
 				}
-			}
 
-		// Validation specific styles
-		// Targeting Page 1
-		#gform_page_11_1 {
-			
-				.gfield_error {
-					@include media( '>=desktop') {
-						max-height: 90px;
-					}
+				input[type=button] {
+					background-color: $grey_1;
 				}
 
-				#validation_message_11_1 {
-					@include media( '>=desktop') {
-						transform: translate(100%, -220%);
-					}
-				}
-
-				.validation_message,
-				.instruction,
-				.gfield_description.validation_message {
-					@include media( '>=desktop') {
-						transform: translate(100%, -130%);
-					}
-				}
-
-				.ginput_container {
-					.validation_message,
-					.instruction,
-					.gfield_description.validation_message {
-
-						@include media( '>=desktop') {
-							transform: translate(100%, -130%);
-						}
-					}
-				}
-		}
-
-		// Targeting Page 2
-
-		#gform_page_11_2 {
-			.gfield_error {
-				@include media( '>=desktop') {
-					max-height: 260px;
+				input[type=submit] {
+					background-color: brand_color('red');
+					color: $white;
 				}
 			}
-
-			.validation_message,
-			.instruction,
-			.gfield_description.validation_message {
-				@include media( '>=desktop') {
-					transform: translate(100%, -290%);
-				}
-			}
-		}
 	}
 }
