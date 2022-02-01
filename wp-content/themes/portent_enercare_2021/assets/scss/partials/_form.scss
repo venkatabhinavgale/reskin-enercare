@@ -360,6 +360,10 @@ textarea {
 
 .gform_wrapper.callback-form {
 	&_wrapper {
+		width: 75%;
+		padding: 1em;
+		background-color: rgba(0,0,0,0.8);
+
 		input[type=button] {
 			padding: 0;
 		}
@@ -411,5 +415,58 @@ textarea {
 			padding: 0;
 		}
 
+		// Validation specific styles
+		// Targeting Page 1
+		#gform_page_11_1 {
+			
+				.gfield_error {
+					@include media( '>=desktop') {
+						max-height: 90px;
+					}
+				}
+
+				#validation_message_11_1 {
+					@include media( '>=desktop') {
+						transform: translate(100%, -220%);
+					}
+				}
+
+				.validation_message,
+				.instruction,
+				.gfield_description.validation_message {
+					@include media( '>=desktop') {
+						transform: translate(100%, -130%);
+					}
+				}
+
+				.ginput_container {
+					.validation_message,
+					.instruction,
+					.gfield_description.validation_message {
+
+						@include media( '>=desktop') {
+							transform: translate(100%, -130%);
+						}
+					}
+				}
+		}
+
+		// Targeting Page 2
+
+		#gform_page_11_2 {
+			.gfield_error {
+				@include media( '>=desktop') {
+					max-height: 260px;
+				}
+			}
+
+			.validation_message,
+			.instruction,
+			.gfield_description.validation_message {
+				@include media( '>=desktop') {
+					transform: translate(100%, -290%);
+				}
+			}
+		}
 	}
 }
