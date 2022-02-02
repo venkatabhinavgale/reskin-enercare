@@ -1,4 +1,6 @@
-window.onload = (event) => {
+window.addEventListener("load", portentFrontEndTabInit );
+function portentFrontEndTabInit(event) {
+
 	/**
 	 * Desktop
 	 */
@@ -6,7 +8,7 @@ window.onload = (event) => {
 	tabs.forEach( tab => {
 		tab.addEventListener( 'click', (event) => {
 			let parent = event.target.parentElement;
-      let children = Array.prototype.slice.call(parent.children);
+      		let children = Array.prototype.slice.call(parent.children);
 			children.forEach( child => {
 				child.classList.remove('active');
 			});
