@@ -381,7 +381,7 @@ gulp.task("criticalcss", function () {
   var criticalurls = {
     "front.css": baseurl,
     "blog.css": baseurl + "/blog/",
-    "blog-single.css": baseurl + "/blog/plumbing/simple-tips-to-winterize-your-homes-plumbing",
+    "blog-single.css": baseurl + "/blog/home-heating/it-time-replace-your-furnace",
     "special-offers.css": baseurl + "/special-offers",
     "locations.css": baseurl + "/locations",
     "single-location.css": baseurl + "/locations/toronto",
