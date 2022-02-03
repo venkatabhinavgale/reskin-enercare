@@ -34,7 +34,7 @@ echo '<div class="site-container">';
 		tha_header_top();
 		echo '<div class="wrap">';
 		echo '<div class="title-area">';
-		echo '<a href="' . esc_url( home_url() ) . '" rel="home">' . wp_get_attachment_image($logo_id, 'full', false, ['alt' =>  get_bloginfo( 'name' )]) . '</a>';
+		echo '<a href="' . esc_url( home_url() ) . '" rel="home">' . wp_get_attachment_image($logo_id, 'full', false, ['alt' =>  get_bloginfo( 'name' ), 'loading' => '']) . '</a>';
 		echo '</div>';
 		tha_header_bottom();
 	echo '</div></header>';

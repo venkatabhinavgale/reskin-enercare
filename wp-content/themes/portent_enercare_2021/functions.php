@@ -599,7 +599,27 @@ function enercare_critical_css() {
     echo '</style><!--End Critical CSS -->';
   }
 }
-add_action( 'wp_head', 'enercare_critical_css', 0, 1 );
+add_action( 'tha_head_top', 'enercare_critical_css', 2, 0 );
+
+/**
+ * Critical CSS
+ */
+function enercare_preload_assets() {
+  $base_fonts_dir = get_template_directory_uri() . '/assets/fonts/';
+  echo '<link rel="preload" href="' . $base_fonts_dir . 'PostGrotesk-Black.WOFF" as="font" type="font/woff">' . "\n";
+  echo '<link rel="preload" href="' . $base_fonts_dir . 'PostGrotesk-BlackItalic.WOFF" as="font" type="font/woff">' . "\n";
+  echo '<link rel="preload" href="' . $base_fonts_dir . 'PostGrotesk-Bold.WOFF" as="font" type="font/woff">' . "\n";
+  echo '<link rel="preload" href="' . $base_fonts_dir . 'PostGrotesk-BoldItalic.WOFF" as="font" type="font/woff">' . "\n";
+  echo '<link rel="preload" href="' . $base_fonts_dir . 'PostGrotesk-Book.WOFF" as="font" type="font/woff">' . "\n";
+  echo '<link rel="preload" href="' . $base_fonts_dir . 'PostGrotesk-BookItalic.WOFF" as="font" type="font/woff">' . "\n";
+  echo '<link rel="preload" href="' . $base_fonts_dir . 'PostGrotesk-Light.WOFF" as="font" type="font/woff">' . "\n";
+  echo '<link rel="preload" href="' . $base_fonts_dir . 'PostGrotesk-LightItalic.WOFF" as="font" type="font/woff">' . "\n";
+  echo '<link rel="preload" href="' . $base_fonts_dir . 'PostGrotesk-Medium.WOFF" as="font" type="font/woff">' . "\n";
+  echo '<link rel="preload" href="' . $base_fonts_dir . 'PostGrotesk-MediumItalic.WOFF" as="font" type="font/woff">' . "\n";
+  echo '<link rel="preload" href="' . $base_fonts_dir . 'PostGrotesk-Thin.WOFF" as="font" type="font/woff">' . "\n";
+  echo '<link rel="preload" href="' . $base_fonts_dir . 'PostGrotesk-ThinItalic.WOFF" as="font" type="font/woff">' . "\n";
+}
+add_action( 'tha_head_top', 'enercare_preload_assets', 1, 0 );
 
 /**
  * Adding filter for skipping lazy loading on certain images in the_content
