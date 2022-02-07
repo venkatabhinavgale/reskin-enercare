@@ -187,6 +187,32 @@ function enercare_gutenberg_scripts() {
 add_action( 'enqueue_block_editor_assets', 'enercare_gutenberg_scripts' );
 
 /**
+ * Defer specific theme level scripts
+ */
+function enercare_defer_scripts( $tag, $handle, $src ) {
+	$defer = array(
+		'glider-js',
+		'legal-terms',
+		'block--offer-card-script',
+		'micromodal-script',
+		'related-posts-carousel',
+		'block-locations-served-script',
+		'block--faqs-script',
+		'block-blog-posts-script',
+		'column-carousels',
+		'block-tabbed-content-script',
+		'portent-accordion-script',
+		'enercare-reviews-scripts'
+	);
+
+	if ( in_array( $handle, $defer ) ) {
+		return '<script src="' . $src . '" defer="defer" type="text/javascript"></script>' . "\n";
+	}
+
+	return $tag;
+}
+
+/**
  * Theme Fonts URL
  *
  */
@@ -635,6 +661,7 @@ function enercare_skip_loading_lazy_images( $value, $image, $context ) {
 }
 add_filter('wp_img_tag_add_loading_attr', 'enercare_skip_loading_lazy_images', 10, 3);
 
+add_filter( 'script_loader_tag', 'enercare_defer_scripts', 10, 3 );
 /**
  * Customizing Pre Get Posts. Campaign Archive Filter All Post Results
  */

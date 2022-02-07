@@ -30,7 +30,7 @@ $locations = get_field('locations');
 				</ul>
 		</div>
 		<div class="<?= $block_class_base ?>__button">
-			<a href="/locations" class="<?= $block_class_base ?>__cta"><img alt="" role="presentation" src="<?= get_template_directory_uri() ?>/assets/icons/maps/place_white_24dp_rounded.svg" />Find A Location</a>
+			<a href="/locations" class="<?= $block_class_base ?>__cta"><img width=24 height=24 alt="" role="presentation" src="<?= get_template_directory_uri() ?>/assets/icons/maps/place_white_24dp_rounded.svg" />Find A Location</a>
 		</div>
 	</div>
 </section>
