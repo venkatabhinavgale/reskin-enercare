@@ -411,7 +411,7 @@ gulp.task("criticalcss", function () {
           width: 1200,
         },
       ],
-      ignore: ["@font-face"]
+      ignore: []
     });
   }
 
