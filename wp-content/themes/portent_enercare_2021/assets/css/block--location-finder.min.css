@@ -6,7 +6,7 @@
 .block-location-finder__text{max-width:324px}
 .block-location-finder__icon{margin:0 auto .65em}
 .block-location-finder__input{border-top-right-radius:0;border-bottom-right-radius:0}
-.block-location-finder__submit{border-top-left-radius:0;border-bottom-left-radius:0;color:#fff;border:1px solid #dc1c28;line-height:18px}
+.block-location-finder__submit{border-top-left-radius:0;border-bottom-left-radius:0;color:#fff;border:1px solid #da1b27;line-height:18px}
 .block-location-finder__label{font-size:.875em}
 .block-location-finder__label-example{color:#646469;font-size:.875em}
 .block-location-finder__list{-webkit-column-count:2;-moz-column-count:2;column-count:2;-webkit-column-fill:balance;-moz-column-fill:balance;column-fill:balance;padding-left:0;text-align:left}
@@ -15,7 +15,7 @@
 .block-location-finder__postal-form{text-align:left}
 .block-location-finder__postal-form label{font-size:.85em}
 .block-location-finder__postal-form .field-group{display:-webkit-box;display:-ms-flexbox;display:flex}
-.block-location-finder__form-container{background-color:#fff;border-top:8px solid #dc1c28;-webkit-box-shadow:0 4px 8px 0 rgba(56,61,67,0.3);box-shadow:0 4px 8px 0 rgba(56,61,67,0.3);padding:5%;margin:2em 0 0 0;width:85%}
+.block-location-finder__form-container{background-color:#fff;border-top:8px solid #da1b27;-webkit-box-shadow:0 4px 8px 0 rgba(56,61,67,0.3);box-shadow:0 4px 8px 0 rgba(56,61,67,0.3);padding:5%;margin:2em 0 0 0;width:85%}
 ul.block-location-finder__list{padding-left:0}
 @media(min-width:768px){.block-location-finder{grid-template-columns:50% 50%}
 .block-location-finder__content{-webkit-box-ordinal-group:1;-ms-flex-order:0;order:0;padding:13% 3% 13% calc((100vw - 1168px) / 2);text-align:left}

@@ -1,11 +1,11 @@
 .block-comparison-card{text-align:center}
 .block-comparison-card__wrapper{display:none;visibility:hidden}
-.block-comparison-card__title{font-size:1.5em;font-weight:700;line-height:32px;text-align:center;background-color:#f5f2f2;padding-top:20px;padding-bottom:1em;border-top:4px solid #dc1c28}
+.block-comparison-card__title{font-size:1.5em;font-weight:700;line-height:32px;text-align:center;background-color:#f5f2f2;padding-top:20px;padding-bottom:1em;border-top:4px solid #da1b27}
 .block-comparison-card__contents{padding:38px 24px 24px}
 .block-comparison-card__contents-heading{margin-bottom:0;font-weight:900}
 .block-comparison-card__contents-subheading{margin-bottom:1em}
 .block-comparison-card__contents-description{margin-bottom:1.5em}
-.block-comparison-card__contents-toggle{color:#dc1c28;font-weight:700;line-height:22px;-webkit-filter:invert(16%) sepia(93%) saturate(5648%) hue-rotate(350deg) brightness(91%) contrast(89%);filter:invert(16%) sepia(93%) saturate(5648%) hue-rotate(350deg) brightness(91%) contrast(89%);cursor:pointer}
+.block-comparison-card__contents-toggle{color:#da1b27;font-weight:700;line-height:22px;-webkit-filter:invert(16%) sepia(93%) saturate(5648%) hue-rotate(350deg) brightness(91%) contrast(89%);filter:invert(16%) sepia(93%) saturate(5648%) hue-rotate(350deg) brightness(91%) contrast(89%);cursor:pointer}
 .block-comparison-card__contents-toggle img{max-width:.75em;margin-right:.875em;display:inline}
 .block-comparison-card__contents-table{margin-top:1.5em}
 .block-comparison-card__contents-table table,.block-comparison-card__contents-table tr,.block-comparison-card__contents-table td{border:1px solid #e6e4e4;border-spacing:0}
@@ -21,11 +21,11 @@
 .block-comparison-card__mobile-wrapper .block-tabbed-content__tab-panels.init .wp-block-portent-block-tabbed-content--tab:first-of-type .block-tabbed-content__tab-content{display:block;position:relative}
 .block-comparison-card__mobile-wrapper .block-tabbed-content__tab{font-size:16px;padding:10px 10px 7px;border:1px solid #e6e4e4;-webkit-box-flex:1;-ms-flex:1;flex:1;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;position:relative}
 .block-comparison-card__mobile-wrapper .block-tabbed-content__tab.active{background-color:#f5f2f2;color:#29292c}
-.block-comparison-card__mobile-wrapper .block-tabbed-content__tab.active:after{background-color:#dc1c28;content:'';position:absolute;bottom:0;height:4px;width:100%}
+.block-comparison-card__mobile-wrapper .block-tabbed-content__tab.active:after{background-color:#da1b27;content:'';position:absolute;bottom:0;height:4px;width:100%}
 .block-comparison-card__mobile-wrapper .block-tabbed-content__tab:hover,.block-comparison-card__mobile-wrapper .block-tabbed-content__tab:focus{border-radius:0}
 .block-comparison-card__mobile-wrapper .block-tabbed-content__tab-panels{padding:0 24px}
 @media(min-width:768px){.block-comparison-card__wrapper{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));grid-column-gap:28px;visibility:visible}
 .block-comparison-card__mobile-wrapper{display:none;visibility:hidden}
-}@media(max-width:768px){.block-comparison-card__title{border-top:0;border-bottom:4px solid #dc1c28;padding:30px 4px}
+}@media(max-width:768px){.block-comparison-card__title{border-top:0;border-bottom:4px solid #da1b27;padding:30px 4px}
 .block-comparison-card__contents{padding:38px 11px 24px}
 }

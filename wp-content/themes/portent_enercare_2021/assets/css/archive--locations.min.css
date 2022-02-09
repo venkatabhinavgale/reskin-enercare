@@ -14,8 +14,8 @@
 .post-type-archive-location .location-archive-filters__province-form .province-filter__select{padding:8px 16px}
 .post-type-archive-location .postal-code-filter__form{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
 .post-type-archive-location .postal-code-filter__input{border-top-right-radius:0;border-bottom-right-radius:0}
-.post-type-archive-location .postal-code-filter__submit{background-color:#dc1c28;border:1px dotted transparent;color:white;height:42px;border-top-right-radius:10px;border-bottom-right-radius:10px;padding:0 1em;vertical-align:middle;line-height:0;padding-top:5px;-webkit-transition:background-color .2s ease;transition:background-color .2s ease}
-.post-type-archive-location .postal-code-filter__submit:hover{background-color:#af1620;-webkit-transition:background-color .3s ease;transition:background-color .3s ease}
+.post-type-archive-location .postal-code-filter__submit{background-color:#da1b27;border:1px dotted transparent;color:white;height:42px;border-top-right-radius:10px;border-bottom-right-radius:10px;padding:0 1em;vertical-align:middle;line-height:0;padding-top:5px;-webkit-transition:background-color .2s ease;transition:background-color .2s ease}
+.post-type-archive-location .postal-code-filter__submit:hover{background-color:#ad151f;-webkit-transition:background-color .3s ease;transition:background-color .3s ease}
 .post-type-archive-location .postal-code-filter__submit:focus{border:1px dotted #fff}
 .post-type-archive-location .postal-code-filter__message{font-size:.8em}
 .block-location-info{background-color:#fff;height:100%;padding:24px}
