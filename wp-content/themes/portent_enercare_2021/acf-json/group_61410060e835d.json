@@ -1,6 +1,6 @@
 {
     "key": "group_61410060e835d",
-    "title": "Banner Controls",
+    "title": "Banner & Nav Controls",
     "fields": [
         {
             "key": "field_61410061091f7",
@@ -39,6 +39,44 @@
             "toolbar": "basic",
             "media_upload": 0,
             "delay": 0
+        },
+        {
+            "key": "field_62054eb6c9b37",
+            "label": "Main Navigation Toggle",
+            "name": "main_navigation_toggle",
+            "type": "true_false",
+            "instructions": "This controls whether the main navigation displays on this page. Does not include logo or phone number CTA.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Off",
+            "ui_off_text": "On"
+        },
+        {
+            "key": "field_62054ecfc9b38",
+            "label": "Super Navigation Toggle",
+            "name": "super_navigation_toggle",
+            "type": "true_false",
+            "instructions": "This controls whether the super navigation displays on this page.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Off",
+            "ui_off_text": "On"
         }
     ],
     "location": [
@@ -72,5 +110,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1631720865
+    "show_in_rest": 0,
+    "modified": 1644515183
 }

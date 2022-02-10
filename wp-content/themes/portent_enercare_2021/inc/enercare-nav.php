@@ -65,16 +65,19 @@ function enercare_site_header() {
     $phone_number = get_field('default_commercial_phone_number', 'option');
   }
 
-	echo '<nav role="navigation" id="slider-menu" class="nav-menu">';
-	if( has_nav_menu( 'primary' ) ) {
-    // check if page has Commercial site override. Display the commercial primary nav if so
-    if (get_field('site_override') && get_field('site_override') == 'Commercial') {
-      wp_nav_menu( array( 'menu' => 66, 'container' => false, 'walker' => new Enercare_Nav_Walker() ) );
-    } else {
-      wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu', 'container' => false, 'walker' => new Enercare_Nav_Walker() ) );
+  $main_nav_toggle = get_field('main_navigation_toggle');
+  if (!$main_nav_toggle) {
+    echo '<nav role="navigation" id="slider-menu" class="nav-menu">';
+    if( has_nav_menu( 'primary' ) ) {
+      // check if page has Commercial site override. Display the commercial primary nav if so
+      if (get_field('site_override') && get_field('site_override') == 'Commercial') {
+        wp_nav_menu( array( 'menu' => 66, 'container' => false, 'walker' => new Enercare_Nav_Walker() ) );
+      } else {
+        wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu', 'container' => false, 'walker' => new Enercare_Nav_Walker() ) );
+      }
     }
-	}
-	echo '</nav>';
+    echo '</nav>';
+  }
 
 	//phone section
 	echo '<div class="site-header__header-phone header-phone">';
@@ -85,7 +88,10 @@ function enercare_site_header() {
 		echo '<strong class="header-phone__number">'.$phone_number.'</strong>';
 	echo '</a>';
 	echo '</div>';
-	echo enercare_mobile_menu_toggle();
+  
+  if (!$main_nav_toggle) {
+    echo enercare_mobile_menu_toggle();
+  }
 
 }
 add_action( 'tha_header_bottom', 'enercare_site_header', 11 );
@@ -94,17 +100,20 @@ add_action( 'tha_header_bottom', 'enercare_site_header', 11 );
  * Super / Secondary Navigation
  */
 function enercare_secondary_navigation() {
-	echo '<div class="top-bar">';
-	echo '<div class="wrap">';
-	if ( has_nav_menu( 'secondary' ) ) {
-		wp_nav_menu( array( 'theme_location'  => 'secondary',
-		                    'menu_id'         => 'secondary-menu',
-		                    'container_class' => 'top-bar__nav'
-		) );
-	}
-	get_search_form(true);
-	echo '</div>';
-	echo '</div>';
+  $super_nav_toggle = get_field('super_navigation_toggle');
+  if (!$super_nav_toggle) {
+    echo '<div class="top-bar">';
+    echo '<div class="wrap">';
+    if ( has_nav_menu( 'secondary' ) ) {
+      wp_nav_menu( array( 'theme_location'  => 'secondary',
+                          'menu_id'         => 'secondary-menu',
+                          'container_class' => 'top-bar__nav'
+      ) );
+    }
+    get_search_form(true);
+    echo '</div>';
+    echo '</div>';
+  }
 }
 add_action( 'tha_header_top', 'enercare_secondary_navigation');
 
