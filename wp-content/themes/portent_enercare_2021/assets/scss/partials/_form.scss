@@ -527,6 +527,7 @@ textarea {
 
 				input[type=button],
 				input[type=submit] {
+					max-width: 140px;
 					border-radius: 30px;
 					font-size: 1.25em;
 					font-weight: 700;
@@ -571,7 +572,7 @@ textarea {
 				}
 		}
 
-		// Styles specific to page 1
+		// Styles specific to page 1 of form
 		#gform_page_13_1 {
 			.ginput_container_checkbox .gchoice {
 				align-items: baseline;
