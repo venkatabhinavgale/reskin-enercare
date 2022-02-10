@@ -34,36 +34,36 @@ jQuery(function($){
     icon: false
   });
 
-  var autocompleteClient = new AddSearchClient('3145819e621ccfb6dbf5116b2c92967b');
-  autocompleteClient.setPaging(1, 7, 'relevance', 'desc'); // Fetch 7 results by default
-
-  var autocompleteTemplate = `
-    <div class="addsearch-autocomplete" style="position: relative;">
-      {{#gt searchResults.results.length 0}}
-      <span class="addsearch-autocomplete__total-results">{{searchResults.results.length}} results</span>
-        <ul>
-          {{#each ../searchResults.results}}
-            <li>
-              <strong><a href="{{url}}">{{title}}</a></strong>
-            </li>
-          {{/each}}
-        </ul>
-      {{/gt}}
-    </div>
-  `;
-
-  searchui.autocomplete({
-    containerId: 'autocomplete',
-    template: autocompleteTemplate,
-    infiniteScrollElement: document.querySelector('#scrollable'),
-    sources: [
-      {
-        type: AddSearchUI.AUTOCOMPLETE_TYPE.SEARCH,
-        client: autocompleteClient,
-        jsonKey: 'results'
-      }
-    ]
-  });
+  // var autocompleteClient = new AddSearchClient('3145819e621ccfb6dbf5116b2c92967b');
+  // autocompleteClient.setPaging(1, 7, 'relevance', 'desc'); // Fetch 7 results by default
+  //
+  // var autocompleteTemplate = `
+  //   <div class="addsearch-autocomplete" style="position: relative;">
+  //     {{#gt searchResults.results.length 0}}
+  //     <span class="addsearch-autocomplete__total-results">{{searchResults.results.length}} results</span>
+  //       <ul>
+  //         {{#each ../searchResults.results}}
+  //           <li>
+  //             <strong><a href="{{url}}">{{title}}</a></strong>
+  //           </li>
+  //         {{/each}}
+  //       </ul>
+  //     {{/gt}}
+  //   </div>
+  // `;
+  //
+  // searchui.autocomplete({
+  //   containerId: 'autocomplete',
+  //   template: autocompleteTemplate,
+  //   infiniteScrollElement: document.querySelector('#scrollable'),
+  //   sources: [
+  //     {
+  //       type: AddSearchUI.AUTOCOMPLETE_TYPE.SEARCH,
+  //       client: autocompleteClient,
+  //       jsonKey: 'results'
+  //     }
+  //   ]
+  // });
 
   // All components added. Start
   searchui.start();

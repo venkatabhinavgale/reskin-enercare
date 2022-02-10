@@ -23,7 +23,7 @@ textarea {
 	width: 100%;
 }
 
-@include placeholder-color( $grey_5 );
+@include placeholder-color( '#747373' );
 
 /* Gravity Forms Styles
 --------------------------------------------- */
@@ -502,6 +502,88 @@ textarea {
 
 		&:before {
 			content: none;
+		}
+	}
+}
+
+/*  BOGO Form
+--------------------------------------------*/
+.gform_wrapper.bogo-form {
+	&_wrapper {
+		width: 100%;
+		padding: 1.5em;
+		color: $black;
+		font-weight: 300;
+
+		.gfield {
+			input {
+				width: 0.75em;
+				margin: 0 0.25em;
+			}
+		}
+
+		.gform_page_footer {
+				display: flex;
+
+				input[type=button],
+				input[type=submit] {
+					max-width: 140px;
+					border-radius: 30px;
+					font-size: 1.25em;
+					font-weight: 700;
+					line-height: 32px;
+					padding: 0.25em 0 1em;
+					flex-grow: 1;
+					text-decoration: none;
+
+					@include media(">=desktop") {
+						margin-top: 0em;
+					}
+				}
+
+				input[type=button],
+				input[type=submit] {
+					height: 3em;
+					padding: .75em 0.25em .5em;
+				}
+				.gform_next_button {
+					background-color: brand_color('red');
+					color: $white;
+
+					&:hover, &:focus {
+						background-color: brand_color('red', 'darken');
+					}
+				}
+
+				.gform_previous_button {
+
+					& + input {
+						margin-left: 0.25em !important;
+					}
+
+					&:hover, &:focus {
+						background-color: $grey_2;
+					}
+				}
+
+				input[type=submit] {
+					background-color: brand_color('red');
+					color: $white;
+				}
+		}
+
+		// Styles specific to page 1 of form
+		#gform_page_13_1 {
+			.ginput_container_checkbox .gchoice {
+				align-items: baseline;
+			}
+
+			.gform_page_fields {
+				.gform_fields {
+					display: flex;
+					flex-direction: row;
+				}
+			}
 		}
 	}
 }
