@@ -510,7 +510,6 @@ textarea {
 --------------------------------------------*/
 .gform_wrapper.bogo-form {
 	&_wrapper {
-		width: 100%;
 		padding: 1.5em;
 		color: $black;
 		font-weight: 300;
@@ -527,7 +526,6 @@ textarea {
 
 				input[type=button],
 				input[type=submit] {
-					max-width: 140px;
 					border-radius: 30px;
 					font-size: 1.25em;
 					font-weight: 700;
@@ -573,17 +571,33 @@ textarea {
 		}
 
 		// Styles specific to page 1 of form
-		#gform_page_13_1 {
+		#gform_page_16_1 {
 			.ginput_container_checkbox .gchoice {
 				align-items: baseline;
+				margin: 0.75em 0;
+				line-height: 16px;
 			}
 
 			.gform_page_fields {
 				.gform_fields {
 					display: flex;
-					flex-direction: row;
+					flex-direction: column;
+
+					@include media(">=tablet") {
+						flex-direction: row;
+						flex-wrap: wrap;
+					}
 				}
 			}
+		}
+	}
+}
+
+// Targeting the BOGO confirmation page
+.gform_confirmation_wrapper.bogo-form {
+	.gform_confirmation_message {
+		&:before {
+			content: none;
 		}
 	}
 }
