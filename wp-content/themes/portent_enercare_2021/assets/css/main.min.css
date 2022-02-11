@@ -111,18 +111,25 @@ input:focus::-webkit-input-placeholder,input:focus::-moz-placeholder,input:focus
 .gform_confirmation_wrapper.callback-form{height:100%}
 .gform_confirmation_wrapper.callback-form .gform_confirmation_message{border-top:4px solid #da1b27;border-bottom:0;border-left:0;border-right:0;padding:2em;margin:0 auto;max-width:none;text-align:center;position:relative;height:100%;background-color:white;color:black;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
 .gform_confirmation_wrapper.callback-form .gform_confirmation_message:before{content:none}
-.gform_wrapper.bogo-form_wrapper{width:100%;padding:1.5em;color:#000;font-weight:300}
+.radio__boiler-furnace .gfield_radio{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
+.radio__boiler-furnace .gchoice{background-color:white;border-radius:10px;padding:1em .5em;min-width:125px;margin:.5em;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start;position:relative;border:2px solid #fff;-webkit-box-flex:1;-ms-flex-positive:1;flex-grow:1;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}
+.radio__boiler-furnace .gchoice label:before{content:'';display:block;position:absolute;height:100%;width:100%;top:0;left:0}
+.radio__boiler-furnace .gchoice.selected{border:2px solid #da1b27}
+.gform_wrapper.bogo-form_wrapper{padding:1.5em;color:#000;font-weight:300}
+.gform_wrapper.bogo-form_wrapper .gfield-choice-input+label{max-width:none !important}
+.gform_wrapper.bogo-form_wrapper h3{margin-bottom:10px;border-bottom:1px solid gray}
 .gform_wrapper.bogo-form_wrapper .gfield input{width:.75em;margin:0 .25em}
 .gform_wrapper.bogo-form_wrapper .gform_page_footer{display:-webkit-box;display:-ms-flexbox;display:flex}
-.gform_wrapper.bogo-form_wrapper .gform_page_footer input[type=button],.gform_wrapper.bogo-form_wrapper .gform_page_footer input[type=submit]{max-width:140px;border-radius:30px;font-size:1.25em;font-weight:700;line-height:32px;padding:.25em 0 1em;-webkit-box-flex:1;-ms-flex-positive:1;flex-grow:1;text-decoration:none}
-.gform_wrapper.bogo-form_wrapper .gform_page_footer input[type=button],.gform_wrapper.bogo-form_wrapper .gform_page_footer input[type=submit]{height:3em;padding:.75em .25em .5em}
+.gform_wrapper.bogo-form_wrapper .gform_page_footer input[type=button],.gform_wrapper.bogo-form_wrapper .gform_page_footer input[type=submit]{border-radius:30px;font-size:1.25em;font-weight:700;line-height:32px;padding:.25em 0 1em;-webkit-box-flex:1;-ms-flex-positive:1;flex-grow:1;text-decoration:none}
+.gform_wrapper.bogo-form_wrapper .gform_page_footer input[type=button],.gform_wrapper.bogo-form_wrapper .gform_page_footer input[type=submit]{height:3em;padding:.65em .25em .5em}
 .gform_wrapper.bogo-form_wrapper .gform_page_footer .gform_next_button{background-color:#da1b27;color:#fff}
 .gform_wrapper.bogo-form_wrapper .gform_page_footer .gform_next_button:hover,.gform_wrapper.bogo-form_wrapper .gform_page_footer .gform_next_button:focus{background-color:#ad151f}
 .gform_wrapper.bogo-form_wrapper .gform_page_footer .gform_previous_button+input{margin-left:.25em !important}
 .gform_wrapper.bogo-form_wrapper .gform_page_footer .gform_previous_button:hover,.gform_wrapper.bogo-form_wrapper .gform_page_footer .gform_previous_button:focus{background-color:#e6e4e4}
 .gform_wrapper.bogo-form_wrapper .gform_page_footer input[type=submit]{background-color:#da1b27;color:#fff}
-.gform_wrapper.bogo-form_wrapper #gform_page_13_1 .ginput_container_checkbox .gchoice{-webkit-box-align:baseline;-ms-flex-align:baseline;align-items:baseline}
-.gform_wrapper.bogo-form_wrapper #gform_page_13_1 .gform_page_fields .gform_fields{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}
+.gform_wrapper.bogo-form_wrapper #gform_page_13_1 .ginput_container_checkbox .gchoice{-webkit-box-align:baseline;-ms-flex-align:baseline;align-items:baseline;margin:.75em 0;line-height:16px}
+.gform_wrapper.bogo-form_wrapper #gform_page_13_1 .gform_page_fields .gform_fields{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}
+.gform_confirmation_wrapper.bogo-form .gform_confirmation_message:before{content:none}
 body{color:#29292c;font-family:"Post Grotesk",serif,"Helvetica Neue",sans-serif;font-size:1em;font-weight:300;line-height:1.55}
 a{color:#da1b27;text-decoration:underline}
 a:hover{text-decoration:none}
@@ -712,6 +719,7 @@ body.mm-ocd-opened{overflow-y:hidden;-ms-scroll-chaining:none;overscroll-behavio
 }@media(min-width:768px){.site-inner{padding:48px 0}
 .gform_confirmation_message:before{width:30px;height:30px}
 .gform_wrapper.product-form_wrapper .product-form .gform_body .gform__disclaimer{width:75%}
+.gform_wrapper.bogo-form_wrapper #gform_page_13_1 .gform_page_fields .gform_fields{-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-ms-flex-wrap:wrap;flex-wrap:wrap}
 body{font-size:1em}
 p.large,p.has-large-font-size{font-size:1.125em}
 p.has-normal-font-size{font-size:1em}
@@ -875,7 +883,8 @@ p.has-normal-font-size{font-size:1em}
 .blog .single-post__header{grid-area:header}
 .singular .entry-header .post-meta .single-post__share-menu{-ms-flex-item-align:center;align-self:center}
 .singular .entry-header .post-meta{margin-right:0}
-}@media(max-width:767px){h1{line-height:2.375rem}
+}@media(max-width:767px){.radio__boiler-furnace .gchoice{-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}
+h1{line-height:2.375rem}
 h2{line-height:2rem}
 h3{line-height:2rem}
 .hide-mobile{display:none}

@@ -703,3 +703,15 @@ function enercare_pre_get_posts( $query ) {
 		$query->set( 'posts_per_page', -1 );
 	endif;
 }
+
+/**
+ * Hooking Gravity forms to check for BOGO boiler forms
+ */
+add_action( 'gform_enqueue_scripts', 'enqueue_custom_script', 10, 2 );
+function enqueue_custom_script( $form, $is_ajax ) {
+	$cssClassCheck = strpos($form['cssClass'], 'bogo-form');
+	if ( $cssClassCheck !== false ) {
+		echo '<h1>BOGO FORM!</h1>';
+		wp_enqueue_script( 'enercare_bogo_script', get_template_directory_uri() . '/assets/js/form--bogo-form.js', array('jquery'), null, true);
+	}
+}

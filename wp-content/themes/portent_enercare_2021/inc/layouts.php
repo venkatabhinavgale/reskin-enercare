@@ -150,6 +150,17 @@ add_action( 'widgets_init', 'enercare_widgets_init' );
 */
 function enercare_layout_body_class( $classes ) {
 	$classes[] = enercare_page_layout();
+  
+  $main_nav_toggle = get_field('main_navigation_toggle');
+  if ($main_nav_toggle) {
+    $classes[] = 'page-no-main-nav';
+  }
+  
+  $super_nav_toggle = get_field('super_navigation_toggle');
+  if ($super_nav_toggle) {
+    $classes[] = 'page-no-super-nav';
+  }
+  
 	return $classes;
 }
 add_filter( 'body_class', 'enercare_layout_body_class', 5 );
