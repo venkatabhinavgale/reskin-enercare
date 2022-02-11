@@ -25,6 +25,17 @@
 	}
 }
 
+.page-no-main-nav {
+
+	.site-header {
+		padding: 1em 0;
+	}
+
+	.header-phone {
+		border-left: none;
+	}
+}
+
 .header-phone {
 	@include media(">desktop") {
 		border-left: 1px solid brand-color("grey-20");
@@ -277,7 +288,7 @@ Appointment Banner
 			margin: 0;
 			width: 50%;
 			border-radius: 30px;
-			text-align: center;	
+			text-align: center;
 		}
 
 		&:hover,
