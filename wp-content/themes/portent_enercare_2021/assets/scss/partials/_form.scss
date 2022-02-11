@@ -508,11 +508,63 @@ textarea {
 
 /*  BOGO Form
 --------------------------------------------*/
+.radio__boiler-furnace {
+	.gfield_radio {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.gchoice {
+		background-color: white;
+		border-radius: 10px;
+		padding: 1em .5em;
+		min-width: 125px;
+		margin: 0.5em;
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		position: relative;
+		border: 2px solid #fff;
+		flex-grow: 1;
+		flex-direction: row;
+
+		@include media('<tablet'){
+			flex-direction: column;
+		}
+
+		label:before {
+			content: '';
+			display: block;
+			position: absolute;
+			height: 100%;
+			width: 100%;
+			top: 0;
+			left: 0;
+		}
+
+		&.selected {
+			border: 2px solid brand-color('red');
+		}
+	}
+}
+
 .gform_wrapper.bogo-form {
+
 	&_wrapper {
 		padding: 1.5em;
 		color: $black;
 		font-weight: 300;
+
+		.gfield-choice-input + label {
+			max-width: none !important;
+		}
+
+		h3 {
+			margin-bottom: 10px;
+			border-bottom: 1px solid gray;
+		}
+
 
 		.gfield {
 			input {
@@ -542,8 +594,9 @@ textarea {
 				input[type=button],
 				input[type=submit] {
 					height: 3em;
-					padding: .75em 0.25em .5em;
+					padding: .65em 0.25em .5em;
 				}
+
 				.gform_next_button {
 					background-color: brand_color('red');
 					color: $white;
