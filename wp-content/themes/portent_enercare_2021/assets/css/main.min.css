@@ -420,6 +420,8 @@ div.wpforms-container.one-line:after{content:"";display:table;clear:both}
 .block-switchboard__container .block-mega-button,.block-switchboard__container .block-mega-button a{width:100%}
 .site-header{background:#fff;border-bottom:1px solid #e6e4e4;position:relative;padding:10px 0;-webkit-box-shadow:0 2px 7px rgba(0,0,0,0.5);box-shadow:0 2px 7px rgba(0,0,0,0.5);z-index:5;position:relative;width:100vw}
 .site-header .wrap{width:100%}
+.page-no-main-nav .site-header{padding:1em 0}
+.page-no-main-nav .header-phone{border-left:0}
 .header-phone__link{display:-webkit-box;display:-ms-flexbox;display:flex;margin-right:1.5rem;text-decoration:none;font-weight:700}
 .header-phone__number,.header-phone__cta{display:none}
 .header-phone svg{fill:currentColor}
