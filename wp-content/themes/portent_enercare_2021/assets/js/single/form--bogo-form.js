@@ -34,8 +34,12 @@
 			inputChanges($(this));
 		});
 
-		$('<img alt="" role="presentation" width=60 height=60 src="/wp-content/uploads/2021/10/furnace-24px-b.svg"/>').insertBefore(furnaceRadios);
-		$('<img alt="" role="presentation" width=60 height=60 src="/wp-content/uploads/2021/10/boiler-24px-b.svg"/>').insertBefore(boilerRadios);
+    furnaceRadios.each(function() {
+      $('<img alt="" role="presentation" width=60 height=60 src="/wp-content/uploads/2021/10/furnace-24px-b.svg"/>').insertBefore($(this));
+    });
+    boilerRadios.each(function() {
+      $('<img alt="" role="presentation" width=60 height=60 src="/wp-content/uploads/2021/10/boiler-24px-b.svg"/>').insertBefore($(this));
+    });
 	}
 
 	$(document).on('gform_post_render', function() {
