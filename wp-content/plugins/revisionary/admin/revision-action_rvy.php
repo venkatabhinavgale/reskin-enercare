@@ -1,5 +1,5 @@
 <?php
-if( basename(__FILE__) == basename($_SERVER['SCRIPT_FILENAME']) )
+if( basename(__FILE__) == basename(esc_url_raw($_SERVER['SCRIPT_FILENAME'])) )
 	die( 'This page cannot be called directly.' );
 
 add_action( '_wp_put_post_revision', 'rvy_review_revision' );
@@ -76,6 +76,8 @@ function rvy_revision_submit($revision_id = 0) {
 		// safeguard: make sure this hasn't already been published
 		if ( empty($status_obj->public) && empty($status_obj->private) ) {
 			$wpdb->update($wpdb->posts, ['post_status' => 'pending', 'post_mime_type' => 'pending-revision'], ['ID' => $revision_id]);
+
+			clean_post_cache($revision_id);
 
 			require_once( dirname(REVISIONARY_FILE).'/revision-workflow_rvy.php' );
 			$rvy_workflow_ui = new Rvy_Revision_Workflow_UI();
@@ -271,6 +273,8 @@ function rvy_revision_approve($revision_id = 0) {
 			$scheduled = $revision->post_date;
 		}
 
+		clean_post_cache($revision->ID);
+
 		// Support workaround to prevent notification when an Administrator or Editor created the revision
         if (defined('REVISIONARY_LIMIT_ADMIN_NOTIFICATIONS')) {
 			global $current_user;
@@ -423,7 +427,7 @@ function rvy_revision_approve($revision_id = 0) {
 		if ( empty( $_REQUEST['rvy_redirect'] ) && ! $scheduled && is_post_type_viewable($type_obj) ) {
 			$redirect = $published_url;
 
-		} elseif ( !empty($_REQUEST['rvy_redirect']) && 'edit' == $_REQUEST['rvy_redirect'] ) {
+		} elseif ( !empty($_REQUEST['rvy_redirect']) && 'edit' == esc_url_raw($_REQUEST['rvy_redirect']) ) {
 			$redirect = add_query_arg( $last_arg, "post.php?post=$revision_id&action=edit" );
 
 		} elseif (is_post_type_viewable($type_obj)) {
@@ -498,6 +502,9 @@ function rvy_revision_restore() {
 
 		revisionary_copy_terms($revision, $post->ID);
 
+		clean_post_cache($revision->ID);
+		clean_post_cache($post->ID);
+
 		rvy_format_content( $revision->post_content, $revision->post_content_filtered, $post->ID );
 
 		if ( 'inherit' == $revision->post_status ) {
@@ -512,7 +519,7 @@ function rvy_revision_restore() {
 		} elseif ( 'edit' == $_REQUEST['rvy_redirect'] ) {
 			$redirect = add_query_arg( $last_arg, "post.php?post={$post->ID}&action=edit" );
 		} else {
-			$redirect = add_query_arg( $last_arg, esc_url($_REQUEST['rvy_redirect']) );
+			$redirect = add_query_arg( $last_arg, esc_url_raw($_REQUEST['rvy_redirect']) );
 		}
 
 	} while (0);
@@ -795,6 +802,9 @@ function rvy_apply_revision( $revision_id, $actual_revision_status = '' ) {
 
 	rvy_delete_redundant_revisions($revision);
 
+	clean_post_cache($revision_id);
+	clean_post_cache($published->ID);
+
 	/**
 	 * Trigger after a revision has been applied.
 	 *
@@ -875,6 +885,8 @@ function rvy_revision_delete() {
 		
 		check_admin_referer('delete-revision_' .  $revision_id);
 		
+		clean_post_cache(rvy_post_id($revision_id));
+
 		// before deleting the revision, note its status for redirect
 		wp_delete_post_revision( $revision_id );
 		$redirect = "admin.php?page=rvy-revisions&revision={$revision->post_parent}&action=view&revision_status={$revision->post_mime_type}&deleted=1";
@@ -885,7 +897,7 @@ function rvy_revision_delete() {
 	} while (0);
 	
 	if ( ! empty( $_GET['return'] ) && ! empty( $_SERVER['HTTP_REFERER'] ) ) {
-		$redirect = str_replace( 'trashed=', 'deleted=', $_SERVER['HTTP_REFERER'] );
+		$redirect = str_replace( 'trashed=', 'deleted=', esc_url_raw($_SERVER['HTTP_REFERER']) );
 
 	} elseif ( ! $redirect ) {
 		if ( ! empty($post) && is_object($post) && ( 'post' != $post->post_type ) ) {
@@ -942,6 +954,8 @@ function rvy_revision_bulk_delete() {
 				}
 			}
 	
+			clean_post_cache(rvy_post_id($revision_id));
+
 			// before deleting the revision, note its status for redirect
 			$revision_status = $revision->post_mime_type;
 			wp_delete_post($revision_id, true);
@@ -987,6 +1001,8 @@ function rvy_revision_unschedule($revision_id) {
 
 		$wpdb->update( $wpdb->posts, array( 'post_status' => 'draft-revision' ), array( 'ID' => $revision->ID ) );
 		
+		clean_post_cache($revision->ID);
+
 		rvy_update_next_publish_date();
 	} while (0);
 
@@ -1034,6 +1050,8 @@ function rvy_revision_publish($revision_id = false) {
 	if (!empty($do_publish)) {
 		rvy_publish_scheduled_revisions(array('force_revision_id' => $revision->ID));
 
+		clean_post_cache($revision->ID);
+
 		if ($post) {
 			clean_post_cache($post->ID);
 		}
@@ -1078,8 +1096,9 @@ function rvy_publish_scheduled_revisions($args = array()) {
 
 	$revised_uris = array();
 
-	if ( ! empty( $_GET['rs_debug'] ) )
+	if (defined('WP_DEBUG') && WP_DEBUG && !empty($_GET['rs_debug'])) {
 		echo "current time: $time_gmt";
+	}
 
 	if (!empty($args['force_revision_id']) && is_scalar($args['force_revision_id'])) {
 		$results = $wpdb->get_results( 
@@ -1113,8 +1132,9 @@ function rvy_publish_scheduled_revisions($args = array()) {
 					continue;
 				}
 
-				if ( ! empty( $_GET['rs_debug'] ) )
+				if (defined('WP_DEBUG') && WP_DEBUG && ! empty( $_GET['rs_debug'] ) ) {
 					echo '<br />' . "publishing revision $row->ID";
+				}
 
 				$restored_post_ids[$published_id] = true;
 				
@@ -1309,7 +1329,12 @@ function rvy_publish_scheduled_revisions($args = array()) {
 		
 		if ( $skip_revision_ids ) {
 			// if more than one scheduled revision was not yet published, convert the older ones to regular revisions
-			$id_clause = "AND ID IN ('" . implode( "','", array_keys($skip_revision_ids) ) . "')";
+			$id_clause = "AND ID IN ('" 
+							. implode("','", 
+								array_map('intval', array_keys($skip_revision_ids))
+								) 
+						. "')";
+
 			$wpdb->query( "UPDATE $wpdb->posts SET post_type = 'revision', post_status = 'inherit' WHERE post_mime_type = 'future-revision' $id_clause" );
 		}
 	}
@@ -1319,8 +1344,8 @@ function rvy_publish_scheduled_revisions($args = array()) {
 	// if this was initiated by an asynchronous remote call, we're done.
 	if ( ! empty( $_GET['action']) && ( 'publish_scheduled_revisions' == $_GET['action'] ) ) {
 		exit( 0 );
-	} elseif ( in_array( $_SERVER['REQUEST_URI'], $revised_uris ) ) {
-		wp_redirect( esc_url($_SERVER['REQUEST_URI']) );  // if one of the revised pages is being accessed now, redirect back so revision is published on first access
+	} elseif ( in_array( esc_url_raw($_SERVER['REQUEST_URI']), $revised_uris ) ) {
+		wp_redirect( esc_url(esc_url_raw($_SERVER['REQUEST_URI'])) );  // if one of the revised pages is being accessed now, redirect back so revision is published on first access
 	}
 }
 

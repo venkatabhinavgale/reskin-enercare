@@ -700,3 +700,11 @@ function ecreviews_location_block_render_callback( $attributes, $content ) {
   
   return $output;
 }
+
+function enercare_gmb_reviews_api_access_notice() {
+  ?>
+  <div class="notice error enercare-google-reviews-api-access-notice" >
+    <p><?php _e( 'Enercare Google Reviews ERROR: Access Token is expired and could not refresh token. Run refreshGMBAccessToken.php locally to regenerate and re-upload token.json', 'enercare-google-reviews' ); ?></p>
+  </div>
+  <?php
+}

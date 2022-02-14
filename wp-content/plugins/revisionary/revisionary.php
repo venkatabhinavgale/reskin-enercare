@@ -5,13 +5,13 @@
  * Description: Maintain published content with teamwork and precision using the Revisions model to submit, approve and schedule changes.
  * Author: PublishPress
  * Author URI: https://publishpress.com
- * Version: 3.0.6
+ * Version: 3.0.10
  * Text Domain: revisionary
  * Domain Path: /languages/
  * Min WP Version: 4.9.7
  * Requires PHP: 5.6.20
  * 
- * Copyright (c) 2021 PublishPress
+ * Copyright (c) 2022 PublishPress
  *
  * GNU General Public License, Free Software Foundation <https://www.gnu.org/licenses/gpl-3.0.html>
  *
@@ -30,18 +30,18 @@
  *
  * @package     PublishPress\Revisions
  * @author      PublishPress
- * @copyright   Copyright (C) 2021 PublishPress. All rights reserved.
+ * @copyright   Copyright (C) 2022 PublishPress. All rights reserved.
  *
  **/
 
 // Temporary usage within this module only; avoids multiple instances of version string
 global $pp_revisions_version;
-$pp_revisions_version = '3.0.6';
+$pp_revisions_version = '3.0.10';
 
-if( basename(__FILE__) == basename($_SERVER['SCRIPT_FILENAME']) )
+if( basename(__FILE__) == basename(esc_url_raw($_SERVER['SCRIPT_FILENAME'])) )
 	die( 'This page cannot be called directly.' );
 
-if ( strpos( $_SERVER['SCRIPT_NAME'], 'p-admin/index-extra.php' ) || strpos( $_SERVER['SCRIPT_NAME'], 'p-admin/update.php' ) )
+if ( strpos( $_SERVER['SCRIPT_NAME'], 'p-admin/index-extra.php' ) || strpos( esc_url_raw($_SERVER['SCRIPT_NAME']), 'p-admin/update.php' ) )
 	return;
 
 $pro_active = false;
@@ -80,7 +80,7 @@ if ($pro_active) {
 
 if ( defined('RVY_VERSION') || defined('REVISIONARY_FILE') ) {  // Revisionary 1.x defines RVY_VERSION on load, but does not define REVISIONARY_FILE
 	// don't allow two copies to run simultaneously
-	if ( is_admin() && strpos( $_SERVER['SCRIPT_NAME'], 'p-admin/plugins.php' ) && ! strpos( urldecode($_SERVER['REQUEST_URI']), 'deactivate' ) ) {
+	if ( is_admin() && strpos( esc_url_raw($_SERVER['SCRIPT_NAME']), 'p-admin/plugins.php' ) && ! strpos( urldecode(esc_url_raw($_SERVER['REQUEST_URI'])), 'deactivate' ) ) {
 		add_action('all_admin_notices', function()
 		{
 			if (defined('REVISIONARY_FILE')) {
@@ -131,6 +131,9 @@ register_activation_hook(__FILE__, function()
 		global $wpdb;
 		
 		$revision_status_csv = rvy_revision_statuses(['return' => 'csv']);
+
+		$wpdb->query("DELETE FROM $wpdb->posts WHERE post_mime_type IN ('draft-revision', 'pending-revision', 'future-revision') AND post_status = 'trash'");
+
 		$wpdb->query("UPDATE $wpdb->posts SET post_mime_type = post_status WHERE post_status IN ($revision_status_csv)");
 		$wpdb->query("UPDATE $wpdb->posts SET post_status = 'draft' WHERE post_status IN ('draft-revision')");
 		$wpdb->query("UPDATE $wpdb->posts SET post_status = 'pending' WHERE post_status IN ('pending-revision')");
@@ -162,7 +165,7 @@ add_action(
 	{
 		if ( defined('RVY_VERSION') ) {  // Revisionary 1.x defines RVY_VERSION on load, but does not define REVISIONARY_FILE
 			// don't allow two copies to run simultaneously
-			if ( is_admin() && strpos( $_SERVER['SCRIPT_NAME'], 'p-admin/plugins.php' ) && ! strpos( urldecode($_SERVER['REQUEST_URI']), 'deactivate' ) ) {
+			if ( is_admin() && strpos( esc_url_raw($_SERVER['SCRIPT_NAME']), 'p-admin/plugins.php' ) && ! strpos( urldecode(esc_url_raw($_SERVER['REQUEST_URI'])), 'deactivate' ) ) {
 				add_action('all_admin_notices', function()
 				{
 					if (defined('REVISIONARY_FILE')) {
@@ -228,7 +231,7 @@ add_action(
 			require_once( dirname(__FILE__).'/lib/agapetry_wp_admin_lib.php');
 				
 			// skip WP version check and init operations when a WP plugin auto-update is in progress
-			if ( false !== strpos($_SERVER['SCRIPT_NAME'], 'update.php') )
+			if ( false !== strpos(esc_url_raw($_SERVER['SCRIPT_NAME']), 'update.php') )
 				return;
 		}
 
@@ -237,7 +240,7 @@ add_action(
 		require_once( dirname(__FILE__).'/functions.php');
 
 		// avoid lockout in case of editing plugin via wp-admin
-		if ( defined('RS_DEBUG') && is_admin() && ( strpos( urldecode($_SERVER['REQUEST_URI']), 'p-admin/plugin-editor.php' ) || strpos( urldecode($_SERVER['REQUEST_URI']), 'p-admin/plugins.php' ) ) && false === strpos( $_SERVER['REQUEST_URI'], 'activate' ) )
+		if ( defined('RS_DEBUG') && is_admin() && ( strpos( urldecode(esc_url_raw($_SERVER['REQUEST_URI'])), 'p-admin/plugin-editor.php' ) || strpos( urldecode(esc_url_raw($_SERVER['REQUEST_URI'])), 'p-admin/plugins.php' ) ) && false === strpos( $_SERVER['REQUEST_URI'], 'activate' ) )
 			return;
 
 		define('RVY_ABSPATH', __DIR__);

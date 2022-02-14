@@ -68,13 +68,11 @@ class GmbClient {
     $this->oauth_credentials_file = 'gmb_api_credentials.json';
     $this->google_api_project_name = 'enercare';
     $this->google_api_scope = 'https://www.googleapis.com/auth/business.manage';
-    //$this->google_api_user = 'pryan@portent.com';
     $this->google_api_user = 'enercaredigital@gmail.com';
     $this->google_api_account = 'accounts/103584978847197657494';
     //$this->google_api_refresh_token = '1//04sQVR_Ny5GqrCgYIARAAGAQSNwF-L9IrwDDO4UbJoFBGXSF_3Y0j1TgmFfZo5f0EDfVDNdKhWves6SuTAQ3JoQQiiuMIv9Jqybg';
 
     $this->authenticate();
-    // dd($this->getLocations());
   }
 
   /**
@@ -110,7 +108,15 @@ class GmbClient {
     
     // If there is no previous token or it's expired.
     if ($this->google_client->isAccessTokenExpired()) {
-      error_log('Enercare Google Reviews ERROR: Access Token is expired. Run refreshGMBAccessToken.php locally to regenerate and re-upload token.json');
+      // Refresh the token if possible, else fetch a new one.
+      if ($this->google_client->getRefreshToken()) {
+        $this->google_client->fetchAccessTokenWithRefreshToken($this->google_client->getRefreshToken());
+      } else {
+        error_log('Enercare Google Reviews ERROR: Access Token is expired and could not refresh token. Run refreshGMBAccessToken.php locally to regenerate and re-upload token.json');
+        add_action('admin_notices', 'enercare_gmb_reviews_api_access_notice');
+      }
+      
+      file_put_contents($tokenPath, json_encode($this->google_client->getAccessToken()));
     }
     
   }

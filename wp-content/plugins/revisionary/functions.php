@@ -9,6 +9,31 @@ function revisionary_unrevisioned_postmeta() {
 }
 
 /**
+ * Sanitizes a string entry
+ *
+ * Keys are used as internal identifiers. Uppercase or lowercase alphanumeric characters,
+ * spaces, periods, commas, plusses, asterisks, colons, pipes, parentheses, dashes and underscores are allowed.
+ *
+ * @param string $entry String entry
+ * @return string Sanitized entry
+ */
+function pp_revisions_sanitize_entry( $entry ) {
+    $entry = preg_replace( '/[^a-zA-Z0-9 \.\,\+\*\:\|\(\)_\-]/', '', $entry );
+    return $entry;
+}
+
+/*
+ * Same as sanitize_key(), but without applying filters
+ */
+function pp_revisions_sanitize_key( $key ) {
+    $raw_key = $key;
+    $key     = strtolower( $key );
+    $key     = preg_replace( '/[^a-z0-9_\-]/', '', $key );
+    
+    return $key;
+}
+
+/**
  * Copies the taxonomies of a post to another post.
  * Based on Yoast Duplicate Post
  *
@@ -195,39 +220,37 @@ function rvy_in_revision_workflow($post) {
 }
 
 function rvy_post_id($revision_id) {
-	static $busy;
+    if ($_post = get_post($revision_id)) {
+        // if ID passed in is not a revision, return it as is
+        if (('revision' != $_post->post_type) && !rvy_in_revision_workflow($_post)) {
+            return $revision_id;
 
-	if (!empty($busy)) {
-		return;
-	}
+        } elseif ('revision' == $_post->post_type) {
+            return $_post->post_parent;
 
-	$busy = true;
-	$published_id = rvy_get_post_meta( $revision_id, '_rvy_base_post_id', true );
-	$busy = false;
+        } else {
+            if (!$_post->comment_count) {
+                static $busy;
 
-	if (empty($published_id)) {
-		if ($_post = get_post($revision_id)) {
-			// if ID passed in is not a revision, return it as is
-			if (('revision' != $_post->post_type) && !rvy_in_revision_workflow($_post)) {
-				return $revision_id;
+                if (!empty($busy)) {
+                    return;
+                }
+                
+                $busy = true;
+                $published_id = rvy_get_post_meta( $revision_id, '_rvy_base_post_id', true );
+                $busy = false;
 
-			} elseif ('revision' == $_post->post_type) {
-				return $_post->post_parent;
+                if ($published_id) {
+                    global $wpdb;
+                    $wpdb->update($wpdb->posts, ['comment_count' => $published_id], ['ID' => $revision_id]);
+                }
+            } else {
+                $published_id = $_post->comment_count;
+            }
+        }
+    }
 
-			} else {
-				// Restore missing postmeta field
-				/*
-				if ($_post->comment_count) {
-					rvy_update_post_meta( $revision_id, '_rvy_base_post_id', $_post->comment_count );
-				}
-				*/
-
-				return $_post->comment_count;
-			}
-		}
-	}
-
-	return ($published_id) ? $published_id : 0;
+	return (!empty($published_id)) ? $published_id : 0;
 }
 
 // Append a random argument for cache busting
@@ -258,14 +281,14 @@ function pp_revisions_plugin_updated($current_version) {
     if (version_compare($last_ver, '3.0.1', '<')) {
         // convert pending / scheduled revisions to v3.0 format
 		global $wpdb;
-		$revision_status_csv = rvy_revision_statuses(['return' => 'csv']);
-		$wpdb->query("UPDATE $wpdb->posts SET post_mime_type = post_status WHERE post_status IN ($revision_status_csv)");
+		$revision_status_csv = implode("','", array_map('sanitize_key', rvy_revision_statuses()));
+		$wpdb->query("UPDATE $wpdb->posts SET post_mime_type = post_status WHERE post_status IN ('$revision_status_csv')");
 		$wpdb->query("UPDATE $wpdb->posts SET post_status = 'draft' WHERE post_status IN ('draft-revision')");
 		$wpdb->query("UPDATE $wpdb->posts SET post_status = 'pending' WHERE post_status IN ('pending-revision')");
 		$wpdb->query("UPDATE $wpdb->posts SET post_status = 'future' WHERE post_status IN ('future-revision')");
     } 
 
-    if (version_compare($last_ver, '3.0.2', '<')) {
+    if (version_compare($last_ver, '3.0.7-rc4', '<') && !defined('PRESSPERMIT_DEBUG')) {
         // delete revisions that were erroneously trashed instead of deleted
 		global $wpdb;
         $wpdb->query("DELETE FROM $wpdb->posts WHERE post_mime_type IN ('draft-revision', 'pending-revision', 'future-revision') AND post_status = 'trash'");
