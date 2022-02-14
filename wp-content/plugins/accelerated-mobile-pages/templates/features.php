@@ -6123,7 +6123,7 @@ if ( ! function_exists( 'ampforwp_google_fonts_generator' ) ) {
 		      	}
 		        $font_output .= "@font-face {  ";
 		        $font_output .= "font-family: " . esc_attr(ampforwp_get_setting('amp_font_selector_content_single')). ';' ;
-		        $font_output .= "font-display: swap".';';
+		        $font_output .= "font-display: optional".';';
 		        $font_output .= "font-style: " . esc_attr($font_style) . ';';
 		        $font_output .= "font-weight: " . esc_attr($font_weight) . ';' ;
 		        $font_output .= "src: local('". esc_attr(ampforwp_get_setting('amp_font_selector_content_single'))." ".esc_attr($font_local_weight)." ".esc_attr($font_local_type)."'), local('". esc_attr(ampforwp_get_setting('amp_font_selector_content_single'))."-".esc_attr($font_local_weight).$font_local_type."'), url(" .esc_url(str_replace("http://", "https://", $font_data->files->$value)) . ');' ;
@@ -6232,6 +6232,11 @@ function ampforwp_is_non_amp( $type="" ) {
 		// Pages
 		if ( is_page() && false == ampforwp_get_setting('amp-on-off-for-all-pages') ) {
 			return false;
+		}
+		//Blogpage
+		$page_for_posts = intval(get_option( 'page_for_posts' ));
+		if ( $page_for_posts == ampforwp_get_the_ID() ) {
+			return true;
 		}
 		// Homepage
 		if ( is_home() && false == ampforwp_get_setting('ampforwp-homepage-on-off-support') ) {

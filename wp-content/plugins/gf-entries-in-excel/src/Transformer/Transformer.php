@@ -22,6 +22,8 @@ class Transformer
         'checkbox' => 'GFExcel\Field\CheckboxField',
         'date' => 'GFExcel\Field\DateField',
         'fileupload' => 'GFExcel\Field\FileUploadField',
+        'form' => 'GFExcel\Field\NestedFormField',
+        'likert' => 'GFExcel\Field\SurveyLikertField',
         'list' => 'GFExcel\Field\ListField',
         'meta' => 'GFExcel\Field\MetaField',
         'name' => 'GFExcel\Field\SeparableField',

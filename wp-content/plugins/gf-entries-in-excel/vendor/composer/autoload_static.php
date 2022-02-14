@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit04c94a47f2158fb3a6d29093cc319ce4
+class ComposerStaticInitdcd6296a98baa11e0aac805330bb4b6f
 {
     public static $files = array (
         '3af723442581d6c310bf44543f9f5c60' => __DIR__ . '/..' . '/markbaker/matrix/classes/src/Functions/adjoint.php',
@@ -269,6 +269,7 @@ class ComposerStaticInit04c94a47f2158fb3a6d29093cc319ce4
         'GFExcel\\Field\\MetaField' => __DIR__ . '/../..' . '/src/Field/MetaField.php',
         'GFExcel\\Field\\Meta\\CreatedBy' => __DIR__ . '/../..' . '/src/Field/Meta/CreatedBy.php',
         'GFExcel\\Field\\Meta\\DateCreated' => __DIR__ . '/../..' . '/src/Field/Meta/DateCreated.php',
+        'GFExcel\\Field\\NestedFormField' => __DIR__ . '/../..' . '/src/Field/NestedFormField.php',
         'GFExcel\\Field\\NotesField' => __DIR__ . '/../..' . '/src/Field/NotesField.php',
         'GFExcel\\Field\\NumberField' => __DIR__ . '/../..' . '/src/Field/NumberField.php',
         'GFExcel\\Field\\ProductField' => __DIR__ . '/../..' . '/src/Field/ProductField.php',
@@ -276,6 +277,7 @@ class ComposerStaticInit04c94a47f2158fb3a6d29093cc319ce4
         'GFExcel\\Field\\RowsInterface' => __DIR__ . '/../..' . '/src/Field/RowsInterface.php',
         'GFExcel\\Field\\SectionField' => __DIR__ . '/../..' . '/src/Field/SectionField.php',
         'GFExcel\\Field\\SeparableField' => __DIR__ . '/../..' . '/src/Field/SeparableField.php',
+        'GFExcel\\Field\\SurveyLikertField' => __DIR__ . '/../..' . '/src/Field/SurveyLikertField.php',
         'GFExcel\\GFExcel' => __DIR__ . '/../..' . '/src/GFExcel.php',
         'GFExcel\\GFExcelAdmin' => __DIR__ . '/../..' . '/src/GFExcelAdmin.php',
         'GFExcel\\GFExcelConfigConstants' => __DIR__ . '/../..' . '/src/GFExcelConfigConstants.php',
@@ -584,9 +586,9 @@ class ComposerStaticInit04c94a47f2158fb3a6d29093cc319ce4
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit04c94a47f2158fb3a6d29093cc319ce4::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit04c94a47f2158fb3a6d29093cc319ce4::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit04c94a47f2158fb3a6d29093cc319ce4::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitdcd6296a98baa11e0aac805330bb4b6f::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitdcd6296a98baa11e0aac805330bb4b6f::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInitdcd6296a98baa11e0aac805330bb4b6f::$classMap;
 
         }, null, ClassLoader::class);
     }

@@ -28,7 +28,7 @@ class PostEditorWorkflowUI {
             'onApprovalCaption' => __('(on approval)', 'revisionary'),
         ];
 
-        $vars['disableRecaption'] = is_plugin_active('gutenberg/gutenberg.php');
+        $vars['disableRecaption'] = version_compare($wp_version, '5.9-beta', '>=') || is_plugin_active('gutenberg/gutenberg.php');
 
         if (rvy_get_option('revision_preview_links') || current_user_can('administrator') || is_super_admin()) {
             $vars['viewURL'] = rvy_preview_url($post);
@@ -66,7 +66,7 @@ class PostEditorWorkflowUI {
             $vars['revisionEdits'] = '';
         }
 
-        $redirect_arg = ( ! empty($_REQUEST['rvy_redirect']) ) ? "&rvy_redirect=" . esc_url($_REQUEST['rvy_redirect']) : '';
+        $redirect_arg = ( ! empty($_REQUEST['rvy_redirect']) ) ? "&rvy_redirect=" . esc_url_raw($_REQUEST['rvy_redirect']) : '';
         $published_post_id = rvy_post_id($post->ID);
 
         $draft_obj = get_post_status_object('draft-revision');
@@ -161,7 +161,7 @@ class PostEditorWorkflowUI {
             $vars['scheduledRevisionsURL'] = '';
         }
 
-        $redirect_arg = ( ! empty($_REQUEST['rvy_redirect']) ) ? "&rvy_redirect=" . esc_url($_REQUEST['rvy_redirect']) : '';
+        $redirect_arg = ( ! empty($_REQUEST['rvy_redirect']) ) ? "&rvy_redirect=" . esc_url_raw($_REQUEST['rvy_redirect']) : '';
         $published_post_id = rvy_post_id($post->ID);
 
         if (rvy_get_option('pending_revisions') && current_user_can('copy_post', $post->ID)) {

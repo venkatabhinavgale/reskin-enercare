@@ -38,7 +38,7 @@ class RevisionaryHistory
     function actCompareRevisionsTweakUI() {
         global $revisionary;
 
-        $revision_id = (!empty($_REQUEST['revision'])) ? (int) $_REQUEST['revision'] : $_REQUEST['to'];
+        $revision_id = (!empty($_REQUEST['revision'])) ? (int) $_REQUEST['revision'] : (int) $_REQUEST['to'];
 
         // Hide Restore button if user does not have permission
         if ($_post = get_post($revision_id)) {
@@ -272,11 +272,11 @@ class RevisionaryHistory
     public function fltRevisionQueryWhere($where, $args = []) {
         global $wpdb;
 
-        $p = (!empty($args['alias'])) ? $args['alias'] : $wpdb->posts;
+        $p = (!empty($args['alias'])) ? sanitize_text_field($args['alias']) : $wpdb->posts;
 
-		$post_id_csv = "'" . implode("','", $this->published_post_ids) . "'";
+		$post_id_csv = implode("','", array_map('intval', $this->published_post_ids));
 
-		$where .= " AND $p.comment_count IN ($post_id_csv)";
+		$where .= " AND $p.comment_count IN ('$post_id_csv')";
 
         return $where;
     }
@@ -314,7 +314,7 @@ class RevisionaryHistory
         $to = (isset($_REQUEST['to'])) ? (int) $_REQUEST['to'] : '';
 
         if (!$revision_id && !$to && !empty($_REQUEST['compare'])) {
-            $compare = (array) $_REQUEST['compare'];
+            $compare = array_map('intval', (array) sanitize_text_field($_REQUEST['compare']));
             list( $from, $to ) = explode( ':', reset($compare)); // from:to
         }
 
@@ -779,7 +779,7 @@ class RevisionaryHistory
             $author_captions = [];
             $avatars = '';
             foreach($authors as $_author) {
-                $author_captions []= ($use_multiple_authors) ? esc_html($_author->display_name) : get_the_author_meta('display_name', $_author->ID);
+                $author_captions []= ($use_multiple_authors) ? esc_html($_author->display_name) : htmlspecialchars_decode(get_the_author_meta('display_name', $_author->ID));
                 $avatars .= $show_avatars ? get_avatar( $_author->ID, 32 ) : '';
             }
 
@@ -895,20 +895,20 @@ class RevisionaryHistory
 
                     // For non-public types, force direct approval because preview is not available
 	                if ((($type_obj && !is_post_type_viewable($type_obj)) || rvy_get_option('compare_revisions_direct_approval')) && current_user_can( 'edit_post', $published_post_id) ) {
-                        $redirect_arg = ( ! empty($_REQUEST['rvy_redirect']) ) ? "&rvy_redirect=" . esc_url($_REQUEST['rvy_redirect']) : '';
+                        $redirect_arg = ( ! empty($_REQUEST['rvy_redirect']) ) ? "&rvy_redirect=" . esc_url_raw($_REQUEST['rvy_redirect']) : '';
 
                         //if (in_array($revision->post_mime_type, ['draft-revision'])) {
-                        //    $restore_link = wp_nonce_url( rvy_admin_url("admin.php?page=rvy-revisions&amp;revision={$revision->ID}&amp;action=submit$redirect_arg"), "submit-post_$published_post_id|{$revision->ID}" );
+                        //    $restore_link = wp_nonce_url( rvy_admin_url("admin.php?page=rvy-revisions&revision={$revision->ID}&action=submit$redirect_arg"), "submit-post_$published_post_id|{$revision->ID}" );
 
                         if (in_array($revision->post_mime_type, ['draft-revision', 'pending-revision'])) {
-                            $restore_link = wp_nonce_url( rvy_admin_url("admin.php?page=rvy-revisions&amp;revision={$revision->ID}&amp;action=approve$redirect_arg"), "approve-post_$published_post_id|{$revision->ID}" );
+                            $restore_link = wp_nonce_url( rvy_admin_url("admin.php?page=rvy-revisions&revision={$revision->ID}&action=approve$redirect_arg"), "approve-post_$published_post_id|{$revision->ID}" );
 
                         } elseif (in_array($revision->post_mime_type, ['future-revision'])) {
-                            $restore_link = wp_nonce_url( rvy_admin_url("admin.php?page=rvy-revisions&amp;revision={$revision->ID}&amp;action=publish$redirect_arg"), "publish-post_$published_post_id|{$revision->ID}" );
+                            $restore_link = wp_nonce_url( rvy_admin_url("admin.php?page=rvy-revisions&revision={$revision->ID}&action=publish$redirect_arg"), "publish-post_$published_post_id|{$revision->ID}" );
                         }
 
                         if (current_user_can('edit_post', $revision->ID)) {
-                            $edit_url = rvy_admin_url("post.php?action=edit&amp;post=$revision->ID");
+                            $edit_url = rvy_admin_url("post.php?action=edit&post=$revision->ID");
                         }
 	                }
                 }

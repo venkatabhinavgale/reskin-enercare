@@ -1,5 +1,5 @@
 <?php
-if( basename(__FILE__) == basename($_SERVER['SCRIPT_FILENAME']) )
+if( basename(__FILE__) == basename(esc_url_raw($_SERVER['SCRIPT_FILENAME'])) )
 	die( 'This page cannot be called directly.' );
 
 do_action('revisionary_load_options_ui');
@@ -116,6 +116,7 @@ $future_revision_singular = pp_revisions_status_label('future-revision', 'name')
 $this->option_captions = apply_filters('revisionary_option_captions',
 	[
 	'revision_statuses_noun_labels' =>			__('Use alternate labeling: "Working Copy" > "Change Request" > "Scheduled Change"', 'revisionary'),
+	'manage_unsubmitted_capability' =>			sprintf(__('Additional role capability required to manage %s'), pp_revisions_status_label('draft-revision', 'plural')),
 	'copy_posts_capability' =>					rvy_get_option('revision_statuses_noun_labels') ? __("Additional role capability required to create a Working Copy", 'revisionary') : __("Additional role capability required to create a new revision", 'revisionary'),
 	'caption_copy_as_edit' =>					sprintf(__('Posts / Pages list: Use "Edit" caption for %s link'), pp_revisions_status_label('draft-revision', 'submit_short')),
 	'pending_revisions' => 						sprintf(__('Enable %s', 'revisionary'), $pending_revision_plural),
@@ -168,7 +169,7 @@ $this->form_options = apply_filters('revisionary_option_sections', [
 	'license' =>			 ['edd_key'],
 	'role_definition' => 	 ['revisor_role_add_custom_rolecaps', 'require_edit_others_drafts'],
 	'revision_statuses' =>	 ['revision_statuses_noun_labels'],
-	'working_copy' =>		 ['copy_posts_capability', 'caption_copy_as_edit'],
+	'working_copy' =>		 ['manage_unsubmitted_capability', 'copy_posts_capability', 'caption_copy_as_edit'],
 	'scheduled_revisions' => ['scheduled_revisions', 'async_scheduled_publish', 'scheduled_revision_update_post_date', 'scheduled_revision_update_modified_date'],
 	'pending_revisions'	=> 	 ['pending_revisions', 'revise_posts_capability', 'pending_revision_update_post_date', 'pending_revision_update_modified_date'],
 	'revision_queue' =>		 ['revisor_lock_others_revisions', 'revisor_hide_others_revisions', 'admin_revisions_to_own_posts', 'list_unsubmitted_revisions'],
@@ -190,7 +191,7 @@ if ( RVY_NETWORK ) {
 				$this->form_options[$tab_name][$section_name] = array_intersect( $this->form_options[$tab_name][$section_name], array_keys($rvy_options_sitewide) );
 			} elseif ('license' != $section_name) {
 				$this->form_options[$tab_name][$section_name] = array_diff( $this->form_options[$tab_name][$section_name], array_keys($rvy_options_sitewide) );
-		}
+			}
 		}
 	}
 
@@ -232,7 +233,6 @@ else
 	_e('PublishPress Revisions Settings', 'revisionary');
 ?>
 </h1>
-
 </td>
 <td>
 </td>
@@ -409,6 +409,13 @@ if ( ! empty( $this->form_options[$tab][$section] ) ) :?>
 		</div><br />
 	<?php endif;
 
+	$hint = __('To enable a role, add the manage_unsubmitted_revisions capability', 'revisionary');
+	$this->option_checkbox('manage_unsubmitted_capability', $tab, $section, $hint, '');
+
+	?>
+	<br />
+	<?php
+
 	$hint = sprintf(__('If the user does not have a regular Edit link, recaption the %s link as "Edit"', 'revisionary'), pp_revisions_status_label('draft-revision', 'submit_short'));
 	$this->option_checkbox( 'caption_copy_as_edit', $tab, $section, $hint, '' );
 
@@ -501,11 +508,10 @@ if ( 	// To avoid confusion, don't display any revision settings if pending revi
 			$hint = __('If some revisions are missing from the queue, disable a performance enhancement for better compatibility with themes and plugins.', 'revisionary');
 			$this->option_checkbox( 'queue_query_all_posts', $tab, $section, $hint, '' );
 			*/
-
 		?>
 
 		<p style="padding-left:22px; margin-top:25px">
-		<a href="<?php echo add_query_arg('rvy_flush_flags', 1, esc_url($_SERVER['REQUEST_URI']))?>"><?php _e('Regenerate "post has revision" flags', 'revisionary');?></a>
+		<a href="<?php echo add_query_arg('rvy_flush_flags', 1, esc_url(esc_url_raw($_SERVER['REQUEST_URI'])))?>"><?php _e('Regenerate "post has revision" flags', 'revisionary');?></a>
 		</p>
 
 		</td></tr></table>
@@ -728,7 +734,7 @@ $pending_revisions_available || $scheduled_revisions_available ) :
 			delete_option('revisionary_mail_buffer');
 		}
 
-		$uri = esc_url($_SERVER['REQUEST_URI']);
+		$uri = esc_url(esc_url_raw($_SERVER['REQUEST_URI']));
 
 		if (!empty($_REQUEST['mailinfo'])) {
 			$verbose = !empty($_REQUEST['verbose']);

@@ -6,8 +6,8 @@ Author URI: https://publishpress.com
 Tags: revision, submit changes, duplicate post, duplicate page, revisions, approve changes, scheduled changes
 Requires at least: 4.9.7
 Requires PHP: 5.6.20
-Tested up to: 5.8
-Stable tag: 3.0.6
+Tested up to: 5.9
+Stable tag: 3.0.10
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -235,8 +235,34 @@ Divi is one of the most popular page-builders in WordPress, and it does integrat
 
 [Click here for more on duplicate posts with Divi (https://publishpress.com/knowledge-base/divi-theme/).
 
-
 == Changelog ==
+
+= 3.0.10 - 10 Feb 2022 =
+* Fixed : WordPress 5.9 - When editing a submitted revision, Save button was hidden
+* Fixed : Revision Compare did not load on some sites
+* Fixed : Option "Editing others' revisions requires role capability" was not applied
+
+= 3.0.9 - 27 Jan 2022
+* Compat : WordPress 5.9 - Revisions could not be updated using Gutenberg editor
+
+= 3.0.8 - 26 Jan 2022
+* Compat : WordPress 5.9 - Fatal error adding / editing posts (work around WP hooking late-defined function _disable_block_editor_for_navigation_post_type)
+
+= 3.0.7 - 5 Jan 2022 =
+* Fixed : Revision status changes not updated on sites running an object cache
+* Fixed : Revision deletion from within editor left an inaccessible trashed revision and redirected to Edit Posts. Now deletes revision and redirects to Revision Queue.
+* Fixed : manage_unsubmitted_revisions capability was required without any hint in plugin settings; Now not required unless configured in Revisions > Settings
+* Fixed : Classic Editor - Javascript error breaks plugin compatibility
+* Fixed : Gutenberg Editor - Top margin for Preview button following revision submission
+* Fixed : Compare screen - could not approve revisions
+* Fixed : Compare screen - ampersands in user display name were displayed with html encoding
+* Fixed : Revision Queue - Revisions from deactivated post types were listed with invalid Edit, Delete links and a blank Post Type
+* Fixed : Compare Revisions - Preview / Restore button for past revisions linked back to Compare screen
+* Fixed : Input sanitization consistency
+* Change : Revision preview top bar styling
+* Compat : LifterLMS - LLMS query filters broke Revision Queue
+* Compat : WPML - Database error in Revision Queue
+* Fixed : Revision Queue: PHP error on bulk action under some site configurations
 
 = 3.0.6 - 29 Nov 2021 =
 * Fixed : Edit Revision - revisions could not be updated unless SCRIPT_DEBUG is enabled on the site

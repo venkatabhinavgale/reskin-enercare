@@ -110,7 +110,20 @@ class GmbClient {
     
     // If there is no previous token or it's expired.
     if ($this->google_client->isAccessTokenExpired()) {
-      error_log('Enercare Google Reviews ERROR: Access Token is expired. Run refreshGMBAccessToken.php locally to regenerate and re-upload token.json');
+      add_action('admin_notices', 'enercare_gmb_reviews_api_access_notice');
+      error_log('Enercare Google Reviews ERROR: Access Token is expired and could not refresh token. Run refreshGMBAccessToken.php locally to regenerate and re-upload token.json');
+      
+      // Refresh the token if possible, else fetch a new one.
+      /*if ($this->google_client->getRefreshToken()) {
+        $this->google_client->fetchAccessTokenWithRefreshToken($this->google_client->getRefreshToken());
+        //remove_action('enercare_gmb_reviews_api_access_notice');
+      } else {
+        error_log('Enercare Google Reviews ERROR: Access Token is expired and could not refresh token. Run refreshGMBAccessToken.php locally to regenerate and re-upload token.json');
+        add_action('admin_notices', 'enercare_gmb_reviews_api_access_notice');
+      }
+      
+      file_put_contents($tokenPath, json_encode($this->google_client->getAccessToken()));
+      */
     }
     
   }
