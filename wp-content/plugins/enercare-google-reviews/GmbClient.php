@@ -68,9 +68,10 @@ class GmbClient {
     $this->oauth_credentials_file = 'gmb_api_credentials.json';
     $this->google_api_project_name = 'enercare';
     $this->google_api_scope = 'https://www.googleapis.com/auth/business.manage';
-    $this->google_api_user = 'pryan@portent.com';
+    //$this->google_api_user = 'pryan@portent.com';
+    $this->google_api_user = 'enercaredigital@gmail.com';
     $this->google_api_account = 'accounts/103584978847197657494';
-    $this->google_api_refresh_token = '1//04sQVR_Ny5GqrCgYIARAAGAQSNwF-L9IrwDDO4UbJoFBGXSF_3Y0j1TgmFfZo5f0EDfVDNdKhWves6SuTAQ3JoQQiiuMIv9Jqybg';
+    //$this->google_api_refresh_token = '1//04sQVR_Ny5GqrCgYIARAAGAQSNwF-L9IrwDDO4UbJoFBGXSF_3Y0j1TgmFfZo5f0EDfVDNdKhWves6SuTAQ3JoQQiiuMIv9Jqybg';
 
     $this->authenticate();
     // dd($this->getLocations());
@@ -92,8 +93,26 @@ class GmbClient {
     $this->google_client->setAuthConfig(plugin_dir_path( __FILE__ ) . $this->oauth_credentials_file);
     $this->google_client->addScope($this->google_api_scope);
     $this->google_client->setSubject($this->google_api_user);
-    $this->google_client->refreshToken($this->google_api_refresh_token);
+    
+    //$this->google_client->refreshToken($this->google_api_refresh_token);
+    
+    // Load previously authorized token from a file, if it exists.
+    // The file token.json stores the user's access and refresh tokens, and is
+    // created automatically when the authorization flow completes for the first
+    // time.
+    $tokenPath = __DIR__ . '/token.json';
+    if (file_exists($tokenPath)) {
+      $accessToken = json_decode(file_get_contents($tokenPath), true);
+      $this->google_client->setAccessToken($accessToken);
+    }
+    
     $this->google_client->authorize();
+    
+    // If there is no previous token or it's expired.
+    if ($this->google_client->isAccessTokenExpired()) {
+      error_log('Enercare Google Reviews ERROR: Access Token is expired. Run refreshGMBAccessToken.php locally to regenerate and re-upload token.json');
+    }
+    
   }
 
   /**
