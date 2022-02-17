@@ -33,6 +33,7 @@ function location_filters() {
 			the_postal_code_filter();
 		echo '</div>';
 	echo '</div>';
+  /* 2/7/2022 - temporarily turning off postal code filtering on location hub
 	echo '<div class="location-archive-filters__divider" role="presentation">or</div>';
 	echo '<div class="location-archive-filters__filter location-archive-filters__province">';
 		echo '<h2 class="location-archive-filters__header location-archive-filters__header--province">Location By Province</h2>';
@@ -40,6 +41,7 @@ function location_filters() {
 			the_province_filter();
 		echo '</div>';
 	echo '</div>';
+  */
 	echo '</section>';
 }
 /**
