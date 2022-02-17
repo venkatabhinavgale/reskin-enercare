@@ -98,7 +98,13 @@ class GmbClient {
     // The file token.json stores the user's access and refresh tokens, and is
     // created automatically when the authorization flow completes for the first
     // time.
-    $tokenPath = __DIR__ . '/token.json';
+    
+    // 
+    
+    $upload_dir = wp_upload_dir();
+    $tokenPath = $upload_dir['basedir'] . '/private/enercare-google-reviews/token.json';
+    //$tokenPath = __DIR__ . '/token.json';
+    
     if (file_exists($tokenPath)) {
       $accessToken = json_decode(file_get_contents($tokenPath), true);
       $this->google_client->setAccessToken($accessToken);
@@ -116,6 +122,10 @@ class GmbClient {
         add_action('admin_notices', 'enercare_gmb_reviews_api_access_notice');
       }
       
+      // if our private dir does not exist, create it
+      if (!file_exists(dirname($tokenPath))) {
+        mkdir(dirname($tokenPath), 0700, true);
+      }
       file_put_contents($tokenPath, json_encode($this->google_client->getAccessToken()));
     }
     
