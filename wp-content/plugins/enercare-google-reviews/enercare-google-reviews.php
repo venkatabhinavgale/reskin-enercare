@@ -40,10 +40,6 @@ class ECReviews {
     add_action('restrict_manage_posts', array($this, 'reviews_table_filtering'));
     add_filter('parse_query', array($this, 'reviews_table_filter'));
 
-    $client = new Google_Client();
-    $gmbService = new Google_Service_MyBusiness($client);
-    $this->gmbClient = new GmbClient($gmbService, $client);
-
     if ( is_admin() ) {
       define( 'ECREVIEWS_ADMIN_URL',       admin_url() . "admin.php?page=enercare-google-reviews/index.php" );
       add_action('admin_menu', array($this, 'create_menu'));
@@ -444,6 +440,7 @@ class ECReviews {
   }
 
   public function syncGmbLocations() {
+    $this->initializeGMBClient();
     $locations = $this->getGmbLocations();
     foreach ($locations as $location) {
       $location_id = $location->name;
@@ -498,6 +495,7 @@ class ECReviews {
   }
 
   public function syncGmbReviews($page_count = 50) {
+    $this->initializeGMBClient();
     $reviews = $this->gmbClient->getReviewsBatchManual($page_count);
     //$reviews = $this->gmbClient->getReviewsBatch();
     //var_dump($reviews);exit;
@@ -549,8 +547,12 @@ class ECReviews {
       $this->syncGmbReviews();
     }
   }
-
-
+  
+  public function initializeGMBClient() {
+    $client = new Google_Client();
+    $gmbService = new Google_Service_MyBusiness($client);
+    $this->gmbClient = new GmbClient($gmbService, $client);
+  }
 }
 $ecReviews = new ECReviews();
 
