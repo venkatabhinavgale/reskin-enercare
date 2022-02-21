@@ -19,14 +19,12 @@ const ALLOWED_BLOCKS = [ 'portent/block-portent-tabbed-content--tab' ];
 
 const PrintTabs = (props) => {
 	const tabs = props.tabs;
-	return(tabs.map(tab => <button className="block-tabbed-content__tab" data-interface="tab-button" data-tab={tab[0]}><img width="30px" height="30px" alt="" src={tab[2]}/>{tab[1]}</button>));
+	return(tabs.map(tab => <button className="block-tabbed-content__tab" data-default={tab[3]} data-interface="tab-button" data-tab={tab[0]}><img width="30px" height="30px" alt="" src={tab[2]}/>{tab[1]}</button>));
 }
 
 const ChildTabs = (props) => {
-	console.log('ChildTabs');
 	const { innerBlocks, className, attributes, setAttributes } = props;
-	console.log(innerBlocks);
-		const tabsArray = innerBlocks.map( tab => [tab.clientId,tab.attributes.title,tab.attributes.iconid] );
+		const tabsArray = innerBlocks.map( tab => [tab.clientId,tab.attributes.title,tab.attributes.iconid,tab.attributes.defaultTab] );
 		const serialTabs = JSON.stringify(tabsArray);
 		if( attributes.tabs !== serialTabs ) {
 			setAttributes({tabs:serialTabs});
@@ -35,8 +33,6 @@ const ChildTabs = (props) => {
 }
 
 const TabSelect = withSelect( ( select, blockData ) => {
-	console.log('with Select');
-	console.log(blockData.clientId);
 	return {
 		innerBlocks: select( 'core/block-editor' ).getBlocks( blockData.clientId )
 	};
@@ -96,7 +92,8 @@ registerBlockType( 'portent/block-tabbed-content', {
 	edit: ( props ) => {
 		const {
 			attributes: { tabAlignment },
-			isSelected, className, setAttributes } = props;
+			isSelected, className, setAttributes
+		} = props;
 
 		return( <div className={className}>
 			{ isSelected && (
@@ -135,9 +132,8 @@ registerBlockType( 'portent/block-tabbed-content', {
 			<div className={"block-tabbed-content__tabs init block-tabbed-content__tabs--" + tabAlignment}>
 				<PrintTabs tabs={unpackedTabs}/>
 			</div>
-		)
-		console.log( 'Block Props' );
-		console.log( blockProps);
+		);
+
 		return (
 			<div { ...blockProps }>
 				<SaveTabs />
