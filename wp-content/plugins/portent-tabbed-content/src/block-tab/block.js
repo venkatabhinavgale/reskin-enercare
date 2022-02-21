@@ -85,25 +85,6 @@ registerBlockType( 'portent/block-tabbed-content--tab', {
 			} );
 		};
 
-		// const defaultToggleControl = () => {
-		// 	const [ defaultTab, setDefaultTab ] = useState( false );
-		//
-		// 	return (
-		// 		<ToggleControl
-		// 			label="Default Tab?"
-		// 			help={
-		// 				defaultTab
-		// 					? 'Tab will open when page loads'
-		// 					: 'Tab will not open when page loads'
-		// 			}
-		// 			checked={ defaultTab }
-		// 			onChange={ () => {
-		// 				setDefaultTab( ( state ) => ! state );
-		// 			} }
-		// 		/>
-		// 	);
-		// };
-
 		return (
 			<div className="block-tabbed-content__panel" data-tab={props.attributes.tabid} data-interface="tab-panel">
 				<InspectorControls key="setting">
