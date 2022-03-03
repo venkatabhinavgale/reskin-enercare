@@ -57,6 +57,7 @@ class ECReviews {
       wp_schedule_event(time(), 'daily', 'ecreviews_reviews_sync_cron');
     }
 
+    $this->initializeGMBClient();
   }
 
   public function plugin_activate($network_wide) {
