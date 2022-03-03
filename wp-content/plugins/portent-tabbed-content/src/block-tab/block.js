@@ -12,7 +12,8 @@ import './style.scss';
 const { __ } = wp.i18n; // Import __() from wp.i18n
 const { registerBlockType } = wp.blocks; // Import registerBlockType() from wp.blocks
 import { InnerBlocks, useBlockProps, InspectorControls, MediaUpload, MediaUploadCheck } from '@wordpress/block-editor';
-import { TextControl, Button, Panel, PanelBody, PanelRow, Spinner } from '@wordpress/components';
+import { TextControl, ToggleControl, Button, Panel, PanelBody, PanelRow, Spinner } from '@wordpress/components';
+import { useState } from '@wordpress/element';
 const ALLOWED_MEDIA_TYPES = [ 'image' ];
 
 /**
@@ -49,6 +50,10 @@ registerBlockType( 'portent/block-tabbed-content--tab', {
 		},
 		tabid: {
 			type: 'string'
+		},
+		defaultTab: {
+			type: 'boolean',
+			default: false
 		}
 	},
 
@@ -64,7 +69,7 @@ registerBlockType( 'portent/block-tabbed-content--tab', {
 	 * @returns {Mixed} JSX Component.
 	 */
 	edit: ( props) => {
-		const { attributes:{ title, iconid, tabid }, setAttributes} = props;
+		const { attributes:{ title, iconid, tabid, defaultTab }, setAttributes} = props;
 		props.setAttributes({tabid: props.clientId})
 		const blockProps = useBlockProps();
 
@@ -122,6 +127,14 @@ registerBlockType( 'portent/block-tabbed-content--tab', {
 									</MediaUploadCheck>
 									}
 								</PanelRow>
+								<PanelRow>
+									<ToggleControl
+										label="Default Display Tab?"
+										help={defaultTab ? "Tab will display on page load" : "Tab will not show on page load"}
+										checked={defaultTab}
+										onChange={() => setAttributes({ defaultTab: !defaultTab })}
+									/>
+								</PanelRow>
 							</PanelBody>
 						</Panel>
 					</div>
@@ -144,9 +157,8 @@ registerBlockType( 'portent/block-tabbed-content--tab', {
 	 * @returns {Mixed} JSX Frontend HTML.
 	 */
 	save: ( props ) => {
-		//const blockProps = useBlockProps.save();
 		return (
-			<div className="block-tabbed-content__panel">
+			<div className="block-tabbed-content__panel" data-default={props.attributes.defaultTab}>
 				<div class="block-tabbed-content__panel__mobile-toggle">
 					<button id={"tab_toggle--" + props.attributes.tabid} className="block-tabbed-content__panel__toggle" data-tab={props.attributes.tabid} aria-expanded="false" aria-controls="sect1">
 						<img class="block-tabbed-content__panel__icon" width="20" height="20" src={props.attributes.iconid} />
@@ -181,6 +193,36 @@ registerBlockType( 'portent/block-tabbed-content--tab', {
 						<div className="block-tabbed-content__tab-content" data-tab={props.attributes.tabid}>
 							<InnerBlocks.Content />
 						</div>
+					</div>
+				);
+			}
+		},
+		{
+			attributes: {
+				title: {
+					type: 'string'
+				},
+				iconid : {
+					type: 'string',
+				},
+				tabid: {
+					type: 'string'
+				}
+			},
+			save: ( props ) => {
+				//const blockProps = useBlockProps.save();
+				return (
+					<div className="block-tabbed-content__panel">
+						<div class="block-tabbed-content__panel__mobile-toggle">
+							<button id={"tab_toggle--" + props.attributes.tabid} className="block-tabbed-content__panel__toggle" data-tab={props.attributes.tabid} aria-expanded="false" aria-controls="sect1">
+								<img class="block-tabbed-content__panel__icon" width="20" height="20" src={props.attributes.iconid} />
+								<h2 className="block-tabbed-content__panel__title">{props.attributes.title}</h2>
+								<svg className="block-tabbed-content__panel__arrow" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M24 24H0V0h24v24z" fill="none" opacity=".87"/><path d="M7.38 21.01c.49.49 1.28.49 1.77 0l8.31-8.31c.39-.39.39-1.02 0-1.41L9.15 2.98c-.49-.49-1.28-.49-1.77 0s-.49 1.28 0 1.77L14.62 12l-7.25 7.25c-.48.48-.48 1.28.01 1.76z"/></svg>
+							</button>
+						</div>
+						<section className="block-tabbed-content__tab-content" data-tab={props.attributes.tabid} aria-labelledby={"tab_toggle--" + props.attributes.tabid} hidden="">
+							<InnerBlocks.Content />
+						</section>
 					</div>
 				);
 			}

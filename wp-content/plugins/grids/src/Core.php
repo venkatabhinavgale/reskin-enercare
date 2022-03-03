@@ -10,6 +10,7 @@ use Grids\Core\Utils\Notice as Notice;
 use Grids\Core\Media as Media;
 use Grids\Core\Blocks\Section as Section;
 use Grids\Core\Blocks\Area as Area;
+use Grids\Core\Utils\CSS;
 
 /* Check that we're running this file from the plugin. */
 if ( ! defined( 'GRIDS' ) ) die( 'Forbidden' );
@@ -76,7 +77,7 @@ class Core {
 		$this->load_config();
 
 		/* Register custom plugin meta data. */
-		add_action( 'init', array( $this, 'register_meta' ) );
+		// add_action( 'init', array( $this, 'register_meta' ) );
 
 		/* Admin body class. */
 		add_filter( 'admin_body_class', array( $this, 'admin_body_class' ) );
@@ -86,13 +87,15 @@ class Core {
 
 		/* Declare blocks. */
 		if ( is_admin() ) {
+			add_action( 'admin_print_scripts', array( $this, 'styles_config' ) );
 			add_action( 'enqueue_block_editor_assets', array( $this, 'declare_blocks' ) );
 		}
 		else {
 			$this->declare_blocks();
 
 			/* Frontend styles. */
-			add_action( 'get_footer', array( $this, 'styles' ), 100 );
+			add_action( 'wp_footer', array( $this, 'styles_config' ), 100 ); // Condizionato al fse
+			add_action( 'wp_footer', array( $this, 'styles' ), 100 );
 
 			/* Filter the posts content. */
 			add_action( 'the_content', array( $this, 'the_content' ) );
@@ -190,78 +193,62 @@ class Core {
 	 * @since 1.0.0
 	 */
 	public function styles() {
-		if ( ! is_main_query() ) {
-			return;
-		}
-
-		global $wp_query;
-
-		/* Hook to generate styles for a custom query. */
-		$styles_query = Filter::apply( 'styles_query', $wp_query );
-		$styles_query->rewind_posts();
-
-		if ( $styles_query->have_posts() ) {
-			$index = 0;
-			while ( $styles_query->have_posts() ) {
-				$index++;
-				$styles_query->the_post();
-				$style = $this->compute_styles( get_the_content() );
-
-				if ( $style ) {
-					$style = implode( '', $style );
-
-					echo '<style id="grids-frontend-inline-css-' . esc_attr( $index ) . '">';
-						echo $style;
-					echo '</style>';
+		$breakpoints = $this->get_config( 'breakpoints' );
+		echo '<style id="grids-frontend-inline-css">';
+			foreach ( array_keys( $breakpoints ) as $breakpoint ) {
+				if ( 'desktop' === $breakpoint ) {
+					continue;
 				}
+
+				$area_vars = [
+					'--_ga-bg',
+					'--_ga-mw',
+					'--_ga-m',
+					'--_ga-p',
+					'--_ga-zi',
+					'--_ga-d'
+				];
+
+				$section_vars = [
+					'--_gs-bg',
+					'--_gs-mw',
+					'--_gs-m',
+					'--_gs-p',
+					'--_gs-bg-expand',
+					'--_gs-zi',
+					'--_gs-d',
+					'--_gs-min-height',
+					'--_gs-height',
+					'--_gs-gap'
+				];
+
+				echo CSS::media_query_selector( $breakpoint ) . '{';
+					echo '.grids-area {';
+						foreach ( $area_vars as $var ) {
+							echo $var . ':var(' . $var . '-' . $breakpoint . ');';
+						}
+					echo '}';
+
+					echo '.grids-section {';
+						foreach ( $section_vars as $var ) {
+							echo $var . ':var(' . $var . '-' . $breakpoint . ');';
+						}
+					echo '}';
+				echo '}';
 			}
-		}
+		echo '</style>';
 	}
 
 	/**
-	 * Compute the frontend styles.
+	 * Print the frontend styles configuration.
 	 *
-	 * @since 1.0.0
-	 * @param string $content The post content.
-	 * @param array $blocks The blocks array.
-	 * @return array
+	 * @since 1.3.0
 	 */
-	public function compute_styles( $content, $blocks = null ) {
-		$post_id = get_the_ID();
-
-		if ( $blocks == null ) {
-			$blocks = parse_blocks( $content );
-		}
-
-		$style = array();
-
-		foreach ( $blocks as $i => $block ) {
-			if ( isset( $block[ 'attrs' ][ 'ref' ] ) ) {
-				/* This is a reusable block, so let's fetch its blocks. */
-				$ref_block = get_post( $block[ 'attrs' ][ 'ref' ] );
-				$ref_blocks = parse_blocks( $ref_block->post_content );
-			}
-			else {
-				$ref_blocks = array( $block );
-			}
-
-			foreach ( $ref_blocks as $block ) {
-				switch ( $block[ 'blockName' ] ) {
-					case 'grids/section':
-						$style[] = Section::style( $block[ 'attrs' ], $post_id );
-						break;
-					case 'grids/area':
-						$style[] = Area::style( $block[ 'attrs' ], $post_id );
-						break;
-				}
-
-				if ( isset( $block[ 'innerBlocks' ] ) && ! empty( $block[ 'innerBlocks' ] ) ) {
-					$style = array_merge( $style, $this->compute_styles( $content, $block[ 'innerBlocks' ] ) );
-				}
-			}
-		}
-
-		return $style;
+	public function styles_config() {
+		echo '<style>:root{';
+			echo '--grids-composer-cols:' . esc_attr( $this->get_config( 'designer' )['columns'] ) . ';';
+			echo '--grids-composer-rows:' . esc_attr( $this->get_config( 'designer' )['rows'] ) . ';';
+		echo '}</style>';
 	}
 
 	/**

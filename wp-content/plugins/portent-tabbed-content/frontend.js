@@ -96,8 +96,8 @@ function portentFrontEndTabInit(event) {
 
 		//If all panels are collapsed then restore init state to maintain contiunity with desktop experience
 		if(allCollapsed){
-			panelContainer.classList.add('init');
-			tabContainer.classList.add('init');
+			panelContainer.classList.add('init--dirty');
+			tabContainer.classList.add('init--dirty');
 		}
 	}
 
