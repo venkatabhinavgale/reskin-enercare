@@ -790,7 +790,7 @@ div.wpforms-container.one-line .wpforms-submit-container{float:right;width:110px
 .comment-respond .comment-form-email{margin-left:32px}
 .comment-respond input[type="submit"]{width:auto}
 .single-post .entry-content h2{font-size:3.25em}
-.single-post .entry-content h3{font-size:3em}
+.single-post .entry-content h3{font-size:1.8em}
 .single-post .block-blog-posts__wrapper .block-carousel__prev{left:0}
 .single-post .block-blog-posts__wrapper .block-carousel__next{right:0}
 .site-footer{text-align:left}
@@ -823,6 +823,7 @@ h3{font-size:2.25em}
 div.wp-block-group{padding:70px 16px}
 .archive .site-main .archive-wrapper>article{float:left;margin-left:2.7397260274%;width:31.5068493151%}
 .archive .site-main .archive-wrapper>article:nth-of-type(3n+1){clear:both;margin-left:0}
+.single-post .entry-content h3{font-size:2.25em}
 .footer--menus .menu-item-has-children>a{font-size:1em}
 .footer--menus .sub-menu a{font-size:1em}
 .wp-block-button.is-style-hero .wp-block-button__link{font-size:1.5em}
