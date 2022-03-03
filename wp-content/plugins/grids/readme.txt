@@ -2,11 +2,11 @@
 Contributors: evolvesnc,andg,simo_m,marialaurascarnera
 Tags: page builder, gutenberg, gutenberg blocks, blocks, block-editor, grid-layout
 Requires at least: 5.0.0
-Tested up to: 5.7
+Tested up to: 5.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires PHP: 5.6
-Stable tag: 1.2.28
+Stable tag: 1.3.7
 
 The most advanced page and layout builder for Gutenberg and the new Block Editor, with columns, rows and responsive controls.
 
@@ -60,6 +60,45 @@ Support on the plugin page on WordPress.org is completely voluntary. Feel free t
 4. Grids offers multiple advanced controls to modify the appearance of your content.
 
 == Changelog ==
+
+=== 👉 1.3.7 ===
+
+* FIX: Fixed a fallback variable issue for Sections and Areas background.
+
+=== 👉 1.3.6 ===
+
+* FIX: Fixed an issue with the margins, paddings association on different media queries.
+* FIX: Fixed background repeat and position default behavior on frontend.
+
+=== 👉 1.3.4 & 1.3.5 ===
+
+* FIX: Synced row dimension logic on frontend/backend: empty rows will collapse also on the Block Editor screen.
+
+=== 👉 1.3.3 ===
+
+* FIX: Fixed 500 error that occurred when using wide-aligned sections.
+
+=== 👉 1.3.2 ===
+
+* FIX: Changed the grid column declaration to minmax(0,1fr) in order to prevent grid blowout.
+* FIX: Fixed nested sections issues.
+
+=== 👉 1.3.1 ===
+
+* FIX: Reverted row dimension logic: in Sections created with the advanced editor, empty rows will collapse.
+
+=== 👉 1.3.0 ===
+
+* ENHANCEMENT: Added compatibility with the Full Site Editor.
+* ENHANCEMENT: Enhanced compatibility with single page application websites.
+* FIX: Fixed style being applied to nested sections.
+* Updated compatibility to WordPress 5.9.
+
+POSSIBLY BREAKING CHANGES:
+
+* In this version, we have removed the global page setting that allowed for the editor area to be wider when editing a page with the Block Editor. We feel that this should be better handled by the theme itself, especially if it supports the Full Site Editing mode.
+* We have also removed the global page setting that determined the horizontal gutter between areas. This is now handled individually by Section blocks (look for Gap settings). As before, both horizontal and vertical gaps are subject to media queries.
+* We have removed the <code>grids-s-$section_id</code> and <code>grids-a-$area_id</code> classes from their respective elements, since they were no longer needed to generate the element's style. If you need to specifically identify a section or area, you can use their custom class/anchor controls provided by the Block Editor.
 
 === 👉 1.2.28 ===
 

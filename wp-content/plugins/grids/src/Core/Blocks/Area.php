@@ -40,152 +40,77 @@ class Area extends Block {
 	 * @return string
 	 */
 	public function render( $attributes, $content ) {
-		$blockId = $attributes[ 'blockId' ];
+		// $blockId = $attributes[ 'blockId' ];
 
 		$class = Filter::apply( 'area_class', array() );
 		$class[] = 'grids-area';
-		$class[] = 'grids-a-' . $blockId;
+		// $class[] = 'grids-a-' . $blockId;
 
 		if ( isset( $attributes[ 'className' ] ) ) {
 			$class[] = $attributes[ 'className' ];
 		}
 
-		return sprintf(
-			'<div class="%s">%s</div>',
-			esc_attr( implode( ' ', $class ) ),
-			$content
-		);
-	}
+		$vars = array();
 
-	/**
-	 * Render the area style.
-	 *
-	 * @since 1.0.0
-	 * @param array $attributes The area attributes.
-	 * @param integer $post_id The current post ID.
-	 * @return string
-	 */
-	public static function style( $attributes, $post_id ) {
-		$selector = '.grids-a-' . $attributes[ 'blockId' ];
-		$vertical_alignment = 'flex-start';
-		$z_index = 0;
-		$breakpoints_config = \Grids\Core::instance()->get_config( 'breakpoints' );
-
-		$gutter_x           = get_post_meta( $post_id, '_grids_gutter_x', true );
-		$gutter_x           = json_decode( $gutter_x, true );
-
-		$gutter = array(
-			'horizontal' => $gutter_x,
-			'vertical' => array(),
-		);
+		$vars[] = '--_ga-column:' . $attributes[ 'column' ][ 'start' ] . '/' . ($attributes[ 'column' ][ 'end' ] + 1);
+		$vars[] = '--_ga-row:' . $attributes[ 'row' ][ 'start' ] . '/' . ($attributes[ 'row' ][ 'end' ] + 1);
 
 		if ( isset( $attributes[ 'vertical_alignment' ] ) ) {
 			if ( $attributes[ 'vertical_alignment' ] == 'center' ) {
-				$vertical_alignment = 'center';
+				$vars[] = '--_ga-va:center';
 			}
 			else if ( $attributes[ 'vertical_alignment' ] == 'bottom' ) {
-				$vertical_alignment = 'flex-end';
+				$vars[] = '--_ga-va:flex-end';
 			}
 		}
 
-		$style = '';
-		$style .= sprintf( '%s {', esc_attr( $selector ) );
-			$style .= sprintf( '-ms-grid-column:%d;', absint( $attributes[ 'column' ][ 'start' ] ) );
-			$style .= sprintf( '-ms-grid-column-span:%d;', absint( $attributes[ 'column' ][ 'end' ] ) - absint( $attributes[ 'column' ][ 'start' ] ) + 1 );
-			$style .= sprintf( 'grid-column-start:%d;', absint( $attributes[ 'column' ][ 'start' ] ) );
-			$style .= sprintf( 'grid-column-end:%d;', absint( $attributes[ 'column' ][ 'end' ] + 1 ) );
-
-			$style .= sprintf( '-ms-grid-row:%d;', absint( $attributes[ 'row' ][ 'start' ] ) );
-			$style .= sprintf( '-ms-grid-row-span:%d;', absint( $attributes[ 'row' ][ 'end' ] ) - absint( $attributes[ 'row' ][ 'start' ] ) + 1 );
-			$style .= sprintf( 'grid-row-start:%d;', absint( $attributes[ 'row' ][ 'start' ] ) );
-			$style .= sprintf( 'grid-row-end:%d;', absint( $attributes[ 'row' ][ 'end' ] + 1 ) );
-
-			$style .= sprintf( 'align-self:%s;', $vertical_alignment );
-			$style .= sprintf( 'justify-content:%s;', $vertical_alignment );
-		$style .= '}';
+		$breakpoints_config = \Grids\Core::instance()->get_config( 'breakpoints' );
 
 		if ( $breakpoints_config ) {
 			foreach ( $breakpoints_config as $breakpoint => $data ) {
-				$query = CSS::media_query_selector( $breakpoint );
+				$margin         = CSS::spacing_rules( 'margin', $breakpoint, $attributes );
+				$padding        = CSS::spacing_rules( 'padding', $breakpoint, $attributes );
+				$bg_image_rules = CSS::background_image_rules( $breakpoint, $attributes );
+				$bg_color_rules = CSS::background_color_rules( $breakpoint, $attributes );
+				$zindex_rules   = CSS::zindex_rules( $breakpoint, $attributes );
+				$display_rules  = CSS::display_rules( $breakpoint, $attributes, 'area' );
 
-				if ( ! empty( $query ) ) {
-					$display = CSS::display_rules( $breakpoint, $attributes, array(
-						'display' => 'flex'
-					) );
-
-					$margin  = CSS::spacing_rules( 'margin', $breakpoint, $attributes );
-					$padding = CSS::spacing_rules( 'padding', $breakpoint, $attributes, 'data' );
-					$background = CSS::background_rules( $breakpoint, $attributes );
-
-					/* Horizontal gutter adjustment. */
-					$gutter_value = isset( $gutter[ 'horizontal' ][ $breakpoint ] ) && ! empty( $gutter[ 'horizontal' ][ $breakpoint ] ) ? $gutter[ 'horizontal' ][ $breakpoint ] / 2 : '0';
-					$gutter_unit = isset( $gutter[ 'horizontal' ][ $breakpoint . '_unit' ] ) ? $gutter[ 'horizontal' ][ $breakpoint . '_unit' ] : 'px';
-
-					if ( ! empty( $display ) ) {
-						$style .= $query . '{';
-							$style .= sprintf( '%s {', esc_attr( $selector ) );
-								$style .= $display;
-							$style .= '}';
-						$style .= '}';
-					}
-
-					if ( ! empty( $margin ) || ! empty( $background ) || ! empty( $padding ) || $gutter_value != '' ) {
-						$style .= $query . '{';
-							$style .= sprintf( '%s {', esc_attr( $selector ) );
-								$style .= $margin;
-
-								if ( $margin ) {
-									$margin_left = CSS::get_spacing( 'margin', 'left', $attributes, $breakpoint );
-									$margin_right = CSS::get_spacing( 'margin', 'right', $attributes, $breakpoint );
-
-									$style .= 'max-width:calc( 100% - ' . $margin_left . ' - ' . $margin_right . ' );';
-								}
-
-								if ( ! empty( $padding ) ) {
-									$padding_css = '';
-
-									$dirs = array( 'top', 'right', 'bottom', 'left' );
-
-									if ( $gutter_value != '' ) {
-										foreach ( $dirs as $dir ) {
-											if ( $dir == 'left' || $dir == 'right' ) {
-												if ( isset( $padding[ 'padding-' . $dir ] ) ) {
-													$padding[ 'padding-' . $dir ] = sprintf( 'calc(%s + %s)',
-														$gutter_value . $gutter_unit,
-														$padding[ 'padding-' . $dir ]
-													);
-												}
-												else {
-													$padding[ 'padding-' . $dir ] = $gutter_value . $gutter_unit;
-												}
-											}
-										}
-									}
-
-									foreach ( $padding as $p => $value ) {
-										$padding_css .= $p . ': ' . $value . ' !important;';
-									}
-
-									$style .= $padding_css;
-								}
-								elseif ( $gutter_value != '' ) {
-									$padding_css = sprintf( 'padding-left: %s !important;padding-right: %s !important;',
-										$gutter_value . $gutter_unit,
-										$gutter_value . $gutter_unit
-									);
-
-									$style .= $padding_css;
-								}
-
-								$style .= $background;
-							$style .= '}';
-						$style .= '}';
-					}
+				if ( $margin ) {
+					$vars[] = '--_ga-m-' . $breakpoint . ':' . implode( ' ', $margin );
 				}
+
+				if ( $padding ) {
+					$vars[] = '--_ga-p-' . $breakpoint . ':' . implode( ' ', $padding );
+				}
+
+				$bg_rules = array_merge( $bg_color_rules, $bg_image_rules );
+
+				if ( $bg_rules ) {
+					$vars[] = '--_ga-bg-' . $breakpoint . ':' . implode( ' ', $bg_rules );
+				}
+
+				if ( $zindex_rules ) {
+					$vars[] = '--_ga-zi-' . $breakpoint . ':' . implode( ' ', $zindex_rules );
+				}
+
+				if ( $display_rules ) {
+					$vars[] = '--_ga-d-' . $breakpoint . ':' . implode( ' ', $display_rules );
+				}
+
+				$vars[] = sprintf(
+					'--_ga-mw-%s:calc(100%% - %s - %s)',
+					$breakpoint,
+					$margin[3],
+					$margin[1]
+				);
 			}
 		}
 
-		return $style;
+		return sprintf(
+			'<div class="%s" style="%s">%s</div>',
+			esc_attr( implode( ' ', $class ) ),
+			esc_attr( implode( ';', $vars ) ),
+			$content
+		);
 	}
-
 }

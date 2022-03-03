@@ -60,21 +60,21 @@ if ( $_wp_additional_image_sizes ) {
 $breakpoints = array(
 	'desktop' => array(
 		'label' => __( 'Desktop', 'grids' ),
-		'min' => '',
-		'max' => '',
-		'media' => ''
+		'min'   => '',
+		'max'   => '',
+		'media' => '',
 	),
 	'tablet' => array(
 		'label' => __( 'Tablet', 'grids' ),
-		'min' => '',
-		'max' => '1024',
-		'media' => ''
+		'min'   => '',
+		'max'   => '1024',
+		'media' => '',
 	),
 	'mobile' => array(
 		'label' => __( 'Mobile', 'grids' ),
-		'min' => '',
-		'max' => '768',
-		'media' => ''
+		'min'   => '',
+		'max'   => '768',
+		'media' => '',
 	)
 );
 
@@ -159,6 +159,10 @@ $strings = array(
 			'height'         => __( 'Height', 'grids' ),
 			'height_fix'     => _x( 'Lock', 'fix height', 'grids' ),
 			'height_help'    => __( 'This setting defines the minimum height of the Section, unless the value is locked: in that case, the height will equal exactly the value you input here.', 'grids' ),
+			'gap'            => __( 'Gap', 'grids' ),
+			'gap_help'       => __( 'This setting defines the space between areas, both horizontal and vertical. Defaults to zero.', 'grids' ),
+			'gap_horizontal' => __( 'Horizontal', 'grids' ),
+			'gap_vertical'   => __( 'Vertical', 'grids' ),
 			'dimensions'     => __( 'Dimensions', 'grids' ),
 			'advanced'       => _x( 'Advanced', 'advanced spacing toggle', 'grids' ),
 			'margin'         => __( 'Margin', 'grids' ),
