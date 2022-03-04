@@ -473,7 +473,7 @@ Blog posts specific Styles
 		}
 
 		h3 {
-			@include font-sizes(1.5em, 3em);
+			@include font-sizes( 1.5em, 1.8em, 2.25em );
 			line-height: 3rem;
 			margin-top: 1em;
 		}
