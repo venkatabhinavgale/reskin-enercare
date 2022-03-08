@@ -34,6 +34,16 @@ jQuery(function($){
     icon: false
   });
 
+	// Mobile Search UI instance
+	var mobileSearchui = new AddSearchUI(client, conf);
+	// Add components
+	mobileSearchui.searchField({
+		autofocus: false,
+		containerId: 'mobile-searchfield',
+		placeholder: 'Search',
+		icon: false
+	});
+
   // var autocompleteClient = new AddSearchClient('3145819e621ccfb6dbf5116b2c92967b');
   // autocompleteClient.setPaging(1, 7, 'relevance', 'desc'); // Fetch 7 results by default
   //
