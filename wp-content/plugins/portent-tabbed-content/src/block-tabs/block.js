@@ -127,7 +127,7 @@ registerBlockType( 'portent/block-tabbed-content', {
 		const blockProps = useBlockProps.save();
 		const {attributes: {tabAlignment} } = props;
 		const unpackedTabs = JSON.parse(props.attributes.tabs);
-		console.log( unpackedTabs );
+		
 		//Check for defaults
 		let has_defaults = 'false';
 		unpackedTabs.forEach((tab) => {
@@ -150,4 +150,37 @@ registerBlockType( 'portent/block-tabbed-content', {
 			</div>
 		);
 	},
+	deprecated : [
+		{
+			attributes: {
+				tabs: {
+					type: 'string',
+					default: null
+				},
+				tabAlignment: {
+					type: 'string',
+					default: 'left'
+				}
+			},
+			save: (props) => {
+				const blockProps = useBlockProps.save();
+				const {attributes: {tabAlignment}} = props;
+				const unpackedTabs = JSON.parse(props.attributes.tabs);
+				const SaveTabs = () => (
+					<div className={"block-tabbed-content__tabs init block-tabbed-content__tabs--" + tabAlignment}>
+						<PrintTabs tabs={unpackedTabs}/>
+					</div>
+				);
+
+				return (
+					<div {...blockProps}>
+						<SaveTabs/>
+						<div className="block-tabbed-content__tab-panels init">
+							<InnerBlocks.Content/>
+						</div>
+					</div>
+				);
+			}
+		}
+	]
 } );
