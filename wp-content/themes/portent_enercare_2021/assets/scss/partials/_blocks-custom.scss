@@ -16,7 +16,9 @@
 }
 
 .block-tabbed-content__tabs.init {
-	.block-tabbed-content__tab:first-of-type {
+
+	.block-tabbed-content__tab:first-of-type,
+	&[data-has-defaults=false] .block-tabbed-content__tab:first-of-type {
 		border-bottom: 2px solid brand-color('red');
 		color: brand-color('red');
 
@@ -139,6 +141,13 @@
 }
 
 .block-tabbed-content__tab-panels.init {
+
+	&[data-has-defaults=false] .block-tabbed-content__panel:first-of-type .block-tabbed-content__tab-content {
+		@include media('>mobile_menu') {
+			position: relative;
+			display: block;
+		}
+	}
 
 	.block-tabbed-content__panel:first-of-type .block-tabbed-content__tab-content {
 

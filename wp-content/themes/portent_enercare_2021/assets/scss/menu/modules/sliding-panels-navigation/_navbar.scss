@@ -1,7 +1,27 @@
+.mobile-search-field__wrapper {
+	display: block;
+	visibility: visible;
+	width: 100%;
+
+	@include media('>mobile_menu') {
+		display: none;
+		visibility: hidden;
+	}
+}
 #{$prefix} {
 	//  Navbar
 	&#{$prefix}--navbar {
 		cursor: pointer;
+
+		.search-field {
+			padding: 0.5em;
+			width: 100%;
+
+			input {
+				margin: 0 auto;
+				width: 90vw;
+			}
+		}
 
 		//  Back button.
 		&:before {
@@ -20,6 +40,10 @@
 			border-left: $mmspn_arrow_weight solid;
 			transform: rotate(-45deg) translate(50%, -50%);
 			z-index: 20;
+		}
+
+		.menu {
+			border-top: 2px solid $grey_2;
 		}
 
 		//  No back button when the main listview is opened.
@@ -57,12 +81,6 @@
 		//  Title when the main listview is opened.
 		&#{$prefix}--main:after {
 			display: none;
-		}
-
-		&#{$prefix}--main {
-			ul {
-				top: 0;
-			}
 		}
 	}
 
