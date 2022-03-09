@@ -19,7 +19,7 @@ const ALLOWED_BLOCKS = [ 'portent/block-portent-tabbed-content--tab' ];
 
 const PrintTabs = (props) => {
 	const tabs = props.tabs;
-	return(tabs.map(tab => <button className="block-tabbed-content__tab" data-default={tab[3]} data-interface="tab-button" data-tab={tab[0]}><img width="30px" height="30px" alt="" src={tab[2]}/>{tab[1]}</button>));
+	return(tabs.map(tab => <button className="block-tabbed-content__tab" data-default={tab[3]} data-anchor={(tab[1].replace('/\s/gi', '-'))} data-interface="tab-button" data-tab={tab[0]}><img width="30px" height="30px" alt="" src={tab[2]}/>{tab[1]}</button>));
 }
 
 const ChildTabs = (props) => {
@@ -127,7 +127,7 @@ registerBlockType( 'portent/block-tabbed-content', {
 		const blockProps = useBlockProps.save();
 		const {attributes: {tabAlignment} } = props;
 		const unpackedTabs = JSON.parse(props.attributes.tabs);
-		
+
 		//Check for defaults
 		let has_defaults = 'false';
 		unpackedTabs.forEach((tab) => {

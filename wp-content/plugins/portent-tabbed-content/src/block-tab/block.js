@@ -54,6 +54,9 @@ registerBlockType( 'portent/block-tabbed-content--tab', {
 		defaultTab: {
 			type: 'boolean',
 			default: false
+		},
+		tabAnchor: {
+			type: 'string'
 		}
 	},
 
@@ -69,7 +72,7 @@ registerBlockType( 'portent/block-tabbed-content--tab', {
 	 * @returns {Mixed} JSX Component.
 	 */
 	edit: ( props) => {
-		const { attributes:{ title, iconid, tabid, defaultTab }, setAttributes} = props;
+		const { attributes:{ title, iconid, tabid, defaultTab, tabAnchor }, setAttributes} = props;
 		props.setAttributes({tabid: props.clientId})
 		const blockProps = useBlockProps();
 
@@ -98,6 +101,14 @@ registerBlockType( 'portent/block-tabbed-content--tab', {
 										value = { title }
 										onChange = { title => setAttributes( {title} ) }
 										/>
+								</PanelRow>
+								<PanelRow>
+									<TextControl
+										label = { __( 'Tab Anchor', 'portent-tabbed-content' ) }
+										help = { __('The tab anchor will be used for deep-link. Only dashes', 'portent-tabbed-content' ) }
+										value = { tabAnchor }
+										onChange = { tabAnchor => setAttributes( {tabAnchor} ) }
+									/>
 								</PanelRow>
 								<PanelRow>
 									<label className="portent-tabbed-content__tab-icon-label">Tab Icon</label>
@@ -160,7 +171,7 @@ registerBlockType( 'portent/block-tabbed-content--tab', {
 		return (
 			<div className="block-tabbed-content__panel" data-default={props.attributes.defaultTab}>
 				<div class="block-tabbed-content__panel__mobile-toggle">
-					<button id={"tab_toggle--" + props.attributes.tabid} className="block-tabbed-content__panel__toggle" data-tab={props.attributes.tabid} aria-expanded="false" aria-controls="sect1">
+					<button id={"tab_toggle--" + props.attributes.tabid} className="block-tabbed-content__panel__toggle" data-anchor={props.attributes.tabAnchor} data-tab={props.attributes.tabid} aria-expanded="false" aria-controls="sect1">
 						<img class="block-tabbed-content__panel__icon" width="20" height="20" src={props.attributes.iconid} />
 						<h2 className="block-tabbed-content__panel__title">{props.attributes.title}</h2>
 						<svg className="block-tabbed-content__panel__arrow" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M24 24H0V0h24v24z" fill="none" opacity=".87"/><path d="M7.38 21.01c.49.49 1.28.49 1.77 0l8.31-8.31c.39-.39.39-1.02 0-1.41L9.15 2.98c-.49-.49-1.28-.49-1.77 0s-.49 1.28 0 1.77L14.62 12l-7.25 7.25c-.48.48-.48 1.28.01 1.76z"/></svg>
