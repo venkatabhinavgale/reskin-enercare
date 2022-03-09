@@ -77,7 +77,6 @@ registerBlockType( 'portent/block-tabbed-content', {
 		}
 	},
 
-
 	/**
 	 * The edit function describes the structure of your block in the context of the editor.
 	 * This represents what the editor will render when the block is used.
@@ -128,8 +127,16 @@ registerBlockType( 'portent/block-tabbed-content', {
 		const blockProps = useBlockProps.save();
 		const {attributes: {tabAlignment} } = props;
 		const unpackedTabs = JSON.parse(props.attributes.tabs);
+		console.log( unpackedTabs );
+		//Check for defaults
+		let has_defaults = 'false';
+		unpackedTabs.forEach((tab) => {
+			if(tab[3]) {
+				has_defaults = 'true';
+			}
+		});
 		const SaveTabs = () => (
-			<div className={"block-tabbed-content__tabs init block-tabbed-content__tabs--" + tabAlignment}>
+			<div className={"block-tabbed-content__tabs init block-tabbed-content__tabs--" + tabAlignment} data-has-defaults={has_defaults}>
 				<PrintTabs tabs={unpackedTabs}/>
 			</div>
 		);
@@ -137,7 +144,7 @@ registerBlockType( 'portent/block-tabbed-content', {
 		return (
 			<div { ...blockProps }>
 				<SaveTabs />
-				<div className="block-tabbed-content__tab-panels init">
+				<div className="block-tabbed-content__tab-panels init" data-has-defaults={has_defaults}>
 					<InnerBlocks.Content />
 				</div>
 			</div>
