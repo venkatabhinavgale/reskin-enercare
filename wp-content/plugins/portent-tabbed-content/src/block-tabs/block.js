@@ -19,12 +19,12 @@ const ALLOWED_BLOCKS = [ 'portent/block-portent-tabbed-content--tab' ];
 
 const PrintTabs = (props) => {
 	const tabs = props.tabs;
-	return(tabs.map(tab => <button className="block-tabbed-content__tab" data-default={tab[3]} data-anchor={(tab[1].replace('/\s/gi', '-'))} data-interface="tab-button" data-tab={tab[0]}><img width="30px" height="30px" alt="" src={tab[2]}/>{tab[1]}</button>));
+	return(tabs.map(tab => <button className="block-tabbed-content__tab" data-default={tab[3]} data-anchor={tab[4]} data-interface="tab-button" data-tab={tab[0]}><img width="30px" height="30px" alt="" src={tab[2]}/>{tab[1]}</button>));
 }
 
 const ChildTabs = (props) => {
 	const { innerBlocks, className, attributes, setAttributes } = props;
-		const tabsArray = innerBlocks.map( tab => [tab.clientId,tab.attributes.title,tab.attributes.iconid,tab.attributes.defaultTab] );
+		const tabsArray = innerBlocks.map( tab => [tab.clientId,tab.attributes.title,tab.attributes.iconid,tab.attributes.defaultTab,tab.attributes.tabAnchor] );
 		const serialTabs = JSON.stringify(tabsArray);
 		if( attributes.tabs !== serialTabs ) {
 			setAttributes({tabs:serialTabs});
