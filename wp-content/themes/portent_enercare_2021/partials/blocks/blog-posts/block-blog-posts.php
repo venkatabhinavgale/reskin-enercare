@@ -9,11 +9,17 @@ $classes = 'block-blog-posts';
 $group_orientation = get_field( 'group_orientation' ) ? ' block-blog-posts--column' : ' block-blog-posts--row';
 $block_alignment = get_field('block_orientation') ? ' block-blog-posts__post--horizontal' : ' block-blog-posts__post--vertical';
 $blog_cats = get_field( 'categories' );
+$content_hub_cats = get_field( 'content_hub_categories' );
+$post_type = get_field( 'post_type' );
+if (!$post_type || $post_type == "") {
+  $post_type = "post";
+}
 $blog_num_posts = get_field('number_of_posts') ? get_field('number_of_posts') : 4;
 $blog_include_posts = get_field( 'include_posts' ) ? get_field( 'include_posts' ) : array();
 $post_display = get_field( 'post_display' );
 $post_display_class = 'block-blog-posts__post--' . $post_display;
 $post_image_size = get_field( 'image_size' ) ? get_field( 'image_size' ) : '2-3';
+$hide_post_date = get_field( 'hide_post_date' );
 $is_mobile_carousel = get_field('is_mobile_carousel') ? ' block-carousel is_mobile_carousel' : '';
 
 if( !empty($block['className']) ) {
@@ -21,6 +27,10 @@ if( !empty($block['className']) ) {
 }
 if( !empty($block['align']) ) {
 	$classes .= sprintf( ' align%s', $block['align'] );
+}
+
+if ($post_type == "page" && $content_hub_cats) {
+  $blog_cats = $content_hub_cats;
 }
 
 /*
@@ -59,6 +69,7 @@ if( $blog_cats && $blog_num_posts > count( $blog_include_posts ) ) {
 $merged_posts_ids = array_merge( $blog_include_posts, $category_query );
 
 $blog_post_args = array(
+  'post_type' => $post_type,
 	'posts_per_page' =>  $blog_num_posts,
 	'post__in' => $merged_posts_ids
 );
@@ -100,7 +111,9 @@ $blog_posts = new WP_Query( $blog_post_args );
 								echo do_shortcode( '[rt_reading_time label="" postfix="min read"]');
 						echo '</div>';
 					echo '</div>';*/
-          echo '<p class="publish-date single-post__date">' . get_the_date('F j, Y') . '</p>';
+          if (!$hide_post_date) {
+            echo '<p class="publish-date single-post__date">' . get_the_date('F j, Y') . '</p>';  
+          }
 				}
 
 				echo '<h2 class="block-blog-posts__post__title"><a class="block-blog-posts__post__link" href="' . get_the_permalink() . '">' . get_the_title() . '</a></h2>';

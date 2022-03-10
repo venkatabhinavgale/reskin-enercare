@@ -451,6 +451,37 @@ function enercare_setup() {
 endif;
 add_action( 'after_setup_theme', 'enercare_setup' );
 
+$args = array(
+  'labels' => array(
+                'name'                       => __( 'Content Hub Categories', 'page' ),
+                'singular_name'              => __( 'Content Hub Category', 'page' ),
+                'menu_name'                  => __( 'Content Hub Categories', 'page' ),
+                'edit_item'                  => __( 'Edit Category', 'page' ),
+                'update_item'                => __( 'Update Category', 'page' ),
+                'add_new_item'               => __( 'Add New Category', 'page' ),
+                'new_item_name'              => __( 'New Category Name', 'page' ),
+                'parent_item'                => __( 'Parent Type', 'page' ),
+                'parent_item_colon'          => __( 'Parent Type:', 'page' ),
+                'all_items'                  => __( 'All Content Hub Categories', 'page' ),
+                'search_items'               => __( 'Search Content Hub Categories', 'page' ),
+                'popular_items'              => __( 'Popular Content Hub Categories', 'page' ),
+                'separate_items_with_commas' => __( 'Separate Content Hub Categories with commas', 'page' ),
+                'add_or_remove_items'        => __( 'Add or remove Content Hub Categories', 'page' ),
+                'choose_from_most_used'      => __( 'Choose from the most used Content Hub Categories', 'page' ),
+                'not_found'                  => __( 'No Content Hub Categories found.', 'page' ),
+              ),
+  'public'            => false,
+  'show_in_nav_menus' => true,
+  'show_ui'           => true,
+  'show_tagcloud'     => true,
+  'hierarchical'      => true,
+  'rewrite'           => array( 'slug' => 'taxonomy/content-hub', 'with_front' => false ),
+  'show_admin_column' => true,
+  'query_var'         => true,
+  'show_in_rest'      => true
+);
+register_taxonomy( 'content-hub-categories', 'page', $args );
+
 /**
  * Gravity Form Filter for ACF Fields
  */

@@ -310,12 +310,12 @@ function enercare_register_theme_blocks() {
 
     acf_register_block_type( array(
 	    'name'              => 'blog-posts',
-	    'title'             => __('Blog Posts', 'enercare'),
+	    'title'             => __('Display Posts', 'enercare'),
 	    'render_template'   => 'partials/blocks/blog-posts/block-blog-posts.php',
 	    'category'          => 'layout',
 	    'icon'              => 'admin-site',
 	    'mode'              => 'preview',
-	    'keywords'          => array('blog', 'posts', 'featured', 'enercare', 'portent'),
+	    'keywords'          => array('blog', 'posts', 'pages', 'display', 'list', 'featured', 'enercare', 'portent'),
 	    'enqueue_assets' => function() {
 		    wp_enqueue_script('block-blog-posts-script', get_template_directory_uri() . '/assets/js/block--blog-posts.js', array('glider-js'), null, true);
 	    },
