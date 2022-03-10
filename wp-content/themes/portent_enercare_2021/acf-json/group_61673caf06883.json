@@ -1,7 +1,70 @@
 {
     "key": "group_61673caf06883",
-    "title": "Block - Blog Posts",
+    "title": "Block - Display Posts",
     "fields": [
+        {
+            "key": "field_61859e6630474",
+            "label": "Is Mobile Carousel?",
+            "name": "is_mobile_carousel",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_616dcccc2f59c",
+            "label": "Image Size",
+            "name": "image_size",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "1-1": "Square (1:1)",
+                "2-3": "Standard (2-3)"
+            },
+            "default_value": "1-1",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_616f181b40887",
+            "label": "Show Category Link?",
+            "name": "show_category_link",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
         {
             "key": "field_61673cb61f16b",
             "label": "Query",
@@ -17,6 +80,31 @@
             },
             "placement": "top",
             "endpoint": 0
+        },
+        {
+            "key": "field_622900bb6b29b",
+            "label": "Post Type",
+            "name": "post_type",
+            "type": "select",
+            "instructions": "Select the post type you want to query.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "post": "Post",
+                "page": "Page"
+            },
+            "default_value": "post",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
         },
         {
             "key": "field_61673d281f16e",
@@ -46,13 +134,51 @@
             "type": "taxonomy",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_622900bb6b29b",
+                        "operator": "==",
+                        "value": "post"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
                 "id": ""
             },
             "taxonomy": "category",
+            "field_type": "multi_select",
+            "allow_null": 0,
+            "add_term": 0,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "id",
+            "multiple": 0
+        },
+        {
+            "key": "field_6228fdfafc913",
+            "label": "Content Hub Categories",
+            "name": "content_hub_categories",
+            "type": "taxonomy",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_622900bb6b29b",
+                        "operator": "==",
+                        "value": "page"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "content-hub-categories",
             "field_type": "multi_select",
             "allow_null": 0,
             "add_term": 0,
@@ -74,12 +200,11 @@
                 "class": "",
                 "id": ""
             },
-            "post_type": [
-                "post"
-            ],
+            "post_type": "",
             "taxonomy": "",
             "filters": [
                 "search",
+                "post_type",
                 "taxonomy"
             ],
             "elements": [
@@ -170,34 +295,9 @@
             "placeholder": ""
         },
         {
-            "key": "field_616dcccc2f59c",
-            "label": "Image Size",
-            "name": "image_size",
-            "type": "select",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "1-1": "Square (1:1)",
-                "2-3": "Standard (2-3)"
-            },
-            "default_value": "1-1",
-            "allow_null": 0,
-            "multiple": 0,
-            "ui": 0,
-            "return_format": "value",
-            "ajax": 0,
-            "placeholder": ""
-        },
-        {
-            "key": "field_616f181b40887",
-            "label": "Show Category Link?",
-            "name": "show_category_link",
+            "key": "field_6228fea44ca38",
+            "label": "Hide Post Date",
+            "name": "hide_post_date",
             "type": "true_false",
             "instructions": "",
             "required": 0,
@@ -210,25 +310,6 @@
             "message": "",
             "default_value": 0,
             "ui": 1,
-            "ui_on_text": "",
-            "ui_off_text": ""
-        },
-        {
-            "key": "field_61859e6630474",
-            "label": "Is Mobile Carousel?",
-            "name": "is_mobile_carousel",
-            "type": "true_false",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 1,
-            "ui": 0,
             "ui_on_text": "",
             "ui_off_text": ""
         }
@@ -250,5 +331,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1636567206
+    "show_in_rest": 0,
+    "modified": 1646854610
 }

@@ -51,9 +51,9 @@ html,input[type="search"]{-webkit-box-sizing:border-box;box-sizing:border-box}
 input,select,textarea{background:#fff;border:1px solid #e6e4e4;border-radius:4px;color:#29292c;font-size:18px;height:42px;line-height:24px;padding:14px 16px;width:100%}
 select{line-height:54px;padding:6px 16px}
 textarea{width:100%}
-::-moz-placeholder{color:"#747373";opacity:1}
-::-ms-input-placeholder{color:"#747373"}
-::-webkit-input-placeholder{color:"#747373"}
+::-moz-placeholder{color:#000;opacity:1}
+::-ms-input-placeholder{color:#000}
+::-webkit-input-placeholder{color:#000}
 input:focus::-webkit-input-placeholder,input:focus::-moz-placeholder,input:focus:-ms-input-placeholder,textarea:focus::-webkit-input-placeholder,textarea:focus::-moz-placeholder,textarea:focus:-ms-input-placeholder{color:transparent}
 .gform_wrapper{margin:0 auto;width:95%}
 .gform_wrapper .ginput_container_consent{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}
