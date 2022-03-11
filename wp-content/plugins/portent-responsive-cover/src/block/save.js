@@ -14,7 +14,9 @@ export default function save({ attributes }) {
 						<source srcSet={desktopImageUrl} media="(min-width: 1024px)"/>
 						<img src={desktopImageUrl} alt=""/>
 					</picture>
-				<InnerBlocks.Content />
+				<div className={ defaultClass + "__inner-blocks"}>
+					<InnerBlocks.Content />
+				</div>
 			</div>
 		);
 }

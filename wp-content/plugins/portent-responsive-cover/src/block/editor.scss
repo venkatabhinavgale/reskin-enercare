@@ -13,3 +13,13 @@
   max-width: 740px;
   padding: 2rem;
 }
+
+.wp-block-portent-block-portent-responsive-cover {
+
+	.block-editor-inner-blocks {
+		position: relative;
+		z-index: 3;
+		margin: var(--block-responsive-cover-inner-block-margin);
+		max-width: var(--block-responsive-cover-inner-block-max-width);
+	}
+}

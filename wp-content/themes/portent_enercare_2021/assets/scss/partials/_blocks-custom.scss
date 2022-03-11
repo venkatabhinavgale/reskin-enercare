@@ -593,3 +593,62 @@ Switchboard
 		width: 100%;
 	}
 }
+
+/**
+Responsive Cover
+ */
+.wp-block-portent-block-portent-responsive-cover {
+
+	justify-content: center;
+
+	@include media("<tablet") {
+		background-color: $black;
+		padding: 0;
+		flex-direction: column;
+		justify-content: flex-start;
+		min-height: 0 !important;
+	}
+
+	&__inner-blocks {
+		margin: calc( 2 * #{$block-margin} ) calc(50% - 50vw);
+		max-width: $grid-width;
+		width: 100%;
+
+		@include media(">=tablet") {
+			margin: calc( 2 * #{$block-margin}) calc(25% - 25vw);
+		}
+	}
+
+	&__inner-blocks {
+		padding: 1em 1em 0.25em 1em;
+		margin-bottom: 0;
+
+		@include media('<tablet') {
+			padding: 0em 1em 0.25em 1em;
+			margin-top: 24px;
+		}
+	}
+
+	//Very special rule for cards with black background used in cover blocks
+	.block-card.has-black-background-color {
+		background-color: rgba(0,0,0,0.8);
+	}
+
+	&__picture {
+		@include media('<tablet') {
+			position: relative;
+			height: 214px;
+		}
+	}
+
+	/**
+	Very specific use case for card in mobile viewport
+	 */
+	.block-card {
+		@include media('<tablet') {
+			padding-top: 1em;
+			padding-bottom: 0.25em;
+		}
+	}
+}
+
