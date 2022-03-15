@@ -8,30 +8,60 @@ if ( ! class_exists( 'Enercare_Nav_Walker' ) ) :
 	class Enercare_Nav_Walker extends Walker_Nav_Menu {
 		function start_el(&$output, $item, $depth=0, $args=[], $id=0) {
 
+			//Pull the has children bool. We will be using this to make some decisions
+			$has_children = $args->walker->has_children;
+			$topLevelWithChildren = '';
+
+			/**
+			 * If the menu item has children and a depth of 0 or less we want to apply a data attribute that allows us to easily track it
+			 * The sub menu items that have children are place holders and do not require toggles so we only want this at the top level of the
+			 * navigation
+			 */
+			if($has_children && $depth <=0 ) {
+				$topLevelWithChildren = 'data-children=true';
+			}
+
 			//Check if menu has URL and add url class
 			$has_url = ($item->url && $item->url != '#') ? true : false;
 			if($has_url) {
 				array_push($item->classes, "has-url");
 			} elseif($depth == 0) {
-        array_push($item->classes, "has-url");
-      }
+                array_push($item->classes, "has-url");
+            }
 
-			//Start output of list item
-			$output .= "<li class='" .  implode(" ", $item->classes) . "'>";
+			/**
+			 * Start output of list item. This item will contain links, toggle buttons and sub menus. We will use this
+			 * element as a pivot at the top level when manipulating menu elements though JS
+			 */
+			$output .= "<li class='" .  implode(" ", $item->classes) . "' data-open=false ". $topLevelWithChildren .">";
 
-			//use span if using hash as URL
-			if ($has_url) {
+			/**
+			 * If the current menu item is at depth 0 AND it has children then open up a button element that we will
+			 * use as a toggle. Else, we expect this to be a link within another sub menu, at a lower depth.
+			 */
+			if($depth <= 0 && $has_children ) {
+				$output .= '<button data-interface="menu-toggle" aria-expanded="false" aria-haspopup="true">';
+			} elseif($depth <= 0 && !$has_children) {
 				$output .= '<a href="' . $item->url . '">';
-      } elseif ($depth == 0) {
-        $output .= '<a href="#">';
-			} else {
+			}
+
+			/**
+			 * use span if using hash as URL. If a sub menu item with a lower depth than 0 has a # as the URL
+			 * we expect it to be a placeholder. This is commonly used to break larger tray menus apart into sections.
+			 */
+			if ($has_url && $depth > 0 ) {
+				$output .= '<a href="' . $item->url . '" tabindex=-1>';
+            } elseif ($depth > 0) {
 				$output .= '<span>';
 			}
 
+			/**
+			 * Handle the rendering of an icon for menu items.
+			 */
 			$icon_image_id = get_field('enercare_nav_icon', $item->ID);
 
 			if($icon_image_id) {
-				$output .= '<div class="menu-item__icon">';
+				$output .= '<div class="menu-item__icon" aria-hidden="true">';
 				$output .= @file_get_contents(get_attached_file($icon_image_id));
 				$output .= '</div>';
 				$output .= '<span class="menu-item__icon-title">'.$item->title.'</span>';
@@ -39,14 +69,16 @@ if ( ! class_exists( 'Enercare_Nav_Walker' ) ) :
 				$output .= $item->title;
 			}
 
-
-
 			//Closing
-			if ($item->url && $item->url != '#') {
+			if($depth <= 0 && $args->walker->has_children ) {
+				$output .= '</button>';
+			} else {
 				$output .= '</a>';
-			} elseif ($depth == 0) {
-        $output .= '</a>';
-      } else {
+			}
+
+			if ($item->url && $item->url != '#' && $depth > 0) {
+				$output .= '</a>';
+			} elseif ($depth > 0 ) {
 				$output .= '</span>';
 			}
 		}

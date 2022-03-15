@@ -192,3 +192,168 @@ jQuery(function($){
   })(window,document);
 
 });
+
+/**
+ * Toggle Navigation Script
+ */
+window.addEventListener('load', setupToggleNav);
+
+function setupToggleNav() {
+	const primaryNavigation = document.getElementById('primary-menu');
+	navigationMenuToggle(primaryNavigation);
+
+	/**
+	 * Handle Closing the menu when a user clicks outside of the frame
+	 */
+	document.addEventListener("click", function(event) {
+		let isNavigationInClick = primaryNavigation.contains(event.target)
+		if(!isNavigationInClick) {
+			closeAllMenus(primaryNavigation);
+		}
+	});
+}
+
+function closeAllMenus(navigationContainer) {
+	let openMenus = navigationContainer.querySelectorAll('button[aria-expanded=true]');
+	openMenus.forEach(function(elem) {
+		elem.parentNode.dataset.open = 'false';
+		elem.setAttribute('aria-expanded', "false");
+	});
+}
+
+function focusFirstOption(topLevelItem) {
+	let firstLink = topLevelItem.querySelector('a');
+	firstLink.focus();
+}
+
+/*
+This function essentially serves as a keyboard trap for the current menu.
+ */
+function findNextMenuLink(event, topLevelParent) {
+	let allLinks = topLevelParent.querySelectorAll('a');
+	let firstFocusableLink = allLinks[0];
+	let lastFocusableLink = allLinks[allLinks.length - 1];
+	let currentElement = document.activeElement;
+
+	/**
+	 * If the user has pressed up on the final focusable in the set, shift focus to the last
+	 * It is important that we return if this statement is true so that we do not duplicate the action.
+	 */
+	if(currentElement === firstFocusableLink && event.keyCode === 38 ) {
+			lastFocusableLink.focus();
+			return;
+	}
+
+	/**
+	 * If the user has pressed down on the final focusable item in the list shift focus to the first item in the set
+	 * It is important that we return if this statement is true so that we do not duplicate the action.
+	 */
+	if(currentElement === lastFocusableLink &&  event.keyCode === 40 ) {
+		firstFocusableLink.focus();
+		return;
+	}
+
+	/**
+	 * If a user has pressed the up or down arrow while a menu item is focused and neither is the first or last element
+	 * then loop through the list until
+	 */
+	allLinks.forEach(function(link, index) {
+			if(currentElement === link ) {
+				if(event.keyCode === 40) {
+					allLinks[index+1].focus();
+				} else if(event.keyCode === 38 ){
+					allLinks[index-1].focus();
+				}
+			}
+		});
+}
+
+function navigationMenuToggle(navigationContainer) {
+	let menuItems = navigationContainer.querySelectorAll('[data-children=true]');
+
+	Array.prototype.forEach.call(menuItems, function(el, i){
+		el.querySelector('button').addEventListener("click",  function(event){
+			if (this.parentNode.dataset.open === 'true') {
+				/**
+				 * If the same menu button we are clicking on is already visible then toggle it closed
+				 * @type {string}
+				 */
+				this.parentNode.dataset.open = 'false';
+				this.setAttribute('aria-expanded', "false");
+			} else {
+				/**
+				 * If the button we are clicking on is not open, reset all open menus before displaying the current option
+				 */
+				closeAllMenus(navigationContainer);
+				this.parentNode.dataset.open = 'true';
+				this.setAttribute('aria-expanded', "true");
+			}
+
+			/**
+			 * Focus The First Item
+			 */
+			focusFirstOption(this.parentNode);
+
+			return false;
+		});
+
+		el.querySelector('button').addEventListener("keyup", function(event) {
+			if(event.keyCode === 40 ) {
+				event.preventDefault();
+
+				/**
+				 * @todo This is a duplication of the opening menu logic. Condense this.
+				 */
+				if (this.parentNode.dataset.open === 'true') {
+					/**
+					 * If the same menu button we are clicking on is already visible then toggle it closed
+					 * @type {string}
+					 */
+					this.parentNode.dataset.open = 'false';
+					this.setAttribute('aria-expanded', "false");
+				} else {
+					/**
+					 * If the button we are clicking on is not open, reset all open menus before displaying the current option
+					 */
+					closeAllMenus(navigationContainer);
+					this.parentNode.dataset.open = 'true';
+					this.setAttribute('aria-expanded', "true");
+
+					/**
+					 * Focus The First Item
+					 */
+					focusFirstOption(this.parentNode);
+				}
+			}
+
+			if(event.keyCode === 38) {
+				closeAllMenus(navigationContainer);
+			}
+
+			return false;
+		}, true);
+
+		/**
+		 * Event Listeners for ALL link elements within the current top level list item
+		 * We are tracking all links within the top level container so that when links are buried in containers
+		 * and out of sequence we can still locate the next logical link in the list.
+		 */
+		el.querySelectorAll('a').forEach( function(elem) {
+			elem.addEventListener('keydown', function(event) {
+				if(event.keyCode === 40 || event.keyCode === 38) {
+					event.stopPropagation();
+					event.preventDefault();
+					findNextMenuLink(event, el);
+				}
+			});
+
+			elem.addEventListener('keyup', function(event) {
+				//Close menu and focus on closest button when Escape is pressed on a menu item
+				if(event.keyCode === 27 ){
+					closeAllMenus(navigationContainer);
+					el.querySelector('button').focus();
+				}
+			});
+		});
+	});
+}

@@ -855,7 +855,7 @@ div.wp-block-group{padding:70px 16px}
 .nav-menu .menu>.menu-item>a{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;text-align:center;min-height:7.25rem;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start;padding-top:12%}
 .nav-menu .menu>.menu-item:hover{background-color:#f5f2f2}
 .nav-menu .menu>.menu-item:hover>a{color:#da1b27}
-.nav-menu .menu>.menu-item>.sub-menu{background-color:#f5f2f2;opacity:0;position:absolute;width:100%;z-index:99;top:100%;right:left;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;padding:2rem 0;left:-9999px}
+.nav-menu .menu>.menu-item>.sub-menu{background-color:#f5f2f2;opacity:0;position:absolute;width:100%;z-index:99;top:100%;right:0;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;padding:2rem 0;left:-9999px}
 .nav-menu .menu>.menu-item>.sub-menu a{font-weight:300}
 .nav-menu .menu>.menu-item>.sub-menu span{font-weight:700;display:block;padding-bottom:.5rem}
 .nav-menu .menu>.menu-item>.sub-menu:before,.nav-menu .menu>.menu-item>.sub-menu:after{content:"";position:absolute;width:100%;background-color:#f5f2f2;height:100%;z-index:-1;top:0}
@@ -865,7 +865,7 @@ div.wp-block-group{padding:70px 16px}
 .nav-menu .menu>.menu-item>.sub-menu>li:not(:last-of-type){border-right:1px solid #d3d1d1;margin-right:2rem;padding-right:5px}
 .nav-menu .menu>.menu-item>.sub-menu>li:after{content:"";height:90%}
 .nav-menu .menu>.menu-item>.sub-menu .sub-menu a{padding:8px 0}
-.nav-menu .menu>.menu-item:hover>.sub-menu{opacity:1;left:0}
+.nav-menu .menu>.menu-item[data-open="true"]>.sub-menu{opacity:1;left:0}
 .site-header .wrap>.menu-toggle{display:none}
 .mobile-search-field__wrapper{display:none;visibility:hidden}
 }@media(min-width:1200px){.gform_wrapper{width:54%}

@@ -119,7 +119,7 @@
 					width: 100%;
 					z-index: 99;
 					top: 100%;
-					right: left;
+					right: 0;
 					display: flex;
 					justify-content: space-between;
 					padding: 2rem 0;
@@ -180,7 +180,7 @@
 					}
 				}
 
-				&:hover {
+				&[data-open="true"] {
 					& > .sub-menu {
 						opacity: 1;
 						left: 0;
