@@ -736,10 +736,12 @@ function enercare_pre_get_posts( $query ) {
 }
 
 /**
- * Hooking Gravity forms to check for BOGO boiler forms
+ * Hooking Gravity forms to enqueue GF scripts
  */
 add_action( 'gform_enqueue_scripts', 'enqueue_custom_script', 10, 2 );
 function enqueue_custom_script( $form, $is_ajax ) {
+  wp_enqueue_script( 'enercare_bogo_script', get_template_directory_uri() . '/assets/js/form--gravity-form.js', array('jquery'), null, true);
+  
 	$cssClassCheck = strpos($form['cssClass'], 'bogo-form');
 	if ( $cssClassCheck !== false && !is_admin() ) {
 		wp_enqueue_script( 'enercare_bogo_script', get_template_directory_uri() . '/assets/js/form--bogo-form.js', array('jquery'), null, true);
