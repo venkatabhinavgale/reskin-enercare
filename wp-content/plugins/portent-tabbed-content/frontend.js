@@ -1,31 +1,64 @@
 window.addEventListener("load", portentFrontEndTabInit );
 function portentFrontEndTabInit(event) {
 
+	const CheckTabHash = () => {
+		let hashedTab = false;
+		let urlHash = window.location.hash.substr(1);
+		if( urlHash !== '' ) {
+			let tabGrab = document.querySelector('[data-anchor='+urlHash+']');
+			console.log(tabGrab);
+
+			if(typeof tabGrab != 'undefined' ) {
+				hashedTab = tabGrab
+			}
+		}
+		return hashedTab;
+	}
+
+	/*
+	Click Tab if it is in the hash
+	 */
+	const OpenHashedTag = (tab) => {
+		console.log(tab);
+		handleTabClick(tab);
+	}
+
+	const handleTabClick = (tab) => {
+		let parent = tab.parentElement;
+		let children = Array.prototype.slice.call(parent.children);
+		children.forEach( child => {
+			child.classList.remove('active');
+		});
+
+		parent.classList.remove('init');
+		let topLevelParent =  tab.parentElement.parentElement;
+		let tabPanelContainer = topLevelParent.querySelector('.block-tabbed-content__tab-panels');
+		let panels = topLevelParent.querySelectorAll('.block-tabbed-content__tab-content');
+		let targetPanel = topLevelParent.querySelector(`[data-tab="${tab.dataset.tab}"].block-tabbed-content__tab-content`);
+		panels.forEach( panel => {
+			panel.classList.remove('active');
+		});
+
+		tabPanelContainer.classList.remove('init');
+		targetPanel.classList.add('active');
+		tab.classList.add('active');
+	}
+
 	/**
 	 * Desktop
 	 */
 	const tabs = document.querySelectorAll('.block-tabbed-content__tab');
-	tabs.forEach( tab => {
-		tab.addEventListener( 'click', (event) => {
-			let parent = event.target.parentElement;
-      		let children = Array.prototype.slice.call(parent.children);
-			children.forEach( child => {
-				child.classList.remove('active');
-			});
 
-			parent.classList.remove('init');
-			let topLevelParent =  event.target.parentElement.parentElement;
-			let tabPanelContainer = topLevelParent.querySelector('.block-tabbed-content__tab-panels');
-				let panels = topLevelParent.querySelectorAll('.block-tabbed-content__tab-content');
-			let targetPanel = topLevelParent.querySelector(`[data-tab="${event.target.dataset.tab}"].block-tabbed-content__tab-content`);
-			panels.forEach( panel => {
-				panel.classList.remove('active');
-			});
-			tabPanelContainer.classList.remove('init');
-			targetPanel.classList.add('active');
-			event.target.classList.add('active');
+	tabs.forEach( tab => {
+		tab.addEventListener('click', (event) => {
+			handleTabClick(event.target);
 		});
 	});
+
+	let checkHashedTab = CheckTabHash();
+	if(checkHashedTab) {
+		OpenHashedTag(checkHashedTab);
+	}
 
 	/**
 	 * Mobile
@@ -111,4 +144,4 @@ function portentFrontEndTabInit(event) {
 			toggle.setAttribute('aria-expanded', 'false');
 		})
 	}
-};
+}
