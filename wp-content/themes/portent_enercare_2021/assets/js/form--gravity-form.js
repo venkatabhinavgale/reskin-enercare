@@ -1,26 +1,26 @@
 "use strict";
 
 (function ($, document) {
-  function enercareGravityFormsPostRender() {
-    //var gravityForm = $('.gform_wrapper form');
-    var gravityForm = $('form[id*="gform_"]');
-    var gravityFormId = gravityForm.attr('id');
-    console.log(gravityForm);
-    var firstInput = gravityForm.find('input[type=text],textarea,select').filter(':visible:first'); // use the gravity form id to create a local storage variable. ie. gform_4_engaged
+  function enercareGravityFormsPostRender(form_id, current_page) {
+    var firstInput = document.querySelector('#gform_' + form_id + ' input:first-of-type'); //var firstInput = gravityForm.find('input[type=text],textarea,select').filter(':visible:first');
+    //var inputs = gravityForm.find('input[type=text],textarea,select');
+    //console.log(inputs);
+    //var firstInput = inputs.get(0);
 
-    var gformEngagedId = gravityFormId + "_engaged";
+    console.log(firstInput); //var gravityFormEl = document.getElementById(gravityFormId);
+    // use the gravity form id to create a local storage variable. ie. gform_4_engaged
 
-    if (gravityForm && sessionStorage.getItem(gformEngagedId)) {
+    var gformEngagedId = "gform_" + form_id + "_engaged";
+
+    if (sessionStorage.getItem(gformEngagedId)) {
       console.log('removing input listener');
-      firstInput.off("input");
+      firstInput.removeEventListener('input');
     } else {
       console.log("creating input listener for firstInput", firstInput);
-      firstInput.on("input", function () {
+      firstInput.addEventListener('input', function () {
         console.log("input listener fired");
-        console.log(gravityForm);
-        console.log(sessionStorage.getItem(gformEngagedId));
 
-        if (gravityForm && !sessionStorage.getItem(gformEngagedId)) {
+        if (!sessionStorage.getItem(gformEngagedId)) {
           console.log('setting gform_engaged local variable to true.');
           sessionStorage.setItem(gformEngagedId, true);
 
@@ -36,8 +36,8 @@
     }
   }
 
-  $(document).on('gform_post_render', function () {
-    enercareGravityFormsPostRender();
+  $(document).on('gform_post_render', function (event, form_id, current_page) {
+    enercareGravityFormsPostRender(form_id, current_page);
   }); //enercareGravityFormsPostRender();
 
   function enercareGravityFormsConfirmationLoaded() {
