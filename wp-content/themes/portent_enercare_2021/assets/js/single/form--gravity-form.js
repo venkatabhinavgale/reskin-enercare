@@ -13,6 +13,9 @@
     } else {
       console.log("creating input listener for firstInput", firstInput);
       firstInput.on("input", function() {
+        console.log("input listener fired");
+        console.log(gravityForm);
+        console.log(sessionStorage.getItem(gformEngagedId));
         if (gravityForm && !sessionStorage.getItem(gformEngagedId)) {
           console.log('setting gform_engaged local variable to true.');
           sessionStorage.setItem(gformEngagedId, true);
@@ -30,7 +33,7 @@
 	$(document).on('gform_post_render', function() {
 		enercareGravityFormsPostRender();
 	});
-  enercareGravityFormsPostRender();
+  //enercareGravityFormsPostRender();
   
   function enercareGravityFormsConfirmationLoaded() {
     var gravityFormMessage = $('.gform_confirmation_message');
