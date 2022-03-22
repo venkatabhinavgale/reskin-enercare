@@ -2,7 +2,8 @@
 
 (function ($, document) {
   function enercareGravityFormsPostRender() {
-    var gravityForm = $('.gform_wrapper form');
+    //var gravityForm = $('.gform_wrapper form');
+    var gravityForm = $('form[id*="gform_"]');
     var gravityFormId = gravityForm.attr('id');
     var firstInput = gravityForm.find('input[type=text],textarea,select').filter(':visible:first'); // use the gravity form id to create a local storage variable. ie. gform_4_engaged
 
