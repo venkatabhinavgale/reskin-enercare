@@ -11,6 +11,7 @@
       console.log('removing input listener');
       firstInput.off("input");
     } else {
+      console.log("creating input listener for firstInput", firstInput);
       firstInput.on("input", function() {
         if (gravityForm && !sessionStorage.getItem(gformEngagedId)) {
           console.log('setting gform_engaged local variable to true.');
