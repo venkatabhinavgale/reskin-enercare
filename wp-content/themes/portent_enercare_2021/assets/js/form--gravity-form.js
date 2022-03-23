@@ -12,9 +12,8 @@
 
     var gformEngagedId = "gform_" + form_id + "_engaged";
 
-    if (sessionStorage.getItem(gformEngagedId)) {
-      console.log('removing input listener');
-      firstInput.removeEventListener('input');
+    if (sessionStorage.getItem(gformEngagedId)) {//console.log('removing input listener');
+      //firstInput.removeEventListener('input');
     } else {
       console.log("creating input listener for firstInput", firstInput);
       firstInput.addEventListener('input', function () {

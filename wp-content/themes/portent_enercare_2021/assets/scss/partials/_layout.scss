@@ -125,3 +125,36 @@ input[type="search"] {
 		padding: 70px 0;
 	}
 }
+
+/**
+AB Testing Classes
+ */
+.ab__control,
+.ab__variation {
+
+	&--block {
+		display: block;
+	}
+	&--flex {
+		display: flex;
+	}
+	&--none {
+		display: none;
+	}
+
+	&--block-mobile {
+		@include media(">=tablet") {
+			display: block;
+		}
+	}
+	&--flex-mobile {
+		@include media(">=tablet") {
+			display: flex;
+		}
+	}
+	&--none-mobile {
+		@include media(">=tablet") {
+			display: none;
+		}
+	}
+}
