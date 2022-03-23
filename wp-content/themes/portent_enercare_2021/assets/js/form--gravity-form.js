@@ -2,13 +2,7 @@
 
 (function ($, document) {
   function enercareGravityFormsPostRender(form_id, current_page) {
-    var firstInput = document.querySelector('#gform_' + form_id + ' input:first-of-type'); //var firstInput = gravityForm.find('input[type=text],textarea,select').filter(':visible:first');
-    //var inputs = gravityForm.find('input[type=text],textarea,select');
-    //console.log(inputs);
-    //var firstInput = inputs.get(0);
-
-    console.log(firstInput); //var gravityFormEl = document.getElementById(gravityFormId);
-    // use the gravity form id to create a local storage variable. ie. gform_4_engaged
+    var firstInput = document.querySelector('#gform_' + form_id + ' input:first-of-type'); // use the gravity form id to create a local storage variable. ie. gform_4_engaged
 
     var gformEngagedId = "gform_" + form_id + "_engaged";
 
@@ -17,10 +11,9 @@
     } else {
       console.log("creating input listener for firstInput", firstInput);
       firstInput.addEventListener('input', function () {
-        console.log("input listener fired");
-
+        //console.log("input listener fired");
         if (!sessionStorage.getItem(gformEngagedId)) {
-          console.log('setting gform_engaged local variable to true.');
+          //console.log('setting gform_engaged local variable to true.');
           sessionStorage.setItem(gformEngagedId, true);
 
           if (dataLayer) {
