@@ -242,4 +242,13 @@ Floating CTA
 	@include media('>=tablet') {
 		display: none;
 	}
+
+	&--split-a-p {
+		display: flex;
+		padding: 0;
+
+		@include media('>=tablet') {
+			display: none;
+		}
+	}
 }

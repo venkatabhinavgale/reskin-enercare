@@ -1,0 +1,101 @@
+{
+    "key": "group_623a50f6bcb68",
+    "title": "Mobile CTA Settings",
+    "fields": [
+        {
+            "key": "field_623a5115bf977",
+            "label": "Mobile CTA Type",
+            "name": "mobile_cta_type",
+            "type": "select",
+            "instructions": "Select the style of mobile CTA that will be displayed for this page. By default a single number will be displayed.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "default": "Default",
+                "split-a-p": "Split (Appointment \/ Phone)"
+            },
+            "default_value": "default",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_623a53f4bf978",
+            "label": "Spilt (Appointment \/ Phone) Settings",
+            "name": "split_appointment__phone_settings",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_623a5115bf977",
+                        "operator": "==",
+                        "value": "split-a-p"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_623a552dbf979",
+                    "label": "Lead Form Anchor",
+                    "name": "lead_form_anchor",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "#Leadform",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "landing-page"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1647994039
+}
