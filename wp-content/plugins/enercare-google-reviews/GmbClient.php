@@ -103,11 +103,16 @@ class GmbClient {
     
     $upload_dir = wp_upload_dir();
     $tokenPath = $upload_dir['basedir'] . '/private/enercare-google-reviews/token.json';
-    //$tokenPath = __DIR__ . '/token.json';
     
     if (file_exists($tokenPath)) {
       $accessToken = json_decode(file_get_contents($tokenPath), true);
       $this->google_client->setAccessToken($accessToken);
+    } else {
+      $tokenPath = __DIR__ . '/token.json';
+      if (file_exists($tokenPath)) {
+        $accessToken = json_decode(file_get_contents($tokenPath), true);
+        $this->google_client->setAccessToken($accessToken);
+      }
     }
     
     $this->google_client->authorize();
