@@ -37,6 +37,18 @@ Tabbed Content
 
 }
 
+.block-location-finder__content {
+	padding: 14% 0 13% 3% !important;
+}
+
+.block-location-finder__form {
+	padding: 0 10px !important;
+}
+
+.block-location-finder__form-container {
+	padding: 10px !important;
+}
+
 [data-type="portent/block-tabbed-content"] {
 
 	border: dashed 1.25px transparent;
@@ -48,26 +60,26 @@ Tabbed Content
 	}
 }
 
-	.block-tabbed-content__panel {
-		border: dashed 1.25px rgba(0, 0, 0, 0.45);
-		margin: 0.25em;
-		padding: 0.25em;
-	}
+.block-tabbed-content__panel {
+	border: dashed 1.25px rgba(0, 0, 0, 0.45);
+	margin: 0.25em;
+	padding: 0.25em;
+}
 
-	.block-tabbed-content__tab__title {
-		border: 1px dashed $white;
-		display: block;
-		font-size: 14px;
-		background: black;
-		color: white;
-		padding: 0.55em 0.25em 0.25em 0.25em;
-		border-radius: 10px;
-		transform: translateY(-50%);
-		position: relative;
-		margin: 0;
+.block-tabbed-content__tab__title {
+	border: 1px dashed $white;
+	display: block;
+	font-size: 14px;
+	background: black;
+	color: white;
+	padding: 0.55em 0.25em 0.25em 0.25em;
+	border-radius: 10px;
+	transform: translateY(-50%);
+	position: relative;
+	margin: 0;
 
-		&:before {
-			content: 'TAB: ';
-			display: inline;
-		}
+	&:before {
+		content: 'TAB: ';
+		display: inline;
 	}
+}

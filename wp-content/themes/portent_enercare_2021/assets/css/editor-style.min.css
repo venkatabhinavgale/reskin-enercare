@@ -524,6 +524,19 @@ ul.block-location-finder__list{padding-left:0}
 .block-locations-served__location-list[hidden]{-webkit-animation:accordionOut .45s normal ease-in-out both 1;animation:accordionOut .45s normal ease-in-out both 1;max-height:0;-webkit-transition:max-height 1s;transition:max-height 1s}
 .block-locations-served__location-list a{color:#2c2929}
 .block-locations-served__location-list li{-ms-flex-preferred-size:20%;flex-basis:20%}
+[data-empty="true"].block-editor-block-list__block{border:dashed 2px rgba(0,0,0,0.3);padding:.5em 0}
+.wp-block-acf-glider-carousel .block-editor-block-list__layout{display:-webkit-box;display:-ms-flexbox;display:flex}
+.wp-block-acf-glider-carousel .block-editor-block-list__layout>.wp-block{-webkit-box-ordinal-group:2;-ms-flex-order:1;order:1}
+.wp-block-acf-glider-carousel .block-editor-block-list__layout .block-list-appender{-webkit-box-ordinal-group:1;-ms-flex-order:0;order:0}
+.wp-block-portent-block-tabbed-content .block-tabbed-content__tab-panels .block-editor-inner-blocks .block-editor-block-list__layout>.block-list-appender .block-editor-button-block-appender:after{content:'Add Tab';display:inline-block;color:#fff}
+.block-location-finder__content{padding:14% 0 13% 3% !important}
+.block-location-finder__form{padding:0 10px !important}
+.block-location-finder__form-container{padding:10px !important}
+[data-type="portent/block-tabbed-content"]{border:dashed 1.25px transparent;padding:.25em .5em 0 0}
+[data-type="portent/block-tabbed-content"].is-selected,[data-type="portent/block-tabbed-content"].has-child-selected{border:dashed 1.25px lightblue}
+.block-tabbed-content__panel{border:dashed 1.25px rgba(0,0,0,0.45);margin:.25em;padding:.25em}
+.block-tabbed-content__tab__title{border:1px dashed #fff;display:block;font-size:14px;background:black;color:white;padding:.55em .25em .25em .25em;border-radius:10px;-webkit-transform:translateY(-50%);transform:translateY(-50%);position:relative;margin:0}
+.block-tabbed-content__tab__title:before{content:'TAB: ';display:inline}
 .block-mega-button a{pointer-events:none}
 .wp-block-acf-mega-button.is-style-shadowed{-webkit-box-shadow:none;box-shadow:none}
 lite-youtube{background-color:#000;position:relative;display:block;contain:content;background-position:center center;background-size:cover;cursor:pointer;max-width:720px}
