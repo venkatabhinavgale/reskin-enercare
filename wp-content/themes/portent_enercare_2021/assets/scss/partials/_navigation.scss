@@ -116,7 +116,8 @@
 				text-decoration: none;
 				align-items: center;
 
-				&:hover {
+				&:hover,
+				&:focus {
 					color: brand-color("red");
 				}
 			}
