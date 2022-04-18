@@ -1,0 +1,199 @@
+/**
+Menu Customization Variables
+ */
+:root {
+	--status-area-background-color: #eee;
+	--status-area-bottom-border-color: #9F1C20;
+
+	--menu-item-bottom-border-color: #ccc;
+
+	--menu-sub-header-background-color: #eee;
+}
+
+[data-interface=statusArea] {
+	display:none;
+}
+
+.portent-toggle-nav .mobile-search-field__wrapper {
+	display: none;
+}
+
+.portent-toggle-nav .brand-area {
+	display: none;
+}
+
+/**
+Mobile Menu Styles
+ */
+@media screen and (max-width: 767px) {
+
+	.portent-toggle-nav {
+		display: none;
+
+		.menu-item {
+			border-bottom: 1px solid var(--menu-item-bottom-border-color);
+		}
+
+		.menu-item-has-children button {
+			width: 100%;
+			background-color: transparent;
+			border: none;
+			text-align: left;
+			display: flex;
+			justify-content: space-between;
+			padding: 1.5em 0.75em;
+		}
+
+		.menu {
+			overflow-y: scroll;
+		}
+
+		.menu-item a {
+			width: 100%;
+			background-color: transparent;
+			border: none;
+			text-align: left;
+			display: flex;
+			justify-content: space-between;
+			padding: 1em 0.75em;
+		}
+
+		ul {
+			position: relative;
+		}
+
+		.mobile-close-button {
+			flex-grow: 1;
+			text-align: right;
+			border: none;
+			background-color: transparent;
+		}
+
+		.brand-area {
+			display: flex;
+			padding: 0.5em;
+		}
+
+		.brand-area__logo {
+			flex-basis: auto;
+			max-height: 40px;
+			object-position: center left;
+		}
+	}
+
+	.portent-toggle-nav[data-mobile="open"] {
+		display: block;
+		position: fixed;
+		overflow-y:scroll;
+		left: 0;
+		top: 0;
+		background-color: white;
+		width: 100vw;
+		height: 100vh;
+	}
+
+	/**
+	Specific to Enercare
+	 */
+	.portent-toggle-nav[data-mobile="open"] .sub-menu .sub-menu {
+		display: block;
+		position: relative;
+	}
+
+	button[data-interface="menu-toggle"][aria-expanded="true"] + .sub-menu {
+		display: block;
+	}
+
+	.portent-toggle-nav .sub-menu .menu-item-object-custom span {
+		background-color: var(--menu-sub-header-background-color);
+		display: block;
+		padding: 0.5em;
+		font-weight: 700;
+	}
+
+	.portent-toggle-nav .addsearch-searchfield {
+		width: 100%;
+
+		input {
+			max-width: 100%;
+			width: 100%;
+		}
+	}
+
+	.portent-toggle-nav .mobile-search-field__wrapper {
+		display: block;
+		padding: 0.5em;
+	}
+	/**
+	End Specifics
+	 */
+
+	.portent-toggle-nav .sub-menu:first-of-type {
+		display: none;
+	}
+
+	.menu-item[data-open=true] {
+		position:static;
+
+		.sub-menu {
+			position: absolute;
+			z-index: 9999;
+			top: 0 !important;
+			left: 0;
+			background-color: white;
+			height: 100%;
+			width: 100%;
+			margin: 0;
+		}
+	}
+
+	[data-interface="menu-toggle"]{
+		align-items: center;
+		&:after {
+			content: '';
+			vertical-align: middle;
+			display: inline-block;
+			border-style: solid;
+			height: 0;
+			width: 0;
+			border-color: #000 transparent transparent;
+			border-width: 10px 5px 0;
+			margin-right: 0.25em;
+			transform: rotate(270deg);
+		}
+	}
+
+	/**
+	Status Area Base Style
+	 */
+	[data-interface=statusArea] {
+		display: flex;
+		width: 100%;
+		justify-content: space-between;
+		padding: 0.5em;
+		margin: 0 0 0.5em;
+		background-color: var(--status-area-background-color);
+		border-bottom: 1px solid var(--status-area-bottom-border-color);
+	}
+
+	/**
+	Mobile Menu Back Button Base Style
+	 */
+	.mobile-back-btn {
+		display: none;
+	}
+
+	/**
+	Menu open state
+	 */
+	.portent-toggle-nav[data-menu=open] {
+		.mobile-back-btn {
+			display: block;
+		}
+	}
+
+	/**
+	Body State
+	 */
+
+}

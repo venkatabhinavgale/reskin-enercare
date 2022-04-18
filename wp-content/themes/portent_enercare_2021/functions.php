@@ -104,11 +104,11 @@ function enercare_scripts() {
       wp_enqueue_script( 'ea-category-filters', get_template_directory_uri() . '/assets/js/category-filters.js', array( 'jquery' ), filemtime( get_template_directory() . '/assets/js/category-filters.js' ), true );
     }
 
-	wp_enqueue_script( 'ea-slider-poly', get_template_directory_uri() . '/assets/js/sliding-menu-polyfills.js', array(), filemtime( get_template_directory() . '/assets/js/sliding-menu-polyfills.js' ), true );
+	//wp_enqueue_script( 'ea-slider-poly', get_template_directory_uri() . '/assets/js/sliding-menu-polyfills.js', array(), filemtime( get_template_directory() . '/assets/js/sliding-menu-polyfills.js' ), true );
 
-	wp_enqueue_script( 'ea-slider-menu', get_template_directory_uri() . '/assets/js/sliding-menu.js', array( 'ea-slider-poly' ), filemtime( get_template_directory() . '/assets/js/sliding-menu.js' ), true );
+	//wp_enqueue_script( 'ea-slider-menu', get_template_directory_uri() . '/assets/js/sliding-menu.js', array( 'ea-slider-poly' ), filemtime( get_template_directory() . '/assets/js/sliding-menu.js' ), true );
 
-	wp_enqueue_script( 'ea-slider-init', get_template_directory_uri() . '/assets/js/slide-intiate.js', array( 'ea-slider-menu' ), filemtime( get_template_directory() . '/assets/js/slide-intiate.js' ), true );
+	//wp_enqueue_script( 'ea-slider-init', get_template_directory_uri() . '/assets/js/slide-intiate.js', array( 'ea-slider-menu' ), filemtime( get_template_directory() . '/assets/js/slide-intiate.js' ), true );
 
 	}
 

@@ -192,7 +192,7 @@ $mmspn_panel_offset: 30% !default;
       var(--mm-spn-item-indent);
     width: 100%;
   }
-  a {
+  button, a {
     color: $grey_11;
     text-decoration: none;
 
@@ -200,7 +200,10 @@ $mmspn_panel_offset: 30% !default;
     &:not(:last-child) {
       width: calc(100% - #{$mmspn_item_height}); // IE11 fallback
       width: calc(100% - var(--mm-spn-item-height));
-
+      text-align: left;
+      background: none;
+      border: none;
+      padding: 1em;
     }
 
     span {
