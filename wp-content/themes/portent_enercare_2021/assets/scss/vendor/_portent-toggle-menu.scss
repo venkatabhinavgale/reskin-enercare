@@ -18,6 +18,10 @@ Menu Customization Variables
 	display: none;
 }
 
+.portent-toggle-nav .brand-area {
+	display: none;
+}
+
 /**
 Mobile Menu Styles
  */
@@ -40,6 +44,10 @@ Mobile Menu Styles
 			padding: 1.5em 0.75em;
 		}
 
+		.menu {
+			overflow-y: scroll;
+		}
+
 		.menu-item a {
 			width: 100%;
 			background-color: transparent;
@@ -59,6 +67,17 @@ Mobile Menu Styles
 			text-align: right;
 			border: none;
 			background-color: transparent;
+		}
+
+		.brand-area {
+			display: flex;
+			padding: 0.5em;
+		}
+
+		.brand-area__logo {
+			flex-basis: auto;
+			max-height: 40px;
+			object-position: center left;
 		}
 	}
 
@@ -84,7 +103,7 @@ Mobile Menu Styles
 		display: block;
 	}
 
-	.portent-toggle-nav .menu-item-object-custom span {
+	.portent-toggle-nav .sub-menu .menu-item-object-custom span {
 		background-color: var(--menu-sub-header-background-color);
 		display: block;
 		padding: 0.5em;

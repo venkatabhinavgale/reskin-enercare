@@ -12,6 +12,22 @@
 	}
 }
 
+.portent-toggle-nav .brand-area__cta {
+	flex-grow: 1;
+}
+
+.portent-toggle-nav .header-phone {
+	display: flex;
+	justify-content: flex-end;
+	height: 100%;
+}
+
+.portent-toggle-nav .header-phone__link {
+	width: auto;
+	align-items: center;
+	margin-right: 5px;
+}
+
 .nav-menu {
 
 	.only-mobile.mobile-nav-item {
@@ -51,6 +67,20 @@
 		&__icon {
 			display: none;
 		}
+
+		@include media('>tablet') {
+			& [data-interface="menu-toggle"] {
+				padding: 0;
+			}
+		}
+
+		button,a {
+			border: 2px solid transparent;
+		}
+			button:focus,
+			a:focus {
+				border: 2px dotted black;
+			}
 	}
 	// Mobile sub-menu styles parent level is closed
 	> [data-open=false] {
