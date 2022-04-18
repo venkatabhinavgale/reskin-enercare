@@ -375,9 +375,9 @@ gulp.task('images', () => {
 const critical = require("critical");
 
 gulp.task("criticalcss", function () {
-  //var baseurl = "http://enercare.test";
+  var baseurl = "http://enercare.test";
   //var baseurl = "https://dev-enercare.pantheonsite.io";
-  var baseurl = "https://www.enercare.ca";
+  //var baseurl = "https://www.enercare.ca";
   var criticalurls = {
     "front.css": baseurl,
     "blog.css": baseurl + "/blog/",
