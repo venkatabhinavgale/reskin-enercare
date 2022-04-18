@@ -28,6 +28,13 @@
 	margin-right: 5px;
 }
 
+@include media('<=mobile_menu') {
+	body[data-menu="open"] .site-container {
+		position: relative;
+		z-index: 300;
+	}
+}
+
 .nav-menu {
 
 	.only-mobile.mobile-nav-item {
@@ -288,6 +295,7 @@
 	@include button-reset;
 	line-height: 0;
 	text-align: center;
+	border: 2px solid transparent;
 
 	.close {
 		display: none;
@@ -295,6 +303,10 @@
 
 	&:hover {
 		background: $grey_3;
+	}
+
+	&:focus {
+		border: 2px dotted #000;
 	}
 
 	&.active {

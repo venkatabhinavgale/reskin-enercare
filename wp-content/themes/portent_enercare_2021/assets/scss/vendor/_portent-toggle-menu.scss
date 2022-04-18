@@ -84,6 +84,7 @@ Mobile Menu Styles
 	.portent-toggle-nav[data-mobile="open"] {
 		display: block;
 		position: fixed;
+		overflow-y:scroll;
 		left: 0;
 		top: 0;
 		background-color: white;
@@ -185,9 +186,14 @@ Mobile Menu Styles
 	/**
 	Menu open state
 	 */
-	[data-menu=open] {
+	.portent-toggle-nav[data-menu=open] {
 		.mobile-back-btn {
 			display: block;
 		}
 	}
+
+	/**
+	Body State
+	 */
+
 }

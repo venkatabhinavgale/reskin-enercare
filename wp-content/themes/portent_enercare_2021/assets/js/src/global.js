@@ -453,6 +453,7 @@ PortentToggleNav.prototype.findNextMenuLink = function(event, topLevelParent) {
 
 PortentToggleNav.prototype.closeAllMenus = function(navigationContainer) {
 	let openMenus = navigationContainer.querySelectorAll('button[aria-expanded=true]');
+
 	openMenus.forEach(function(elem) {
 		elem.parentNode.dataset.open = 'false';
 		elem.setAttribute('aria-expanded', "false");
@@ -460,13 +461,26 @@ PortentToggleNav.prototype.closeAllMenus = function(navigationContainer) {
 	this.setSubMenuStatus(false);
 };
 
+PortentToggleNav.prototype.setDocumentAttribute = function() {
+	const bodyElement = document.querySelector('body');
+	bodyElement.setAttribute('data-menu', 'open');
+}
+
+PortentToggleNav.prototype.removeDocumentAttribute = function() {
+	let bodyElement = document.querySelector('body');
+	bodyElement.removeAttribute('data-menu');
+}
+
 PortentToggleNav.prototype.openMobileMenu = function(menuElement) {
+
 	menuElement.setAttribute('data-mobile', 'open');
+	this.setDocumentAttribute();
 	const firstMenuItem = this.menu.querySelector('.menu-item button');
 	firstMenuItem.focus();
 };
 
 PortentToggleNav.prototype.closeMobileMenu = function() {
+	this.removeDocumentAttribute();
 	this.closeAllMenus(this.menu);
 
 	if(this.menu.getAttribute('data-mobile') === 'open' ) {
