@@ -8,6 +8,9 @@ Menu Customization Variables
 	--menu-item-bottom-border-color: #ccc;
 
 	--menu-sub-header-background-color: #eee;
+
+	--button-active-background-color: #f5f2f2;
+	--button-active-color: #da1b27;
 }
 
 [data-interface=statusArea] {
@@ -22,6 +25,12 @@ Menu Customization Variables
 	display: none;
 }
 
+@media screen and (min-width: 768px) {
+	.portent-toggle-nav [data-interface="menu-toggle"][aria-expanded="true"]{
+		color: var(--button-active-color);
+		background-color: var(--button-active-background-color);
+	}
+}
 /**
 Mobile Menu Styles
  */
