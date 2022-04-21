@@ -246,6 +246,9 @@ function enercare_setup() {
 
 	// Body open hook
 	add_theme_support( 'body-open' );
+  
+  // Allow page template selection
+  add_theme_support( 'block-templates' );
 
 	/*
 	 * Let WordPress manage the document title.
@@ -747,3 +750,13 @@ function enqueue_custom_script( $form, $is_ajax ) {
 		wp_enqueue_script( 'enercare_bogo_script', get_template_directory_uri() . '/assets/js/form--bogo-form.js', array('jquery'), null, true);
 	}
 }
+
+/**
+ * Check user being logged in and redirect to appropriate location
+ */
+function enercare_login_redirect( $redirect_to, $request, $user ) {
+  if ($user->user_login == "builder") {
+    return home_url('builder/builder-portal');
+  }
+}
+add_filter( 'login_redirect', 'enercare_login_redirect', 10, 3 );

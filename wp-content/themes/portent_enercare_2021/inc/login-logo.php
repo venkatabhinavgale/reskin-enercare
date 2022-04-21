@@ -24,18 +24,18 @@ add_filter( 'login_headertext', '__return_empty_string' );
  */
 function enercare_login_logo() {
 
-	$logo_path = '/assets/images/logo.svg';
-	if( ! file_exists( get_stylesheet_directory() . $logo_path ) )
+  $logo_id = get_field( 'enercare_default_logo', 'options');
+  $logo_path = wp_get_attachment_url($logo_id);
+	
+	if( !$logo_path )
 		return;
-
-	$logo = get_stylesheet_directory_uri() . $logo_path;
     ?>
     <style type="text/css">
     .login h1 a {
-        background-image: url(<?php echo $logo;?>);
+        background-image: url(<?php echo $logo_path;?>);
         background-size: contain;
         background-repeat: no-repeat;
-		background-position: center center;
+        background-position: center center;
         display: block;
         overflow: hidden;
         text-indent: -9999em;
