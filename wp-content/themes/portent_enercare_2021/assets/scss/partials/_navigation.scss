@@ -31,7 +31,12 @@
 @include media('<=mobile_menu') {
 	body[data-menu="open"] .site-container {
 		position: relative;
-		z-index: 300;
+		z-index: 9999;
+		overflow-y: hidden;
+	}
+
+	.portent-toggle-nav .menu {
+		padding-bottom:90px;
 	}
 }
 
