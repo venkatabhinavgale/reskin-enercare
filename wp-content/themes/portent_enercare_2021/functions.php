@@ -758,5 +758,6 @@ function enercare_login_redirect( $redirect_to, $request, $user ) {
   if ($user->user_login == "builder") {
     return home_url('builder/builder-portal');
   }
+  return admin_url();
 }
 add_filter( 'login_redirect', 'enercare_login_redirect', 10, 3 );
