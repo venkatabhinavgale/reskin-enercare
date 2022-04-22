@@ -9,8 +9,10 @@ Menu Customization Variables
 
 	--menu-sub-header-background-color: #eee;
 
+	--button-color: #000;
 	--button-active-background-color: #f5f2f2;
 	--button-active-color: #da1b27;
+	--button-font-family: "Post Grotesk";
 }
 
 [data-interface=statusArea] {
@@ -23,10 +25,15 @@ Menu Customization Variables
 
 .portent-toggle-nav .brand-area {
 	display: none;
+
+	button {
+		color: var(--button-color);
+		font-family: var(--button-font-family);
+	}
 }
 
-@media screen and (min-width: 768px) {
-	.portent-toggle-nav [data-interface="menu-toggle"][aria-expanded="true"]{
+@media screen and (min-width: 1024px) {
+	.portent-toggle-nav[data-interface="menu-toggle"][aria-expanded="true"]{
 		color: var(--button-active-color);
 		background-color: var(--button-active-background-color);
 	}
@@ -34,7 +41,7 @@ Menu Customization Variables
 /**
 Mobile Menu Styles
  */
-@media screen and (max-width: 767px) {
+@include media('<=mobile_menu') {
 
 	.portent-toggle-nav {
 		display: none;
@@ -76,6 +83,7 @@ Mobile Menu Styles
 			text-align: right;
 			border: none;
 			background-color: transparent;
+			color: var(--button-color);
 		}
 
 		.brand-area {
@@ -87,6 +95,10 @@ Mobile Menu Styles
 			flex-basis: auto;
 			max-height: 40px;
 			object-position: center left;
+		}
+
+		.menu-item button {
+			color: var(--button-color);
 		}
 	}
 
@@ -158,6 +170,8 @@ Mobile Menu Styles
 
 	[data-interface="menu-toggle"]{
 		align-items: center;
+		color: var(--button-color);
+		font-family: var(--button-font-family);
 		&:after {
 			content: '';
 			vertical-align: middle;
@@ -198,6 +212,7 @@ Mobile Menu Styles
 	.portent-toggle-nav[data-menu=open] {
 		.mobile-back-btn {
 			display: block;
+			color: var(--button-color);
 		}
 	}
 

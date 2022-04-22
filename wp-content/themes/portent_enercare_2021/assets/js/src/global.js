@@ -200,7 +200,7 @@ let PortentToggleNav = function(){};
 PortentToggleNav.prototype.menu = '';
 PortentToggleNav.prototype.logo = null;
 PortentToggleNav.prototype.cta = null;
-PortentToggleNav.prototype.mobileWidth = 767;
+PortentToggleNav.prototype.mobileWidth = 1023;
 PortentToggleNav.prototype.init = function() {
 
 	if(this.menu !== '') {
@@ -413,7 +413,16 @@ This function essentially serves as a keyboard trap for the current menu.
  */
 PortentToggleNav.prototype.findNextMenuLink = function(event, topLevelParent) {
 	console.log(topLevelParent);
-	let allLinks = topLevelParent.querySelectorAll('a');
+	let allLinks;
+
+	if(window.outerWidth <= this.mobileWidth) {
+		let mobileElements = Array.from(this.menu.querySelectorAll('.mobile-back-btn, .mobile-close-btn'));
+		allLinks = Array.from(topLevelParent.querySelectorAll('a'));
+		allLinks = [...mobileElements, ...allLinks];
+	} else {
+		allLinks = Array.from(topLevelParent.querySelectorAll('a'));
+	}
+	console.log(allLinks);
 	let firstFocusableLink = allLinks[0];
 	let lastFocusableLink = allLinks[allLinks.length - 1];
 	let currentElement = document.activeElement;

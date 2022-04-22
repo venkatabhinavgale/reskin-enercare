@@ -1,5 +1,17 @@
 "use strict";
 
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 jQuery(function ($) {
   // Mobile Menu
   $('.menu-toggle').click(function () {// $('.search-toggle, .header-search').removeClass('active');
@@ -198,7 +210,7 @@ var PortentToggleNav = function PortentToggleNav() {};
 PortentToggleNav.prototype.menu = '';
 PortentToggleNav.prototype.logo = null;
 PortentToggleNav.prototype.cta = null;
-PortentToggleNav.prototype.mobileWidth = 767;
+PortentToggleNav.prototype.mobileWidth = 1023;
 
 PortentToggleNav.prototype.init = function () {
   if (this.menu !== '') {
@@ -431,7 +443,17 @@ This function essentially serves as a keyboard trap for the current menu.
 
 PortentToggleNav.prototype.findNextMenuLink = function (event, topLevelParent) {
   console.log(topLevelParent);
-  var allLinks = topLevelParent.querySelectorAll('a');
+  var allLinks;
+
+  if (window.outerWidth <= this.mobileWidth) {
+    var mobileElements = Array.from(this.menu.querySelectorAll('.mobile-back-btn, .mobile-close-btn'));
+    allLinks = Array.from(topLevelParent.querySelectorAll('a'));
+    allLinks = [].concat(_toConsumableArray(mobileElements), _toConsumableArray(allLinks));
+  } else {
+    allLinks = Array.from(topLevelParent.querySelectorAll('a'));
+  }
+
+  console.log(allLinks);
   var firstFocusableLink = allLinks[0];
   var lastFocusableLink = allLinks[allLinks.length - 1];
   var currentElement = document.activeElement;
