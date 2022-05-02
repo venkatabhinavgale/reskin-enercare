@@ -52,6 +52,7 @@ if (file_exists(dirname(__FILE__) . '/wp-config-pantheon.php') && isset($_ENV['P
 // See https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
 $request_ip_blocklist = [
   '45.9.20.89',
+  '45.134.26.66'
 ];
 
 $request_remote_addr = $_SERVER['REMOTE_ADDR'];
