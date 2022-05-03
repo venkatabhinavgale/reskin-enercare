@@ -22,6 +22,12 @@ function addsearch_search_form( $form ) {
 		return $form;
 	}
 
+	// if we are using the new script
+	if ( in_array( $addsearch_installation_method, array( 'widgetv2' ), true ) ) {
+		AddSearch::get_instance()->get_script_for_v2( true );
+		return '';
+	}
+
 	$current_root = get_site_url();
 
 	$format = current_theme_supports( 'html5', 'search-form' ) ? 'html5' : 'xhtml';

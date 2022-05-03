@@ -1,3 +1,7 @@
+### 1.7 | 2022-04-07
+- Added the [gform_partialentries_pre_update](https://docs.gravityforms.com/gform_partialentries_pre_update/) filter to allow modifying the partial entry data before it is updated.
+- Fixed an issue that causes an unsaved changes notice to display each time partial entries is enabled or disabled in the form settings.
+
 ### 1.6 | 2020-09-24
 - Added support for Gravity Forms 2.5.
 

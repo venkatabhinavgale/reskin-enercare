@@ -10,7 +10,11 @@ jQuery(document).ready( function($) {
 		var refSelector = '#rvy_compare_button';
 
         if (!$(refSelector).length) {
-            var refSelector = 'div.misc-pub-section-last';
+            var refSelector = 'div.misc-pub-section:last';
+        }
+
+        if (!$(refSelector).length) {
+            var refSelector = 'div.misc-pub-curtime';
         }
 
 		if (rvyObjEdit.ajaxurl && !$('div.rvy-creation-ui').length && $(refSelector).length) {
@@ -33,7 +37,7 @@ jQuery(document).ready( function($) {
 					+ '<span class="revision-approve revision-created" style="color:green">'
 					+ rvyObjEdit[rvyObjEdit.currentStatus + 'CompletedCaption'] + '</span> '
 
-					+ '&nbsp;<a href="' + rvyObjEdit[rvyObjEdit.currentStatus + 'CompletedURL'] + '" class="revision-edit" target="_blank">' 
+					+ '&nbsp;<a href="' + rvyObjEdit[rvyObjEdit.currentStatus + 'CompletedURL'] + '" class="revision-preview" target="_blank">' 
                     + rvyObjEdit[rvyObjEdit.currentStatus + 'CompletedLinkCaption'] + '</a>'
                     + '</div>'
                     
@@ -56,7 +60,7 @@ jQuery(document).ready( function($) {
         }
 	}
 	var RvyUIInterval = setInterval(RvySubmissionUI, 100);
-	
+
 	$(document).on('click', 'a.save-timestamp, a.cancel-timestamp', function() {
         wp.autosave.server.triggerSave();
 	});
@@ -92,7 +96,7 @@ jQuery(document).ready( function($) {
 				rvyObjEdit.currentStatus = 'pending';
 
 				$('#post-status-display').html(rvyObjEdit[rvyObjEdit.currentStatus + 'StatusCaption']);
-                $('a.revision-edit').attr('href', rvyObjEdit[rvyObjEdit.currentStatus + 'CompletedURL']).show();
+                $('a.revision-preview').attr('href', rvyObjEdit[rvyObjEdit.currentStatus + 'CompletedURL']).show();
 			}
 
 			var revisionaryCreateError = function (data, txtStatus) {

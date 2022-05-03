@@ -1,5 +1,5 @@
 <?php
-if( basename(__FILE__) == basename(esc_url_raw($_SERVER['SCRIPT_FILENAME'])) )
+if (!empty($_SERVER['SCRIPT_FILENAME']) && basename(__FILE__) == basename(esc_url_raw($_SERVER['SCRIPT_FILENAME'])) )
 	die( 'This page cannot be called directly.' );
 	
 /**
@@ -16,6 +16,7 @@ class Revisionary
 	var $rest = '';				// object ref - Revisionary_REST
 	var $internal_meta_update = false;
 	var $skip_filtering = false;
+	var $is_revisions_query = false;
 
 	var $config_loaded = false;		// configuration related to post types and statuses must be loaded late on the init action
 	var $enabled_post_types = [];	// enabled_post_types property is set (keyed by post type slug) late on the init action. 
@@ -25,7 +26,7 @@ class Revisionary
 	}
 
 	function init() {
-		if (is_admin() && (false !== strpos(esc_url_raw($_SERVER['REQUEST_URI']), 'revision.php')) && (!empty($_REQUEST['revision']))) {
+		if (isset($_SERVER['REQUEST_URI']) && is_admin() && (false !== strpos(esc_url_raw($_SERVER['REQUEST_URI']), 'revision.php')) && (!empty($_REQUEST['revision']))) {
 			add_action('init', [$this, 'addFilters'], PHP_INT_MAX);
 		} else {
 			$this->addFilters();
@@ -41,8 +42,14 @@ class Revisionary
 		// @todo: Correct selective application of filtering downstream so Revisors can use a read-only Compare [Past] Revisions screen
 		//
 		// Note: some filtering is needed to allow users with full editing permissions on the published post to access a Compare Revisions screen with Preview and Manage buttons
-		if (is_admin() && (false !== strpos(esc_url_raw($_SERVER['REQUEST_URI']), 'revision.php')) && (!empty($_REQUEST['revision'])) && !is_content_administrator_rvy()) {
-			$revision_id = (!empty($_REQUEST['revision'])) ? (int) $_REQUEST['revision'] : (int) $_REQUEST['to'];
+		if (is_admin() && isset($_SERVER['REQUEST_URI']) && (false !== strpos(esc_url_raw($_SERVER['REQUEST_URI']), 'revision.php')) && (!empty($_REQUEST['revision'])) && !is_content_administrator_rvy()) {
+			if (!empty($_REQUEST['revision'])) {
+				$revision_id = (int) $_REQUEST['revision'];
+			} elseif (isset($_REQUEST['to'])) {
+				$revision_id = (int) $_REQUEST['to'];
+			} else {
+				$revision_id = 0;
+			}
 			
 			if ($revision_id) {
 				if ($_post = get_post($revision_id)) {
@@ -112,6 +119,10 @@ class Revisionary
 		// This is needed, implemented for pending revisions only
 		if (!empty($_REQUEST['get_new_revision'])) {
 			add_action('template_redirect', array($this, 'act_new_revision_redirect'));
+		}
+
+		if (!empty($_REQUEST['edit_new_revision'])) {
+			add_action('template_redirect', array($this, 'act_edit_revision_redirect'));
 		}
 
 		add_filter('get_comments_number', array($this, 'flt_get_comments_number'), 10, 2);
@@ -212,7 +223,6 @@ class Revisionary
 						$admin_bar->add_menu([
 								'id'    => 'rvy-create-revision',
 								'title' => pp_revisions_status_label('draft-revision', 'submit_short'), // Your menu title
-								//'href'  => wp_nonce_url(rvy_admin_url("admin.php?page=rvy-revisions&amp;post={$post->ID}&amp;action=revise&amp;front=1"), "submit-post_{$post->ID}"), // URL
 								'href'  => rvy_admin_url("admin.php?page=rvy-revisions&amp;post={$post->ID}&amp;action=revise&amp;front=1"), // URL
 								'meta'  => [
 									'target' => '_blank',
@@ -231,7 +241,7 @@ class Revisionary
 	}
 
 	public function fltPostsClauses($clauses, $_wp_query, $args = []) {
-		global $wpdb;
+		global $wpdb, $revisionary;
 
 		$defaults = [
 			'is_revisions_query' => false,
@@ -243,7 +253,7 @@ class Revisionary
             $$var = $args[$var];
         }
 
-		if ($is_revisions_query || !empty($_wp_query->is_revisions_query) || !empty($_wp_query->query['is_revisions_query']) || $_wp_query->is_preview) {
+		if ($is_revisions_query || !empty($_wp_query->is_revisions_query) || !empty($_wp_query->query['is_revisions_query']) || (!empty($revisionary) && !empty($revisionary->is_revisions_query)) || $_wp_query->is_preview) {
 			return $clauses;
 		}
 
@@ -308,7 +318,6 @@ class Revisionary
 		global $current_user;
 
 		$args = (array) $args;
-		//$defaults = ['simple_cap_check' => false, 'type_obj' => false];
 
 		if (is_numeric($post)) {
 			$post = get_post($post);
@@ -369,7 +378,14 @@ class Revisionary
 	function actSavePost($post_id, $post) {
 		if (strtotime($post->post_date_gmt) > agp_time_gmt()) {
 			require_once( dirname(__FILE__).'/admin/revision-action_rvy.php');
-			rvy_update_next_publish_date();
+			
+			if (rvy_get_option('revision_publish_cron')) {
+				if (rvy_in_revision_workflow($post_id) && ('future-revision' == $post->post_mime_type)) {
+					rvy_update_next_publish_date(['revision_id' => $post_id]);
+				}
+			} else {
+				rvy_update_next_publish_date();
+			}
 		}
 	}
 
@@ -507,6 +523,37 @@ class Revisionary
 
 		// If logged user does not have a pending revision of this post, redirect to published permalink
 		wp_redirect($published_url);
+		exit;
+	}
+
+	function act_edit_revision_redirect() {
+		global $current_user, $post;
+
+		if (is_admin() || empty($post) || empty($_REQUEST['edit_new_revision'])) {
+			return;
+		}
+
+		$last_user_revision_id = (int) $_REQUEST['edit_new_revision'];
+
+		$published_post_id = rvy_post_id($post->ID);
+		$published_url = get_permalink($published_post_id);
+
+		$revision = $this->get_last_revision($published_post_id, $current_user->ID);
+
+		if ($revision) {
+			$args = [];
+			if (!empty($_REQUEST['nc'])) { // with a specified link target, avoid multiple browser tabs in the same editor instance
+				$args['nc'] = sanitize_key($_REQUEST['nc']);
+			}
+
+			$edit_link = admin_url("post.php?post={$revision->ID}&action=edit&nc={$args['nc']}");
+			wp_redirect($edit_link);
+			exit;
+		}
+
+		// If logged user does not have a pending revision of this post, redirect to published permalink
+		wp_redirect($published_url);
+		exit;
 	}
 
 	// log post type and ID from REST handler for reference by subsequent PP filters 

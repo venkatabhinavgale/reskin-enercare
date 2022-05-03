@@ -3,7 +3,7 @@
 Plugin Name:       AddSearch Instant Search
 Plugin URI:        https://www.addsearch.com/product/wordpress-search-plugin/?utm_campaign=Wordpress%20Plugin&utm_source=wordpress_plugin
 Description:       AddSearch is an instant site search engine for your website.
-Version:           2.0.7
+Version:           2.1.0
 Author:            AddSearch Ltd.
 Author URI:        https://www.addsearch.com/?utm_campaign=Wordpress%20Plugin&utm_source=wordpress_plugin
 License:           GPL-2.0+
@@ -48,6 +48,8 @@ final class AddSearch {
 
     private static $instance = null;
 
+	const _V2_URL = 'https://cdn.addsearch.com/v4/addsearch-ui.min.js';
+
 	/**
 	 * Returns the instance.
 	 *
@@ -81,7 +83,7 @@ final class AddSearch {
 
 		/* Plugin version. */
 		if ( ! defined( 'ADDSEARCHP_VERSION' ) ) {
-			define( 'ADDSEARCHP_VERSION', '1.3.0' );
+			define( 'ADDSEARCHP_VERSION', '2.1.0' );
 		}
 
 	}
@@ -116,6 +118,22 @@ final class AddSearch {
 		/* Register init functions. */
 		add_action( 'init', array( $this, 'init' ) );
 
+		add_action( 'admin_init', array( $this, 'activation_redirect' ) );
+
+	}
+
+	/**
+	 * Redirect to settings page on activation.
+	 *
+	 * @access public
+	 * @return void
+	 */
+	public function activation_redirect() {
+		if ( 'yes' === get_option( 'addsearch_redirect', false ) ) {
+			delete_option( 'addsearch_redirect' );
+			wp_safe_redirect( add_query_arg( array( 'page' => 'addsearch-options' ), admin_url( 'options-general.php' ) ) );
+			exit;
+		}
 	}
 
 	/**
@@ -129,8 +147,13 @@ final class AddSearch {
 		/* Load functions for the plugin. */
 		require_once( $this->dir_path . 'includes/functions.php' );
 
+		/* Load functions for the theme specific changes. */
+		require_once( $this->dir_path . 'includes/theme-functions.php' );
+
 		/* Load admin functions. */
 		if ( is_admin() ) {
+			add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
+
 			require_once( $this->dir_path . 'admin/settings.php' );
 			require_once( $this->dir_path . 'admin/admin-notices.php' );
 		}
@@ -156,8 +179,10 @@ final class AddSearch {
 	 * @return void
 	 */
 	public static function enqueue_scripts() {
-		// Don't queue scripts if we have selected installation method "resultpage".
-		if ( 'resultpage' === self::get_installation_method() ) {
+		$type = self::get_installation_method();
+
+		// Don't queue scripts if we have selected installation method anything but "widget".
+		if ( ! in_array( $type, array( 'widget' ), true ) ) {
 			return;
 		}
 
@@ -166,12 +191,29 @@ final class AddSearch {
 			'key' => rawurlencode( esc_attr( $customer_key ) ),
 		];
 
-		apply_filters( 'addsearch_query_args', $query_args );
+
+		$query_args = apply_filters( 'addsearch_query_args', $query_args, $type );
 
 		wp_enqueue_script( 'addsearch-settings-js', esc_url( add_query_arg( $query_args, 'https://addsearch.com/js/' ) ), array(), null, true );
 
 	}
 
+	/**
+	 * Loads the script for the plugin on the settings page.
+	 *
+	 * @since 2.1.0
+	 * @access public
+	 * @return void
+	 */
+	public function admin_enqueue_scripts( $hook ) {
+		if ( $hook === 'settings_page_addsearch-options' ) {
+			wp_enqueue_script( 'addsearch', $this->dir_uri . '/assets/js/settings.js', array( 'jquery' ), ADDSEARCHP_VERSION );
+			wp_localize_script( 'addsearch', 'addsearch_config', array(
+			) );
+
+			wp_enqueue_style( 'addsearch', $this->dir_uri . '/assets/css/settings.css', array(), ADDSEARCHP_VERSION );
+		}
+	}
 
 	/**
 	 * Gets the installation type of plugin, meaning whether to use
@@ -187,7 +229,7 @@ final class AddSearch {
 
 		// Fallback to search-as-you-type.
 		if ( empty( $installation_method ) ) {
-			return 'widget';
+			return 'widgetv2';
 		}
 
 		return $installation_method;
@@ -225,6 +267,57 @@ final class AddSearch {
 		add_action( 'wp', [ $this, 'override_search_page' ] );
 
 		add_filter( 'get_search_form', 'addsearch_search_form', 20 );
+
+		add_filter( 'search_template', array( $this, 'search_results_template' ), 10, 1 );
+
+		add_filter( 'init', array( $this, 'change_search_parameter' ) );
+
+		add_filter( 'request', array( $this, 'search_request' ) );
+	}
+
+
+	/**
+	 * Change the search results template.
+	 *
+	 * @param string $template The path of the template.
+	 *
+	 * @return string
+	 *
+	 * @since 2.1.0
+	 */
+	public function search_results_template( $template ) {
+		$type = self::get_installation_method();
+		if ( 'resultpagev2' === $type ) {
+			return $this->dir_path . 'templates/search-results.php';
+		}
+		return $template;
+	}
+
+	/**
+	 * Remove 's' as the search query parameter and use 'addsearch' instead.
+	 *
+	 * @since 2.1.0
+	 */
+	public function change_search_parameter() {
+		global $wp;
+		$wp->add_query_var( 'addsearch' );
+		$wp->remove_query_var( 's' );
+	}
+
+	/**
+	 * Set the 's' parameter internally corresponding to the value of the 'addsearch' parameter.
+	 *
+	 * @param array $request The array of requested query variables.
+	 *
+	 * @return array
+	 *
+	 * @since 2.1.0
+	 */
+	public function search_request( $request ) {
+		if ( isset( $_REQUEST['addsearch'] ) ){
+			$request['s'] = $_REQUEST['addsearch'];
+		}
+		return $request;
 	}
 
 	/**
@@ -268,8 +361,70 @@ final class AddSearch {
 			delete_option( 'addSearchCustomerKey' );
 		}
 
+		// is this a brand new install or was there a prexising install?
+		$prexisting = empty( $addsearch_settings ) ? 'no' : 'yes';
+		update_option( 'addsearch_prexisting', $prexisting );
+
+		// add the current version being installed
+		update_option( 'addsearch_currentversion', ADDSEARCHP_VERSION );
+
+		// Don't redirect when multiple plugins are bulk activated
+		if (
+			( isset( $_REQUEST['action'] ) && 'activate-selected' === $_REQUEST['action'] ) &&
+			( isset( $_POST['checked'] ) && count( $_POST['checked'] ) > 1 ) ) {
+			return;
+		}
+		add_option( 'addsearch_redirect', 'yes' );
 	}
 
+	/**
+	 * Returns if this install is a brand new one or not.
+	 *
+	 * @since 2.1.0
+	 * @access public
+	 * @return bool
+	 */
+	public function has_prexisting_install() {
+		return 'yes' === get_option( 'addsearch_prexisting' );
+	}
+
+	/**
+	 * Returns the script to echo on the page.
+	 *
+	 * @since 2.1.0
+	 * @access public
+	 * @return string
+	 */
+	public function get_script_for_v2( $echo = false ) {
+		$type = self::get_installation_method();
+		$id = sanitize_title( get_option( 'admin_email' ) ) . rand();
+
+		$query_args = [
+			'key' => rawurlencode( esc_attr( self::get_customer_key() ) ),
+			'id' => $id,
+		];
+
+		switch ( $type ) {
+			case 'resultpagev2':
+				$query_args['type'] = 'search_results_page';
+				break;
+		}
+
+		$query_args = apply_filters( 'addsearch_query_args', $query_args, $type );
+
+		$script = sprintf( '
+			<script>
+			 %s
+			</script>
+			<script src="%s"></script>', AddSearch::get_instance()->get_script_settings_for( $type, $id ), esc_url( add_query_arg( $query_args, AddSearch::_V2_URL ) ) ); 
+
+		if ( $echo ) {
+			echo $script;
+		}
+		return $script;
+	}
+
+	
 	/**
 	 * Override search page with our own functionality
 	 *
@@ -278,7 +433,13 @@ final class AddSearch {
 	 * @return void
 	 */
 	public function override_search_page() {
-		if ( 'widget' === self::get_installation_method() ) {
+		if ( ! apply_filters( 'addsearch_replace_search_page', true ) ) {
+			return;
+		}
+
+		$type = self::get_installation_method();
+
+		if ( ! in_array( $type, array( 'resultpage', 'resultpagev2' ), true ) ) {
 			return;
 		}
 
@@ -289,7 +450,15 @@ final class AddSearch {
 				'type' => 'resultpage',
 			];
 
-			apply_filters( 'addsearch_query_args', $query_args );
+			$query_args = apply_filters( 'addsearch_query_args', $query_args, $type );
+
+			if ( in_array( $type, array( 'resultpagev2' ), true ) ) {
+				include( $this->dir_path . 'templates/searchv2.php' );
+				// In our template we add header and footer ourselves,
+				// so we need to stop execution here to avoid re-rendering
+				// them after our footer.
+				die();
+			}
 
 			wp_enqueue_script(
 				'addsearch-results-js',
@@ -305,6 +474,38 @@ final class AddSearch {
 			// them after our footer.
 			die();
 		}
+	}
+
+	/**
+	 * Adds the inline script for the new widget/SRP.
+	 *
+	 * @since 2.1.0
+	 * @access public
+	 * @return string
+	 */
+	function get_script_settings_for( $type, $id ) {
+		$addsearch_settings     = get_option( 'addsearch_settings' );
+		$config_settings = $addsearch_settings['config'];
+
+		$config = array();
+		foreach ( $config_settings as $field => $value ) {
+			$pattern = "%s: '%s'";
+			if ( in_array( $value, array( 'true', 'false' ), true ) ) {
+				$pattern = "%s: %s";
+			} elseif ( is_numeric( $value ) ) {
+				$pattern = "%s: %d";
+			}
+			$config[] = sprintf( $pattern, $field, $value );
+		}
+
+		$search_query_parameter = 'addsearch';
+		$config[] = "search_query_parameter: '" . $search_query_parameter . "'";
+
+		return sprintf('
+			window.addsearch_settings = {
+				  "%s": {%s}
+			};
+		', $id, implode( ', ', $config ) );
 	}
 
 }
