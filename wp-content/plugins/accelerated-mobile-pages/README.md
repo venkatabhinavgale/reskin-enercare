@@ -3,8 +3,8 @@ Contributors: mohammed_kaludi, ahmedkaludi, ampforwp
 Tags: AMP, accelerated mobile pages, mobile, amp project, google amp, amp wp, google, plugin, SEO
 Donate link: https://www.paypal.me/Kaludi/25
 Requires at least: 3.0
-Tested up to: 5.9.1
-Stable tag: 1.0.77.37
+Tested up to: 5.9.3
+Stable tag: 1.0.77.42
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -197,27 +197,19 @@ Device testing done through [BrowserStack](https://www.browserstack.com)
 
 == Changelog ==
 
-= 1.0.77.37 (2nd March 2022) =
-* Improvements: Added feedback form with auto email system #5223
-* Improvements: Added new infinite scrolling experience #4791
-* Improvements: Added An option to add lang_ and privacyMode values in Quantcast #5206
-* Improvements: Added FireWork compatibility #5210
-* Fixed: AMP autocomplete tag is not working #5217
-* Fixed: Autoplay functionality not working in video module #5219
-* Fixed: Fonts loading twice in Global font family #5220
-* Fixed: Unable to connect to Matomo analytics #5221
+= 1.0.77.42 (16th April 2022) =
+* Improvements: Added REHub Comparison charts, tables Compatibility #5250
+* Fixed: Debug Warnings - Undefined index: amp-license #5251
 
-= 1.0.77.36 (18th February 2022) =
-* Fixed: If the server-side cache is aggressive then the pagination URL with ?amp=1 is redirecting to non-AMP #5208
-* Fixed: Errror getting in featured-image.php, on line 77 #5207
-* Fixed: Need to keep the mobile redirection filter outside of any condition #5216
+= 1.0.77.41 (12th April 2022) =
+* Improvements: Added Compatibility with GenerateBlocks plugin #5248
+* Improvements: Added Web Safe Fonts in Google Fonts List #5242
+* Improvements: AMP Option panel improvements #5239
+* Fixed: White space in footer element between the posts of infinite scroll #5238
+* Fixed: Invalid JSON error in console when using Plausible analytics #5142
 
-= 1.0.77.35 (21th January 2022) =
-* Fixed: Embed URLs not working with Amp takeover active #5193
-* Fixed: Need to change Google Fonts display to optional #5191
-* Fixed: Need to make compatibility of amp analytics in infinite scroll #5194
-* Fixed: Current year is not showing in design 1,2,3 #5190
-* Fixed: VKontakte social media not working in social media profile links #5196
-* Fixed: PHP Notice: tag_rewrite_rules is deprecated #5197
+= 1.0.77.40 (6th April 2022) =
+* Fixed: The Publisher Desk CDN URL added instead of Heroku link #5237
+* Fixed: AMP Option panel improvements #5240
 
 Full changelog available [ at changelog.txt](https://plugins.svn.wordpress.org/accelerated-mobile-pages/trunk/changelog.txt)

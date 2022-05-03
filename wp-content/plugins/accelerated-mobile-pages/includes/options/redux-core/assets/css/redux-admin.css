@@ -1568,12 +1568,12 @@ div#\34_section_group.amp-ads .redux-section-desc {
 }
 
 #section-amp-ads_0.afw-accordion-header > h3 {
-    background: #ff4954 !important;
-    border-color: #ff4954 !important;
+    background: #200305 !important;
+    border-color: #200305 !important;
     color: #fff;
 }
 table#section-table-amp-ads_0 {
-    border-color: #ff4954;
+    border-color: #000;
 }
 #pa-feild-ul a.deletion.redux-multi-text-remove , #redux_builder_amp-pa-feild a.button.button-primary.redux-multi-text-add{
     display: none;
