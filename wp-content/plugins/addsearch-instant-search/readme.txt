@@ -4,8 +4,8 @@ Author URI: http://www.addsearch.com/
 Contributors: AddSearch, Sofokus, sami.keijonen
 Tags: search, instant search, site search, page search, category search, custom search, better search, autocomplete, typeahead
 Requires at least: 3.9
-Tested up to: 5.8.2
-Stable tag: 2.0.7
+Tested up to: 5.9
+Stable tag: 2.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -43,7 +43,7 @@ Find inspiration from our [customer gallery](https://www.addsearch.com/customers
 
 = GETTING STARTED =
 
-To get started, follow our instructions on (how to install AddSearch on WordPress)[https://www.addsearch.com/docs/installation/wordpress/?utm_campaign=Wordpress%20Plugin&utm_source=wordpress_plugin].
+To get started, follow our instructions on (how to install AddSearch on WordPress)[https://www.addsearch.com/docs/installation/installing-addsearch-plugin-on-wordpress-website/?utm_campaign=Wordpress%20Plugin&utm_source=wordpress_plugin].
 
 = FEEDBACK =
 
@@ -53,16 +53,24 @@ We're developing AddSearch constantly, and welcome any feedback or suggestions. 
 
 Installing AddSearch is very simple and takes only a few minutes. Follow these instructions:
 
-1. Go to [www.addsearch.com](https://www.addsearch.com) and sign up with your WordPress website.
-2. Open the AddSearch dashboard, go to Setup -> Keys and Installation and copy your site key under Your Site Key.
-3. Install and activate the AddSearch plugin from the Wordpress admin interface.
-4. Paste the Site Key in Settings -> AddSearch and click Save.
-5. Select whether you want to use search-as-you-type functionality (default), or a more traditional separate results page and click Save.
-6. Go to Appearance -> Widgets. Drag the WordPress native Search Widget to your preferred widget area.
+1. Sign-Up for [AddSearch Trial](https://app.addsearch.com/signup/user) using your WordPress email
+2. When prompted by the installation wizard, click index my website and choose set up crawling option in the next step
+3. Enter the URL for your website on the next step and click begin crawling
+4. Open the AddSearch dashboard, go to Setup → Keys and Installation and copy your public site key under Your Site Key
+5. Install and activate the AddSearch plugin from the WordPress admin interface
+6. Paste the Site Key in Settings → AddSearch and click Save
+7. Select whether you want to use search-as-you-type search widget (default), or separate results page
+8. Test your website and see if the search is working
+9. If you see the AddSearch bar being displayed in bottom left corner it means search is not enabled in your theme. Go to your theme settings and
+enable search
+10. You can also add `[addsearch]` shortcode to anyplace where you want to place the search bar
 
 Now you should have AddSearch as your main search on the website. If your theme has search somewhere else, it will automatically be replaced by AddSearch.
 
 For more details, follow out instructions on [how to install AddSearch on WordPress](https://www.addsearch.com/docs/installation/wordpress/?utm_campaign=Wordpress%20Plugin&utm_source=wordpress_plugin).
+
+
+Please note that Gutenberg plug-in search component is not automatically replaced with AddSearch Search component. We advise Gutenberg users to use the `[addsearch]` shortcode.
 
 If you run into any trouble, send us an email at [support@addsearch.com](mailto:support@addsearch.com) and we will get back within the next day.
 
@@ -75,6 +83,12 @@ For questions and answers, please visit [our documentation](http://addsearch.com
 Try AddSearch for free for 7 days. Pricing starts at $25.00 per month. You can learn more about our pricing [here](https://www.addsearch.com/pricing/?utm_campaign=Wordpress%20Plugin&utm_source=wordpress_plugin).
 
 == Changelog ==
+
+= 2.1.0 =
+* Allow the search results page to be taken control of by the plugin
+* Plugin now cleans up after itself on uninstall
+* Add support for new version of the search script
+* Customisable configuration for search as you type widget and search results page
 
 = 2.0.7 =
 * Updated WP compatibility information

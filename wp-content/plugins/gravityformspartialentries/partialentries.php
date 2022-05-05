@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 Plugin Name: Gravity Forms Partial Entries Add-On
 Plugin URI: https://gravityforms.com
 Description: Adds support for partial submissions.
-Version: 1.6
+Version: 1.7
 Author: Gravity Forms
 Author URI: https://gravityforms.com
 License: GPL-2.0+
@@ -33,7 +33,7 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-define( 'GF_PARTIAL_ENTRIES_VERSION', '1.6' );
+define( 'GF_PARTIAL_ENTRIES_VERSION', '1.7' );
 
 add_action( 'gform_loaded', array( 'GF_Partial_Entries_Bootstrap', 'load' ), 5 );
 
@@ -44,4 +44,3 @@ class GF_Partial_Entries_Bootstrap {
 		GFAddOn::register( 'GF_Partial_Entries' );
 	}
 }
-

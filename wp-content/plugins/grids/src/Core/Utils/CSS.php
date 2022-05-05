@@ -106,19 +106,9 @@ class CSS {
 	 */
 	public static function display_rules( $breakpoint, $attributes, $type ) {
 		$display = array();
-		$parent_breakpoint = self::get_parent_breakpoint( $breakpoint );
 
 		if ( isset( $attributes[ $breakpoint . '_display' ] ) ) {
 			$display[] = 'none';
-		}
-		else {
-			if ( $parent_breakpoint ) {
-				$parent_display = self::display_rules( $parent_breakpoint, $attributes, $type );
-
-				if ( ! empty( $parent_display ) ) {
-					$display = $parent_display;
-				}
-			}
 		}
 
 		if ( empty( $display ) ) {

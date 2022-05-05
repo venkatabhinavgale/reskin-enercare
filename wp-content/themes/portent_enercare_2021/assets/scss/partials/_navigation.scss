@@ -40,6 +40,12 @@
 	}
 }
 
+@include media('>mobile_menu') {
+  .mobile-search-field__wrapper {
+    display: none;
+  }
+}
+
 .nav-menu {
 
 	.only-mobile.mobile-nav-item {

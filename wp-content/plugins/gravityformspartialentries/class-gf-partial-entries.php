@@ -115,6 +115,7 @@ class GF_Partial_Entries extends GFFeedAddOn {
 			add_action( 'load-forms_page_gf_entries', array( $this, 'load_screen_options' ) );
 			add_filter( 'gform_entry_page_size', array( $this, 'filter_gform_entry_page_size' ) );
 		}
+
 	}
 
 	public function init_ajax() {
@@ -211,16 +212,32 @@ class GF_Partial_Entries extends GFFeedAddOn {
 	 * @return array
 	 */
 	function feed_settings_fields() {
+		$enabled_dependency = array(
+			'live'   => true,
+			'fields' => array(
+				array(
+					'field' => 'enable_partial',
+				),
+			),
+		);
+
+		if ( ! $this->is_gravityforms_supported( '2.5-rc-2' ) ) {
+			$enabled_dependency = array(
+				'field'  => 'enable',
+				'values' => array( 1 ),
+			);
+		}
+
 		return array(
 			array(
 				'title'  => __( 'Partial Entries', 'gravityformspartialentries' ),
 				'fields' => array(
 					array(
-						'name'    => 'enable',
-						'label'   => esc_html__( 'Partial Entries', 'gravityformspartialentries' ),
-						'type'    => 'checkbox',
-						'onclick' => 'jQuery(this).parents("form").submit();',
-						'choices' => array(
+						'name'     => 'enable_partial',
+						'label'    => esc_html__( 'Partial Entries', 'gravityformspartialentries' ),
+						'type'     => 'checkbox',
+						'onclick' => ! $this->is_gravityforms_supported( '2.5-rc-2' ) ? "jQuery(this).closest('form').submit();" : null,
+						'choices'  => array(
 							array(
 								'label' => esc_html__( 'Enable', 'gravityformspartialentries' ),
 								'name'  => 'enable',
@@ -231,10 +248,7 @@ class GF_Partial_Entries extends GFFeedAddOn {
 						'name'       => 'fields_message',
 						'label'      => '',
 						'type'       => 'fields_message',
-						'dependency' => array(
-							'field'  => 'enable',
-							'values' => array( 1 ),
-						),
+						'dependency' => $enabled_dependency,
 					),
 					array(
 						'name'          => 'warning_message',
@@ -244,10 +258,7 @@ class GF_Partial_Entries extends GFFeedAddOn {
 						'default_value' => $this->get_default_warning_message(),
 						'tooltip'       => esc_html__( "In the interest of transparency and out of respect for users' privacy this notice will appear at the top of the form below the description.", 'gravityformspartialentries' ),
 						'required'      => true,
-						'dependency'    => array(
-							'field'  => 'enable',
-							'values' => array( 1 ),
-						),
+						'dependency'    => $enabled_dependency,
 					),
 					array(
 						'name'           => 'enable',
@@ -255,10 +266,7 @@ class GF_Partial_Entries extends GFFeedAddOn {
 						'type'           => 'feed_condition',
 						'checkbox_label' => esc_html__( 'Enable', 'gravityformspartialentries' ),
 						'instructions'   => esc_html__( 'Add/update partial entry if', 'gravityformspartialentries' ),
-						'dependency'     => array(
-							'field'  => 'enable',
-							'values' => array( 1 ),
-						),
+						'dependency'     => $enabled_dependency,
 					),
 				),
 			),
@@ -486,6 +494,7 @@ class GF_Partial_Entries extends GFFeedAddOn {
 				$notification_event  = 'partial_entry_updated';
 				$saved_entry         = $entries[0];
 				$partial_entry['id'] = $saved_entry['id'];
+				$partial_entry       = $this->filter_partial_entry_before_update( $partial_entry, $saved_entry, $form );
 				$result              = GFAPI::update_entry( $partial_entry );
 
 				if ( is_wp_error( $result ) ) {
@@ -516,6 +525,30 @@ class GF_Partial_Entries extends GFFeedAddOn {
 		}
 
 		return $partial_entry_id;
+	}
+
+	/**
+	 * Allow overriding the partial entry values before updating.
+	 *
+	 * @since 1.6.1
+	 *
+	 * @param array $partial_entry The partial entry array that contains new values.
+	 * @param array $saved_entry   The original entry.
+	 * @param array $form          The current form being processed.
+	 *
+	 * @return array The filtered partial entry array.
+	 */
+	public function filter_partial_entry_before_update( $partial_entry, $saved_entry, $form ) {
+		/**
+		 * Filters partial entry values before update.
+		 *
+		 * @since 1.6.1
+		 *
+		 * @param array $partial_entry The partial entry array that contains new values.
+		 * @param array $saved_entry   The original entry.
+		 * @param array $form          The current form being processed.
+		 */
+		return gf_apply_filters( array( 'gform_partialentries_pre_update', $form['id'] ), $partial_entry, $saved_entry, $form );
 	}
 
 	/**
