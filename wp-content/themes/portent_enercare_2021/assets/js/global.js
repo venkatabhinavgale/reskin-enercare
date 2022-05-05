@@ -402,8 +402,6 @@ PortentToggleNav.prototype.navigationMenuToggle = function (navigationContainer)
       }
 
       if (event.keyCode === 38) {
-        console.log('Key code 38');
-
         _this.closeAllMenus(navigationContainer);
       }
 
@@ -416,14 +414,13 @@ PortentToggleNav.prototype.navigationMenuToggle = function (navigationContainer)
      */
 
     el.querySelectorAll('a').forEach(function (elem) {
-      console.log('link for each');
       elem.addEventListener('keydown', function (event) {
-        console.log('link key press');
-        console.log('arrow press');
-        event.stopPropagation();
-        event.preventDefault();
+        if (event.keyCode === 38 || event.keyCode === 40) {
+          event.stopPropagation();
+          event.preventDefault();
 
-        _this.findNextMenuLink(event, el);
+          _this.findNextMenuLink(event, el);
+        }
       });
       elem.addEventListener('keyup', function (event) {
         //Close menu and focus on closest button when Escape is pressed on a menu item
@@ -442,7 +439,6 @@ This function essentially serves as a keyboard trap for the current menu.
 
 
 PortentToggleNav.prototype.findNextMenuLink = function (event, topLevelParent) {
-  console.log(topLevelParent);
   var allLinks;
 
   if (window.outerWidth <= this.mobileWidth) {
@@ -453,7 +449,6 @@ PortentToggleNav.prototype.findNextMenuLink = function (event, topLevelParent) {
     allLinks = Array.from(topLevelParent.querySelectorAll('a'));
   }
 
-  console.log(allLinks);
   var firstFocusableLink = allLinks[0];
   var lastFocusableLink = allLinks[allLinks.length - 1];
   var currentElement = document.activeElement;

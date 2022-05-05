@@ -95,10 +95,11 @@
 			}
 	}
 	// Mobile sub-menu styles parent level is closed
-	> [data-open=false] {
+	.menu > .menu-item-has-children[data-open=false] {
 
 		> ul.sub-menu {
             opacity: 0;
+			display: none;
             visibility: hidden;
             left: -100%;
 

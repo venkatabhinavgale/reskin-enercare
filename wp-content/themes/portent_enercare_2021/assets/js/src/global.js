@@ -375,7 +375,6 @@ PortentToggleNav.prototype.navigationMenuToggle = function(navigationContainer) 
 			}
 
 			if(event.keyCode === 38) {
-				console.log('Key code 38');
 				_this.closeAllMenus(navigationContainer);
 			}
 
@@ -388,13 +387,12 @@ PortentToggleNav.prototype.navigationMenuToggle = function(navigationContainer) 
 		 * and out of sequence we can still locate the next logical link in the list.
 		 */
 		el.querySelectorAll('a').forEach( function(elem) {
-			console.log('link for each');
 			elem.addEventListener('keydown', function(event) {
-				console.log('link key press');
-					console.log('arrow press');
+				if(event.keyCode === 38 || event.keyCode === 40) {
 					event.stopPropagation();
 					event.preventDefault();
 					_this.findNextMenuLink(event, el);
+				}
 			});
 
 			elem.addEventListener('keyup', function(event) {
@@ -412,7 +410,6 @@ PortentToggleNav.prototype.navigationMenuToggle = function(navigationContainer) 
 This function essentially serves as a keyboard trap for the current menu.
  */
 PortentToggleNav.prototype.findNextMenuLink = function(event, topLevelParent) {
-	console.log(topLevelParent);
 	let allLinks;
 
 	if(window.outerWidth <= this.mobileWidth) {
@@ -422,7 +419,6 @@ PortentToggleNav.prototype.findNextMenuLink = function(event, topLevelParent) {
 	} else {
 		allLinks = Array.from(topLevelParent.querySelectorAll('a'));
 	}
-	console.log(allLinks);
 	let firstFocusableLink = allLinks[0];
 	let lastFocusableLink = allLinks[allLinks.length - 1];
 	let currentElement = document.activeElement;
