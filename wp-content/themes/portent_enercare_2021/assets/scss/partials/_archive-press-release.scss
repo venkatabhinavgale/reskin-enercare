@@ -4,25 +4,19 @@
 	}
 
 	.archive-containment-field {
-		h2 {
-
-			&:first-child {
-				font-size: 2em;
-				border-bottom: 1px solid $grey_2;
-				padding-bottom: 0.25em;
-	    		margin-bottom: 1.5em;
-    		}
-		}
 
 		.archive-wrapper {
-			grid-row-gap: $grid-gap;
-			grid-column-wrap: 0;
+			grid-row-gap: 10px;
 			grid-template-columns: 1fr;
 
 			.post-summary {
-				box-shadow: $drop-shadow;
 				flex-direction: row;
-				padding: 3.45% 4.45%;
+				padding: 2.25%;
+				margin-bottom: 0;
+
+				&:nth-child(odd) {
+					background-color: $grey_2;
+				}
 
 				&__image {
 					display: none;
@@ -30,12 +24,23 @@
 				}
 
 				&__title {
-					margin: 1.25em 0;
+					margin: 0;
 					font-size: 1.375em;
 				}
 
 				&__content {
-					padding-top: 1.2em;
+					.publish-date {
+						margin-bottom: 0.25em;
+					}
+
+					p {
+						&:nth-child(3) {
+							display: none;
+							visibility: hidden;
+							margin: 0;
+							padding: 0;
+						}
+					}
 				}
 			}
 		}
