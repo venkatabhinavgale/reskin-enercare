@@ -14,10 +14,10 @@ $hash_arr = array();
 ?>
 <?php if (have_rows('comparison_cards')) { ?>
 <div class="block-comparison-card__wrapper <?php echo esc_attr($classes); ?>">
-<?php while ( have_rows('comparison_cards') ) { 
+<?php while ( have_rows('comparison_cards') ) {
   the_row();
   $hash = hash('adler32', random_bytes(18));
-  $toggle_open_text = get_sub_field('toggle_open_text'); 
+  $toggle_open_text = get_sub_field('toggle_open_text');
   $toggle_close_text = get_sub_field('toggle_close_text'); ?>
   <div class="block-comparison-card">
     <div class="block-comparison-card__title"><?= get_sub_field('title'); ?></div>
@@ -25,10 +25,10 @@ $hash_arr = array();
       <h3 class="block-comparison-card__contents-heading"><?= get_sub_field('heading'); ?></h3>
       <div class="block-comparison-card__contents-subheading"><?= get_sub_field('subheading'); ?></div>
       <div class="block-comparison-card__contents-description"><?= get_sub_field('description'); ?></div>
-      
+
       <?php if (have_rows('comparison_table')) { ?>
       <span class="block-comparison-card__contents-toggle" data-id="<?= $hash; ?>" aria-controls="comparison_card_<?= $hash; ?>" data-toggle-open="<?= $toggle_open_text; ?>" data-toggle-close="<?= $toggle_close_text; ?>">
-        <img src="<?= get_template_directory_uri(); ?>/assets/icons/utility/navigate-down.svg" />
+        <img alt="included" aria-label="included" src="<?= get_template_directory_uri(); ?>/assets/icons/utility/navigate-down.svg" />
         <?= $toggle_open_text; ?>
       </span>
       <div class="block-comparison-card__contents-table comparison_card_<?= $hash; ?>" aria-expanded="false" data-state="closed" aria-labelledby="comparison_card_<?= $hash; ?>">
@@ -62,7 +62,7 @@ $hash_arr = array();
         <?php } ?>
       </div>
       <?php } ?>
-      
+
     </div>
   </div>
 <?php } ?>
@@ -70,7 +70,7 @@ $hash_arr = array();
 
 <div class="block-comparison-card__mobile-wrapper wp-block-portent-block-tabbed-content <?php echo esc_attr($classes); ?>">
   <div class="block-tabbed-content__tabs init block-tabbed-content__tabs--left">
-<?php 
+<?php
   $cc_index = 1;
   while ( have_rows('comparison_cards') ) {
     the_row();
@@ -85,17 +85,17 @@ $hash_arr = array();
     while ( have_rows('comparison_cards') ) {
       the_row();
       $hash = $hash_arr[$cc_index]; $cc_index++;
-      $toggle_open_text = get_sub_field('toggle_open_text'); 
+      $toggle_open_text = get_sub_field('toggle_open_text');
       $toggle_close_text = get_sub_field('toggle_close_text'); ?>
     <div class="wp-block-portent-block-tabbed-content--tab block-tabbed-content__panel">
       <div class="block-tabbed-content__tab-content" data-tab="<?= $hash; ?>">
-      
+
         <div class="block-comparison-card">
           <div class="block-comparison-card__contents">
             <h3 class="block-comparison-card__contents-heading"><?= get_sub_field('heading'); ?></h3>
             <div class="block-comparison-card__contents-subheading"><?= get_sub_field('subheading'); ?></div>
             <div class="block-comparison-card__contents-description"><?= get_sub_field('description'); ?></div>
-            
+
             <?php if (have_rows('comparison_table')) { ?>
             <span class="block-comparison-card__contents-toggle" data-id="<?= $hash; ?>" aria-controls="comparison_card_<?= $hash; ?>" data-toggle-open="<?= $toggle_open_text; ?>" data-toggle-close="<?= $toggle_close_text; ?>">
               <img src="<?= get_template_directory_uri(); ?>/assets/icons/utility/navigate-down.svg" />
@@ -132,15 +132,15 @@ $hash_arr = array();
               <?php } ?>
             </div>
             <?php } ?>
-            
+
           </div>
         </div>
-      
+
       </div>
     </div>
     <?php } ?>
   </div>
-  
+
 </div>
 
 <?php } ?>
