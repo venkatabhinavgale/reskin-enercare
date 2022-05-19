@@ -31,7 +31,7 @@ function pressrelease_filters() {
 	echo '<div class="location-archive-filters__filter location-archive-filters__category">';
 		echo '<h2 class="location-archive-filters__header location-archive-filters__header--category">Press Releases by Year</h2>';
 		echo '<div class="location-archive-filters__category-form">';
-			echo str_replace("Campaign", "", get_taxonomy_dropdown_filter('pr-year'));
+			echo str_replace("Years", "Year", get_taxonomy_dropdown_filter('pr-year'));
 		echo '</div>';
 	echo '</div>';
 	echo '</section>';

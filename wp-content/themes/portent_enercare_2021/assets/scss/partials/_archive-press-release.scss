@@ -1,9 +1,11 @@
 .post-type-archive-press-release {
-	.filter-title {
-		font-size: 2em;
+	.location-archive-filters {
+		&__header {
+			font-size: 2em;
+		}
 	}
 
-	.archive-containment-field {
+	.site-main {
 
 		.archive-wrapper {
 			grid-row-gap: 10px;
