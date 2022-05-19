@@ -26,11 +26,11 @@ if( !empty( $content ) )
 
 if( !empty( $faqs ) )  {
   foreach ($faqs as $faq) {
-    echo '<div class="block-faqs--faq-container" aria-controls="faq_' . $faq->ID . '">';
-    echo esc_html($faq->post_title);
+    echo '<div class="block-faqs--faq-container">';
+        echo '<h4><button class="block-faqs--button" aria-expanded="false" aria-controls="faq_' . $faq->ID . '">' .esc_html($faq->post_title) . '</button></h4>';
 
-    echo '<div class="block-faqs--faq-answer-container" aria-expanded="false" data-state="closed" aria-labelledby="faq_' . $faq->ID . '">';
-    echo $faq->post_content;
+    echo '<div id="faq_' . $faq->ID . '" class="block-faqs--faq-answer-container" data-state="closed" aria-labelledby="faq_' . $faq->ID . '">';
+        echo $faq->post_content;
     echo '</div>';
 
     echo '</div>';

@@ -1,21 +1,21 @@
 "use strict";
 
 window.addEventListener('load', function () {
-  var tcToggle = document.querySelectorAll('.block-faqs--faq-container');
-  tcToggle.forEach(function (tc) {
-    tc.addEventListener("click", function () {
-      var faqContent = tc.querySelector('.block-faqs--faq-answer-container');
-      var faqContentParent = faqContent.parentElement;
+  var tcToggle = document.querySelectorAll('.block-faqs--faq-container h4');
+  Array.prototype.forEach.call(tcToggle, function (tc) {
+    var button = tc.querySelector('button');
+    var panel = tc.nextElementSibling;
 
-      if (faqContent.getAttribute("aria-expanded") == "true") {
-        faqContent.setAttribute("aria-expanded", "false");
-        faqContent.setAttribute("data-state", "closed");
-        faqContentParent.setAttribute("data-child", "closed");
+    button.onclick = function () {
+      console.log('clicking');
+
+      if (button.getAttribute("aria-expanded") === "true") {
+        button.setAttribute("aria-expanded", "false");
+        panel.setAttribute("data-state", "closed");
       } else {
-        faqContent.setAttribute("aria-expanded", "true");
-        faqContent.setAttribute("data-state", "open");
-        faqContentParent.setAttribute("data-child", "open");
+        button.setAttribute("aria-expanded", "true");
+        panel.setAttribute("data-state", "open");
       }
-    });
+    };
   });
 });

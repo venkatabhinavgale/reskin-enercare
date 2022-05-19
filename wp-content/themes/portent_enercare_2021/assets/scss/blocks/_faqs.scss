@@ -19,13 +19,28 @@
 			margin-right: 0.55em;
 			vertical-align: middle;
 		}
+	}
 
+	&--button {
+		all: inherit;
+	}
+
+	&--button:focus {
+		outline: none;
+		border: none;
 		&:before {
+			outline: 2px dotted black;
+			border-radius: 100%;
+		}
+	}
+
+	&--button:before {
 			content: '';
 			display: inline-block;
 			background-image: url('../icons/utility/add_circle_black_24dp_rounded.svg');
 			background-repeat: no-repeat;
 			background-position: center;
+			background-size: contain;
 			padding:0.70em;
 			width: 22px;
 			height: 19px;
@@ -33,12 +48,10 @@
 			margin-top: -0.3em;
 			vertical-align: middle;
 			filter: invert(11%) sepia(99%) saturate(5418%) hue-rotate(352deg) brightness(98%) contrast(86%);
-		}
+	}
 
-		&[data-child="open"]:before {
-			background-image: url('../icons/utility/minus_circle_black_24dp_rounded.svg');
-			padding: 0.667em 0.7em;
-		}
+	&--button[aria-expanded=true]:before {
+		background-image: url('../icons/utility/minus_circle_black_24dp_rounded.svg');
 	}
 
 	&--faq-answer-container {

@@ -1,198 +1,3 @@
-jQuery(function($){
-
-	// Mobile Menu
-	$('.menu-toggle').click(function(){
-			// $('.search-toggle, .header-search').removeClass('active');
-			// $('.menu-toggle, .nav-menu').toggleClass('active');
-	});
-	$('.menu-item-has-children > .submenu-expand').click(function(e){
-		$(this).toggleClass('expanded');
-		e.preventDefault();
-	});
-
-	// Search toggle
-	$('.search-toggle').click(function(){
-		$('.menu-toggle, .nav-menu').removeClass('active');
-		$('.search-toggle, .header-search').toggleClass('active');
-		$('.site-header .search-field').focus();
-	});
-
-  // AddSearch JS client with an example index. Get your own SITEKEY by signing up at www.addsearch.com
-  var client = new AddSearchClient('3145819e621ccfb6dbf5116b2c92967b');
-  var conf = {
-    searchResultsPageUrl: '/',
-    searchParameter: 'addsearch',
-    updateBrowserHistory: false
-  }
-  // Search UI instance
-  var searchui = new AddSearchUI(client, conf);
-  // Add components
-  searchui.searchField({
-    autofocus: false,
-    containerId: 'searchfield',
-    placeholder: 'Search',
-    icon: false
-  });
-
-	// Mobile Search UI instance
-	var mobileSearchui = new AddSearchUI(client, conf);
-	// Add components
-	mobileSearchui.searchField({
-		autofocus: false,
-		containerId: 'mobile-searchfield',
-		placeholder: 'Search',
-		icon: false
-	});
-
-  // var autocompleteClient = new AddSearchClient('3145819e621ccfb6dbf5116b2c92967b');
-  // autocompleteClient.setPaging(1, 7, 'relevance', 'desc'); // Fetch 7 results by default
-  //
-  // var autocompleteTemplate = `
-  //   <div class="addsearch-autocomplete" style="position: relative;">
-  //     {{#gt searchResults.results.length 0}}
-  //     <span class="addsearch-autocomplete__total-results">{{searchResults.results.length}} results</span>
-  //       <ul>
-  //         {{#each ../searchResults.results}}
-  //           <li>
-  //             <strong><a href="{{url}}">{{title}}</a></strong>
-  //           </li>
-  //         {{/each}}
-  //       </ul>
-  //     {{/gt}}
-  //   </div>
-  // `;
-  //
-  // searchui.autocomplete({
-  //   containerId: 'autocomplete',
-  //   template: autocompleteTemplate,
-  //   infiniteScrollElement: document.querySelector('#scrollable'),
-  //   sources: [
-  //     {
-  //       type: AddSearchUI.AUTOCOMPLETE_TYPE.SEARCH,
-  //       client: autocompleteClient,
-  //       jsonKey: 'results'
-  //     }
-  //   ]
-  // });
-
-  // All components added. Start
-  searchui.start();
-
-  //Enercare Specific function
-  (function (window,document, undefined) {
-
-    window.Enercare = {};
-
-    /**
-     * Array of url parameters structured with the key
-     * as the key we will store/pull from sessionStorage
-     * and the value as a string of what url parameter we
-     * will need to pull the data from.
-     */
-    window.Enercare.PPCparams = [
-      { utm_source: 'utm_source' },
-      { utm_medium: 'utm_medium' },
-      { utm_campaign: 'utm_campaign' },
-      /*
-      { Keyword: 'keyword' },
-      { Campaign: 'cid' },
-      { AdGroup: 'aid' },
-      { GoogleCookieID: 'gclid' },
-      { ReferralCode: 'refcode' },
-      { DeviceType: '' }
-      */
-    ];
-
-
-    /**
-     * Cookie value grab for closed loop analytics in Google Tag Manager.
-     * Imlemented via portent.
-     * @param cname
-     * @returns {string}
-     */
-    function getCookie(cname) {
-      var name = cname + "=";
-      var decodedCookie = decodeURIComponent(document.cookie);
-      var ca = decodedCookie.split(';');
-      for(var i = 0; i <ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) == ' ') {
-          c = c.substring(1);
-        }
-        if (c.indexOf(name) == 0) {
-          return c.substring(name.length, c.length);
-        }
-      }
-      return "";
-    }
-
-    window.Enercare.getUrlParameter = function(name) {
-      const n = name.replace(/[[]/, '\\[').replace(/[\]]/, '\\]');
-      const regex = new RegExp(`[\\?&]${n}=([^&#]*)`);
-      const results = regex.exec(location.search);
-      return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
-    };
-
-    window.Enercare.logPPCParamsToStorage = () => {
-      window.Enercare.PPCparams.forEach(param => {
-        const key = Object.keys(param)[0];
-        const urlParam = param[key];
-
-        if (!sessionStorage[key]) {
-          sessionStorage[key] = window.Enercare.getUrlParameter(urlParam);
-        }
-      });
-    };
-
-    window.Enercare.handleHiddenFormFields = function(form) {
-      // handle the VendorCookieID/ruid
-      if (form.VendorCookieID === undefined) {
-        var input = document.createElement("input");
-        input.setAttribute("type", "hidden");
-        input.setAttribute("name", "ruid");
-        input.setAttribute("value", getCookie('ruid'));
-        form.appendChild(input);
-      } else {
-        form.VendorCookieID.setAttribute("value", getCookie('ruid'));
-      }
-
-      // loop through our PPC params
-      window.Enercare.PPCparams.forEach(param => {
-        const key = Object.keys(param)[0];
-
-        // if form element does not exist, create it and append to form
-        if (form.key === undefined) {
-          var input = document.createElement("input");
-          input.setAttribute("type", "hidden");
-          input.setAttribute("name", key);
-          input.setAttribute("value", sessionStorage[key]);
-          form.appendChild(input);
-        } else {
-          // otherwise, update the value of the hidden field
-          form.key.setAttribute("value", sessionStorage[key]);
-        }
-
-      });
-    }
-
-    /**
-     * Loop through PPCparams
-     * check to see if sessionStorage item exists for that key
-     * make sure theres no value, then push the value from the
-     * url parameter provided
-     */
-    window.Enercare.logPPCParamsToStorage();
-
-    /** Get the gravity form and handle hidden form field inputs */
-    var gravityForm = $('.gform_wrapper form');
-    if (gravityForm.length) {
-      window.Enercare.handleHiddenFormFields(gravityForm[0]);
-    }
-
-  })(window,document);
-
-});
-
 /**
  * Toggle Navigation Script
  */
@@ -375,6 +180,7 @@ PortentToggleNav.prototype.navigationMenuToggle = function(navigationContainer) 
 			}
 
 			if(event.keyCode === 38) {
+				console.log('Key code 38');
 				_this.closeAllMenus(navigationContainer);
 			}
 
@@ -387,8 +193,11 @@ PortentToggleNav.prototype.navigationMenuToggle = function(navigationContainer) 
 		 * and out of sequence we can still locate the next logical link in the list.
 		 */
 		el.querySelectorAll('a').forEach( function(elem) {
+			console.log('link for each');
 			elem.addEventListener('keydown', function(event) {
-				if(event.keyCode === 38 || event.keyCode === 40) {
+				console.log('link key press');
+				console.log('arrow press');
+				if(event.keyCode === 40 && event.keyCode === 38) {
 					event.stopPropagation();
 					event.preventDefault();
 					_this.findNextMenuLink(event, el);
@@ -410,6 +219,7 @@ PortentToggleNav.prototype.navigationMenuToggle = function(navigationContainer) 
 This function essentially serves as a keyboard trap for the current menu.
  */
 PortentToggleNav.prototype.findNextMenuLink = function(event, topLevelParent) {
+	console.log(topLevelParent);
 	let allLinks;
 
 	if(window.outerWidth <= this.mobileWidth) {
@@ -419,6 +229,7 @@ PortentToggleNav.prototype.findNextMenuLink = function(event, topLevelParent) {
 	} else {
 		allLinks = Array.from(topLevelParent.querySelectorAll('a'));
 	}
+	console.log(allLinks);
 	let firstFocusableLink = allLinks[0];
 	let lastFocusableLink = allLinks[allLinks.length - 1];
 	let currentElement = document.activeElement;
@@ -503,18 +314,3 @@ PortentToggleNav.prototype.focusFirstOption = function(topLevelItem) {
 	firstLink.focus({preventScroll:true});
 	console.log(document.activeElement);
 };
-
-
-/**
- * Setup and init the toggle menu
- */
-function setupToggleNav() {
-	const primaryNavigation = new PortentToggleNav;
-	primaryNavigation.menu = document.getElementById('slider-menu');
-	primaryNavigation.toggleButton = document.getElementById('slider-menu-toggle');
-	primaryNavigation.logo = 'https://www.enercare.ca/wp-content/uploads/2021/11/EC_LOGO_H_P_4C.svg';
-	primaryNavigation.cta = "<div class=\"site-header__header-phone header-phone\"><span class=\"header-phone__cta\"><strong>Speak with an expert</strong></span><a class=\"header-phone__link cl-phone\" href=\"tel:1-855-642-8607\"><span class=\"screen-reader-text\">Click to call Enercare1-855-642-8607</span><svg xmlns=\"http://www.w3.org/2000/svg\" height=\"24px\" viewBox=\"0 0 24 24\" width=\"24px\" fill=\"#000000\"><path d=\"M0 0h24v24H0V0z\" fill=\"none\"></path><path d=\"M19.23 15.26l-2.54-.29c-.61-.07-1.21.14-1.64.57l-1.84 1.84c-2.83-1.44-5.15-3.75-6.59-6.59l1.85-1.85c.43-.43.64-1.03.57-1.64l-.29-2.52c-.12-1.01-.97-1.77-1.99-1.77H5.03c-1.13 0-2.07.94-2 2.07.53 8.54 7.36 15.36 15.89 15.89 1.13.07 2.07-.87 2.07-2v-1.73c.01-1.01-.75-1.86-1.76-1.98z\"></path></svg><strong class=\"header-phone__number\">1-855-642-8607</strong></a></div>";
-	primaryNavigation.init();
-}
-window.addEventListener('load', setupToggleNav);
-
