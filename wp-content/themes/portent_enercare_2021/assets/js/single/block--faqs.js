@@ -1,19 +1,18 @@
 window.addEventListener('load', function(){
-  let tcToggle = document.querySelectorAll('.block-faqs--faq-container');
-  tcToggle.forEach(function(tc) {
-    tc.addEventListener("click", function() {
-      let faqContent = tc.querySelector('.block-faqs--faq-answer-container');
-      let faqContentParent = faqContent.parentElement;
-      if (faqContent.getAttribute("aria-expanded") == "true") {
-        faqContent.setAttribute("aria-expanded", "false");
-        faqContent.setAttribute("data-state", "closed");
-        faqContentParent.setAttribute("data-child", "closed");
-      } else {
-        faqContent.setAttribute("aria-expanded", "true");
-        faqContent.setAttribute("data-state", "open");
-        faqContentParent.setAttribute("data-child", "open");
-      }
-    });
-  });
+  let tcToggle = document.querySelectorAll('.block-faqs--faq-container h4');
+  Array.prototype.forEach.call(tcToggle, function(tc) {
+  	let button = tc.querySelector('button');
+  	let panel = tc.nextElementSibling;
 
+    button.onclick = function(){
+    	console.log('clicking');
+      if (button.getAttribute("aria-expanded") === "true") {
+        button.setAttribute("aria-expanded", "false");
+        panel.setAttribute("data-state", "closed");
+      } else {
+        button.setAttribute("aria-expanded", "true");
+        panel.setAttribute("data-state", "open");
+      }
+    };
+  });
 });
