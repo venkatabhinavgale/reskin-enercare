@@ -193,6 +193,13 @@ textarea {
 	}
 }
 
+
+#addsearch-logo {
+	display: none !important;
+	pointer-events: none !important;
+	visibility: hidden;
+}
+
 .addsearch-autocomplete {
 
 	li {
