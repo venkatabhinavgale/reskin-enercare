@@ -77,6 +77,7 @@ jQuery(function($){
 
   // All components added. Start
   searchui.start();
+  mobileSearchui.start();
 
   //Enercare Specific function
   (function (window,document, undefined) {
