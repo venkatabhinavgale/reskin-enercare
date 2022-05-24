@@ -187,7 +187,8 @@ function enercare_breadcrumbs($display = true) {
     if (
         is_front_page() ||
         is_home() ||
-        (is_single() && $post->post_type == "landing-page")
+        (is_single() && $post->post_type == "landing-page") ||
+        (is_archive('press-release') && isset($_GET['pr-year']))
        ) {
       return false;
     }
