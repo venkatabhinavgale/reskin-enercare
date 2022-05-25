@@ -22,7 +22,7 @@ function footer_cta() {
 		//Check for CTA Variations
 		if(get_field('mobile_cta_type') === 'split-a-p') {
 			$split_field_group = get_field( 'split_appointment__phone_settings');
-			$lead_anchor = $split_field_group['lead_form_anchor'];
+			$lead_anchor = $split_field_group['lead_form_anchor'] !== '' ? $split_field_group['lead_form_anchor'] : 'leadForm';
 			echo '<div data-interface="floating-cta" class="floating-cta floating-cta--split-a-p is-style-shadowed">';
 				echo '<a class="wp-block-button__link has-red-background-color has-background" href="'. get_permalink() . "#" . $lead_anchor.'" style="flex: 1;border-radius: 0;border-right: 2px solid white; display:inline-flex; justify-content:center;">';
 				echo '<img loading="lazy" class="wp-image-7370" style="width: 24px;" src="https://www.enercare.ca/wp-content/uploads/2021/10/schedule-appointment-24px-w.svg" alt="" width="24" height="24">Schedule Estimate</a>';
