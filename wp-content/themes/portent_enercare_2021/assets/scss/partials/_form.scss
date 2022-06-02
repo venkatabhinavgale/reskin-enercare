@@ -131,6 +131,102 @@ textarea {
 	}
 }
 
+/**
+Form Style Helpers
+ */
+.form-section--dark,
+.form-group--dark {
+	background-color: brand-color('black');
+	color: #fff;
+
+	* {
+		color: inherit;
+	}
+
+	input[type="text"], select, textarea {
+		color: brand-color('black');
+	}
+
+	.gform_wrapper.gravity-theme .ginput_counter {
+		color: #fff;
+	}
+
+	a,
+	a:active,
+	a:visited,
+	.gform_wrapper .gfield_required {
+		color: brand-color('light-red');
+	}
+
+	a:hover,
+	a:focus {
+		color: brand-color('lighter-red');
+	}
+
+	a:focus {
+		outline: 2px dotted #fff;
+	}
+
+	input[type=submit]:focus,
+	input:focus,
+	select:focus,
+	textarea:focus,
+	.gform_wrapper.product-form_wrapper .product-form .gform_footer input[type="submit"]:focus{
+		outline: 2px dotted #fff;
+	}
+}
+
+.paginated-form-cover--dark {
+
+	&.wp-block-cover {
+		background-color: #fff;
+	}
+
+	.gform_wrapper.callback-form_wrapper,
+	.gform_confirmation_wrapper.callback-form .gform_confirmation_message{
+		background-color: brand-color('black');
+		color: #fff;
+
+		* {
+			color: inherit;
+		}
+
+		input[type="text"], select, textarea {
+			color: brand-color('black');
+		}
+
+		a,
+		a:active,
+		a:visited,
+		.gform_wrapper .gfield_required {
+			color: brand-color('light-red');
+		}
+
+		a:hover,
+		a:focus {
+			color: brand-color('lighter-red');
+		}
+
+		a:focus {
+			outline: 2px dotted #fff;
+		}
+
+		input[type=submit]:focus,
+		input:focus,
+		select:focus,
+		textarea:focus,
+		.gform_wrapper.product-form_wrapper .product-form .gform_footer input[type="submit"]:focus{
+			outline: 2px dotted #fff;
+		}
+	}
+
+	.gform_wrapper.gravity-theme .ginput_counter,
+	.gf_progressbar_title{
+		color: #fff;
+	}
+
+}
+
 /* Search Form
 --------------------------------------------- */
 
@@ -349,6 +445,15 @@ textarea {
 					text-decoration: none;
 					background-color: brand-color('red');
 					color: $white;
+
+					&:hover,
+					&:focus {
+						background-color: brand-color('darker-red');
+					}
+
+					&:focus {
+						outline: 2px dotted brand-color('black');
+					}
 
 					@include media(">=desktop") {
 						padding: 8px 24px;
