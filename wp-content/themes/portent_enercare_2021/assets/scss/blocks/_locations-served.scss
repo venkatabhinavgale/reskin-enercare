@@ -87,6 +87,7 @@
 
 		&[hidden] {
 			animation: accordionOut 0.45s normal ease-in-out both 1;
+			display: none;
 			max-height: 0;
 			transition: max-height 1s;
 		}
