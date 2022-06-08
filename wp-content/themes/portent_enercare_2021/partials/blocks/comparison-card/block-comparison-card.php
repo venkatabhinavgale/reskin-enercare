@@ -45,7 +45,7 @@ $hash_arr = array();
             <?php
               $comparison_value = get_sub_field('comparison_value');
               if ($comparison_value == 'Checkmark')
-                $comparison_value = '<img src="' . get_template_directory_uri() . '/assets/icons/action/done_black_24dp_rounded.svg" />';
+				  $comparison_value = '<img class="block-comparison-card__contents-table__checkmark-icon" alt="" src="' . get_template_directory_uri() . '/assets/icons/action/done_black_24dp_rounded.svg" /><span class="block-comparison-card__contents-table__checkmark-text">Included</span>';
               echo $comparison_value;
             ?>
             </td>
