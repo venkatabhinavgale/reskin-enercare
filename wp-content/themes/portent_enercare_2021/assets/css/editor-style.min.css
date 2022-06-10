@@ -496,6 +496,7 @@ ul.block-location-finder__list{padding-left:0}
 .block-comparison-card__contents-table table tbody td{padding:1em;max-width:240px}
 .block-comparison-card__contents-table table img{-webkit-filter:invert(24%) sepia(97%) saturate(3466%) hue-rotate(343deg) brightness(85%) contrast(104%);filter:invert(24%) sepia(97%) saturate(3466%) hue-rotate(343deg) brightness(85%) contrast(104%);margin:0 auto}
 .block-comparison-card__contents-table__subtext{display:block;font-size:10px;color:#000;font-weight:300;line-height:12px}
+.block-comparison-card__contents-table__checkmark-text{font-size:14px}
 .block-comparison-card__contents-table__cta{font-weight:700;margin:1.5em 1.75em 1em;line-height:22px}
 .block-comparison-card__mobile-wrapper{-webkit-box-shadow:0 4px 8px 0 rgba(56,61,67,0.3);box-shadow:0 4px 8px 0 rgba(56,61,67,0.3);display:block;visibility:visible;margin-bottom:20px}
 .block-comparison-card__mobile-wrapper .block-tabbed-content__tabs{display:-webkit-box;display:-ms-flexbox;display:flex;visibility:visible}
@@ -524,7 +525,7 @@ ul.block-location-finder__list{padding-left:0}
 .block-locations-served__cta a{color:inherit}
 .block-locations-served__cta img{display:inline-block;vertical-align:middle;width:1.5em;margin-top:-2px;-o-object-fit:contain;object-fit:contain;margin-right:.25em}
 .block-locations-served__location-list{display:block;max-height:100vh;-webkit-transition:max-height 1s;transition:max-height 1s}
-.block-locations-served__location-list[hidden]{-webkit-animation:accordionOut .45s normal ease-in-out both 1;animation:accordionOut .45s normal ease-in-out both 1;max-height:0;-webkit-transition:max-height 1s;transition:max-height 1s}
+.block-locations-served__location-list[hidden]{-webkit-animation:accordionOut .45s normal ease-in-out both 1;animation:accordionOut .45s normal ease-in-out both 1;display:none;max-height:0;-webkit-transition:max-height 1s;transition:max-height 1s}
 .block-locations-served__location-list a{color:#2c2929}
 .block-locations-served__location-list li{-ms-flex-preferred-size:20%;flex-basis:20%}
 [data-empty="true"].block-editor-block-list__block{border:dashed 2px rgba(0,0,0,0.3);padding:.5em 0}

@@ -108,6 +108,10 @@
 			line-height: 12px;
 		}
 
+		&__checkmark-text {
+			@include font-sizes(14px);
+		}
+
 		&__cta {
 			font-weight: 700;
 			margin: 1.5em 1.75em 1em;
