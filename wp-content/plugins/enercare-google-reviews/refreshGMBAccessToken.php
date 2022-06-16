@@ -29,12 +29,10 @@ function getClient()
     $client = new Google_Client();
     
     // THIS FIXED A PROBLEM IN MY (ANDY) LOCALHOST. DO NOT RUN THIS LIVE UNLESS YOU HAVE TO. NOT SECURE.
-    /*
     $guzzle = new GuzzleHttp\Client([
         'verify' => false
     ]);
     $client->setHttpClient($guzzle);
-    */    
     
     $client->setApplicationName('enercare');
     $client->setScopes('https://www.googleapis.com/auth/business.manage');
