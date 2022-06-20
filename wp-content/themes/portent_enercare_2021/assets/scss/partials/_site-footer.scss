@@ -61,12 +61,6 @@
 			width: 100%;
 		}
 	}
-
-	@include media(">=tablet") {
-		.wrap {
-			//@include columns( 3, 'div' );
-		}
-	}
 }
 
 .is-footer-social {
@@ -98,14 +92,6 @@
 
 	.wrap > *:last-child {
 		margin-bottom: 0;
-	}
-
-	a {
-		color: rgba( $white, .75 );
-
-		&:hover {
-			color: rgba( $white, 1 );
-		}
 	}
 
 	.footer-links a {

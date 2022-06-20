@@ -3,9 +3,9 @@
 @font-face{font-family:"Post Grotesk";src:url("../fonts/PostGrotesk-Medium.WOFF") format("woff");font-weight:400;font-display:swap}
 @font-face{font-family:"Post Grotesk";src:url("../fonts/PostGrotesk-Bold.WOFF") format("woff");font-weight:700;font-display:swap}
 @font-face{font-family:"Post Grotesk";src:url("../fonts/PostGrotesk-Black.WOFF") format("woff");font-weight:900;font-display:swap}
-.has-focus-style--black{outline-color:#000}
-.has-focus-style--white{outline-color:#fff}
-.has-focus-style--red{outline-color:#da1b27}
+.has-focus-style--black{outline-color:#000 !important}
+.has-focus-style--white{outline-color:#fff !important}
+.has-focus-style--red{outline-color:#da1b27 !important}
 .has-focus-style *:focus{outline:2px dotted;outline-color:inherit}
 a,a svg{-webkit-transition:all .1s ease-in-out;transition:all .1s ease-in-out}
 /*! normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}
@@ -678,8 +678,6 @@ div.wpforms-container.one-line:after{content:"";display:table;clear:both}
 .site-footer{background:#f5f2f2;color:#000;font-size:12px;padding:20px 0 45px;text-align:center;vertical-align:middle}
 .site-footer .wrap{margin-bottom:.75em}
 .site-footer .wrap>*:last-child{margin-bottom:0}
-.site-footer a{color:rgba(255,255,255,0.75)}
-.site-footer a:hover{color:#fff}
 .site-footer .footer-links a{color:#000;text-decoration:none}
 .site-footer .footer-links a+a{margin-left:12px}
 .site-footer .cafemedia{text-transform:uppercase}

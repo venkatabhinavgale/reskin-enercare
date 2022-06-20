@@ -195,15 +195,15 @@ Focus Styles
 .has-focus-style {
 
 	&--black {
-		outline-color: #000;
+		outline-color: #000 !important;
 	}
 
 	&--white {
-		outline-color: #fff;
+		outline-color: #fff !important;
 	}
 
 	&--red {
-		outline-color: brand-color('red');
+		outline-color: brand-color('red') !important;
 	}
 
 	*:focus {
