@@ -151,7 +151,7 @@ blockquote p:before,blockquote.wp-block-quote p:before{content:"";display:block;
 blockquote cite,blockquote .wp-block-quote__citation,blockquote.wp-block-quote cite,blockquote.wp-block-quote .wp-block-quote__citation{color:#29292c;display:block;font-size:16px;font-weight:700;margin-top:12px;opacity:.5;text-transform:uppercase}
 blockquote p:last-of-type,blockquote.wp-block-quote p:last-of-type{margin-bottom:0}
 .wp-block-separator,hr{background:transparent;border:0;width:100%;height:32px;position:relative}
-.wp-block-separator::before,hr::before{background:#e6e4e4;content:'';display:block;width:100%;height:1px;position:absolute;top:50%;margin-top:-.5px}
+.wp-block-separator::before,hr::before{background:#7f7f7f;content:'';display:block;width:100%;height:1px;position:absolute;top:50%;margin-top:-.5px}
 img{display:block;max-width:100%;height:auto}
 img.alignleft{float:left;margin:0 20px 20px 0}
 img.alignright{float:right;margin:0 0 20px 20px}
