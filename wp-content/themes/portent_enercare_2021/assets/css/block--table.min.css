@@ -1,3 +1,7 @@
+.has-focus-style--black{outline-color:#000}
+.has-focus-style--white{outline-color:#fff}
+.has-focus-style--red{outline-color:#da1b27}
+.has-focus-style *:focus{outline:2px dotted;outline-color:inherit}
 .is-style-feature-table{overflow-x:auto}
 .is-style-feature-table .has-fixed-layout{table-layout:auto}
 .is-style-feature-table thead{background-color:#fff}

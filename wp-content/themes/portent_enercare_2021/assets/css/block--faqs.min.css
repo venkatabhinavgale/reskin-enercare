@@ -1,3 +1,7 @@
+.has-focus-style--black{outline-color:#000}
+.has-focus-style--white{outline-color:#fff}
+.has-focus-style--red{outline-color:#da1b27}
+.has-focus-style *:focus{outline:2px dotted;outline-color:inherit}
 .block-faqs--header{font-weight:900;text-align:center}
 .block-faqs--faq-container{font-size:18px;font-weight:700;cursor:pointer;padding:0 .5em}
 .block-faqs--faq-container:after{content:'';display:inline-block;background-color:#d3d1d1;width:100%;height:2px;margin-right:.55em;vertical-align:middle}

@@ -3,6 +3,10 @@
 @font-face{font-family:"Post Grotesk";src:url("../fonts/PostGrotesk-Medium.WOFF") format("woff");font-weight:400;font-display:swap}
 @font-face{font-family:"Post Grotesk";src:url("../fonts/PostGrotesk-Bold.WOFF") format("woff");font-weight:700;font-display:swap}
 @font-face{font-family:"Post Grotesk";src:url("../fonts/PostGrotesk-Black.WOFF") format("woff");font-weight:900;font-display:swap}
+.has-focus-style--black{outline-color:#000}
+.has-focus-style--white{outline-color:#fff}
+.has-focus-style--red{outline-color:#da1b27}
+.has-focus-style *:focus{outline:2px dotted;outline-color:inherit}
 a,a svg{-webkit-transition:all .1s ease-in-out;transition:all .1s ease-in-out}
 body{color:#29292c;font-family:"Post Grotesk",serif,"Helvetica Neue",sans-serif;font-size:1em;font-weight:300;line-height:1.55}
 a{color:#da1b27;text-decoration:underline}

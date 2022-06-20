@@ -1,3 +1,7 @@
+.has-focus-style--black{outline-color:#000}
+.has-focus-style--white{outline-color:#fff}
+.has-focus-style--red{outline-color:#da1b27}
+.has-focus-style *:focus{outline:2px dotted;outline-color:inherit}
 .post-type-archive-location .site-inner{background-color:#f5f2f2;padding-top:0}
 .post-type-archive-location .site-main .block-area,.post-type-archive-location .site-main .no-results{grid-column:1 / -1;margin-bottom:48px}
 .post-type-archive-location .site-main .archive-wrapper{grid-row-gap:1.5em}
