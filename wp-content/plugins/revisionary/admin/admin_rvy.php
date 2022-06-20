@@ -42,7 +42,7 @@ class RevisionaryAdmin
 
 		// ===== Special early exit if this is a plugin install script
 		if ( strpos($script_name, 'p-admin/plugins.php') || strpos($script_name, 'p-admin/plugin-install.php') || strpos($script_name, 'p-admin/plugin-editor.php') ) {
-			if (strpos($script_name, 'p-admin/plugin-install.php') && !empty(esc_url_raw($_SERVER['HTTP_REFERER'])) && strpos(esc_url_raw($_SERVER['HTTP_REFERER']), '=rvy')) {
+			if (strpos($script_name, 'p-admin/plugin-install.php') && !empty($_SERVER['HTTP_REFERER']) && strpos(esc_url_raw($_SERVER['HTTP_REFERER']), '=rvy')) {
 				add_action('admin_print_scripts', function(){
 					echo '<style type="text/css">#plugin_update_from_iframe {display:none;}</style>';
 				});
@@ -68,7 +68,7 @@ class RevisionaryAdmin
 					require_once( dirname(__FILE__).'/edit-revision-ui_rvy.php' );
 					new RevisionaryEditRevisionUI();
 
-					if (\PublishPress\Revisions\Utils::isBlockEditorActive()) {
+					if (\PublishPress\Revisions\Utils::isBlockEditorActive($post->post_type)) {
 						require_once( dirname(__FILE__).'/edit-revision-block-ui_rvy.php' );
 						new RevisionaryEditRevisionBlockUI();
 					} else {
