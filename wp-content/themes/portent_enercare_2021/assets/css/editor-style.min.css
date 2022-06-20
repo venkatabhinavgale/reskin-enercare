@@ -339,7 +339,7 @@ ul.wp-block-gallery li,ol.wp-block-gallery li{padding-bottom:0}
 .block-location-finder__header{font-size:1.5em}
 .block-location-finder__text{max-width:324px}
 .block-location-finder__icon{margin:0 auto .65em}
-.block-location-finder__input{border-top-right-radius:0;border-bottom-right-radius:0}
+.block-location-finder__input{border-top-right-radius:0;border-bottom-right-radius:0;border-color:#7f7f7f}
 .block-location-finder__submit{border-top-left-radius:0;border-bottom-left-radius:0;color:#fff;border:1px solid #da1b27;line-height:18px}
 .block-location-finder__label{font-size:.875em}
 .block-location-finder__label-example{color:#646469;font-size:.875em}
