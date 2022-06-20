@@ -61,9 +61,9 @@ add_action( 'tha_content_while_before', 'enercare_archive_header' );
 function addSearch_embed() {
 	?>
 	<div class="addsearch-container">
-    <input type="text" class="addsearch" placeholder="Search.." />
+    <input type="text" autocomplete="on" class="addsearch" placeholder="Search.." />
     <button class="" onclick="addsearch.submit()">Search</button>
-  
+
     <!-- Search results will be rendered to this div -->
     <div id="addsearch-results"></div>
     <!-- Script must be below search field and addsearch-results div -->
