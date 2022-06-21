@@ -183,6 +183,22 @@
 }
 
 /**
+* Glider Styles
+ */
+.glider-dot:focus, .glider-dot:hover {
+	background-color: #6E6E6E;
+}
+
+.glider-dot:focus {
+	outline: 2px dotted #000;
+}
+
+.block-reviews__dots button,
+.block-carousel__dots button {
+	background-color: #8A8A8A;
+}
+
+/**
 Mobile State
 */
 .block-tabbed-content__panel {

@@ -1,3 +1,7 @@
+.has-focus-style--black{outline-color:#000 !important}
+.has-focus-style--white{outline-color:#fff !important}
+.has-focus-style--red{outline-color:#da1b27 !important}
+.has-focus-style *:focus{outline:2px dotted;outline-color:inherit}
 .block-location-finder{display:grid;grid-template-columns:auto;grid-template-rows:auto 1fr;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;background-color:#000}
 .block-location-finder__content{background-color:#000;color:#fff;-webkit-box-ordinal-group:2;-ms-flex-order:1;order:1;-ms-flex-preferred-size:50%;flex-basis:50%;padding:2em 1.5em;text-align:center}
 .block-location-finder__list-header{font-size:1.125em}
@@ -5,7 +9,7 @@
 .block-location-finder__header{font-size:1.5em}
 .block-location-finder__text{max-width:324px}
 .block-location-finder__icon{margin:0 auto .65em}
-.block-location-finder__input{border-top-right-radius:0;border-bottom-right-radius:0}
+.block-location-finder__input{border-top-right-radius:0;border-bottom-right-radius:0;border-color:#7f7f7f}
 .block-location-finder__submit{border-top-left-radius:0;border-bottom-left-radius:0;color:#fff;border:1px solid #da1b27;line-height:18px}
 .block-location-finder__label{font-size:.875em}
 .block-location-finder__label-example{color:#646469;font-size:.875em}

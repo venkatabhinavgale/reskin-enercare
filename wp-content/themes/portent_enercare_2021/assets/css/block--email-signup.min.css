@@ -1,3 +1,7 @@
+.has-focus-style--black{outline-color:#000 !important}
+.has-focus-style--white{outline-color:#fff !important}
+.has-focus-style--red{outline-color:#da1b27 !important}
+.has-focus-style *:focus{outline:2px dotted;outline-color:inherit}
 .block-newsletter-form__container{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;padding:32px 24px}
 .block-newsletter-form__image{display:none}
 .block-newsletter-form__heading{font-size:18px;text-align:center;font-weight:700;-ms-flex-item-align:baseline;align-self:baseline}

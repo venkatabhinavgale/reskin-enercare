@@ -190,6 +190,29 @@
 }
 
 /**
+Focus Styles
+ */
+.has-focus-style {
+
+	&--black {
+		outline-color: #000 !important;
+	}
+
+	&--white {
+		outline-color: #fff !important;
+	}
+
+	&--red {
+		outline-color: brand-color('red') !important;
+	}
+
+	*:focus {
+		outline:2px dotted;
+		outline-color: inherit;
+	}
+}
+
+/**
  * Columns
  *
  */

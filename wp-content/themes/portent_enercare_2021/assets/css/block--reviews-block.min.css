@@ -1,3 +1,7 @@
+.has-focus-style--black{outline-color:#000 !important}
+.has-focus-style--white{outline-color:#fff !important}
+.has-focus-style--red{outline-color:#da1b27 !important}
+.has-focus-style *:focus{outline:2px dotted;outline-color:inherit}
 .block-reviews__glider{scrollbar-width:none}
 .block-reviews__glider::-webkit-scrollbar{display:none}
 .block-reviews__stars{display:-webkit-box;display:-ms-flexbox;display:flex;margin:.563em 0 1em}
