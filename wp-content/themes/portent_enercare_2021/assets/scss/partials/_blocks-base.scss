@@ -249,25 +249,24 @@ Block Styles
 
 	li {
 		list-style: none;
-		display: flex;
-		align-items: flex-start;
+		position: relative;
 		margin: 0 0 1em 0;
 		line-height: 22px;
+		padding-left: 2em;
 		// Needed to override global padding-bottom for li elements in theme
 		padding-bottom: 0 !important;
 
 		&::before {
 			content: '';
-			display: inline-block;
 			background-image: url('../icons/utility/check_black_24dp_rounded.svg');
 			background-repeat: no-repeat;
 			background-position: center;
 			width: 24px;
 			height: 24px;
 			filter: invert(11%) sepia(99%) saturate(5418%) hue-rotate(352deg) brightness(98%) contrast(86%);
-			position: relative;
-			top: -1px;
-			margin: 0 0.5em 0 0;
+			position: absolute;
+			left: 0;
+			top: -2px;
 		}
 	}
 }
@@ -277,21 +276,21 @@ Block Styles
 
 	li {
 		list-style: none;
-		display: flex;
-		align-items: center;
+		position: relative;
 		margin: 0 0 1em 0;
+		padding-left: 2em;
 
 		&::before {
 			content: '';
-			display: inline-block;
 			background-image: url('../icons/utility/check_black_24dp_rounded.svg');
 			background-repeat: no-repeat;
 			background-position: center;
 			width: 24px;
 			height: 24px;
 			filter: invert(100%) sepia(1%) saturate(7402%) hue-rotate(171deg) brightness(122%) contrast(94%);
-			position: relative;
-			margin: 0 0.5em 0 0;
+			position: absolute;
+			left: 0;
+			top: -2px;
 		}
 	}
 }
