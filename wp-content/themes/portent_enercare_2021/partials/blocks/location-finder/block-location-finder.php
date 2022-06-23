@@ -47,9 +47,9 @@ $form_content = get_field('form_content');
 			<h3 class="block-location-finder__header has-black-color"><?= $form_header ?></h3>
 			<p class="block-location-finder__text has-black-color"><?= $form_content ?></p>
 			<form method="get" action="<?= get_bloginfo('url'); ?>/locations/" class="block-location-finder__postal-form">
-				<label for="location_finder__input">Postal Code</label>
+				<label for="location_finder__input">Postal Code <span class="required-text">(required)</span></label>
 				<div class="field-group">
-					<input class="block-location-finder__input" data-interface="location-finder-input" id="location_finder__input" type="text" name="postal_code" maxlength="7" />
+					<input class="block-location-finder__input" required data-interface="location-finder-input" id="location_finder__input" type="text" name="postal_code" maxlength="7" />
 					<input class="block-location-finder__submit has-red-background-color has-background" data-interface="location-finder-submit" type="submit" value="Submit" />
 				</div>
 				<label for="location_finder__label-example">eg: A1A1A1</label>

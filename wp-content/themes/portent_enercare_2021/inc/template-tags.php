@@ -37,9 +37,9 @@ function enercare_entry_categories() {
  * Post Summary Title
  *
  */
-function enercare_post_summary_title() {
+function enercare_post_summary_title($tag = 'h2') {
 	global $wp_query;
-	$tag = ( is_singular() || -1 === $wp_query->current_post ) ? 'h3' : 'h2';
+	$tag = ( is_singular() || -1 === $wp_query->current_post ) ? 'h3' : $tag;
   $the_title = get_the_title();
   if (get_field('display_title'))
     $the_title = get_field('display_title');

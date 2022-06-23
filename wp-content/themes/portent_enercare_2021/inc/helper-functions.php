@@ -240,7 +240,7 @@ function enercare_filter_taxonomy_by_post_type() {
   $output = "";
   //Jeremiah: Commenting this call out and separating it into a different call to more tightly control the output within an individual archive
 //  if ($post_type == 'campaign' || $post_type == 'location') {
-//    $output .= get_postal_code_filter();
+//    $output .=  get_postal_code_filter();
 //  }
 
   $taxonomies = get_object_taxonomies($post_type, 'object');
@@ -348,7 +348,7 @@ function enercare_filter_archive( $query ) {
               $campaign_ids[] = $campaign->ID;
             }
           }
-          
+
           // grab all campaigns that have an associated location
           $campaigns_with_locations = getCampaignsWithLocations();
           $cwl_ids[] = array();
@@ -357,12 +357,12 @@ function enercare_filter_archive( $query ) {
             if (isset($cwl->ID) && !in_array($cwl->ID, $campaign_ids))
               $cwl_ids[] = $cwl->ID;
           }
-          
-          // don't show all other location-specific campaigns. 
+
+          // don't show all other location-specific campaigns.
           if( !empty( $cwl_ids) ) {
             $query->set('post__not_in', $cwl_ids);
           }
-          
+
         // if we're on the location archive page, get locations by postal code
         } elseif (is_post_type_archive('location')) {
           $location = getLocationByPostalCode($postal_code);
@@ -503,9 +503,9 @@ function the_province_filter() {
  */
 function get_postal_code_filter() {
   $output = '<div class="postal-code-filter postal-code-input-container flex-grid-cell">';
-    $output .= '<label class="postal-code-filter__label" for="postalCode">Postal Code</label>';
+    $output .= '<label class="postal-code-filter__label" for="postalCode">Postal Code <span class="required-text">(required)</span></label>';
     $output .= '<div class="postal-code-filter__form">';
-        $output .= '<input class="postal-code-filter__input" type="text" id="postalCode" name="postalCode" value="" />';
+        $output .= '<input class="postal-code-filter__input" required autocomplete="postal-code" type="text" id="postalCode" name="postalCode" value="" />';
         $output .= '<button class="postal-code-filter__submit">Go</button>';
     $output .= '</div>';
     $output .= '<label for="postalCode" class="postal-code-filter__message">eg: A1A1A1</label>';
