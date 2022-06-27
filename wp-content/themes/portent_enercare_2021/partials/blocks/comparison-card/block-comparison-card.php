@@ -28,7 +28,7 @@ $hash_arr = array();
 
       <?php if (have_rows('comparison_table')) { ?>
       <span class="block-comparison-card__contents-toggle" data-id="<?= $hash; ?>" aria-controls="comparison_card_<?= $hash; ?>" data-toggle-open="<?= $toggle_open_text; ?>" data-toggle-close="<?= $toggle_close_text; ?>">
-        <img alt="included in plan" aria-label="included in plan" src="<?= get_template_directory_uri(); ?>/assets/icons/utility/navigate-down.svg" />
+        <img alt="" aria-label="included in plan" src="<?= get_template_directory_uri(); ?>/assets/icons/utility/navigate-down.svg" />
         <?= $toggle_open_text; ?>
       </span>
       <div class="block-comparison-card__contents-table comparison_card_<?= $hash; ?>" aria-expanded="false" data-state="closed" aria-labelledby="comparison_card_<?= $hash; ?>">
@@ -98,7 +98,7 @@ $hash_arr = array();
 
             <?php if (have_rows('comparison_table')) { ?>
             <span class="block-comparison-card__contents-toggle" data-id="<?= $hash; ?>" aria-controls="comparison_card_<?= $hash; ?>" data-toggle-open="<?= $toggle_open_text; ?>" data-toggle-close="<?= $toggle_close_text; ?>">
-              <img src="<?= get_template_directory_uri(); ?>/assets/icons/utility/navigate-down.svg" />
+              <img alt="" src="<?= get_template_directory_uri(); ?>/assets/icons/utility/navigate-down.svg" />
               <?= $toggle_open_text; ?>
             </span>
             <div class="block-comparison-card__contents-table comparison_card_<?= $hash; ?>" aria-expanded="false" data-state="closed" aria-labelledby="comparison_card_<?= $hash; ?>">
@@ -115,7 +115,7 @@ $hash_arr = array();
                   <?php
                     $comparison_value = get_sub_field('comparison_value');
                     if ($comparison_value == 'Checkmark')
-                      $comparison_value = '<img src="' . get_template_directory_uri() . '/assets/icons/action/done_black_24dp_rounded.svg" />';
+                      $comparison_value = '<img alt="" src="' . get_template_directory_uri() . '/assets/icons/action/done_black_24dp_rounded.svg" />';
                     echo $comparison_value;
                   ?>
                   </td>

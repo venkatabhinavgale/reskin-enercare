@@ -15,7 +15,7 @@ echo '<article class="post-summary block-card block-card--archive">';
 	echo '<div class="post-summary__content block-card--content">';
 		//enercare_entry_category();
     enercare_post_date();
-		enercare_post_summary_title();
+		enercare_post_summary_title('h3');
     enercare_post_summary();
 	echo '</div>';
 
