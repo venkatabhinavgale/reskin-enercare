@@ -69,7 +69,8 @@ class GmbClient {
     $this->google_api_project_name = 'enercare';
     $this->google_api_scope = 'https://www.googleapis.com/auth/business.manage';
     $this->google_api_user = 'enercaredigital@gmail.com';
-    $this->google_api_account = 'accounts/103584978847197657494';
+    //$this->google_api_account = 'accounts/103584978847197657494'; // old account number pre MyBusinessBusinessInfo API
+    $this->google_api_account = 'accounts/106513238376387655903';
     //$this->google_api_refresh_token = '1//04sQVR_Ny5GqrCgYIARAAGAQSNwF-L9IrwDDO4UbJoFBGXSF_3Y0j1TgmFfZo5f0EDfVDNdKhWves6SuTAQ3JoQQiiuMIv9Jqybg';
 
     $this->authenticate();
@@ -149,9 +150,23 @@ class GmbClient {
    * @return mixed
    */
   public function getLocations() {
+    $mybusinessService = new Google_Service_MyBusinessBusinessInformation($this->google_client);
+    $locations = $mybusinessService->accounts_locations;
+    $queryParams = [
+      "pageSize" => 100,
+      'readMask' => "name,storeCode,storefrontAddress,profile,metadata"
+    ];
+
+    $locationsList = $locations->listAccountsLocations($this->google_api_account, $queryParams);
+    $locations = $locationsList->getLocations();
+    
+    return $locations;
+    
+    /* old deprecated code from GMB API v4
     $locations = $this->gmb_service->accounts_locations;
     $res = $locations->listAccountsLocations($this->google_api_account);
     return $res->getLocations();
+    */
   }
 
   /**
