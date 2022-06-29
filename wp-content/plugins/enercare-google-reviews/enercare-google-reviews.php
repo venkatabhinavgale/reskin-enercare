@@ -407,8 +407,13 @@ class ECReviews {
     $posts = get_posts(array(
       'numberposts'   => 1,
       'post_type'     => 'gmb_location',
-      'meta_key'      => 'gmb_location_id',
-      'meta_value'    => $location_id
+      'meta_query' => array(
+        array(
+         'key'     => 'gmb_location_id',
+         'value'   => $location_id,
+         'compare' => 'LIKE'
+        )
+      )
     ));
     if (sizeof($posts) > 0)
       return true;
@@ -554,6 +559,7 @@ class ECReviews {
     $gmbService = new Google_Service_MyBusiness($client);
     $this->gmbClient = new GmbClient($gmbService, $client);
   }
+
 }
 $ecReviews = new ECReviews();
 

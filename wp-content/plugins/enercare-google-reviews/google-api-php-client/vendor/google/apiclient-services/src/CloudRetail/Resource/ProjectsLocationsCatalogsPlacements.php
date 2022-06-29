@@ -19,6 +19,8 @@ namespace Google\Service\CloudRetail\Resource;
 
 use Google\Service\CloudRetail\GoogleCloudRetailV2PredictRequest;
 use Google\Service\CloudRetail\GoogleCloudRetailV2PredictResponse;
+use Google\Service\CloudRetail\GoogleCloudRetailV2SearchRequest;
+use Google\Service\CloudRetail\GoogleCloudRetailV2SearchResponse;
 
 /**
  * The "placements" collection of methods.
@@ -34,7 +36,7 @@ class ProjectsLocationsCatalogsPlacements extends \Google\Service\Resource
    * Makes a recommendation prediction. (placements.predict)
    *
    * @param string $placement Required. Full resource name of the format:
-   * {name=projects/locations/global/catalogs/default_catalog/placements} The ID
+   * `{name=projects/locations/global/catalogs/default_catalog/placements}` The ID
    * of the Recommendations AI placement. Before you can request predictions from
    * your model, you must create at least one placement for it. For more
    * information, see [Managing placements](https://cloud.google.com/retail
@@ -50,6 +52,26 @@ class ProjectsLocationsCatalogsPlacements extends \Google\Service\Resource
     $params = ['placement' => $placement, 'postBody' => $postBody];
     $params = array_merge($params, $optParams);
     return $this->call('predict', [$params], GoogleCloudRetailV2PredictResponse::class);
+  }
+  /**
+   * Performs a search. This feature is only available for users who have Retail
+   * Search enabled. Please enable Retail Search on Cloud Console before using
+   * this feature. (placements.search)
+   *
+   * @param string $placement Required. The resource name of the search engine
+   * placement, such as `projects/locations/global/catalogs/default_catalog/placem
+   * ents/default_search`. This field is used to identify the serving
+   * configuration name and the set of models that will be used to make the
+   * search.
+   * @param GoogleCloudRetailV2SearchRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return GoogleCloudRetailV2SearchResponse
+   */
+  public function search($placement, GoogleCloudRetailV2SearchRequest $postBody, $optParams = [])
+  {
+    $params = ['placement' => $placement, 'postBody' => $postBody];
+    $params = array_merge($params, $optParams);
+    return $this->call('search', [$params], GoogleCloudRetailV2SearchResponse::class);
   }
 }
 
