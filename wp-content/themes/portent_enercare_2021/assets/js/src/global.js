@@ -24,6 +24,7 @@ jQuery(function($){
     searchParameter: 'addsearch',
     updateBrowserHistory: false
   }
+
   // Search UI instance
   var searchui = new AddSearchUI(client, conf);
   // Add components
