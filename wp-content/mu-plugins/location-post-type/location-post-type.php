@@ -93,17 +93,33 @@ function getLocationByPostalCode($postalcode) {
  */
 function getLocationInfo($post_id, $cta_type = 'location') {
   $content = '';
+
+	/**
+	 * Get Location Short Code
+	 */
+	$location_shortname = get_field('display_title', $post_id);
+	if (!$location_shortname || empty($location_shortname))
+		$location_shortname = get_the_title();
+	$location_shortname = explode(",", $location_shortname);
+	$location_shortname = trim($location_shortname[0]);
+
+	/**
+	 * Get Address
+	 */
   if (get_field('address', $post_id)) {
     $address_url = trim(get_field('address', $post_id));
     $address_url = str_replace("<br />", "+", $address_url);
     $address_url = str_replace("\n", "+", $address_url);
     $address_url = str_replace(" ", "+", $address_url);
     $address_url = "https://www.google.com/maps/place/" . $address_url;
-    $content .= '<div class="location-group"><img src="' . get_template_directory_uri() . '/assets/icons/maps/place_black_24dp_rounded.svg" class="location-group__icon" /><div class="location-group__content"><strong>Address</strong><br /><a href="' . $address_url . '"  target="_blank">' . get_field('address', $post_id) . '</a></div></div>';
+    $content .= '<div class="location-group"><img alt="" src="' . get_template_directory_uri() . '/assets/icons/maps/place_black_24dp_rounded.svg" class="location-group__icon" /><div class="location-group__content"><strong>Address</strong><br /><a aria-label="view '.$location_shortname.' in Google Maps" href="' . $address_url . '"  target="_blank">' . get_field('address', $post_id) . '</a></div></div>';
   }
-  
+
+	/**
+	 * Get Phone Numbers
+	 */
   if (have_rows('phone_numbers', $post_id)) {
-    $content .= '<div class="location-group"><img src="' . get_template_directory_uri() . '/assets/icons/communication/phone_black_24dp_rounded.svg" class="location-group__icon" /><div class="location-group__content"><strong>Phone number</strong><br />';
+    $content .= '<div class="location-group"><img alt="" src="' . get_template_directory_uri() . '/assets/icons/communication/phone_black_24dp_rounded.svg" class="location-group__icon" /><div class="location-group__content"><strong>Phone number</strong><br />';
     $rowCount = count(get_field('phone_numbers', $post_id));
     while ( have_rows('phone_numbers', $post_id) ) { the_row();
       $content .= '<strong>' . get_sub_field('phone_label') . ':</strong> ';
@@ -111,7 +127,7 @@ function getLocationInfo($post_id, $cta_type = 'location') {
       $phone_url = str_replace('-','',$phone_url);
       $phone_url = str_replace('(','',$phone_url);
       $phone_url = str_replace(')','',$phone_url);
-      $content .= '<a href="tel:' . $phone_url  . '">' . get_sub_field('phone_number') . '</a>';
+      $content .= '<a href="tel:' . $phone_url  . '" aria-label="Activate to call the '. get_sub_field('phone_label') .' number for ' . $location_shortname . '">' . get_sub_field('phone_number') . '</a>';
       if (get_row_index() < $rowCount)
         $content .= '<br />';
     }
@@ -119,7 +135,7 @@ function getLocationInfo($post_id, $cta_type = 'location') {
   }
   
   if (have_rows('hours', $post_id)) {
-    $content .= '<div class="location-group"><img src="' . get_template_directory_uri() . '/assets/icons/action/schedule_black_24dp_rounded.svg" class="location-group__icon" /><div class="location-group__content"><strong>Hours</strong><br />';
+    $content .= '<div class="location-group"><img alt="" src="' . get_template_directory_uri() . '/assets/icons/action/schedule_black_24dp_rounded.svg" class="location-group__icon" /><div class="location-group__content"><strong>Hours</strong><br />';
     $rowCount = count(get_field('hours', $post_id));
     while ( have_rows('hours', $post_id) ) { the_row();
       $content .= '<strong>' . get_sub_field('hours_label') . ':</strong> ';
@@ -131,9 +147,9 @@ function getLocationInfo($post_id, $cta_type = 'location') {
   }
   
   if (get_field('service_area', $post_id))
-    $content .= '<div class="location-group"><img src="' . get_template_directory_uri() . '/assets/icons/maps/my_location_black_24dp_rounded.svg" class="location-group__icon" /><div class="location-group__content"><strong>Service Area</strong><br />' . get_field('service_area', $post_id) . '</div></div>';
+    $content .= '<div class="location-group"><img alt="" src="' . get_template_directory_uri() . '/assets/icons/maps/my_location_black_24dp_rounded.svg" class="location-group__icon" /><div class="location-group__content"><strong>Service Area</strong><br />' . get_field('service_area', $post_id) . '</div></div>';
   
-  $content .= '<div class="location-group"><img src="' . get_template_directory_uri() . '/assets/icons/maps/local_offer_black_24dp_rounded.svg" class="location-group__icon" /><div class="location-group__content"><strong>Services</strong><br />';
+  $content .= '<div class="location-group"><img alt="" src="' . get_template_directory_uri() . '/assets/icons/maps/local_offer_black_24dp_rounded.svg" class="location-group__icon" /><div class="location-group__content"><strong>Services</strong><br />';
   if (get_field('override_service_links', $post_id) && have_rows('services', $post_id)) {
     $services = get_field('services', $post_id);
     foreach ($services as $i => $s) {
@@ -153,13 +169,6 @@ function getLocationInfo($post_id, $cta_type = 'location') {
     }
   }
   $content .= '</div></div>';
-  
-  $location_shortname = get_field('display_title', $post_id);
-  if (!$location_shortname || empty($location_shortname))
-    $location_shortname = get_the_title();
-  $location_shortname = explode(",", $location_shortname);
-  $location_shortname = trim($location_shortname[0]);
-  
   
   $content .= '<div class="location-ctas">';
   if ($cta_type == "location")
