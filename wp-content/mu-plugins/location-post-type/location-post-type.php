@@ -73,6 +73,7 @@ function getLocationByPostalCode($postalcode) {
     'numberposts'   => 1,
     'post_type'     => 'location',
     'post_status'   => 'publish',
+    'post_parent'   => 0,
     'meta_query'    => array(
       array(
         'key' => 'postal_codes',
