@@ -494,8 +494,9 @@ ul.block-location-finder__list{padding-left:0}
 .block-comparison-card__contents-heading{margin-bottom:0;font-weight:900}
 .block-comparison-card__contents-subheading{margin-bottom:1em}
 .block-comparison-card__contents-description{margin-bottom:1.5em}
-.block-comparison-card__contents-toggle{color:#da1b27;font-weight:700;line-height:22px;-webkit-filter:invert(16%) sepia(93%) saturate(5648%) hue-rotate(350deg) brightness(91%) contrast(89%);filter:invert(16%) sepia(93%) saturate(5648%) hue-rotate(350deg) brightness(91%) contrast(89%);cursor:pointer}
-.block-comparison-card__contents-toggle img{max-width:.75em;margin-right:.875em;display:inline}
+.block-comparison-card__contents-toggle{display:-webkit-box;display:-ms-flexbox;display:flex;width:auto;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-ms-flex-wrap:nowrap;flex-wrap:nowrap;margin:0 auto;min-width:200px;background-color:transparent;border:0;color:#da1b27;font-weight:700;line-height:22px;cursor:pointer}
+.block-comparison-card__contents-toggle:focus{outline:2px dotted #000}
+.block-comparison-card__contents-toggle img{max-width:.75em;margin-right:.875em;display:inline;-webkit-filter:invert(16%) sepia(93%) saturate(5648%) hue-rotate(350deg) brightness(91%) contrast(89%);filter:invert(16%) sepia(93%) saturate(5648%) hue-rotate(350deg) brightness(91%) contrast(89%)}
 .block-comparison-card__contents-table{margin-top:1.5em}
 .block-comparison-card__contents-table table,.block-comparison-card__contents-table tr,.block-comparison-card__contents-table td{border:1px solid #e6e4e4;border-spacing:0}
 .block-comparison-card__contents-table table{width:100%}

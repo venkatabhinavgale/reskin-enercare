@@ -93,7 +93,7 @@ function enercare_archive_header() {
 add_action( 'tha_content_while_before', 'enercare_archive_header' );
 
 // Breadcrumbs
-add_action( 'enercare_archive_header_before', 'enercare_breadcrumbs', 5 );
+//add_action( 'enercare_archive_header_before', 'enercare_breadcrumbs', 5 );
 
 //Filters
 add_action( 'enercare_archive_header_after', 'campaign_filters' );
