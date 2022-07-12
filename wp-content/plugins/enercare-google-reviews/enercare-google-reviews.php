@@ -316,7 +316,7 @@ class ECReviews {
 
     }
   }
-  
+
   public function postsWhereContentNotEmpty($where = '') {
     $where .= " AND trim(coalesce(post_content, '')) <>''";
     return $where;
@@ -553,7 +553,7 @@ class ECReviews {
       $this->syncGmbReviews();
     }
   }
-  
+
   public function initializeGMBClient() {
     $client = new Google_Client();
     $gmbService = new Google_Service_MyBusiness($client);
@@ -595,7 +595,7 @@ function ecreviews_location_block_render_callback( $attributes, $content ) {
     $location_reviews_url = get_post_meta($post->ID, 'google_reviews_url', true);
     $location_see_reviews_url = get_post_meta($post->ID, 'google_see_reviews_url', true);
   }
-  
+
   // check to see if the transient cache exists and user is not logged in. if so, grab it and return
   if (function_exists('get_transient') && !is_user_logged_in()) {
     $output = get_transient('ec_reviews_' . $location_id);
@@ -605,7 +605,7 @@ function ecreviews_location_block_render_callback( $attributes, $content ) {
       return $output;
     }
   }
-  
+
   $reviews = ECReviews::getReviewsByLocation($location_id, 12);
   if ( count( $reviews ) === 0 ) {
     $output = 'No reviews were found.';
@@ -617,14 +617,14 @@ function ecreviews_location_block_render_callback( $attributes, $content ) {
 
   if ($location_name && $location_name != "") {
     if (!is_admin()) {
-      $output .= '<!-- enercare reviews for ' . $location_name . ' -->' . "\n";  
+      $output .= '<!-- enercare reviews for ' . $location_name . ' -->' . "\n";
     }
     //$output .= '<h2>Reviews for ' . $location_name . '</h2>' . "\n";
   }
   $output .= '<section class="block-reviews alignwide">';
   //@todo need to find a way to pull this out of this template and make the image and text editable
   $output .= '<div class="block-reviews__section-heading">';
-      $output .= '<img width="160px" height="160px" class="block-reviews__stamp" alt="" role="presentation" src="' . plugin_dir_url(__FILE__) . 'img/canadian-owned-operated.svg">';
+      $output .= '<img width="160px" height="160px" class="block-reviews__stamp" alt="Canadian owned and operated logo" src="' . plugin_dir_url(__FILE__) . 'img/canadian-owned-operated.svg">';
       $output .= '<div class="block-reviews__section-heading__title">';
           $output .= '<h2 class="block-reviews__section-heading__header">Customer Reviews</h2>' . "\n";
 
@@ -666,14 +666,14 @@ function ecreviews_location_block_render_callback( $attributes, $content ) {
       $post_content = $review->post_content;
       if (strlen($post_content) > 300)
         $post_content = substr($post_content, 0, 300) . "...";
-      
+
       $output .= '<p class="block-reviews__review__content">' . $post_content . '</p>';
       $output .= '<span class="block-reviews__review__reviewer">' . get_post_meta( $review->ID, 'gmb_review_reviewer', true ) . '</span>';
-      
+
       $today = date_create();
       $review_date = date_create($review->post_date);
       $interval = date_diff($today, $review_date);
-      
+
       if ($interval->format('%d') > 182) {
         $review_date = "More than 6 months ago";
       } elseif ($interval->format('%d') > 31) {
@@ -683,14 +683,14 @@ function ecreviews_location_block_render_callback( $attributes, $content ) {
       } else {
         $review_date = "In the last week";
       }
-      
+
       $output .= '<span class="block-reviews__review__date">' . $review_date . '</span>';
       $output .= '</div>';
     }
   }
   $output .= '</div>';
   $output .= '</div>';
-  
+
   $output .= '<div class="block-reviews__section-footer">';
   if ($location_reviews_url && $location_reviews_url != "") {
     $output .= '<div class="block-reviews__section-footer__add-review"><a href="' . $location_reviews_url . '" class="wp-block-button__link has-red-background-color has-background" target="_blank">Add a Review</a></div>';
@@ -699,14 +699,14 @@ function ecreviews_location_block_render_callback( $attributes, $content ) {
     $output .= '<div class="block-reviews__section-footer__see-reviews"><a href="' . $location_see_reviews_url . '" class="" target="_blank">See All Google Reviews</a></div>';
   }
   $output .= '</div><!-- end block-reviews__section-footer -->';
-  
+
   $output .= '</section>';
-  
+
   if (!is_admin() && !is_user_logged_in() && function_exists('set_transient')) {
     // if the output was processed, set transient cache for 1 day.
     set_transient('ec_reviews_' . $location_id, $output, DAY_IN_SECONDS);
   }
-  
+
   return $output;
 }
 
