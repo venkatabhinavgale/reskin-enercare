@@ -719,7 +719,57 @@ function enercare_block_patterns() {
 ",
 		)
 	);
-  
+
+	register_block_pattern('portent_enercare/mega-button-2-by-2-grid-block',
+		array(
+			'title' => __( '2x2 Mega Button Block', '2-by-2-mega-button-block' ),
+			'description' => _x( '2x2 Mega Button using the Switchboard', 'Block pattern description', '2-by-2-mega-button-block' ),
+			'categories' => array('enercare', 'locations'),
+			'content' => "
+			<!-- wp:group {\"align\":\"full\",\"backgroundColor\":\"grey-20\"} -->
+			<div class=\"wp-block-group alignfull has-grey-20-background-color has-background\">
+
+			<!-- wp:acf/enercare-switchboard {\"id\":\"block_62bdffcf59e45\",\"name\":\"acf/enercare-switchboard\",\"data\":{\"desktop_columns\":\"2\",\"_desktop_columns\":\"field_61805b36bd417\",\"mobile_columns\":\"1\",\"_mobile_columns\":\"field_61805b7d3685b\"},\"align\":\"\",\"mode\":\"preview\"} -->
+
+			<!-- wp:acf/mega-button {\"id\":\"block_62be001f59e46\",\"name\":\"acf/mega-button\",\"data\":{\"field_612e949ed0c97\":\"\",\"field_612e948ad0c96\":{\"title\":\"Test Title\",\"url\":\"/\",\"target\":\"\"},\"field_616f2bd334d20\":\"auto\",\"field_616f2c6c34d21\":\"top\"},\"align\":\"\",\"mode\":\"preview\"} /-->
+
+			<!-- wp:acf/mega-button {\"id\":\"block_62be006a59e47\",\"name\":\"acf/mega-button\",\"data\":{\"field_612e949ed0c97\":\"\",\"field_612e948ad0c96\":{\"title\":\"Test Title\",\"url\":\"/\",\"target\":\"\"},\"field_616f2bd334d20\":\"auto\",\"field_616f2c6c34d21\":\"top\"},\"align\":\"\",\"mode\":\"preview\"} /-->
+
+			<!-- wp:acf/mega-button {\"id\":\"block_62be011159e48\",\"name\":\"acf/mega-button\",\"data\":{\"field_612e949ed0c97\":\"\",\"field_612e948ad0c96\":{\"title\":\"Test Title\",\"url\":\"/\",\"target\":\"\"},\"field_616f2bd334d20\":\"auto\",\"field_616f2c6c34d21\":\"top\"},\"align\":\"\",\"mode\":\"preview\"} /-->
+
+			<!-- wp:acf/mega-button {\"id\":\"block_62be013d59e49\",\"name\":\"acf/mega-button\",\"data\":{\"field_612e949ed0c97\":\"\",\"field_612e948ad0c96\":{\"title\":\"Test Title\",\"url\":\"/\",\"target\":\"\"},\"field_616f2bd334d20\":\"auto\",\"field_616f2c6c34d21\":\"top\"},\"align\":\"\",\"mode\":\"preview\"} /-->
+			<!-- /wp:acf/enercare-switchboard --></div>
+			<!-- /wp:group -->
+			",
+		)
+	);
+
+	register_block_pattern('portent_enercare/mega-button-3-by-2-grid-block',
+		array(
+			'title' => __( '3x2 Mega Button Block', '3-by-2-mega-button-block' ),
+			'description' => _x( '3x2 Mega Button using the Switchboard', 'Block pattern description', '3-by-2-mega-button-block' ),
+			'categories' => array('enercare', 'locations'),
+			'content' => "
+			<!-- wp:group {\"align\":\"full\",\"backgroundColor\":\"grey-20\"} -->
+			<div class=\"wp-block-group alignfull has-grey-20-background-color has-background\">
+			<!-- wp:acf/enercare-switchboard {\"id\":\"block_62be0b273045b\",\"name\":\"acf/enercare-switchboard\",\"data\":{\"desktop_columns\":\"3\",\"_desktop_columns\":\"field_61805b36bd417\",\"mobile_columns\":\"1\",\"_mobile_columns\":\"field_61805b7d3685b\"},\"align\":\"center\",\"mode\":\"preview\"} -->
+			
+			<!-- wp:acf/mega-button {\"id\":\"block_62be0b2e3045c\",\"name\":\"acf/mega-button\",\"data\":{\"image\":\"\",\"_image\":\"field_612e949ed0c97\",\"link\":{\"title\":\"Test Title\",\"url\":\"/\",\"target\":\"\"},\"_link\":\"field_612e948ad0c96\",\"sizing\":\"auto\",\"_sizing\":\"field_616f2bd334d20\",\"icon_placement\":\"top\",\"_icon_placement\":\"field_616f2c6c34d21\"},\"align\":\"\",\"mode\":\"preview\"} /-->
+
+			<!-- wp:acf/mega-button {\"id\":\"block_62be0b3e3045d\",\"name\":\"acf/mega-button\",\"data\":{\"image\":\"\",\"_image\":\"field_612e949ed0c97\",\"link\":{\"title\":\"Test Title\",\"url\":\"/\",\"target\":\"\"},\"_link\":\"field_612e948ad0c96\",\"sizing\":\"auto\",\"_sizing\":\"field_616f2bd334d20\",\"icon_placement\":\"top\",\"_icon_placement\":\"field_616f2c6c34d21\"},\"align\":\"\",\"mode\":\"preview\"} /-->
+
+			<!-- wp:acf/mega-button {\"id\":\"block_62be0b4e3045e\",\"name\":\"acf/mega-button\",\"data\":{\"field_612e949ed0c97\":\"\",\"field_612e948ad0c96\":{\"title\":\"Test Title\",\"url\":\"/\",\"target\":\"\"},\"field_616f2bd334d20\":\"auto\",\"field_616f2c6c34d21\":\"top\"},\"align\":\"\",\"mode\":\"preview\"} /-->
+
+			<!-- wp:acf/mega-button {\"id\":\"block_62be0ba13045f\",\"name\":\"acf/mega-button\",\"data\":{\"field_612e949ed0c97\":\"\",\"field_612e948ad0c96\":{\"title\":\"Test Title\",\"url\":\"/\",\"target\":\"\"},\"field_616f2bd334d20\":\"auto\",\"field_616f2c6c34d21\":\"top\"},\"align\":\"\",\"mode\":\"preview\"} /-->
+
+			<!-- wp:acf/mega-button {\"id\":\"block_62be0bb230460\",\"name\":\"acf/mega-button\",\"data\":{\"image\":\"\",\"_image\":\"field_612e949ed0c97\",\"link\":{\"title\":\"Test Title\",\"url\":\"/\",\"target\":\"\"},\"_link\":\"field_612e948ad0c96\",\"sizing\":\"auto\",\"_sizing\":\"field_616f2bd334d20\",\"icon_placement\":\"top\",\"_icon_placement\":\"field_616f2c6c34d21\"},\"align\":\"\",\"mode\":\"preview\"} /-->
+
+			<!-- wp:acf/mega-button {\"id\":\"block_62be0bc630461\",\"name\":\"acf/mega-button\",\"data\":{\"image\":\"\",\"_image\":\"field_612e949ed0c97\",\"link\":{\"title\":\"Test Title\",\"url\":\"/\",\"target\":\"\"},\"_link\":\"field_612e948ad0c96\",\"sizing\":\"auto\",\"_sizing\":\"field_616f2bd334d20\",\"icon_placement\":\"top\",\"_icon_placement\":\"field_616f2c6c34d21\"},\"align\":\"\",\"mode\":\"preview\"} /-->
+			<!-- /wp:acf/enercare-switchboard --></div>
+			<!-- /wp:group -->
+			",
+		)
+	);  
 }
 
 add_action('acf/init', 'enercare_block_patterns' );
