@@ -112,11 +112,11 @@ $blog_posts = new WP_Query( $blog_post_args );
 						echo '</div>';
 					echo '</div>';*/
           if (!$hide_post_date) {
-            echo '<p class="publish-date single-post__date">' . get_the_date('F j, Y') . '</p>';  
+            echo '<p class="publish-date single-post__date">' . get_the_date('F j, Y') . '</p>';
           }
 				}
 
-				echo '<h2 class="block-blog-posts__post__title"><a class="block-blog-posts__post__link" href="' . get_the_permalink() . '">' . get_the_title() . '</a></h2>';
+				echo '<h3 class="block-blog-posts__post__title"><a class="block-blog-posts__post__link" href="' . get_the_permalink() . '">' . get_the_title() . '</a></h3>';
 
 				if ( $post_display === 'full' ) {
 					echo '<p class="block-blog-posts__post__except">' . wp_trim_words( $excerpt, 25 ) . '</p>';
