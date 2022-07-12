@@ -100,7 +100,7 @@ function enercare_site_header() {
   $main_nav_toggle = get_field('main_navigation_toggle');
   if (!$main_nav_toggle) {
     echo '<nav role="navigation" id="slider-menu" class="nav-menu">';
-    echo'<div class="search-field__wrapper mobile-search-field__wrapper"><div id="mobile-searchfield" class="search-field"></div><section class="search-field__results" id="scrollable" style="max-height: 300px; max-width: 700px; overflow: auto;"><div id="autocomplete"></div></section></div>';
+    echo'<div class="search-field__wrapper mobile-search-field__wrapper"><div id="mobile-searchfield" class="search-field"></div></div>';
     if( has_nav_menu( 'primary' ) ) {
       // check if page has Commercial site override. Display the commercial primary nav if so
       if (get_field('site_override') && get_field('site_override') == 'Commercial') {
