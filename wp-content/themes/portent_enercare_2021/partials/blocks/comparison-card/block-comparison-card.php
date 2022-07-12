@@ -103,14 +103,14 @@ $hash_arr = array();
           <div class="block-comparison-card__contents">
             <h3 class="block-comparison-card__contents-heading"><?= get_sub_field('heading'); ?></h3>
             <div class="block-comparison-card__contents-subheading"><?= get_sub_field('subheading'); ?></div>
-            <div class="block-comparison-card__contents-description"><?= get_sub_field('description'); ?></div>
+            <p class="block-comparison-card__contents-description"><?= get_sub_field('description'); ?></p>
 
             <?php if (have_rows('comparison_table')) { ?>
-            <span class="block-comparison-card__contents-toggle" data-id="<?= $hash; ?>" aria-controls="comparison_card_<?= $hash; ?>" data-toggle-open="<?= $toggle_open_text; ?>" data-toggle-close="<?= $toggle_close_text; ?>">
+            <button class="block-comparison-card__contents-toggle" aria-expanded="false" data-id="<?= $hash; ?>" aria-controls="comparison_card_<?= $hash; ?>" data-toggle-open="<?= $toggle_open_text; ?>" data-toggle-close="<?= $toggle_close_text; ?>">
               <img alt="" src="<?= get_template_directory_uri(); ?>/assets/icons/utility/navigate-down.svg" />
               <?= $toggle_open_text; ?>
-            </span>
-            <div class="block-comparison-card__contents-table comparison_card_<?= $hash; ?>" aria-expanded="false" data-state="closed" aria-labelledby="comparison_card_<?= $hash; ?>">
+            </button>
+            <div class="block-comparison-card__contents-table comparison_card_<?= $hash; ?>" data-state="closed" aria-labelledby="comparison_card_<?= $hash; ?>">
               <table>
               <?php while ( have_rows('comparison_table') ) { the_row(); ?>
                 <tr>

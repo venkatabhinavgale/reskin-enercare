@@ -10,14 +10,14 @@ window.addEventListener('load', function () {
       var toggleOpenText = cc.getAttribute("data-toggle-open");
       var toggleCloseText = cc.getAttribute("data-toggle-close");
 
-      if (cardContent.getAttribute("aria-expanded") == "true") {
-        cardContent.setAttribute("aria-expanded", "false");
+      if (cc.getAttribute("aria-expanded") == "true") {
+        cc.setAttribute("aria-expanded", "false");
         cardContent.setAttribute("data-state", "closed");
         cardContentParent.setAttribute("data-child", "closed");
         cc.innerHTML = cc.innerHTML.replace("navigate-right", "navigate-down");
         cc.innerHTML = cc.innerHTML.replace(toggleCloseText, toggleOpenText);
       } else {
-        cardContent.setAttribute("aria-expanded", "true");
+        cc.setAttribute("aria-expanded", "true");
         cardContent.setAttribute("data-state", "open");
         cardContentParent.setAttribute("data-child", "open");
         cc.innerHTML = cc.innerHTML.replace("navigate-down", "navigate-right");
