@@ -51,7 +51,7 @@ h4,h5,h6{font-size:18px}
 .is-style-white-checkmarked{padding-left:0 !important}
 .is-style-white-checkmarked li{list-style:none;position:relative;margin:0 0 1em 0;padding-left:2em}
 .is-style-white-checkmarked li::before{content:'';background-image:url("../icons/utility/check_black_24dp_rounded.svg");background-repeat:no-repeat;background-position:center;width:24px;height:24px;-webkit-filter:invert(100%) sepia(1%) saturate(7402%) hue-rotate(171deg) brightness(122%) contrast(94%);filter:invert(100%) sepia(1%) saturate(7402%) hue-rotate(171deg) brightness(122%) contrast(94%);position:absolute;left:0;top:-2px}
-.breadcrumb,.yoast-breadcrumbs{text-align:left}
+.breadcrumb,.yoast-breadcrumbs{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:left;-ms-flex-pack:left;justify-content:left;list-style:none;text-align:left;padding-left:0}
 .breadcrumb a:hover,.breadcrumb a:focus,.yoast-breadcrumbs a:hover,.yoast-breadcrumbs a:focus{color:#da1b27}
 .breadcrumb .breadcrumb_last,.breadcrumb a,.yoast-breadcrumbs .breadcrumb_last,.yoast-breadcrumbs a{color:#000;font-size:12px;text-decoration:none}
 .breadcrumb .breadcrumb_last:after,.breadcrumb a:after,.yoast-breadcrumbs .breadcrumb_last:after,.yoast-breadcrumbs a:after{padding:8px 0 8px 8px;color:#000;content:"/\00a0"}

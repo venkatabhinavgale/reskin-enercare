@@ -113,7 +113,15 @@
             "type": "relationship",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_62d0a90fc306d",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -130,6 +138,69 @@
             "min": "",
             "max": "",
             "return_format": "id"
+        },
+        {
+            "key": "field_62d0a90fc306d",
+            "label": "Use custom links?",
+            "name": "lc_block_use_custom_urls",
+            "type": "true_false",
+            "instructions": "Use a list of custom links instead of locations",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_62d0a98cc306e",
+            "label": "Custom Links",
+            "name": "custom_urls",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_62d0a90fc306d",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "block",
+            "button_label": "Add Link",
+            "sub_fields": [
+                {
+                    "key": "field_62d0a9a1c306f",
+                    "label": "Link",
+                    "name": "link",
+                    "type": "link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array"
+                }
+            ]
         },
         {
             "key": "field_611eb954c8dd3",
@@ -251,5 +322,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1629414752
+    "show_in_rest": 0,
+    "modified": 1657846206
 }
