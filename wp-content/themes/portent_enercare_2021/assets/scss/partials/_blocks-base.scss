@@ -298,7 +298,11 @@ Block Styles
 .breadcrumb,
 .yoast-breadcrumbs {
 
+	display: flex;
+	justify-content: left;
+	list-style: none;
 	text-align: left;
+	padding-left: 0;
 
 	a {
 

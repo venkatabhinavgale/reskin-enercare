@@ -12,6 +12,7 @@
 	@include media("<desktop") {
 
 		& > span {
+			display: inline;
 			padding: 0.25em 1em;
 		}
 	}

@@ -196,11 +196,45 @@ function enercare_breadcrumbs($display = true) {
     if ($display == "" && $display !== false)
       $display = true;
 
-    $breadcrumbs = yoast_breadcrumb( '<p id="breadcrumbs" class="breadcrumb">','</p>',$display );
+    $breadcrumbs = yoast_breadcrumb( '<ul id="breadcrumbs" class="breadcrumb">','</ul>',$display );
     if (!$display)
       return $breadcrumbs;
 	}
 }
+
+/**
+ * Filter the output of Yoast breadcrumbs so each item is an <li> with schema markup
+ * @param $link_output
+ * @param $link
+ *
+ * @return string
+ */
+function enercare_filter_yoast_breadcrumb_items( $link_output, $link ) {
+
+	$new_link_output = '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">';
+	$new_link_output .= '<a href="' . $link['url'] . '" itemprop="url">' . $link['text'] . '</a>';
+	$new_link_output .= '</li>';
+
+	return $new_link_output;
+}
+add_filter( 'wpseo_breadcrumb_single_link', 'enercare_filter_yoast_breadcrumb_items', 10, 2 );
+
+
+/**
+ * Filter the output of Yoast breadcrumbs to remove <span> tags added by the plugin
+ * @param $output
+ *
+ * @return mixed
+ */
+function enercare_filter_yoast_breadcrumb_output( $output ){
+
+	$from = '<span>';
+	$to = '</span>';
+	$output = str_replace( $from, $to, $output );
+
+	return $output;
+}
+add_filter( 'wpseo_breadcrumb_output', 'enercare_filter_yoast_breadcrumb_output' );
 
 /**
  * Banner (Covid)
