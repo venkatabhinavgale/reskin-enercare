@@ -129,6 +129,9 @@ class REST
         if (intVal($code) >= 400) {
             // if we errored out, it should be safe to grab the response body
             $body = (string) $response->getBody();
+            if ($request) {
+              $body .= (string) $request->getUri() . "\n\n";
+            }
 
             // Check if we received errors, and add those to the Exception for convenience
             throw new GoogleServiceException($body, $code, null, self::getResponseErrors($body));
