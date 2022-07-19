@@ -545,7 +545,7 @@ class ECReviews {
 
   public function syncLocationsCron() {
     if (get_option('ecreviews_enable_cron')) {
-      //$this->syncGmbLocations();
+      $this->syncGmbLocations();
     }
   }
   public function syncReviewsCron() {
