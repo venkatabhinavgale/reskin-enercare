@@ -244,6 +244,61 @@ Block Styles
 	}
 }
 
+.is-style-horizontal,
+.is-style-grid-3,
+.is-style-grid-4 {
+
+	padding-left: 0 !important;
+
+	li {
+		list-style: none;
+		padding: 1em 0.5em;
+	}
+}
+
+.is-style-grid-3,
+.is-style-grid-4 {
+	display: grid;
+
+	li {
+		text-align: center;
+	}
+}
+
+.is-style-horizontal {
+	display: flex;
+	flex-wrap: wrap;
+
+	li {
+		margin-left: .5%;
+		margin-right: .5%;
+
+		&:first-of-type {
+			margin-left: 0;
+		}
+
+		&:last-of-type {
+			margin-right: 0;
+		}
+	}
+}
+
+.is-style-grid-3 {
+	grid-template-columns: repeat(2, 1fr);
+
+	@include media('>phone') {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+.is-style-grid-4 {
+	grid-template-columns: repeat(2, 1fr);
+
+	@include media('>tablet') {
+		grid-template-columns: repeat(4, 1fr);
+	}
+}
+
 .is-style-checkmarked {
 	padding-left: 0 !important;
 

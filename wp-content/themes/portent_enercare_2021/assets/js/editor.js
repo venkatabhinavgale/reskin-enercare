@@ -92,6 +92,18 @@ wp.domReady( () => {
 			{
 				name: 'cons',
 				label: 'Cons'
+			},
+			{
+				name: 'horizontal',
+				label: 'Horizontal'
+			},
+			{
+				name: 'grid-3',
+				label: 'Grid 3'
+			},
+			{
+				name: 'grid-4',
+				label: 'Grid 4'
 			}
 		]
 	);
