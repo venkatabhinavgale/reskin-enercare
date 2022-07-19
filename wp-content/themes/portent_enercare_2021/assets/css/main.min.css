@@ -198,7 +198,7 @@ h4,h5,h6{font-size:18px}
 .is-style-horizontal li,.is-style-grid-3 li,.is-style-grid-4 li{list-style:none;padding:1em .5em}
 .is-style-grid-3,.is-style-grid-4{display:grid}
 .is-style-grid-3 li,.is-style-grid-4 li{text-align:center}
-.is-style-horizontal{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap}
+.is-style-horizontal{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
 .is-style-horizontal li{margin-left:.5%;margin-right:.5%}
 .is-style-horizontal li:first-of-type{margin-left:0}
 .is-style-horizontal li:last-of-type{margin-right:0}
