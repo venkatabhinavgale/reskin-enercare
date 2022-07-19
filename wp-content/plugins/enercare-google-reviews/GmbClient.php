@@ -190,6 +190,10 @@ class GmbClient {
 
     foreach ($locations as $location) {
       $gmb_object_id = get_post_meta($location->ID, 'gmb_location_id', true);
+      // for newer locations using the MyBusinessBusinessInformation API, we need to append the account ID for looking up reviews
+      if (strpos($gmb_object_id, 'accounts/103584978847197657494/') === false) {
+        $gmb_object_id = 'accounts/103584978847197657494/' . $gmb_object_id;
+      }
       $reviews[$gmb_object_id]['review_response'] = $this->getReviews($gmb_object_id, $pageSize);
     }
 
