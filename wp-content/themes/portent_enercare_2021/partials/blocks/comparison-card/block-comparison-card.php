@@ -11,6 +11,7 @@ if( !empty($block['backgroundColor'] ) ) {
 	$classes .= sprintf(' has-%s-background-color', $block['backgroundColor']);
 }
 $hash_arr = array();
+
 ?>
 <?php if (have_rows('comparison_cards')) { ?>
 <div class="block-comparison-card__wrapper <?php echo esc_attr($classes); ?>">
@@ -41,26 +42,25 @@ $hash_arr = array();
 		  <span><?= $toggle_open_text; ?></span>
       </button>
       <div class="block-comparison-card__contents-table comparison_card_<?= $hash; ?>" aria-expanded="false" data-state="closed" aria-labelledby="comparison_card_<?= $hash; ?>">
-        <table>
+        <ul>
         <?php while ( have_rows('comparison_table') ) { the_row(); ?>
-          <tr>
-            <td>
-              <?= get_sub_field('comparison_name'); ?>
+          <li>
+              <?= '<p class="block-comparison-card__contents-table__text">' . get_sub_field('comparison_name'); ?>
               <?php if (get_sub_field('comparison_subtext')) { ?>
               <span class="block-comparison-card__contents-table__subtext"><?= get_sub_field('comparison_subtext'); ?></span>
               <?php } ?>
-            </td>
-            <td>
+			  <?= '</p>'; ?>
+            <span class="block-comparison-card__contents-table__comparison-icon">
             <?php
               $comparison_value = get_sub_field('comparison_value');
               if ($comparison_value == 'Checkmark')
 				  $comparison_value = '<img class="block-comparison-card__contents-table__checkmark-icon" alt="" src="' . get_template_directory_uri() . '/assets/icons/action/done_black_24dp_rounded.svg" /><span class="block-comparison-card__contents-table__checkmark-text">Included</span>';
               echo $comparison_value;
             ?>
-            </td>
-          </tr>
+            </span>
+          </li>
         <?php } ?>
-        </table>
+        </ul>
         <?php if (get_sub_field('cta_text')) { ?>
         <div class="block-comparison-card__contents-table__cta"><?= get_sub_field('cta_text'); ?></div>
         <?php } ?>
@@ -111,26 +111,25 @@ $hash_arr = array();
               <?= $toggle_open_text; ?>
             </button>
             <div class="block-comparison-card__contents-table comparison_card_<?= $hash; ?>" data-state="closed" aria-labelledby="comparison_card_<?= $hash; ?>">
-              <table>
-              <?php while ( have_rows('comparison_table') ) { the_row(); ?>
-                <tr>
-                  <td>
-                    <?= get_sub_field('comparison_name'); ?>
-                    <?php if (get_sub_field('comparison_subtext')) { ?>
-                    <span class="block-comparison-card__contents-table__subtext"><?= get_sub_field('comparison_subtext'); ?></span>
-                    <?php } ?>
-                  </td>
-                  <td>
-                  <?php
-                    $comparison_value = get_sub_field('comparison_value');
-                    if ($comparison_value == 'Checkmark')
-                      $comparison_value = '<img alt="" src="' . get_template_directory_uri() . '/assets/icons/action/done_black_24dp_rounded.svg" />';
-                    echo $comparison_value;
-                  ?>
-                  </td>
-                </tr>
-              <?php } ?>
-              </table>
+				<ul>
+					<?php while ( have_rows('comparison_table') ) { the_row(); ?>
+						<li>
+							<?= '<p class="block-comparison-card__contents-table__text">' . get_sub_field('comparison_name'); ?>
+							<?php if (get_sub_field('comparison_subtext')) { ?>
+								<span class="block-comparison-card__contents-table__subtext"><?= get_sub_field('comparison_subtext'); ?></span>
+							<?php } ?>
+							<?= '</p>'; ?>
+							<span class="block-comparison-card__contents-table__comparison-icon">
+            <?php
+			$comparison_value = get_sub_field('comparison_value');
+			if ($comparison_value == 'Checkmark')
+				$comparison_value = '<img class="block-comparison-card__contents-table__checkmark-icon" alt="" src="' . get_template_directory_uri() . '/assets/icons/action/done_black_24dp_rounded.svg" /><span class="block-comparison-card__contents-table__checkmark-text">Included</span>';
+			echo $comparison_value;
+			?>
+            </span>
+						</li>
+					<?php } ?>
+				</ul>
               <?php if (get_sub_field('cta_text')) { ?>
               <div class="block-comparison-card__contents-table__cta"><?= get_sub_field('cta_text'); ?></div>
               <?php } ?>
