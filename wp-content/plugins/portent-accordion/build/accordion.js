@@ -28,13 +28,13 @@ const Accordion = () => {
   const setAccordionAria = (el1, el2, expanded) => {
     switch (expanded) {
       case "true":
-        setAriaAttr(el1, "aria-expanded", "true");
-        setAriaAttr(el2, "aria-hidden", "false");
+        setAriaAttr(el1, "aria-expanded", "true"); //setAriaAttr(el2, "aria-hidden", "false");
+
         break;
 
       case "false":
-        setAriaAttr(el1, "aria-expanded", "false");
-        setAriaAttr(el2, "aria-hidden", "true");
+        setAriaAttr(el1, "aria-expanded", "false"); //setAriaAttr(el2, "aria-hidden", "true");
+
         break;
 
       default:
@@ -77,14 +77,14 @@ const Accordion = () => {
 
       if (pointerSupported) {
         accordionToggles[i].addEventListener("pointerdown", skipClickDelay, false);
-      }
+      } //setAriaAttr(accordionToggles[i], "aria-hidden", "false");
 
-      setAriaAttr(accordionToggles[i], "aria-hidden", "false");
+
       accordionToggles[i].addEventListener("click", switchAccordion, false);
     }
 
     for (let i = 0, len = accordionContents.length; i < len; i++) {
-      setAriaAttr(accordionContents[i], "aria-hidden", "true");
+      //setAriaAttr(accordionContents[i], "aria-hidden", "true");
       accordionContents[i].classList.add("is-collapsed");
     }
   }; //destroy and remove functionality from accordion
@@ -92,12 +92,12 @@ const Accordion = () => {
 
   const destroyAccordion = () => {
     for (let i = 0, len = accordionToggles.length; i < len; i++) {
-      setAriaAttr(accordionToggles[i], "aria-hidden", "true");
+      //setAriaAttr(accordionToggles[i], "aria-hidden", "true");
       accordionToggles[i].removeEventListener("click", switchAccordion, false);
     }
 
     for (let i = 0, len = accordionContents.length; i < len; i++) {
-      setAriaAttr(accordionContents[i], "aria-hidden", "false");
+      //setAriaAttr(accordionContents[i], "aria-hidden", "false");
       accordionContents[i].classList.remove("is-collapsed");
     }
   }; //toggle crate and destroy for browser events

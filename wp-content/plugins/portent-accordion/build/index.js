@@ -362,7 +362,11 @@ function save(_ref) {
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "portent-accordion",
     id: `portent-accordion-${accordionID}`
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText.Content, {
+    className: "portent-accordion__header",
+    tagName: tagName,
+    value: accordionTitle
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
     "aria-expanded": "false",
     "aria-controls": `accordion-panel-${accordionID}`,
     id: `accordion-header-${accordionID}`,

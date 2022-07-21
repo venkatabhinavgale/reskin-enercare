@@ -21,6 +21,7 @@ export default function save({ attributes }) {
 
 	return (
 		<div className="portent-accordion" id={`portent-accordion-${accordionID}`}>
+			<RichText.Content className="portent-accordion__header" tagName={tagName} value={accordionTitle} />
 			<button
 				aria-expanded="false"
 				aria-controls={`accordion-panel-${accordionID}`}

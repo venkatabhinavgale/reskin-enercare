@@ -32,11 +32,11 @@ const Accordion = () => {
 		switch (expanded) {
 			case "true":
 				setAriaAttr(el1, "aria-expanded", "true");
-				setAriaAttr(el2, "aria-hidden", "false");
+				//setAriaAttr(el2, "aria-hidden", "false");
 				break;
 			case "false":
 				setAriaAttr(el1, "aria-expanded", "false");
-				setAriaAttr(el2, "aria-hidden", "true");
+				//setAriaAttr(el2, "aria-hidden", "true");
 				break;
 			default:
 				break;
@@ -87,12 +87,12 @@ const Accordion = () => {
 					false
 				);
 			}
-			setAriaAttr(accordionToggles[i], "aria-hidden", "false");
+			//setAriaAttr(accordionToggles[i], "aria-hidden", "false");
 			accordionToggles[i].addEventListener("click", switchAccordion, false);
 		}
 
 		for (let i = 0, len = accordionContents.length; i < len; i++) {
-			setAriaAttr(accordionContents[i], "aria-hidden", "true");
+			//setAriaAttr(accordionContents[i], "aria-hidden", "true");
 			accordionContents[i].classList.add("is-collapsed");
 		}
 	};
@@ -100,12 +100,12 @@ const Accordion = () => {
 	//destroy and remove functionality from accordion
 	const destroyAccordion = () => {
 		for (let i = 0, len = accordionToggles.length; i < len; i++) {
-			setAriaAttr(accordionToggles[i], "aria-hidden", "true");
+			//setAriaAttr(accordionToggles[i], "aria-hidden", "true");
 			accordionToggles[i].removeEventListener("click", switchAccordion, false);
 		}
 
 		for (let i = 0, len = accordionContents.length; i < len; i++) {
-			setAriaAttr(accordionContents[i], "aria-hidden", "false");
+			//setAriaAttr(accordionContents[i], "aria-hidden", "false");
 			accordionContents[i].classList.remove("is-collapsed");
 		}
 	};
