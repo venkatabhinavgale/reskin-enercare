@@ -367,25 +367,28 @@ Block Styles
 			color: brand-color('red');
 		}
 	}
+	li {
+		margin-right: 8px;
+	}
 
 	.breadcrumb_last,
-	a {
+	li a {
 		color: $black;
 		font-size: 12px;
 		text-decoration: none;
 
 		&:after {
-			padding: 8px 0px 8px 8px;
+			padding: 8px 0 0 8px;
 	  		color: $black;
 	  		content: "/\00a0";
 		}
+	}
 
-		&:last-child {
-			font-weight: 600;
+	li:last-child a {
+		font-weight: 600;
 
-			&:after {
-		  		content: "";
-			}
+		&:after {
+			content: "";
 		}
 	}
 }
