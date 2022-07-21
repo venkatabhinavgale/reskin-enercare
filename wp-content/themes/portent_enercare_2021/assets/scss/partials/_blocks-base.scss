@@ -520,6 +520,12 @@ Carousel
 
 .block-carousel {
 
+	&__controls {
+		display: flex;
+		justify-content: space-around;
+		position: relative;
+	}
+
 	&__dots {
 
 		margin: 1.5em 0 1em;
@@ -539,9 +545,6 @@ Carousel
 		background-color: transparent;
 		border: 0;
 		height: 40px;
-		position: absolute;
-		top: 50%;
-		transform: translateY(-50%);
 		width: 40px;
 		padding: 5px;
 		transition: background-color 0.2s ease-in;
@@ -564,16 +567,6 @@ Carousel
 			opacity: 0.3;
 			transition: opacity 0.3s ease-in;
 		}
-	}
-
-	&__prev {
-		left: 0;
-		transform: translate(-100%, -50%);
-	}
-
-	&__next {
-		right: 0;
-		transform: translate(100%, -50%);
 	}
 }
 

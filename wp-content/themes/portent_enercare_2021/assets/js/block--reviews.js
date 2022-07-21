@@ -25,9 +25,23 @@ window.addEventListener('load', function () {
   dots = document.createElement('div');
   dots.classList.add('dots', 'block-reviews__dots');
   dots.setAttribute('role', 'tablist');
-  blockReviews.parentNode.insertBefore(dots, blockReviews.nextSibling);
-  blockReviews.parentNode.insertBefore(nextArrow, blockReviews.nextSibling);
-  blockReviews.parentNode.insertBefore(prevArrow, blockReviews.nextSibling);
+  //blockReviews.parentNode.insertBefore(dots, blockReviews.nextSibling);
+  //blockReviews.parentNode.insertBefore(nextArrow, blockReviews.nextSibling);
+  //blockReviews.parentNode.insertBefore(prevArrow, blockReviews.nextSibling);
+
+	// blockReviews.addEventListener('glider-loaded', function(e){
+	// 	console.log('Glider Loaded');
+	// 	console.log(e);
+	//
+	// 	let gliderWrapper = e.target.parentElement;
+	// 	let previousButton = gliderWrapper.querySelector('.block-reviews__prev');
+	// 	console.log(previousButton);
+	// 	previousButton.remove();
+	//
+	// 	gliderWrapper.insertBefore(previousButton, gliderWrapper.children[0]);
+	//
+	// });
+
   new Glider(blockReviews, {
     slidesToShow: 1,
     slidesToScroll: 1,
