@@ -202,7 +202,6 @@ jQuery(function ($) {
     }
   })(window, document);
 });
-
 /**
  * Toggle Navigation Script
  */
