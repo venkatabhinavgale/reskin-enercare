@@ -3,7 +3,7 @@
 Plugin Name:       AddSearch Instant Search
 Plugin URI:        https://www.addsearch.com/product/wordpress-search-plugin/?utm_campaign=Wordpress%20Plugin&utm_source=wordpress_plugin
 Description:       AddSearch is an instant site search engine for your website.
-Version:           2.1.0
+Version:           2.1.1
 Author:            AddSearch Ltd.
 Author URI:        https://www.addsearch.com/?utm_campaign=Wordpress%20Plugin&utm_source=wordpress_plugin
 License:           GPL-2.0+
@@ -48,6 +48,8 @@ final class AddSearch {
 
     private static $instance = null;
 
+	private static $instance_count = 1;
+
 	const _V2_URL = 'https://cdn.addsearch.com/v4/addsearch-ui.min.js';
 
 	/**
@@ -83,7 +85,7 @@ final class AddSearch {
 
 		/* Plugin version. */
 		if ( ! defined( 'ADDSEARCHP_VERSION' ) ) {
-			define( 'ADDSEARCHP_VERSION', '2.1.0' );
+			define( 'ADDSEARCHP_VERSION', '2.1.1' );
 		}
 
 	}
@@ -397,17 +399,25 @@ final class AddSearch {
 	 */
 	public function get_script_for_v2( $echo = false ) {
 		$type = self::get_installation_method();
-		$id = sanitize_title( get_option( 'admin_email' ) ) . rand();
+		$id = null;
 
 		$query_args = [
 			'key' => rawurlencode( esc_attr( self::get_customer_key() ) ),
-			'id' => $id,
 		];
 
 		switch ( $type ) {
 			case 'resultpagev2':
 				$query_args['type'] = 'search_results_page';
+				$id = 'arp_wp_01';
 				break;
+			case 'widgetv2':
+				$suffix = str_pad( $this->instance_count++, 2, '0', STR_PAD_LEFT );
+				$id = "asw_wp_{$suffix}";
+				break;
+		}
+
+		if ( $id ) {
+			$query_args['id'] = $id;
 		}
 
 		$query_args = apply_filters( 'addsearch_query_args', $query_args, $type );
@@ -434,24 +444,19 @@ final class AddSearch {
 	 */
 	public function override_search_page() {
 		if ( ! apply_filters( 'addsearch_replace_search_page', true ) ) {
-			return;
+			//return;
 		}
-
 		$type = self::get_installation_method();
-
 		if ( ! in_array( $type, array( 'resultpage', 'resultpagev2' ), true ) ) {
 			return;
 		}
-
 		if ( isset( $_GET['addsearch'] ) ) {
 			$addsearch_customer_key = self::get_customer_key();
 			$query_args = [
 				'key' => rawurlencode( esc_attr( $addsearch_customer_key ) ),
 				'type' => 'resultpage',
 			];
-
 			$query_args = apply_filters( 'addsearch_query_args', $query_args, $type );
-
 			if ( in_array( $type, array( 'resultpagev2' ), true ) ) {
 				include( $this->dir_path . 'templates/searchv2.php' );
 				// In our template we add header and footer ourselves,
@@ -459,7 +464,6 @@ final class AddSearch {
 				// them after our footer.
 				die();
 			}
-
 			wp_enqueue_script(
 				'addsearch-results-js',
 				esc_url( add_query_arg( $query_args, 'https://addsearch.com/js/' ) ),
@@ -467,7 +471,6 @@ final class AddSearch {
 				null,
 				true
 			);
-
 			include( $this->dir_path . 'templates/search.php' );
 			// In our template we add header and footer ourselves,
 			// so we need to stop execution here to avoid re-rendering

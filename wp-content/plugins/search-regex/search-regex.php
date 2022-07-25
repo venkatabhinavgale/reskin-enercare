@@ -1,10 +1,9 @@
 <?php
-
 /*
 Plugin Name: Search Regex
 Plugin URI: https://searchregex.com/
 Description: Adds search and replace functionality across posts, pages, comments, and meta-data, with full regular expression support
-Version: 2.4.1
+Version: 3.0.0
 Author: John Godley
 Text Domain: search-regex
 Domain Path: /locale
@@ -43,9 +42,9 @@ if ( version_compare( phpversion(), '5.6' ) < 0 ) {
 	return;
 }
 
-require_once __DIR__ . '/search-regex-version.php';
-require_once __DIR__ . '/search-regex-settings.php';
-require_once __DIR__ . '/search-regex-capabilities.php';
+require_once __DIR__ . '/build/search-regex-version.php';
+require_once __DIR__ . '/includes/plugin/class-settings.php';
+require_once __DIR__ . '/includes/plugin/class-capabilities.php';
 
 /**
  * Is the request for WP CLI?
@@ -79,33 +78,22 @@ function searchregex_is_admin() {
  * @return void
  */
 function searchregex_start_rest() {
-	require_once __DIR__ . '/search-regex-admin.php';
-	require_once __DIR__ . '/api/api.php';
+	require_once __DIR__ . '/includes/search-regex-admin.php';
+	require_once __DIR__ . '/includes/api/class-api.php';
 
-	Search_Regex_Api::init();
-	Search_Regex_Admin::init();
+	SearchRegex\Api\Api::init();
+	SearchRegex\Admin\Admin::init();
 
 	remove_action( 'rest_api_init', 'searchregex_start_rest' );
 }
 
-/**
- * Set the Search Regex text domain
- *
- * @return void
- */
-function searchregex_locale() {
-	/** @psalm-suppress PossiblyFalseArgument */
-	load_plugin_textdomain( 'search-regex', false, dirname( plugin_basename( SEARCHREGEX_FILE ) ) . '/locale/' );
-}
-
 if ( searchregex_is_admin() || searchregex_is_wpcli() ) {
-	require_once __DIR__ . '/search-regex-admin.php';
-	require_once __DIR__ . '/api/api.php';
+	require_once __DIR__ . '/includes/search-regex-admin.php';
+	require_once __DIR__ . '/includes/api/class-api.php';
 }
 
 if ( searchregex_is_wpcli() ) {
-	require_once __DIR__ . '/search-regex-cli.php';
+	require_once __DIR__ . '/includes/search-regex-cli.php';
 }
 
 add_action( 'rest_api_init', 'searchregex_start_rest' );
-add_action( 'init', 'searchregex_locale' );
