@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitdcd6296a98baa11e0aac805330bb4b6f
+class ComposerStaticInit695a1523c06c316bac5f493963c33b2c
 {
     public static $files = array (
         '3af723442581d6c310bf44543f9f5c60' => __DIR__ . '/..' . '/markbaker/matrix/classes/src/Functions/adjoint.php',
@@ -314,6 +314,7 @@ class ComposerStaticInitdcd6296a98baa11e0aac805330bb4b6f
         'GFExcel\\Transformer\\Combiner' => __DIR__ . '/../..' . '/src/Transformer/Combiner.php',
         'GFExcel\\Transformer\\CombinerInterface' => __DIR__ . '/../..' . '/src/Transformer/CombinerInterface.php',
         'GFExcel\\Transformer\\Transformer' => __DIR__ . '/../..' . '/src/Transformer/Transformer.php',
+        'GFExcel\\Transformer\\TransformerAwareInterface' => __DIR__ . '/../..' . '/src/Transformer/TransformerAwareInterface.php',
         'GFExcel\\Values\\BaseValue' => __DIR__ . '/../..' . '/src/Values/BaseValue.php',
         'GFExcel\\Values\\BoolValue' => __DIR__ . '/../..' . '/src/Values/BoolValue.php',
         'GFExcel\\Values\\CurrencyValue' => __DIR__ . '/../..' . '/src/Values/CurrencyValue.php',
@@ -586,9 +587,9 @@ class ComposerStaticInitdcd6296a98baa11e0aac805330bb4b6f
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitdcd6296a98baa11e0aac805330bb4b6f::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitdcd6296a98baa11e0aac805330bb4b6f::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInitdcd6296a98baa11e0aac805330bb4b6f::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit695a1523c06c316bac5f493963c33b2c::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit695a1523c06c316bac5f493963c33b2c::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit695a1523c06c316bac5f493963c33b2c::$classMap;
 
         }, null, ClassLoader::class);
     }

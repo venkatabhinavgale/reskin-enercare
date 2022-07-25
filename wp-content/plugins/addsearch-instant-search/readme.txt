@@ -4,8 +4,8 @@ Author URI: http://www.addsearch.com/
 Contributors: AddSearch, Sofokus, sami.keijonen
 Tags: search, instant search, site search, page search, category search, custom search, better search, autocomplete, typeahead
 Requires at least: 3.9
-Tested up to: 5.9
-Stable tag: 2.1.0
+Tested up to: 6.0
+Stable tag: 2.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -83,6 +83,9 @@ For questions and answers, please visit [our documentation](http://addsearch.com
 Try AddSearch for free for 7 days. Pricing starts at $25.00 per month. You can learn more about our pricing [here](https://www.addsearch.com/pricing/?utm_campaign=Wordpress%20Plugin&utm_source=wordpress_plugin).
 
 == Changelog ==
+
+= 2.1.1 =
+* Fixed an issue where addsearch shortcode would not work for search results on the Separate Results Page
 
 = 2.1.0 =
 * Allow the search results page to be taken control of by the plugin

@@ -74,21 +74,12 @@ function addsearch_options_page() {
 						<td>
 							<label>
 							<?php
-							    $installation_types_old = array( 
+							    $installation_types = array( 
 									'widgetv2' => esc_html__('Search as you type (New version)', 'addsearch'),
 									'resultpagev2' => esc_html__('Separate page for results (New version)', 'addsearch'),
 									'widget' => esc_html__('Search as you type (Old version)', 'addsearch'),
 									'resultpage' => esc_html__('Separate page for results (Old version)', 'addsearch'),
 								);
-							    $installation_types_new = array( 
-									'widgetv2' => esc_html__('Search as you type', 'addsearch'),
-									'resultpagev2' => esc_html__('Separate page for results', 'addsearch'),
-								);
-								if ( AddSearch::get_instance()->has_prexisting_install() ) {
-									$installation_types = $installation_types_old;
-								} else { 
-									$installation_types = $installation_types_new;
-								}
 							?>
 								<select name="addsearch_settings[installation_method]" id="installation_method">
 									<?php

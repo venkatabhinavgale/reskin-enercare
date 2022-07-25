@@ -190,6 +190,7 @@ return array(
     'GFExcel\\Transformer\\Combiner' => $baseDir . '/src/Transformer/Combiner.php',
     'GFExcel\\Transformer\\CombinerInterface' => $baseDir . '/src/Transformer/CombinerInterface.php',
     'GFExcel\\Transformer\\Transformer' => $baseDir . '/src/Transformer/Transformer.php',
+    'GFExcel\\Transformer\\TransformerAwareInterface' => $baseDir . '/src/Transformer/TransformerAwareInterface.php',
     'GFExcel\\Values\\BaseValue' => $baseDir . '/src/Values/BaseValue.php',
     'GFExcel\\Values\\BoolValue' => $baseDir . '/src/Values/BoolValue.php',
     'GFExcel\\Values\\CurrencyValue' => $baseDir . '/src/Values/CurrencyValue.php',
