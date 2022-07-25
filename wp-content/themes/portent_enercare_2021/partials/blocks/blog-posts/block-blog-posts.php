@@ -79,6 +79,7 @@ $blog_posts = new WP_Query( $blog_post_args );
 	<?php
 		if( $blog_posts->have_posts()) {
 			echo '<div class="block-blog-posts__wrapper">';
+
 			echo '<div class="block-blog-posts ' . $group_orientation . '' . $is_mobile_carousel . '">';
 			while ( $blog_posts->have_posts() ) {
 				$blog_posts->the_post();
@@ -128,9 +129,11 @@ $blog_posts = new WP_Query( $blog_post_args );
 			echo '</div>';
 
 			if( $is_mobile_carousel ) {
+				echo '<div class="block-carousel__controls">';
 				echo '<button aria-label="Previous" class="block-carousel__prev block-blog-posts__glider-prev"><img height="20" width="20" alt="Previous" src="'. get_template_directory_uri() . '/assets/icons/utility/arrow_back.svg" /></button>';
-				echo '<button aria-label="Next" class="block-carousel__next block-blog-posts__glider-next"><img height="20" width="20" alt="Next" src="'.get_template_directory_uri() . '/assets/icons/utility/arrow_forward.svg" /></button>';
 				echo '<div role="tablist" class="dots block-carousel__dots block-blog-posts__glider-dots"></div>';
+				echo '<button aria-label="Next" class="block-carousel__next block-blog-posts__glider-next"><img height="20" width="20" alt="Next" src="'.get_template_directory_uri() . '/assets/icons/utility/arrow_forward.svg" /></button>';
+				echo '</div>';
 			}
 
 			//End Wrapper container

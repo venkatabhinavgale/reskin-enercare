@@ -159,10 +159,7 @@
 		background-color: transparent;
 		border: 1px dotted transparent;
 		height: 50px;
-		position: absolute;
-		top: 40%;
 		opacity: 1;
-		transform: translateY(-50%);
 		transition: opacity 0.3s ease-in;
 		width: 50px;
 		border-radius: 100%;
@@ -184,16 +181,16 @@
 			opacity: 0.3;
 			transition: opacity 0.3s ease-in;
 		}
+
+		@include media('<=phone') {
+			display: none;
+		}
 	}
 
-	&__prev {
-		left: 0;
-		transform: translateX(-100%);
-	}
-
-	&__next {
-		right: 0;
-		transform: translateX(100%);
+	&__controls {
+		display: flex;
+		justify-content: space-around;
+		position:relative;
 	}
 
 	&__review {

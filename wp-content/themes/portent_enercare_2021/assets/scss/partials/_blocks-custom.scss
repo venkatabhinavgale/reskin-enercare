@@ -8,7 +8,7 @@
 	margin-bottom: 32px;
 	visibility: hidden;
 
-	@include media('>=tablet') {
+	@include media('>mobile_menu') {
 		display: flex;
 		margin-bottom: 32px;
 		visibility: visible;
@@ -74,7 +74,7 @@
 }
 
 .block-tabbed-content__tabs.init--dirty {
-	@include media('>=tablet') {
+	@include media('>mobile_menu') {
 		.block-tabbed-content__tab:first-of-type {
 			border-bottom: 2px solid brand-color('red');
 			color: brand-color('red');
@@ -211,7 +211,7 @@ Mobile State
 		margin-bottom: 1em;
 		visibility: visible;
 
-		@include media('>=tablet') {
+		@include media('>mobile_menu') {
 			display: none;
 			visibility: hidden;
 		}

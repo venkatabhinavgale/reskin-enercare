@@ -650,6 +650,8 @@ function ecreviews_location_block_render_callback( $attributes, $content ) {
   $output .= '</div><!-- end block-reviews__section-heading -->';
 
   $output .= '<div class="block-reviews__wrapper">';
+  $output .= '<button aria-label="Previous" class="button__prev block-reviews__prev"><img alt="Previous" src="'.plugin_dir_url(__FILE__) . 'img/arrow_back_ios_black_24dp_rounded.svg" /></button>
+';
   $output .= '<div class="block-reviews__glider">';
   foreach ($reviews as $review) {
     if ( $review->post_content !== '' ) {
@@ -689,6 +691,7 @@ function ecreviews_location_block_render_callback( $attributes, $content ) {
     }
   }
   $output .= '</div>';
+  $output .= '<button aria-label="Next" class="block-reviews__next"><img alt="Next" src="'.plugin_dir_url(__FILE__) . 'img/arrow_forward_ios_black_24dp_rounded.svg" /></button>';
   $output .= '</div>';
 
   $output .= '<div class="block-reviews__section-footer">';
