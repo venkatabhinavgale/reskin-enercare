@@ -196,7 +196,7 @@ function enercare_breadcrumbs($display = true) {
     if ($display == "" && $display !== false)
       $display = true;
 
-    $breadcrumbs = yoast_breadcrumb( '<nav><ol id="breadcrumbs" class="breadcrumb">','</ul></nav>',$display );
+    $breadcrumbs = yoast_breadcrumb( '<div class="breadcrumbs"><nav id="breadcrumbs" class="breadcrumbs__navigation"><ol class="breadcrumb">','</ul></nav></div>',$display );
     if (!$display)
       return $breadcrumbs;
 	}

@@ -600,7 +600,8 @@ div.wpforms-container.one-line:after{content:"";display:table;clear:both}
 .category__description__inner,.taxonomy__description__inner{max-width:768px}
 .category .archive-title,.taxonomy .archive-title{color:#fff}
 .category__description,.taxonomy__description{max-width:768px}
-.category .breadcrumb,.taxonomy .breadcrumb{background-color:#f5f2f2;max-width:100vw}
+.category .breadcrumbs,.taxonomy .breadcrumbs{background-color:#f5f2f2;max-width:100vw}
+.category .breadcrumbs__navigation,.taxonomy .breadcrumbs__navigation{max-width:1168px;margin:0 auto}
 .category .breadcrumb>span,.taxonomy .breadcrumb>span{display:block;padding:.3em 0;margin:0 auto;max-width:1168px}
 .entry-content ul,.entry-content ol{padding-left:1.5rem;margin-bottom:1em}
 .entry-content ul li,.entry-content ol li{padding-bottom:.5rem}
@@ -676,7 +677,8 @@ div.wpforms-container.one-line:after{content:"";display:table;clear:both}
 .single-post .block-blog-posts__wrapper .block-carousel__prev,.single-post .block-blog-posts__wrapper .block-carousel__next{width:50px;height:50px;display:block}
 .single-post .block-blog-posts__post{background-color:#f5f2f2}
 .single-post .entry-footer .entry-category .button{font-size:1.125em;letter-spacing:0;margin-top:3em;margin-bottom:1em}
-.single-post .breadcrumb{background-color:#f5f2f2;max-width:100vw}
+.single-post .breadcrumbs{background-color:#f5f2f2;max-width:100vw}
+.single-post .breadcrumbs__navigation{max-width:1168px;margin:0 auto}
 .single-post .breadcrumb>span{display:block;padding:.3em 0;margin:0 auto;max-width:1168px}
 .footer-widgets{background:#fff;padding:40px 0 10px;position:relative}
 .footer-widgets ul{margin-bottom:30px}
