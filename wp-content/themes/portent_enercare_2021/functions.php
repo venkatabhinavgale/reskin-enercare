@@ -155,6 +155,13 @@ function enercare_scripts() {
     wp_enqueue_script( 'legal-terms', get_template_directory_uri() . '/assets/js/legal-terms.js', null, null, true );
   }
 
+  /**
+  * Search Scripts
+  **/
+  if(is_search()) {
+	  wp_enqueue_script('search-scripts', get_template_directory_uri() . '/assets/js/search.js', null, null, true);
+  }
+
 	/*
 	 * Block level enqueues
 	 */
@@ -246,7 +253,7 @@ function enercare_setup() {
 
 	// Body open hook
 	add_theme_support( 'body-open' );
-  
+
   // Allow page template selection
   add_theme_support( 'block-templates' );
 
@@ -744,7 +751,7 @@ function enercare_pre_get_posts( $query ) {
 add_action( 'gform_enqueue_scripts', 'enqueue_custom_script', 10, 2 );
 function enqueue_custom_script( $form, $is_ajax ) {
   wp_enqueue_script( 'enercare_gform_script', get_template_directory_uri() . '/assets/js/form--gravity-form.js', array('jquery'), null, true);
-  
+
 	$cssClassCheck = strpos($form['cssClass'], 'bogo-form');
 	if ( $cssClassCheck !== false && !is_admin() ) {
 		wp_enqueue_script( 'enercare_bogo_script', get_template_directory_uri() . '/assets/js/form--bogo-form.js', array('jquery'), null, true);
