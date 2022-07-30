@@ -3,31 +3,31 @@
 window.addEventListener('load', function () {
   var blockReviews = document.querySelector('.block-reviews__glider');
   var prevArrow, prevArrowImage, nextArrow, nextArrowImage, dots, imagePath;
-  imagePath = '/wp-content/themes/portent_enercare_2021/assets/icons/utility/';
-  prevArrow = document.createElement('button');
-  prevArrowImage = document.createElement('img');
-  prevArrow.classList.add('button__prev', 'block-reviews__prev');
-  prevArrow.setAttribute('aria-label', 'Previous');
-  prevArrowImage.setAttribute('src', "".concat(imagePath, "arrow_back.svg"));
-  prevArrowImage.setAttribute('alt', 'Previous');
-  prevArrowImage.setAttribute('height', '24');
-  prevArrowImage.setAttribute('width', '24');
-  prevArrow.appendChild(prevArrowImage);
-  nextArrow = document.createElement('button');
-  nextArrowImage = document.createElement('img');
-  nextArrow.classList.add('button__next', 'block-reviews__next');
-  nextArrow.setAttribute('aria-label', 'Next');
-  nextArrowImage.setAttribute('src', "".concat(imagePath, "arrow_forward.svg"));
-  nextArrowImage.setAttribute('alt', 'Next');
-  nextArrowImage.setAttribute('height', '24');
-  nextArrowImage.setAttribute('width', '24');
-  nextArrow.appendChild(nextArrowImage);
-  dots = document.createElement('div');
-  dots.classList.add('dots', 'block-reviews__dots');
-  dots.setAttribute('role', 'tablist');
-  blockReviews.parentNode.insertBefore(dots, blockReviews.nextSibling);
-  blockReviews.parentNode.insertBefore(nextArrow, blockReviews.nextSibling);
-  blockReviews.parentNode.insertBefore(prevArrow, blockReviews.nextSibling);
+  imagePath = '/wp-content/themes/portent_enercare_2021/assets/icons/utility/'; //prevArrow = document.createElement( 'button' );
+  // prevArrowImage = document.createElement( 'img' );
+  // prevArrow.classList.add( 'button__prev','block-reviews__prev');
+  // prevArrow.setAttribute('aria-label', 'Previous');
+  // prevArrowImage.setAttribute('src', `${imagePath}arrow_back.svg`);
+  // prevArrowImage.setAttribute( 'alt', 'Previous');
+  // prevArrowImage.setAttribute( 'height', '24');
+  // prevArrowImage.setAttribute( 'width', '24');
+  // prevArrow.appendChild( prevArrowImage );
+  // nextArrow = document.createElement( 'button' );
+  // nextArrowImage = document.createElement( 'img' );
+  // nextArrow.classList.add( 'button__next','block-reviews__next');
+  // nextArrow.setAttribute('aria-label', 'Next');
+  // nextArrowImage.setAttribute('src', `${imagePath}arrow_forward.svg`);
+  // nextArrowImage.setAttribute( 'alt', 'Next');
+  // nextArrowImage.setAttribute( 'height', '24');
+  // nextArrowImage.setAttribute( 'width', '24');
+  // nextArrow.appendChild( nextArrowImage );
+  // dots = document.createElement( 'div' );
+  // dots.classList.add('dots', 'block-reviews__dots');
+  // dots.setAttribute( 'role', 'tablist');
+  // blockReviews.parentNode.insertBefore(dots, blockReviews.nextSibling);
+  // blockReviews.parentNode.insertBefore(nextArrow, blockReviews.nextSibling);
+  // blockReviews.parentNode.insertBefore(prevArrow, blockReviews.nextSibling);
+
   new Glider(blockReviews, {
     slidesToShow: 1,
     slidesToScroll: 1,

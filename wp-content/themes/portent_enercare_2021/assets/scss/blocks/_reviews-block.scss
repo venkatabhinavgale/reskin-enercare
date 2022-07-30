@@ -163,6 +163,7 @@
 		transition: opacity 0.3s ease-in;
 		width: 50px;
 		border-radius: 100%;
+		visibility: visible;
 
 		img {
 			margin: 0 auto;
@@ -185,6 +186,11 @@
 		@include media('<=phone') {
 			display: none;
 		}
+	}
+
+	&__prev.disabled,
+	&__next.disabled {
+		visibility: hidden;
 	}
 
 	&__controls {
