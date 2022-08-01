@@ -522,6 +522,19 @@ add_filter('acf/load_field/name=gravity_form', 'acf_load_gravity_form_choices');
 add_filter('acf/load_field/name=default_contact_form', 'acf_load_gravity_form_choices');
 add_filter('acf/load_field/name=default_email_form', 'acf_load_gravity_form_choices');
 
+
+/**
+ * Changing default error message Gravity Forms (GF2.5)
+ */
+add_filter("gform_validation_message", "gwp_change_message", 10, 2);
+function gwp_change_message($message, $form){
+	return '<h3 class="gform_submission_error hide_summary">
+				<span class="gform-icon gform-icon--close" aria-hidden="true"></span>
+				Oops, something was not correct.
+				Please review the highlighted fields below.
+			</h3>';
+}
+
 /**
  * Template Hierarchy
  *
