@@ -1,5 +1,30 @@
 jQuery(function($){
 
+	/*
+	Global glider button listener
+	 */
+	const gliderButtons = document.querySelectorAll('.glider-prev, .glider-next');
+	console.log(gliderButtons);
+	const gliderOsberverConfig = {attributes: true, subtree:true}
+	const gliderObserverCallback = function(mutationList, observer) {
+		console.log(mutationList);
+		mutationList.forEach(function(mutation){
+			if(mutation.attributeName === 'class'){
+				if(mutation.target.classList.contains('disabled')){
+					mutation.target.setAttribute('disabled', '');
+				} else {
+					mutation.target.removeAttribute('disabled');
+				}
+			}
+		});
+	}
+
+	const gliderObserver = new MutationObserver(gliderObserverCallback);
+
+	gliderButtons.forEach(function(button){
+		gliderObserver.observe(button, gliderOsberverConfig);
+	});
+
 	// Mobile Menu
 	$('.menu-toggle').click(function(){
 			// $('.search-toggle, .header-search').removeClass('active');
