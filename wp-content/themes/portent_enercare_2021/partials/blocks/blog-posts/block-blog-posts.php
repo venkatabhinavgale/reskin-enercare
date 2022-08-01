@@ -21,6 +21,7 @@ $post_display_class = 'block-blog-posts__post--' . $post_display;
 $post_image_size = get_field( 'image_size' ) ? get_field( 'image_size' ) : '2-3';
 $hide_post_date = get_field( 'hide_post_date' );
 $is_mobile_carousel = get_field('is_mobile_carousel') ? ' block-carousel is_mobile_carousel' : '';
+$heading_tag = get_field('heading_tag') ? get_field('heading_tag') : 'h3' ;
 
 if( !empty($block['className']) ) {
 	$classes .= sprintf( ' %s', $block['className'] );
@@ -117,7 +118,7 @@ $blog_posts = new WP_Query( $blog_post_args );
           }
 				}
 
-				echo '<h3 class="block-blog-posts__post__title"><a class="block-blog-posts__post__link" href="' . get_the_permalink() . '">' . get_the_title() . '</a></h3>';
+				echo '<'.$heading_tag.' class="block-blog-posts__post__title"><a class="block-blog-posts__post__link" href="' . get_the_permalink() . '">' . get_the_title() . '</a></'.$heading_tag.'>';
 
 				if ( $post_display === 'full' ) {
 					echo '<p class="block-blog-posts__post__except">' . wp_trim_words( $excerpt, 25 ) . '</p>';

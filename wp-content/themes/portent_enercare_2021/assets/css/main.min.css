@@ -70,6 +70,7 @@ input:focus::-webkit-input-placeholder,input:focus::-moz-placeholder,input:focus
 .gform_wrapper .gform_footer input[type=submit]{width:140px;border-radius:30px;font-size:1rem;font-weight:700;line-height:22px;padding:5px 16px;text-decoration:none;background-color:#da1b27;color:#fff;cursor:pointer}
 .gform_confirmation_message{border:2px solid #da1b27;padding:2em;margin:5em auto;max-width:768px;text-align:center;position:relative;font-weight:700;font-size:1.2em}
 .gform_confirmation_message:before{content:"";width:40px;height:40px;background-image:url(../icons/utility/check_black_24dp_rounded.svg);display:block;position:absolute;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%);background-size:cover;background-repeat:no-repeat;background-position:center;font-weight:700;left:3%}
+.gform_submission_error.gform_submission_error_header{font-size:1em;line-height:1.25;margin-bottom:0;color:#c30d18;font-weight:400}
 .ginput_container_checkbox .gchoice{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;height:42px}
 .ginput_container_checkbox input[type="checkbox"]{-webkit-box-flex:0;-ms-flex-positive:0;flex-grow:0;height:auto;width:auto;margin:0 .5em 0 0}
 .form-section--dark,.form-group--dark{background-color:#000;color:#fff}
@@ -576,10 +577,11 @@ div.wpforms-container.one-line:after{content:"";display:table;clear:both}
 .blog .wp-block-categories-list li{display:inline-block;background-color:#e6e4e4;border-radius:20px;padding:.25em .5em;margin:.25em}
 .blog .wp-block-categories-list li:hover,.blog .wp-block-categories-list li:focus{background-color:#d3d1d1}
 .blog .wp-block-categories-list a{color:#29292c;font-size:.8em;text-decoration:none}
-.blog .single-post__featured{border-top:3px solid #000;display:inline-block;padding:.5em 0 0 0;font-size:1.5em;margin:0 0 1.5em 0;font-weight:bold}
+.blog .single-post__featured{border-top:3px solid #000;display:inline-block;padding:.5em 0 0 0;font-size:1.5em;margin:0 0 1.5em 0;font-weight:bold;position:relative}
+.blog .single-post__featured__read-more:before{content:'';display:block;position:absolute;top:0;left:0;width:100%;height:100%}
 .blog .single-post__header{background-repeat:no-repeat;background-size:cover;background-position:center center;margin:calc(2 * 20px) calc(50% - 50vw);max-width:100vw;width:100vw;padding:10vh 0;grid-column-end:span 2;margin-top:0}
 .blog .single-post__header__inner-blocks{margin:calc(2 * 20px) calc(50% - 50vw);max-width:100vw;width:auto}
-.blog .single-post__header__container{background-color:rgba(255,255,255,0.8);max-width:60%;margin:0 auto;padding:1.5em}
+.blog .single-post__header__container{background-color:rgba(255,255,255,0.8);max-width:60%;margin:0 auto;padding:1.5em;position:relative}
 .postal-code-filter__form{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
 .postal-code-filter__input{border-top-right-radius:0;border-bottom-right-radius:0}
 .postal-code-filter__submit{background-color:#da1b27;border:1px dotted transparent;color:white;height:42px;border-top-right-radius:10px;border-bottom-right-radius:10px;padding:0 1em;vertical-align:middle;line-height:0;padding-top:5px;-webkit-transition:background-color .2s ease;transition:background-color .2s ease}

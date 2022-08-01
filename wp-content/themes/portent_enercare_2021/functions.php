@@ -522,6 +522,18 @@ add_filter('acf/load_field/name=gravity_form', 'acf_load_gravity_form_choices');
 add_filter('acf/load_field/name=default_contact_form', 'acf_load_gravity_form_choices');
 add_filter('acf/load_field/name=default_email_form', 'acf_load_gravity_form_choices');
 
+
+/**
+ * Changing default error message Gravity Forms (GF2.5)
+ */
+add_filter("gform_validation_message", "gwp_change_message", 10, 2);
+function gwp_change_message($message, $form){
+	return '<strong class="gform_submission_error gform_submission_error_header hide_summary">
+				<span class="gform-icon gform-icon--close" aria-hidden="true"></span>
+				Your submission contains errors. Please review and correct errors and try your submission again.
+			</strong>';
+}
+
 /**
  * Template Hierarchy
  *
@@ -751,6 +763,11 @@ function enercare_pre_get_posts( $query ) {
 add_action( 'gform_enqueue_scripts', 'enqueue_custom_script', 10, 2 );
 function enqueue_custom_script( $form, $is_ajax ) {
   wp_enqueue_script( 'enercare_gform_script', get_template_directory_uri() . '/assets/js/form--gravity-form.js', array('jquery'), null, true);
+
+	/**
+	 * Enqueue script to locate errors within gravity forms and report them to screen reader users through the use of a polite aria-live element.
+	 */
+    wp_enqueue_script('enercare_gform_error_report', get_template_directory_uri() . '/assets/js/form--gravity-report.js', array('jquery'), null, true);
 
 	$cssClassCheck = strpos($form['cssClass'], 'bogo-form');
 	if ( $cssClassCheck !== false && !is_admin() ) {
