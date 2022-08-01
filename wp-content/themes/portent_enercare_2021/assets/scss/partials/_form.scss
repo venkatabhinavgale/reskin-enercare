@@ -115,6 +115,14 @@ textarea {
 	}
 }
 
+.gform_submission_error.gform_submission_error_header {
+	font-size: 1em;
+	line-height: 1.25;
+	margin-bottom: 0;
+	color: brand-color('dark-red');
+	font-weight: 400;
+}
+
 .ginput_container_checkbox {
 
 	.gchoice {

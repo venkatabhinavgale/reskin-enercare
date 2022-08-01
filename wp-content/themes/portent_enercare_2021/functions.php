@@ -528,11 +528,10 @@ add_filter('acf/load_field/name=default_email_form', 'acf_load_gravity_form_choi
  */
 add_filter("gform_validation_message", "gwp_change_message", 10, 2);
 function gwp_change_message($message, $form){
-	return '<h3 class="gform_submission_error hide_summary">
+	return '<strong class="gform_submission_error gform_submission_error_header hide_summary">
 				<span class="gform-icon gform-icon--close" aria-hidden="true"></span>
-				Oops, something was not correct.
-				Please review the highlighted fields below.
-			</h3>';
+				Your submission contains errors. Please review and correct errors and try your submission again.
+			</strong>';
 }
 
 /**

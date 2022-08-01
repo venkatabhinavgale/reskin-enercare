@@ -23,7 +23,7 @@
 		 * Check for errors and report them
 		 */
 		if(gravityForm.parentElement.classList.contains('gform_validation_error')) {
-			formReport += 'Please address the following issues and submit again';
+			formReport += 'Your submission did not go through. Please address the following issues and try your submission again';
 
 			let errors = gravityForm.querySelectorAll('.gfield_validation_message');
 			errors.forEach(function(error) {
