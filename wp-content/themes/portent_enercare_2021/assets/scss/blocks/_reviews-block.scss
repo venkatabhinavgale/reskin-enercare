@@ -188,11 +188,6 @@
 		}
 	}
 
-	&__prev.disabled,
-	&__next.disabled {
-		visibility: hidden;
-	}
-
 	&__controls {
 		display: flex;
 		justify-content: space-around;

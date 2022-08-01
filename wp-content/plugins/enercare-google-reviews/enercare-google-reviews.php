@@ -691,9 +691,9 @@ function ecreviews_location_block_render_callback( $attributes, $content ) {
   $output .= '</div>';
 
   $output .= '<div class="block-carousel__controls">';
-  	$output .= '<button aria-label="Previous" class="button__prev block-reviews__prev"><img alt="Previous" src="'.plugin_dir_url(__FILE__) . 'img/arrow_back_ios_black_24dp_rounded.svg" /></button>';
+  	$output .= '<button aria-label="Previous" class="glider-prev button__prev block-reviews__prev"><img alt="Previous" src="'.plugin_dir_url(__FILE__) . 'img/arrow_back_ios_black_24dp_rounded.svg" /></button>';
   	$output .= '<div role="tablist" class="dots block-reviews__dots"></div>';
-  	$output .= '<button aria-label="Next" class="block-reviews__next"><img alt="Next" src="'.plugin_dir_url(__FILE__) . 'img/arrow_forward_ios_black_24dp_rounded.svg" /></button>';
+  	$output .= '<button aria-label="Next" class="glider-next block-reviews__next"><img alt="Next" src="'.plugin_dir_url(__FILE__) . 'img/arrow_forward_ios_black_24dp_rounded.svg" /></button>';
   $output .= "</div>";
 
   $output .= '</div>';
