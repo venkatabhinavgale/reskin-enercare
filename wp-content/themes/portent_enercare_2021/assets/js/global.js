@@ -17,7 +17,6 @@ jQuery(function ($) {
   Global glider button listener
    */
   var gliderButtons = document.querySelectorAll('.glider-prev, .glider-next');
-  console.log(gliderButtons);
   var gliderOsberverConfig = {
     attributes: true,
     subtree: true
@@ -26,9 +25,9 @@ jQuery(function ($) {
   var gliderObserverCallback = function gliderObserverCallback(mutationList, observer) {
     mutationList.forEach(function (mutation) {
       if (mutation.attributeName === 'class') {
-        if (mutation.target.classList.contains('disabled')) {
+        if (mutation.target.classList.contains('disabled') && !mutation.target.hasAttribute('tabindex')) {
           mutation.target.setAttribute('tabindex', '-1');
-        } else {
+        } else if (!mutation.target.classList.contains('disabled') && mutation.target.hasAttribute('tabindex')) {
           mutation.target.removeAttribute('tabindex');
         }
       }
