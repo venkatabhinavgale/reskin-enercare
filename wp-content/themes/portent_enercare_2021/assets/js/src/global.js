@@ -7,13 +7,12 @@ jQuery(function($){
 	console.log(gliderButtons);
 	const gliderOsberverConfig = {attributes: true, subtree:true}
 	const gliderObserverCallback = function(mutationList, observer) {
-		console.log(mutationList);
 		mutationList.forEach(function(mutation){
 			if(mutation.attributeName === 'class'){
 				if(mutation.target.classList.contains('disabled')){
-					mutation.target.setAttribute('disabled', '');
+					mutation.target.setAttribute('tabindex', '-1');
 				} else {
-					mutation.target.removeAttribute('disabled');
+					mutation.target.removeAttribute('tabindex');
 				}
 			}
 		});
