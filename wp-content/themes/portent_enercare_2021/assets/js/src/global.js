@@ -4,14 +4,13 @@ jQuery(function($){
 	Global glider button listener
 	 */
 	const gliderButtons = document.querySelectorAll('.glider-prev, .glider-next');
-	console.log(gliderButtons);
 	const gliderOsberverConfig = {attributes: true, subtree:true}
 	const gliderObserverCallback = function(mutationList, observer) {
 		mutationList.forEach(function(mutation){
 			if(mutation.attributeName === 'class'){
-				if(mutation.target.classList.contains('disabled')){
+				if(mutation.target.classList.contains('disabled') && !mutation.target.hasAttribute('tabindex')){
 					mutation.target.setAttribute('tabindex', '-1');
-				} else {
+				} else if(!mutation.target.classList.contains('disabled') && mutation.target.hasAttribute('tabindex')) {
 					mutation.target.removeAttribute('tabindex');
 				}
 			}
