@@ -30,10 +30,6 @@ if( !empty($block['align']) ) {
 	$classes .= sprintf( ' align%s', $block['align'] );
 }
 
-if ($post_type == "page" && $content_hub_cats) {
-  $blog_cats = $content_hub_cats;
-}
-
 /*
  * Query Posts
  *
@@ -59,6 +55,30 @@ if( $blog_cats && $blog_num_posts > count( $blog_include_posts ) ) {
 	 * We have to do this with get_posts, if we use wp_query we will get an object instead of an array
 	 */
 	$category_query = get_posts( $category_query_args );
+  
+} elseif ($post_type == "page" && $content_hub_cats) {
+  
+  /*
+   * Create a special query for Content Hub Categories, if 'page' is selected and Content Hub Categories are defined.
+   */
+  $category_query_args = array(
+		'post_type'   => 'page',
+    'post_status' => 'publish',
+		'fields'      => 'ids',
+    'tax_query' => array(
+      array(
+        'taxonomy' => 'content-hub-categories',
+        'terms' => $content_hub_cats,
+        'operator' => 'IN'
+      )
+    )
+	);
+
+	/**
+	 * We have to do this with get_posts, if we use wp_query we will get an object instead of an array
+	 */
+	$category_query = get_posts( $category_query_args );
+  
 } else {
 	$category_query = array();
 }
