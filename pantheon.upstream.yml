@@ -13,6 +13,7 @@ protected_web_paths:
   - /private/
   - /wp-content/uploads/private/
   - /xmlrpc.php
+  - /.user.ini
 
 # By default, any 'protected_web_paths' added to the pantheon.yml file
 # are combined with the paths from the pantheon.upstream.yml file. If
