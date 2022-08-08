@@ -7,6 +7,10 @@
  *
  * https://pantheon.io/docs
  */
+ 
+if (isset($_ENV['PANTHEON_ENVIRONMENT'])) {
+  define('FS_METHOD', 'direct');
+}
 
 /**
  * Pantheon platform settings. Everything you need should already be set.
