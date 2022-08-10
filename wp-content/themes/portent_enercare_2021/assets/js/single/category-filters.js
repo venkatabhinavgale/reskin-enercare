@@ -182,47 +182,56 @@ jQuery(function ($) {
   }); //Start the page load with a filter check
 
   flagActiveFilters();
-  
+
   $('.category-filter__select').on('change', function (event) {
     var searchedTaxonomy = this.value;
     //console.log(searchedTaxonomy);
     var currentUrl = new URL(window.location.href);
     var taxonomySlug = $(this).attr('data-taxonomy');
     var category = currentUrl.searchParams.get(taxonomySlug);
-    
+
     currentUrl.searchParams.set(taxonomySlug, searchedTaxonomy);
-    
+
     var updatedUrl = currentUrl.href;
     pushHistoryState(updatedUrl);
-    
+
     displayFilteredResults(updatedUrl);
   }); //Single filter criteria control hookup
-  
+
   $('.postal-code-input-container button').on('click', function (event) {
     var searchedPostalCode = $('.postal-code-input-container #postalCode').val();
-    console.log(searchedPostalCode);
     var currentUrl = new URL(window.location.href);
-    var postalCode = currentUrl.searchParams.get('postal_code');
-    
-    currentUrl.searchParams.set('postal_code', searchedPostalCode);
-    
-    var updatedUrl = currentUrl.href;
-    pushHistoryState(updatedUrl);
-    
-    displayFilteredResults(updatedUrl);
+    let topLevelContainer = $(this).parent().parent();
+
+    var isPostalCode = /^[ABCEGHJ-NPRSTVXY]\d[ABCEGHJ-NPRSTV-Z][ -]?\d[ABCEGHJ-NPRSTV-Z]\d$/i.test(searchedPostalCode);
+
+    if(isPostalCode) {
+		var postalCode = currentUrl.searchParams.get('postal_code');
+		currentUrl.searchParams.set('postal_code', searchedPostalCode);
+		var updatedUrl = currentUrl.href;
+		topLevelContainer.removeClass('has-errors');
+		pushHistoryState(updatedUrl);
+		displayFilteredResults(updatedUrl);
+	} else {
+    	topLevelContainer.addClass('has-errors');
+		let errorLabel = $(this).parent().parent().find('.form-error');
+		console.log(errorLabel);
+		errorLabel.text('Please enter a valid postal code');
+	}
+
   }); //Single filter criteria control hookup
-  
+
   $('.province-filter__select').on('change', function (event) {
     var searchedProvince = this.value;
     console.log(searchedProvince);
     var currentUrl = new URL(window.location.href);
     var province = currentUrl.searchParams.get('province');
-    
+
     currentUrl.searchParams.set('province', searchedProvince);
-    
+
     var updatedUrl = currentUrl.href;
     pushHistoryState(updatedUrl);
-    
+
     displayFilteredResults(updatedUrl);
   }); //Single filter criteria control hookup
 });

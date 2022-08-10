@@ -538,8 +538,9 @@ function the_province_filter() {
 function get_postal_code_filter() {
   $output = '<div class="postal-code-filter postal-code-input-container flex-grid-cell">';
     $output .= '<label class="postal-code-filter__label" for="postalCode">Postal Code <span class="required-text">(required)</span></label>';
+	$output .= '<label for="postalCode" class="form-error"></label>';
     $output .= '<div class="postal-code-filter__form">';
-        $output .= '<input class="postal-code-filter__input" required autocomplete="postal-code" type="text" id="postalCode" name="postalCode" value="" />';
+        $output .= '<input class="postal-code-filter__input" required autocomplete="postal-code" pattern="/^[ABCEGHJ-NPRSTVXY]\d[ABCEGHJ-NPRSTV-Z][ -]?\d[ABCEGHJ-NPRSTV-Z]\d$/i" type="text" id="postalCode" name="postalCode" value="" />';
         $output .= '<button class="postal-code-filter__submit">Go</button>';
     $output .= '</div>';
     $output .= '<label for="postalCode" class="postal-code-filter__message">eg: A1A1A1</label>';

@@ -115,12 +115,25 @@ textarea {
 	}
 }
 
-.gform_submission_error.gform_submission_error_header {
+.gform_submission_error.gform_submission_error_header,
+.form-error {
 	font-size: 1em;
 	line-height: 1.25;
 	margin-bottom: 0;
-	color: brand-color('dark-red');
+	color: $form-error-color;
 	font-weight: 400;
+}
+
+.has-errors .form-error {
+	display: block;
+}
+
+.form-error {
+	display: none;
+	margin: 5px 0;
+	padding: 5px;
+	background-color: $form-error-background;
+	border: 1px solid $form-error-color;
 }
 
 .ginput_container_checkbox {
