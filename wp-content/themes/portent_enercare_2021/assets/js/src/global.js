@@ -1,28 +1,5 @@
 jQuery(function($){
 
-	/*
-	Global glider button listener
-	 */
-	const gliderButtons = document.querySelectorAll('.glider-prev, .glider-next');
-	const gliderOsberverConfig = {attributes: true, subtree:true}
-	const gliderObserverCallback = function(mutationList, observer) {
-		mutationList.forEach(function(mutation){
-			if(mutation.attributeName === 'class'){
-				if(mutation.target.classList.contains('disabled') && !mutation.target.hasAttribute('tabindex')){
-					mutation.target.setAttribute('tabindex', '-1');
-				} else if(!mutation.target.classList.contains('disabled') && mutation.target.hasAttribute('tabindex')) {
-					mutation.target.removeAttribute('tabindex');
-				}
-			}
-		});
-	}
-
-	const gliderObserver = new MutationObserver(gliderObserverCallback);
-
-	gliderButtons.forEach(function(button){
-		gliderObserver.observe(button, gliderOsberverConfig);
-	});
-
 	// Mobile Menu
 	$('.menu-toggle').click(function(){
 			// $('.search-toggle, .header-search').removeClass('active');

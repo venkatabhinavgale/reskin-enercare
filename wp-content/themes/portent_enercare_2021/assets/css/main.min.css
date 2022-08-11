@@ -70,7 +70,9 @@ input:focus::-webkit-input-placeholder,input:focus::-moz-placeholder,input:focus
 .gform_wrapper .gform_footer input[type=submit]{width:140px;border-radius:30px;font-size:1rem;font-weight:700;line-height:22px;padding:5px 16px;text-decoration:none;background-color:#da1b27;color:#fff;cursor:pointer}
 .gform_confirmation_message{border:2px solid #da1b27;padding:2em;margin:5em auto;max-width:768px;text-align:center;position:relative;font-weight:700;font-size:1.2em}
 .gform_confirmation_message:before{content:"";width:40px;height:40px;background-image:url(../icons/utility/check_black_24dp_rounded.svg);display:block;position:absolute;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%);background-size:cover;background-repeat:no-repeat;background-position:center;font-weight:700;left:3%}
-.gform_submission_error.gform_submission_error_header{font-size:1em;line-height:1.25;margin-bottom:0;color:#c30d18;font-weight:400}
+.gform_submission_error.gform_submission_error_header,.form-error{font-size:1em;line-height:1.25;margin-bottom:0;color:#c02b0a;font-weight:400}
+.has-errors .form-error{display:block}
+.form-error{display:none;margin:5px 0;padding:5px;background-color:#fff9f9;border:1px solid #c02b0a}
 .ginput_container_checkbox .gchoice{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;height:42px}
 .ginput_container_checkbox input[type="checkbox"]{-webkit-box-flex:0;-ms-flex-positive:0;flex-grow:0;height:auto;width:auto;margin:0 .5em 0 0}
 .form-section--dark,.form-group--dark{background-color:#000;color:#fff}

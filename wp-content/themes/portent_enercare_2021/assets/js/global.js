@@ -13,32 +13,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToAr
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
 jQuery(function ($) {
-  /*
-  Global glider button listener
-   */
-  var gliderButtons = document.querySelectorAll('.glider-prev, .glider-next');
-  var gliderOsberverConfig = {
-    attributes: true,
-    subtree: true
-  };
-
-  var gliderObserverCallback = function gliderObserverCallback(mutationList, observer) {
-    mutationList.forEach(function (mutation) {
-      if (mutation.attributeName === 'class') {
-        if (mutation.target.classList.contains('disabled') && !mutation.target.hasAttribute('tabindex')) {
-          mutation.target.setAttribute('tabindex', '-1');
-        } else if (!mutation.target.classList.contains('disabled') && mutation.target.hasAttribute('tabindex')) {
-          mutation.target.removeAttribute('tabindex');
-        }
-      }
-    });
-  };
-
-  var gliderObserver = new MutationObserver(gliderObserverCallback);
-  gliderButtons.forEach(function (button) {
-    gliderObserver.observe(button, gliderOsberverConfig);
-  }); // Mobile Menu
-
+  // Mobile Menu
   $('.menu-toggle').click(function () {// $('.search-toggle, .header-search').removeClass('active');
     // $('.menu-toggle, .nav-menu').toggleClass('active');
   });
