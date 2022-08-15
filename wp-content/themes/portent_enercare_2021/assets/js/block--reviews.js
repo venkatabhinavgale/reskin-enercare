@@ -28,7 +28,7 @@ window.addEventListener('load', function () {
   // blockReviews.parentNode.insertBefore(nextArrow, blockReviews.nextSibling);
   // blockReviews.parentNode.insertBefore(prevArrow, blockReviews.nextSibling);
 
-  new Glider(blockReviews, {
+  var reviewsGlider = new Glider(blockReviews, {
     slidesToShow: 1,
     slidesToScroll: 1,
     draggable: true,
@@ -61,4 +61,43 @@ window.addEventListener('load', function () {
       }
     }]
   });
+  var gliderNotificationCenter;
+  gliderNotificationCenter = document.querySelector('#gliderNotificationCenter');
+  /**
+   * Glider Change Listener
+   */
+
+  blockReviews.addEventListener('glider-slide-visible', function (event) {
+    gliderNotificationCenter.textContent = "Review ".concat(event.detail.slide + 1, " is now visible");
+  });
+  /**
+   * Setup Next/Previous Status Reporters
+   */
+
+  var reviewsCarouselPrev = document.querySelector('.block-reviews__prev');
+  var reviewsCarouselNext = document.querySelector('.block-reviews__next');
+
+  var reviewCarouselAction = function reviewCarouselAction(event, direction) {
+    gliderNotificationCenter.textContent = '';
+    var closestSlide = event.target.closest('.glider-slide.visible');
+    console.log(closestSlide);
+
+    if (!event.target.classList.contains('disabled') && window.outerWidth >= 1024) {
+      gliderNotificationCenter.textContent = "Carousel of reviews moved to ".concat(direction, " slide of 4 reviews.");
+    } else if (!event.target.classList.contains('disabled') && window.outerWidth < 775) {
+      gliderNotificationCenter.textContent = "Carousel of reviews moved to ".concat(direction, " review.");
+    }
+  };
+
+  if (typeof reviewsCarouselPrev !== 'undefined') {
+    reviewsCarouselNext.addEventListener('click', function (event) {
+      reviewCarouselAction(event, 'Next');
+    });
+  }
+
+  if (typeof reviewsCarouselPrev !== 'undefined') {
+    reviewsCarouselPrev.addEventListener('click', function (event) {
+      reviewCarouselAction(event, 'Previous');
+    });
+  }
 });

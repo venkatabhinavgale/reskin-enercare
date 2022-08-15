@@ -35,4 +35,38 @@ window.addEventListener('load', function(){
       responsive: $responsive_obj
     });
   });
+
+	/**
+	 * Setup Next/Previous Status Reporters
+	 */
+	let gliderNotificationCenter;
+	gliderNotificationCenter = document.querySelector('#gliderNotificationCenter');
+
+	let reviewCarouselAction = function(event, direction) {
+		gliderNotificationCenter.textContent = '';
+		if(!event.target.classList.contains('disabled') && window.outerWidth >= 1024) {
+			gliderNotificationCenter.textContent = `Carousel moved to ${direction} group of 4 items.`;
+		} else if(!event.target.classList.contains('disabled') && window.outerWidth < 775) {
+			gliderNotificationCenter.textContent = `Carousel moved to ${direction} item.`;
+		}
+	};
+
+	let reviewsCarouselPrev = document.querySelectorAll('.block-reviews__prev');
+	let reviewsCarouselNext = document.querySelectorAll('.block-reviews__next');
+
+	if(typeof reviewsCarouselPrev !== 'undefined'){
+		reviewsCarouselPrev.forEach(function(button){
+			button.addEventListener('click', function(event){
+				reviewCarouselAction(event, 'Previous');
+			});
+		});
+	}
+
+	if(typeof reviewsCarouselPrev !== 'undefined'){
+		reviewsCarouselNext.forEach(function(button){
+			button.addEventListener('click', function(event){
+				reviewCarouselAction(event, 'Next');
+			});
+		});
+	}
 });
