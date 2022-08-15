@@ -33,7 +33,7 @@ window.addEventListener('load', function(){
 	// blockReviews.parentNode.insertBefore(nextArrow, blockReviews.nextSibling);
 	// blockReviews.parentNode.insertBefore(prevArrow, blockReviews.nextSibling);
 
-new Glider(blockReviews, {
+const reviewsGlider = new Glider(blockReviews, {
 	slidesToShow: 1,
 	slidesToScroll: 1,
 	draggable: true,
@@ -69,17 +69,27 @@ new Glider(blockReviews, {
 	]
 });
 
+	let gliderNotificationCenter;
+	gliderNotificationCenter = document.querySelector('#gliderNotificationCenter');
+
+	/**
+	 * Glider Change Listener
+	 */
+	blockReviews.addEventListener('glider-slide-visible', function(event){
+		gliderNotificationCenter.textContent = `Review ${event.detail.slide + 1} is now visible`;
+	});
+
 	/**
 	 * Setup Next/Previous Status Reporters
 	 */
-	let gliderNotificationCenter;
-	gliderNotificationCenter = document.querySelector('#gliderNotificationCenter');
 
 	let reviewsCarouselPrev = document.querySelector('.block-reviews__prev');
 	let reviewsCarouselNext = document.querySelector('.block-reviews__next');
 
 	let reviewCarouselAction = function(event, direction) {
 		gliderNotificationCenter.textContent = '';
+		let closestSlide = event.target.closest('.glider-slide.visible');
+		console.log(closestSlide);
 		if(!event.target.classList.contains('disabled') && window.outerWidth >= 1024) {
 			gliderNotificationCenter.textContent = `Carousel of reviews moved to ${direction} slide of 4 reviews.`;
 		} else if(!event.target.classList.contains('disabled') && window.outerWidth < 775) {
@@ -87,12 +97,17 @@ new Glider(blockReviews, {
 		}
 	};
 
-	reviewsCarouselNext.addEventListener('click', function(event){
-		reviewCarouselAction(event, 'Next');
-	});
-	reviewsCarouselPrev.addEventListener('click', function(event){
-		reviewCarouselAction(event, 'Prev');
-	});
+	if(typeof reviewsCarouselPrev !== 'undefined'){
+		reviewsCarouselNext.addEventListener('click', function(event){
+			reviewCarouselAction(event, 'Next');
+		});
+	}
 
+	if(typeof reviewsCarouselPrev !== 'undefined'){
+		reviewsCarouselPrev.addEventListener('click', function(event){
+			reviewCarouselAction(event, 'Previous');
+		});
+	}
 
 });
+

@@ -84,18 +84,7 @@ jQuery(function ($) {
   // All components added. Start
 
   searchui.start();
-  mobileSearchui.start();
-
-	/**
-	 * Add autocomplete attribute to search field
-	 */
-	console.log( $('.addsearch-searchfield') );
-	$('#searchfield input').attr('autocomplete', 'on');
-	$('.addsearch-searchfield').attr('autocomplete', 'on');
-
-
-
-  //Enercare Specific function
+  mobileSearchui.start(); //Enercare Specific function
 
   (function (window, document, undefined) {
     window.Enercare = {};
@@ -213,6 +202,7 @@ jQuery(function ($) {
     }
   })(window, document);
 });
+
 /**
  * Toggle Navigation Script
  */

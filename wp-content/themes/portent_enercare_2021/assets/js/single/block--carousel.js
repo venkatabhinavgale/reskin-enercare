@@ -42,22 +42,31 @@ window.addEventListener('load', function(){
 	let gliderNotificationCenter;
 	gliderNotificationCenter = document.querySelector('#gliderNotificationCenter');
 
-	let reviewsCarouselPrev = document.querySelector('.block-reviews__prev');
-	let reviewsCarouselNext = document.querySelector('.block-reviews__next');
-
 	let reviewCarouselAction = function(event, direction) {
 		gliderNotificationCenter.textContent = '';
 		if(!event.target.classList.contains('disabled') && window.outerWidth >= 1024) {
-			gliderNotificationCenter.textContent = `Carousel of reviews moved to ${direction} slide of 4 reviews.`;
+			gliderNotificationCenter.textContent = `Carousel moved to ${direction} group of 4 items.`;
 		} else if(!event.target.classList.contains('disabled') && window.outerWidth < 775) {
-			gliderNotificationCenter.textContent = `Carousel of reviews moved to ${direction} review.`;
+			gliderNotificationCenter.textContent = `Carousel moved to ${direction} item.`;
 		}
 	};
 
-	reviewsCarouselNext.addEventListener('click', function(event){
-		reviewCarouselAction(event, 'Next');
-	});
-	reviewsCarouselPrev.addEventListener('click', function(event){
-		reviewCarouselAction(event, 'Prev');
-	});
+	let reviewsCarouselPrev = document.querySelectorAll('.block-reviews__prev');
+	let reviewsCarouselNext = document.querySelectorAll('.block-reviews__next');
+
+	if(typeof reviewsCarouselPrev !== 'undefined'){
+		reviewsCarouselPrev.forEach(function(button){
+			button.addEventListener('click', function(event){
+				reviewCarouselAction(event, 'Previous');
+			});
+		});
+	}
+
+	if(typeof reviewsCarouselPrev !== 'undefined'){
+		reviewsCarouselNext.forEach(function(button){
+			button.addEventListener('click', function(event){
+				reviewCarouselAction(event, 'Next');
+			});
+		});
+	}
 });

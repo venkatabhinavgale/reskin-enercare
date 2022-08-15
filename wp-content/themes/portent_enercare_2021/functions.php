@@ -113,7 +113,7 @@ function enercare_scripts() {
 	}
 
 	//@todo do this right eventually
-	wp_enqueue_script( 'column-carousels', get_template_directory_uri() . '/assets/js/block--columns-carousel.js', array( 'glider-js', 'simple-state-manager' ), filemtime( get_template_directory() . '/assets/js/sliding-menu-polyfills.js' ), true );
+	wp_enqueue_script( 'column-carousels', get_template_directory_uri() . '/assets/js/block--columns-carousel.js', array( 'glider-js', 'simple-state-manager', 'ea-global' ), filemtime( get_template_directory() . '/assets/js/sliding-menu-polyfills.js' ), true );
 	wp_enqueue_script( 'glider-js', get_template_directory_uri() . '/assets/js/glider/glider.min.js', null , null, true );
 	wp_enqueue_style( 'glider-css', get_template_directory_uri() . '/assets/js/glider/glider.min.css', null , null );
 
@@ -129,7 +129,7 @@ function enercare_scripts() {
 	 */
 	if( is_singular('post') ) {
 		wp_enqueue_style('dashicons');
-		wp_enqueue_script('related-posts-carousel', get_template_directory_uri() . '/assets/js/related-posts.js', array( 'simple-state-manager', 'glider-js'), null, true);
+		wp_enqueue_script('related-posts-carousel', get_template_directory_uri() . '/assets/js/related-posts.js', array( 'simple-state-manager', 'glider-js', 'ea-global'), null, true);
 	}
 
 	/**
@@ -168,7 +168,7 @@ function enercare_scripts() {
 	if( has_block( 'enercare-google-reviews/ecreviews-block' ) ) {
 		wp_enqueue_script('glider-js');
 		wp_enqueue_style('glider-css');
-		wp_enqueue_script( 'enercare-reviews-scripts', get_template_directory_uri() . '/assets/js/block--reviews.js', array( 'glider-js' ), null, true );
+		wp_enqueue_script( 'enercare-reviews-scripts', get_template_directory_uri() . '/assets/js/block--reviews.js', array( 'glider-js', 'ea-global' ), null, true );
 		wp_enqueue_style( 'enercare-reviews-style', get_template_directory_uri() . '/assets/css/block--reviews-block.css', array( 'ea-style', 'glider-css' ), null );
 	}
 
