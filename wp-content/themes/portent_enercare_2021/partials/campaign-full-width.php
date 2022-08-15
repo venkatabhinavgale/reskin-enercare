@@ -13,7 +13,7 @@
 					<?php if ($campaign_expiration && $campaign_expiration != "") { ?>
 						Offer expires <?= date('F d, Y', strtotime($campaign_expiration)); ?>.
 					<?php } ?>
-					<button class="block-offer-card__terms-toggle" aria-controls="terms_<?= $campaign->ID ?>" data-micromodal-trigger="modal-<?=$campaign->ID ?>" aria-label="Open modal and view details and fine print for this offer">View Details</button>
+					<button class="block-offer-card__terms-toggle" aria-controls="terms_<?= $campaign->ID ?>" data-micromodal-trigger="modal-<?=$campaign->ID ?>" aria-label="Open modal and view details and fine print for <?= $campaign_heading ?>">View Details</button>
 				</p>
 			<a href="<?= $campaign_destination; ?>" class="wp-block-button__link has-red-background-color has-background block-offer-card__link" aria-label="Get deal for <?= $campaign_heading; ?>"><img class="block-offer-card__link__icon" alt="" role="presentation" src="<?= $cta_icon ?>"/><?= $cta_text ?></a>
 		<?= $campaign_terms; ?>

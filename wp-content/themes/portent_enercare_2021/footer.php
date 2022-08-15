@@ -35,6 +35,11 @@ function footer_cta() {
 }
 add_action( 'wp_footer', 'footer_cta' );
 
+function glider_notification_center() {
+	echo '<div id="gliderNotificationCenter" aria-atomic="true" aria-live="polite"></div>';
+}
+add_action('wp_footer', 'glider_notification_center');
+
 echo '</div>'; // .site-inner
 tha_footer_before();
 echo '<footer class="site-footer" role="contentinfo"><div class="wrap">';

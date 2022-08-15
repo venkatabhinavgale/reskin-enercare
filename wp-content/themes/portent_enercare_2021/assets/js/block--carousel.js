@@ -30,4 +30,29 @@ window.addEventListener('load', function () {
       responsive: $responsive_obj
     });
   });
+  /**
+   * Setup Next/Previous Status Reporters
+   */
+
+  var gliderNotificationCenter;
+  gliderNotificationCenter = document.querySelector('#gliderNotificationCenter');
+  var reviewsCarouselPrev = document.querySelector('.block-reviews__prev');
+  var reviewsCarouselNext = document.querySelector('.block-reviews__next');
+
+  var reviewCarouselAction = function reviewCarouselAction(event, direction) {
+    gliderNotificationCenter.textContent = '';
+
+    if (!event.target.classList.contains('disabled') && window.outerWidth >= 1024) {
+      gliderNotificationCenter.textContent = "Carousel of reviews moved to ".concat(direction, " slide of 4 reviews.");
+    } else if (!event.target.classList.contains('disabled') && window.outerWidth < 775) {
+      gliderNotificationCenter.textContent = "Carousel of reviews moved to ".concat(direction, " review.");
+    }
+  };
+
+  reviewsCarouselNext.addEventListener('click', function (event) {
+    reviewCarouselAction(event, 'Next');
+  });
+  reviewsCarouselPrev.addEventListener('click', function (event) {
+    reviewCarouselAction(event, 'Prev');
+  });
 });
