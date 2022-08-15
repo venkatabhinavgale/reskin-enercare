@@ -349,10 +349,10 @@ function enercare_gform_remove_repeater_19( $form_meta, $form_id, $meta_name ) {
   return $form_meta;
 }
 add_filter( 'gform_form_update_meta_19', 'enercare_gform_remove_repeater_19', 10, 3 );
-
+*/
 
 function enercare_gform_date_min_year( $min_date, $form, $field ) {
-  if ($form['id'] == 19) {
+  if ($form['id'] == 18 || $form['id'] == 19 || $form['id'] == 20) {
     return date('Y', strtotime('+1 day'));
   }
   return $min_date;
@@ -360,7 +360,7 @@ function enercare_gform_date_min_year( $min_date, $form, $field ) {
 add_filter( 'gform_date_min_year', 'enercare_gform_date_min_year', 10, 3 );
 
 function enercare_gform_field_validation( $result, $value, $form, $field ) {
-  if ( $form['id'] == 19 && $field->get_input_type() == 'date' ) {
+  if ( ($form['id'] == 18 || $form['id'] == 19 || $form['id'] == 20) && $field->get_input_type() == 'date' ) {
     $date = GFCommon::parse_date( $value );
     $tomorrow = date(strtotime('+1 day'));
     $date_input = $date['year'] . '-' . $date['month'] . '-' . $date['day'];
