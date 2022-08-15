@@ -538,7 +538,7 @@ function the_province_filter() {
 function get_postal_code_filter() {
   $output = '<div class="postal-code-filter postal-code-input-container flex-grid-cell">';
     $output .= '<label class="postal-code-filter__label" for="postalCode">Postal Code <span class="required-text">(required)</span></label>';
-	$output .= '<label for="postalCode" class="form-error"></label>';
+    $output .= '<label for="postalCode" class="form-error"></label>';
     $output .= '<div class="postal-code-filter__form">';
         $output .= '<input class="postal-code-filter__input" required autocomplete="postal-code" pattern="/^[ABCEGHJ-NPRSTVXY]\d[ABCEGHJ-NPRSTV-Z][ -]?\d[ABCEGHJ-NPRSTV-Z]\d$/i" type="text" id="postalCode" name="postalCode" value="" />';
         $output .= '<button class="postal-code-filter__submit">Go</button>';
@@ -555,4 +555,20 @@ function get_postal_code_filter() {
  */
 function the_postal_code_filter() {
 	echo get_postal_code_filter();
+}
+
+/**
+ * Get the author's bio image
+ */
+function get_author_headshot( $author_id = false, $image_class = "author-image" ) {
+	if( !$author_id ) {
+		$author_id = get_the_author_meta('ID');
+	}
+
+	$author_headshot = get_field('author_headshot', 'user_'.$author_id );
+	if( empty($author_headshot) ) {
+		$author_headshot = get_field('default_author_headshot', 'options');
+	}
+
+	return wp_get_attachment_image($author_headshot, 'thumbnail', null, array( 'class' => $image_class, 'role' => 'presentation' ) );
 }

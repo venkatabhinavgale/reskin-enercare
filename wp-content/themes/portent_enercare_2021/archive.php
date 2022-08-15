@@ -37,6 +37,10 @@ function enercare_archive_header() {
 		$title = 'Search Results';
 		//$more = get_search_form( false );
 
+  } elseif(is_author()) {
+		get_template_part('partials/author', 'bio');
+		//ea_filter_taxonomy_by_post_type();
+
 	} elseif( is_archive() ) {
 		$title = get_the_archive_title();
 		if( ! get_query_var( 'paged' ) )
@@ -84,7 +88,9 @@ if (!is_search() && have_posts() && !is_category()) {
 // add section wrapper -- we'll use this on our ajax calls to replace the results
 function enercare_archive_wrapper_top() {
 	echo '<div class="archive-containment-field">';
-		echo '<h2>Recent Articles</h2>';
+    if (!is_author()) {
+      echo '<h2>Recent Articles</h2>';
+    }
     echo '<section class="archive-wrapper">';
 }
 add_action('tha_content_while_before', 'enercare_archive_wrapper_top');

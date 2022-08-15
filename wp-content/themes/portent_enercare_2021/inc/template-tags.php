@@ -94,10 +94,11 @@ function enercare_post_date() {
  */
 function enercare_entry_byline() {
   $id = get_the_author_meta( 'ID' );
+  $url = get_author_posts_url( $id );
   echo '<div class="post-meta">';
     echo get_avatar( $id, 40 );
       echo '<div class="post-meta__author-meta">';
-        echo '<div class="post-meta__author-meta__name">' . get_the_author() . '</div>';
+        echo '<div class="post-meta__author-meta__name"><a href="' . $url . '">' . get_the_author() . '</a></div>';
         echo '<div class="post-meta__author-meta__date">'.get_the_date('F j').'</div>';
         echo do_shortcode( '[rt_reading_time label="" postfix="min read"]');
     echo '</div>';

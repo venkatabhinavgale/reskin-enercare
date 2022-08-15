@@ -62,6 +62,7 @@ textarea{width:100%}
 ::-ms-input-placeholder{color:#000}
 ::-webkit-input-placeholder{color:#000}
 input:focus::-webkit-input-placeholder,input:focus::-moz-placeholder,input:focus:-ms-input-placeholder,textarea:focus::-webkit-input-placeholder,textarea:focus::-moz-placeholder,textarea:focus:-ms-input-placeholder{color:transparent}
+.gform_fullwidth .gform_wrapper{margin:0 auto;width:95%}
 .gform_wrapper{margin:0 auto;width:95%}
 .gform_wrapper .ginput_container_consent{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}
 .gform_wrapper .ginput_container_consent input[type=checkbox]{max-width:25%;margin:0;width:1em}

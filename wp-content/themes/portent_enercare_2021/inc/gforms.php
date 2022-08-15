@@ -69,7 +69,8 @@ function enercare_gform_webhooks_post_request($response, $feed, $entry, $form) {
     }
   }
   
-  $webhookDate = date('m/d/Y h:i:s A');
+  date_default_timezone_set('America/Toronto');
+  $webhookDate = date('m/d/Y h:i:s A', time());
   // do something here if the request failed.
   if (is_wp_error($response)) {
     $webhookStatus = 'Fail';
@@ -159,6 +160,19 @@ function gravity_forms_move_progress_bar( $form_string, $form ) {
 }
 add_filter( 'gform_get_form_filter', 'gravity_forms_move_progress_bar', 10, 3 );
 
+function enercare_gform_address_types( $address_types, $form_id ) {
+  $address_types['canada_ontario'] = array(
+    'label'       => 'Canadian (Ontario only)',
+    'zip_label'   => 'Postal Code',
+    'state_label' => 'Province',
+    'country'     => 'Canada',
+    'states'      => array(
+      'Ontario'
+    )
+  );
+  return $address_types;
+}
+add_filter( 'gform_address_types', 'enercare_gform_address_types', 10, 2 );
 
 /* 
 ----------------------------------------------------------
@@ -195,5 +209,182 @@ add_filter('gfexcel_field_label', 'enercare_gfexcel_field_label', 10, 2);
 /* 
 ----------------------------------------------------------
 END GRAVITY LITE EXPORTS CUSTOMIZATIONS
+----------------------------------------------------------
+*/
+
+/* 
+----------------------------------------------------------
+BUILDER FORMS CUSTOMIZATIONS -- 8/11/2022: Client not moving forward with repeater field customizations. Saving for future if need be.
+----------------------------------------------------------
+
+// add repeater fields for the Pre-Inspection Checklist on the Commissioning Form
+function enercare_gform_repeater_fields_19( $form ) {
+  
+  $lot = GF_Fields::create( array(
+      'type'   => 'text',
+      'id'     => 1001, // The Field ID must be unique on the form
+      'formId' => $form['id'],
+      'label'  => 'Lot #',
+      'pageNumber'  => 1, // Ensure this is correct
+      'size' => 'small',
+  ) );
+  $unit = GF_Fields::create( array(
+      'type'   => 'text',
+      'id'     => 1002, // The Field ID must be unique on the form
+      'formId' => $form['id'],
+      'label'  => 'Unit #',
+      'pageNumber'  => 1, // Ensure this is correct
+      'size' => 'small',
+  ) );
+  $street = GF_Fields::create( array(
+      'type'   => 'text',
+      'id'     => 1003, // The Field ID must be unique on the form
+      'formId' => $form['id'],
+      'label'  => 'Civic Street #',
+      'pageNumber'  => 1, // Ensure this is correct
+      'isRequired' => true,
+      'size' => 'small',
+  ) );
+  $address = GF_Fields::create( array(
+      'type'   => 'text',
+      'id'     => 1004, // The Field ID must be unique on the form
+      'formId' => $form['id'],
+      'label'  => 'Civic Street Name',
+      'pageNumber'  => 1, // Ensure this is correct
+      'isRequired' => true,
+      'size' => 'small',
+  ) );
+  $block = GF_Fields::create( array(
+      'type'   => 'text',
+      'id'     => 1005, // The Field ID must be unique on the form
+      'formId' => $form['id'],
+      'label'  => 'Block #',
+      'pageNumber'  => 1, // Ensure this is correct
+      'size' => 'small',
+  ) );
+  $commissioning_date = GF_Fields::create( array(
+      'type'   => 'date',
+      'id'     => 1006, // The Field ID must be unique on the form
+      'formId' => $form['id'],
+      'label'  => 'Requested Commissioning Date',
+      'pageNumber'  => 1, // Ensure this is correct
+      'isRequired' => true,
+      'size' => 'small',
+      'visibility' => 'visible',
+      'inputs' => [[
+          'id' => '1006.1',
+          'label' => 'Month',
+          'name' => '',
+          'placeholder' => 'Month',
+          'defaultValue' => ''
+        ], [
+          'id' => '1006.2',
+          'label' => 'Day',
+          'name' => '',
+          'placeholder' => 'Day',
+          'defaultValue' => ''
+        ], [
+          'id' => '1006.3',
+          'label' => 'Year',
+          'name' => '',
+          'placeholder' => 'Year',
+          'defaultValue' => ''
+        ]
+      ],
+      'dateType' => 'datedropdown',
+      //'dateType' => 'datepicker',
+      'calendarIconType' => 'none',
+      'errorMessage' => 'Please enter a valid weekday date, Monday through Friday, in the future.'
+  ) );
+  $inspection_completed = GF_Fields::create( array(
+      'type'   => 'checkbox',
+      'id'     => 1007, // The Field ID must be unique on the form
+      'formId' => $form['id'],
+      'label'  => 'Pre-Inspection Completed?',
+      'pageNumber' => 1, // Ensure this is correct
+      'isRequired' => true,
+			'size' => 'small',
+      'choices' => [[
+          'text' => 'Yes',
+          'value' => 'Yes',
+          'isSelected' => false,
+          'price' => ''
+        ]
+      ],
+      'inputs' => [[
+          'id' => '1007.1',
+          'label' => 'Yes',
+          'name' => ''
+        ]
+      ],
+      
+  ) );
+
+  // Create a repeater for the team members and add the name and email fields as the fields to display inside the repeater.
+  $inspection_checklist = GF_Fields::create( array(
+      'type'             => 'repeater',
+      'description'      => '',
+      'id'               => 1000, // The Field ID must be unique on the form
+      'formId'           => $form['id'],
+      'label'            => 'Civic Addresses to be Commissioned',
+      'addButtonText'    => 'Add Address', // Optional
+      'removeButtonText' => 'Remove Address', // Optional
+      'maxItems'         => 30, // Optional
+      'pageNumber'       => 1, // Ensure this is correct
+      'fields'           => array( $lot, $unit, $street, $address, $block, $commissioning_date, $inspection_completed ), // Add the fields here
+  ) );
+
+  $form['fields'][] = $inspection_checklist;
+
+  return $form;
+}
+add_filter( 'gform_form_post_get_meta_19', 'enercare_gform_repeater_fields_19' ); 
+
+// Remove the field before the form is saved. Adjust your form ID
+function enercare_gform_remove_repeater_19( $form_meta, $form_id, $meta_name ) {
+  if ( $meta_name == 'display_meta' ) {
+    // Remove the Repeater field: ID 1000
+    $form_meta['fields'] = wp_list_filter( $form_meta['fields'], array( 'id' => 1000 ), 'NOT' );
+  }
+  return $form_meta;
+}
+add_filter( 'gform_form_update_meta_19', 'enercare_gform_remove_repeater_19', 10, 3 );
+*/
+
+function enercare_gform_date_min_year( $min_date, $form, $field ) {
+  if ($form['id'] == 18 || $form['id'] == 19 || $form['id'] == 20) {
+    return date('Y', strtotime('+1 day'));
+  }
+  return $min_date;
+}
+add_filter( 'gform_date_min_year', 'enercare_gform_date_min_year', 10, 3 );
+
+function enercare_gform_field_validation( $result, $value, $form, $field ) {
+  if ( ($form['id'] == 18 || $form['id'] == 19 || $form['id'] == 20) && $field->get_input_type() == 'date' ) {
+    $date = GFCommon::parse_date( $value );
+    $tomorrow = date(strtotime('+1 day'));
+    $date_input = $date['year'] . '-' . $date['month'] . '-' . $date['day'];
+    if (date(strtotime($date_input)) < $tomorrow) {
+      $result['is_valid'] = false;
+      $result['message'] = 'Please enter a valid date in the future.';
+      $field->failed_validation = true;
+      $field->validation_message = 'Please enter a valid date in the future.';
+    } elseif (date('N', strtotime($date_input)) >= 6) {
+      $result['is_valid'] = false;
+      $result['message'] = 'Please enter a valid weekday date, Monday through Friday.';
+      $field->failed_validation = true;
+      $field->validation_message = 'Please enter a valid weekday date, Monday through Friday.';
+    }
+    //var_dump($result);
+    //var_dump($field);
+  }
+
+  return $result;
+}
+add_filter( 'gform_field_validation', 'enercare_gform_field_validation', 10, 4 );
+
+/* 
+----------------------------------------------------------
+END BUILDER FORMS CUSTOMIZATIONS
 ----------------------------------------------------------
 */
