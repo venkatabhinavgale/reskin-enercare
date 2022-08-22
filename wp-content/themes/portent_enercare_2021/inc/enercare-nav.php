@@ -231,6 +231,9 @@ function enercare_archive_paginated_navigation() {
 	if ( get_previous_posts_link() ) {
 		$label		= __( '<span class="screen-reader-text">Go to</span> Previous Page', 'ea-starter' );
 		$link       = get_previous_posts_link( apply_filters( 'genesis_prev_link_text', '&#x000AB; ' . $label ) );
+    $previous_posts = previous_posts(false);
+    $previous_posts_rtrim = rtrim($previous_posts, "/");
+    $link = str_replace($previous_posts, $previous_posts_rtrim, $link);
 		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Value is hardcoded and safe, not set via input.
 		printf( '<li class="pagination-previous">%s</li>' . "\n", $link );
 	}
@@ -240,7 +243,7 @@ function enercare_archive_paginated_navigation() {
 		$class = 1 === $paged ? ' class="active"' : '';
 
 		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Value is known to be safe, not set via input.
-		printf( '<li%s><a href="%s">%s</a></li>' . "\n", $class, get_pagenum_link( 1 ), trim( $before_number . ' 1' ) );
+		printf( '<li%s><a href="%s">%s</a></li>' . "\n", $class, rtrim(get_pagenum_link( 1 ), "/"), trim( $before_number . ' 1' ) );
 
 		if ( ! in_array( 2, $links, true ) ) {
 			$label	= sprintf( '<span class="screen-reader-text">%s</span> &#x02026;', __( 'Interim pages omitted', 'ea-starter' ) );
@@ -258,12 +261,17 @@ function enercare_archive_paginated_navigation() {
 			$class = ' class="active" ';
 			$aria  = ' aria-label="' . esc_attr__( 'Current page', 'ea-starter' ) . '" aria-current="page"';
 		}
+    
+    $page_link = get_pagenum_link( $link );
+    if ($link == 1) {
+      $page_link = rtrim($page_link, "/");
+    }
 
 		printf(
 			'<li%s><a href="%s"%s>%s</a></li>' . "\n",
 			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Value is safe, not set via input.
 			$class,
-			esc_url( get_pagenum_link( $link ) ),
+			esc_url($page_link),
 			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Value is safe, not set via input.
 			$aria,
 			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Value is safe, not set via input.
