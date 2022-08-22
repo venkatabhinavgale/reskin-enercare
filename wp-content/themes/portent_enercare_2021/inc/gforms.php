@@ -361,9 +361,11 @@ add_filter( 'gform_date_min_year', 'enercare_gform_date_min_year', 10, 3 );
 
 function enercare_gform_field_validation( $result, $value, $form, $field ) {
   if ( ($form['id'] == 18 || $form['id'] == 19 || $form['id'] == 20) && $field->get_input_type() == 'date' ) {
+    date_default_timezone_set('America/Toronto');
     $date = GFCommon::parse_date( $value );
-    $tomorrow = date(strtotime('+1 day'));
-    $date_input = $date['year'] . '-' . $date['month'] . '-' . $date['day'];
+    $today = strtotime("00:00:00");
+    $tomorrow = date($today + (60*60*24));
+    $date_input = $date['year'] . '-' . $date['month'] . '-' . $date['day'] . ' 00:00:00';
     if (date(strtotime($date_input)) < $tomorrow) {
       $result['is_valid'] = false;
       $result['message'] = 'Please enter a valid date in the future.';
