@@ -4,7 +4,6 @@ namespace SearchRegex\Api;
 
 use SearchRegex\Source;
 use SearchRegex\Search;
-use SearchRegex\Replace;
 use SearchRegex\Filter;
 use SearchRegex\Action;
 use SearchRegex\Schema;
@@ -246,7 +245,7 @@ class Route {
 	 * Helper to return a search and replace object
 	 *
 	 * @param Array $params Array of params.
-	 * @return Array{Search,Action} Search and Replace objects
+	 * @return Array{Search\Search,Action\Action} Search and Replace objects
 	 */
 	protected function get_search_replace( $params ) {
 		$schema = new Schema\Schema( Source\Manager::get_schema( $params['source'] ) );
@@ -305,9 +304,9 @@ class Route {
 	/**
 	 * Validate that the view columns are valid
 	 *
-	 * @param Array|String    $value The value to validate.
+	 * @param Array|String     $value The value to validate.
 	 * @param \WP_REST_Request $request The request.
-	 * @param Array           $param The array of parameters.
+	 * @param Array            $param The array of parameters.
 	 * @return \WP_Error|Bool true or false
 	 */
 	public function validate_view( $value, \WP_REST_Request $request, $param ) {
@@ -328,9 +327,9 @@ class Route {
 	/**
 	 * Validate that the view columns are valid
 	 *
-	 * @param Array|String    $value The value to validate.
+	 * @param Array|String     $value The value to validate.
 	 * @param \WP_REST_Request $request The request.
-	 * @param Array           $param The array of parameters.
+	 * @param Array            $param The array of parameters.
 	 * @return \WP_Error|Bool true or false
 	 */
 	public function validate_action( $value, \WP_REST_Request $request, $param ) {
@@ -344,10 +343,10 @@ class Route {
 	/**
 	 * Validate that the source is valid
 	 *
-	 * @param Array|String    $value The value to validate.
+	 * @param Array|String     $value The value to validate.
 	 * @param \WP_REST_Request $request The request.
-	 * @param Array           $param The array of parameters.
-	 * @return Bool|WP_Error true or false
+	 * @param Array            $param The array of parameters.
+	 * @return Bool|\WP_Error true or false
 	 */
 	public function validate_source( $value, \WP_REST_Request $request, $param ) {
 		$allowed = Source\Manager::get_all_source_names();
@@ -373,9 +372,9 @@ class Route {
 	/**
 	 * Validate supplied filters
 	 *
-	 * @param string|array    $value Value.
+	 * @param string|array     $value Value.
 	 * @param \WP_REST_Request $request Request.
-	 * @param array           $param Params.
+	 * @param array            $param Params.
 	 * @return boolean
 	 */
 	public function validate_filters( $value, \WP_REST_Request $request, $param ) {

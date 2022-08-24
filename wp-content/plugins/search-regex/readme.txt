@@ -113,6 +113,26 @@ Full documentation can be found on the [Search Regex](http://searchregex.com/) s
 
 == Changelog ==
 
+= 3.0.4 - August 19th 2022 =
+* Fix 'update preset' dropdown menu not updating
+* Fix current preset when switching pages
+
+= 3.0.3 - August 14th 2022 =
+* Fix error in error message
+* Fix error when removing text
+* Fix update notice never going away
+* Fix multi-line replace not replacing
+
+= 3.0.2 - July 28th 2022 =
+* Fix more issues with older PHP
+* Fix a failed update not showing an error message
+* Fix post meta not updating
+
+= 3.0.1 - July 26th 2022 =
+* Fix issue with PHP < 7.4
+* Fix ID appearing on date values
+* Fix a global search on options with no filter causing a bad query
+
 = 3.0 - July 24th 2022 =
 - Major update with many, many, new features
 - Advanced searches with fully customisable filters that can be combined together with AND and OR logic

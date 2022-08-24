@@ -225,13 +225,13 @@ class Core {
 				echo CSS::media_query_selector( $breakpoint ) . '{';
 					echo '.grids-area {';
 						foreach ( $area_vars as $var ) {
-							echo $var . ':var(' . $var . '-' . $breakpoint . ');';
+							echo esc_attr( $var ) . ':var(' . esc_attr( $var ) . '-' . esc_attr( $breakpoint ) . ');';
 						}
 					echo '}';
 
 					echo '.grids-section {';
 						foreach ( $section_vars as $var ) {
-							echo $var . ':var(' . $var . '-' . $breakpoint . ');';
+							echo esc_attr( $var ) . ':var(' . esc_attr( $var ) . '-' . esc_attr( $breakpoint ) . ');';
 						}
 					echo '}';
 				echo '}';

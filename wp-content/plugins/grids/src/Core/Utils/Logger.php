@@ -46,7 +46,7 @@ class Logger {
 	 * @param string $message The log message.
 	 */
 	public static function print_r( $message ) {
-		echo '<pre>' . print_r( $message, true ) . '</pre>';
+		echo '<pre>' . print_r( esc_html( $message ), true ) . '</pre>';
 	}
 
 }
