@@ -44,7 +44,7 @@ class Admin {
 		register_uninstall_hook( SEARCHREGEX_FILE, [ '\SearchRegex\Admin\Admin', 'plugin_uninstall' ] );
 	}
 
-	/**
+	/*
 	 * Massage the Search Regex WP translations.
 	 */
 	public function load_script_translation_file( $file, $handle, $domain ) {
@@ -63,7 +63,7 @@ class Admin {
 	public static function plugin_uninstall() {
 		/** @psalm-suppress UndefinedConstant */
 		Plugin\Settings::init()->delete();
-		delete_option( Preset::OPTION_NAME );
+		delete_option( Search\Preset::OPTION_NAME );
 	}
 
 	/**
@@ -158,7 +158,7 @@ class Admin {
 
 		// phpcs:ignore
 		if ( isset( $_GET['page'] ) && $_GET['page'] === 'search-regex.php' && strpos( SEARCHREGEX_VERSION, '-beta' ) === false ) {
-			$is_new = $settings->is_new_version( SEARCHREGEX_VERSION );
+			$is_new = $settings->is_new_version( $major_version );
 		}
 
 		wp_localize_script( 'search-regex', 'SearchRegexi10n', array(
@@ -171,7 +171,7 @@ class Admin {
 			],
 			'pluginBaseUrl' => plugins_url( '', SEARCHREGEX_FILE ),
 			'pluginRoot' => $this->get_plugin_url(),
-			'locale' => str_replace( '_', '-', get_locale() ),
+			'locale' => implode( '-', array_slice( explode( '-', str_replace( '_', '-', get_locale() ) ), 0, 2 ) ),
 			'settings' => $settings->get_as_json(),
 			'preload' => $preload,
 			'versions' => implode( "\n", $versions ),

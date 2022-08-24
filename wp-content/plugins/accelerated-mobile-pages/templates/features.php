@@ -4544,7 +4544,7 @@ function ampforwp_home_archive_canonical_setter(){
 }
 
 function ampforwp_rel_canonical_home_archive(){
-	if (function_exists('aioseo_pro_just_activated')) {
+	if (function_exists('aioseo_pro_just_activated') && version_compare(AIOSEO_VERSION,'4.2.4', '<')) {
 	   return;
 	}
 	global $redux_builder_amp;
@@ -9751,3 +9751,21 @@ function ampforwp_wpml_takeover_compatibility($return) {
   }
   return $return;
 };
+
+if(class_exists('SuperRelatedPosts')){
+	add_action('amp_post_template_css', 'ampforwp_super_related_posts_style'); 
+}
+function ampforwp_super_related_posts_style(){
+	global $wp_filesystem;
+	$css = get_transient('ampforwp_super_related_posts');
+	if($css == false){
+		if(!is_object($wp_filesystem)){
+			require_once ABSPATH . '/wp-admin/includes/class-wp-filesystem-base.php';
+    		require_once ABSPATH . '/wp-admin/includes/class-wp-filesystem-direct.php';
+    		$wp_filesystem = new WP_Filesystem_Direct( array() );
+    	}
+		$css = $wp_filesystem->get_contents(AMPFORWP_PLUGIN_DIR."/includes/super-related-posts.css");
+		set_transient('ampforwp_super_related_posts', $css);
+	}
+	echo ampforwp_css_sanitizer($css);
+}	
