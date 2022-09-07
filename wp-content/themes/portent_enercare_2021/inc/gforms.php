@@ -352,15 +352,27 @@ add_filter( 'gform_form_update_meta_19', 'enercare_gform_remove_repeater_19', 10
 */
 
 function enercare_gform_date_min_year( $min_date, $form, $field ) {
-  if ($form['id'] == 18 || $form['id'] == 19 || $form['id'] == 20) {
+  date_default_timezone_set('America/Toronto');
+  if ($form['id'] == 18 || $form['id'] == 19) {
     return date('Y', strtotime('+1 day'));
+  } elseif ($form['id'] == 20) {
+    return date('Y', strtotime('-1 year'));
   }
   return $min_date;
 }
 add_filter( 'gform_date_min_year', 'enercare_gform_date_min_year', 10, 3 );
 
+function enercare_gform_date_max_year( $max_date, $form, $field ) {
+  date_default_timezone_set('America/Toronto');
+  if ($form['id'] == 20) {
+    return date('Y');
+  }
+  return $max_date;
+}
+add_filter( 'gform_date_max_year', 'enercare_gform_date_max_year', 10, 3 );
+
 function enercare_gform_field_validation( $result, $value, $form, $field ) {
-  if ( ($form['id'] == 18 || $form['id'] == 19 || $form['id'] == 20) && $field->get_input_type() == 'date' ) {
+  if ( ($form['id'] == 18 || $form['id'] == 19) && $field->get_input_type() == 'date' ) {
     date_default_timezone_set('America/Toronto');
     $date = GFCommon::parse_date( $value );
     $today = strtotime("00:00:00");
@@ -379,6 +391,17 @@ function enercare_gform_field_validation( $result, $value, $form, $field ) {
     }
     //var_dump($result);
     //var_dump($field);
+  } elseif ($form['id'] == 20 && $field->get_input_type() == 'date') {
+    date_default_timezone_set('America/Toronto');
+    $date = GFCommon::parse_date( $value );
+    $today = strtotime("00:00:00");
+    $date_input = $date['year'] . '-' . $date['month'] . '-' . $date['day'] . ' 00:00:00';
+    if (date(strtotime($date_input)) > $today) {
+      $result['is_valid'] = false;
+      $result['message'] = 'Please enter a valid date in the past, or today.';
+      $field->failed_validation = true;
+      $field->validation_message = 'Please enter a valid date in the past, or today.';
+    }
   }
 
   return $result;
