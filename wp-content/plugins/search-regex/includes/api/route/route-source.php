@@ -2,10 +2,7 @@
 
 namespace SearchRegex\Api\Route;
 
-use SearchRegex\Search;
-use SearchRegex\Replace;
 use SearchRegex\Source;
-use SearchRegex\Source\Manager;
 use SearchRegex\Api;
 
 /**
@@ -168,9 +165,9 @@ class Source_Route extends Api\Route {
 	/**
 	 * Sanitize the source so it's a single source in an array, suitable for use with the search functions
 	 *
-	 * @param string|array    $value Source name.
+	 * @param string|array     $value Source name.
 	 * @param \WP_REST_Request $request Request object.
-	 * @param string          $param Param name.
+	 * @param string           $param Param name.
 	 * @return string[]
 	 */
 	public function sanitize_row_source( $value, \WP_REST_Request $request, $param ) {
@@ -184,10 +181,10 @@ class Source_Route extends Api\Route {
 	/**
 	 * Validate the replacement.
 	 *
-	 * @param string|array    $value Source name.
+	 * @param string|array     $value Source name.
 	 * @param \WP_REST_Request $request Request object.
-	 * @param string          $param Param name.
-	 * @return true|WP_Error
+	 * @param string           $param Param name.
+	 * @return true|\WP_Error
 	 */
 	public function validate_replacement( $value, \WP_REST_Request $request, $param ) {
 		$result = $this->contains_keys( [ 'column' ], $value );
@@ -246,7 +243,7 @@ class Source_Route extends Api\Route {
 			],
 		];
 
-		[ $search, $action ] = $this->get_search_replace( array_merge( $params, $replace ) );
+		list( $search, $action ) = $this->get_search_replace( array_merge( $params, $replace ) );
 
 		// Get the results for the search/replace
 		$results = $search->get_row( $params['rowId'], $action );
@@ -265,7 +262,7 @@ class Source_Route extends Api\Route {
 		}
 
 		// Get the row again, with the original search conditions
-		[ $search, $action ] = $this->get_search_replace( $params );
+		list( $search, $action ) = $this->get_search_replace( $params );
 		$results = $search->get_row( $params['rowId'], $action );
 		if ( $results instanceof \WP_Error ) {
 			return $results;

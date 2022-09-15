@@ -11,1068 +11,1559 @@ msgstr ""
 "Language: ru\n"
 "Project-Id-Version: Plugins - Search Regex - Development (trunk)\n"
 
-#: source/core/meta.php:24
-msgid "Serialized Value"
-msgstr "Сериализованное значение"
+#: build/search-regex.js:8
+msgid "OK"
+msgstr ""
 
-#: source/core/post.php:85
-msgid "Exclude drafts"
-msgstr "Исключить черновики"
+#: build/search-regex.js:8
+msgid "Version %s installed! Please read the {{url}}release notes{{/url}} for details."
+msgstr ""
 
-#: search-regex-strings.php:236
+#: build/search-regex.js:8
+msgid "A problem occurred with your last query. This is likely caused by a combination of search filters that haven't been handled properly."
+msgstr ""
+
+#: build/search-regex.js:8
+msgid "Query Problem"
+msgstr ""
+
+#: build/search-regex.js:8
+msgid "Progress"
+msgstr ""
+
+#: build/search-regex.js:8
+msgid "%s row deleted."
+msgid_plural "%s rows deleted."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: build/search-regex.js:8
+msgid "Refresh"
+msgstr ""
+
+#: build/search-regex.js:8
+msgid "Matched Content"
+msgstr ""
+
+#: build/search-regex.js:8
+msgid "Your search resulted in too many requests. Please narrow your search terms."
+msgstr ""
+
+#: build/search-regex.js:8
+msgid "Your search conditions have changed. Please refresh to see the latest results."
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "Matched rows: %(matches)s out of %(total)s total."
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "Delete database row"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "View"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "No title"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "Empty value"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "No value"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "Click to replace match"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "Contains encoded data"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "New meta value"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "New meta key"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "Apply to matches only"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "Enter replacement"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "Click to replace column"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "This column contains special formatting. Modifying it could break the format."
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "HTML"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "Blocks"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "Serialized PHP"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "Paste preset JSON."
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "Global Search Flags"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "Global Replace"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "Global Search"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "View Columns"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "Sources"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "Only include selected columns"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "WordPress Action"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "SQL"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "CSV"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "JSON"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "Export Format"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "Run a WordPress action for each matching result."
+msgstr ""
+
+#: build/search-regex.js:2 build/search-regex.js:8
+msgid "Run Action"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "Delete matching results."
+msgstr ""
+
+#: build/search-regex.js:2 build/search-regex.js:8
+msgid "Delete Matches"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "Export matching results to JSON, CSV, or SQL."
+msgstr ""
+
+#: build/search-regex.js:2 build/search-regex.js:8
+msgid "Export Matches"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "Perform changes to specific values of the matching results."
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "Modify Matches"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "Replace the global search values."
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "Global Text Replace"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "Just show matching results."
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "No action"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "Enter replacement value"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "Matched values will be removed"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "Replace \"%1s\""
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "Year"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "Months"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "Weeks"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "Days"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "Hours"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "Minutes"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "Seconds"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "Decrement"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "Increment"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "Set Value"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "Replace With"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "Add"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "Column"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "AND"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "Filters"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "Add sub-filter (OR)"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "OR"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "All"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "between {{first/}} and {{second/}}"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "No Owner"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "Has Owner"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "Any"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "Excludes any"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "Includes any"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "End"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "Begins"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "Not contains"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "Contains"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "Range"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "Less"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "Greater"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "Not Equals"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "Equals"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "Optional global search phrase. Leave blank to use filters only."
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "REST API 404"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "Your REST API appears to be cached and this will cause problems. Please exclude your REST API from your caching system."
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "Your REST API is showing a deprecated PHP error. Please fix this error."
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "Your server configuration is blocking access to the REST API."
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "Can you access your {{api}}REST API{{/api}} without it redirecting?."
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "You will will need to fix this on your site. Redirection is not causing the error."
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "Preset uploaded"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "Multiline"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "Case"
+msgstr ""
+
+#: build/search-regex.js:2
+msgid "Regex"
+msgstr ""
+
+#: includes/source/plugin/source-redirection.php:499
+msgid "Nginx"
+msgstr ""
+
+#: includes/source/plugin/source-redirection.php:495
+msgid "Apache"
+msgstr ""
+
+#: includes/source/plugin/source-redirection.php:491
+msgid "WordPress"
+msgstr ""
+
+#: includes/source/plugin/source-redirection.php:487
+msgid "Module"
+msgstr ""
+
+#: includes/source/plugin/source-redirection.php:468
+msgid "Redirection Groups"
+msgstr ""
+
+#: includes/source/plugin/source-redirection.php:347
+msgid "Not accessed"
+msgstr ""
+
+#: includes/source/plugin/source-redirection.php:232
+msgid "Target"
+msgstr ""
+
+#: includes/source/plugin/source-redirection.php:208
+msgid "HTTP Code"
+msgstr ""
+
+#: includes/source/plugin/source-redirection.php:203
+msgid "Position"
+msgstr ""
+
+#: includes/source/plugin/source-redirection.php:196
+#: includes/source/plugin/source-redirection.php:514
+msgid "Disabled"
+msgstr ""
+
+#: includes/source/plugin/source-redirection.php:192
+#: includes/source/plugin/source-redirection.php:510
+msgid "Enabled"
+msgstr ""
+
+#: includes/source/plugin/source-redirection.php:188
+#: includes/source/plugin/source-redirection.php:506
+msgid "Status"
+msgstr ""
+
+#: includes/source/plugin/source-redirection.php:181
+msgid "Group"
+msgstr ""
+
+#: includes/source/plugin/source-redirection.php:176
+msgid "Last Access"
+msgstr ""
+
+#: includes/source/plugin/source-redirection.php:171
+msgid "Hit Count"
+msgstr ""
+
+#: includes/source/plugin/source-redirection.php:164
+msgid "Source URL (matching)"
+msgstr ""
+
+#: includes/source/plugin/source-redirection.php:157
+msgid "Source URL"
+msgstr ""
+
+#: includes/source/core/source-user.php:174
+msgid "User meta"
+msgstr ""
+
+#: includes/source/core/source-user.php:168
+msgid "Registered"
+msgstr ""
+
+#: includes/source/core/source-user.php:134
+msgid "Login"
+msgstr ""
+
+#: includes/source/core/source-terms.php:135
+msgid "Taxonomy"
+msgstr ""
+
+#: includes/source/core/source-post.php:411
+msgid "Post Tag"
+msgstr ""
+
+#: includes/source/core/source-post.php:402
+msgid "Post Category"
+msgstr ""
+
+#: includes/source/core/source-post.php:396
+msgid "Comment Count"
+msgstr ""
+
+#: includes/source/core/source-post.php:389
+msgid "MIME"
+msgstr ""
+
+#: includes/source/core/source-post.php:374
+msgid "Parent"
+msgstr ""
+
+#: includes/source/core/source-post.php:368
+msgid "Modified GMT"
+msgstr ""
+
+#: includes/source/core/source-post.php:362
+msgid "Modified"
+msgstr ""
+
+#: includes/source/core/source-post.php:355
+msgid "Password"
+msgstr ""
+
+#: includes/source/core/source-post.php:352
+msgid "Has no password"
+msgstr ""
+
+#: includes/source/core/source-post.php:348
+msgid "Has password"
+msgstr ""
+
+#: includes/source/core/source-post.php:339
+msgid "Ping Status"
+msgstr ""
+
+#: includes/source/core/source-post.php:323
+msgid "Comment Status"
+msgstr ""
+
+#: includes/source/core/source-post.php:316
+#: includes/source/core/source-post.php:332
+msgid "Open"
+msgstr ""
+
+#: includes/source/core/source-post.php:308
+msgid "Post Status"
+msgstr ""
+
+#: includes/source/core/source-post.php:268
+msgid "Post Type"
+msgstr ""
+
+#: includes/source/core/source-options.php:136
+msgid "Autoload"
+msgstr ""
+
+#: includes/source/core/source-options.php:133
+msgid "Is not autoload"
+msgstr ""
+
+#: includes/source/core/source-options.php:129
+msgid "Is autoload"
+msgstr ""
+
+#: includes/source/core/source-meta.php:126 build/search-regex.js:2
+msgid "Meta Value"
+msgstr ""
+
+#: includes/source/core/source-meta.php:119 build/search-regex.js:2
+msgid "Meta Key"
+msgstr ""
+
+#: includes/source/core/source-meta.php:112
+msgid "Owner ID"
+msgstr ""
+
+#: includes/source/core/source-comment.php:262
+msgid "Comment meta"
+msgstr ""
+
+#: includes/source/core/source-comment.php:254
+msgid "User ID"
+msgstr ""
+
+#: includes/source/core/source-comment.php:248
+msgid "Parent Comment"
+msgstr ""
+
+#: includes/source/core/source-comment.php:237
+msgid "Trackback"
+msgstr ""
+
+#: includes/source/core/source-comment.php:233
+msgid "Pingback"
+msgstr ""
+
+#: includes/source/core/source-comment.php:229
+msgid "Type"
+msgstr ""
+
+#: includes/source/core/source-comment.php:224
+msgid "User Agent"
+msgstr ""
+
+#: includes/source/core/source-comment.php:219
+msgid "Approval Status"
+msgstr ""
+
+#: includes/source/core/source-comment.php:216
+msgid "Spam"
+msgstr ""
+
+#: includes/source/core/source-comment.php:212
+msgid "Approved"
+msgstr ""
+
+#: includes/source/core/source-comment.php:208
+msgid "Unapproved"
+msgstr ""
+
+#: includes/source/core/source-comment.php:199
+#: includes/source/core/source-post.php:295
+msgid "Date GMT"
+msgstr ""
+
+#: includes/source/core/source-comment.php:193
+#: includes/source/core/source-post.php:289
+msgid "Date"
+msgstr ""
+
+#: includes/source/core/source-comment.php:188
+msgid "IP"
+msgstr ""
+
+#: includes/source/core/source-comment.php:161
+#: includes/source/core/source-post.php:282
+msgid "Author"
+msgstr ""
+
+#: includes/source/core/source-comment.php:154
+msgid "Post ID"
+msgstr ""
+
+#: includes/source/core/source-comment.php:148
+#: includes/source/core/source-options.php:105
+#: includes/source/core/source-post.php:245
+#: includes/source/core/source-terms.php:114
+#: includes/source/core/source-user.php:127
+#: includes/source/plugin/source-redirection.php:151
+#: includes/source/plugin/source-redirection.php:474
+msgid "ID"
+msgstr ""
+
+#: includes/source/class-manager.php:76
+#: includes/source/core/source-terms.php:108
+msgid "Terms"
+msgstr ""
+
+#: includes/source/class-manager.php:22
+#: includes/source/core/source-post.php:239
+msgid "Posts (core & custom)"
+msgstr ""
+
+#: build/search-regex.js:2
 msgid "Please review your data and try again."
 msgstr "Проверьте данные и повторите попытку."
 
-#: search-regex-strings.php:235
+#: build/search-regex.js:2
 msgid "There was a problem making a request to your site. This could indicate you provided data that did not match requirements, or that the plugin sent a bad request."
 msgstr "При отправке запроса на ваш сайт возникла проблема. Это может означать, что вы предоставили данные, которые не соответствуют требованиям, или что плагин отправил неверный запрос."
 
-#: search-regex-strings.php:234
+#: build/search-regex.js:2
 msgid "Bad data"
 msgstr "Неверные данные"
 
-#: search-regex-strings.php:218
-msgid "Your REST API is returning a 404 page. This is almost certainly an external plugin or server configuration issue."
-msgstr "API REST возвращает страницу 404. Это почти наверняка проблема конфигурации внешнего плагина или сервера."
+#: build/search-regex.js:2
+msgid "Your WordPress REST API is returning a 404 page. This is almost certainly an external plugin or server configuration issue."
+msgstr ""
 
-#: search-regex-strings.php:180
+#: build/search-regex.js:2
 msgid "2000 per page"
 msgstr "2000 на страницу"
 
-#: search-regex-strings.php:179
+#: build/search-regex.js:2
 msgid "1000 per page"
 msgstr "1000 на страницу"
 
-#: search-regex-strings.php:92
+#: build/search-regex.js:2
 msgid "Set a preset to use by default when Search Regex is loaded."
 msgstr "Задайте предустановку, которая будет использоваться по умолчанию при загрузке Search Regex."
 
-#: search-regex-strings.php:91
+#: build/search-regex.js:2
 msgid "No default preset"
 msgstr "Нет предустановки по умолчанию"
 
-#: search-regex-strings.php:90
+#: build/search-regex.js:2
 msgid "Default Preset"
 msgstr "Предустановка по умолчанию"
 
-#: search-regex-strings.php:244
+#: build/search-regex.js:2
 msgid "Your admin pages are being cached. Clear this cache and try again. There may be multiple caches involved."
 msgstr "Ваши страницы администрирования кэшируются. Очистите этот кэш и повторите попытку. Возможно, задействовано несколько кэшей."
 
-#: search-regex-strings.php:241
+#: build/search-regex.js:2
 msgid "This is usually fixed by doing one of the following:"
 msgstr "Обычно это можно исправить, выполнив одно из следующих действий:"
 
-#: search-regex-strings.php:240
+#: build/search-regex.js:2
 msgid "You are using an old or cached session"
 msgstr "Вы используете старую или кешированную сессию"
 
-#: search-regex-strings.php:214
+#: build/search-regex.js:2
 msgid "Debug Information"
 msgstr "Отладочная информация"
 
-#: search-regex-strings.php:213
+#: build/search-regex.js:2
 msgid "Show debug"
 msgstr "Показать отладку"
 
-#: search-regex-strings.php:230
+#: build/search-regex.js:2
 msgid "WordPress returned an unexpected message. This could be a PHP error from another plugin, or data inserted by your theme."
 msgstr "WordPress вернул неожиданное сообщение. Это может быть ошибка PHP от другого плагина или данные, вставленные вашей темой."
 
-#: search-regex-strings.php:229
+#: build/search-regex.js:2
 msgid "Your WordPress REST API has been disabled. You will need to enable it to continue."
 msgstr "Ваш WordPress REST API был отключен. Чтобы продолжить, вам нужно будет включить его."
 
-#: search-regex-strings.php:224
+#: build/search-regex.js:2
 msgid "Your REST API is being redirected. Please remove the redirection for the API."
 msgstr "Ваш REST API перенаправляется. Пожалуйста, уберите перенаправление для API."
 
-#: search-regex-strings.php:222
+#: build/search-regex.js:2
 msgid "A security plugin or firewall is blocking access. You will need to whitelist the REST API."
 msgstr "Плагин безопасности или брандмауэр блокирует доступ. Вам нужно будет внести REST API в белый список."
 
-#: search-regex-strings.php:221
-msgid "Your server configuration is blocking access to the REST API. You will need to fix this."
-msgstr "Конфигурация сервера блокирует доступ к API REST. Вам нужно исправить это."
-
-#: search-regex-strings.php:220
+#: build/search-regex.js:2
 msgid "Check your {{link}}Site Health{{/link}} and fix any issues."
 msgstr "Проверьте состояние вашего {{link}}сайта{{/link}} и устраните все проблемы."
 
-#: search-regex-strings.php:219
-msgid "Can you access your {{api}}REST API{{/api}} without it redirecting? If not then you will need to fix any issues."
-msgstr "Можете ли вы получить доступ к {{api}}REST API{{/api}} без перенаправления? Если нет, то вам нужно будет исправить любые проблемы."
-
-#: search-regex-strings.php:205
+#: build/search-regex.js:2
 msgid "Preset"
 msgstr "Предустановка"
 
-#: search-regex-strings.php:183
+#: build/search-regex.js:2
 msgid "Upload"
 msgstr "Загрузить"
 
-#: search-regex-strings.php:182
-msgid "Add File"
-msgstr "Добавить файл"
+#: build/search-regex.js:2
+msgid "Add file"
+msgstr ""
 
-#: search-regex-strings.php:171
+#: build/search-regex.js:2
 msgid "Preset saved"
 msgstr "Сохранение предустановки"
 
-#: search-regex-strings.php:148
+#: build/search-regex.js:2
 msgid "Copy to clipboard"
 msgstr "Скопировать в буфер обмена"
 
-#: search-regex-strings.php:145
+#: build/search-regex.js:2
 msgid "Are you sure you want to delete this preset?"
 msgstr "Вы уверены, что хотите удалить эту предустановку?"
 
-#: search-regex-strings.php:144
+#: build/search-regex.js:2
 msgid "Locked fields"
 msgstr "Заблокированные поля"
 
-#: search-regex-strings.php:139
+#: build/search-regex.js:2
 msgid "For example, create tag {{code}}URL{{/code}} and title {{code}}Image URL{{/code}}. Your search could be {{code}}<img src=\"URL\">{{/code}}. When the preset is used it will ask the user for the {{code}}Image URL{{/code}} instead of the full search phrase."
 msgstr "Например, создайте тег {{code}}URL{{/code}} и заголовок {{code}}Image URL{{/code}}. Ваш поиск может выглядеть так {{code}}<img src=\"URL\">{{/code}}. При использовании этой предустановки вместо полной поисковой фразы у пользователя будет запрашиваться {{code}}Image URL{{/code}}."
 
-#: search-regex-strings.php:138
-msgid "A tag creates a custom input field. Insert the tag anywhere in the search or replace field and when the preset is used it will be replaced with a custom text field with the tag label."
-msgstr "Тег создает настраиваемое поле ввода. Введите тег в любое место в поле поиска или замены, и при использовании предустановки он будет заменен настраиваемым текстовым полем с меткой тега."
+#: build/search-regex.js:2
+msgid "A tag creates a custom input field. Insert the tag anywhere in the search, replace, text filter, or text action and when the preset is used it will be replaced with a custom text field with the tag label."
+msgstr ""
 
-#: search-regex-strings.php:137
+#: build/search-regex.js:2
 msgid "Enter tag which is used in the field"
 msgstr "Введите тег, который используется в поле"
 
-#: search-regex-strings.php:136
+#: build/search-regex.js:2
 msgid "Tag"
 msgstr "Тег"
 
-#: search-regex-strings.php:135
+#: build/search-regex.js:2
 msgid "Enter tag title shown to user"
 msgstr "Введите заголовок тэга, показанный пользователю"
 
-#: search-regex-strings.php:133
+#: build/search-regex.js:2
 msgid "Tags"
 msgstr "Тэги"
 
-#: search-regex-strings.php:132
+#: build/search-regex.js:2
 msgid "Locking a field removes it from the search form and prevents changes."
 msgstr "Блокировка поля удаляет его из формы поиска и предотвращает внесение изменений."
 
-#: search-regex-strings.php:131
+#: build/search-regex.js:2
 msgid "Fields"
 msgstr "Поля"
 
-#: search-regex-strings.php:130
+#: build/search-regex.js:2
 msgid "Locked Fields"
 msgstr "Заблокированные поля"
 
-#: search-regex-strings.php:129
+#: build/search-regex.js:2
 msgid "Advanced preset"
 msgstr "Расширенные предустановки"
 
-#: search-regex-strings.php:128
+#: build/search-regex.js:2
 msgid "Describe the preset"
 msgstr "Опишите предустановку"
 
-#: search-regex-strings.php:127
+#: build/search-regex.js:2
 msgid "Preset Description"
 msgstr "Описание предустановки"
 
-#: search-regex-strings.php:126
+#: build/search-regex.js:2
 msgid "Give the preset a name"
 msgstr "Дайте предустановке название"
 
-#: search-regex-strings.php:125
+#: build/search-regex.js:2
 msgid "Preset Name"
 msgstr "Название предустановки"
 
-#: search-regex-strings.php:124
+#: build/search-regex.js:2
 msgid "Edit preset"
 msgstr "Изменить предустановку"
 
-#: search-regex-strings.php:123
+#: build/search-regex.js:2
 msgid "Results per page"
 msgstr "Результатов на странице"
 
-#: search-regex-strings.php:122
-msgid "Source Flags"
-msgstr "Флаги источника"
-
-#: search-regex-strings.php:117
+#: build/search-regex.js:2
 msgid "remove phrase"
 msgstr "удалить фразу"
 
-#: search-regex-strings.php:116
+#: build/search-regex.js:2
 msgid "no phrase"
 msgstr "нет фразы"
 
-#: search-regex-strings.php:115
+#: build/search-regex.js:2
 msgid "Import"
 msgstr "Импорт"
 
-#: search-regex-strings.php:114
-msgid "Paste a single preset JSON."
-msgstr "Вставьте один предустановленный JSON."
-
-#: search-regex-strings.php:113
+#: build/search-regex.js:2
 msgid "Please check your JSON data is a valid preset. You may have copied it incorrectly, or pasted something that is not a preset."
 msgstr "Убедитесь, что ваши данные JSON являются действительными предустановками. Возможно, вы скопировали его неправильно или вставили что-то, что не является предустановкой."
 
-#: search-regex-strings.php:112
+#: build/search-regex.js:2
 msgid "Unable to import preset"
 msgstr "Невозможно импортировать предустановку"
 
-#: search-regex-strings.php:111
+#: build/search-regex.js:2
 msgid "Import preset from clipboard"
 msgstr "Импорт предустановок из буфера обмена"
 
-#: search-regex-strings.php:110
+#: build/search-regex.js:2
 msgid "Done"
 msgstr "Готово"
 
-#: search-regex-strings.php:109
+#: build/search-regex.js:2
 msgid "Uploaded %(total)d preset"
 msgid_plural "Uploaded %(total)d presets"
 msgstr[0] "Загружена %(total)d предустановка"
 msgstr[1] "Загружено %(total)d предустановки"
 msgstr[2] "Загружено %(total)d предустановок"
 
-#: search-regex-strings.php:108
+#: build/search-regex.js:2
 msgid "Importing"
 msgstr "Импортирование"
 
-#: search-regex-strings.php:107
+#: build/search-regex.js:2
 msgid "File selected"
 msgstr "Выбран файл"
 
-#: search-regex-strings.php:106
+#: build/search-regex.js:2
 msgid "Click 'Add File' or drag and drop here."
 msgstr "Нажмите \"Добавить файл\" или перетащите его сюда."
 
-#: search-regex-strings.php:105
+#: build/search-regex.js:2
 msgid "Import a JSON file"
 msgstr "Импорт файла JSON"
 
-#: search-regex-strings.php:104
+#: build/search-regex.js:2
 msgid "Import JSON"
 msgstr "Импорт JSON"
 
-#: search-regex-strings.php:103
+#: build/search-regex.js:2
 msgid "Export JSON"
 msgstr "Экспорт JSON"
 
-#: search-regex-strings.php:102
+#: build/search-regex.js:2
 msgid "Download presets!"
 msgstr "Скачать предустановки!"
 
-#: search-regex-strings.php:101
+#: build/search-regex.js:2
 msgid "There are no presets"
 msgstr "Нет никаких предустановок"
 
-#: search-regex-strings.php:100
+#: build/search-regex.js:2
 msgid "Flags"
 msgstr "Флаги"
 
-#: search-regex-strings.php:73 search-regex-strings.php:75
+#: build/search-regex.js:8
 msgid "Presets"
 msgstr "Предустановки"
 
-#: search-regex-strings.php:62
+#: build/search-regex.js:2
 msgid "If that did not help then {{strong}}create an issue{{/strong}} or send it in an {{strong}}email{{/strong}}."
 msgstr "Если это не помогло, тогда {{strong}} создайте тикет о проблеме{{/strong}} или отправьте ее по {{strong}}email{{/strong}}."
 
-#: search-regex-strings.php:61
+#: build/search-regex.js:2
 msgid "Please check the {{link}}support site{{/link}} before proceeding further."
 msgstr "Посетите {{link}}сайт поддержки{{/link}}, прежде чем продолжить."
 
-#: search-regex-strings.php:15
+#: build/search-regex.js:2
 msgid "Enter preset name"
 msgstr "Введите название предустановки"
 
-#: search-regex-strings.php:14
+#: build/search-regex.js:2
 msgid "Enter a name for your preset"
 msgstr "Введите название для вашей предустановки"
 
-#: search-regex-strings.php:13
+#: build/search-regex.js:2
 msgid "Saving Preset"
 msgstr "Сохранение предустановки"
 
-#: search-regex-strings.php:12
+#: build/search-regex.js:2
 msgid "Update current preset"
 msgstr "Обновление текущей предустановки"
 
-#: search-regex-strings.php:11
+#: build/search-regex.js:2
 msgid "Save search as new preset"
 msgstr "Сохранить поиск как новую предустановку"
 
-#: search-regex-strings.php:10
+#: build/search-regex.js:2
 msgid "No preset"
 msgstr "Нет предустановки"
 
-#: search-regex-strings.php:9
+#: build/search-regex.js:2
 msgid "Saving preset"
 msgstr "Сохранение предустановки"
 
-#: models/source-manager.php:177
+#: includes/source/class-manager.php:158
 msgid "Advanced"
 msgstr "Расширенный"
 
-#: models/source-manager.php:163
+#: includes/source/class-manager.php:151
 msgid "Standard"
 msgstr "Стандарт"
 
-#: search-regex-strings.php:186
+#. translators: %searched: number of rows searched and matched %phrases: number
+#. of phrases matched
+#: build/search-regex.js:6
 msgid "matched rows = %(searched)s, phrases = %(found)s"
 msgstr "совпадающие строки = %(searched)s, фразы = %(found)s"
 
-#: search-regex-strings.php:149
+#: build/search-regex.js:8
 msgid "Please backup your data before making modifications."
 msgstr "Создайте резервную копию данных перед внесением изменений."
 
-#: search-regex-strings.php:89
-msgid "Show row actions as dropdown menu."
-msgstr "Показать действия со строками, как раскрывающееся меню."
-
-#: search-regex-strings.php:48
-msgid "Replace Row"
-msgstr "Заменить строку"
-
-#: search-regex-strings.php:47
-msgid "Delete Row"
-msgstr "Удалить строку"
-
-#: search-regex-strings.php:46
-msgid "Inline Editor"
-msgstr "Встроенный редактор"
-
-#: search-regex-strings.php:45
-msgid "Edit Page"
-msgstr "Редактировать страницу"
-
-#: search-regex-strings.php:27
+#: build/search-regex.js:8
 msgid "%s row."
 msgid_plural "%s rows."
 msgstr[0] "%s строка."
 msgstr[1] "%s строки."
 msgstr[2] "%s строк."
 
-#: search-regex-strings.php:26
-msgid "%s phrase."
-msgid_plural "%s phrases."
-msgstr[0] "%s фраза."
-msgstr[1] "%s фразы."
-msgstr[2] "%s фраз."
-
-#: search-regex-strings.php:25
-msgid "Replace Information"
-msgstr "Заменить информацию"
-
-#: search-regex-strings.php:226
+#: build/search-regex.js:2
 msgid "An unknown error occurred."
 msgstr "Произошла неизвестная ошибка."
 
-#: source/core/post.php:132
+#: includes/source/core/source-post.php:382
 msgid "GUID"
 msgstr "GUID"
 
-#: source/core/post.php:131
+#: includes/source/core/source-post.php:259
+#: includes/source/core/source-terms.php:128
 msgid "Slug"
 msgstr "Ярлык"
 
-#: source/core/post.php:129
+#: includes/source/core/source-post.php:301
 msgid "Excerpt"
 msgstr "Отрывок"
 
-#: source/core/post.php:128
+#: includes/source/core/source-comment.php:181
+#: includes/source/core/source-post.php:274
 msgid "Content"
 msgstr "Содержимое"
 
-#: source/core/post.php:84
-msgid "Search GUID"
-msgstr "Поиск GUID"
+#: includes/source/core/source-user.php:148
+msgid "Display Name"
+msgstr ""
 
-#: source/core/user.php:37
-msgid "Display name"
-msgstr "Отображаемое имя"
-
-#: source/core/user.php:35
+#: includes/source/core/source-user.php:141
 msgid "Nicename"
 msgstr "Ник"
 
-#: source/core/options.php:20 source/core/meta.php:27
+#: includes/source/core/source-options.php:118
 msgid "Value"
 msgstr "Значение"
 
-#: source/core/comment.php:66
-msgid "Include spam comments"
-msgstr "Включать спам-комментарии"
-
-#: source/core/comment.php:25
+#: includes/source/core/source-comment.php:241
 msgid "Comment"
 msgstr "Комментарий"
 
-#: search-regex-strings.php:98 source/core/comment.php:22
-#: source/core/options.php:19 source/core/meta.php:19
+#: includes/source/core/source-options.php:111
+#: includes/source/core/source-terms.php:121
+#: includes/source/plugin/source-redirection.php:480 build/search-regex.js:2
 msgid "Name"
 msgstr "Название"
 
-#: source/plugin/redirection.php:82
-msgid "Search your redirects"
-msgstr "Поиск своих перенаправлений"
-
-#: search-regex-strings.php:134 source/plugin/redirection.php:28
-#: source/core/post.php:130
+#: includes/source/core/source-post.php:251
+#: includes/source/plugin/source-redirection.php:214 build/search-regex.js:2
 msgid "Title"
 msgstr "Заголовок"
 
-#: source/plugin/redirection.php:27 source/core/comment.php:24
-#: source/core/user.php:36
+#: includes/source/core/source-comment.php:175
+#: includes/source/core/source-user.php:161
 msgid "URL"
 msgstr "URL"
 
 #. translators: 1: server PHP version. 2: required PHP version.
-#: search-regex.php:39
+#: search-regex.php:38
 msgid "Disabled! Detected PHP %1$s, need PHP %2$s+"
 msgstr "Отключено! Обнаружен PHP %1$s, требуется PHP %2$s+"
 
-#: models/source-manager.php:184
+#: includes/source/class-manager.php:165
 msgid "Plugins"
 msgstr "Плагины"
 
-#: models/source-manager.php:170
-msgid "Specific Post Types"
-msgstr "Определенные типы записей"
-
-#: models/source-manager.php:52
-msgid "Search all WordPress options."
-msgstr "Поиск по всем параметрам WordPress."
-
-#: models/source-manager.php:51
+#: includes/source/class-manager.php:40
 msgid "WordPress Options"
 msgstr "Параметры WordPress"
 
-#: models/source-manager.php:85
-msgid "Search user meta name and values."
-msgstr "Поиск по meta names и значений пользователя."
-
-#: models/source-manager.php:84
+#: includes/source/class-manager.php:70
+#: includes/source/core/source-user-meta.php:30
 msgid "User Meta"
 msgstr "Мета пользователя"
 
-#: models/source-manager.php:45
-msgid "Search user email, URL, and name."
-msgstr "Поиск по email пользователя, URL-адресу и имени."
-
-#: models/source-manager.php:44
+#: includes/source/class-manager.php:34
+#: includes/source/core/source-user.php:121
 msgid "Users"
 msgstr "Пользователи"
 
-#: models/source-manager.php:78
-msgid "Search comment meta names and values."
-msgstr "Поиск по meta names и значений комментариев."
-
-#: models/source-manager.php:77
+#: includes/source/class-manager.php:64
+#: includes/source/core/source-comment-meta.php:23
 msgid "Comment Meta"
 msgstr "Мета комментария"
 
-#: models/source-manager.php:38
-msgid "Search comment content, URL, and author, with optional support for spam comments."
-msgstr "Поиск по содержанию комментариев, URL-адресам и автору, с возможностью поиска спам-комментариев."
-
-#: models/source-manager.php:37
+#: includes/source/class-manager.php:28
+#: includes/source/core/source-comment.php:142
 msgid "Comments"
 msgstr "Комментарии"
 
-#: models/source-manager.php:71
-msgid "Search post meta names and values."
-msgstr "Поиск по meta names и значений записей."
-
-#: models/source-manager.php:70
+#: includes/source/class-manager.php:58
+#: includes/source/core/source-post-meta.php:25
+#: includes/source/core/source-post.php:420
 msgid "Post Meta"
 msgstr "Метаданные записи"
 
-#: models/source-manager.php:21
-msgid "Search all posts, pages, and custom post types."
-msgstr "Поиск по всем записям, страницам и произвольным типам записей."
-
-#: models/source-manager.php:20
-msgid "All Post Types"
-msgstr "Все типы сообщений"
-
-#: search-regex-admin.php:401
+#: includes/search-regex-admin.php:467
 msgid "Please enable JavaScript"
 msgstr "Включите JavaScript"
 
-#: search-regex-admin.php:397
+#: includes/search-regex-admin.php:463
 msgid "Loading, please wait..."
 msgstr "Загрузка, пожалуйста подождите..."
 
-#: search-regex-admin.php:380
+#: includes/search-regex-admin.php:446
 msgid "Create Issue"
 msgstr "Создать тикет о проблеме"
 
-#: search-regex-admin.php:377
+#: includes/search-regex-admin.php:443
 msgid "<code>SearchRegexi10n</code> is not defined. This usually means another plugin is blocking Search Regex from loading. Please disable all plugins and try again."
 msgstr "<code>SearchRegexi10n</code> не определен. Обычно это означает, что другой плагин блокирует загрузку Search Regex. Пожалуйста, отключите все плагины и повторите попытку."
 
-#: search-regex-admin.php:376
+#: includes/search-regex-admin.php:442
 msgid "If you think Search Regex is at fault then create an issue."
 msgstr "Если вы считаете, что Search Regex виноват, создайте проблему."
 
-#: search-regex-admin.php:375
+#: includes/search-regex-admin.php:441
 msgid "Please see the <a href=\"https://searchregex.com/support/problems/\">list of common problems</a>."
 msgstr "Ознакомьтесь со списком распространенных проблем <a href=\"https://searchregex.com/support/problems/\"></a>."
 
-#: search-regex-admin.php:374
+#: includes/search-regex-admin.php:440
 msgid "Please note that Search Regex requires the WordPress REST API to be enabled. If you have disabled this then you won't be able to use Search Regex"
 msgstr "Обратите внимание, что для Search Regex требуется, чтобы был включен WordPress REST API. Если вы отключили это, вы не сможете использовать регулярное выражение поиска"
 
-#: search-regex-admin.php:372
+#: includes/search-regex-admin.php:438
 msgid "Also check if your browser is able to load <code>search-regex.js</code>:"
 msgstr "Также проверьте, способен ли ваш браузер загрузить <code>search-regex.js</code>:"
 
-#: search-regex-admin.php:370
+#: includes/search-regex-admin.php:436
 msgid "This may be caused by another plugin - look at your browser's error console for more details."
 msgstr "Это может быть вызвано другим плагином-посмотрите на консоль ошибок вашего браузера для более подробной информации."
 
-#: search-regex-admin.php:369
+#: includes/search-regex-admin.php:435
 msgid "Unable to load Search Regex ☹️"
 msgstr "Не удалось загрузить Search Regex ☹️"
 
-#: search-regex-admin.php:354
+#: includes/search-regex-admin.php:420
 msgid "Unable to load Search Regex"
 msgstr "Не удалось загрузить Search Regex"
 
 #. translators: 1: Expected WordPress version, 2: Actual WordPress version
-#: search-regex-admin.php:351
+#: includes/search-regex-admin.php:417
 msgid "Search Regex requires WordPress v%1$1s, you are using v%2$2s - please update your WordPress"
 msgstr "Search Regex требует WordPress v%1$1s, вы используете v%2$2s - обновите ваш WordPress"
 
-#: search-regex-admin.php:255
+#: includes/search-regex-admin.php:318
 msgid "Search Regex Support"
 msgstr "Поддержка регулярных выражений (Regex) поиска"
 
 #. translators: URL
-#: search-regex-admin.php:246
+#: includes/search-regex-admin.php:309
 msgid "You can find full documentation about using Search Regex on the <a href=\"%s\" target=\"_blank\">searchregex.com</a> support site."
 msgstr "Полная документация по использованию Search Regex на сайте поддержки <a href=\"%s\" target=\"_blank\">searchregex.com</a>."
 
-#: search-regex-admin.php:65
+#: includes/search-regex-admin.php:84
 msgid "Settings"
 msgstr "Настройки"
 
-#: search-regex-strings.php:88 search-regex-strings.php:212
-msgid "Actions"
-msgstr "Действия"
+#: build/search-regex.js:2
+msgid "Action"
+msgstr ""
 
-#: search-regex-strings.php:211
-msgid "Matched Phrases"
-msgstr "Совпадающие фразы"
-
-#: search-regex-strings.php:210
-msgid "Matches"
-msgstr "Совпадение"
-
-#: search-regex-strings.php:209
+#: build/search-regex.js:8
 msgid "Row ID"
 msgstr "ID ряда"
 
-#: search-regex-strings.php:207
-msgid "Maximum number of page requests has been exceeded and the search stopped. Try to be more specific with your search term."
-msgstr "Превышено максимальное количество запросов страницы, и поиск остановлен. Постарайтесь уточнить свой поисковый запрос."
-
-#: search-regex-strings.php:206
+#: build/search-regex.js:2
 msgid "No more matching results found."
 msgstr "Больше подходящих результатов не найдено."
 
-#: search-regex-strings.php:196
+#: build/search-regex.js:2
 msgid "Last page"
 msgstr "Последняя страница"
 
-#: search-regex-strings.php:194
+#: build/search-regex.js:2
 msgid "Page %(current)s of %(total)s"
 msgstr "Страница %(current)s of %(total)s"
 
-#: search-regex-strings.php:191
-msgid "Matches: %(phrases)s across %(rows)s database row."
-msgid_plural "Matches: %(phrases)s across %(rows)s database rows."
-msgstr[0] "Совпадает: %(phrases)s across %(rows)s строка БД."
-msgstr[1] "Совпадает: %(phrases)s across %(rows)s строки БД."
-msgstr[2] "Совпадает: %(phrases)s across %(rows)s строк БД."
-
-#: search-regex-strings.php:190 search-regex-strings.php:195
+#: build/search-regex.js:2 build/search-regex.js:8
 msgid "Next page"
 msgstr "Следующая страница"
 
-#: search-regex-strings.php:189
-msgid "Progress %(current)s$"
-msgstr "Ход выполнения %(current)s$"
+#. translators: %current: current percent progress
+#: build/search-regex.js:8
+msgid "Progress %(current)s%%"
+msgstr ""
 
-#: search-regex-strings.php:188 search-regex-strings.php:193
+#: build/search-regex.js:2 build/search-regex.js:6
 msgid "Prev page"
 msgstr "Предыдущая страница"
 
-#: search-regex-strings.php:187 search-regex-strings.php:192
+#: build/search-regex.js:2 build/search-regex.js:6
 msgid "First page"
 msgstr "Первая страница"
 
-#: search-regex-strings.php:185
+#. translators: %s: total number of rows searched
+#: build/search-regex.js:4
 msgid "%s database row in total"
 msgid_plural "%s database rows in total"
 msgstr[0] "Всего %s строка базы данных"
 msgstr[1] "Всего %s строки базы данных"
 msgstr[2] "Всего %s строк базы данных"
 
-#: search-regex-strings.php:178
+#: build/search-regex.js:2
 msgid "500 per page"
 msgstr "500 на страницу"
 
-#: search-regex-strings.php:177
+#: build/search-regex.js:2
 msgid "250 per page"
 msgstr "250 на страницу"
 
-#: search-regex-strings.php:176
+#: build/search-regex.js:2
 msgid "100 per page"
 msgstr "100 на страницу"
 
-#: search-regex-strings.php:175
+#: build/search-regex.js:2
 msgid "50 per page"
 msgstr "50 на страницу"
 
-#: search-regex-strings.php:174
+#: build/search-regex.js:2
 msgid "25 per page"
 msgstr "25 на страницу"
 
-#: search-regex-strings.php:173
+#: build/search-regex.js:2
 msgid "Ignore Case"
 msgstr "Игнорировать регистр"
 
-#: search-regex-strings.php:172
+#: build/search-regex.js:2
 msgid "Regular Expression"
 msgstr "Регулярное выражение"
 
-#: search-regex-strings.php:170
+#: build/search-regex.js:2
 msgid "Row updated"
 msgstr "Строка обновлена"
 
-#: search-regex-strings.php:169
+#: build/search-regex.js:2
 msgid "Row replaced"
 msgstr "Строка заменена"
 
-#: search-regex-strings.php:168
+#: build/search-regex.js:2
 msgid "Row deleted"
 msgstr "Строка удалена"
 
-#: search-regex-strings.php:167
+#: build/search-regex.js:2
 msgid "Settings saved"
 msgstr "Настройки сохранены"
 
-#: search-regex-strings.php:166 search-regex-admin.php:238
+#: includes/search-regex-admin.php:301 build/search-regex.js:2
 msgid "{{link}}Source Flags{{/link}} - additional options for the selected source. For example, include post {{guid}}GUID{{/guid}} in the search."
 msgstr "{{link}}Флаги источника{{/link}} - дополнительные параметры для выбранного источника. Например, включите в поиск запись {{guid}}GUID{{/guid}}."
 
-#: search-regex-strings.php:165 search-regex-admin.php:251
+#: includes/search-regex-admin.php:314 build/search-regex.js:2
 msgid "{{link}}Source{{/link}} - the source of data you wish to search. For example, posts, pages, or comments."
 msgstr "{{link}}Источник{{/link}} - источник данных, которые вы хотите найти. Например, посты, страницы или комментарии."
 
-#: search-regex-strings.php:164 search-regex-admin.php:250
+#: includes/search-regex-admin.php:313 build/search-regex.js:2
 msgid "{{link}}Regular expression{{/link}} - a way of defining a pattern for text matching. Provides more advanced matches."
 msgstr "{{link}}Регулярное выражение{{/link}} - способ определения шаблона для сопоставления текста. Обеспечивает более сложные совпадения."
 
-#: search-regex-strings.php:163 search-regex-admin.php:249
+#: includes/search-regex-admin.php:312 build/search-regex.js:2
 msgid "{{link}}Search Flags{{/link}} - additional qualifiers for your search, to enable case insensitivity, and to enable regular expression support."
 msgstr "{{link}}Флаги поиска{{/link}} - дополнительные квалификаторы для вашего поиска, чтобы включить нечувствительность к регистру и включить поддержку регулярных выражений."
 
-#: search-regex-strings.php:162 search-regex-admin.php:247
+#: includes/search-regex-admin.php:310 build/search-regex.js:2
 msgid "The following concepts are used by Search Regex:"
 msgstr "В Search Regex используются следующие понятия:"
 
-#: search-regex-strings.php:161
+#: build/search-regex.js:2
 msgid "Quick Help"
 msgstr "Быстрая помощь"
 
-#: search-regex-strings.php:160
+#: build/search-regex.js:2
 msgid "Like this plugin? You might want to consider {{link}}Redirection{{/link}}, a plugin to manage redirects, from the same author."
 msgstr "Нравится этот плагин? Возможно, вы захотите рассмотреть {{link}}Redirection{{/link}}, плагин для управления перенаправлениями, от того же автора."
 
-#: search-regex-strings.php:159 source/plugin/redirection.php:81
+#: includes/source/plugin/source-redirection.php:145 build/search-regex.js:2
 msgid "Redirection"
 msgstr "Перенаправление"
 
-#: search-regex-strings.php:158
+#: build/search-regex.js:2
 msgid "If you want to submit information that you don't want in a public repository then send it directly via {{email}}email{{/email}} - include as much information as you can!"
 msgstr "Если вы хотите отправить информацию, которую вы не хотите в публичный репозиторий, отправьте ее напрямую через {{email}} email {{/e-mail}} - укажите как можно больше информации!"
 
-#: search-regex-strings.php:157
+#: build/search-regex.js:2
 msgid "Please note that any support is provide on as-time-is-available basis and is not guaranteed. I do not provide paid support."
 msgstr "Обратите внимание, что любая поддержка предоставляется по мере доступности и не гарантируется. Я не предоставляю платной поддержки."
 
-#: search-regex-strings.php:156
+#: build/search-regex.js:2
 msgid "If you want to report a bug please read the {{report}}Reporting Bugs{{/report}} guide."
 msgstr "Если вы хотите сообщить об ошибке, пожалуйста, прочитайте инструкцию {{report}} отчеты об ошибках {{/report}}."
 
-#: search-regex-strings.php:155
+#: build/search-regex.js:2
 msgid "Full documentation for Search Regex can be found at {{site}}https://searchregex.com{{/site}}."
 msgstr "Полную документацию по Search Regex можно найти на {{site}}https://searchregex.com{{/site}}."
 
-#: search-regex-strings.php:154
+#: build/search-regex.js:2
 msgid "Need more help?"
 msgstr "Нужна дополнительная помощь?"
 
-#: search-regex-strings.php:204
+#: build/search-regex.js:2
 msgid "Results"
 msgstr "Результаты"
 
-#: search-regex-strings.php:203
-msgid "Source Options"
-msgstr "Параметры источника"
-
-#: search-regex-strings.php:121 search-regex-strings.php:202
-#: search-regex-strings.php:208
+#: build/search-regex.js:2 build/search-regex.js:8
 msgid "Source"
 msgstr "Источник"
 
-#: search-regex-strings.php:200 search-regex-strings.php:201
-msgid "Enter global replacement text"
-msgstr "Введите текст глобальной замены"
-
-#: search-regex-strings.php:120 search-regex-strings.php:198
-msgid "Search Flags"
-msgstr "Флаги поиска"
-
-#: search-regex-strings.php:53
+#: build/search-regex.js:2
 msgid "Enter search phrase"
 msgstr "Введите фразу для поиска"
 
-#: search-regex-strings.php:152
+#: build/search-regex.js:8
 msgid "Replace All"
 msgstr "Заменить все"
 
-#: search-regex-strings.php:99 search-regex-strings.php:118
-#: search-regex-strings.php:142 search-regex-strings.php:151
-#: search-regex-strings.php:197
+#: build/search-regex.js:2 build/search-regex.js:8
 msgid "Search"
 msgstr "Поиск"
 
-#: search-regex-strings.php:150
+#: build/search-regex.js:8
 msgid "Search and replace information in your database."
 msgstr "Поиск и замена информации в базе данных."
 
-#: search-regex-strings.php:95
+#: build/search-regex.js:2
 msgid "Update"
 msgstr "Обновить"
 
-#: search-regex-strings.php:94
+#: build/search-regex.js:2
 msgid "How Search Regex uses the REST API - don't change unless necessary"
 msgstr "Как Search Regex использует REST API - не меняйте без необходимости"
 
-#: search-regex-strings.php:93
+#: build/search-regex.js:2
 msgid "REST API"
 msgstr "REST API"
 
-#: search-regex-strings.php:87
+#: build/search-regex.js:2
 msgid "I'm a nice person and I have helped support the author of this plugin"
 msgstr "Я хороший человек, и я помог поддержать автора этого плагина"
 
-#: search-regex-strings.php:86
+#: build/search-regex.js:2
 msgid "Relative REST API"
 msgstr "Относительный REST API"
 
-#: search-regex-strings.php:85
+#: build/search-regex.js:2
 msgid "Raw REST API"
 msgstr "Необработанный REST API"
 
-#: search-regex-strings.php:84
+#: build/search-regex.js:2
 msgid "Default REST API"
 msgstr "REST API по умолчанию"
 
-#: search-regex-strings.php:83
+#: build/search-regex.js:2
 msgid "Plugin Support"
 msgstr "Поддержка плагина"
 
-#: search-regex-strings.php:82
+#: build/search-regex.js:2
 msgid "Support 💰"
 msgstr "Поддержка 💰"
 
-#: search-regex-strings.php:81
+#: build/search-regex.js:2
 msgid "You get useful software and I get to carry on making it better."
 msgstr "Вы получаете полезное программное обеспечение, и я продолжаю делать его лучше."
 
-#: search-regex-strings.php:80
+#: build/search-regex.js:2
 msgid "Search Regex is free to use - life is wonderful and lovely! It has required a great deal of time and effort to develop and you can help support this development by {{strong}}making a small donation{{/strong}}."
 msgstr "Search Regex бесплатен для использования - жизнь чудесна и прекрасна! Его разработка потребовала много времени и усилий, и вы можете помочь поддержать это развитие, сделав {{strong}} небольшое пожертвование{{/strong}}."
 
-#: search-regex-strings.php:79
+#: build/search-regex.js:2
 msgid "I'd like to support some more."
 msgstr "Мне хотелось бы поддержать чуть больше."
 
-#: search-regex-strings.php:78
+#: build/search-regex.js:2
 msgid "You've supported this plugin - thank you!"
 msgstr "Вы поддерживаете этот плагин - спасибо!"
 
-#: search-regex-strings.php:60
+#: build/search-regex.js:2
 msgid "If that doesn't help, open your browser's error console and create a {{link}}new issue{{/link}} with the details."
 msgstr "Если это не поможет, откройте консоль ошибок браузера и создайте {{link}}новый тикет о проблеме{{/link}} с деталями."
 
-#: search-regex-strings.php:59 search-regex-admin.php:371
+#: includes/search-regex-admin.php:437 build/search-regex.js:2
 msgid "If you are using a page caching plugin or service (CloudFlare, OVH, etc) then you can also try clearing that cache."
 msgstr "Если вы используете плагин кэширования страниц или услугу (cloudflare, OVH и т.д.), то вы также можете попробовать очистить кэш."
 
-#: search-regex-strings.php:58
+#: build/search-regex.js:2
 msgid "Search Regex is not working. Try clearing your browser cache and reloading this page."
 msgstr "Search Regex не работает. Попробуйте очистить кеш браузера и перезагрузить эту страницу."
 
-#: search-regex-strings.php:57
+#: build/search-regex.js:8
 msgid "clearing your cache."
 msgstr "очистить свой кэш."
 
-#: search-regex-strings.php:56
+#: build/search-regex.js:8
 msgid "If you are using a caching system such as Cloudflare then please read this: "
 msgstr "Если вы используете систему кэширования, такую как cloudflare, пожалуйста, прочитайте это: "
 
-#: search-regex-strings.php:55
+#: build/search-regex.js:8
 msgid "Please clear your browser cache and reload this page."
 msgstr "Очистите кеш браузера и перезагрузите эту страницу."
 
-#: search-regex-strings.php:54
+#: build/search-regex.js:8
 msgid "Cached Search Regex detected"
 msgstr "Обнаружено кеширование Search Regex"
 
-#: search-regex-strings.php:52
+#: build/search-regex.js:2
 msgid "Show %s more"
 msgid_plural "Show %s more"
 msgstr[0] "Показать еще %s"
 msgstr[1] "Показать еще %s"
 msgstr[2] "Показать еще %s"
 
-#: search-regex-strings.php:51
+#: build/search-regex.js:2
 msgid "Maximum number of matches exceeded and hidden from view. These will be included in any replacements."
 msgstr "Превышено максимальное количество совпадений, и они скрыты от просмотра. Они будут включены в любые замены."
 
-#: search-regex-strings.php:50
-msgid "Replace %(count)s match."
-msgid_plural "Replace %(count)s matches."
-msgstr[0] "Заменить %(count)s совпадение."
-msgstr[1] "Заменить %(count)s совпадения."
-msgstr[2] "Заменить %(count)s совпадений."
-
-#: search-regex-strings.php:147
+#: build/search-regex.js:2
 msgid "Delete"
 msgstr "Удалить"
 
-#: search-regex-strings.php:146
+#: build/search-regex.js:2
 msgid "Edit"
 msgstr "Редактировать"
 
-#: search-regex-strings.php:49
-msgid "Replacement for all matches in this row"
-msgstr "Замена для всех совпадений в этой строке"
-
-#: search-regex-strings.php:44
+#: build/search-regex.js:2
 msgid "Check Again"
 msgstr "Проверить снова"
 
-#: search-regex-strings.php:43
-msgid "Testing - %s$"
-msgstr "Тестирование - %s$"
+#: build/search-regex.js:2
+msgid "Testing - %s%%"
+msgstr ""
 
-#: search-regex-strings.php:42
+#: build/search-regex.js:2
 msgid "Show Problems"
 msgstr "Показать проблемы"
 
-#: search-regex-strings.php:41
+#: build/search-regex.js:2
 msgid "Summary"
 msgstr "Резюме"
 
-#: search-regex-strings.php:40
+#: build/search-regex.js:2
 msgid "You are using a broken REST API route. Changing to a working API should fix the problem."
 msgstr "Используется поврежденный маршрут REST API. Переход на рабочий API должен устранить проблему."
 
-#: search-regex-strings.php:39
+#: build/search-regex.js:2
 msgid "Your REST API is not working and the plugin will not be able to continue until this is fixed."
 msgstr "Ваш REST API не работает, и плагин не сможет продолжить работу, пока это не будет исправлено."
 
-#: search-regex-strings.php:38
+#: build/search-regex.js:2
 msgid "There are some problems connecting to your REST API. It is not necessary to fix these problems and the plugin is able to work."
 msgstr "Возникли некоторые проблемы с подключением к вашему REST API. Эти проблемы устранять не нужно, и плагин может работать."
 
-#: search-regex-strings.php:37
+#: build/search-regex.js:2
 msgid "Unavailable"
 msgstr "Недоступен"
 
-#: search-regex-strings.php:36
+#: build/search-regex.js:2
 msgid "Not working but fixable"
 msgstr "Не работает, но можно исправить"
 
-#: search-regex-strings.php:35
+#: build/search-regex.js:2
 msgid "Working but some issues"
 msgstr "Работает, но есть некоторые проблемы"
 
-#: search-regex-strings.php:34
+#: build/search-regex.js:2
 msgid "Good"
 msgstr "Хорошо"
 
-#: search-regex-strings.php:33
+#: build/search-regex.js:2
 msgid "Current API"
 msgstr "Текущий API"
 
-#: search-regex-strings.php:32
+#: build/search-regex.js:2
 msgid "Switch to this API"
 msgstr "Переключиться на этот API"
 
-#: search-regex-strings.php:31
+#: build/search-regex.js:2
 msgid "Hide"
 msgstr "Скрыть"
 
-#: search-regex-strings.php:30
+#: build/search-regex.js:2
 msgid "Show Full"
 msgstr "Показать полностью"
 
-#: search-regex-strings.php:29
+#: build/search-regex.js:2
 msgid "Working!"
 msgstr "Работает!"
 
-#: search-regex-strings.php:28
+#: build/search-regex.js:8
 msgid "Finished!"
 msgstr "Завершено!"
 
-#: search-regex-strings.php:24
-msgid "Replace progress"
-msgstr "Ход замены"
-
-#: search-regex-strings.php:17 search-regex-strings.php:23
-#: search-regex-strings.php:141 search-regex-strings.php:153
-#: search-regex-strings.php:184
+#: build/search-regex.js:2 build/search-regex.js:8
 msgid "Cancel"
 msgstr "Отменить"
 
-#: search-regex-strings.php:22 search-regex-strings.php:119
-#: search-regex-strings.php:143 search-regex-strings.php:199
+#: build/search-regex.js:2
 msgid "Replace"
 msgstr "Заменить"
 
-#: search-regex-strings.php:21
-msgid "Search phrase will be removed"
-msgstr "Фраза для поиска будет удалена"
-
-#: search-regex-strings.php:20
+#: build/search-regex.js:2
 msgid "Remove"
 msgstr "Удалить"
 
-#: search-regex-strings.php:19
+#: build/search-regex.js:2
 msgid "Multi"
 msgstr "Мульти"
 
-#: search-regex-strings.php:18
+#: build/search-regex.js:2
 msgid "Single"
 msgstr "Одиночный"
 
-#: search-regex-strings.php:181
-msgid "View notice"
-msgstr "Просмотр уведомления"
-
-#: search-regex-strings.php:8
-msgid "Replace single phrase."
-msgstr "Заменить одну фразу."
-
-#: search-regex-strings.php:7
-msgid "Replacement for this match"
-msgstr "Замена для этого совпадения"
-
-#: search-regex-strings.php:72 search-regex-strings.php:77
+#: build/search-regex.js:8
 msgid "Support"
 msgstr "Поддержка"
 
-#: search-regex-strings.php:71 search-regex-strings.php:76
+#: includes/source/core/source-options.php:99 build/search-regex.js:8
 msgid "Options"
 msgstr "Параметры"
 
-#: search-regex-strings.php:74
+#: build/search-regex.js:8
 msgid "Search & Replace"
 msgstr "Поиск и Замена"
 
-#: search-regex-strings.php:69
+#: build/search-regex.js:2
 msgid "If you are using WordPress 5.2 or newer then look at your {{link}}Site Health{{/link}} and resolve any issues."
 msgstr "Если вы используете WordPress 5.2 или новее, посмотрите раздел {{link}}Здоровье сайта{{/link}} для решения любых проблем."
 
-#: search-regex-strings.php:68
+#: build/search-regex.js:2
 msgid "{{link}}Please temporarily disable other plugins!{{/link}} This fixes so many problems."
 msgstr "{{link}}Временно отключите другие плагины!{{/ link}} Это устраняет множество проблем."
 
-#: search-regex-strings.php:67
+#: build/search-regex.js:2
 msgid "{{link}}Caching software{{/link}}, in particular Cloudflare, can cache the wrong thing. Try clearing all your caches."
 msgstr "{{link}}Кэширование программного обеспечения{{/link}},в частности Cloudflare, может кэшировать неправильные вещи. Попробуйте очистить все кэши."
 
-#: search-regex-strings.php:66
+#: build/search-regex.js:2 build/search-regex.js:8
 msgid "What do I do next?"
 msgstr "Что мне делать дальше?"
 
-#: search-regex-strings.php:237 search-regex-strings.php:238
-#: search-regex-strings.php:239
+#: build/search-regex.js:2
 msgid "Something went wrong 🙁"
 msgstr "Что-то пошло не так 🙁"
 
-#: search-regex-strings.php:243
+#: build/search-regex.js:2
 msgid "Log out, clear your browser cache, and log in again - your browser has cached an old session."
 msgstr "Выйдите из системы, очистите кеш браузера и снова войдите в систему - ваш браузер кэшировал старую сессию."
 
-#: search-regex-strings.php:242
+#: build/search-regex.js:2
 msgid "Reload the page - your current session is old."
 msgstr "Перезагрузите страницу - ваша текущая сессия устарела."
 
-#: search-regex-strings.php:65
+#: build/search-regex.js:2
 msgid "Include these details in your report along with a description of what you were doing and a screenshot."
 msgstr "Включите эти сведения в свой отчет вместе с описанием того, что вы делали, и снимком экрана."
 
-#: search-regex-strings.php:64 search-regex-strings.php:97
-#: source/core/comment.php:23
+#: includes/source/core/source-comment.php:168
+#: includes/source/core/source-user.php:155 build/search-regex.js:2
+#: build/search-regex.js:8
 msgid "Email"
 msgstr "Электронная почта"
 
-#: search-regex-strings.php:63 search-regex-strings.php:96
+#: build/search-regex.js:2 build/search-regex.js:8
 msgid "Create An Issue"
 msgstr "Открыть тикет о проблеме"
 
-#: search-regex-strings.php:6
-msgid "Close"
-msgstr "Закрыть"
+#: includes/source/core/source-post.php:320
+#: includes/source/core/source-post.php:336
+msgid "Closed"
+msgstr ""
 
-#: search-regex-strings.php:5 search-regex-strings.php:16
-#: search-regex-strings.php:140
+#: build/search-regex.js:2
 msgid "Save"
 msgstr "Сохранить"
 
-#: search-regex-strings.php:4
-msgid "Editing %s"
-msgstr "Редактирование %s"
-
-#: search-regex-strings.php:232
+#: build/search-regex.js:2
 msgid "Unable to make request due to browser security. This is typically because your WordPress and Site URL settings are inconsistent, or the request was blocked by your site CORS policy."
 msgstr "Невозможно отправить запрос из-за безопасности браузера. Обычно это происходит потому, что настройки вашего WordPress и URL-адреса сайта несовместимы, или запрос был заблокирован политикой CORS вашего сайта."
 
-#: search-regex-strings.php:231
+#: build/search-regex.js:2
 msgid "Possible cause"
 msgstr "Возможная причина"
 
-#: search-regex-strings.php:227
+#: build/search-regex.js:2
 msgid "This could be a security plugin, or your server is out of memory or has an external error. Please check your server error log"
 msgstr "Это может быть плагин безопасности, или вашему серверу не хватает памяти, или произошла внешняя ошибка. Проверьте журнал ошибок вашего сервера"
 
-#: search-regex-strings.php:225
+#: build/search-regex.js:2
 msgid "Your server has rejected the request for being too big. You will need to reconfigure it to continue."
 msgstr "Ваш сервер отклонил запрос, так как он слишком большой. Чтобы продолжить, вам нужно будет перенастроить его."
 
-#: search-regex-strings.php:216
+#: build/search-regex.js:2
 msgid "Your REST API is probably being blocked by a security plugin. Please disable this, or configure it to allow REST API requests."
 msgstr "Ваш REST API, вероятно, блокируется плагином безопасности. Пожалуйста, отключите его или настройте так, чтобы он разрешал запросы REST API."
 
-#: search-regex-strings.php:217 search-regex-strings.php:223
-#: search-regex-strings.php:228 search-regex-strings.php:233
+#: build/search-regex.js:2
 msgid "Read this REST API guide for more information."
 msgstr "Прочтите это руководство по REST API для получения дополнительной информации."
 
-#: search-regex-strings.php:215
+#: build/search-regex.js:2
 msgid "WordPress did not return a response. This could mean an error occurred or that the request was blocked. Please check your server error_log."
 msgstr "WordPress не вернул ответ. Это может означать, что произошла ошибка или что запрос был заблокирован. Пожалуйста, проверьте ваш error_log сервера."
 
@@ -1089,6 +1580,6 @@ msgid "https://searchregex.com/"
 msgstr "https://searchregex.com/"
 
 #. Plugin Name of the plugin
-#: search-regex-strings.php:70
+#: build/search-regex.js:8
 msgid "Search Regex"
 msgstr "Search Regex"

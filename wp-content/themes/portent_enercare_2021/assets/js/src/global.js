@@ -95,11 +95,11 @@ jQuery(function($){
       { utm_source: 'utm_source' },
       { utm_medium: 'utm_medium' },
       { utm_campaign: 'utm_campaign' },
+      { gclid: 'gclid' },
       /*
       { Keyword: 'keyword' },
       { Campaign: 'cid' },
       { AdGroup: 'aid' },
-      { GoogleCookieID: 'gclid' },
       { ReferralCode: 'refcode' },
       { DeviceType: '' }
       */
@@ -148,14 +148,14 @@ jQuery(function($){
 
     window.Enercare.handleHiddenFormFields = function(form) {
       // handle the VendorCookieID/ruid
-      if (form.VendorCookieID === undefined) {
+      if (form.ruid === undefined) {
         var input = document.createElement("input");
         input.setAttribute("type", "hidden");
         input.setAttribute("name", "ruid");
         input.setAttribute("value", getCookie('ruid'));
         form.appendChild(input);
       } else {
-        form.VendorCookieID.setAttribute("value", getCookie('ruid'));
+        form.ruid.setAttribute("value", getCookie('ruid'));
       }
 
       // loop through our PPC params
