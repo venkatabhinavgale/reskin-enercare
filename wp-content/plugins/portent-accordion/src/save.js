@@ -45,7 +45,7 @@ export default function save({ attributes }) {
 			</button>
 			<div
 				id={`accordion-panel-${accordionID}`}
-				className="portent-accordion__content is-collapsed"
+				className="portent-accordion__content"
 				aria-hidden="true"
 				role="region"
 				aria-labelledby={`accordion-header-${accordionID}`}
