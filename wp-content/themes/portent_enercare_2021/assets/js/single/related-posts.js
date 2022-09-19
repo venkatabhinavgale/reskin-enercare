@@ -37,4 +37,38 @@ window.addEventListener('load', function () {
 			]
 		});
 	});
+
+	/**
+	 * Setup Next/Previous Status Reporters
+	 */
+	let gliderNotificationCenter;
+	gliderNotificationCenter = document.querySelector('#gliderNotificationCenter');
+
+	let reviewCarouselAction = function(event, direction) {
+		gliderNotificationCenter.textContent = '';
+		if(!event.target.classList.contains('disabled') && window.outerWidth >= 1024) {
+			gliderNotificationCenter.textContent = `Carousel moved to ${direction} group of 4 items.`;
+		} else if(!event.target.classList.contains('disabled') && window.outerWidth < 775) {
+			gliderNotificationCenter.textContent = `Carousel moved to ${direction} item.`;
+		}
+	};
+
+	let reviewsCarouselPrev = document.querySelectorAll('.related-posts__glider-prev');
+	let reviewsCarouselNext = document.querySelectorAll('.related-posts__glider-next');
+
+	if(typeof reviewsCarouselPrev !== 'undefined'){
+		reviewsCarouselPrev.forEach(function(button){
+			button.addEventListener('click', function(event){
+				reviewCarouselAction(event, 'Previous');
+			});
+		});
+	}
+
+	if(typeof reviewsCarouselPrev !== 'undefined'){
+		reviewsCarouselNext.forEach(function(button){
+			button.addEventListener('click', function(event){
+				reviewCarouselAction(event, 'Next');
+			});
+		});
+	}
 });
