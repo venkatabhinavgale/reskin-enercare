@@ -2136,7 +2136,14 @@ function ampforwp_modify_archive_title( $title ) {
     } elseif ( is_tag() ) {
         $title = single_tag_title( '', false );
     } elseif ( is_author() ) {
-        $title = '<span class="vcard">' . get_the_author() . '</span>';
+		if(!get_the_author() && function_exists('get_the_coauthor_meta'))
+		{
+			$title = '<span class="vcard">' . ampforwp_get_coauthor_meta('display_name') . '</span>';
+		}
+		else{
+			$title = '<span class="vcard">' . get_the_author() . '</span>';
+		}
+       
     } elseif ( is_post_type_archive() ) {
         $title = post_type_archive_title( '', false );
     } elseif ( is_tax() ) {
@@ -7133,12 +7140,17 @@ add_filter( 'amp_post_template_data', 'ampforwp_backtotop' );
 function ampforwp_backtotop( $data ) {
 	global $redux_builder_amp;
 	if(true == ampforwp_get_setting('ampforwp-footer-top')){
+		$dom = AMP_DOM_Utils::get_dom_from_content($data['post_amp_content']);
+		if ( 0 !== $dom->getElementsByTagName( 'amp-position-observer' )->length ) {
 			if ( empty( $data['amp_component_scripts']['amp-position-observer'] ) ) {
 				$data['amp_component_scripts']['amp-position-observer'] = 'https://cdn.ampproject.org/v0/amp-position-observer-0.1.js';
 			}
+		}
+		if ( 0 !== $dom->getElementsByTagName( 'amp-animation' )->length ) {
 			if ( empty( $data['amp_component_scripts']['amp-animation'] ) ) {
 				$data['amp_component_scripts']['amp-animation'] = 'https://cdn.ampproject.org/v0/amp-animation-0.1.js';
 			}
+		}
 			
 	}
 	return $data;

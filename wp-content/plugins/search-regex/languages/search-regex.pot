@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the Search Regex plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Search Regex 3.0.3\n"
+"Project-Id-Version: Search Regex 3.0.6\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/search-regex\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2022-08-19T08:49:11+00:00\n"
+"POT-Creation-Date: 2022-09-05T12:55:25+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.6.0\n"
 
@@ -35,7 +35,6 @@ msgid "Settings"
 msgstr ""
 
 #: includes/search-regex-admin.php:301
-#: src/page/support/search-help.js:47
 msgid "{{link}}Source Flags{{/link}} - additional options for the selected source. For example, include post {{guid}}GUID{{/guid}} in the search."
 msgstr ""
 
@@ -45,22 +44,18 @@ msgid "You can find full documentation about using Search Regex on the <a href=\
 msgstr ""
 
 #: includes/search-regex-admin.php:310
-#: src/page/support/search-help.js:18
 msgid "The following concepts are used by Search Regex:"
 msgstr ""
 
 #: includes/search-regex-admin.php:312
-#: src/page/support/search-help.js:23
 msgid "{{link}}Search Flags{{/link}} - additional qualifiers for your search, to enable case insensitivity, and to enable regular expression support."
 msgstr ""
 
 #: includes/search-regex-admin.php:313
-#: src/page/support/search-help.js:31
 msgid "{{link}}Regular expression{{/link}} - a way of defining a pattern for text matching. Provides more advanced matches."
 msgstr ""
 
 #: includes/search-regex-admin.php:314
-#: src/page/support/search-help.js:39
 msgid "{{link}}Source{{/link}} - the source of data you wish to search. For example, posts, pages, or comments."
 msgstr ""
 
@@ -506,7 +501,7 @@ msgid "Nginx"
 msgstr ""
 
 #. translators: 1: server PHP version. 2: required PHP version.
-#: search-regex.php:38
+#: search-regex.php:37
 msgid "Disabled! Detected PHP %1$s, need PHP %2$s+"
 msgstr ""
 
@@ -1358,50 +1353,51 @@ msgid "Search and replace information in your database."
 msgstr ""
 
 #. translators: %s: total number of rows searched
-#: src/page/search-replace/pagination/advanced-pagination.js:30
+#: src/page/search-replace/pagination/advanced-pagination.js:35
 msgid "%s database row in total"
 msgid_plural "%s database rows in total"
 msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %searched: number of rows searched and matched %phrases: number of phrases matched
-#: src/page/search-replace/pagination/advanced-pagination.js:38
-msgid "matched rows = %(searched)s, phrases = %(found)s"
+#: src/page/search-replace/pagination/advanced-pagination.js:43
+msgid "matched rows = %(searched)s"
 msgstr ""
 
-#: src/page/search-replace/pagination/advanced-pagination.js:45
-#: src/page/search-replace/pagination/simple-pagination.js:36
+#: src/page/search-replace/pagination/advanced-pagination.js:49
+#: src/page/search-replace/pagination/simple-pagination.js:43
 msgid "First page"
 msgstr ""
 
-#: src/page/search-replace/pagination/advanced-pagination.js:46
-#: src/page/search-replace/pagination/simple-pagination.js:43
-msgid "Prev page"
-msgstr ""
-
 #. translators: %current: current percent progress
-#: src/page/search-replace/pagination/advanced-pagination.js:51
+#: src/page/search-replace/pagination/advanced-pagination.js:54
 msgid "Progress %(current)s%%"
 msgstr ""
 
-#: src/page/search-replace/pagination/advanced-pagination.js:57
-#: src/page/search-replace/pagination/simple-pagination.js:58
+#: src/page/search-replace/pagination/advanced-pagination.js:60
+#: src/page/search-replace/pagination/simple-pagination.js:67
 msgid "Next page"
 msgstr ""
 
-#: src/page/search-replace/pagination/index.js:24
+#: src/page/search-replace/pagination/index.js:23
 msgid "Your search conditions have changed. Please refresh to see the latest results."
 msgstr ""
 
-#: src/page/search-replace/pagination/simple-pagination.js:27
+#. translators: matches=number of matched rows, total=total number of rows
+#: src/page/search-replace/pagination/simple-pagination.js:34
 msgid "Matched rows: %(matches)s out of %(total)s total."
 msgstr ""
 
-#: src/page/search-replace/pagination/simple-pagination.js:51
+#: src/page/search-replace/pagination/simple-pagination.js:50
+msgid "Prev page"
+msgstr ""
+
+#. translators: current=current page, total=total number of pages
+#: src/page/search-replace/pagination/simple-pagination.js:60
 msgid "Page %(current)s of %(total)s"
 msgstr ""
 
-#: src/page/search-replace/pagination/simple-pagination.js:65
+#: src/page/search-replace/pagination/simple-pagination.js:74
 msgid "Last page"
 msgstr ""
 
@@ -1463,10 +1459,6 @@ msgstr ""
 
 #: src/page/support/help.js:70
 msgid "Like this plugin? You might want to consider {{link}}Redirection{{/link}}, a plugin to manage redirects, from the same author."
-msgstr ""
-
-#: src/page/support/search-help.js:16
-msgid "Quick Help"
 msgstr ""
 
 #: src/state/message/reducer.js:33
