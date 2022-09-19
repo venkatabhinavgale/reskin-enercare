@@ -34,7 +34,6 @@ function enercare_archive_header() {
 
 	if( is_search() ) {
 		$title = 'Search Results';
-		$more = get_search_form( false );
 	}
 	if( empty( $title ) && empty( $description ) )
 		return;
@@ -49,7 +48,6 @@ function enercare_archive_header() {
 		echo '<h4>' . $subtitle . '</h4>';
 
 	echo apply_filters( 'enercare_the_content', $description );
-	echo $more;
 	echo '<div class="archive-header__after">';
 		do_action ('enercare_archive_header_after' );
 	echo '</div>';
