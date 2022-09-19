@@ -2,9 +2,9 @@
 Contributors: jonua
 Tags: acf table
 Requires at least: 5.3
-Tested up to: 5.7
-Stable tag: 1.3.14
-Requires PHP: 5.6
+Tested up to: 6.0.2
+Stable tag: 1.3.15
+Requires PHP: 7.3
 License: GPLv2 or later
 
 A Table Field Add-on for the Advanced Custom Fields Plugin.
@@ -356,6 +356,9 @@ However, only when activated as a plugin will updates be available.
 
 
 == Changelog ==
+
+= 1.3.15 =
+* Fixes an issue with count() in PHP8
 
 = 1.3.14 =
 * Prevents the font-size and line-height in the blue editor window of the table cells from being overwritten by other styles.
