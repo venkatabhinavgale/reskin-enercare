@@ -353,7 +353,7 @@ add_filter( 'gform_form_update_meta_19', 'enercare_gform_remove_repeater_19', 10
 
 function enercare_gform_date_min_year( $min_date, $form, $field ) {
   date_default_timezone_set('America/Toronto');
-  if ($form['id'] == 18 || $form['id'] == 19) {
+  if ($form['id'] == 18 || $form['id'] == 19 || $form['id'] == 21) {
     return date('Y', strtotime('+1 day'));
   } elseif ($form['id'] == 20) {
     return date('Y', strtotime('-1 year'));
