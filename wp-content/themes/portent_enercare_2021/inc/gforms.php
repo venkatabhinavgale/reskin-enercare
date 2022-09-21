@@ -402,6 +402,17 @@ function enercare_gform_field_validation( $result, $value, $form, $field ) {
       $field->failed_validation = true;
       $field->validation_message = 'Please enter a valid date in the past, or today.';
     }
+  } elseif ($form['id'] == 21 && $field->get_input_type() == 'date') {
+    date_default_timezone_set('America/Toronto');
+    $date = GFCommon::parse_date( $value );
+    $today = strtotime("00:00:00");
+    $date_input = $date['year'] . '-' . $date['month'] . '-' . $date['day'] . ' 00:00:00';
+    if (date(strtotime($date_input)) < $today) {
+      $result['is_valid'] = false;
+      $result['message'] = 'Please enter a valid date that is today or in the future.';
+      $field->failed_validation = true;
+      $field->validation_message = 'Please enter a valid date that is today or in the future.';
+    }
   }
 
   return $result;
