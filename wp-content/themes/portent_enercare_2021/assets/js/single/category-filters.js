@@ -206,18 +206,20 @@ jQuery(function ($) {
     var isPostalCode = /^[ABCEGHJ-NPRSTVXY]\d[ABCEGHJ-NPRSTV-Z][ -]?\d[ABCEGHJ-NPRSTV-Z]\d$/i.test(searchedPostalCode);
 
     if(isPostalCode) {
-		var postalCode = currentUrl.searchParams.get('postal_code');
-		currentUrl.searchParams.set('postal_code', searchedPostalCode);
-		var updatedUrl = currentUrl.href;
-		topLevelContainer.removeClass('has-errors');
-		pushHistoryState(updatedUrl);
-		displayFilteredResults(updatedUrl);
-	} else {
-    	topLevelContainer.addClass('has-errors');
-		let errorLabel = $(this).parent().parent().find('.form-error');
-		console.log(errorLabel);
-		errorLabel.text('Please enter a valid postal code');
-	}
+      var postalCode = currentUrl.searchParams.get('postal_code');
+      currentUrl.searchParams.set('postal_code', searchedPostalCode);
+      var updatedUrl = currentUrl.href;
+      topLevelContainer.removeClass('has-errors');
+      pushHistoryState(updatedUrl);
+      displayFilteredResults(updatedUrl);
+    } else {
+      topLevelContainer.addClass('has-errors');
+      let errorLabel = $(this).parent().parent().find('.form-error');
+      console.log(errorLabel);
+      errorLabel.text('Please enter a valid postal code');
+      // set the global enercare polite status element for screen reading
+      $('#enercare-polite-status').html("Please enter a valid postal code.");
+    }
 
   }); //Single filter criteria control hookup
 

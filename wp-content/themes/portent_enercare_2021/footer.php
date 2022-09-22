@@ -52,6 +52,7 @@ echo '</div>';
 tha_body_bottom();
 wp_footer();
 
+echo '<div id="enercare-polite-status" aria-live="polite" aria-atomic="true"></div>';
 echo '</body></html>';
 
 ?>
