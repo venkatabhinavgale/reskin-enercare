@@ -332,6 +332,17 @@ Cover
 	@include media('>tablet') {
 		min-height: 640px;
 	}
+
+	/**
+	Helper Class to hide the color shade in mobile. This does not adjust the shade. Instead it pulls the image up from underneath
+	 */
+	&--hide-shade-mobile {
+		@include media('<tablet') {
+			.wp-block-cover__image-background {
+				z-index: 2;
+			}
+		}
+	}
 }
 
 /**

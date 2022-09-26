@@ -978,6 +978,7 @@ h3{line-height:2rem}
 .wp-block-cover .wp-block-column{margin-bottom:.25em}
 .wp-block-cover .wp-block-cover__inner-container{padding:0 1em .25em 1em;margin-top:24px}
 .wp-block-cover .block-card{padding-top:1em;padding-bottom:.25em}
+.wp-block-cover--hide-shade-mobile .wp-block-cover__image-background{z-index:2}
 .block-switchboard__container--mobile-col-1{grid-template-columns:repeat(1,1fr)}
 .block-switchboard__container--mobile-col-2{grid-template-columns:repeat(2,1fr)}
 .block-switchboard__container--mobile-col-3{grid-template-columns:repeat(3,1fr)}
