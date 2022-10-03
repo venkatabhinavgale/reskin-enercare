@@ -211,8 +211,10 @@ var PortentToggleNav = function PortentToggleNav() {};
 
 PortentToggleNav.prototype.menu = '';
 PortentToggleNav.prototype.logo = null;
-PortentToggleNav.prototype.cta = null;
+PortentToggleNav.prototype.cta = null; //@todo let this get set externally.
+
 PortentToggleNav.prototype.mobileWidth = 1023;
+PortentToggleNav.prototype.keyModifierDown = false;
 
 PortentToggleNav.prototype.init = function () {
   if (this.menu !== '') {
@@ -228,6 +230,21 @@ PortentToggleNav.prototype.init = function () {
   } else {
     console.log('Please set a menu property');
   }
+  /**
+   * Global listener for the shift key as a modifier
+   */
+
+
+  this.menu.addEventListener('keydown', function (event) {
+    if (event.keyCode === 16) {
+      this.keyModifierDown = true;
+    }
+  });
+  this.menu.addEventListener('keyup', function (event) {
+    if (event.keyCode === 16) {
+      this.keyModifierDown = false;
+    }
+  });
 };
 
 PortentToggleNav.prototype.setupClickOutside = function () {
@@ -270,6 +287,31 @@ PortentToggleNav.prototype.setupBrandArea = function () {
   this.menu.insertBefore(brandAreaContainer, this.menu.children[0]);
 };
 
+PortentToggleNav.prototype.statusButtonKeys = function (event) {
+  var el = this.menu.querySelector('[data-open=true]'),
+      level = false;
+  /**
+   * Check el if it is null then a sub menu is not open and we need to retarget the main menu body
+   */
+
+  if (el === null) {
+    el = this.menu.querySelector('ul');
+    level = true;
+  }
+
+  if (event.keyCode === 38 || event.keyCode === 9 && this.keyModifierDown) {
+    event.stopPropagation();
+    event.preventDefault();
+    this.findNextMenuLink(event, el, 'up', level);
+  }
+
+  if (event.keyCode === 40 || event.keyCode === 9 && !this.keyModifierDown) {
+    event.stopPropagation();
+    event.preventDefault();
+    this.findNextMenuLink(event, el, 'down', level);
+  }
+};
+
 PortentToggleNav.prototype.setupStatusArea = function () {
   var _this = this;
 
@@ -291,6 +333,12 @@ PortentToggleNav.prototype.setupStatusArea = function () {
   });
   statusAreaCloseButton.addEventListener("click", function () {
     _this.closeMobileMenu(menuElement);
+  });
+  statusAreaBackButton.addEventListener('keydown', function (event) {
+    _this.statusButtonKeys(event);
+  });
+  statusAreaCloseButton.addEventListener('keydown', function (event) {
+    _this.statusButtonKeys(event);
   });
 };
 
@@ -326,6 +374,36 @@ PortentToggleNav.prototype.setSubMenuStatus = function () {
     this.menu.setAttribute('data-menu', 'open');
   } else {
     this.menu.removeAttribute('data-menu');
+  }
+};
+
+PortentToggleNav.prototype.expandTopLevelItem = function (event) {
+  event.preventDefault();
+  /**
+   * @todo This is a duplication of the opening menu logic. Condense this.
+   */
+
+  if (event.target.parentNode.dataset.open === 'true') {
+    /**
+     * If the same menu button we are clicking on is already visible then toggle it closed
+     * @type {string}
+     */
+    event.target.dataset.open = 'false';
+    event.target.setAttribute('aria-expanded', "false");
+    this.setSubMenuStatus(false);
+  } else {
+    /**
+     * If the button we are clicking on is not open, reset all open menus before displaying the current option
+     */
+    this.closeAllMenus(this.menu);
+    event.target.parentNode.dataset.open = 'true';
+    event.target.setAttribute('aria-expanded', "true");
+    this.setSubMenuStatus(true);
+    /**
+     * Focus The First Item
+     */
+
+    this.focusFirstOption(event.target.parentNode);
   }
 };
 
@@ -366,45 +444,30 @@ PortentToggleNav.prototype.navigationMenuToggle = function (navigationContainer)
       return false;
     });
     el.querySelector('button').addEventListener("keydown", function (event) {
-      console.log(window.outerWidth);
+      if (window.outerWidth <= _this.mobileWidth) {
+        if (event.keyCode === 38 || event.keyCode === 9 && this.keyModifierDown) {
+          event.preventDefault();
 
-      if (event.keyCode === 40 || window.outerWidth <= _this.mobileWidth && event.keyCode === 39) {
-        event.preventDefault();
-        console.log('Key code 40');
-        /**
-         * @todo This is a duplication of the opening menu logic. Condense this.
-         */
-
-        if (event.target.parentNode.dataset.open === 'true') {
-          /**
-           * If the same menu button we are clicking on is already visible then toggle it closed
-           * @type {string}
-           */
-          event.target.dataset.open = 'false';
-          event.target.setAttribute('aria-expanded', "false");
-
-          _this.setSubMenuStatus(false);
-        } else {
-          /**
-           * If the button we are clicking on is not open, reset all open menus before displaying the current option
-           */
-          _this.closeAllMenus(navigationContainer);
-
-          event.target.parentNode.dataset.open = 'true';
-          event.target.setAttribute('aria-expanded', "true");
-
-          _this.setSubMenuStatus(true);
-          /**
-           * Focus The First Item
-           */
-
-
-          _this.focusFirstOption(this.parentNode);
+          _this.findNextMenuLink(event, this.parentNode.parentNode, 'up', true);
         }
-      }
 
-      if (event.keyCode === 38) {
-        _this.closeAllMenus(navigationContainer);
+        if (event.keyCode === 40 || event.keyCode === 9 && !this.keyModifierDown) {
+          event.preventDefault();
+
+          _this.findNextMenuLink(event, this.parentNode.parentNode, 'down', true);
+        }
+
+        if (event.keyCode === 39) {
+          _this.expandTopLevelItem(event);
+        }
+      } else {
+        if ([40, 39].includes(event.keyCode)) {
+          _this.expandTopLevelItem(event);
+        }
+
+        if ([38].includes(event.keyCode)) {
+          _this.closeAllMenus(navigationContainer);
+        }
       }
 
       return false;
@@ -417,11 +480,34 @@ PortentToggleNav.prototype.navigationMenuToggle = function (navigationContainer)
 
     el.querySelectorAll('a').forEach(function (elem) {
       elem.addEventListener('keydown', function (event) {
-        if (event.keyCode === 38 || event.keyCode === 40) {
-          event.stopPropagation();
-          event.preventDefault();
+        if (window.outerWidth <= _this.mobileWidth) {
+          if (event.keyCode === 38 || event.keyCode === 9 && this.keyModifierDown) {
+            event.stopPropagation();
+            event.preventDefault();
 
-          _this.findNextMenuLink(event, el);
+            _this.findNextMenuLink(event, el, 'up');
+          }
+
+          if (event.keyCode === 40 || event.keyCode === 9 && !this.keyModifierDown) {
+            event.stopPropagation();
+            event.preventDefault();
+
+            _this.findNextMenuLink(event, el, 'down');
+          }
+        } else {
+          if (event.keyCode === 38) {
+            event.stopPropagation();
+            event.preventDefault();
+
+            _this.findNextMenuLink(event, el, 'up');
+          }
+
+          if (event.keyCode === 40) {
+            event.stopPropagation();
+            event.preventDefault();
+
+            _this.findNextMenuLink(event, el, 'down');
+          }
         }
       });
       elem.addEventListener('keyup', function (event) {
@@ -437,20 +523,45 @@ PortentToggleNav.prototype.navigationMenuToggle = function (navigationContainer)
 };
 /*
 This function essentially serves as a keyboard trap for the current menu.
+I don't love this at the moment. It feels like it is doing more work that it should
  */
 
 
-PortentToggleNav.prototype.findNextMenuLink = function (event, topLevelParent) {
+PortentToggleNav.prototype.findNextMenuLink = function (event, topLevelParent, direction, topLevel) {
   var allLinks;
 
+  if (!direction || typeof direction == 'undefined') {
+    direction = 'down';
+  }
+  /*
+  don't love this part but we need to know if the menu is at its highest level or not
+   */
+
+
+  if (!topLevel) {
+    topLevel = false;
+  }
+
   if (window.outerWidth <= this.mobileWidth) {
-    var mobileElements = Array.from(this.menu.querySelectorAll('.mobile-back-btn, .mobile-close-btn'));
-    allLinks = Array.from(topLevelParent.querySelectorAll('a'));
+    var mobileElements;
+    /**
+     * Available elements are different depending on the level
+     */
+
+    if (topLevel) {
+      mobileElements = Array.from(this.menu.querySelectorAll('.mobile-close-btn'));
+      allLinks = Array.from(topLevelParent.querySelectorAll(':scope > li > button, :scope > li > a'));
+    } else {
+      mobileElements = Array.from(this.menu.querySelectorAll('.mobile-back-btn, .mobile-close-btn'));
+      allLinks = Array.from(topLevelParent.querySelectorAll('a'));
+    }
+
     allLinks = [].concat(_toConsumableArray(mobileElements), _toConsumableArray(allLinks));
   } else {
     allLinks = Array.from(topLevelParent.querySelectorAll('a'));
   }
 
+  console.log(allLinks);
   var firstFocusableLink = allLinks[0];
   var lastFocusableLink = allLinks[allLinks.length - 1];
   var currentElement = document.activeElement;
@@ -459,7 +570,7 @@ PortentToggleNav.prototype.findNextMenuLink = function (event, topLevelParent) {
    * It is important that we return if this statement is true so that we do not duplicate the action.
    */
 
-  if (currentElement === firstFocusableLink && event.keyCode === 38 || currentElement === lastFocusableLink && window.outerWidth <= this.mobileWidth && event.keyCode === 37) {
+  if (currentElement === firstFocusableLink && direction === 'up') {
     lastFocusableLink.focus();
     return;
   }
@@ -469,7 +580,7 @@ PortentToggleNav.prototype.findNextMenuLink = function (event, topLevelParent) {
    */
 
 
-  if (currentElement === lastFocusableLink && event.keyCode === 40 || currentElement === lastFocusableLink && window.outerWidth <= this.mobileWidth && event.keyCode === 39) {
+  if (currentElement === lastFocusableLink && direction === 'down') {
     firstFocusableLink.focus();
     return;
   }
@@ -481,13 +592,14 @@ PortentToggleNav.prototype.findNextMenuLink = function (event, topLevelParent) {
 
   allLinks.forEach(function (link, index) {
     if (currentElement === link) {
-      if (event.keyCode === 40 || event.keyCode === 39) {
+      if (direction === 'down') {
         allLinks[index + 1].focus();
-      } else if (event.keyCode === 38 || event.keyCode === 37) {
+      } else if (direction === 'up') {
         allLinks[index - 1].focus();
       }
     }
   });
+  console.log(document.activeElement);
 };
 
 PortentToggleNav.prototype.closeAllMenus = function (navigationContainer) {
@@ -528,14 +640,37 @@ PortentToggleNav.prototype.closeMobileMenu = function () {
 };
 
 PortentToggleNav.prototype.focusFirstOption = function (topLevelItem) {
-  console.log('focusing first option');
-  console.log(topLevelItem);
   var firstLink = topLevelItem.querySelector('.sub-menu a');
-  console.log(firstLink);
   firstLink.focus({
     preventScroll: true
   });
-  console.log(document.activeElement);
+};
+/**
+ * Execute a function given a delay time
+ *
+ * @param {type} cb
+ * @param {type} wait
+ * @param {type} immediate
+ * @returns {Function}
+ */
+
+
+PortentToggleNav.prototype.debouceKeys = function (cb, wait, immediate) {
+  var timeout;
+  return function () {
+    var context = this,
+        args = arguments;
+
+    var later = function later() {
+      timeout = null;
+      if (!immediate) cb.apply(context, args);
+    };
+
+    var callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) cb.apply(context, args);
+  };
 };
 /**
  * Setup and init the toggle menu
@@ -548,6 +683,7 @@ function setupToggleNav() {
   primaryNavigation.toggleButton = document.getElementById('slider-menu-toggle');
   primaryNavigation.logo = 'https://www.enercare.ca/wp-content/uploads/2021/11/EC_LOGO_H_P_4C.svg';
   primaryNavigation.cta = "<div class=\"site-header__header-phone header-phone\"><span class=\"header-phone__cta\"><strong>Speak with an expert</strong></span><a class=\"header-phone__link cl-phone\" href=\"tel:1-855-642-8607\"><span class=\"screen-reader-text\">Click to call Enercare1-855-642-8607</span><svg xmlns=\"http://www.w3.org/2000/svg\" height=\"24px\" viewBox=\"0 0 24 24\" width=\"24px\" fill=\"#000000\"><path d=\"M0 0h24v24H0V0z\" fill=\"none\"></path><path d=\"M19.23 15.26l-2.54-.29c-.61-.07-1.21.14-1.64.57l-1.84 1.84c-2.83-1.44-5.15-3.75-6.59-6.59l1.85-1.85c.43-.43.64-1.03.57-1.64l-.29-2.52c-.12-1.01-.97-1.77-1.99-1.77H5.03c-1.13 0-2.07.94-2 2.07.53 8.54 7.36 15.36 15.89 15.89 1.13.07 2.07-.87 2.07-2v-1.73c.01-1.01-.75-1.86-1.76-1.98z\"></path></svg><strong class=\"header-phone__number\">1-855-642-8607</strong></a></div>";
+  primaryNavigation.extraMobileElements = ['.addsearch-searchfield input'];
   primaryNavigation.init();
 }
 
