@@ -461,6 +461,7 @@ Blog Posts
 			font-weight: 700;
 			line-height: inherit;
 			text-decoration: none;
+			color: $grey_10;
 
 			&:after {
 				content: '';
@@ -469,6 +470,11 @@ Blog Posts
 				left: 0;
 				width: 100%;
 				height: 100%;
+			}
+
+			&:hover,
+			&:focus {
+				color: $highlight;
 			}
 		}
 
