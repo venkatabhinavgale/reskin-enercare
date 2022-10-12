@@ -194,3 +194,84 @@ function getLocationInfo($post_id, $cta_type = 'location') {
   
   echo $content;
 }
+
+/*
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-0.1428115, 51.5125168]
+      },
+      "type": "Feature",
+      "properties": {
+        "category": "patisserie",
+        "hours": "10am - 6pm",
+        "description": "Modern twists on classic pastries. We're part of a larger chain of patisseries and cafes.",
+        "name": "Josie's Patisserie Mayfair",
+        "phone": "+44 20 1234 5678",
+        "storeid": "01"
+      }
+    }
+  ]
+}
+*/
+add_action('rest_api_init', function() {
+  register_rest_route('enercare', '/locations', array(
+    'methods' => 'GET',
+    'callback' => 'getLocations'
+  ));
+});
+function getLocations($data) {
+  $locations = get_posts(array(
+    'post_type' => 'location',
+    'post_status' => 'publish',
+    'posts_per_page' => -1
+    //'name' => $data->get_param('slug'),
+  ));
+  
+  $locationsData = buildLocationsData($locations);
+  return $locationsData;
+}
+function buildLocationsData($locations) {
+  $locationsFeatures = [];
+  foreach($locations as $location) {
+    $lat = get_field('latitude', $location->ID);
+    if ($lat)
+      $lat = floatval($lat);
+    $lng = get_field('longitude', $location->ID);
+    if ($lng)
+      $lng = floatval($lng);
+    
+    // only add location to array if coordinates exist
+    if ($lat && $lng) {
+      $data = new stdClass();
+      
+      $data->geometry['type'] = "Point";
+      $data->geometry['coordinates'] = [$lng, $lat];
+      
+      $data->type = "Feature";
+      
+      $location_name = get_field('display_title', $location->ID);
+      if (!$location_name || $location_name == "")
+        $location_name = $location->post_title;
+      
+      $location_info = get_field('location_info', $location->ID);
+      
+      $data->properties['category'] = "patch";
+      $data->properties['storeid'] = strval($location->ID);
+      $data->properties['name'] = $location_name;
+      $data->properties['description'] = "";
+      $data->properties['description'] = $location_info;
+      //$data->properties['phone'] = $location_phone;
+      $data->properties['url'] = get_the_permalink($location->ID);
+      
+      $locationsFeatures[] = $data;
+    }
+  }
+  
+  $locationsData['type'] = "FeatureCollection";
+  $locationsData['features'] = $locationsFeatures;
+  return $locationsData;
+}
