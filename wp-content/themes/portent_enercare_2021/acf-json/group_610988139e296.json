@@ -76,6 +76,48 @@
             "new_lines": "br"
         },
         {
+            "key": "field_6344c236cfd6e",
+            "label": "Latitude",
+            "name": "latitude",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": "",
+            "max": "",
+            "step": ""
+        },
+        {
+            "key": "field_6344c20ecfd6d",
+            "label": "Longitude",
+            "name": "longitude",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": "",
+            "max": "",
+            "step": ""
+        },
+        {
             "key": "field_6137afbdb283d",
             "label": "Phone Numbers",
             "name": "phone_numbers",
@@ -93,46 +135,7 @@
             "max": 0,
             "layout": "table",
             "button_label": "",
-            "sub_fields": [
-                {
-                    "key": "field_6137afcab283e",
-                    "label": "Phone label",
-                    "name": "phone_label",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "key": "field_6137aff3b283f",
-                    "label": "Phone number",
-                    "name": "phone_number",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                }
-            ]
+            "sub_fields": []
         },
         {
             "key": "field_6137b034b2840",
@@ -152,46 +155,7 @@
             "max": 0,
             "layout": "table",
             "button_label": "",
-            "sub_fields": [
-                {
-                    "key": "field_6137b034b2841",
-                    "label": "Hours label",
-                    "name": "hours_label",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "key": "field_6137b034b2842",
-                    "label": "Hours open",
-                    "name": "hours_open",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                }
-            ]
+            "sub_fields": []
         },
         {
             "key": "field_6137b075b2843",
@@ -257,31 +221,7 @@
             "max": 0,
             "layout": "table",
             "button_label": "",
-            "sub_fields": [
-                {
-                    "key": "field_6137b13fb2846",
-                    "label": "Service Link",
-                    "name": "service_link",
-                    "type": "link",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": [
-                        [
-                            {
-                                "field": "field_6137b099b2844",
-                                "operator": "==",
-                                "value": "1"
-                            }
-                        ]
-                    ],
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "array"
-                }
-            ]
+            "sub_fields": []
         },
         {
             "key": "field_6112a365bb3be",
@@ -378,8 +318,24 @@
         },
         {
             "key": "field_6112a336bb3bd",
-            "label": "Google Reviews URL",
+            "label": "Write a Google Review URL",
             "name": "google_reviews_url",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_614c9b3b7bb4d",
+            "label": "See Google Reviews URL",
+            "name": "google_see_reviews_url",
             "type": "url",
             "instructions": "",
             "required": 0,
@@ -410,5 +366,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1631151252
+    "show_in_rest": 0,
+    "modified": 1665510749
 }
