@@ -6,6 +6,7 @@
             "key": "field_6137af523c0df",
             "label": "Info",
             "name": "",
+            "aria-label": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -22,6 +23,7 @@
             "key": "field_612d7a8008d46",
             "label": "Display Title",
             "name": "display_title",
+            "aria-label": "",
             "type": "text",
             "instructions": "This field will be used to display a more succinct title of a location on the locations archive\/listing pages and location finder block.",
             "required": 0,
@@ -41,6 +43,7 @@
             "key": "field_6112a29d9b782",
             "label": "Location Info",
             "name": "location_info",
+            "aria-label": "",
             "type": "wysiwyg",
             "instructions": "",
             "required": 0,
@@ -60,6 +63,7 @@
             "key": "field_610988491e75f",
             "label": "Address",
             "name": "address",
+            "aria-label": "",
             "type": "textarea",
             "instructions": "",
             "required": 0,
@@ -79,6 +83,7 @@
             "key": "field_6344c236cfd6e",
             "label": "Latitude",
             "name": "latitude",
+            "aria-label": "",
             "type": "number",
             "instructions": "",
             "required": 0,
@@ -100,6 +105,7 @@
             "key": "field_6344c20ecfd6d",
             "label": "Longitude",
             "name": "longitude",
+            "aria-label": "",
             "type": "number",
             "instructions": "",
             "required": 0,
@@ -121,6 +127,7 @@
             "key": "field_6137afbdb283d",
             "label": "Phone Numbers",
             "name": "phone_numbers",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -134,13 +141,58 @@
             "min": 0,
             "max": 0,
             "layout": "table",
-            "button_label": "",
-            "sub_fields": []
+            "button_label": "Add Row",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_6137afcab283e",
+                    "label": "Phone label",
+                    "name": "phone_label",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "parent_repeater": "field_6137afbdb283d"
+                },
+                {
+                    "key": "field_6137aff3b283f",
+                    "label": "Phone number",
+                    "name": "phone_number",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "parent_repeater": "field_6137afbdb283d"
+                }
+            ]
         },
         {
             "key": "field_6137b034b2840",
             "label": "Hours",
             "name": "hours",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -154,13 +206,58 @@
             "min": 0,
             "max": 0,
             "layout": "table",
-            "button_label": "",
-            "sub_fields": []
+            "button_label": "Add Row",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_6137b034b2841",
+                    "label": "Hours label",
+                    "name": "hours_label",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "parent_repeater": "field_6137b034b2840"
+                },
+                {
+                    "key": "field_6137b034b2842",
+                    "label": "Hours open",
+                    "name": "hours_open",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "parent_repeater": "field_6137b034b2840"
+                }
+            ]
         },
         {
             "key": "field_6137b075b2843",
             "label": "Service Area",
             "name": "service_area",
+            "aria-label": "",
             "type": "text",
             "instructions": "Enter a comma-delimited list of service areas, typically cities.",
             "required": 0,
@@ -180,6 +277,7 @@
             "key": "field_6137b099b2844",
             "label": "Override Service Links?",
             "name": "override_service_links",
+            "aria-label": "",
             "type": "true_false",
             "instructions": "By choosing to override the service links, every service needs to be defined below with a link. If you do not override the service links, this location will list and link to the default\/main service pages as defined in the taxonomy.",
             "required": 0,
@@ -199,6 +297,7 @@
             "key": "field_6137b128b2845",
             "label": "Services",
             "name": "services",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -220,13 +319,41 @@
             "min": 0,
             "max": 0,
             "layout": "table",
-            "button_label": "",
-            "sub_fields": []
+            "button_label": "Add Row",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_6137b13fb2846",
+                    "label": "Service Link",
+                    "name": "service_link",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_6137b099b2844",
+                                "operator": "==",
+                                "value": "1"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "parent_repeater": "field_6137b128b2845"
+                }
+            ]
         },
         {
             "key": "field_6112a365bb3be",
             "label": "Google Maps URL",
             "name": "google_maps_url",
+            "aria-label": "",
             "type": "url",
             "instructions": "",
             "required": 0,
@@ -243,6 +370,7 @@
             "key": "field_6137af763c0e0",
             "label": "Postal Codes",
             "name": "",
+            "aria-label": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -259,6 +387,7 @@
             "key": "field_610988e81e760",
             "label": "Postal Codes Serviced",
             "name": "postal_codes",
+            "aria-label": "",
             "type": "textarea",
             "instructions": "",
             "required": 0,
@@ -278,6 +407,7 @@
             "key": "field_6137af8e3c0e1",
             "label": "GMB",
             "name": "",
+            "aria-label": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -294,6 +424,7 @@
             "key": "field_610989a2758b1",
             "label": "GMB Location",
             "name": "gmb_location",
+            "aria-label": "",
             "type": "relationship",
             "instructions": "Select the associated GoogleMyBusiness location.",
             "required": 0,
@@ -320,6 +451,7 @@
             "key": "field_6112a336bb3bd",
             "label": "Write a Google Review URL",
             "name": "google_reviews_url",
+            "aria-label": "",
             "type": "url",
             "instructions": "",
             "required": 0,
@@ -336,6 +468,7 @@
             "key": "field_614c9b3b7bb4d",
             "label": "See Google Reviews URL",
             "name": "google_see_reviews_url",
+            "aria-label": "",
             "type": "url",
             "instructions": "",
             "required": 0,
@@ -367,5 +500,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1665510749
+    "modified": 1667230157
 }
