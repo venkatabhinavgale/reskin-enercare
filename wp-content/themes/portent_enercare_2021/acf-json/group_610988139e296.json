@@ -80,12 +80,12 @@
             "new_lines": "br"
         },
         {
-            "key": "field_6344c236cfd6e",
-            "label": "Latitude",
-            "name": "latitude",
+            "key": "field_6363f9befa10d",
+            "label": "Latitude Longitude Coordinates",
+            "name": "latitude_longitude",
             "aria-label": "",
-            "type": "number",
-            "instructions": "",
+            "type": "textarea",
+            "instructions": "Add one set of latitude, longitude coordinates per line. Best if copy\/pasted from the KML files. Please remove all spaces, tabs, and whitespace.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -94,34 +94,10 @@
                 "id": ""
             },
             "default_value": "",
+            "maxlength": "",
+            "rows": "",
             "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "min": "",
-            "max": "",
-            "step": ""
-        },
-        {
-            "key": "field_6344c20ecfd6d",
-            "label": "Longitude",
-            "name": "longitude",
-            "aria-label": "",
-            "type": "number",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "min": "",
-            "max": "",
-            "step": ""
+            "new_lines": ""
         },
         {
             "key": "field_6137afbdb283d",
@@ -500,5 +476,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1667230157
+    "modified": 1667499503
 }

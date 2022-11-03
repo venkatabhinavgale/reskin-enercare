@@ -237,19 +237,26 @@ function getLocations($data) {
 function buildLocationsData($locations) {
   $locationsFeatures = [];
   foreach($locations as $location) {
-    $lat = get_field('latitude', $location->ID);
-    if ($lat)
-      $lat = floatval($lat);
-    $lng = get_field('longitude', $location->ID);
-    if ($lng)
-      $lng = floatval($lng);
+    $lat_lng = get_field('latitude_longitude', $location->ID);
     
     // only add location to array if coordinates exist
-    if ($lat && $lng) {
+    if ($lat_lng) {
       $data = new stdClass();
       
-      $data->geometry['type'] = "Point";
-      $data->geometry['coordinates'] = [$lng, $lat];
+      $lat_lng_arr = explode("\r\n", $lat_lng);
+      $lat_lng_final_arr = array();
+      foreach ($lat_lng_arr as $ll) {
+        $ll = rtrim($ll, "0,");
+        $ll_arr = explode(",", $ll);
+        $ll_final_arr = array();
+        foreach ($ll_arr as $l) {
+          $l = floatval($l);
+          $ll_final_arr[] = $l;
+        }
+        $lat_lng_final_arr[] = $ll_final_arr;
+      }
+      $data->geometry['type'] = "Polygon";
+      $data->geometry['coordinates'] = [$lat_lng_final_arr];
       
       $data->type = "Feature";
       
