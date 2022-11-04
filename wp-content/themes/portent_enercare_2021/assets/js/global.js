@@ -196,11 +196,10 @@ jQuery(function ($) {
     window.Enercare.logPPCParamsToStorage();
     /** Get the gravity form and handle hidden form field inputs */
 
-    var gravityForm = $('.gform_wrapper form');
-
+    /*var gravityForm = $('.gform_wrapper form');
     if (gravityForm.length) {
       window.Enercare.handleHiddenFormFields(gravityForm[0]);
-    }
+    }*/
   })(window, document);
 });
 /**

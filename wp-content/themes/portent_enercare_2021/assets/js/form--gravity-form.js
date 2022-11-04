@@ -26,6 +26,14 @@
         }
       });
     }
+    /** Get the gravity form and handle hidden form field inputs. We execute this in 'gform_post_render' so paginated forms work as well */
+
+
+    var gravityForm = $('.gform_wrapper form');
+
+    if (gravityForm.length) {
+      window.Enercare.handleHiddenFormFields(gravityForm[0]);
+    }
   }
 
   $(document).on('gform_post_render', function (event, form_id, current_page) {
@@ -51,5 +59,15 @@
 
   $(document).on('gform_confirmation_loaded', function () {
     enercareGravityFormsConfirmationLoaded();
+  });
+  gform.addFilter('gform_datepicker_options_pre_init', function (optionsObj, formId, fieldId) {
+    // don't allow past dates or weekends for any Builder forms
+    if (formId == 19) {
+      optionsObj.minDate = 1;
+      optionsObj.firstDay = 1;
+      optionsObj.beforeShowDay = jQuery.datepicker.noWeekends;
+    }
+
+    return optionsObj;
   });
 })(jQuery, document);
