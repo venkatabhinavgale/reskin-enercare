@@ -192,19 +192,27 @@ function addsearch_options_page() {
 						</td>
 					</tr>
 					<tr valign="top" style="display: none" class="v2config widgetv2config">
-						<th><label><?php _e( 'Results box alignment', 'addsearch' ); ?></label></th>
+						<th><label><?php _e( 'Hide Logo', 'addsearch' ); ?></label></th>
 						<td>
+							<select name="addsearch_settings[config][widgetv2][hide_logo]">
 							<?php
-								$alignments = array(
-									'right' => __( 'Right', 'addsearch' ),
-									'left' => __( 'Left', 'addsearch' ),
-								);
+								foreach ( $noYes as $value => $label ) {
 							?>
-							<select name="addsearch_settings[config][widgetv2][results_box_opening_direction]">
+								<option value="<?php echo esc_attr( $value ); ?>" <?php selected( $config_settings['hide_logo'], $value ); ?>><?php echo esc_html( $label ); ?></option>
 							<?php
-								foreach ( $alignments as $value => $label ) {
+								}
 							?>
-								<option value="<?php echo esc_attr( $value ); ?>" <?php selected( $config_settings['results_box_opening_direction'], $value ); ?>><?php echo esc_html( $label ); ?></option>
+							</select>
+						</td>
+					</tr>
+					<tr valign="top" style="display: none" class="v2config widgetv2config">
+						<th><label><?php _e( 'Google Analytics Enabled', 'addsearch' ); ?></label></th>
+						<td>
+							<select name="addsearch_settings[config][widgetv2][analytics_enabled]">
+							<?php
+								foreach ( $noYes as $value => $label ) {
+							?>
+								<option value="<?php echo esc_attr( $value ); ?>" <?php selected( $config_settings['analytics_enabled'], $value ); ?>><?php echo esc_html( $label ); ?></option>
 							<?php
 								}
 							?>
@@ -333,6 +341,34 @@ function addsearch_options_page() {
 								foreach ( $yesNo as $value => $label ) {
 							?>
 								<option value="<?php echo esc_attr( $value ); ?>" <?php selected( $config_settings['display_result_image'], $value ); ?>><?php echo esc_html( $label ); ?></option>
+							<?php
+								}
+							?>
+							</select>
+						</td>
+					</tr>
+					<tr valign="top" style="display: none" class="v2config resultpagev2config">
+						<th><label><?php _e( 'Hide Logo', 'addsearch' ); ?></label></th>
+						<td>
+							<select name="addsearch_settings[config][resultpagev2][hide_logo]">
+							<?php
+								foreach ( $noYes as $value => $label ) {
+							?>
+								<option value="<?php echo esc_attr( $value ); ?>" <?php selected( $config_settings['hide_logo'], $value ); ?>><?php echo esc_html( $label ); ?></option>
+							<?php
+								}
+							?>
+							</select>
+						</td>
+					</tr>
+					<tr valign="top" style="display: none" class="v2config resultpagev2config">
+						<th><label><?php _e( 'Google Analytics Enabled', 'addsearch' ); ?></label></th>
+						<td>
+							<select name="addsearch_settings[config][resultpagev2][analytics_enabled]">
+							<?php
+								foreach ( $noYes as $value => $label ) {
+							?>
+								<option value="<?php echo esc_attr( $value ); ?>" <?php selected( $config_settings['analytics_enabled'], $value ); ?>><?php echo esc_html( $label ); ?></option>
 							<?php
 								}
 							?>
