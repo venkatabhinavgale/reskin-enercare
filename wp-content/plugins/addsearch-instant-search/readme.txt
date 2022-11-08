@@ -5,7 +5,7 @@ Contributors: AddSearch, Sofokus, sami.keijonen
 Tags: search, instant search, site search, page search, category search, custom search, better search, autocomplete, typeahead
 Requires at least: 3.9
 Tested up to: 6.0
-Stable tag: 2.1.1
+Stable tag: 2.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -80,9 +80,14 @@ For questions and answers, please visit [our documentation](http://addsearch.com
 
 == Pricing ==
 
-Try AddSearch for free for 7 days. Pricing starts at $25.00 per month. You can learn more about our pricing [here](https://www.addsearch.com/pricing/?utm_campaign=Wordpress%20Plugin&utm_source=wordpress_plugin).
+Try AddSearch for free for 14 days. Pricing starts at $29.00 per month. You can learn more about our pricing [here](https://www.addsearch.com/pricing/?utm_campaign=Wordpress%20Plugin&utm_source=wordpress_plugin).
 
 == Changelog ==
+
+= 2.2.0 =
+* Upgraded to new V5 of the search-as-you-type widget with auto-alignment and other improvements
+* Added settings to hide the AddSearch logo and to enable support for Google Analytics
+* Fixed an issue with the search-as-you-type widget and Avada theme
 
 = 2.1.1 =
 * Fixed an issue where addsearch shortcode would not work for search results on the Separate Results Page

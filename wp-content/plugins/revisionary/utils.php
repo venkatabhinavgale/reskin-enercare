@@ -109,11 +109,16 @@ class Utils {
 		}
 
 		// phpcs:ignore WordPress.VIP.SuperGlobalInputUsage.AccessDetected, WordPress.Security.NonceVerification.NoNonceVerification
-		$conditions[] = (self::isWp5() || $pluginsState['gutenberg'])
-						&& ! $pluginsState['classic-editor']
-						&& ! $pluginsState['gutenberg-ramp']
-						&& apply_filters('use_block_editor_for_post_type', true, $postType, PHP_INT_MAX)
-						&& apply_filters('use_block_editor_for_post', true, get_post(rvy_detect_post_id()), PHP_INT_MAX);
+		
+		$_post = get_post(rvy_detect_post_id());
+		
+		if (!empty($_post)) {
+			$conditions[] = (self::isWp5() || $pluginsState['gutenberg'])
+							&& ! $pluginsState['classic-editor']
+							&& ! $pluginsState['gutenberg-ramp']
+							&& apply_filters('use_block_editor_for_post_type', true, $postType)
+							&& apply_filters('use_block_editor_for_post', true, $_post);
+		}
 
 		$conditions[] = self::isWp5()
                         && $pluginsState['classic-editor']
@@ -125,8 +130,10 @@ class Utils {
                         && (get_option('classic-editor-replace') === 'classic'
                             && isset($_GET['classic-editor__forget']));
 
-		$conditions[] = $pluginsState['gutenberg-ramp'] 
-						&& apply_filters('use_block_editor_for_post', true, get_post(rvy_detect_post_id()), PHP_INT_MAX);
+		if (!empty($_post)) {
+			$conditions[] = $pluginsState['gutenberg-ramp'] 
+							&& apply_filters('use_block_editor_for_post', true, $_post);
+		}
 
 		if (defined('PP_CAPABILITIES_RESTORE_NAV_TYPE_BLOCK_EDITOR_DISABLE') && version_compare($wp_version, '5.9-beta', '>=')) {
 			add_filter('use_block_editor_for_post_type', '_disable_block_editor_for_navigation_post_type', 10, 2 );
@@ -142,7 +149,7 @@ class Utils {
 			   ) > 0;
 	}
 
-	    /**
+	/**
 	 * Adds slashes only to strings.
 	 *
 	 * @param mixed $value Value to slash only if string.
@@ -163,9 +170,30 @@ class Utils {
 	 * @return mixed
 	 */
 	public static function recursively_slash_strings( $value ) {
-		return \map_deep( $value, [ self::class, 'addslashes_to_strings_only' ] );
+		return self::map_deep( $value, [ self::class, 'addslashes_to_strings_only' ] );
 	}
 	
+	public static function map_deep( $value, $callback ) {
+		if ( is_array( $value ) ) {
+			foreach ( $value as $index => $item ) {
+				$value[ $index ] = self::map_deep( $item, $callback );
+			}
+		} elseif ( is_object( $value ) ) {
+			if ( get_class($value) === "__PHP_Incomplete_Class" ) { 
+				return $value;
+			}
+
+			$object_vars = get_object_vars( $value );
+			foreach ( $object_vars as $property_name => $property_value ) {
+				$value->$property_name = self::map_deep( $property_value, $callback );
+			}
+		} else {
+			$value = call_user_func( $callback, $value );
+		}
+	
+		return $value;
+	}
+
 	public static function get_post_autosave($post_id, $user_id) {
 		global $wpdb;
 
@@ -192,3 +220,4 @@ class Utils {
 		return get_post($autosave);
 	}
 }
+
