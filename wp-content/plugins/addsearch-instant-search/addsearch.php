@@ -3,7 +3,7 @@
 Plugin Name:       AddSearch Instant Search
 Plugin URI:        https://www.addsearch.com/product/wordpress-search-plugin/?utm_campaign=Wordpress%20Plugin&utm_source=wordpress_plugin
 Description:       AddSearch is an instant site search engine for your website.
-Version:           2.1.1
+Version:           2.2.0
 Author:            AddSearch Ltd.
 Author URI:        https://www.addsearch.com/?utm_campaign=Wordpress%20Plugin&utm_source=wordpress_plugin
 License:           GPL-2.0+
@@ -23,7 +23,7 @@ to the Free Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 0
 
 /**
  * @package    AddSearch
- * @version    1.3.0
+ * @version    2.2.0
  * @author     AddSearch Ltd. <support@addsearch.com>
  * @copyright  Copyright (c) 2014, AddSearch Ltd.
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -50,7 +50,7 @@ final class AddSearch {
 
 	private static $instance_count = 1;
 
-	const _V2_URL = 'https://cdn.addsearch.com/v4/addsearch-ui.min.js';
+	const _V2_URL = 'https://cdn.addsearch.com/v5/addsearch-ui.min.js';
 
 	/**
 	 * Returns the instance.
@@ -85,7 +85,7 @@ final class AddSearch {
 
 		/* Plugin version. */
 		if ( ! defined( 'ADDSEARCHP_VERSION' ) ) {
-			define( 'ADDSEARCHP_VERSION', '2.1.1' );
+			define( 'ADDSEARCHP_VERSION', '2.2.0' );
 		}
 
 	}
@@ -423,10 +423,10 @@ final class AddSearch {
 		$query_args = apply_filters( 'addsearch_query_args', $query_args, $type );
 
 		$script = sprintf( '
-			<script>
+			<script id="addsearch-config" type="text/javascript">
 			 %s
 			</script>
-			<script src="%s"></script>', AddSearch::get_instance()->get_script_settings_for( $type, $id ), esc_url( add_query_arg( $query_args, AddSearch::_V2_URL ) ) ); 
+			<script src="%s" id="addsearch" type="text/javascript"></script>', AddSearch::get_instance()->get_script_settings_for( $type, $id ), esc_url( add_query_arg( $query_args, AddSearch::_V2_URL ) ) ); 
 
 		if ( $echo ) {
 			echo $script;

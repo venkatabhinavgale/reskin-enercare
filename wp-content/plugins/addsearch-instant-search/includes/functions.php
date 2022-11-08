@@ -24,8 +24,8 @@ function addsearch_search_form( $form ) {
 
 	// if we are using the new script
 	if ( in_array( $addsearch_installation_method, array( 'widgetv2' ), true ) ) {
-		AddSearch::get_instance()->get_script_for_v2( true );
-		return '';
+		// don't echo directly as it disrupts the theme in some cases
+		return AddSearch::get_instance()->get_script_for_v2( false );
 	}
 
 	$current_root = get_site_url();
