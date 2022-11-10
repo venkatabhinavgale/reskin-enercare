@@ -802,6 +802,7 @@ Form Style Helpers
 	.form-image-block {
 		display: flex;
 		flex-wrap: wrap;
+		grid-column-gap: 1.25em; 
 
 		&__image {
 			max-width: 350px;
