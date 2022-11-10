@@ -796,20 +796,22 @@ Form Style Helpers
 	}
 }
 
-/*  Form Image
+/*  Form Static Image
 --------------------------------------------*/
 .gform_wrapper.gravity-theme {
 	.form-image-block {
 		display: flex;
 		flex-wrap: wrap;
+		grid-column-gap: 1.25em; 
 
 		&__image {
-			max-width: 150px;
+			max-width: 350px;
+			max-height: 250px;
 		}
 
 		figure {
-			min-width: 75px;
-			max-width: 150px;
+			min-width: 125px;
+			max-width: 350px;
     		display: flex;
 		    flex-direction: column;
 		    justify-content: center;
