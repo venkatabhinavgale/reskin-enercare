@@ -1,5 +1,6 @@
 # WordPress #
 ############
+enercare/
 wp-config-local.php
 wp-cli.local.yml
 wp-content/uploads
