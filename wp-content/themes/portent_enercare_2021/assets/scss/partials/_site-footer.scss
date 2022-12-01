@@ -6,6 +6,16 @@
 	padding: 40px 0 10px;
 	position: relative;
 
+	.has-focus-style {
+		a {
+			&:focus {
+				& > img {
+					outline: 2px dotted $black;
+				}
+			}
+		}
+	}
+
 	ul {
 		margin-bottom: 30px;
 	}
@@ -110,6 +120,20 @@
 
 	.footer-links a + a {
 		margin-left: 12px;
+	}
+
+	.has-focus-style {
+		> figure {
+			> a {
+				
+				&:focus {
+
+					& > img {
+						outline: 2px dotted $black;
+					}
+				}
+			}
+		} 
 	}
 
 	.cafemedia {

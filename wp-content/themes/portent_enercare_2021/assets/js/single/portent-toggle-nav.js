@@ -383,6 +383,10 @@ PortentToggleNav.prototype.closeAllMenus = function(navigationContainer) {
 		elem.parentNode.dataset.open = 'false';
 		elem.setAttribute('aria-expanded', "false");
 	});
+
+	if(openMenus.length > 0) {
+		openMenus.item(0).focus();
+	}
 	this.setSubMenuStatus(false);
 };
 
@@ -400,7 +404,7 @@ PortentToggleNav.prototype.openMobileMenu = function(menuElement) {
 
 	menuElement.setAttribute('data-mobile', 'open');
 	this.setDocumentAttribute();
-	const firstMenuItem = this.menu.querySelector('.menu-item button');
+	const firstMenuItem = this.menu.querySelector('.mobile-close-btn');
 	firstMenuItem.focus();
 };
 
@@ -411,6 +415,8 @@ PortentToggleNav.prototype.closeMobileMenu = function() {
 	if(this.menu.getAttribute('data-mobile') === 'open' ) {
 		this.menu.removeAttribute('data-mobile');
 	}
+
+	this.toggleButton.focus();
 
 	this.setSubMenuStatus(false);
 };
