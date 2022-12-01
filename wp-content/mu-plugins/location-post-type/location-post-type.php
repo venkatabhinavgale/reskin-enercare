@@ -194,3 +194,91 @@ function getLocationInfo($post_id, $cta_type = 'location') {
   
   echo $content;
 }
+
+/*
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-0.1428115, 51.5125168]
+      },
+      "type": "Feature",
+      "properties": {
+        "category": "patisserie",
+        "hours": "10am - 6pm",
+        "description": "Modern twists on classic pastries. We're part of a larger chain of patisseries and cafes.",
+        "name": "Josie's Patisserie Mayfair",
+        "phone": "+44 20 1234 5678",
+        "storeid": "01"
+      }
+    }
+  ]
+}
+*/
+add_action('rest_api_init', function() {
+  register_rest_route('enercare', '/locations', array(
+    'methods' => 'GET',
+    'callback' => 'getLocations'
+  ));
+});
+function getLocations($data) {
+  $locations = get_posts(array(
+    'post_type' => 'location',
+    'post_status' => 'publish',
+    'posts_per_page' => -1
+    //'name' => $data->get_param('slug'),
+  ));
+  
+  $locationsData = buildLocationsData($locations);
+  return $locationsData;
+}
+function buildLocationsData($locations) {
+  $locationsFeatures = [];
+  foreach($locations as $location) {
+    $lat_lng = get_field('latitude_longitude', $location->ID);
+    
+    // only add location to array if coordinates exist
+    if ($lat_lng) {
+      $data = new stdClass();
+      
+      $lat_lng_arr = explode("\r\n", $lat_lng);
+      $lat_lng_final_arr = array();
+      foreach ($lat_lng_arr as $ll) {
+        $ll = rtrim($ll, "0,");
+        $ll_arr = explode(",", $ll);
+        $ll_final_arr = array();
+        foreach ($ll_arr as $l) {
+          $l = floatval($l);
+          $ll_final_arr[] = $l;
+        }
+        $lat_lng_final_arr[] = $ll_final_arr;
+      }
+      $data->geometry['type'] = "Polygon";
+      $data->geometry['coordinates'] = [$lat_lng_final_arr];
+      
+      $data->type = "Feature";
+      
+      $location_name = get_field('display_title', $location->ID);
+      if (!$location_name || $location_name == "")
+        $location_name = $location->post_title;
+      
+      $location_info = get_field('location_info', $location->ID);
+      
+      $data->properties['category'] = "patch";
+      $data->properties['storeid'] = strval($location->ID);
+      $data->properties['name'] = $location_name;
+      $data->properties['description'] = "";
+      $data->properties['description'] = $location_info;
+      //$data->properties['phone'] = $location_phone;
+      $data->properties['url'] = get_the_permalink($location->ID);
+      
+      $locationsFeatures[] = $data;
+    }
+  }
+  
+  $locationsData['type'] = "FeatureCollection";
+  $locationsData['features'] = $locationsFeatures;
+  return $locationsData;
+}

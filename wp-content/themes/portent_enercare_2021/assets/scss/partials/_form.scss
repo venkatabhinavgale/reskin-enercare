@@ -795,3 +795,112 @@ Form Style Helpers
 		}
 	}
 }
+
+/*  Form Static Image
+--------------------------------------------*/
+.gform_wrapper.gravity-theme {
+	.form-image-block {
+		display: flex;
+		flex-wrap: wrap;
+		grid-column-gap: 1.25em; 
+
+		&__image {
+			max-width: 350px;
+			max-height: 250px;
+		}
+
+		figure {
+			min-width: 125px;
+			max-width: 350px;
+    		display: flex;
+		    flex-direction: column;
+		    justify-content: center;
+		    align-items: center;
+
+		    @include media(">=tablet") {
+		    	min-width: 125px;
+		    }	
+		}
+	}
+}
+
+
+
+/* Buttonize Radio & Checkbox Fields 
+--------------------------------------------*/
+
+.gform_wrapper.gravity-theme .gfield.gfield--width-full.buttonized {
+	grid-column: span 6;
+}
+
+ .gform_wrapper .gfield.buttonized .gfield_radio .gchoice,
+ .gform_wrapper .gfield.buttonized .gfield_checkbox .gchoice {
+    position: relative;
+    text-align: center;
+ }
+ .gform_wrapper .gfield.buttonized input[type="radio"],
+ .gform_wrapper .gfield.buttonized input[type="checkbox"] {
+    position: absolute;
+    left: -9999px;
+ }
+ .gform_wrapper .gfield.buttonized .gfield_radio .gchoice > input[type="radio"]+label,
+ .gform_wrapper .gfield.buttonized .gfield_checkbox .gchoice > input[type="checkbox"]+label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    max-width: 100%;
+    font-size: 1.35em;
+    cursor: pointer;
+    padding: 2em 2em 2em 3em;
+    border-radius: $border-radius;
+    min-height: 148px;
+    border: 1px solid transparent;
+ }
+
+ .gform_wrapper .gfield.buttonized .gchoice > input[type="radio"]:hover+label,
+ .gform_wrapper .gfield.buttonized .gchoice > input[type="checkbox"]:hover+label,
+ .gform_wrapper .gfield.buttonized .gchoice > input[type="radio"]:focus+label,
+ .gform_wrapper .gfield.buttonized .gchoice > input[type="checkbox"]:focus+label,
+ .gform_wrapper .gfield.buttonized .gchoice > input[type="radio"]:checked+label,
+ .gform_wrapper .gfield.buttonized .gchoice > input[type="checkbox"]:checked+label {
+    outline: 3px solid $grey_3;
+    overflow: hidden;
+ }
+
+ .gform_wrapper .gfield.buttonized .gfield_radio label::before,
+ .gform_wrapper .gfield.buttonized .gfield_checkbox label::before {
+    display: none;
+ }
+
+ .gform_wrapper .gfield.buttonized .gchoice:nth-of-type(1) > input[type="radio"]+label {
+ 	background: url("https://www.enercare.ca/wp-content/uploads/2022/09/repair-24px-r.svg") left center no-repeat;
+ 	background-size: 100px;
+ 	background-color: $grey_1;
+ }
+
+ .gform_wrapper .gfield.buttonized .gchoice:nth-of-type(2) > input[type="radio"]+label {
+ 	background: url("https://www.enercare.ca/wp-content/uploads/2022/09/repair-24px-r.svg") left center no-repeat;
+ 	background-size: 100px;
+ 	background-color: $grey_1;
+ }
+
+.gform_wrapper .gfield.buttonized .gchoice:nth-of-type(1) > input[type="radio"]:hover+label,
+.gform_wrapper .gfield.buttonized .gchoice:nth-of-type(2) > input[type="radio"]:hover+label,
+.gform_wrapper .gfield.buttonized .gchoice:nth-of-type(1) > input[type="radio"]:focus+label,
+.gform_wrapper .gfield.buttonized .gchoice:nth-of-type(2) > input[type="radio"]:focus+label,
+.gform_wrapper .gfield.buttonized .gchoice:nth-of-type(1) > input[type="radio"]:checked+label,
+.gform_wrapper .gfield.buttonized .gchoice:nth-of-type(2) > input[type="radio"]:checked+label {
+	background-color: $white;
+	transition: background-color 0.3s ease;
+}
+
+
+
+ /* Layout Buttonized Inputs As Grid */
+ .gform_wrapper .gfield.buttonized .gfield_radio,
+ .gform_wrapper .gfield.buttonized .gfield_checkbox {
+    display: grid;
+    grid-template-columns: repeat( 2, 1fr );
+    grid-gap: .5em 1em;
+ }

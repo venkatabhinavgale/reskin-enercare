@@ -170,6 +170,15 @@ function enercare_gform_address_types( $address_types, $form_id ) {
       'Ontario'
     )
   );
+  $address_types['canada_alberta'] = array(
+    'label'       => 'Canadian (Alberta only)',
+    'zip_label'   => 'Postal Code',
+    'state_label' => 'Province',
+    'country'     => 'Canada',
+    'states'      => array(
+      'Alberta'
+    )
+  );
   return $address_types;
 }
 add_filter( 'gform_address_types', 'enercare_gform_address_types', 10, 2 );
