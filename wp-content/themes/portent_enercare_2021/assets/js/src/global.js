@@ -653,7 +653,12 @@ function setupToggleNav() {
 }
 window.addEventListener('load', setupToggleNav);
 
-function tableCaptionConversion() {
+
+/**
+ * Create caption element from the figcaption if a table is present on page
+ */
+
+function createTableCaption() {
 
 	let tableFigureBlocks = document.querySelectorAll('.wp-block-table');
 	let innerTable = document.querySelector('.wp-block-table > table');
@@ -661,13 +666,9 @@ function tableCaptionConversion() {
 	let caption = innerTable.createCaption();
 
 	if ( tableFigureBlocks.length > 0 ) {
-		
 		caption.textContent = tableFigCaption.innerHTML;
-		caption.style.opacity = '0';
-
 	}
-	
 }
 
-window.addEventListener('load', tableCaptionConversion);
+window.addEventListener('load', createTableCaption);
 

@@ -687,8 +687,11 @@ function setupToggleNav() {
 }
 
 window.addEventListener('load', setupToggleNav);
+/**
+ * Create caption element from the figcaption if a table is present on page
+ */
 
-function tableCaptionConversion() {
+function createTableCaption() {
   var tableFigureBlocks = document.querySelectorAll('.wp-block-table');
   var innerTable = document.querySelector('.wp-block-table > table');
   var tableFigCaption = document.querySelector('.wp-block-table > figcaption');
@@ -696,11 +699,10 @@ function tableCaptionConversion() {
 
   if (tableFigureBlocks.length > 0) {
     caption.textContent = tableFigCaption.innerHTML;
-    caption.style.opacity = '0';
   }
 }
 
-window.addEventListener('load', tableCaptionConversion);
+window.addEventListener('load', createTableCaption);
 "use strict";
 
 jQuery(function ($) {
