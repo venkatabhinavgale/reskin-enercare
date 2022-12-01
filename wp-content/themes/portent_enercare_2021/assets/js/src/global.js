@@ -205,6 +205,7 @@ PortentToggleNav.prototype.cta = null;
 //@todo let this get set externally.
 PortentToggleNav.prototype.mobileWidth = 1023;
 PortentToggleNav.prototype.keyModifierDown = false;
+PortentToggleNav.prototype.closeButton ='';
 PortentToggleNav.prototype.init = function() {
 
 	if(this.menu !== '') {
@@ -308,7 +309,9 @@ PortentToggleNav.prototype.setupStatusArea = function() {
 	const statusAreaBackButton = document.createElement('button');
 	const statusAreaCloseButton = document.createElement('button');
 
-	statusAreaContainer.setAttribute('aria-hidden', "true");
+	_this.closebutton = statusAreaCloseButton;
+
+	//statusAreaContainer.setAttribute('aria-hidden', "true");
 	statusAreaContainer.setAttribute('data-interface', 'statusArea');
 
 	statusAreaCloseButton.innerText = 'Close';
@@ -580,6 +583,10 @@ PortentToggleNav.prototype.closeAllMenus = function(navigationContainer) {
 		elem.parentNode.dataset.open = 'false';
 		elem.setAttribute('aria-expanded', "false");
 	});
+	console.log(openMenus);
+	if(openMenus.length > 0) {
+		openMenus.item(0).focus();
+	}
 	this.setSubMenuStatus(false);
 };
 
@@ -597,7 +604,7 @@ PortentToggleNav.prototype.openMobileMenu = function(menuElement) {
 
 	menuElement.setAttribute('data-mobile', 'open');
 	this.setDocumentAttribute();
-	const firstMenuItem = this.menu.querySelector('.menu-item button');
+	const firstMenuItem = this.menu.querySelector('.mobile-close-btn');
 	firstMenuItem.focus();
 };
 
@@ -608,6 +615,8 @@ PortentToggleNav.prototype.closeMobileMenu = function() {
 	if(this.menu.getAttribute('data-mobile') === 'open' ) {
 		this.menu.removeAttribute('data-mobile');
 	}
+
+	this.toggleButton.focus();
 
 	this.setSubMenuStatus(false);
 };

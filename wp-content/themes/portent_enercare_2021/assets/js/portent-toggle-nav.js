@@ -416,6 +416,11 @@ PortentToggleNav.prototype.closeAllMenus = function (navigationContainer) {
     elem.parentNode.dataset.open = 'false';
     elem.setAttribute('aria-expanded', "false");
   });
+
+  if (openMenus.length > 0) {
+    openMenus.item(0).focus();
+  }
+
   this.setSubMenuStatus(false);
 };
 
@@ -432,7 +437,7 @@ PortentToggleNav.prototype.removeDocumentAttribute = function () {
 PortentToggleNav.prototype.openMobileMenu = function (menuElement) {
   menuElement.setAttribute('data-mobile', 'open');
   this.setDocumentAttribute();
-  var firstMenuItem = this.menu.querySelector('.menu-item button');
+  var firstMenuItem = this.menu.querySelector('.mobile-close-btn');
   firstMenuItem.focus();
 };
 
@@ -444,6 +449,7 @@ PortentToggleNav.prototype.closeMobileMenu = function () {
     this.menu.removeAttribute('data-mobile');
   }
 
+  this.toggleButton.focus();
   this.setSubMenuStatus(false);
 };
 
@@ -453,7 +459,6 @@ PortentToggleNav.prototype.focusFirstOption = function (topLevelItem) {
     preventScroll: true
   });
 };
-
 /**
  * Execute a function given a delay time
  *
