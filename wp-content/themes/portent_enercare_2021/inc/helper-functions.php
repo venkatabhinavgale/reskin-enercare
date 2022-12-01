@@ -262,6 +262,31 @@ function enercare_banner($display = true) {
 }
 
 /**
+ * OBA Banner
+ *
+ */
+function enercare_oba_banner($display = true) {
+  $global_banner_toggle = get_field('oba_banner_toggle', 'option');
+  $banner_text = get_field('oba_banner_text', 'option');
+  $post_banner_toggle = get_field('oba_banner_toggle');
+  $post_banner_text = get_field('oba_banner_text');
+  if ($post_banner_text && !empty(trim($post_banner_text)))
+    $banner_text = $post_banner_text;
+
+  if (!$post_banner_toggle && $global_banner_toggle) {
+    $output = '<div class="oba-banner-operational alignfull">' . $banner_text . '</div>';
+  }
+
+  if ($display == "" && $display !== false)
+    $display = true;
+
+  if (!$display)
+    return $output;
+  else
+    echo $output;
+}
+
+/**
  * Taxonomy Filtering
  *
  */
