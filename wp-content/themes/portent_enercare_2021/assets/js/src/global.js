@@ -662,3 +662,22 @@ function setupToggleNav() {
 }
 window.addEventListener('load', setupToggleNav);
 
+
+/**
+ * Create caption element from the figcaption if a table is present on page
+ */
+
+function createTableCaption() {
+
+	let tableFigureBlocks = document.querySelectorAll('.wp-block-table');
+	let innerTable = document.querySelector('.wp-block-table > table');
+	let tableFigCaption = document.querySelector('.wp-block-table > figcaption');
+	let caption = innerTable.createCaption();
+
+	if ( tableFigureBlocks.length > 0 ) {
+		caption.textContent = tableFigCaption.innerHTML;
+	}
+}
+
+window.addEventListener('load', createTableCaption);
+

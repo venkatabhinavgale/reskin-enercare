@@ -526,6 +526,7 @@ ul.block-location-finder__list{padding-left:0}
 .block-comparison-card__mobile-wrapper .block-tabbed-content__tab.active:after{background-color:#da1b27;content:'';position:absolute;bottom:0;height:4px;width:100%}
 .block-comparison-card__mobile-wrapper .block-tabbed-content__tab:hover,.block-comparison-card__mobile-wrapper .block-tabbed-content__tab:focus{border-radius:0}
 .block-comparison-card__mobile-wrapper .block-tabbed-content__tab-panels{padding:0 24px}
+.wp-block-table table caption{opacity:0}
 .is-style-feature-table{overflow-x:auto}
 .is-style-feature-table .has-fixed-layout{table-layout:auto}
 .is-style-feature-table thead{background-color:#fff}
