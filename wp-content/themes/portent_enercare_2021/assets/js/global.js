@@ -687,6 +687,20 @@ function setupToggleNav() {
 }
 
 window.addEventListener('load', setupToggleNav);
+
+function tableCaptionConversion() {
+  var tableFigureBlocks = document.querySelectorAll('.wp-block-table');
+  var innerTable = document.querySelector('.wp-block-table > table');
+  var tableFigCaption = document.querySelector('.wp-block-table > figcaption');
+  var caption = innerTable.createCaption();
+
+  if (tableFigureBlocks.length > 0) {
+    caption.textContent = tableFigCaption.innerHTML;
+    caption.style.opacity = '0';
+  }
+}
+
+window.addEventListener('load', tableCaptionConversion);
 "use strict";
 
 jQuery(function ($) {

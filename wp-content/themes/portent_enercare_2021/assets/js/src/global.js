@@ -653,3 +653,21 @@ function setupToggleNav() {
 }
 window.addEventListener('load', setupToggleNav);
 
+function tableCaptionConversion() {
+
+	let tableFigureBlocks = document.querySelectorAll('.wp-block-table');
+	let innerTable = document.querySelector('.wp-block-table > table');
+	let tableFigCaption = document.querySelector('.wp-block-table > figcaption');
+	let caption = innerTable.createCaption();
+
+	if ( tableFigureBlocks.length > 0 ) {
+		
+		caption.textContent = tableFigCaption.innerHTML;
+		caption.style.opacity = '0';
+
+	}
+	
+}
+
+window.addEventListener('load', tableCaptionConversion);
+
