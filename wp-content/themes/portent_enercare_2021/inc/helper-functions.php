@@ -249,7 +249,7 @@ function enercare_banner($display = true) {
     $banner_text = $post_banner_text;
 
   if (!$post_banner_toggle && $global_banner_toggle) {
-    $output = '<div class="banner-operational alignfull">' . $banner_text . '</div>';
+    $output = '<div class="banner-operational-group banner-operational">' . $banner_text . '</div>';
   }
 
   if ($display == "" && $display !== false)
@@ -274,7 +274,7 @@ function enercare_oba_banner($display = true) {
     $banner_text = $post_banner_text;
 
   if (!$post_banner_toggle && $global_banner_toggle) {
-    $output = '<div class="oba-banner-operational alignfull">' . $banner_text . '</div>';
+    $output = '<div class="banner-operational-group oba-banner-operational">' . $banner_text . '</div>';
   }
 
   if ($display == "" && $display !== false)
