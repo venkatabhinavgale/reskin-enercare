@@ -196,7 +196,7 @@ function enercare_breadcrumbs($display = true) {
     if ($display == "" && $display !== false)
       $display = true;
 
-    $breadcrumbs = yoast_breadcrumb( '<div class="breadcrumbs"><nav id="breadcrumbs" class="breadcrumbs__navigation"><ol class="breadcrumb">','</ul></nav></div>',$display );
+    $breadcrumbs = yoast_breadcrumb( '<div class="breadcrumbs"><nav id="breadcrumbs" class="breadcrumbs__navigation" aria-label="breadcrumb"><ol class="breadcrumb">','</ul></nav></div>',$display );
     if (!$display)
       return $breadcrumbs;
 	}
@@ -212,7 +212,7 @@ function enercare_breadcrumbs($display = true) {
 function enercare_filter_yoast_breadcrumb_items( $link_output, $link ) {
 
 	$new_link_output = '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">';
-	$new_link_output .= '<a href="' . $link['url'] . '" itemprop="url">' . $link['text'] . '</a>';
+	$new_link_output .= '<a href="' . $link['url'] . '" itemprop="url" aria-current="page">' . $link['text'] . '</a>';
 	$new_link_output .= '</li>';
 
 	return $new_link_output;
