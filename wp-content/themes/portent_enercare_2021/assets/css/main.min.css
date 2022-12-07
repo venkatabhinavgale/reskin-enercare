@@ -234,7 +234,9 @@ h4,h5,h6{font-size:18px}
 .breadcrumb .breadcrumb_last:after,.breadcrumb li a:after,.yoast-breadcrumbs .breadcrumb_last:after,.yoast-breadcrumbs li a:after{padding:8px 0 0 8px;color:#000;content:"/\00a0"}
 .breadcrumb li:last-child a,.yoast-breadcrumbs li:last-child a{font-weight:600}
 .breadcrumb li:last-child a:after,.yoast-breadcrumbs li:last-child a:after{content:""}
-.banner-operational{background-color:#29292c;color:#fff;padding:.5em;margin-top:0 !important;margin-bottom:0 !important;text-align:center}
+.banner-group{margin-top:0 !important}
+.banner-operational-group:first-of-type{margin-bottom:0 !important}
+.banner-operational{background-color:#29292c;color:#fff;padding:.5em;margin-top:0 !important;text-align:center}
 .banner-operational p{margin:0;padding:0}
 .banner-operational a{color:#fff}
 .oba-banner-operational{background-color:#b9d9ec;color:#000;padding:.5em;margin-top:0 !important;text-align:center}

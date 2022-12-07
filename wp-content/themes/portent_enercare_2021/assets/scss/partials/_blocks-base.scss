@@ -394,6 +394,16 @@ Block Styles
 }
 
 /**
+Operational Banner Group
+ */
+.banner-group {
+  margin-top: 0 !important;
+}
+.banner-operational-group:first-of-type {
+  margin-bottom: 0 !important;
+}
+ 
+/**
 Operational Banner
  */
 .banner-operational {
@@ -401,7 +411,6 @@ Operational Banner
 	color: brand-color('white');
 	padding: 0.5em;
 	margin-top: 0 !important;
-  margin-bottom: 0 !important;
 	text-align: center;
 
 	p {
