@@ -26,7 +26,8 @@
 			filter: hue-rotate(0) contrast(100%) brightness(100%) grayscale(0);
 		}
 
-		&:hover {
+		&:hover,
+		&:focus {
 			color: $white;
 
 			img {
@@ -46,7 +47,8 @@
 			filter: hue-rotate(0) contrast(100%) brightness(100%) grayscale(0);
 		}
 
-		&:hover {
+		&:hover,
+		&:focus {
 			color: $white;
 
 			img {
@@ -63,7 +65,8 @@
 			filter: hue-rotate(180deg) contrast(100%) brightness(0) grayscale(100%);
 		}
 
-		&:hover {
+		&:hover,
+		&:focus {
 			color: $white;
 
 			img {
@@ -83,7 +86,8 @@
 				filter: hue-rotate(0) contrast(100%) brightness(100%) grayscale(0);
 			}
 
-			&:hover {
+			&:hover,
+			&:focus {
 				color: $white;
 
 				img {
@@ -111,7 +115,8 @@
 		margin: 0 10px 0 0;
 	}
 
-	&:hover {
+	&:hover,
+	&:focus {
 		background-color: brand-color('red');
 		border-top-left-radius: 20px;
 		border-top-right-radius: 20px;
@@ -130,7 +135,8 @@
 			filter: hue-rotate(0) contrast(100%) brightness(100%) grayscale(0);
 		}
 
-		&:hover {
+		&:hover,
+		&:focus {
 			color: $white;
 
 			img {
@@ -152,7 +158,7 @@
 	.block-tabbed-content__panel:first-of-type .block-tabbed-content__tab-content {
 
 		position: relative;
-			display: block;
+		display: block;
 	}
 
 	.block-tabbed-content__panel[data-default="false"] .block-tabbed-content__tab-content {
@@ -163,6 +169,14 @@
 	.block-tabbed-content__panel[data-default="true"] .block-tabbed-content__tab-content {
 		position: relative;
 		display: block;
+	}
+
+	.block-tabbed-content__panel:first-of-type .block-tabbed-content__panel__mobile-toggle .block-tabbed-content__panel__toggle .block-tabbed-content__panel__title {
+		color: brand-color('red');
+	}
+
+	.block-tabbed-content__panel:first-of-type .block-tabbed-content__panel__mobile-toggle .block-tabbed-content__panel__toggle .block-tabbed-content__panel__arrow {
+		transform: rotate(90deg);
 	}
 }
 
