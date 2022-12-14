@@ -263,6 +263,10 @@ Floating CTA
 			display: none;
 		}
 	}
+
+	.wp-block-button__link {
+		outline: 3px dashed $black;
+	}
 }
 
 #enercare-polite-status {

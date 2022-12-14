@@ -52,6 +52,15 @@
 		@include media(">mobile_menu") {
 			margin-right: 0;
 		}
+
+		&:focus,
+		&:hover {
+			background-color: $grey_1;
+		}
+
+		&:focus {
+			outline: 2px dotted $black;
+		}
 	}
 	&__number,
 	&__cta {
