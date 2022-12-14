@@ -69,5 +69,35 @@ window.addEventListener('load', function () {
         reviewCarouselAction(event, 'Next');
       });
     });
-  }
+  } // When focus is on last visible slide, transition focus to left arrow
+
+
+  var gliderCarousel = document.querySelector('.glider > .glider-track');
+  var visibleSlides = gliderCarousel.querySelectorAll(':scope > .visible');
+  var carouselPrev = document.querySelector('.related-posts__glider-prev');
+  var carouselNext = document.querySelector('.related-posts__glider-next');
+  visibleSlides.forEach(function (slide, i, array) {
+    var slideUrl = slide.querySelector(':scope > div > h3 > a');
+    slideUrl.addEventListener('focusout', function () {
+      if (i === array.length - 1) {
+        carouselPrev.focus();
+      }
+    });
+  }); // Focus on slide that has moved into view after right arrow is selected
+
+  document.querySelector('.glider').addEventListener('glider-slide-visible', function (event) {
+    var glider = Glider(this); // let focusEl = document.activeElement;
+
+    for (var i = 0; i <= glider.slides.length - 1; i++) {
+      var currentSlide = glider.slides[i];
+      var nextSlide = glider.slides[i + 1];
+      var activeSlide = currentSlide.classList.contains('active');
+
+      if (currentSlide.classList.contains('visible') && i === visibleSlides.length - 1) {
+        var nextSlideUrl = nextSlide.querySelector('.visible > div > h3 > a');
+        nextSlideUrl.focus();
+        i++;
+      }
+    }
+  });
 });

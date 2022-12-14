@@ -1,4 +1,5 @@
 window.addEventListener('load', function () {
+
 	let columnCarousel = document.querySelectorAll('.block-blog-posts');
 	columnCarousel.forEach(function (carousel) {
 
@@ -71,4 +72,41 @@ window.addEventListener('load', function () {
 			});
 		});
 	}
+
+	// When focus is on last visible slide, transition focus to left arrow
+
+	let gliderCarousel = document.querySelector('.glider > .glider-track');
+	let visibleSlides = gliderCarousel.querySelectorAll(':scope > .visible');
+	let carouselPrev = document.querySelector('.related-posts__glider-prev');
+	let carouselNext = document.querySelector('.related-posts__glider-next');
+	
+	visibleSlides.forEach((slide, i, array) => {
+		let slideUrl = slide.querySelector(':scope > div > h3 > a');
+
+		slideUrl.addEventListener('focusout', () => {
+			if(i === array.length-1) {
+				carouselPrev.focus();
+			}
+		});
+	});
+
+	// Focus on slide that has moved into view after right arrow is selected
+
+	document.querySelector('.glider').addEventListener('glider-slide-visible', function(event) {
+		let glider = Glider(this);
+		// let focusEl = document.activeElement;
+
+		for( let i = 0; i <= glider.slides.length-1; i++ ) {
+			let currentSlide = glider.slides[i];
+			let nextSlide = glider.slides[i+1];
+			let activeSlide = currentSlide.classList.contains('active');
+
+			if ( currentSlide.classList.contains('visible') && i === visibleSlides.length-1 ) {
+				let nextSlideUrl = nextSlide.querySelector('.visible > div > h3 > a');
+				nextSlideUrl.focus();
+				i++;
+			}
+		}
+	});
+
 });
