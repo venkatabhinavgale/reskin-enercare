@@ -125,7 +125,7 @@
 	.has-focus-style {
 		> figure {
 			> a {
-				
+
 				&:focus {
 
 					& > img {
@@ -133,7 +133,7 @@
 					}
 				}
 			}
-		} 
+		}
 	}
 
 	.cafemedia {
@@ -272,5 +272,15 @@ Floating CTA
 }
 
 #enercare-polite-status {
-  display: none;
+	display: initial !important;
+	position: absolute;
+	margin: -1px;
+	padding: 0;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	border: 0;
+	word-wrap: normal !important;
 }

@@ -218,7 +218,7 @@ jQuery(function ($) {
       console.log(errorLabel);
       errorLabel.text('Please enter a valid postal code');
       // set the global enercare polite status element for screen reading
-      $('#enercare-polite-status').html("Please enter a valid postal code.");
+      $('#enercare-polite-status').html('').html("Please enter a valid postal code.");
     }
 
   }); //Single filter criteria control hookup
