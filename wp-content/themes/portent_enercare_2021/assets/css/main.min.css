@@ -740,7 +740,7 @@ div.wpforms-container.one-line:after{content:"";display:table;clear:both}
 .footer--menus .portent-accordion .portent-accordion__icon{width:10px;z-index:1}
 .floating-cta{background-color:#fff;bottom:0;display:block;height:62px;left:0;position:fixed;padding:.5em;text-align:center;width:100%;z-index:200}
 .floating-cta--split-a-p{display:-webkit-box;display:-ms-flexbox;display:flex;padding:0}
-.floating-cta .wp-block-button__link{outline:3px dashed #000}
+.floating-cta .wp-block-button__link:focus{outline:3px dashed #000}
 #enercare-polite-status{display:none}
 .wp-block-button__link{display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
 .wp-block-button__link img{margin:0 .25em;height:24px;width:24px !important}
