@@ -668,14 +668,15 @@ window.addEventListener('load', setupToggleNav);
  */
 
 function createTableCaption() {
-
 	let tableFigureBlocks = document.querySelectorAll('.wp-block-table');
-	let innerTable = document.querySelector('.wp-block-table > table');
-	let tableFigCaption = document.querySelector('.wp-block-table > figcaption');
-	let caption = innerTable.createCaption();
+	if (tableFigureBlocks.length > 0 && typeof tableFigureBlocks !== 'undefined') {
+		tableFigureBlocks.forEach(function(elem){
+			let innerTable = elem.querySelector(':scope > table');
+			let tableFigCaption = elem.querySelector(':scope > figcaption');
+			let caption = innerTable.createCaption();
 
-	if ( tableFigureBlocks.length > 0 ) {
-		caption.textContent = tableFigCaption.innerHTML;
+			caption.textContent = tableFigCaption.innerHTML;
+		});
 	}
 }
 
