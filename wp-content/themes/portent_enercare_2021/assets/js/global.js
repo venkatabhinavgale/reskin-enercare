@@ -702,12 +702,14 @@ window.addEventListener('load', setupToggleNav);
 
 function createTableCaption() {
   var tableFigureBlocks = document.querySelectorAll('.wp-block-table');
-  var innerTable = document.querySelector('.wp-block-table > table');
-  var tableFigCaption = document.querySelector('.wp-block-table > figcaption');
-  var caption = innerTable.createCaption();
 
-  if (tableFigureBlocks.length > 0) {
-    caption.textContent = tableFigCaption.innerHTML;
+  if (tableFigureBlocks.length > 0 && typeof tableFigureBlocks !== 'undefined') {
+    tableFigureBlocks.forEach(function (elem) {
+      var innerTable = elem.querySelector(':scope > table');
+      var tableFigCaption = elem.querySelector(':scope > figcaption');
+      var caption = innerTable.createCaption();
+      caption.textContent = tableFigCaption.innerHTML;
+    });
   }
 }
 
