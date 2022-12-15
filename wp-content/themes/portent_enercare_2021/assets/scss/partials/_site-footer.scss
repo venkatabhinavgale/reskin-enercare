@@ -265,7 +265,9 @@ Floating CTA
 	}
 
 	.wp-block-button__link {
-		outline: 3px dashed $black;
+		&:focus {
+			outline: 3px dashed $black;
+		}
 	}
 }
 

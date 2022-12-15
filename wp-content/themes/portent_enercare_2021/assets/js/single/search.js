@@ -18,6 +18,15 @@ const callback = function(mutationList, observer) {
 				addSearchAlertNode.textContent = `No results found for ${searchTerm.textContent}. Please try different term`;
 
 			}
+
+			if(node.id === 'addsearch-result-item-container-1') {
+				console.log(`Found Results`);
+				let addSearchBox = document.querySelector('input.addsearch');
+				let addSearchAlertNode = document.getElementById('addsearch-notifications');
+				addSearchAlertNode.textContent = '';
+				addSearchAlertNode.textContent = `Results have been found for your search term, ${addSearchBox.value}`;
+			}
+
 			if(node.parentElement.id === 'addsearch-rp-paging') {
 				//Check for numerical values
 				if(node.innerHTML.match(/\d/, 'gm')) {

@@ -39,6 +39,16 @@ var callback = function callback(mutationList, observer) {
             addSearchAlertNode.textContent = "No results found for ".concat(searchTerm.textContent, ". Please try different term");
           }
 
+          if (node.id === 'addsearch-result-item-container-1') {
+            console.log("Found Results");
+            var addSearchBox = document.querySelector('input.addsearch');
+
+            var _addSearchAlertNode = document.getElementById('addsearch-notifications');
+
+            _addSearchAlertNode.textContent = '';
+            _addSearchAlertNode.textContent = "Results have been found for your search term, ".concat(addSearchBox.value);
+          }
+
           if (node.parentElement.id === 'addsearch-rp-paging') {
             //Check for numerical values
             if (node.innerHTML.match(/\d/, 'gm')) {
