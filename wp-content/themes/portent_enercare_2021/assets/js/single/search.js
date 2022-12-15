@@ -10,21 +10,25 @@ const callback = function(mutationList, observer) {
 	for(const mutation of mutationList) {
 		for (const node of mutation.addedNodes){
 			if(node.id === 'addsearch-nohits') {
+
 				let searchTerm = node.querySelector('p em');
 				let addSearchAlertNode = document.getElementById('addsearch-notifications');
 				//Clear any existing message
-				addSearchAlertNode.textContent = '';
-				//Push in status message
-				addSearchAlertNode.textContent = `No results found for ${searchTerm.textContent}. Please try different term`;
-
+				setTimeout(()=>{
+					addSearchAlertNode.textContent = '';
+					//Push in status message
+					addSearchAlertNode.textContent = `No results found for ${searchTerm.textContent}. Please try different term`;
+				},300);
 			}
 
 			if(node.id === 'addsearch-result-item-container-1') {
-				console.log(`Found Results`);
-				let addSearchBox = document.querySelector('input.addsearch');
-				let addSearchAlertNode = document.getElementById('addsearch-notifications');
-				addSearchAlertNode.textContent = '';
-				addSearchAlertNode.textContent = `Results have been found for your search term, ${addSearchBox.value}`;
+				setTimeout( function() {
+					console.log(`Found Results`);
+					let addSearchBox = document.querySelector('input.addsearch');
+					let addSearchAlertNode = document.getElementById('addsearch-notifications');
+					addSearchAlertNode.textContent = '';
+					addSearchAlertNode.textContent = `Results have been found for your search term, ${addSearchBox.value}`;
+				}, 300);
 			}
 
 			if(node.parentElement.id === 'addsearch-rp-paging') {
