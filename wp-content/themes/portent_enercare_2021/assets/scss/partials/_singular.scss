@@ -208,16 +208,22 @@
 			}
 
 			.single-post__share-menu {
+				list-style: none;
+    			display: flex;
+    			flex-wrap: nowrap;
 
 				.share-menu {
 
-					&__link {
-						color: $black;
-						margin-right: 0.75em;
-
+					&__list-item {
+						margin: 0 0.75em;
+						
 						&:last-child {
 							margin-right: 0;
 						}
+					}
+
+					&__link {
+						color: $black;
 					}
 				}
 

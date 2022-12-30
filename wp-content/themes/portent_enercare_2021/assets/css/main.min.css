@@ -491,8 +491,8 @@ div.wpforms-container.one-line:after{content:"";display:table;clear:both}
 .block-youtube-lazy.alignright{float:none !important;margin:0 0 0 auto}
 .block-switchboard{margin-left:auto;margin-right:auto;max-width:768px}
 .block-switchboard.alignwide{max-width:1168px}
-.block-switchboard__container{display:grid;justify-items:center}
-.block-switchboard__container .block-mega-button,.block-switchboard__container .block-mega-button a{width:100%}
+.block-switchboard__container{display:grid;justify-items:center;padding-left:0 !important;margin-bottom:0 !important}
+.block-switchboard__container .block-mega-button,.block-switchboard__container .block-mega-button a{width:100%;padding-bottom:.5em !important}
 .wp-block-portent-block-portent-responsive-cover{-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
 .wp-block-portent-block-portent-responsive-cover__inner-blocks{margin:calc(2 * 20px) calc(50% - 50vw);max-width:1168px;width:100%}
 .wp-block-portent-block-portent-responsive-cover__inner-blocks{padding:1em 1em .25em 1em;margin-bottom:0}
@@ -665,8 +665,10 @@ div.wpforms-container.one-line:after{content:"";display:table;clear:both}
 .singular .entry-header .post-meta__author-meta__date{line-height:1.250em;margin-right:.2em;font-size:.875em}
 .singular .entry-header .post-meta__author-meta .span-reading-time{line-height:1.250em;letter-spacing:-0.13px;font-size:.875em}
 .singular .entry-header .post-meta__author-meta .span-reading-time:before{content:"\2022"}
-.singular .entry-header .post-meta .single-post__share-menu .share-menu__link{color:#000;margin-right:.75em}
-.singular .entry-header .post-meta .single-post__share-menu .share-menu__link:last-child{margin-right:0}
+.singular .entry-header .post-meta .single-post__share-menu{list-style:none;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:nowrap;flex-wrap:nowrap}
+.singular .entry-header .post-meta .single-post__share-menu .share-menu__list-item{margin:0 .75em}
+.singular .entry-header .post-meta .single-post__share-menu .share-menu__list-item:last-child{margin-right:0}
+.singular .entry-header .post-meta .single-post__share-menu .share-menu__link{color:#000}
 .singular .entry-header *:last-child{margin-bottom:0}
 .singular .entry-footer .entry-category{grid-column:1 / -1;max-width:768px;margin:0 auto 32px}
 .singular .entry-footer .entry-category .button{display:inline-block;background-color:#e6e4e4;border-radius:20px;padding:.5em .8em .3em;margin:.25em 1.25em .25em 0;font-weight:300;color:#29292c;font-size:1em;text-decoration:none;text-transform:capitalize}

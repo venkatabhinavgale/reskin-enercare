@@ -4,11 +4,17 @@
 		text-align: center;
 	}
 
+	&--list {
+		list-style: none;
+		padding-left: 0;
+		margin-bottom: 0;
+	}
+
 	&--faq-container {
 		font-size: 18px;
 		font-weight: 700;
     	cursor: pointer;
-    	padding: 0 0.5em;
+    	padding: 0 0.5em !important; // !important used to override theme <li> tag styles
 
 		&:after {
 			content: '';

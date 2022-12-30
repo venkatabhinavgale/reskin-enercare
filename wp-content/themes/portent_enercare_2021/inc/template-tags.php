@@ -112,11 +112,11 @@ function enercare_entry_byline() {
 function enercare_share_buttons() {
 	$post_url = get_the_permalink();
 	$post_title = rawurlencode( get_the_title() );
-	echo '<div class="single-post__share-menu">';
+	echo '<ul class="single-post__share-menu">';
 		//echo '<a class="share-menu__link dashicons dashicons-twitter" href="https://twitter.com/intent/tweet?text='.$post_title.'&url='.$post_url.'"><span class="screen-reader-text">Share '. get_the_title() .' on Twitter</span></a>';
-    echo '<a class="share-menu__link dashicons dashicons-facebook-alt" href="https://www.facebook.com/sharer.php?u='.$post_url.'"><span class="screen-reader-text">Share '. get_the_title() .' on Facebook</span></a>';
-		echo '<a class="share-menu__link dashicons dashicons-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url='.$post_url.'&title='.$post_title.'"><span class="screen-reader-text">Share '. get_the_title() .' on LinkedIn</span></a>';
-	echo '</div>';
+    echo '<li class="share-menu__list-item"><a class="share-menu__link dashicons dashicons-facebook-alt" href="https://www.facebook.com/sharer.php?u='.$post_url.'"><span class="screen-reader-text">Share '. get_the_title() .' on Facebook</span></a></li>';
+		echo '<li class="share-menu__list-item"><a class="share-menu__link dashicons dashicons-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url='.$post_url.'&title='.$post_title.'"><span class="screen-reader-text">Share '. get_the_title() .' on LinkedIn</span></a></li>';
+	echo '</ul>';
 }
 
 /**
