@@ -170,8 +170,8 @@ input:focus::-webkit-input-placeholder,input:focus::-moz-placeholder,input:focus
 .gform_wrapper .gfield.buttonized .gfield_radio .gchoice>input[type="radio"]+label,.gform_wrapper .gfield.buttonized .gfield_checkbox .gchoice>input[type="checkbox"]+label{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;position:relative;max-width:100%;font-size:1.35em;cursor:pointer;padding:2em 2em 2em 3em;border-radius:20px;min-height:148px;border:1px solid transparent}
 .gform_wrapper .gfield.buttonized .gchoice>input[type="radio"]:hover+label,.gform_wrapper .gfield.buttonized .gchoice>input[type="checkbox"]:hover+label,.gform_wrapper .gfield.buttonized .gchoice>input[type="radio"]:focus+label,.gform_wrapper .gfield.buttonized .gchoice>input[type="checkbox"]:focus+label,.gform_wrapper .gfield.buttonized .gchoice>input[type="radio"]:checked+label,.gform_wrapper .gfield.buttonized .gchoice>input[type="checkbox"]:checked+label{outline:3px solid #d3d1d1;overflow:hidden}
 .gform_wrapper .gfield.buttonized .gfield_radio label::before,.gform_wrapper .gfield.buttonized .gfield_checkbox label::before{display:none}
-.gform_wrapper .gfield.buttonized .gchoice:nth-of-type(1)>input[type="radio"]+label{background:url("https://www.enercare.ca/wp-content/uploads/2022/12/Fuse-24px-r.svg") left center no-repeat;background-size:100px;background-color:#f5f2f2}
-.gform_wrapper .gfield.buttonized .gchoice:nth-of-type(2)>input[type="radio"]+label{background:url("https://www.enercare.ca/wp-content/uploads/2022/12/breaker-24px-r.svg") left center no-repeat;background-size:100px;background-color:#f5f2f2}
+.gform_wrapper .gfield.buttonized .gchoice:nth-of-type(1)>input[type="radio"]+label{background:url("https://www.enercare.ca/wp-content/uploads/2023/01/fuse-vert-24px.svg") left center no-repeat;background-size:80px;background-color:#f5f2f2;background-position:calc(0% + 10px)}
+.gform_wrapper .gfield.buttonized .gchoice:nth-of-type(2)>input[type="radio"]+label{background:url("https://www.enercare.ca/wp-content/uploads/2022/12/breaker-24px-r.svg") left center no-repeat;background-size:35px;background-color:#f5f2f2;background-position:calc(0% + 40px)}
 .gform_wrapper .gfield.buttonized .gchoice:nth-of-type(1)>input[type="radio"]:hover+label,.gform_wrapper .gfield.buttonized .gchoice:nth-of-type(2)>input[type="radio"]:hover+label,.gform_wrapper .gfield.buttonized .gchoice:nth-of-type(1)>input[type="radio"]:focus+label,.gform_wrapper .gfield.buttonized .gchoice:nth-of-type(2)>input[type="radio"]:focus+label,.gform_wrapper .gfield.buttonized .gchoice:nth-of-type(1)>input[type="radio"]:checked+label,.gform_wrapper .gfield.buttonized .gchoice:nth-of-type(2)>input[type="radio"]:checked+label{background-color:#fff;-webkit-transition:background-color .3s ease;transition:background-color .3s ease}
 .gform_wrapper .gfield.buttonized .gfield_radio,.gform_wrapper .gfield.buttonized .gfield_checkbox{display:grid;grid-template-columns:repeat(2,1fr);grid-gap:.5em 1em}
 body{color:#29292c;font-family:"Post Grotesk",serif,"Helvetica Neue",sans-serif;font-size:1em;font-weight:300;line-height:1.55}
@@ -971,6 +971,8 @@ body[data-menu="open"] .site-container{position:relative;z-index:9999;overflow-y
 }@media(max-width:991px){.sidebar-primary{display:none}
 }@media(max-width:782px){#wpadminbar{display:none !important}
 }@media(max-width:768px){.addsearch-container input[type='text']{max-width:74%}
+.gform_wrapper .gfield.buttonized .gchoice:nth-of-type(2)>input[type="radio"]+label{background-position:calc(0% + 30px)}
+.gform_wrapper .gfield.buttonized .gfield_radio,.gform_wrapper .gfield.buttonized .gfield_checkbox{grid-template-columns:repeat(1,1fr)}
 .legal__terms-toggle{margin:0;padding:0 1em;width:100%}
 .legal__terms-details p{margin:0 0 10px;width:100%;padding:10px 0 0}
 .block-blog-posts__post__image{min-height:173px}
