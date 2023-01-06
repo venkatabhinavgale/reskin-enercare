@@ -25,16 +25,18 @@ if( !empty( $content ) )
 	echo '<p class="block-faqs--content">' . esc_html( $content ) . '</p>';
 
 if( !empty( $faqs ) )  {
+  echo '<ul class="block-faqs--list">';
   foreach ($faqs as $faq) {
-    echo '<div class="block-faqs--faq-container">';
+    echo '<li class="block-faqs--faq-container">';
         echo '<h4><button class="block-faqs--button" aria-expanded="false" aria-controls="faq_' . $faq->ID . '">' .esc_html($faq->post_title) . '</button></h4>';
 
     echo '<div id="faq_' . $faq->ID . '" class="block-faqs--faq-answer-container" data-state="closed" aria-labelledby="faq_' . $faq->ID . '">';
         echo $faq->post_content;
     echo '</div>';
 
-    echo '</div>';
+    echo '</li>';
   }
+  echo '<ul>';
 }
 
 echo '</div>';
