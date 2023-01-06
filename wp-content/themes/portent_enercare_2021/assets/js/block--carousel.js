@@ -19,7 +19,7 @@ window.addEventListener('load', function () {
     //console.log("slidesToScroll", $slidesToScroll);
     //console.log("responsive_obj", $responsive_obj);
 
-    new Glider(carousel.querySelector('.block-carousel'), {
+    var carouselGlider = new Glider(carousel.querySelector('.block-carousel'), {
       slidesToShow: $slidesToShow,
       slidesToScroll: $slidesToScroll,
       arrows: {
@@ -28,6 +28,9 @@ window.addEventListener('load', function () {
       },
       dots: '.glider-dots-' + $id,
       responsive: $responsive_obj
+    });
+    carouselGlider.addEventListener('glider-loaded', function (e) {
+      console.log(e);
     });
   });
   /**
@@ -65,4 +68,8 @@ window.addEventListener('load', function () {
       });
     });
   }
+  /**
+   * Setup Aria Selectr true triggers for dots
+   */
+
 });
