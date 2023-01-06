@@ -1,6 +1,6 @@
 <?php
 
-class acf_field_table extends acf_field {
+class jh_acf_field_table extends acf_field {
 
 	/*
 	*  __construct
@@ -21,7 +21,7 @@ class acf_field_table extends acf_field {
 		*  settings (array) Array of settings
 		*/
 		$this->settings = array(
-			'version' => '1.3.15',
+			'version' => '1.3.17',
 			'dir_url' => plugins_url( '', __FILE__ ) . '/',
 		);
 
@@ -565,10 +565,12 @@ class acf_field_table extends acf_field {
 		// IF BODY DATA
 
 		if (
-			is_countable( $a['b'] ) AND
 			! empty( $a['b'] ) AND
+			is_countable( $a['b'] ) AND
 			count( $a['b'] ) > 0
 		) {
+
+			$value = array();
 
 			// IF HEADER DATA
 
@@ -787,6 +789,3 @@ class acf_field_table extends acf_field {
 	}
 
 }
-
-// create field
-new acf_field_table();
