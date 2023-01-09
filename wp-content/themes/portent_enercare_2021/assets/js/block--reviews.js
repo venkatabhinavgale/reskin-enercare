@@ -28,7 +28,8 @@ window.addEventListener('load', function () {
   // blockReviews.parentNode.insertBefore(nextArrow, blockReviews.nextSibling);
   // blockReviews.parentNode.insertBefore(prevArrow, blockReviews.nextSibling);
 
-  var reviewsGlider = new Glider(blockReviews, {
+  var reviewsGlider;
+  reviewsGlider = new Glider(blockReviews, {
     slidesToShow: 1,
     slidesToScroll: 1,
     draggable: true,
@@ -64,11 +65,46 @@ window.addEventListener('load', function () {
   var gliderNotificationCenter;
   gliderNotificationCenter = document.querySelector('#gliderNotificationCenter');
   /**
+   * Glider dot update check
+   * This function checks the status of the dots within the controls container and updates each
+   * with an aria-selected attribute. If a dot has the class 'active' applied to it then aria-selected
+   * will be set to true. This function should be called anytime there is a potential update to the glider
+   * and requires that an event object is passed in. The event object has to originate from a glider event
+   * @param e
+   */
+
+  var gliderDotUpdate = function gliderDotUpdate(e) {
+    var dots = e.target.parentElement.querySelectorAll('.glider-dot');
+
+    if (typeof dots !== 'undefined') {
+      dots.forEach(function (elem) {
+        if (elem.classList.contains('active')) {
+          elem.setAttribute('aria-selected', 'true');
+        } else {
+          elem.setAttribute('aria-selected', 'false');
+        }
+      });
+    }
+  };
+  /**
+   *
+   */
+
+
+  blockReviews.addEventListener('glider-loaded', gliderDotUpdate);
+  /**
+   * Glider refresh listener
+   */
+
+  blockReviews.addEventListener('glider-refresh', gliderDotUpdate);
+  /**
    * Glider Change Listener
    */
 
   blockReviews.addEventListener('glider-slide-visible', function (event) {
-    gliderNotificationCenter.textContent = "Review ".concat(event.detail.slide + 1, " is now visible");
+    gliderNotificationCenter.textContent = "Review ".concat(event.detail.slide + 1, " is now visible"); //Call dot update just in case
+
+    gliderDotUpdate(event);
   });
   /**
    * Setup Next/Previous Status Reporters

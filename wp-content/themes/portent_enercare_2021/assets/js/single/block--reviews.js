@@ -32,8 +32,9 @@ window.addEventListener('load', function(){
 	// blockReviews.parentNode.insertBefore(dots, blockReviews.nextSibling);
 	// blockReviews.parentNode.insertBefore(nextArrow, blockReviews.nextSibling);
 	// blockReviews.parentNode.insertBefore(prevArrow, blockReviews.nextSibling);
+let reviewsGlider;
 
-const reviewsGlider = new Glider(blockReviews, {
+reviewsGlider = new Glider(blockReviews, {
 	slidesToShow: 1,
 	slidesToScroll: 1,
 	draggable: true,
@@ -73,16 +74,47 @@ const reviewsGlider = new Glider(blockReviews, {
 	gliderNotificationCenter = document.querySelector('#gliderNotificationCenter');
 
 	/**
+	 * Glider dot update check
+	 * This function checks the status of the dots within the controls container and updates each
+	 * with an aria-selected attribute. If a dot has the class 'active' applied to it then aria-selected
+	 * will be set to true. This function should be called anytime there is a potential update to the glider
+	 * and requires that an event object is passed in. The event object has to originate from a glider event
+	 * @param e
+	 */
+	let gliderDotUpdate = (e) => {
+		let dots = e.target.parentElement.querySelectorAll('.glider-dot');
+		if(typeof dots !== 'undefined') {
+			dots.forEach((elem)=> {
+				if(elem.classList.contains('active')) {
+					elem.setAttribute('aria-selected', 'true');
+				} else {
+					elem.setAttribute('aria-selected', 'false');
+				}
+			});
+		}
+	};
+
+	/**
+	 *
+	 */
+	blockReviews.addEventListener('glider-loaded', gliderDotUpdate);
+	/**
+	 * Glider refresh listener
+	 */
+	blockReviews.addEventListener('glider-refresh', gliderDotUpdate);
+
+	/**
 	 * Glider Change Listener
 	 */
 	blockReviews.addEventListener('glider-slide-visible', function(event){
 		gliderNotificationCenter.textContent = `Review ${event.detail.slide + 1} is now visible`;
+		//Call dot update just in case
+		gliderDotUpdate(event);
 	});
 
 	/**
 	 * Setup Next/Previous Status Reporters
 	 */
-
 	let reviewsCarouselPrev = document.querySelector('.block-reviews__prev');
 	let reviewsCarouselNext = document.querySelector('.block-reviews__next');
 
