@@ -624,6 +624,8 @@ Switchboard
 
 	display: grid;
 	justify-items: center;
+	padding-left: 0 !important; // !important used to override theme <ul> styles without using <ul> tag
+	margin-bottom: 0 !important; // !important used to override theme <ul> styles without using <ul> tag
 
 	@for $i from 1 through 8 {
 		&--desktop-col-#{$i} {
@@ -644,6 +646,7 @@ Switchboard
 	.block-mega-button,
 	.block-mega-button a {
 		width: 100%;
+		padding-bottom: 0.5em !important; // !important used to override theme <li> styles without using <li> tag
 	}
 }
 

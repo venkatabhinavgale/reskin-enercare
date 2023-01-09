@@ -26,9 +26,9 @@ if( get_field('sizing' ) ) {
 	$image = get_field( 'image');
 ?>
 
-<div class="<?= $block_class_base?> <?= $button_sizing ?>">
+<li class="<?= $block_class_base?> <?= $button_sizing ?>">
 	<a class="<?=$background_class?> <?= $block_class_base ?>__link" href="<?= $link['url'] ?>">
 		<?= wp_get_attachment_image( $image, '1-1', false, array( 'alt' => '', 'class' => $block_class_base. '__image' )); ?>
 		<span class="<?= $block_class_base ?>__text"><?= $link['title'] ?></span>
 	</a>
-</div>
+</li>

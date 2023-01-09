@@ -874,15 +874,21 @@ Form Style Helpers
  }
 
  .gform_wrapper .gfield.buttonized .gchoice:nth-of-type(1) > input[type="radio"]+label {
- 	background: url("https://www.enercare.ca/wp-content/uploads/2022/12/Fuse-24px-r.svg") left center no-repeat;
- 	background-size: 100px;
+ 	background: url("https://www.enercare.ca/wp-content/uploads/2023/01/fuse-vert-24px.svg") left center no-repeat;
+ 	background-size: 80px;
  	background-color: $grey_1;
+    background-position: calc(0% + 10px);
  }
 
  .gform_wrapper .gfield.buttonized .gchoice:nth-of-type(2) > input[type="radio"]+label {
  	background: url("https://www.enercare.ca/wp-content/uploads/2022/12/breaker-24px-r.svg") left center no-repeat;
- 	background-size: 100px;
+ 	background-size: 35px;
  	background-color: $grey_1;
+    background-position: calc(0% + 40px);
+
+    @include media("<=tablet") {
+    	background-position: calc(0% + 30px);
+    }
  }
 
 .gform_wrapper .gfield.buttonized .gchoice:nth-of-type(1) > input[type="radio"]:hover+label,
@@ -903,4 +909,8 @@ Form Style Helpers
     display: grid;
     grid-template-columns: repeat( 2, 1fr );
     grid-gap: .5em 1em;
+
+    @include media("<=tablet") {
+    	grid-template-columns: repeat( 1, 1fr );
+    }
  }

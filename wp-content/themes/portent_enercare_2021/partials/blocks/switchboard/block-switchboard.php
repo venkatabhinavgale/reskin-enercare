@@ -30,7 +30,7 @@ if(get_field('mobile_columns')) {
 
 <div class="block-switchboard <?php echo esc_attr($classes); ?>">
 	<?php if(is_admin()){ echo '<h2 style="text-align: center">Mega Button Switch Board</h2>'; } ?>
-	<div class="block-switchboard__container <?= $desktop_column_class ?> <?= $mobile_column_class ?>">
+	<ul class="block-switchboard__container <?= $desktop_column_class ?> <?= $mobile_column_class ?>">
 		<InnerBlocks allowedBlocks="<?= esc_attr( wp_json_encode( $allowed_blocks ) ); ?>" />
-	</div>
+	</ul>
 </div>
