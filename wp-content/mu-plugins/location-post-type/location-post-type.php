@@ -113,7 +113,7 @@ function getLocationInfo($post_id, $cta_type = 'location') {
     $address_url = str_replace("\n", "+", $address_url);
     $address_url = str_replace(" ", "+", $address_url);
     $address_url = "https://www.google.com/maps/place/" . $address_url;
-    $content .= '<div class="location-group"><img alt="" src="' . get_template_directory_uri() . '/assets/icons/maps/place_black_24dp_rounded.svg" class="location-group__icon" /><div class="location-group__content"><strong>Address</strong><br /><a aria-label="view '.$location_shortname.' in Google Maps" href="' . $address_url . '"  target="_blank">' . get_field('address', $post_id) . '</a></div></div>';
+    $content .= '<div class="location-group"><img alt="" src="' . get_template_directory_uri() . '/assets/icons/maps/place_black_24dp_rounded.svg" class="location-group__icon" /><div class="location-group__content"><strong>Address</strong><br /><a aria-label="'.get_field('address', $post_id).' activate to view '.$location_shortname.' in Google Maps" href="' . $address_url . '"  target="_blank">' . get_field('address', $post_id) . '</a></div></div>';
   }
 
 	/**
@@ -128,7 +128,7 @@ function getLocationInfo($post_id, $cta_type = 'location') {
       $phone_url = str_replace('-','',$phone_url);
       $phone_url = str_replace('(','',$phone_url);
       $phone_url = str_replace(')','',$phone_url);
-      $content .= '<a href="tel:' . $phone_url  . '" aria-label="Activate to call the '. get_sub_field('phone_label') .' number for ' . $location_shortname . '">' . get_sub_field('phone_number') . '</a>';
+      $content .= '<a href="tel:' . $phone_url  . '" aria-label="Activate to call the '. get_sub_field('phone_label') .' number for ' . $location_shortname . ' '.get_sub_field('phone_number').'">' . get_sub_field('phone_number') . '</a>';
       if (get_row_index() < $rowCount)
         $content .= '<br />';
     }
