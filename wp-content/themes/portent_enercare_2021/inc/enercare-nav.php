@@ -3,7 +3,11 @@
 if( ! class_exists( 'Enercare_Nav_Widget_Walker') ) {
 	class Enercare_Nav_Widget_Walker extends Walker_Nav_Menu {
 		function start_el(&$output, $item, $depth=0, $arg=[], $id=0) {
-			$output .= "<li role='listitem' class='" .  implode(" ", $item->classes) . "'>";
+			$output .= '<li role="listitem" class="' .  implode(" ", $item->classes) . '">';
+			$output .= '<a href="' . $item->url . '">';
+			$output .= $item->title;
+			$output .= '</a>';
+			$output .= '</li>';
 		}
 	}
 }
