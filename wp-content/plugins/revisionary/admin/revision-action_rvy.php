@@ -70,7 +70,7 @@ function rvy_revision_submit($revision_id = 0) {
 			break;
 		}
 
-		if (!current_user_can('set_revision_pending-revision', $revision_id)) {
+		if (!current_user_can('administrator') && !current_user_can('set_revision_pending-revision', $revision_id)) {
 			break;
 		}
 
@@ -162,7 +162,7 @@ function rvy_revision_decline($revision_id = 0) {
 			break;
 		}
 
-		if (!current_user_can('set_revision_pending-revision', $revision_id)) {
+		if (!current_user_can('administrator') && !current_user_can('set_revision_pending-revision', $revision_id)) {
 			break;
 		}
 
@@ -212,6 +212,8 @@ function rvy_revision_decline($revision_id = 0) {
 		}
 	}
 
+	clean_post_cache($revision->ID);
+
 	if (empty($decline_error)) {
 		do_action( 'revision_declined', $revision->post_parent, $revision->ID );
 	}
@@ -227,7 +229,7 @@ function rvy_revision_decline($revision_id = 0) {
 }
 
 // schedules publication of a revision ( or publishes if requested publish date has already passed )
-function rvy_revision_approve($revision_id = 0) {
+function rvy_revision_approve($revision_id = 0, $args = []) {
 	global $current_user, $wpdb;
 
 	if (!$revision_id) {
@@ -403,6 +405,7 @@ function rvy_revision_approve($revision_id = 0) {
 
 			$title = sprintf(esc_html__('[%s] Revision Approval Notice', 'revisionary' ), $blogname );
 			$message = sprintf( esc_html__('A revision to the %1$s "%2$s" has been approved.', 'revisionary' ), $type_caption, $post->post_title ) . "\r\n\r\n";
+			$message = str_replace($message, '&quot;', '"', $message);
 
 			if ( $revisor = new WP_User( $revision->post_author ) )
 				$message .= sprintf( esc_html__('The submitter was %1$s.', 'revisionary'), $revisor->display_name ) . "\r\n\r\n";
@@ -485,7 +488,7 @@ function rvy_revision_approve($revision_id = 0) {
 				}
 			}
 			
-			if ( $db_action && rvy_get_option( 'rev_approval_notify_revisor' ) ) {
+			if (($db_action || !empty($args['force_notify'])) && rvy_get_option( 'rev_approval_notify_revisor' ) ) {
 				$title = sprintf(esc_html__('[%s] Revision Approval Notice', 'revisionary' ), $blogname );
 				$message = sprintf( esc_html__('The revision you submitted for the %1$s "%2$s" has been approved.', 'revisionary' ), $type_caption, $revision->post_title ) . "\r\n\r\n";
 
@@ -535,6 +538,8 @@ function rvy_revision_approve($revision_id = 0) {
 		
 	} while (0);
 	
+	//clean_post_cache($revision_id);
+
 	if (!empty($update_next_publish_date)) {
 		rvy_update_next_publish_date(['revision_id' => $revision_id]);
 	}
@@ -711,7 +716,17 @@ function rvy_apply_revision( $revision_id, $actual_revision_status = '' ) {
 			$orig_terms['category'] = wp_get_object_terms($published->ID, 'category', ['fields' => 'ids']);
 		}
 	}
-	
+
+	if (defined('POLYLANG_VERSION')) {
+		$lang_terms = wp_get_object_terms($published->ID, 'post_translations', ['fields' => 'all']);
+
+		$lang_descripts = [];
+
+		foreach($lang_terms as $term) {
+			$lang_descripts[$term->term_taxonomy_id] = $term->description;
+		}
+	}
+
 	/**
 	* Filter revision data before applying the revision.
 	*
@@ -811,7 +826,7 @@ function rvy_apply_revision( $revision_id, $actual_revision_status = '' ) {
 	revisionary_copy_postmeta($revision, $published->ID, ['apply_empty' => !$is_imported]);
 
 	// Allow Multiple Authors revisions to be applied to published post. Revision post_author is forced to actual submitting user.
-	revisionary_copy_terms($revision_id, $post_id, ['apply_empty' => !$is_imported]);
+	revisionary_copy_terms($revision_id, $post_id, ['apply_empty' => !$is_imported, 'applying_revision' => true]);
 
 	if (defined('PUBLISHPRESS_MULTIPLE_AUTHORS_VERSION') && $published_authors) {
 		// Make sure Multiple Authors values were not wiped due to incomplete revision data
@@ -851,6 +866,14 @@ function rvy_apply_revision( $revision_id, $actual_revision_status = '' ) {
 		foreach($orig_terms as $taxonomy => $terms) {
 			if ($terms && !wp_get_object_terms($published->ID, $taxonomy, ['fields' => 'ids'])) {
 				wp_set_object_terms($published->ID, $terms, $taxonomy);
+			}
+		}
+	}
+
+	if (defined('POLYLANG_VERSION')) {
+		if (!empty($lang_descripts)) {
+			foreach($lang_descripts as $tt_id => $descript) {
+				$wpdb->update($wpdb->term_taxonomy, ['description' => $descript], ['term_taxonomy_id' => $tt_id]);
 			}
 		}
 	}
