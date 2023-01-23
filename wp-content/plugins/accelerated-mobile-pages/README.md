@@ -3,8 +3,8 @@ Contributors: mohammed_kaludi, ahmedkaludi, ampforwp
 Tags: AMP, accelerated mobile pages, mobile, amp project, google amp, amp wp, google, plugin, SEO
 Donate link: https://www.paypal.me/Kaludi/25
 Requires at least: 3.0
-Tested up to: 6.0
-Stable tag: 1.0.77.53
+Tested up to: 6.1
+Stable tag: 1.0.78
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -196,6 +196,38 @@ Device testing done through [BrowserStack](https://www.browserstack.com)
 ![BrowserStack](https://user-images.githubusercontent.com/16618009/53022655-a24ea780-3481-11e9-9a48-a2ca5bcd96d6.png)
 
 == Changelog ==
+
+= 1.0.78 (10th January 2023) =
+* Fixed: Unnecessary character showing issue resolved #5334
+* Fixed: Youtube close button not appearing in lightbox issue resolved #5357
+* Fixed: Iframe code not loading issue resolved #5358
+* Fixed: Jet Booster not connecting to site issue resolved #5362
+* Fixed: After the update there is no control="" in video's code issue resolved #5366
+* Fixed: Warning: Array to string conversion issue resolved #5367
+* Fixed: TypeError: jQuery(...).typeWatch is not a function issue resolved #5368
+* Fixed: Removed Offer Bannner #5370
+* Fixed: Fatal error: Uncaught TypeError: array_merge() issue resolved #5371
+* Fixed: Fatal error: Uncaught TypeError: call_user_func_array() issue resolved #5373
+
+= 1.0.77.55.1 (2nd January 2023) =
+* Fixed: Disallowed attribute or attribute value present in HTML tag error issue resolved #5360
+
+= 1.0.77.55 (27th December 2022) =
+* Fixed: Unable to add STN video Ads due to the outdated tag #5334
+* Fixed: Jetpack Boost disappears after enabling the AMP Takeover #5343
+* Fixed: When implementing callRail analytics, it throws error in console #5344
+* Fixed: Fallback attribute is getting stripped when Change Pagination Links to /amp option is enabled #5345
+* Fixed: AMP is reacting with the Scripts in the WP root folder #5346
+* Fixed: PHP warning appears after activating AMP with WP Fastest Cache #5348
+
+= 1.0.77.54.1 (22nd November 2022) =
+* Fixed: PHP Fatal error: Uncaught Value Error #5174
+
+= 1.0.77.54 (21st November 2022) =
+* Fixed: Tested compatibility with wp 6.1 #5331
+* Fixed: Removed deprecated warning in php 8.1.10 #5333
+* Fixed: Resolved STN video Ads due to the outdated tag issue #5334
+* New  : BFCM internal offer  #5336
 
 = 1.0.77.53 (25th October 2022) =
 * Fixed: Backslash in custom css error #5329
