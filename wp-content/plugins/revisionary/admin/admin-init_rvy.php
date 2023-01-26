@@ -204,8 +204,10 @@ function rvy_admin_init() {
 						continue;
 					}
 
-					if ('pending' != $revision->post_status) {
-						continue;
+					if (defined('REVISIONARY_DECLINE_REVISIONS_SKIP_PENDING')) {
+						if ('pending' != $revision->post_status) {
+							continue;
+						}
 					}
 
 					if (!$is_administrator && !current_user_can('set_revision_pending-revision', $revision->ID)) {
@@ -287,8 +289,10 @@ function rvy_admin_init() {
 				break;
 	
 			default:
-				if (function_exists('get_current_screen')) {
-					$sendback = apply_filters( 'handle_bulk_actions-' . get_current_screen()->id, $sendback, $doaction, $post_ids );
+				if (!$sendback = apply_filters('revisionary_handle_admin_action', $sendback, $doaction, $post_ids)) {
+					if (function_exists('get_current_screen')) {
+						$sendback = apply_filters( 'handle_bulk_actions-' . get_current_screen()->id, $sendback, $doaction, $post_ids );
+					}
 				}
 				
 				break;
@@ -304,6 +308,10 @@ function rvy_admin_init() {
 	// don't bother with the checks in this block unless action arg was passed
 	} elseif ( ! empty($_GET['action']) || ! empty($_POST['action']) ) {
 		if (isset($_SERVER['REQUEST_URI']) && false !== strpos(urldecode(esc_url_raw($_SERVER['REQUEST_URI'])), 'admin.php') && !empty($_REQUEST['page']) && ('rvy-revisions' == $_REQUEST['page'])) {
+			if (!defined('REVISIONARY_ACTIONS_DISABLE_WP_INCLUSION')) {
+				include_once(ABSPATH . 'wp-admin/includes/post.php');
+			}
+			
 			if ( ! empty($_GET['action']) && ('restore' == $_GET['action']) ) {
 				require_once( dirname(__FILE__).'/revision-action_rvy.php');	
 				add_action( 'wp_loaded', 'rvy_revision_restore' );

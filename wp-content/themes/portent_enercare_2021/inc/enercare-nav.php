@@ -1,9 +1,29 @@
 <?php
+
+if( ! class_exists( 'Enercare_Nav_Widget_Walker') ) {
+	class Enercare_Nav_Widget_Walker extends Walker_Nav_Menu {
+		function start_el(&$output, $item, $depth=0, $arg=[], $id=0) {
+			$output .= '<li role="listitem" class="' .  implode(" ", $item->classes) . '">';
+			$output .= '<a href="' . $item->url . '">';
+			$output .= $item->title;
+			$output .= '</a>';
+			$output .= '</li>';
+		}
+	}
+}
+
+add_filter('widget_nav_menu_args', 'enercare_widget_nav_args'); //for menus in widgets
+function enercare_widget_nav_args($args) { //$args is only argument needed to add custom walker
+	return array_merge( $args, array(
+		'items_wrap' => '<ul role="list" id="%1$s" class="%2$s">%3$s</ul>',
+		'walker' => new Enercare_Nav_Widget_Walker(),
+	) );
+}
+
 /**
  * Custom Navigation Walker to turn hash links into spans
  *
 **/
-
 if ( ! class_exists( 'Enercare_Nav_Walker' ) ) :
 	class Enercare_Nav_Walker extends Walker_Nav_Menu {
 		function start_el(&$output, $item, $depth=0, $args=[], $id=0) {
@@ -261,7 +281,7 @@ function enercare_archive_paginated_navigation() {
 			$class = ' class="active" ';
 			$aria  = ' aria-label="' . esc_attr__( 'Current page', 'ea-starter' ) . '" aria-current="page"';
 		}
-    
+
     $page_link = get_pagenum_link( $link );
     if ($link == 1) {
       $page_link = rtrim($page_link, "/");

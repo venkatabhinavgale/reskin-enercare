@@ -177,7 +177,9 @@ function _rvy_existing_schedules_to_cron($prev_use_cron, $use_cron) {
 		);
 
 		foreach($results as $revision) {
-			wp_schedule_single_event(strtotime($revision->post_date_gmt), 'publish_revision_rvy', ['revision_id' => $revision->ID]);
+			if (!wp_get_scheduled_event('publish_revision_rvy', ['revision_id' => $revision->ID])) {
+				wp_schedule_single_event(strtotime($revision->post_date_gmt), 'publish_revision_rvy', ['revision_id' => $revision->ID]);
+			}
 		}
 	}
 
@@ -582,6 +584,10 @@ function rvy_add_revisor_custom_caps() {
 		return;
 
 	global $wp_roles, $revisionary;
+
+	if (empty($revisionary)) {
+		return;
+	}
 
 	$custom_types = array_intersect_key(
 		get_post_types(['_builtin' => false], 'object'),
