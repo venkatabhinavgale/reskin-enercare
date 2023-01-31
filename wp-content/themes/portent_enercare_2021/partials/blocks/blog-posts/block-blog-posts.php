@@ -106,6 +106,7 @@ $blog_posts = new WP_Query( $blog_post_args );
 				$blog_posts->the_post();
 				$excerpt = get_the_excerpt() ? get_the_excerpt() : get_the_content();
 				echo '<div class="block-blog-posts__post ' . $block_alignment . ' ' . $post_display_class . '">';
+				echo '<a class="block-blog-posts__post__link" href="' . get_the_permalink() . '">';
 
 				if ( has_post_thumbnail() && $post_display !== 'compact' ) {
 					the_post_thumbnail( $post_image_size, array(
@@ -138,7 +139,7 @@ $blog_posts = new WP_Query( $blog_post_args );
           }
 				}
 
-				echo '<p class="block-blog-posts__post__title"><a class="block-blog-posts__post__link" href="' . get_the_permalink() . '">' . get_the_title() . '</a></p>';
+				echo  '<p class="block-blog-posts__post__title">' . get_the_title() . '</p>';
 
 				if ( $post_display === 'full' ) {
 					echo '<p class="block-blog-posts__post__except">' . wp_trim_words( $excerpt, 25 ) . '</p>';
@@ -146,6 +147,7 @@ $blog_posts = new WP_Query( $blog_post_args );
 				echo '</div>';
 				echo '</div>';
 			}
+			echo '</a>';
 			//End main block container
 			echo '</div>';
 

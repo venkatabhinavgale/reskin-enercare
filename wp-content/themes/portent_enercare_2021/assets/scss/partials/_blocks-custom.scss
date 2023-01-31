@@ -557,6 +557,15 @@ Blog Posts
 		&--horizontal {
 			flex-direction: row;
 
+			.block-blog-posts {
+				&__post {
+					&__link {
+						display: flex;
+						flex-direction: row;
+					}
+				}
+			}
+
 			#{$single-post}__image {
 				width: 50%;
 				min-height: 212px;
@@ -580,6 +589,34 @@ Blog Posts
 
 		&--vertical {
 			flex-direction: column;
+
+			.block-blog-posts {
+				&__post {
+					&__link {
+						font-weight: 300;
+
+						&:hover,
+						&:focus {
+							> .block-blog-posts__post__summary {
+								> .single-post__date {
+									color: $grey_10;
+								}
+								> .block-blog-posts__post__title {
+									color: $highlight;	
+								}
+
+								> .block-blog-posts__post__except {
+									color: $grey_10;	
+								}
+
+								> .block-blog-posts__post__author-meta__date {
+									color: $grey_10;
+								}
+							}
+						}
+					}
+				}
+			}
 		}
 
 		&--minimal {
