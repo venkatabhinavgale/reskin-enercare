@@ -153,7 +153,7 @@ function enercare_related_posts($blog_num_posts = 4) {
       $blog_posts->the_post();
       $excerpt = get_the_excerpt() ? get_the_excerpt() : get_the_content();
       echo '<div class="block-blog-posts__post block-blog-posts__post--vertical block-blog-posts__post--full">';
-
+      echo '<a class="block-blog-posts__post__link" href="' . get_the_permalink() . '">';
       if ( has_post_thumbnail() ) {
         the_post_thumbnail( $post_image_size, array(
             'class' => 'block-blog-posts__post__image block-blog-posts__post__image--' . $post_image_size . '',
@@ -170,12 +170,12 @@ function enercare_related_posts($blog_num_posts = 4) {
       //Summary Container
       echo '<div class="block-blog-posts__post__summary">';
         echo '<div class="block-blog-posts__post__author-meta__date">'.get_the_date('F j, Y').'</div>';
-            echo '<h3 class="block-blog-posts__post__title"><a class="block-blog-posts__post__link" href="' . get_the_permalink() . '">' . get_the_title() . '</a></h3>';
+            echo '<h3 class="block-blog-posts__post__title">' . get_the_title() . '</h3>';
             echo '<p class="block-blog-posts__post__except">' . wp_trim_words( $excerpt, 25 ) . '</p>';
         echo '</div>';
       echo '</div>';
     }
-
+    echo '</a>';
 
     //End block-blog-posts__post container
     echo '</div>';
