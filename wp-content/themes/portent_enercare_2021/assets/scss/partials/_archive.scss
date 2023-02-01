@@ -202,6 +202,33 @@ Split into its own file later
 			flex-direction: row;
 		}
 
+		a {
+			text-decoration: none;
+			color: $grey_10;
+
+			&:after {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+			}
+
+			&:hover,
+			&:focus {
+				> .post-summary {
+					&__title {
+						color: $highlight;
+					}
+
+					&__content {
+						color: $grey_10;
+					}
+				}
+			}
+		}
+
 		&__title {
 			margin: 1em 0 1.5em;
 			padding-bottom: 0;
@@ -211,17 +238,6 @@ Split into its own file later
 			@include media(">=tablet") {
 				font-size: 1.125em;
 				margin-top: 1.5em;
-			}
-
-			a {
-				&:after {
-					content: '';
-					position: absolute;
-					top: 0;
-					left: 0;
-					width: 100%;
-					height: 100%;
-				}
 			}
 		}
 
@@ -352,6 +368,30 @@ Split into its own file later
 
 			@include media("<=tablet") {
 				grid-area: header;
+			}
+		}
+	}
+}
+
+/* Extending blog anchor tag style updates to the author pages */
+
+.author {
+	.post-summary {
+		a {
+			text-decoration: none;
+			color: $grey_10;
+
+			&:hover,
+			&:focus {
+				> .post-summary {
+					&__title {
+						color: $highlight;
+					}
+
+					&__content {
+						color: $grey_10;
+					}
+				}
 			}
 		}
 	}

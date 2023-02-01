@@ -41,9 +41,10 @@ function enercare_post_summary_title($tag = 'h2') {
 	global $wp_query;
 	$tag = ( is_singular() || -1 === $wp_query->current_post ) ? 'h3' : $tag;
   $the_title = get_the_title();
+  echo '<a href="' . get_permalink() . '">';
   if (get_field('display_title'))
     $the_title = get_field('display_title');
-	echo '<' . $tag . ' class="post-summary__title"><a href="' . get_permalink() . '">' . $the_title . '</a></' . $tag . '>';
+	echo '<' . $tag . ' class="post-summary__title">' . $the_title . '</' . $tag . '>';
 }
 
 /**
@@ -52,6 +53,7 @@ function enercare_post_summary_title($tag = 'h2') {
  */
 function enercare_post_summary() {
   the_excerpt();
+  echo '</a>';
 }
 
 /**

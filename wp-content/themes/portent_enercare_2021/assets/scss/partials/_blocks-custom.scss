@@ -45,7 +45,7 @@
 		background-color: brand-color('red');
 		border-top-left-radius: 20px;
 		border-top-right-radius: 20px;
-		color: brand-color('red');
+		color: $white;
 
 		img {
 			filter: brightness(0) invert(1);
