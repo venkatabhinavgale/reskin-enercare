@@ -3,6 +3,22 @@
 	height: 100%;
 	padding: 24px;
 
+
+	&.location-summary {
+		&__content {
+			a {
+				text-decoration: none;
+
+				&:hover,
+				&:focus {
+					> .post-summary__title {
+						color: brand_color('red');
+					}
+				}
+			}
+		}
+	}
+
 	.location-group {
 		display: flex;
 		flex-flow: row nowrap;
