@@ -78,12 +78,22 @@ window.addEventListener('load', function () {
 
     if (typeof dots !== 'undefined') {
       dots.forEach(function (elem) {
+        //Remove tab role
+        elem.removeAttribute('role');
+
         if (elem.classList.contains('active')) {
           elem.setAttribute('aria-selected', 'true');
         } else {
           elem.setAttribute('aria-selected', 'false');
         }
       });
+    } //Remove tab list role
+
+
+    var dotsContainer = e.target.parentElement.querySelector('.glider-dots');
+
+    if (typeof dotsContainer !== 'undefined') {
+      dotsContainer.removeAttribute('role');
     }
   };
   /**
