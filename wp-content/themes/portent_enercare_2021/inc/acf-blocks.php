@@ -321,5 +321,21 @@ function enercare_register_theme_blocks() {
 	    },
 
     ));
+
+	  acf_register_block_type( array(
+		  'name'              => 'plyr-player',
+		  'title'             => __('Youtube Embed (Plyr)', 'enercare'),
+		  'render_template'   => 'partials/blocks/plyr-player/play-player.php',
+		  'category'          => 'layout',
+		  'icon'              => 'admin-site',
+		  'mode'              => 'preview',
+		  'keywords'          => array('video', 'youtube', 'embed', 'display', 'enercare', 'portent'),
+		  'enqueue_assets' => function() {
+			  wp_enqueue_script('plyr-script', 'https://cdn.plyr.io/3.7.3/plyr.js', null, '3.7.3', true);
+			  wp_enqueue_script('plyr-setup', get_template_directory_uri() . '/assets/js/block--plyr.js', array('plyr-script'), '3.7.3', true);
+			  wp_enqueue_style('plyr-styles', 'https://cdn.plyr.io/3.7.3/plyr.css', null, '3.7.3');
+		  },
+
+	  ));
   }
 }
