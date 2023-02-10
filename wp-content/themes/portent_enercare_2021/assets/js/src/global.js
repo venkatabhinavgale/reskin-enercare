@@ -205,8 +205,10 @@ PortentToggleNav.prototype.cta = null;
 PortentToggleNav.prototype.mobileWidth = 1023;
 PortentToggleNav.prototype.keyModifierDown = false;
 PortentToggleNav.prototype.closeButton ='';
+PortentToggleNav.prototype.touchStartX = 0;
+PortentToggleNav.prototype.touchEndX = 0;
 PortentToggleNav.prototype.init = function() {
-
+	performance.mark('toggle-menu-init-start');
 	if(this.menu !== '') {
 		/*
 		Add a class for style tracking
@@ -235,6 +237,18 @@ PortentToggleNav.prototype.init = function() {
 			this.keyModifierDown = false;
 		}
 	});
+
+	document.addEventListener('touchstart', e => {
+		this.touchstartX = e.changedTouches[0].screenX
+	});
+
+	document.addEventListener('touchend', e => {
+		this.touchendX = e.changedTouches[0].screenX
+		this.checkDirection(e)
+	});
+
+	performance.mark('toggle-menu-init-end');
+	performance.measure('toggle-menu-init', 'toggle-menu-init-start', 'toggle-menu-init-end');
 
 };
 PortentToggleNav.prototype.setupClickOutside = function() {
@@ -288,12 +302,14 @@ PortentToggleNav.prototype.statusButtonKeys = function(event){
 	}
 
 	if (event.keyCode === 38 || (event.keyCode === 9 && this.keyModifierDown)) {
+		console.log('Key up pressed on menu item');
 		event.stopPropagation();
 		event.preventDefault();
 		this.findNextMenuLink(event, el, 'up',level);
 	}
 
 	if (event.keyCode === 40 || (event.keyCode === 9 && !this.keyModifierDown)) {
+		console.log('Key down pressed on menu item');
 		event.stopPropagation();
 		event.preventDefault();
 
@@ -302,11 +318,18 @@ PortentToggleNav.prototype.statusButtonKeys = function(event){
 };
 
 PortentToggleNav.prototype.setupStatusArea = function() {
-	const _this = this;
-	const menuElement = this.menu;
-	const statusAreaContainer = document.createElement('div');
-	const statusAreaBackButton = document.createElement('button');
-	const statusAreaCloseButton = document.createElement('button');
+	performance.mark('toggle-menu-status-area-start');
+		const _this = this;
+		const menuElement = this.menu;
+		const statusAreaContainer = document.createElement('div');
+		const statusAreaBackButton = document.createElement('button');
+		const statusAreaCloseButton = document.createElement('button');
+	performance.mark("toggle-menu-status-area-end");
+	performance.measure(
+		"toggle-nav-status-setup",
+		"toggle-menu-status-area-start",
+		"toggle-menu-status-area-end"
+	);
 
 	_this.closebutton = statusAreaCloseButton;
 
@@ -331,6 +354,8 @@ PortentToggleNav.prototype.setupStatusArea = function() {
 	statusAreaCloseButton.addEventListener('keydown', function(event){
 		_this.statusButtonKeys(event);
 	});
+	performance.mark("toggle-menu-status-area-end");
+	performance.measure("toggle-nav-status-setup", "toggle-menu-status-area-start", "toggle-menu-status-area-end");
 };
 
 PortentToggleNav.prototype.setupMobileToggle = function() {
@@ -460,6 +485,9 @@ PortentToggleNav.prototype.navigationMenuToggle = function(navigationContainer) 
 		 * and out of sequence we can still locate the next logical link in the list.
 		 */
 		el.querySelectorAll('a').forEach( function(elem) {
+			elem.addEventListener('blur', function(){
+				console.log('link blurred');
+			});
 			elem.addEventListener('keydown', function(event) {
 				if( window.outerWidth <= _this.mobileWidth ) {
 					if (event.keyCode === 38 || (event.keyCode === 9 && this.keyModifierDown)) {
@@ -498,6 +526,20 @@ PortentToggleNav.prototype.navigationMenuToggle = function(navigationContainer) 
 		});
 	});
 };
+
+PortentToggleNav.prototype.checkDirection = function(event) {
+	if (this.touchendX < this.touchstartX) {
+		this.findNextMenuLink(event, this.getTopLevelParentFromFocus(), 'up')
+	}
+	if (this.touchendX > this.touchstartX){
+		this.findNextMenuLink(event, this.getTopLevelParentFromFocus(), 'down')
+	}
+};
+
+PortentToggleNav.prototype.getTopLevelParentFromFocus = function() {
+	let currentItem = document.activeElement;
+	return(currentItem.parentElement);
+}
 
 /*
 This function essentially serves as a keyboard trap for the current menu.
@@ -652,6 +694,7 @@ PortentToggleNav.prototype.debouceKeys = function (cb, wait, immediate) {
  * Setup and init the toggle menu
  */
 function setupToggleNav() {
+	performance.mark('nav-build-start');
 	const primaryNavigation = new PortentToggleNav;
 	primaryNavigation.menu = document.getElementById('slider-menu');
 	primaryNavigation.toggleButton = document.getElementById('slider-menu-toggle');
@@ -659,6 +702,16 @@ function setupToggleNav() {
 	primaryNavigation.cta = "<div class=\"site-header__header-phone header-phone\"><span class=\"header-phone__cta\"><strong>Speak with an expert</strong></span><a class=\"header-phone__link cl-phone\" href=\"tel:1-855-642-8607\"><span class=\"screen-reader-text\">Click to call Enercare1-855-642-8607</span><svg xmlns=\"http://www.w3.org/2000/svg\" height=\"24px\" viewBox=\"0 0 24 24\" width=\"24px\" fill=\"#000000\"><path d=\"M0 0h24v24H0V0z\" fill=\"none\"></path><path d=\"M19.23 15.26l-2.54-.29c-.61-.07-1.21.14-1.64.57l-1.84 1.84c-2.83-1.44-5.15-3.75-6.59-6.59l1.85-1.85c.43-.43.64-1.03.57-1.64l-.29-2.52c-.12-1.01-.97-1.77-1.99-1.77H5.03c-1.13 0-2.07.94-2 2.07.53 8.54 7.36 15.36 15.89 15.89 1.13.07 2.07-.87 2.07-2v-1.73c.01-1.01-.75-1.86-1.76-1.98z\"></path></svg><strong class=\"header-phone__number\">1-855-642-8607</strong></a></div>";
 	primaryNavigation.extraMobileElements = [ '.addsearch-searchfield input' ];
 	primaryNavigation.init();
+	performance.mark('nav-build-end');
+
+	performance.measure(
+		"nav-build-total",
+		"nav-build-start",
+		"nav-build-end"
+	);
+
+	console.log(loginMeasure.duration);
+
 }
 window.addEventListener('load', setupToggleNav);
 

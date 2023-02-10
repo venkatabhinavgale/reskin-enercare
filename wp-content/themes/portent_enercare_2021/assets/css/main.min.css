@@ -411,6 +411,7 @@ div.wpforms-container.one-line:after{content:"";display:table;clear:both}
 .shared-counts-wrap.style-button .shared-counts-button.twitter{background:#00b6f1}
 .shared-counts-wrap.style-button .shared-counts-button.twitter:hover{background:#008fbe}
 .shared-counts-wrap.style-button .shared-counts-count{display:none}
+:root{--plyr-color-main:#c30d18}
 .block-tabbed-content__tab__title{display:none}
 .block-tabbed-content__tabs{display:none;margin-bottom:32px;visibility:hidden}
 .block-tabbed-content__tabs.init .block-tabbed-content__tab:first-of-type,.block-tabbed-content__tabs.init[data-has-defaults=false] .block-tabbed-content__tab:first-of-type{background-color:#da1b27;border-top-left-radius:20px;border-top-right-radius:20px;color:#fff}
@@ -534,6 +535,7 @@ div.wpforms-container.one-line:after{content:"";display:table;clear:both}
 .appointment-banner--emergency .appointment-banner__link{background-color:#fff;color:#29292c}
 .appointment-banner--emergency .appointment-banner__link:hover,.appointment-banner--emergency .appointment-banner__link:focus{background-color:#000;color:#fff}
 :root{--status-area-background-color:#eee;--status-area-bottom-border-color:#9f1c20;--menu-item-bottom-border-color:#ccc;--menu-sub-header-background-color:#eee;--button-color:#000;--button-active-background-color:#f5f2f2;--button-active-color:#da1b27;--button-font-family:"Post Grotesk"}
+body[data-menu="open"] .site-container>*:not(.site-header),body[data-menu="open"] .site-container .site-header>*:not(.wrap),body[data-menu="open"] .site-container .site-header .wrap>*:not(.portent-toggle-nav){display:none}
 [data-interface=statusArea]{display:none}
 .portent-toggle-nav .mobile-search-field__wrapper{display:none}
 .portent-toggle-nav .brand-area{display:none}

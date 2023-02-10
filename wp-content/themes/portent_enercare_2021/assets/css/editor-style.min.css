@@ -245,6 +245,7 @@ div.wpforms-container.one-line:after{content:"";display:table;clear:both}
 .shared-counts-wrap.style-button .shared-counts-button.twitter{background:#00b6f1}
 .shared-counts-wrap.style-button .shared-counts-button.twitter:hover{background:#008fbe}
 .shared-counts-wrap.style-button .shared-counts-count{display:none}
+:root{--plyr-color-main:#c30d18}
 .block-tabbed-content__tab__title{display:none}
 .block-tabbed-content__tabs{display:none;margin-bottom:32px;visibility:hidden}
 .block-tabbed-content__tabs.init .block-tabbed-content__tab:first-of-type,.block-tabbed-content__tabs.init[data-has-defaults=false] .block-tabbed-content__tab:first-of-type{background-color:#da1b27;border-top-left-radius:20px;border-top-right-radius:20px;color:#fff}
