@@ -22,8 +22,30 @@ carefully mute around the navigation when it is open to keep page elements from 
  */
 body[data-menu="open"] .site-container > *:not(.site-header),
 body[data-menu="open"] .site-container .site-header > *:not(.wrap),
-body[data-menu="open"] .site-container .site-header .wrap > *:not(.portent-toggle-nav){
+body[data-menu="open"] .site-container .site-header .wrap > *:not(.portent-toggle-nav),
+body[data-menu="open"] .site-container .site-header .portent-toggle-nav[data-menu="open"] button[data-interface="menu-toggle"],
+body[data-menu="open"] .site-container .site-header .portent-toggle-nav[data-menu="open"] .mobile-nav-item{
+	visibility: hidden !important;
+}
+
+/**
+Hiding elements really forces them out of the screen reader's vision
+ */
+body[data-menu="open"] .site-container .site-main,
+body[data-menu="open"] .site-container .legal__terms,
+body[data-menu="open"] .site-container .footer-widgets,
+body[data-menu="open"] .site-container .site-footer,
+body[data-menu="open"] .floating-cta
+{
 	display: none;
+}
+
+/**
+This is a little addition for mobile safari, which gets a little precious about the height of the page container
+when everything is hidden.
+ */
+body[data-menu="open"] .site-container .site-inner {
+	height:100vh;
 }
 
 [data-interface=statusArea] {

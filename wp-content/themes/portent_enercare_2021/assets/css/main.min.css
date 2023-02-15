@@ -541,7 +541,9 @@ div.wpforms-container.one-line:after{content:"";display:table;clear:both}
 .appointment-banner--emergency .appointment-banner__link{background-color:#fff;color:#29292c}
 .appointment-banner--emergency .appointment-banner__link:hover,.appointment-banner--emergency .appointment-banner__link:focus{background-color:#000;color:#fff}
 :root{--status-area-background-color:#eee;--status-area-bottom-border-color:#9f1c20;--menu-item-bottom-border-color:#ccc;--menu-sub-header-background-color:#eee;--button-color:#000;--button-active-background-color:#f5f2f2;--button-active-color:#da1b27;--button-font-family:"Post Grotesk"}
-body[data-menu="open"] .site-container>*:not(.site-header),body[data-menu="open"] .site-container .site-header>*:not(.wrap),body[data-menu="open"] .site-container .site-header .wrap>*:not(.portent-toggle-nav){display:none}
+body[data-menu="open"] .site-container>*:not(.site-header),body[data-menu="open"] .site-container .site-header>*:not(.wrap),body[data-menu="open"] .site-container .site-header .wrap>*:not(.portent-toggle-nav),body[data-menu="open"] .site-container .site-header .portent-toggle-nav[data-menu="open"] button[data-interface="menu-toggle"],body[data-menu="open"] .site-container .site-header .portent-toggle-nav[data-menu="open"] .mobile-nav-item{visibility:hidden !important}
+body[data-menu="open"] .site-container .site-main,body[data-menu="open"] .site-container .legal__terms,body[data-menu="open"] .site-container .footer-widgets,body[data-menu="open"] .site-container .site-footer,body[data-menu="open"] .floating-cta{display:none}
+body[data-menu="open"] .site-container .site-inner{height:100vh}
 [data-interface=statusArea]{display:none}
 .portent-toggle-nav .mobile-search-field__wrapper{display:none}
 .portent-toggle-nav .brand-area{display:none}
