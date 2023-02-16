@@ -34,6 +34,53 @@ window.addEventListener('load', function () {
         }
       }]
     });
+    /**
+     *
+     */
+
+    carousel.addEventListener('glider-loaded', gliderDotUpdate);
+    /**
+     * Glider refresh listener
+     */
+
+    carousel.addEventListener('glider-refresh', gliderDotUpdate);
+  });
+  /**
+   * Glider dot update check
+   * This function checks the status of the dots within the controls container and updates each
+   * with an aria-selected attribute. If a dot has the class 'active' applied to it then aria-selected
+   * will be set to true. This function should be called anytime there is a potential update to the glider
+   * and requires that an event object is passed in. The event object has to originate from a glider event
+   * @param e
+   */
+
+  var gliderDotUpdate = function gliderDotUpdate(e) {
+    var dots = e.target.parentElement.querySelectorAll('.glider-dot');
+
+    if (typeof dots !== 'undefined') {
+      dots.forEach(function (elem) {
+        //Remove tab role
+        elem.removeAttribute('role');
+
+        if (elem.classList.contains('active')) {
+          elem.setAttribute('aria-selected', 'true');
+        } else {
+          elem.setAttribute('aria-selected', 'false');
+        }
+      });
+    } //Remove tab list role
+
+
+    var dotsContainer = e.target.parentElement.querySelector('.glider-dots');
+
+    if (typeof dotsContainer !== 'undefined') {
+      dotsContainer.removeAttribute('role');
+    }
+  };
+
+  var dots = document.querySelectorAll('.glider-dot, .glider-dots');
+  dots.forEach(function (dot) {
+    dot.removeAttribute('role');
   });
   /**
    * Setup Next/Previous Status Reporters
@@ -77,7 +124,7 @@ window.addEventListener('load', function () {
   var carouselPrev = document.querySelector('.related-posts__glider-prev');
   var carouselNext = document.querySelector('.related-posts__glider-next');
   visibleSlides.forEach(function (slide, i, array) {
-    var slideUrl = slide.querySelector(':scope > div > h3 > a');
+    var slideUrl = slide.querySelector(':scope > div > a');
     slideUrl.addEventListener('focusout', function () {
       if (i === array.length - 1) {
         carouselPrev.focus();

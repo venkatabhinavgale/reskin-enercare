@@ -4,7 +4,6 @@ window.addEventListener('load', function () {
 	columnCarousel.forEach(function (carousel) {
 
 		let id = '5772835235';
-
 		new Glider(carousel, {
 			slidesToShow: 1,
 			slidesToScroll: 1,
@@ -37,6 +36,52 @@ window.addEventListener('load', function () {
 				}
 			]
 		});
+
+
+		/**
+		 *
+		 */
+		carousel.addEventListener('glider-loaded', gliderDotUpdate);
+		/**
+		 * Glider refresh listener
+		 */
+		carousel.addEventListener('glider-refresh', gliderDotUpdate);
+
+	});
+
+	/**
+	 * Glider dot update check
+	 * This function checks the status of the dots within the controls container and updates each
+	 * with an aria-selected attribute. If a dot has the class 'active' applied to it then aria-selected
+	 * will be set to true. This function should be called anytime there is a potential update to the glider
+	 * and requires that an event object is passed in. The event object has to originate from a glider event
+	 * @param e
+	 */
+	let gliderDotUpdate = (e) => {
+		let dots = e.target.parentElement.querySelectorAll('.glider-dot');
+		if(typeof dots !== 'undefined') {
+			dots.forEach((elem)=> {
+				//Remove tab role
+				elem.removeAttribute('role');
+
+				if(elem.classList.contains('active')) {
+					elem.setAttribute('aria-selected', 'true');
+				} else {
+					elem.setAttribute('aria-selected', 'false');
+				}
+			});
+		}
+
+		//Remove tab list role
+		let dotsContainer = e.target.parentElement.querySelector('.glider-dots');
+		if(typeof dotsContainer !== 'undefined') {
+			dotsContainer.removeAttribute('role');
+		}
+	};
+
+	let dots = document.querySelectorAll('.glider-dot, .glider-dots');
+	dots.forEach(function (dot) {
+		dot.removeAttribute('role');
 	});
 
 	/**
@@ -79,9 +124,9 @@ window.addEventListener('load', function () {
 	let visibleSlides = gliderCarousel.querySelectorAll(':scope > .visible');
 	let carouselPrev = document.querySelector('.related-posts__glider-prev');
 	let carouselNext = document.querySelector('.related-posts__glider-next');
-	
+
 	visibleSlides.forEach((slide, i, array) => {
-		let slideUrl = slide.querySelector(':scope > div > h3 > a');
+		let slideUrl = slide.querySelector(':scope > div > a');
 
 		slideUrl.addEventListener('focusout', () => {
 			if(i === array.length-1) {

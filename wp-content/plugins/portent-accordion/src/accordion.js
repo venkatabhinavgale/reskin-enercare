@@ -32,11 +32,11 @@ const Accordion = () => {
 		switch (expanded) {
 			case "true":
 				setAriaAttr(el1, "aria-expanded", "true");
-				//setAriaAttr(el2, "aria-hidden", "false");
+				setAriaAttr(el2, "aria-hidden", "false");
 				break;
 			case "false":
 				setAriaAttr(el1, "aria-expanded", "false");
-				//setAriaAttr(el2, "aria-hidden", "true");
+				setAriaAttr(el2, "aria-hidden", "true");
 				break;
 			default:
 				break;

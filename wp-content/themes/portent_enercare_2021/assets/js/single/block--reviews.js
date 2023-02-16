@@ -73,6 +73,11 @@ reviewsGlider = new Glider(blockReviews, {
 	let gliderNotificationCenter;
 	gliderNotificationCenter = document.querySelector('#gliderNotificationCenter');
 
+	let CurrentDots = document.querySelectorAll('.glider-dot, .glider-dots');
+	CurrentDots.forEach(function (dot) {
+		dot.removeAttribute('role');
+	});
+
 	/**
 	 * Glider dot update check
 	 * This function checks the status of the dots within the controls container and updates each
@@ -85,12 +90,21 @@ reviewsGlider = new Glider(blockReviews, {
 		let dots = e.target.parentElement.querySelectorAll('.glider-dot');
 		if(typeof dots !== 'undefined') {
 			dots.forEach((elem)=> {
+				//Remove tab role
+				elem.removeAttribute('role');
+
 				if(elem.classList.contains('active')) {
 					elem.setAttribute('aria-selected', 'true');
 				} else {
 					elem.setAttribute('aria-selected', 'false');
 				}
 			});
+		}
+
+		//Remove tab list role
+		let dotsContainer = e.target.parentElement.querySelector('.glider-dots');
+		if(typeof dotsContainer !== 'undefined') {
+			dotsContainer.removeAttribute('role');
 		}
 	};
 

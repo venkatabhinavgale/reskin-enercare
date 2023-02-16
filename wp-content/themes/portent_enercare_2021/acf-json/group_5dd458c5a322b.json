@@ -64,6 +64,54 @@
             "return_format": "array"
         },
         {
+            "key": "field_63890a5aa5e7c",
+            "label": "OBA Banner Toggle",
+            "name": "oba_banner_toggle",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "This controls whether the OBA banner displays on the site.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
+        },
+        {
+            "key": "field_63890a6fa5e7d",
+            "label": "OBA Default Banner Text",
+            "name": "oba_banner_text",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_63890a5aa5e7c",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
             "key": "field_613fa935315dc",
             "label": "Default Phone Number",
             "name": "default_phone_number",
@@ -115,54 +163,6 @@
                 [
                     {
                         "field": "field_6140ff7bc0682",
-                        "operator": "==",
-                        "value": "1"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "tabs": "all",
-            "toolbar": "basic",
-            "media_upload": 0,
-            "delay": 0
-        },
-        {
-            "key": "field_63890a5aa5e7c",
-            "label": "OBA Banner Toggle",
-            "name": "oba_banner_toggle",
-            "aria-label": "",
-            "type": "true_false",
-            "instructions": "This controls whether the OBA banner displays on the site.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 1,
-            "ui_on_text": "",
-            "ui_off_text": "",
-            "ui": 1
-        },
-        {
-            "key": "field_63890a6fa5e7d",
-            "label": "OBA Default Banner Text",
-            "name": "oba_banner_text",
-            "aria-label": "",
-            "type": "wysiwyg",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_63890a5aa5e7c",
                         "operator": "==",
                         "value": "1"
                     }
@@ -350,7 +350,15 @@
                 "17": "Buy\/Rent Water Treatment Paginated Form",
                 "18": "Builder Order Form",
                 "19": "Builder Commissioning Form",
-                "20": "Builder Site Pre-Checklist Form"
+                "20": "Builder Site Pre-Checklist Form",
+                "21": "Movesnap Paginated Form",
+                "22": "OBA Communications Form",
+                "23": "EV Charger Paginated Form",
+                "24": "Billing Contact Us",
+                "25": "Home Care checklist request",
+                "26": "Invoice\/Payments",
+                "27": "Purchase & Sale",
+                "28": "Power of Attorney\/Death Certificate"
             },
             "default_value": false,
             "allow_null": 0,
@@ -391,7 +399,15 @@
                 "17": "Buy\/Rent Water Treatment Paginated Form",
                 "18": "Builder Order Form",
                 "19": "Builder Commissioning Form",
-                "20": "Builder Site Pre-Checklist Form"
+                "20": "Builder Site Pre-Checklist Form",
+                "21": "Movesnap Paginated Form",
+                "22": "OBA Communications Form",
+                "23": "EV Charger Paginated Form",
+                "24": "Billing Contact Us",
+                "25": "Home Care checklist request",
+                "26": "Invoice\/Payments",
+                "27": "Purchase & Sale",
+                "28": "Power of Attorney\/Death Certificate"
             },
             "default_value": false,
             "allow_null": 0,
@@ -420,5 +436,6 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1675094063
+    "modified": 1676496403,
+    "local_file": "\/Users\/jeremiah\/Local Sites\/enercare-2021\/app\/public\/wp-content\/themes\/portent_enercare_2021\/acf-json\/group_5dd458c5a322b.json"
 }

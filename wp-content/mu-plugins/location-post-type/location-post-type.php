@@ -153,20 +153,28 @@ function getLocationInfo($post_id, $cta_type = 'location') {
   $content .= '<div class="location-group"><img alt="" src="' . get_template_directory_uri() . '/assets/icons/maps/local_offer_black_24dp_rounded.svg" class="location-group__icon" /><div class="location-group__content"><strong>Services</strong><br />';
   if (get_field('override_service_links', $post_id) && have_rows('services', $post_id)) {
     $services = get_field('services', $post_id);
+	  $content .= '<ul class="location-group__services">';
     foreach ($services as $i => $s) {
-      $content .= '<a href="' . $s['service_link']['url'] . '">' . $s['service_link']['title'] . '</a>';
-      if ($i+1 < sizeof($services))
-        $content .= ', ';
+      $content .= '<li><a href="' . $s['service_link']['url'] . '">' . $s['service_link']['title'] . '</a>';
+      if ($i+1 < sizeof($services)) {
+	      $content .= ', ';
+      }
+      $content .= '</li>';
     }
+	  $content .= '</ul>';
   } else {
     $services = get_the_terms($post_id, 'services');
     if ($services && sizeof($services) > 0) {
+    	$content .= '<ul class="location-group__services">';
       foreach ($services as $i => $s) {
         $link = get_field('service_link', $s);
-        $content .= '<a href="' . $link . '">' . $s->name . '</a>';
-        if ($i+1 < sizeof($services))
-          $content .= ', ';
-      }  
+        $content .= '<li><a href="' . $link . '">' . $s->name . '</a>';
+        if ($i+1 < sizeof($services)) {
+	        $content .= ', ';
+        }
+        $content .= '</li>';
+      }
+      $content .= '</ul>';
     }
   }
   $content .= '</div></div>';
