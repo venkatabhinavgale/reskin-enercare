@@ -10,4 +10,6 @@
 .block-location-info .location-group__content{margin-bottom:1em}
 .block-location-info .location-group__content a{text-decoration:none}
 .block-location-info .location-group__content:last-of-type{margin-bottom:1.5em}
+.block-location-info .location-group__services{padding-left:0;margin-bottom:0}
+.block-location-info .location-group__services li{display:inline;list-style:none}
 .block-location-info .location-ctas__location-cta{margin-bottom:1.5em}

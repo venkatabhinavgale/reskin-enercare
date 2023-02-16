@@ -45,6 +45,7 @@ function enercare_post_summary_title($tag = 'h2') {
   if (get_field('display_title'))
     $the_title = get_field('display_title');
 	echo '<' . $tag . ' class="post-summary__title">' . $the_title . '</' . $tag . '>';
+	echo '</a>';
 }
 
 /**
