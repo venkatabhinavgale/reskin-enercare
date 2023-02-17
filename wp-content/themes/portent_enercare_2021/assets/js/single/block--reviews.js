@@ -73,6 +73,11 @@ reviewsGlider = new Glider(blockReviews, {
 	let gliderNotificationCenter;
 	gliderNotificationCenter = document.querySelector('#gliderNotificationCenter');
 
+	let CurrentDots = document.querySelectorAll('.glider-dot, .glider-dots');
+	CurrentDots.forEach(function (dot) {
+		dot.removeAttribute('role');
+	});
+
 	/**
 	 * Glider dot update check
 	 * This function checks the status of the dots within the controls container and updates each
