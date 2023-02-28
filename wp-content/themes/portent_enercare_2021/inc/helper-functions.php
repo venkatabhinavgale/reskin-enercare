@@ -211,8 +211,8 @@ function enercare_breadcrumbs($display = true) {
  */
 function enercare_filter_yoast_breadcrumb_items( $link_output, $link ) {
 
-	$new_link_output = '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">';
-	$new_link_output .= '<a href="' . $link['url'] . '" itemprop="url" aria-current="page">' . $link['text'] . '</a>';
+	$new_link_output = '<li>';
+	$new_link_output .= '<a href="' . $link['url'] . '" aria-current="page">' . $link['text'] . '</a>';
 	$new_link_output .= '</li>';
 
 	return $new_link_output;
