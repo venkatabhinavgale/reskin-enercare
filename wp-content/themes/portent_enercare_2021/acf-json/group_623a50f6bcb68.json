@@ -6,6 +6,7 @@
             "key": "field_623a5115bf977",
             "label": "Mobile CTA Type",
             "name": "mobile_cta_type",
+            "aria-label": "",
             "type": "select",
             "instructions": "Select the style of mobile CTA that will be displayed for this page. By default a single number will be displayed.",
             "required": 0,
@@ -28,9 +29,30 @@
             "placeholder": ""
         },
         {
+            "key": "field_64139cde1fd84",
+            "label": "Hide Mobile CTA?",
+            "name": "hide_mobile_cta",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_623a53f4bf978",
             "label": "Spilt (Appointment \/ Phone) Settings",
             "name": "split_appointment__phone_settings",
+            "aria-label": "",
             "type": "group",
             "instructions": "",
             "required": 0,
@@ -49,27 +71,7 @@
                 "id": ""
             },
             "layout": "block",
-            "sub_fields": [
-                {
-                    "key": "field_628e9c5dbdbed",
-                    "label": "Lead Form Anchor",
-                    "name": "lead_form_anchor",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "leadForm",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                }
-            ]
+            "sub_fields": []
         }
     ],
     "location": [
@@ -104,5 +106,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1653513379
+    "modified": 1679007157
 }
