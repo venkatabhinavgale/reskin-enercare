@@ -42,9 +42,9 @@ if( !empty($block['align']) ) {
  *
  * We also can't let the posts_per_page count drop below 0. If it does the query gets set to infinite
  */
-
 if( $blog_cats && $blog_num_posts > count( $blog_include_posts ) ) {
 	$category_query_args = array(
+    'post_status'    => 'publish',
 		'category__in'   => $blog_cats,
 		'posts_per_page' => $blog_num_posts - count($blog_include_posts),
 		'post__not_in'   => $blog_include_posts,
@@ -90,12 +90,13 @@ if( $blog_cats && $blog_num_posts > count( $blog_include_posts ) ) {
 $merged_posts_ids = array_merge( $blog_include_posts, $category_query );
 
 $blog_post_args = array(
-  'post_type' => $post_type,
-	'posts_per_page' =>  $blog_num_posts,
-	'post__in' => $merged_posts_ids
+  'post_status'         => 'publish',
+  'post_type'           => $post_type,
+	'posts_per_page'      => (int)$blog_num_posts,
+  'post__in'            => $merged_posts_ids,
+  'ignore_sticky_posts' => true
 );
 $blog_posts = new WP_Query( $blog_post_args );
-
 ?>
 	<?php
 		if( $blog_posts->have_posts()) {
