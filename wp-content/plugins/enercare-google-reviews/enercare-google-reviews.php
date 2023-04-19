@@ -366,7 +366,8 @@ class ECReviews {
     $args = array(
       'post_type' => 'gmb_review',
       'post_status' => 'publish',
-      'posts_per_page' => -1
+      'posts_per_page' => -1,
+      'fields' => 'ids',
     );
     if ($location_id) {
       $args['meta_key'] = 'gmb_location_id';
