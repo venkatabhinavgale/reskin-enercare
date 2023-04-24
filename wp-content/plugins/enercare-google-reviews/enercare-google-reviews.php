@@ -416,9 +416,10 @@ class ECReviews {
         )
       )
     ));
-    if (sizeof($posts) > 0)
-      return true;
-    else
+    if (sizeof($posts) > 0) {
+      $gmbLocation = $posts[0];
+      return $gmbLocation->ID;
+    } else
       return false;
   }
 
@@ -434,11 +435,39 @@ class ECReviews {
       'post_author'   => 1,
     );
     $new_post_id = wp_insert_post($location_post);
+    
+    // for newer locations using the MyBusinessBusinessInformation API, we need to append the account ID for looking up reviews
+    if (strpos($location_id, 'accounts/103584978847197657494/') === false) {
+      $location_id = 'accounts/103584978847197657494/' . $location_id;
+    }
 
     update_field('gmb_location_id', $location_id, $new_post_id);
     update_field('gmb_leave_review_url', $leave_review_url, $new_post_id);
     if ($view_reviews_url)
       update_field('gmb_view_reviews_url', $view_reviews_url, $new_post_id);
+  }
+  
+  /**
+   * Updates a GMB location post and its meta
+   */
+  public function updateGmbLocation($post_id, $location_name, $location_id, $location_details, $leave_review_url, $view_reviews_url) {
+    $location_post = array(
+      'ID'            => $post_id,
+      'post_title'    => wp_strip_all_tags($location_name),
+      'post_content'  => wp_strip_all_tags($location_details)
+    );
+    
+    $result = wp_update_post($location_post);
+    
+    // for newer locations using the MyBusinessBusinessInformation API, we need to append the account ID for looking up reviews
+    if (strpos($location_id, 'accounts/103584978847197657494/') === false) {
+      $location_id = 'accounts/103584978847197657494/' . $location_id;
+    }
+
+    update_field('gmb_location_id', $location_id, $post_id);
+    update_field('gmb_leave_review_url', $leave_review_url, $post_id);
+    if ($view_reviews_url)
+      update_field('gmb_view_reviews_url', $view_reviews_url, $post_id);
   }
 
   public function getGmbLocations() {
@@ -452,13 +481,18 @@ class ECReviews {
     foreach ($locations as $location) {
       $location_id = $location->name;
       $location_name = $location->storeCode;
-      $locality = $location->address->locality;
+      $locality = $location->storefrontAddress->locality;
       if ($locality) {
         $location_name = $locality . " (" . $location_name . ")";
       }
+      
       $location_details = $location->profile->descriptions;
       $leave_review_url = $location->metadata->newReviewUrl;
-      if (!$this->checkGmbLocation($location_id)) {
+      
+      $gmbLocation_id = $this->checkGmbLocation($location_id);
+      if ($gmbLocation_id) {
+        $this->updateGmbLocation($gmbLocation_id, $location_name, $location_id, $location_details, $leave_review_url, $view_reviews_url);
+      } else {
         $this->insertGmbLocation($location_name, $location_id, $location_details, $leave_review_url, $view_reviews_url);
       }
     }
@@ -471,9 +505,15 @@ class ECReviews {
     $posts = get_posts(array(
       'numberposts'   => 1,
       'post_type'     => 'gmb_review',
-      'meta_key'      => 'gmb_review_id',
-      'meta_value'    => $review_id
+      'meta_query' => array(
+        array(
+         'key'     => 'gmb_review_id',
+         'value'   => $review_id,
+         'compare' => '='
+        )
+      )
     ));
+    
     if (sizeof($posts) > 0)
       return true;
     else
