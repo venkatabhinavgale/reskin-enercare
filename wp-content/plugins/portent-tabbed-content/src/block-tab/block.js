@@ -56,7 +56,8 @@ registerBlockType( 'portent/block-tabbed-content--tab', {
 			default: false
 		},
 		tabAnchor: {
-			type: 'string'
+			type: 'string',
+			default: ''
 		}
 	},
 
@@ -184,6 +185,42 @@ registerBlockType( 'portent/block-tabbed-content--tab', {
 		);
 	},
 	deprecated: [
+		{
+			attributes: {
+				title: {
+					type: 'string'
+				},
+				iconid : {
+					type: 'string',
+				},
+				tabid: {
+					type: 'string'
+				},
+				defaultTab: {
+					type: 'boolean',
+					default: false
+				},
+				tabAnchor: {
+					type: 'string',
+				}
+			},
+			save: ( props ) => {
+				return (
+					<div className="block-tabbed-content__panel" data-default={props.attributes.defaultTab}>
+						<div class="block-tabbed-content__panel__mobile-toggle">
+							<button id={"tab_toggle--" + props.attributes.tabid} className="block-tabbed-content__panel__toggle" data-anchor={props.attributes.tabAnchor} data-tab={props.attributes.tabid} aria-expanded="false" aria-controls="sect1">
+								<img class="block-tabbed-content__panel__icon" width="20" height="20" src={props.attributes.iconid} />
+								<h2 className="block-tabbed-content__panel__title">{props.attributes.title}</h2>
+								<svg className="block-tabbed-content__panel__arrow" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M24 24H0V0h24v24z" fill="none" opacity=".87"/><path d="M7.38 21.01c.49.49 1.28.49 1.77 0l8.31-8.31c.39-.39.39-1.02 0-1.41L9.15 2.98c-.49-.49-1.28-.49-1.77 0s-.49 1.28 0 1.77L14.62 12l-7.25 7.25c-.48.48-.48 1.28.01 1.76z"/></svg>
+							</button>
+						</div>
+						<section className="block-tabbed-content__tab-content" data-tab={props.attributes.tabid} aria-labelledby={"tab_toggle--" + props.attributes.tabid} hidden="">
+							<InnerBlocks.Content />
+						</section>
+					</div>
+				);
+			}
+		},
 		{
 			attributes: {
 				title: {
