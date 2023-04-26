@@ -502,19 +502,15 @@ class ECReviews {
    * Checks if GMB review post with review_id meta exists. If so, returns true.
    */
   public function checkGmbReview($review_id) {
-    $posts = get_posts(array(
+    $review_posts = get_posts(array(
       'numberposts'   => 1,
       'post_type'     => 'gmb_review',
-      'meta_query' => array(
-        array(
-         'key'     => 'gmb_review_id',
-         'value'   => $review_id,
-         'compare' => '='
-        )
+      'meta_key' => 'gmb_review_id',
+      'meta_value' => $review_id,
       )
-    ));
+    );
     
-    if (sizeof($posts) > 0)
+    if (sizeof($review_posts) > 0)
       return true;
     else
       return false;
