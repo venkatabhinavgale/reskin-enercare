@@ -75,6 +75,7 @@ $queryParams = [
 $locationsList = $locations->listAccountsLocations($google_api_account, $queryParams);
 $locations = $locationsList->getLocations();
 
+/*
 echo 'Locations found: ' . sizeof($locations) . '<hr />';
 //var_dump($locations);
 foreach ($locations as $location) {
@@ -95,18 +96,24 @@ foreach ($locations as $location) {
   
   echo '<hr />';
 }
+*/
 
 // ******************** TESTING REVIEWS *************************** /
 // Reviews still uses GMB API v4
+
+// Belleville (351)
+$reviews_location_id = 'locations/8397680477290990729';
+$reviews_location_id = $google_api_account . '/' . $reviews_location_id;
+//$reviews_location_id = 'accounts/103584978847197657494/locations/9477176476440020077';
 
 /*
 // oshawa (durham east)
 $reviews_location_id = 'locations/9477176476440020077';
 $reviews_location_id = $google_api_account . '/' . $reviews_location_id;
 //$reviews_location_id = 'accounts/103584978847197657494/locations/9477176476440020077';
+*/
 
 $gmbService = new Google_Service_MyBusiness($client);
 $reviews = $gmbService->accounts_locations_reviews;
 $res = $reviews->listAccountsLocationsReviews($reviews_location_id, ['pageSize' => 50]);
 var_dump($res);
-*/

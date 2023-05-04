@@ -805,6 +805,8 @@ class GFFormDisplay {
 	 */
 	public static function get_form_theme_slug( $form ) {
 
+		$form = (array) $form;
+
 		// If form is legacy, return that early to avoid calculating orbital styles.
 		if ( GFCommon::is_legacy_markup_enabled( $form ) ) {
 			$slug = 'legacy';
@@ -1206,10 +1208,11 @@ class GFFormDisplay {
 
 			//add first page if this form has any page fields
 			if ( $has_pages ) {
-				$style = self::is_page_active( $form_id, 1 ) ? '' : "style='display:none;'";
-				$class = ' ' . rgar( $form, 'firstPageCssClass', '' );
-				$class = esc_attr( $class );
-				$form_string .= "<div id='gform_page_{$form_id}_1' class='gform_page{$class}' {$style}>
+				$style         = self::is_page_active( $form_id, 1 ) ? '' : "style='display:none;'";
+				$class         = ' ' . rgar( $form, 'firstPageCssClass', '' );
+				$class         = esc_attr( $class );
+				$page_field_id = intval( $form['nextFieldId'] ) - 1;
+				$form_string .= "<div id='gform_page_{$form_id}_1' class='gform_page{$class}' data-js='page-field-id-{$page_field_id}' {$style}>
                                     <div class='gform_page_fields'>";
 			}
 
@@ -3934,7 +3937,7 @@ class GFFormDisplay {
                         {$previous_button} {$next_button} {$save_button}
                     </div>
                 </div>
-                <div id='gform_page_{$form['id']}_{$field->pageNumber}' class='gform_page{$custom_class}' {$style}>
+                <div id='gform_page_{$form['id']}_{$field->pageNumber}' class='gform_page{$custom_class}' data-js='page-field-id-{$field->id}' {$style}>
                     <div class='gform_page_fields'>
                         <{$tag} id='gform_fields_{$form['id']}_{$field->pageNumber}' class='" . GFCommon::get_ul_classes( $form ) . "'>";
 
@@ -3961,7 +3964,7 @@ class GFFormDisplay {
 		$selectable_class   = $is_admin ? 'selectable' : '';
 		$hidden_class       = in_array( $input_type, array( 'hidden', 'hiddenproduct' ) ) ? 'gform_hidden' : '';
 
-		$choice_input_type_class = $field->type === 'checkbox' || $field->type === 'radio' || $field->inputType === 'consent' || ( isset( $field->inputType ) && ( $field->inputType === 'checkbox' || $field->inputType === 'radio' ) ) ? 'gfield--type-choice' : '';
+		$choice_input_type_class = $field->type === 'checkbox' || $field->type === 'radio' || $field->type === 'consent' || ( isset( $field->inputType ) && ( $field->inputType === 'checkbox' || $field->inputType === 'radio' || $field->inputType === 'consent' ) ) ? 'gfield--type-choice' : '';
 		$field_input_type_class  = isset( $field->inputType ) && ! empty( $field->inputType ) ? sprintf( 'gfield--input-type-%s', $field->inputType ) : '';
 
 		$field_specific_class = $field->get_field_css_class();
