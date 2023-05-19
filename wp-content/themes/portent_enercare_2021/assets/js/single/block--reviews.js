@@ -61,7 +61,7 @@ reviewsGlider = new Glider(blockReviews, {
 			// screens greater than >= 1024px
 			breakpoint: 1024,
 			settings: {
-				slidesToShow: 4,
+				slidesToShow: 3,
 				slidesToScroll: 1,
 				itemWidth: 150,
 				duration: 0.25

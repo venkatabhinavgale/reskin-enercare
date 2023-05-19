@@ -18,6 +18,9 @@ import { InnerBlocks, useBlockProps, AlignmentToolbar, BlockControls } from '@wo
 const ALLOWED_BLOCKS = [ 'portent/block-portent-tabbed-content--tab' ];
 
 const setAnchor = (anchorString) => {
+	if(!anchorString) {
+		anchorString = `tab`;
+	}
 	let newAnchorNoSpecial = anchorString.replace(/&|\s*/g, '');
 	newAnchorNoSpecial = newAnchorNoSpecial.replace(/[^a-zA-Z0-9]/, '').toLowerCase();
 	return newAnchorNoSpecial;
@@ -25,7 +28,13 @@ const setAnchor = (anchorString) => {
 
 const PrintTabs = (props) => {
 	const tabs = props.tabs;
-	return(tabs.map(tab => <button className="block-tabbed-content__tab" data-default={tab[3]} data-anchor={setAnchor(tab[1])+'-tab'} data-interface="tab-button" data-tab={tab[0]}><img width="30px" height="30px" alt="" src={tab[2]}/>{tab[1]}</button>));
+	return(tabs.map(tab => 
+		<button 
+		className="block-tabbed-content__tab" 
+		data-default={tab[3]} 
+		data-anchor={setAnchor(tab[1])+'-tab'} 
+		data-interface="tab-button" 
+		data-tab={tab[0]}><img width="30px" height="30px" alt="" src={tab[2]}/>{tab[1]}</button>));
 }
 
 const ChildTabs = (props) => {
