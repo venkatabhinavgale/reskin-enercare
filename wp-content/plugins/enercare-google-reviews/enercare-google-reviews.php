@@ -661,13 +661,15 @@ function ecreviews_location_block_render_callback( $attributes, $content ) {
   $output .= '<section class="block-reviews alignwide">';
   //@todo need to find a way to pull this out of this template and make the image and text editable
   $output .= '<div class="block-reviews__section-heading">';
-      $output .= '<img width="160px" height="160px" class="block-reviews__stamp" alt="Canadian owned and operated logo" src="' . plugin_dir_url(__FILE__) . 'img/canadian-owned-operated.svg">';
       $output .= '<div class="block-reviews__section-heading__title">';
-          $output .= '<h2 class="block-reviews__section-heading__header">Customer Reviews</h2>' . "\n";
+          $output .= '<h2 class="block-reviews__section-heading__header">What Our Customers Think About Us</h2>' . "\n";
 
   $total_reviews = ECReviews::getReviewsCount($location_id);
   $aggregate_rating = ECReviews::getAggregateRating($location_id);
   if ($total_reviews && $aggregate_rating) {
+    $output .= '<div class="block-reviews__score-section"><!-- start score container -->';
+    $output .= '<strong class="block-reviews__section-heading__score">'. number_format($aggregate_rating, 1) .'</strong>';
+    $output .= '<div class="block-reviews__score-star-container">';
     $output .= '<div class="block-reviews__section-heading__stars block-reviews__stars">';
     for($x = 1; $x <= $aggregate_rating; $x++) {
       $output .= '<img width="15px" height="15px" class="block-reviews__star" alt="" role="presentation" src="' . plugin_dir_url(__FILE__) . 'img/full-star-enercare.svg">';
@@ -681,7 +683,8 @@ function ecreviews_location_block_render_callback( $attributes, $content ) {
       }
     }
     $output .= '</div>';
-    $output .= '<strong>' . number_format($aggregate_rating, 1) . " Average</strong> (Based on " . number_format($total_reviews) . " Google Reviews)";
+    $output .= "<span>Average Based on " . number_format($total_reviews) . " Google Reviews</span>";
+    $output .= "</div></div> <!-- end score container -->";
   }
   $output .= '</div><!-- end block-reviews__section-heading__title -->';
   $output .= '</div><!-- end block-reviews__section-heading -->';

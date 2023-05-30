@@ -30,6 +30,50 @@
 		}
 	}
 
+	&__score-section {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin: 2em 0.5em 0.5em;
+	}
+
+	&__section-heading__score {
+		font-size: clamp(3.5vw, 10vw, 5rem);
+		height: 100%;
+		display: block;
+		margin-right: clamp(0.75vw, 3vw, 1rem);
+	}
+
+	&__section-heading__stars {
+		justify-content: center;
+
+		img{
+		height: clamp(2rem, 3rem, 3rem);
+		width: clamp(2rem, 3rem, 3rem);
+		}
+	}
+
+	&__score-star-container {
+		border-left: 1px solid gray;
+		padding-left: clamp(0.75vw, 2vw, 1em);
+
+		&:before {
+			background-color: gray;
+			content: "";
+			display: block;
+			height: 100%;
+			width: 1px;
+		}
+	}
+
+	&__score-star-container {
+		
+		span {
+			display: block;
+			font-weight: 700;
+		}
+	}
+
 	&__section-heading {
 		background-color: $white;
 		display: flex;
@@ -41,32 +85,13 @@
 		position: relative;
 
 		@include media('>=desktop') {
-			background-color: $grey_1;
 			flex-direction: row;
-			padding: 0 20%;
+			padding: 0 1em;
 		}
 
 		@include media('<desktop', '>phone' ) {
-			background-color: $grey_1;
 			flex-direction: row;
-			padding: 0 5%;
-		}
-
-		&:after {
-			content: '';
-			display: block;
-			background-color: $grey_1;
-			position: absolute;
-			bottom: 0;
-			left: 0;
-			height: 77%;
-			width: 100%;
-			z-index: 0;
-
-			@include media('>=tablet') {
-				height: 100%;
-			}
-
+			padding: 0 0.5em;
 		}
 
 		&__title {
@@ -94,11 +119,9 @@
 
 		&__stars {
 			display: flex;
-			justify-content: center;
 			margin-right: 0.5em;
 
 			@include media('>=tablet') {
-				display: inline-flex;
 				vertical-align: sub;
 			}
 		}
@@ -195,11 +218,14 @@
 	}
 
 	&__review {
-		border-left: 1px solid $grey_1;
+		background-color: #fff;
+		border: 2px solid $grey_5;
+		border-radius: 20px;
 		display: flex;
 		flex-direction: column;
 		justify-content: flex-start;
-		padding: 0 52px 0 24px;
+		padding: 1em 52px 1em 24px;
+		margin: 0 0.35em;
 
 		&__content {
 			font-size: 1em;
