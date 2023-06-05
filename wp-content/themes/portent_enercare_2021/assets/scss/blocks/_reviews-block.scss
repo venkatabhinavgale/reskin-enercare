@@ -38,7 +38,7 @@
 	}
 
 	&__section-heading__score {
-		font-size: clamp(3.5vw, 10vw, 5rem);
+		font-size: clamp(3vw, 9vw, 4.5rem);
 		height: 100%;
 		display: block;
 		margin-right: clamp(0.75vw, 3vw, 1rem);
@@ -110,9 +110,6 @@
 		}
 
 		&__header {
-			font-weight: 900;
-			@include font-sizes(1.75em, 3em, 3.5em, 3.5em );
-			line-height: 1;
 			margin-bottom: 0;
 			padding-bottom: 0;
 		}
@@ -147,7 +144,7 @@
 	}
 
 	&__wrapper {
-		padding: 0;
+		padding: 0 3vw;
 		position: relative;
 		max-width: 100%;
 		overflow-x: hidden;
@@ -226,6 +223,10 @@
 		justify-content: flex-start;
 		padding: 1em 52px 1em 24px;
 		margin: 0 0.35em;
+
+		@include media('<=phone') {
+			
+		}
 
 		&__content {
 			font-size: 1em;
