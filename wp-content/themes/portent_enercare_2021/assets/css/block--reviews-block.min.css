@@ -8,9 +8,9 @@
 .block-reviews__star{margin:0 .15em;height:24px;width:24px}
 .block-reviews__star:first-of-type,.block-reviews__star:last-of-type{margin:0}
 .block-reviews__score-section{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;margin:2em .5em .5em}
-.block-reviews__section-heading__score{font-size:clamp(3vw,9vw,4.5rem);height:100%;display:block;margin-right:clamp(0.75vw,3vw,1rem)}
+.block-reviews__section-heading__score{font-size:clamp(3vw,9vw,3rem);height:100%;display:block;margin-right:clamp(0.75vw,3vw,1rem)}
 .block-reviews__section-heading__stars{-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
-.block-reviews__section-heading__stars img{height:clamp(2rem,3rem,3rem);width:clamp(2rem,3rem,3rem)}
+.block-reviews__section-heading__stars img{height:clamp(2rem,3rem,2.5rem);width:clamp(2rem,3rem,2.5rem)}
 .block-reviews__score-star-container{border-left:1px solid gray;padding-left:clamp(0.75vw,2vw,1em)}
 .block-reviews__score-star-container:before{background-color:gray;content:"";display:block;height:100%;width:1px}
 .block-reviews__score-star-container span{display:block;font-weight:700}
