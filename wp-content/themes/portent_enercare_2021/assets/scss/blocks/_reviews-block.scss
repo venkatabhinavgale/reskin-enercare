@@ -38,7 +38,7 @@
 	}
 
 	&__section-heading__score {
-		font-size: clamp(3vw, 9vw, 4.5rem);
+		font-size: clamp(3vw, 9vw, 3rem);
 		height: 100%;
 		display: block;
 		margin-right: clamp(0.75vw, 3vw, 1rem);
@@ -48,8 +48,8 @@
 		justify-content: center;
 
 		img{
-		height: clamp(2rem, 3rem, 3rem);
-		width: clamp(2rem, 3rem, 3rem);
+		height: clamp(2rem, 3rem, 2.5rem);
+		width: clamp(2rem, 3rem, 2.5rem);
 		}
 	}
 
