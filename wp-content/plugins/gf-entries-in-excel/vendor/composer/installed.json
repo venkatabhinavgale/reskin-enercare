@@ -1,225 +1,18 @@
 {
     "packages": [
         {
-            "name": "composer/installers",
-            "version": "v1.12.0",
-            "version_normalized": "1.12.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/composer/installers.git",
-                "reference": "d20a64ed3c94748397ff5973488761b22f6d3f19"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/d20a64ed3c94748397ff5973488761b22f6d3f19",
-                "reference": "d20a64ed3c94748397ff5973488761b22f6d3f19",
-                "shasum": ""
-            },
-            "require": {
-                "composer-plugin-api": "^1.0 || ^2.0"
-            },
-            "replace": {
-                "roundcube/plugin-installer": "*",
-                "shama/baton": "*"
-            },
-            "require-dev": {
-                "composer/composer": "1.6.* || ^2.0",
-                "composer/semver": "^1 || ^3",
-                "phpstan/phpstan": "^0.12.55",
-                "phpstan/phpstan-phpunit": "^0.12.16",
-                "symfony/phpunit-bridge": "^4.2 || ^5",
-                "symfony/process": "^2.3"
-            },
-            "time": "2021-09-13T08:19:44+00:00",
-            "type": "composer-plugin",
-            "extra": {
-                "class": "Composer\\Installers\\Plugin",
-                "branch-alias": {
-                    "dev-main": "1.x-dev"
-                }
-            },
-            "installation-source": "dist",
-            "autoload": {
-                "psr-4": {
-                    "Composer\\Installers\\": "src/Composer/Installers"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Kyle Robinson Young",
-                    "email": "kyle@dontkry.com",
-                    "homepage": "https://github.com/shama"
-                }
-            ],
-            "description": "A multi-framework Composer library installer",
-            "homepage": "https://composer.github.io/installers/",
-            "keywords": [
-                "Craft",
-                "Dolibarr",
-                "Eliasis",
-                "Hurad",
-                "ImageCMS",
-                "Kanboard",
-                "Lan Management System",
-                "MODX Evo",
-                "MantisBT",
-                "Mautic",
-                "Maya",
-                "OXID",
-                "Plentymarkets",
-                "Porto",
-                "RadPHP",
-                "SMF",
-                "Starbug",
-                "Thelia",
-                "Whmcs",
-                "WolfCMS",
-                "agl",
-                "aimeos",
-                "annotatecms",
-                "attogram",
-                "bitrix",
-                "cakephp",
-                "chef",
-                "cockpit",
-                "codeigniter",
-                "concrete5",
-                "croogo",
-                "dokuwiki",
-                "drupal",
-                "eZ Platform",
-                "elgg",
-                "expressionengine",
-                "fuelphp",
-                "grav",
-                "installer",
-                "itop",
-                "joomla",
-                "known",
-                "kohana",
-                "laravel",
-                "lavalite",
-                "lithium",
-                "magento",
-                "majima",
-                "mako",
-                "mediawiki",
-                "miaoxing",
-                "modulework",
-                "modx",
-                "moodle",
-                "osclass",
-                "pantheon",
-                "phpbb",
-                "piwik",
-                "ppi",
-                "processwire",
-                "puppet",
-                "pxcms",
-                "reindex",
-                "roundcube",
-                "shopware",
-                "silverstripe",
-                "sydes",
-                "sylius",
-                "symfony",
-                "tastyigniter",
-                "typo3",
-                "wordpress",
-                "yawik",
-                "zend",
-                "zikula"
-            ],
-            "support": {
-                "issues": "https://github.com/composer/installers/issues",
-                "source": "https://github.com/composer/installers/tree/v1.12.0"
-            },
-            "funding": [
-                {
-                    "url": "https://packagist.com",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/composer",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
-                    "type": "tidelift"
-                }
-            ],
-            "install-path": "./installers"
-        },
-        {
-            "name": "frontpack/composer-assets-plugin",
-            "version": "v0.11.1",
-            "version_normalized": "0.11.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/frontpack/composer-assets-plugin.git",
-                "reference": "94179dbde35f9f30962106044fa5a8b8e0bd6783"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/frontpack/composer-assets-plugin/zipball/94179dbde35f9f30962106044fa5a8b8e0bd6783",
-                "reference": "94179dbde35f9f30962106044fa5a8b8e0bd6783",
-                "shasum": ""
-            },
-            "require": {
-                "composer-plugin-api": "^1.0 || ^2.0",
-                "php": ">=5.6.0"
-            },
-            "time": "2021-06-02T08:40:11+00:00",
-            "type": "composer-plugin",
-            "extra": {
-                "class": "Frontpack\\ComposerAssetsPlugin\\ComposerAssetsPlugin"
-            },
-            "installation-source": "dist",
-            "autoload": {
-                "classmap": [
-                    "src/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Jan Pecha",
-                    "homepage": "http://www.janpecha.cz/"
-                }
-            ],
-            "description": "Composer plugin for installing of assets.",
-            "support": {
-                "issues": "https://github.com/frontpack/composer-assets-plugin/issues",
-                "source": "https://github.com/frontpack/composer-assets-plugin/tree/v0.11.1"
-            },
-            "funding": [
-                {
-                    "url": "https://www.paypal.com/donate?hosted_button_id=A3VQYFGCF99FU",
-                    "type": "custom"
-                }
-            ],
-            "install-path": "../frontpack/composer-assets-plugin"
-        },
-        {
-            "name": "gfexcel/base",
+            "name": "gravitykit/gravityexport-base",
             "version": "dev-master",
             "version_normalized": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/GFExcel/base.git",
-                "reference": "8d1966b9e5c4c9071777de7140696163da317dc5"
+                "url": "https://github.com/GravityKit/GravityExport-Base.git",
+                "reference": "2e816a176167f872574940f440fe71a8e7febc7a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GFExcel/base/zipball/8d1966b9e5c4c9071777de7140696163da317dc5",
-                "reference": "8d1966b9e5c4c9071777de7140696163da317dc5",
+                "url": "https://api.github.com/repos/GravityKit/GravityExport-Base/zipball/2e816a176167f872574940f440fe71a8e7febc7a",
+                "reference": "2e816a176167f872574940f440fe71a8e7febc7a",
                 "shasum": ""
             },
             "require": {
@@ -230,7 +23,7 @@
                 "php-mock/php-mock-phpunit": "^2.5",
                 "phpunit/phpunit": "^9.5"
             },
-            "time": "2021-09-08T02:34:27+00:00",
+            "time": "2023-03-10T14:03:07+00:00",
             "default-branch": true,
             "type": "library",
             "installation-source": "dist",
@@ -239,34 +32,22 @@
                     "GFExcel\\": "./src"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "GFExcel\\Tests\\": "./tests"
-                }
-            },
-            "scripts": {
-                "linter": [
-                    "vendor/bin/phplint --no-cache"
-                ],
-                "test": [
-                    "vendor/bin/phpunit"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "authors": [
                 {
                     "name": "Doeke Norg",
-                    "email": "info@gfexcel.com"
+                    "email": "doeke@gravitykit.com"
                 }
             ],
             "description": "Base for GravityExport",
             "support": {
-                "source": "https://github.com/GFExcel/base/tree/master",
-                "issues": "https://github.com/GFExcel/base/issues"
+                "issues": "https://github.com/GravityKit/GravityExport-Base/issues",
+                "source": "https://github.com/GravityKit/GravityExport-Base/tree/master"
             },
-            "install-path": "../gfexcel/base"
+            "install-path": "../gravitykit/gravityexport-base"
         },
         {
             "name": "league/container",
@@ -382,9 +163,6 @@
             "type": "library",
             "installation-source": "dist",
             "autoload": {
-                "psr-4": {
-                    "Complex\\": "classes/src/"
-                },
                 "files": [
                     "classes/src/functions/abs.php",
                     "classes/src/functions/acos.php",
@@ -428,7 +206,10 @@
                     "classes/src/operations/multiply.php",
                     "classes/src/operations/divideby.php",
                     "classes/src/operations/divideinto.php"
-                ]
+                ],
+                "psr-4": {
+                    "Complex\\": "classes/src/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -483,9 +264,6 @@
             "type": "library",
             "installation-source": "dist",
             "autoload": {
-                "psr-4": {
-                    "Matrix\\": "classes/src/"
-                },
                 "files": [
                     "classes/src/Functions/adjoint.php",
                     "classes/src/Functions/antidiagonal.php",
@@ -503,7 +281,10 @@
                     "classes/src/Operations/multiply.php",
                     "classes/src/Operations/divideby.php",
                     "classes/src/Operations/divideinto.php"
-                ]
+                ],
+                "psr-4": {
+                    "Matrix\\": "classes/src/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
