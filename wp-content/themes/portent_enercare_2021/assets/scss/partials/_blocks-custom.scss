@@ -651,6 +651,26 @@ Youtube Lazy
 /**
 Switchboard
  */
+
+ .wp-block-group.has-background:has( .block-switchboard ) .block-switchboard {
+	
+	.block-mega-button a {
+		background-color: #fff;
+		border: 2px solid $grey_2;
+	}
+ }
+
+ .wp-block-group.has-background .block-switchboard {
+	.block-mega-button a {
+		background-color: #fff !important;
+		border: 2px solid $grey_2 !important;
+
+		&:hover {
+			background-color: $grey_2 !important;
+		}
+	}
+}
+
 .block-switchboard {
 	margin-left: auto;
 	margin-right: auto;
@@ -667,6 +687,8 @@ Switchboard
 	justify-items: center;
 	padding-left: 0 !important; // !important used to override theme <ul> styles without using <ul> tag
 	margin-bottom: 0 !important; // !important used to override theme <ul> styles without using <ul> tag
+	grid-column-gap: 0.75em;
+	grid-row-gap: 0.75em;
 
 	@for $i from 1 through 8 {
 		&--desktop-col-#{$i} {
@@ -687,7 +709,6 @@ Switchboard
 	.block-mega-button,
 	.block-mega-button a {
 		width: 100%;
-		padding-bottom: 0.5em !important; // !important used to override theme <li> styles without using <li> tag
 	}
 }
 
