@@ -9,11 +9,11 @@ if( !empty($block['className']) ) {
 if( !empty($block['align']) ) {
 	//$classes .= sprintf( ' align%s', $block['align'] );
 }
-if( !empty($block['backgroundColor'] ) ) {
-	$background_class = sprintf(' has-%s-background-color has-background', $block['backgroundColor']);
-} else {
-	$background_class = ' has-white-background-color has-background';
-}
+// if( !empty($block['backgroundColor'] ) ) {
+// 	$background_class = sprintf(' has-%s-background-color has-background', $block['backgroundColor']);
+// } else {
+// 	$background_class = ' has-white-background-color has-background';
+// }
 
 if( get_field('sizing' ) ) {
  	$button_sizing = ' ' . $block_class_base . '--width-' . get_field('sizing' );
