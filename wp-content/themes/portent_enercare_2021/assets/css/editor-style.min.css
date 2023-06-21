@@ -330,8 +330,8 @@ div.wpforms-container.one-line:after{content:"";display:table;clear:both}
 .block-blog-posts__post--minimal .block-blog-posts__post__title{margin-bottom:0}
 .block-youtube-lazy.aligncenter{float:none !important;margin:0 auto}
 .block-youtube-lazy.alignright{float:none !important;margin:0 0 0 auto}
-.wp-block-group.has-background:has(.block-switchboard) .block-switchboard .block-mega-button a{background-color:#fff;border:2px solid #e6e4e4}
-.wp-block-group.has-background .block-switchboard .block-mega-button a{background-color:#fff !important;border:2px solid #e6e4e4 !important}
+.wp-block-group.has-background:has(.block-switchboard) .block-switchboard .block-mega-button a{background-color:#fff;border:2px solid #bdbdbd}
+.wp-block-group.has-background .block-switchboard .block-mega-button a{background-color:#fff !important;border:2px solid #bdbdbd !important}
 .wp-block-group.has-background .block-switchboard .block-mega-button a:hover{background-color:#e6e4e4 !important}
 .block-switchboard{margin-left:auto;margin-right:auto;max-width:768px}
 .block-switchboard.alignwide{max-width:1168px}
@@ -448,7 +448,7 @@ ul.block-location-finder__list{padding-left:0}
 .block-reviews__review .block-reviews__stars{margin-bottom:15px}
 .block-reviews__review .block-reviews__star{height:20px;width:20px}
 .block-mega-button{display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex;padding:0 !important;width:auto}
-.block-mega-button__link{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;text-align:center;text-decoration:none;padding:.5em 1em;border-radius:20px;-webkit-transition:background-color .2s ease;transition:background-color .2s ease;border:2px solid #e6e4e4}
+.block-mega-button__link{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;text-align:center;text-decoration:none;padding:.5em 1em;border-radius:20px;-webkit-transition:background-color .2s ease;transition:background-color .2s ease;border:2px solid #bdbdbd}
 .block-mega-button__link:hover{background-color:#e6e4e4;border:2px solid transparent;-webkit-transition:background-color .3s ease;transition:background-color .3s ease}
 .block-mega-button__link:focus{outline:3px dotted #bdbdbd}
 .block-mega-button__link.has-grey-10-background-color:hover{background-color:#fff}

@@ -3,7 +3,7 @@
 .has-focus-style--red{outline-color:#da1b27 !important}
 .has-focus-style *:focus{outline:2px dotted;outline-color:inherit}
 .block-mega-button{display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex;padding:0 !important;width:auto}
-.block-mega-button__link{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;text-align:center;text-decoration:none;padding:.5em 1em;border-radius:20px;-webkit-transition:background-color .2s ease;transition:background-color .2s ease;border:2px solid #e6e4e4}
+.block-mega-button__link{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;text-align:center;text-decoration:none;padding:.5em 1em;border-radius:20px;-webkit-transition:background-color .2s ease;transition:background-color .2s ease;border:2px solid #bdbdbd}
 .block-mega-button__link:hover{background-color:#e6e4e4;border:2px solid transparent;-webkit-transition:background-color .3s ease;transition:background-color .3s ease}
 .block-mega-button__link:focus{outline:3px dotted #bdbdbd}
 .block-mega-button__link.has-grey-10-background-color:hover{background-color:#fff}
