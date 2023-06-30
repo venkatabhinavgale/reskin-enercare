@@ -739,6 +739,19 @@ function enercare_pre_get_posts( $query ) {
         ),
       ),
       array(
+        'relation' => 'OR',
+        array(
+          'key'       => 'is_private',
+          'compare'   => 'NOT EXISTS',
+          'value'     => 'completely'
+        ),
+        array(
+          'key'       => 'is_private',
+          'value'     => '1',
+          'compare'   => '!='
+        )
+      ),
+      array(
         'priority' => array(
           'key'       => 'priority',
           'compare'   => 'EXISTS',

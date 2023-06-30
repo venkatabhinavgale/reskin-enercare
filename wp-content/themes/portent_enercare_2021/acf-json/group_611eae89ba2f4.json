@@ -6,6 +6,7 @@
             "key": "field_612fd67fbfc61",
             "label": "Heading",
             "name": "heading",
+            "aria-label": "",
             "type": "text",
             "instructions": "This will be the main heading used on the all deals page and all offer blocks.",
             "required": 1,
@@ -25,6 +26,7 @@
             "key": "field_612fd6cdbfc62",
             "label": "Subheading",
             "name": "subheading",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -41,9 +43,55 @@
             "maxlength": ""
         },
         {
+            "key": "field_618d7a37e0183",
+            "label": "CTA Text",
+            "name": "cta_text",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Shop Plans",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_618d7c6510aea",
+            "label": "CTA Icon",
+            "name": "cta_icon",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
             "key": "field_611eaea17df12",
             "label": "Start Date",
             "name": "start_date",
+            "aria-label": "",
             "type": "date_picker",
             "instructions": "",
             "required": 0,
@@ -61,6 +109,7 @@
             "key": "field_611eaec97df13",
             "label": "End Date",
             "name": "end_date",
+            "aria-label": "",
             "type": "date_picker",
             "instructions": "The campaign will be active through the end of the day defined in this field. This will typically be the last day of the month. ie. October 31st",
             "required": 0,
@@ -78,6 +127,7 @@
             "key": "field_611eaf7e7df15",
             "label": "Image \/ Icon",
             "name": "icon",
+            "aria-label": "",
             "type": "image",
             "instructions": "",
             "required": 0,
@@ -102,6 +152,7 @@
             "key": "field_611eaf9e7df16",
             "label": "Phone Number",
             "name": "phone_number",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -121,6 +172,7 @@
             "key": "field_611eb0017df17",
             "label": "Destination (Link)",
             "name": "destination",
+            "aria-label": "",
             "type": "link",
             "instructions": "",
             "required": 0,
@@ -133,52 +185,10 @@
             "return_format": "url"
         },
         {
-            "key": "field_618d7a37e0183",
-            "label": "CTA Text",
-            "name": "cta_text",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "Shop Plans",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_618d7c6510aea",
-            "label": "CTA Icon",
-            "name": "cta_icon",
-            "type": "image",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "id",
-            "preview_size": "medium",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": ""
-        },
-        {
             "key": "field_611eb8c4ffde8",
             "label": "Associated Locations",
             "name": "locations",
+            "aria-label": "",
             "type": "relationship",
             "instructions": "Select one or more locations\/patches associated with this campaign. If none are selected, this campaign is assumed to be \"global\"",
             "required": 0,
@@ -206,6 +216,7 @@
             "key": "field_611eb03d7df18",
             "label": "Priority",
             "name": "priority",
+            "aria-label": "",
             "type": "range",
             "instructions": "Select a number from 0 to 10 that will set the priority for a campaign. 0 is no priority. 10 is highest priority.",
             "required": 0,
@@ -226,6 +237,7 @@
             "key": "field_611eaf3f7df14",
             "label": "Terms and Conditions",
             "name": "terms_and_conditions",
+            "aria-label": "",
             "type": "textarea",
             "instructions": "",
             "required": 0,
@@ -240,6 +252,26 @@
             "maxlength": "",
             "rows": "",
             "new_lines": ""
+        },
+        {
+            "key": "field_649c7493f0bf6",
+            "label": "Is Private",
+            "name": "is_private",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Toggle this on to exclude this campaign from the Special Offers listing page.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
         }
     ],
     "location": [
@@ -265,6 +297,6 @@
     ],
     "active": true,
     "description": "",
-    "show_in_rest": 0,
-    "modified": 1636662399
+    "show_in_rest": 1,
+    "modified": 1687975154
 }
