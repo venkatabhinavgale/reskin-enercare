@@ -30,6 +30,16 @@ wp.domReady( () => {
 	);
 
 	wp.blocks.registerBlockStyle(
+		'core/image',
+		[
+			{
+				name: 'diagram',
+				label: 'Diagram'
+			}
+		]
+	)
+
+	wp.blocks.registerBlockStyle(
 		'core/button',
 		[
 			{
