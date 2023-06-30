@@ -104,6 +104,12 @@ function enercare_scripts() {
       wp_enqueue_script( 'ea-category-filters', get_template_directory_uri() . '/assets/js/category-filters.js', array( 'jquery' ), filemtime( get_template_directory() . '/assets/js/category-filters.js' ), true );
     }
 
+	if( has_block( 'core/image' ) ) {
+		add_action('wp_footer', 'add_diagram_modal');
+		wp_enqueue_script( 'micromodal-script' );
+		wp_enqueue_script( 'diagram-modal-init', get_template_directory_uri() . '/assets/js/block--image--diagram.js', array('micromodal-script'), true);
+	}
+
 	//wp_enqueue_script( 'ea-slider-poly', get_template_directory_uri() . '/assets/js/sliding-menu-polyfills.js', array(), filemtime( get_template_directory() . '/assets/js/sliding-menu-polyfills.js' ), true );
 
 	//wp_enqueue_script( 'ea-slider-menu', get_template_directory_uri() . '/assets/js/sliding-menu.js', array( 'ea-slider-poly' ), filemtime( get_template_directory() . '/assets/js/sliding-menu.js' ), true );
@@ -202,6 +208,7 @@ function enercare_defer_scripts( $tag, $handle, $src ) {
 		'legal-terms',
 		'block--offer-card-script',
 		'micromodal-script',
+		'diagram-modal-init',
 		'related-posts-carousel',
 		'block-locations-served-script',
 		'block--faqs-script',
@@ -798,3 +805,10 @@ function enercare_login_redirect( $redirect_to, $request, $user ) {
   return admin_url();
 }
 add_filter( 'login_redirect', 'enercare_login_redirect', 10, 3 );
+
+/**
+ * Add micro modal markup for diagram images
+ */
+function add_diagram_modal() {
+	require get_template_directory() . '/partials/modal-diagram-image.php';
+}

@@ -194,6 +194,10 @@ jQuery(function($){
   })(window,document);
 });
 
+function insertAfter(newNode, existingNode) {
+    existingNode.parentNode.insertBefore(newNode, existingNode.nextSibling);
+}
+
 /**
  * Toggle Navigation Script
  */

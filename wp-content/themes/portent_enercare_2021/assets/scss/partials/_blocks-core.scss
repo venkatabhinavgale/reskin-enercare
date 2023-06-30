@@ -186,8 +186,24 @@ img {
 /**
 Diagram Style for Images
 */
-.wp-block-image.is-style-diagram {
+.diagram-modal-button {
+	transition: transform 0.3s ease;
+	border: 0;
+	background-color: transparent;
+	line-height: 0;
+	padding: 0;
 
+	figure {
+		margin: 0;
+	}
+
+	&:hover{
+		transform: scale(1.025);
+	}
+
+	&:focus {
+		outline: 2px dotted black;
+	}
 }
 
 /* Tables
