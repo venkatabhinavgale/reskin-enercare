@@ -16,9 +16,9 @@ if( !empty($block['align']) ) {
 // }
 
 if( get_field('sizing' ) ) {
- 	$button_sizing = ' ' . $block_class_base . '--width-' . get_field('sizing' );
+ 	$classes .= ' ' . $block_class_base . '--width-' . get_field('sizing' );
 } else {
-	$button_sizing = ' ' . $block_class_base . '--width-auto';
+	$classes .= ' ' . $block_class_base . '--width-auto';
 }
 
 // ACF Fields
@@ -26,7 +26,7 @@ if( get_field('sizing' ) ) {
 	$image = get_field( 'image');
 ?>
 
-<li class="<?= $block_class_base?> <?= $button_sizing ?>">
+<li class="<?php echo esc_attr($classes); ?>">
 	<a class="<?=$background_class?> <?= $block_class_base ?>__link" href="<?= $link['url'] ?>">
 		<?= wp_get_attachment_image( $image, '1-1', false, array( 'alt' => '', 'class' => $block_class_base. '__image' )); ?>
 		<span class="<?= $block_class_base ?>__text"><?= $link['title'] ?></span>

@@ -821,7 +821,6 @@ h1{font-size:3em}
 h2{font-size:2.6em}
 h3{font-size:1.8em}
 h4,h5,h6{font-size:22px}
-.only-mobile{display:none}
 .align-right-tablet{-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end;display:-webkit-box;display:-ms-flexbox;display:flex;text-align:right}
 .is-style-subhead1{font-size:28px}
 .is-style-subhead2{font-size:24px}
@@ -882,6 +881,7 @@ div.wpforms-container.one-line .wpforms-submit-container{float:right;width:110px
 .floating-cta{display:none}
 .floating-cta--split-a-p{display:none}
 .wp-block-button.is-style-hero .wp-block-button__link{font-size:1.5em}
+.only-mobile{display:none !important}
 }@media screen and (min-width:768px) and (max-width:782px){.footer--menus .wp-block-column{border-right:0}
 }@media(min-width:769px) and (max-width:1199px){.gform_wrapper .gfield.buttonized .gfield_radio,.gform_wrapper .gfield.buttonized .gfield_checkbox{grid-template-columns:repeat(1,1fr)}
 }@media(min-width:769px){.is-style-grid-4{grid-template-columns:repeat(4,1fr)}
