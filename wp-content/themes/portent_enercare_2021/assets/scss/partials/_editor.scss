@@ -84,6 +84,20 @@ Tabbed Content
 	}
 }
 
-.wp-admin .editor-styles-wrapper .only-mobile {
-	display: unset;
+.only-mobile {
+	&:before {
+		content: 'Mobile Only';
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		transform: translate(-5%, -5%);
+		z-index: 10;
+		background-color: black;
+		color: white;
+		font-size: 0.75rem;
+		padding: 0.25rem;
+		border-radius: 0.25rem;
+		line-height: 1;	
+	}
 }
