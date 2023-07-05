@@ -11,8 +11,9 @@ if (typeof blogImages !== 'undefined') {
     newButton.setAttribute('aria-label', "".concat(elem.getAttribute('alt'), " click this image to enlarge it"));
     newButton.addEventListener('click', function (event) {
       var imageElement = this.querySelector('img');
+      var imageCaption = this.querySelector('figcaption') ? this.querySelector('figcaption').textContent : false;
       console.log(this.currentSrc);
-      openPostImageModal(imageElement);
+      openPostImageModal(imageElement, imageCaption);
     });
     insertAfter(newButton, elem);
     newButton.appendChild(elem.cloneNode(true));
@@ -51,10 +52,18 @@ MicroModal.init({
 Transfer a new image source into the modal and open it
  */
 
-var openPostImageModal = function openPostImageModal(sourceImage) {
-  var imageModal = document.getElementById('modal-post-image-element');
-  imageModal.src = sourceImage.currentSrc;
-  imageModal.setAttribute('alt', sourceImage.getAttribute('alt'));
+var openPostImageModal = function openPostImageModal(sourceImage, caption) {
+  var imageModal = document.getElementById('modal-post-image');
+  var imageModalFigure = document.getElementById('modal-post-image-element');
+  imageModalFigure.src = sourceImage.currentSrc;
+  imageModalFigure.setAttribute('alt', sourceImage.getAttribute('alt'));
+
+  if (caption) {
+    var imageModalCaption = imageModal.querySelector('.modal__title');
+    imageModalCaption.textContent = caption;
+    imageModalFigure.setAttribute('aria-describedby', imageModalCaption.id);
+  }
+
   MicroModal.show('modal-post-image');
 }; //Push image into micromodal
 //Show Micromodal

@@ -7,9 +7,7 @@
     <div class="modal__overlay" style="z-index:9999;" tabindex="-1" data-micromodal-close>
         <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-post-image-title">
             <header class="modal__header">
-<!--                <strong class="modal__title" id="modal-post-image-title">-->
-<!--                    Micromodal-->
-<!--                </strong>-->
+                <strong class="modal__title" id="modal-post-image-title"></strong>
                 <button class="modal__btn" data-micromodal-close aria-label="Close this dialog window">Close Image</button>
             </header>
             <section class="modal__content" id="modal-post-image-content">

@@ -20,6 +20,13 @@
 @import "vendor/micro-modal-styles";
 @import "partials/search";
 
+.only-mobile {
+
+	@include media('>=tablet') {
+		display: none !important;
+	}
+}
+
 /**
 Navigation
  */

@@ -29,7 +29,7 @@
 
 .modal__container {
 	background-color: #fff;
-	max-width: 772px;
+	max-width: 40vw;
 	max-height: 80vh;
 	border-radius: 4px;
 	overflow-y: auto;
@@ -41,17 +41,44 @@
 }
 
 #modal-post-image .modal__container {
-	max-width: 85vw;
-	max-height: 85vh;
+	max-width: 90vw;
+	max-height: 90vh;
+
+	@include media('>tablet') {
+		max-width: 85vw;
+		max-height: 85vh;
+	}
+
+	.modal__btn {
+		flex-shrink: 0;
+		margin-left: 0;
+		margin-top: 1rem;
+
+		@include media('>tablet') {
+			margin-left: 2rem;
+			margin-top: 0;
+		}
+	}
+
+	.modal__title {
+		font-size: 1rem;
+		color: $grey_7;
+	}
 }
 
 .modal__header {
 	display: flex;
+	flex-direction: column;
 	justify-content: space-between;
-	align-items: flex-start;
+	align-items: center;
 	padding: 1.5em;
 	border-bottom: 1px solid $grey_2;
 	color: $black;
+
+	@include media('>tablet') {
+		flex-direction: row;
+		align-items: flex-start;
+	}
 }
 
 .modal__heading {

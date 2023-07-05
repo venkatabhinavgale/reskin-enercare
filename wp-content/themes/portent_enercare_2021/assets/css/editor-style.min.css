@@ -171,10 +171,11 @@ img{display:block;max-width:100%;height:auto}
 img.alignleft{float:left;margin:0 20px 20px 0}
 img.alignright{float:right;margin:0 0 20px 20px}
 img.aligncenter{margin-left:auto;margin-right:auto}
-.wp-block-image figcaption{color:#505156;text-align:left;font-size:14px;font-style:normal}
+.wp-block-image figcaption{color:#505156;text-align:left;font-size:.85rem;font-style:italic;line-height:1.5;padding:.25rem}
 .diagram-modal-button{-webkit-transition:-webkit-transform .3s ease;transition:-webkit-transform .3s ease;transition:transform .3s ease;transition:transform .3s ease,-webkit-transform .3s ease;border:0;background-color:transparent;line-height:0;padding:0}
 .diagram-modal-button figure{margin:0}
-.diagram-modal-button:hover{-webkit-transform:scale(1.025);transform:scale(1.025)}
+.diagram-modal-button img{-webkit-transition:-webkit-transform .3s ease;transition:-webkit-transform .3s ease;transition:transform .3s ease;transition:transform .3s ease,-webkit-transform .3s ease}
+.diagram-modal-button:hover img{-webkit-transform:scale(1.025);transform:scale(1.025);-webkit-transition:-webkit-transform .3s ease;transition:-webkit-transform .3s ease;transition:transform .3s ease;transition:transform .3s ease,-webkit-transform .3s ease}
 .diagram-modal-button:focus{outline:2px dotted black}
 .wp-block-table{border-collapse:collapse;width:100%}
 .wp-block-table td,.wp-block-table th{padding:.5em;border:1px solid}
@@ -594,6 +595,7 @@ ul.block-location-finder__list{padding-left:0}
 .block-tabbed-content__panel{border:dashed 1.25px rgba(0,0,0,0.45);margin:.25em;padding:.25em}
 .block-tabbed-content__tab__title{border:1px dashed #fff;display:block;font-size:14px;background:black;color:white;padding:.55em .25em .25em .25em;border-radius:10px;-webkit-transform:translateY(-50%);transform:translateY(-50%);position:relative;margin:0}
 .block-tabbed-content__tab__title:before{content:'TAB: ';display:inline}
+.wp-admin .editor-styles-wrapper .only-mobile{display:unset}
 .block-mega-button a{pointer-events:none}
 .wp-block-acf-mega-button.is-style-shadowed{-webkit-box-shadow:none;box-shadow:none}
 lite-youtube{background-color:#000;position:relative;display:block;contain:content;background-position:center center;background-size:cover;cursor:pointer;max-width:720px}
@@ -619,7 +621,6 @@ h1{font-size:3em}
 h2{font-size:2.6em}
 h3{font-size:1.8em}
 h4,h5,h6{font-size:22px}
-.only-mobile{display:none}
 .align-right-tablet{-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end;display:-webkit-box;display:-ms-flexbox;display:flex;text-align:right}
 .is-style-subhead1{font-size:28px}
 .is-style-subhead2{font-size:24px}

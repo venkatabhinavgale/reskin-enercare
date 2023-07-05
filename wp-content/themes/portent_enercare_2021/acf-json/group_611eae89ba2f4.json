@@ -88,6 +88,26 @@
             "mime_types": ""
         },
         {
+            "key": "field_649c7493f0bf6",
+            "label": "Is Private",
+            "name": "is_private",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Toggle this on to exclude this campaign from the Special Offers listing page.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
+        },
+        {
             "key": "field_611eaea17df12",
             "label": "Start Date",
             "name": "start_date",
@@ -252,26 +272,6 @@
             "maxlength": "",
             "rows": "",
             "new_lines": ""
-        },
-        {
-            "key": "field_649c7493f0bf6",
-            "label": "Is Private",
-            "name": "is_private",
-            "aria-label": "",
-            "type": "true_false",
-            "instructions": "Toggle this on to exclude this campaign from the Special Offers listing page.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 0,
-            "ui_on_text": "",
-            "ui_off_text": "",
-            "ui": 1
         }
     ],
     "location": [
@@ -298,5 +298,6 @@
     "active": true,
     "description": "",
     "show_in_rest": 1,
-    "modified": 1687975154
+    "modified": 1688584420,
+    "local_file": "\/Users\/jeremiah\/Local Sites\/enercare-2021\/app\/public\/wp-content\/themes\/portent_enercare_2021\/acf-json\/group_611eae89ba2f4.json"
 }
