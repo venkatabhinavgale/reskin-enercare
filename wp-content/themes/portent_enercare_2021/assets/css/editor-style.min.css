@@ -171,10 +171,11 @@ img{display:block;max-width:100%;height:auto}
 img.alignleft{float:left;margin:0 20px 20px 0}
 img.alignright{float:right;margin:0 0 20px 20px}
 img.aligncenter{margin-left:auto;margin-right:auto}
-.wp-block-image figcaption{color:#505156;text-align:left;font-size:14px;font-style:normal}
+.wp-block-image figcaption{color:#505156;text-align:left;font-size:.85rem;font-style:italic;line-height:1.5;padding:.25rem}
 .diagram-modal-button{-webkit-transition:-webkit-transform .3s ease;transition:-webkit-transform .3s ease;transition:transform .3s ease;transition:transform .3s ease,-webkit-transform .3s ease;border:0;background-color:transparent;line-height:0;padding:0}
 .diagram-modal-button figure{margin:0}
-.diagram-modal-button:hover{-webkit-transform:scale(1.025);transform:scale(1.025)}
+.diagram-modal-button img{-webkit-transition:-webkit-transform .3s ease;transition:-webkit-transform .3s ease;transition:transform .3s ease;transition:transform .3s ease,-webkit-transform .3s ease}
+.diagram-modal-button:hover img{-webkit-transform:scale(1.025);transform:scale(1.025);-webkit-transition:-webkit-transform .3s ease;transition:-webkit-transform .3s ease;transition:transform .3s ease;transition:transform .3s ease,-webkit-transform .3s ease}
 .diagram-modal-button:focus{outline:2px dotted black}
 .wp-block-table{border-collapse:collapse;width:100%}
 .wp-block-table td,.wp-block-table th{padding:.5em;border:1px solid}

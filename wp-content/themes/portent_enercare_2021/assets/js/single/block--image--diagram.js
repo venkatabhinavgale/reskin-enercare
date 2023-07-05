@@ -9,8 +9,9 @@ if(typeof blogImages !== 'undefined') {
         newButton.setAttribute('aria-label', `${elem.getAttribute('alt')} click this image to enlarge it`);
         newButton.addEventListener('click', function(event) {
             const imageElement = this.querySelector('img');
+            const imageCaption = this.querySelector('figcaption') ? this.querySelector('figcaption').textContent : false;
             console.log(this.currentSrc);
-            openPostImageModal(imageElement);
+            openPostImageModal(imageElement, imageCaption);
         });
 
         insertAfter(newButton, elem);
@@ -36,10 +37,19 @@ MicroModal.init({
 /*
 Transfer a new image source into the modal and open it
  */
-const openPostImageModal = (sourceImage) => {
-    let imageModal = document.getElementById('modal-post-image-element');
-    imageModal.src= sourceImage.currentSrc;
-    imageModal.setAttribute('alt', sourceImage.getAttribute('alt'));
+const openPostImageModal = (sourceImage, caption) => {
+    let imageModal = document.getElementById('modal-post-image');
+    let imageModalFigure = document.getElementById('modal-post-image-element');
+    imageModalFigure.src= sourceImage.currentSrc;
+    imageModalFigure.setAttribute('alt', sourceImage.getAttribute('alt'));
+
+    if( caption ) {
+        let imageModalCaption = imageModal.querySelector('.modal__title');
+        imageModalCaption.textContent = caption;
+        imageModalFigure.setAttribute('aria-describedby', imageModalCaption.id);
+
+    }
+
     MicroModal.show('modal-post-image');
 };
 //Push image into micromodal
