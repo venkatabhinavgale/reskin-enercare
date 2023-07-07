@@ -117,6 +117,7 @@ if (isset($campaign) && !empty($campaign)) {
   <?php
   	switch($variation) {
 		case 'Masthead Offer Card':
+      $classes .= ' block-offer-card__wrapper__masthead';
 			require get_template_directory() . '/partials/campaign-masthead.php';
 			break;
 
