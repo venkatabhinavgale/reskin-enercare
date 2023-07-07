@@ -71,7 +71,7 @@ function enercare_register_theme_blocks() {
 			  'mode'  => false,
 			  'color' => array(
 				  'background' => true,
-				  'text' => false
+				  'text' => true
 			  )
 		  ),
 	  ));

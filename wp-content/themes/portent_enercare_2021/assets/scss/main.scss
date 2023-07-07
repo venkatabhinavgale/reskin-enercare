@@ -20,6 +20,9 @@
 @import "vendor/micro-modal-styles";
 @import "partials/search";
 
+/**
+* High specificity helpers that HAVE to be at this level and outside of the editor
+*/
 .only-mobile {
 
 	@include media('>=tablet') {

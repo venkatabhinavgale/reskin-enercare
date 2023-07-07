@@ -201,6 +201,7 @@ h1{font-size:2em;line-height:3.750rem}
 h2{font-size:1.75em;line-height:3.500rem}
 h3{font-size:1.5em;line-height:3rem}
 h4,h5,h6{font-size:18px}
+img.emoji{display:inline}
 .is-style-shadowed{-webkit-box-shadow:0 4px 8px 0 rgba(56,61,67,0.3);box-shadow:0 4px 8px 0 rgba(56,61,67,0.3)}
 .is-style-bordered{border:1px solid #da1b27}
 .is-style-pros{padding-left:0 !important}
