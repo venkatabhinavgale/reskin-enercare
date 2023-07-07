@@ -14,11 +14,11 @@
 .block-offer-card__wrapper{text-align:center;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-flow:column;flex-flow:column;padding:0;height:100%}
 .block-offer-card__wrapper a button{border-style:none;background:0}
 .block-offer-card__wrapper a button .wp-block-button__link{padding:12px 24px;border-radius:24px}
-.block-offer-card__wrapper__masthead{background-color:rgba(0,0,0,0.8) !important;border-style:none;background:0;padding:48px;text-align:left}
-.block-offer-card__wrapper__masthead h3{font-size:2.5em;line-height:48px;font-weight:900}
-.block-offer-card__wrapper__masthead .block-offer-card__offer-expiration{font-size:.75em;line-height:1rem}
+.block-offer-card__wrapper__masthead{background-color:rgba(0,0,0,0.8);border-style:none;background:0;padding:48px;text-align:left}
+.block-offer-card__wrapper__masthead h3{font-size:2.5rem;line-height:48px;font-weight:900}
+.block-offer-card__wrapper__masthead .block-offer-card__offer-expiration{font-size:.75rem;line-height:1rem}
 .block-offer-card__wrapper__masthead .block-offer-card__subheading{font-size:1.125em;font-weight:700;line-height:24px;letter-spacing:-0.17px}
-.block-offer-card__wrapper__masthead .block-offer-card__terms-toggle{font-size:12px;color:#fff;text-decoration:none;line-height:16px}
+.block-offer-card__wrapper__masthead .block-offer-card__terms-toggle{font-size:.750rem;text-decoration:none;line-height:1.25}
 .block-offer-card__wrapper__masthead button{background:0;border-style:none}
 .block-offer-card__wrapper__masthead .wp-block-button__link{padding:16px 48px;border-radius:36px}
 .block-offer-card__wrapper__full-width{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}
@@ -47,7 +47,7 @@
 @media(min-width:768px){.block-offer-card__offer-expiration{font-size:.875em}
 .block-offer-card__heading{font-size:2em}
 .block-offer-card__heading{line-height:3rem;letter-spacing:-0.38px}
-.block-offer-card__wrapper__masthead h3{font-size:3.75em}
+.block-offer-card__wrapper__masthead h3{font-size:3.75rem}
 .block-offer-card__wrapper__masthead h3{letter-spacing:-0.49px;line-height:3.750rem}
 .block-offer-card__wrapper__full-width{-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}
 .block-offer-card__wrapper__full-width .block-offer-card__image{margin-top:0;width:66%}

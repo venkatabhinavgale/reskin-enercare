@@ -107,7 +107,7 @@
 		/* Masthead Offer Card */
 
 		&__masthead {
-			background-color: rgba(0, 0, 0, 0.8) !important;
+			background-color: rgba(0, 0, 0, 0.8);
 			border-style: none;
 			background: none;
 			padding: 48px;
@@ -117,7 +117,7 @@
 			text-align: left;
 
 			h3 {
-				@include font-sizes(2.5em, 3.750em);
+				@include font-sizes(2.5rem, 3.750rem);
 				line-height: 48px;
 				font-weight: 900;
 
@@ -130,7 +130,7 @@
 			.block-offer-card {
 
 				&__offer-expiration {
-					@include font-sizes(0.750em);
+					@include font-sizes(0.750rem);
 					line-height: 1rem;
 				}
 
@@ -142,10 +142,9 @@
 				}
 
 				&__terms-toggle {
-					font-size: 12px;
-					color: $white;
+					font-size: 0.750rem;
 					text-decoration: none;
-					line-height: 16px;
+					line-height: 1.25;
 				}
 			}
 
