@@ -1,45 +1,52 @@
 .block-newsletter-form {
 
 	&__container {
-		display: flex;
+		display: block;
 		flex-direction: column;
 		padding: 32px 24px;
 
 		@include media(">=desktop") {
+			display: flex;
 			flex-direction: row;
 			justify-content: center;
 			padding: 64px 0;
+			width: 70vw;
+			margin-left: auto;
+			margin-right: auto;
 		}
 
 	}
 
 	&__content-container {
 
+		border-bottom: 2px solid $grey_3;
+		margin-bottom: 1.25rem;
+
 		@include media(">=desktop") {
-			display: grid;
+			display: flex;
 			border-right: 1px solid $grey_3;
-			padding-right: 1.5em;
+			padding-right: 10%;
   			grid-template-columns: .25fr 1fr 1fr; 
   			grid-template-rows: .2fr 1fr; 
   			gap: 0px 24px; 
-  			grid-template-areas: 
-    		". heading heading"
-    		"image content content"; 
+			  margin-bottom: 0;
+			  border-bottom: none;
 		}
 
 	}
 
 	&__image {
 		display: none;
+		object-fit: contain;
 
 		@include media(">=desktop") {
 			grid-area: image;
 			background: no-repeat center;
 			background-size: contain;
-			height: 100px;
-			width: 100px;
+			height: 80px;
+			width: 80px;
 			max-width: 100px;
-			content: url("../icons/utility/email-signup--black.svg");
+			// content: url("../icons/utility/email-signup--black.svg");
 			display: block;
 		}
 	}
@@ -59,22 +66,27 @@
 	}
 
 	&__content {
-		font-size: 24px;
-		line-height: 28px;
-		font-weight: 900;
-		margin-bottom: 24px;
-		align-self: center;
-		margin-left: 24px;
+		font-size: 1rem;
+		line-height: 1.25;
+		font-weight: 400;
+		margin-bottom: 1.5rem;
+
+		h2 {
+			font-size: 1.5rem;
+			line-height: 110%;
+		}
 
 		@include media(">=desktop") {
 			grid-area: content;
 			text-align: left;
+			font-size: 1rem;
+			line-height: 1.2;
 			margin-left: 0;
-			font-size: 40px;
-			line-height: 48px;
 			margin-bottom: 0;
 			margin-top: 16px;
 		}
+
+		
 	}
 
 	&__form-container {
@@ -83,6 +95,7 @@
 		@include media(">=desktop") {
 			margin: 0 0 0 24px;
 			align-self: center;
+			flex-basis: 40%;
 		}
 
 		.gform_wrapper {
@@ -93,7 +106,7 @@
 
 		form {
 			display: flex;
-			flex-direction: row;
+			flex-direction: column;
 
 			.gform_body {
 				label.gfield_label {
