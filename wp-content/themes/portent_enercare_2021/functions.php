@@ -413,6 +413,11 @@ function enercare_setup() {
 			'color' => '#D1EBFB',
 		),
 		array(
+			'name' => __( 'Bluejay Blue', 'portent'),
+			'slug' => 'bluejay-blue',
+			'color' => '#134A8E'
+		),
+		array(
 			'name'  => __( 'Grey (Text)', 'portent' ),
 			'slug'  => 'grey',
 			'color' => '#29292C',
