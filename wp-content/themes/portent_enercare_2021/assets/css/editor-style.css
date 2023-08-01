@@ -1033,6 +1033,12 @@ Flex Helpers
 .wp-block-button__link.has-lighter-blue-background-color:hover, .wp-block-button__link.has-lighter-blue-background-color:focus {
   background-color: #a2d7f7;
 }
+.wp-block-button__link.has-bluejay-blue-color:hover, .wp-block-button__link.has-bluejay-blue-color:focus {
+  color: #134A8E;
+}
+.wp-block-button__link.has-bluejay-blue-background-color:hover, .wp-block-button__link.has-bluejay-blue-background-color:focus {
+  background-color: #0d3361;
+}
 .wp-block-button__link.has-black-color:hover, .wp-block-button__link.has-black-color:focus {
   color: #000;
 }
@@ -1378,6 +1384,14 @@ Diagram Style for Images
 
 .has-lighter-blue-background-color {
   background-color: #D1EBFB;
+}
+
+.has-bluejay-blue-color {
+  color: #134A8E;
+}
+
+.has-bluejay-blue-background-color {
+  background-color: #134A8E;
 }
 
 .has-black-color {
