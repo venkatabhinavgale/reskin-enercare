@@ -29,15 +29,20 @@
   			grid-template-columns: .25fr 1fr 1fr; 
   			grid-template-rows: .2fr 1fr; 
   			gap: 0px 24px; 
-			  margin-bottom: 0;
-			  border-bottom: none;
+			margin-bottom: 0;
+			border-bottom: none;
 		}
 
 	}
 
 	&__image {
-		display: none;
-		object-fit: contain;
+		display: block;
+    	object-fit: contain;
+    	width: 80px;
+    	margin-left: auto;
+    	margin-right: auto;
+    	margin-bottom: 1rem;
+    	height: auto;
 
 		@include media(">=desktop") {
 			grid-area: image;

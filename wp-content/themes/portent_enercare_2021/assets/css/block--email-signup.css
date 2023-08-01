@@ -94,8 +94,13 @@ Accordion Icon
   }
 }
 .block-newsletter-form__image {
-  display: none;
+  display: block;
   object-fit: contain;
+  width: 80px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1rem;
+  height: auto;
 }
 @media (min-width: 1200px) {
   .block-newsletter-form__image {

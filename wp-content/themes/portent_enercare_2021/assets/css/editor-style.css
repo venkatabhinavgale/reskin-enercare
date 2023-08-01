@@ -3299,9 +3299,14 @@ Provision for use within the carousel block
   }
 }
 .block-newsletter-form__image {
-  display: none;
+  display: block;
   -o-object-fit: contain;
      object-fit: contain;
+  width: 80px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1rem;
+  height: auto;
 }
 @media (min-width: 1200px) {
   .block-newsletter-form__image {
