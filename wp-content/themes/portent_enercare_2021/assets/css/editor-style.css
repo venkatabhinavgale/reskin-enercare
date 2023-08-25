@@ -3537,7 +3537,7 @@ Provision for use within the carousel block
 }
 .block-offer-card__heading {
   font-size: 1.5em;
-  line-height: 1.75rem;
+  line-height: 1.25;
   letter-spacing: -0.15px;
   font-weight: 900;
   margin-bottom: 0;
@@ -3559,8 +3559,61 @@ Provision for use within the carousel block
 }
 @media (min-width: 768px) {
   .block-offer-card__heading {
-    line-height: 3rem;
     letter-spacing: -0.38px;
+  }
+}
+.block-offer-card__heading.is-font-size-large {
+  font-size: 2.5rem;
+}
+@media (min-width: 768px) {
+  .block-offer-card__heading.is-font-size-large {
+    font-size: 3rem;
+  }
+}
+@media (min-width: 992px) {
+  .block-offer-card__heading.is-font-size-large {
+    font-size: 3.75rem;
+  }
+}
+@media (min-width: 1200px) {
+  .block-offer-card__heading.is-font-size-large {
+    font-size: 3.75rem;
+  }
+}
+.block-offer-card__heading.is-font-size-normal {
+  font-size: 1.5em;
+}
+@media (min-width: 768px) {
+  .block-offer-card__heading.is-font-size-normal {
+    font-size: 2em;
+  }
+}
+@media (min-width: 992px) {
+  .block-offer-card__heading.is-font-size-normal {
+    font-size: 2.5em;
+  }
+}
+@media (min-width: 1200px) {
+  .block-offer-card__heading.is-font-size-normal {
+    font-size: 2.5em;
+  }
+}
+.block-offer-card__heading.is-font-size-small {
+  font-size: 1rem;
+}
+@media (min-width: 768px) {
+  .block-offer-card__heading.is-font-size-small {
+    font-size: 1.5rem;
+  }
+}
+@media (min-width: 992px) {
+  .block-offer-card__heading.is-font-size-small {
+    font-size: 2rem;
+  }
+}
+@media (min-width: 1200px) {
+  .block-offer-card__heading.is-font-size-small {
+    font-size: 2rem;
   }
 }
 .block-offer-card__image {
@@ -3606,22 +3659,6 @@ Provision for use within the carousel block
   background: none;
   padding: 48px;
   text-align: left;
-}
-.block-offer-card__wrapper__masthead h3 {
-  font-size: 2.5rem;
-  line-height: 48px;
-  font-weight: 900;
-}
-@media (min-width: 768px) {
-  .block-offer-card__wrapper__masthead h3 {
-    font-size: 3.75rem;
-  }
-}
-@media (min-width: 768px) {
-  .block-offer-card__wrapper__masthead h3 {
-    letter-spacing: -0.49px;
-    line-height: 3.75rem;
-  }
 }
 .block-offer-card__wrapper__masthead .block-offer-card__offer-expiration {
   font-size: 0.75rem;

@@ -53,14 +53,25 @@
 
 	&__heading {
 		@include font-sizes(1.5em, 2em, 2.5em, 2.5em);
-		line-height: 1.75rem;
+		line-height: 1.25;
 		letter-spacing: -0.15px;
 		font-weight: 900;
 		margin-bottom: 0;
 
 		@include media(">=tablet") {
-			line-height: 3rem;
 			letter-spacing: -0.38px;
+		}
+
+		&.is-font-size-large {
+			@include font-sizes(2.5rem, 3rem, 3.750rem, 3.750rem);
+		}
+
+		&.is-font-size-normal {
+			@include font-sizes(1.5em, 2em, 2.5em, 2.5em);
+		}
+
+		&.is-font-size-small {
+			@include font-sizes(1rem, 1.5rem, 2rem, 2rem);
 		}
 	}
 
@@ -115,17 +126,6 @@
 			//flex-direction: column;
 			//justify-content: flex-start;
 			text-align: left;
-
-			h3 {
-				@include font-sizes(2.5rem, 3.750rem);
-				line-height: 48px;
-				font-weight: 900;
-
-				@include media('>=tablet') {
-					letter-spacing: -0.49px;
-					line-height: 3.750rem;
-				}
-			}
 
 			.block-offer-card {
 

@@ -6,6 +6,10 @@ if( !empty($block['className']) ) {
 }
 if( !empty($block['align']) ) {
 	$classes .= sprintf( ' align%s', $block['align'] );
+
+}
+if( !empty($block['fontSize']) ) {
+	$classes .= sprintf( ' is-font-size-%s', $block['fontSize'] );
 }
 
 if( !empty($block['backgroundColor'] ) ) {

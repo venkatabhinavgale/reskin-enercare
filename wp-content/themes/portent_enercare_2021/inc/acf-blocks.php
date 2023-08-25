@@ -72,7 +72,11 @@ function enercare_register_theme_blocks() {
 			  'color' => array(
 				  'background' => true,
 				  'text' => true
-			  )
+			  ),
+			  'typography' => array(
+				'fontSize' => true,
+				'lineHeight' => false,
+			  ),
 		  ),
 	  ));
 
