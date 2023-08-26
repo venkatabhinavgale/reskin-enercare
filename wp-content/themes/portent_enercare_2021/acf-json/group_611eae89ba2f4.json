@@ -43,6 +43,26 @@
             "maxlength": ""
         },
         {
+            "key": "field_64e948f4df66b",
+            "label": "Excerpt",
+            "name": "excerpt",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Use this field to supply a short paragraph of supplemental text to be shown under the header",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": 4,
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
             "key": "field_618d7a37e0183",
             "label": "CTA Text",
             "name": "cta_text",
@@ -86,26 +106,6 @@
             "max_height": "",
             "max_size": "",
             "mime_types": ""
-        },
-        {
-            "key": "field_649c7493f0bf6",
-            "label": "Is Private",
-            "name": "is_private",
-            "aria-label": "",
-            "type": "true_false",
-            "instructions": "Toggle this on to exclude this campaign from the Special Offers listing page.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 0,
-            "ui_on_text": "",
-            "ui_off_text": "",
-            "ui": 1
         },
         {
             "key": "field_611eaea17df12",
@@ -272,6 +272,26 @@
             "maxlength": "",
             "rows": "",
             "new_lines": ""
+        },
+        {
+            "key": "field_649c7493f0bf6",
+            "label": "Is Private",
+            "name": "is_private",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Toggle this on to exclude this campaign from the Special Offers listing page.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
         }
     ],
     "location": [
@@ -298,6 +318,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 1,
-    "modified": 1688584420,
-    "local_file": "\/Users\/jeremiah\/Local Sites\/enercare-2021\/app\/public\/wp-content\/themes\/portent_enercare_2021\/acf-json\/group_611eae89ba2f4.json"
+    "modified": 1693010221
 }
