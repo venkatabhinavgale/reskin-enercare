@@ -3581,39 +3581,48 @@ Provision for use within the carousel block
   }
 }
 .block-offer-card__heading.is-font-size-normal {
-  font-size: 1.5em;
+  font-size: 1.5rem;
 }
 @media (min-width: 768px) {
   .block-offer-card__heading.is-font-size-normal {
-    font-size: 2em;
+    font-size: 2rem;
   }
 }
 @media (min-width: 992px) {
   .block-offer-card__heading.is-font-size-normal {
-    font-size: 2.5em;
+    font-size: 3.25rem;
   }
 }
 @media (min-width: 1200px) {
   .block-offer-card__heading.is-font-size-normal {
-    font-size: 2.5em;
+    font-size: 3.25rem;
   }
 }
 .block-offer-card__heading.is-font-size-small {
-  font-size: 1rem;
+  font-size: 1.5rem;
 }
 @media (min-width: 768px) {
   .block-offer-card__heading.is-font-size-small {
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
 }
 @media (min-width: 992px) {
   .block-offer-card__heading.is-font-size-small {
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
 }
 @media (min-width: 1200px) {
   .block-offer-card__heading.is-font-size-small {
-    font-size: 2rem;
+    font-size: 2.5rem;
+  }
+}
+.block-offer-card__excerpt {
+  font-size: 1.125rem;
+  font-weight: 900;
+}
+@media (min-width: 768px) {
+  .block-offer-card__excerpt {
+    font-size: 1.375rem;
   }
 }
 .block-offer-card__image {

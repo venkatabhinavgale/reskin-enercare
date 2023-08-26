@@ -95,6 +95,7 @@ if (!$override) {
 if (isset($campaign) && !empty($campaign)) {
   $campaign_heading = get_field('heading', $campaign->ID);
   $campaign_subheading = get_field('subheading', $campaign->ID);
+  $campaign_excerpt = get_field('excerpt', $campaign->ID);
   $campaign_image = wp_get_attachment_image( get_field('icon', $campaign->ID), '3-2', false, array( 'class' =>'block-offer-card__image', 'alt'=>'') );
   $campaign_expiration = get_field('end_date', $campaign->ID);
   $campaign_destination = get_field('destination', $campaign->ID);
