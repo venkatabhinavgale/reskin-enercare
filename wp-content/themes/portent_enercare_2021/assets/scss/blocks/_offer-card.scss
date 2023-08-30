@@ -1,5 +1,4 @@
 .block-offer-card {
-
 	//Store the parent
 	$block-offer-card: &;
 
@@ -139,6 +138,7 @@
 					font-weight: 700;
 					line-height: 24px;
 					letter-spacing: -0.17px;
+
 				}
 
 				&__terms-toggle {
@@ -222,6 +222,42 @@
 			}
 		}
 
+		
+
+		
+
+	}
+
+	/* Blue Highlight */
+
+	&__blue-highlight {
+		border-radius: 0.5rem;
+		overflow: hidden;
+
+		.block-offer-card {
+			&__container {
+				padding: 1.5rem;
+				height: auto;
+			}
+			&__heading {
+				@include font-sizes(1.5em, 1.5em, 1.5em, 1.5em);
+				line-height: 1.4;
+			}
+			&__subheading {
+				background-color: #b5d5eb;
+				text-align: center;
+				margin-bottom: 0;
+				padding: 0.5rem 0;
+			}
+			&__offer-expiration {
+				margin-top: 1rem;
+				font-weight: 600;
+			}
+			&__terms-toggle {
+				display: block;
+				margin: 16px  auto 0 auto;
+			}
+		}
 	}
 
 }

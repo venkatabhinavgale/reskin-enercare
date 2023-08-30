@@ -303,6 +303,8 @@ img.emoji{display:inline}
 .wp-block-button__link.has-light-blue-background-color:hover,.wp-block-button__link.has-light-blue-background-color:focus{background-color:#9bceec}
 .wp-block-button__link.has-lighter-blue-color:hover,.wp-block-button__link.has-lighter-blue-color:focus{color:#d1ebfb}
 .wp-block-button__link.has-lighter-blue-background-color:hover,.wp-block-button__link.has-lighter-blue-background-color:focus{background-color:#a2d7f7}
+.wp-block-button__link.has-bluejay-blue-color:hover,.wp-block-button__link.has-bluejay-blue-color:focus{color:#134a8e}
+.wp-block-button__link.has-bluejay-blue-background-color:hover,.wp-block-button__link.has-bluejay-blue-background-color:focus{background-color:#0d3361}
 .wp-block-button__link.has-black-color:hover,.wp-block-button__link.has-black-color:focus{color:#000}
 .wp-block-button__link.has-black-background-color:hover,.wp-block-button__link.has-black-background-color:focus{background-color:#000}
 .wp-block-button__link.has-grey-color:hover,.wp-block-button__link.has-grey-color:focus{color:#29292c}
@@ -366,6 +368,8 @@ img.aligncenter{margin-left:auto;margin-right:auto}
 .has-light-blue-background-color{background-color:#c6e3f4}
 .has-lighter-blue-color{color:#d1ebfb}
 .has-lighter-blue-background-color{background-color:#d1ebfb}
+.has-bluejay-blue-color{color:#134a8e}
+.has-bluejay-blue-background-color{background-color:#134a8e}
 .has-black-color{color:#000}
 .has-black-background-color{background-color:#000}
 .has-grey-color{color:#29292c}
