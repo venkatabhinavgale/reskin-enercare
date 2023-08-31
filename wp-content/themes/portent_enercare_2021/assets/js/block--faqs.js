@@ -5,10 +5,8 @@ window.addEventListener('load', function () {
   Array.prototype.forEach.call(tcToggle, function (tc) {
     var button = tc.querySelector('button');
     var panel = tc.nextElementSibling;
-
     button.onclick = function () {
       console.log('clicking');
-
       if (button.getAttribute("aria-expanded") === "true") {
         button.setAttribute("aria-expanded", "false");
         panel.setAttribute("data-state", "closed");

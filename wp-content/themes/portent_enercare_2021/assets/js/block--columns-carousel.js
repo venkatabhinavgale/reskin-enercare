@@ -1,6 +1,7 @@
 "use strict";
 
-window.addEventListener('load', function () {// let columnCarousel = document.querySelectorAll('.wp-block-columns.is-mobile-carousel');
+window.addEventListener('load', function () {
+  // let columnCarousel = document.querySelectorAll('.wp-block-columns.is-mobile-carousel');
   // columnCarousel.forEach(function(carousel) {
   //
   // 	let id = '5772835235';

@@ -6,7 +6,6 @@ window.addEventListener('load', function () {
     tc.addEventListener("click", function () {
       var termsContent = tc.querySelector('.legal__terms-details');
       var termsButton = tc.querySelector('.legal__terms-toggle');
-
       if (termsButton.getAttribute("aria-expanded") == "true") {
         termsButton.setAttribute("aria-expanded", "false");
         termsContent.setAttribute("data-state", "closed");

@@ -2,7 +2,6 @@
 
 //Setup images with click events
 var blogImages = document.querySelectorAll('.wp-block-image.is-style-diagram');
-
 if (typeof blogImages !== 'undefined') {
   blogImages.forEach(function (elem) {
     //elem.setAttribute('data-image-open', 'modal-post-image');
@@ -19,9 +18,9 @@ if (typeof blogImages !== 'undefined') {
     newButton.appendChild(elem.cloneNode(true));
     elem.remove();
   });
-} //Init Micromodal
+}
 
-
+//Init Micromodal
 MicroModal.init({
   onShow: function onShow(modal) {
     return console.info("".concat(modal.id, " is shown"));
@@ -46,24 +45,23 @@ MicroModal.init({
   awaitCloseAnimation: false,
   // [9]
   debugMode: true // [10]
-
 });
+
 /*
 Transfer a new image source into the modal and open it
  */
-
 var openPostImageModal = function openPostImageModal(sourceImage, caption) {
   var imageModal = document.getElementById('modal-post-image');
   var imageModalFigure = document.getElementById('modal-post-image-element');
   imageModalFigure.src = sourceImage.currentSrc;
   imageModalFigure.setAttribute('alt', sourceImage.getAttribute('alt'));
-
   if (caption) {
     var imageModalCaption = imageModal.querySelector('.modal__title');
     imageModalCaption.textContent = caption;
     imageModalFigure.setAttribute('aria-describedby', imageModalCaption.id);
   }
-
   MicroModal.show('modal-post-image');
-}; //Push image into micromodal
+};
+//Push image into micromodal
+
 //Show Micromodal

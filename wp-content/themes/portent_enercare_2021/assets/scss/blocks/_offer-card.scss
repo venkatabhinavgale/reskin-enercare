@@ -248,11 +248,12 @@
 				@include font-sizes(1.5em, 1.5em, 1.5em, 1.5em);
 				line-height: 1.4;
 			}
-			&__subheading {
+			&__category {
 				background-color: #b5d5eb;
 				text-align: center;
 				margin-bottom: 0;
 				padding: 0.5rem 0;
+				font-weight: 700;
 			}
 			&__offer-expiration {
 				margin-top: 1rem;

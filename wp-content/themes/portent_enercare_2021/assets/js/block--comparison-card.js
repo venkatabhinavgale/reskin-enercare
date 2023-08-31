@@ -9,7 +9,6 @@ window.addEventListener('load', function () {
       var cardContentParent = cardContent.parentElement;
       var toggleOpenText = cc.getAttribute("data-toggle-open");
       var toggleCloseText = cc.getAttribute("data-toggle-close");
-
       if (cc.getAttribute("aria-expanded") == "true") {
         cc.setAttribute("aria-expanded", "false");
         cardContent.setAttribute("data-state", "closed");

@@ -29,12 +29,10 @@ jQuery(function ($) {
   } //Search each select container for buttons with aria-pressed = true
   //If a filter group has a child element that has been pressed add a data-active attribute to the group control
 
-
   function flagActiveFilters() {
     $('.select-container').each(function () {
       var activeFilters = $(this).find('.multi-dropdown-button[aria-pressed="true"]');
       var thisFilterControl = $(this).find('.taxonomy-filters__category-control');
-
       if (0 < activeFilters.length) {
         thisFilterControl.attr('data-active', 'true');
       } else {
@@ -42,7 +40,6 @@ jQuery(function ($) {
       }
     });
   } //Reset the active filter by stripping query parameters from the url and pushing a new history state.
-
 
   function resetFilter() {
     var vanillaURL = window.location.href.split('?')[0];
@@ -52,7 +49,6 @@ jQuery(function ($) {
     displayFilteredResults(vanillaURL);
   } //DRY helper function to push a new url into the window history
 
-
   function pushHistoryState(updatedUrl) {
     if (history.pushState) {
       window.history.pushState('', '', updatedUrl);
@@ -60,7 +56,6 @@ jQuery(function ($) {
       document.location.href = updatedUrl;
     }
   } //Using a url collect and display new filtered results
-
 
   function displayFilteredResults(updatedUrl) {
     console.log("updatedUrl", updatedUrl);
@@ -77,7 +72,6 @@ jQuery(function ($) {
       }
     });
   } //Filter reset hookup
-
 
   $('.filter-reset').on('click', function () {
     resetFilter();
@@ -98,7 +92,6 @@ jQuery(function ($) {
     // @TODO: when first engagement with filters, yank /page/#/ from URL
     var remove = false;
     var firstInteraction = false;
-
     if ('true' === $(this).attr('aria-pressed')) {
       $(this).attr('aria-pressed', false);
       remove = true;
@@ -107,22 +100,18 @@ jQuery(function ($) {
     } //Run check for active filter buttons to better signal filter group status after aria-pressed status is updated for this target
     // eslint-disable-next-line no-mixed-spaces-and-tabs
 
-
     flagActiveFilters();
     var currentUrl = new URL(window.location.href);
     var cat = currentUrl.searchParams.get('cat');
     var cats = [];
-
     if (cat && cat.length) {
       cats = cat.split(',');
     } else {
       firstInteraction = true;
     }
-
     if (!cat || !remove && !cat.includes($(this).attr('data-taxonomy'))) {
       cats.push($(this).attr('data-taxonomy'));
     }
-
     for (var i = 0; i < cats.length; i++) {
       window['terms-' + cats[i]] = currentUrl.searchParams.get('terms-' + cats[i]); // only make adjustments to the term param associated with the button pressed
 
@@ -141,7 +130,6 @@ jQuery(function ($) {
           window['terms-' + cats[i]] = $(this).attr('data-term');
         }
       }
-
       if ('' === window['terms-' + cats[i]]) {
         currentUrl.searchParams.delete('terms-' + cats[i]);
       } else {
@@ -149,7 +137,6 @@ jQuery(function ($) {
         currentUrl.searchParams.set('terms-' + cats[i], window['terms-' + cats[i]]);
       }
     }
-
     if (cat && cat.length) {
       if (remove && 0 === window['terms-' + $(this).attr('data-taxonomy')].length) {
         // remove from list attempt
@@ -164,27 +151,23 @@ jQuery(function ($) {
       cat = $(this).attr('data-taxonomy');
     } // set the URL cat params
 
-
     if ('' === cat) {
       currentUrl.searchParams.delete('cat');
     } else {
       currentUrl.searchParams.set('cat', cat);
     }
-
     var updatedUrl = currentUrl.href;
-
     if (firstInteraction) {
       updatedUrl = currentUrl.href.replace(/\/page\/[0-9]+/, '');
     }
-
     pushHistoryState(updatedUrl);
     displayFilteredResults(updatedUrl);
   }); //Start the page load with a filter check
 
   flagActiveFilters();
   $('.category-filter__select').on('change', function (event) {
-    var searchedTaxonomy = this.value; //console.log(searchedTaxonomy);
-
+    var searchedTaxonomy = this.value;
+    //console.log(searchedTaxonomy);
     var currentUrl = new URL(window.location.href);
     var taxonomySlug = $(this).attr('data-taxonomy');
     var category = currentUrl.searchParams.get(taxonomySlug);
@@ -199,7 +182,6 @@ jQuery(function ($) {
     var currentUrl = new URL(window.location.href);
     var topLevelContainer = $(this).parent().parent();
     var isPostalCode = /^[ABCEGHJ-NPRSTVXY]\d[ABCEGHJ-NPRSTV-Z][ -]?\d[ABCEGHJ-NPRSTV-Z]\d$/i.test(searchedPostalCode);
-
     if (isPostalCode) {
       var postalCode = currentUrl.searchParams.get('postal_code');
       currentUrl.searchParams.set('postal_code', searchedPostalCode);
@@ -211,8 +193,8 @@ jQuery(function ($) {
       topLevelContainer.addClass('has-errors');
       var errorLabel = $(this).parent().parent().find('.form-error');
       console.log(errorLabel);
-      errorLabel.text('Please enter a valid postal code'); // set the global enercare polite status element for screen reading
-
+      errorLabel.text('Please enter a valid postal code');
+      // set the global enercare polite status element for screen reading
       $('#enercare-polite-status').html('').html("Please enter a valid postal code.");
     }
   }); //Single filter criteria control hookup
