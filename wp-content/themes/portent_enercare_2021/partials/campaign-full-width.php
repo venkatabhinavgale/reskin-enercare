@@ -8,7 +8,11 @@
 			<?php if ($campaign_subheading) { ?>
 				<p class="block-offer-card__subheading"><?php echo $campaign_subheading; ?></p>
 			<?php } ?>
-			<h3><?= $campaign_heading; ?></h3>
+			<h3 class="block-offer-card__heading <?= !empty($block['fontSize']) ? 'is-font-size-'.$block['fontSize'] : ''; ?>"><?= $campaign_heading; ?></h3>
+				<?php if(!empty($campaign_excerpt)): ?>
+      				<p class="block-offer-card__excerpt"><?= $campaign_excerpt ?></p>
+    			<?php endif; ?>
+
 				<p class="block-offer-card__offer-expiration">
 					<?php if ($campaign_expiration && $campaign_expiration != "") { ?>
 						Offer expires <?= date('F d, Y', strtotime($campaign_expiration)); ?>.
