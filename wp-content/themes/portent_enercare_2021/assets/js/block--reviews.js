@@ -3,7 +3,9 @@
 window.addEventListener('load', function () {
   var blockReviews = document.querySelector('.block-reviews__glider');
   var prevArrow, prevArrowImage, nextArrow, nextArrowImage, dots, imagePath;
-  imagePath = '/wp-content/themes/portent_enercare_2021/assets/icons/utility/'; //prevArrow = document.createElement( 'button' );
+  imagePath = '/wp-content/themes/portent_enercare_2021/assets/icons/utility/';
+
+  //prevArrow = document.createElement( 'button' );
   // prevArrowImage = document.createElement( 'img' );
   // prevArrow.classList.add( 'button__prev','block-reviews__prev');
   // prevArrow.setAttribute('aria-label', 'Previous');
@@ -12,6 +14,7 @@ window.addEventListener('load', function () {
   // prevArrowImage.setAttribute( 'height', '24');
   // prevArrowImage.setAttribute( 'width', '24');
   // prevArrow.appendChild( prevArrowImage );
+
   // nextArrow = document.createElement( 'button' );
   // nextArrowImage = document.createElement( 'img' );
   // nextArrow.classList.add( 'button__next','block-reviews__next');
@@ -21,13 +24,14 @@ window.addEventListener('load', function () {
   // nextArrowImage.setAttribute( 'height', '24');
   // nextArrowImage.setAttribute( 'width', '24');
   // nextArrow.appendChild( nextArrowImage );
+
   // dots = document.createElement( 'div' );
   // dots.classList.add('dots', 'block-reviews__dots');
   // dots.setAttribute( 'role', 'tablist');
+
   // blockReviews.parentNode.insertBefore(dots, blockReviews.nextSibling);
   // blockReviews.parentNode.insertBefore(nextArrow, blockReviews.nextSibling);
   // blockReviews.parentNode.insertBefore(prevArrow, blockReviews.nextSibling);
-
   var reviewsGlider;
   reviewsGlider = new Glider(blockReviews, {
     slidesToShow: 1,
@@ -68,6 +72,7 @@ window.addEventListener('load', function () {
   CurrentDots.forEach(function (dot) {
     dot.removeAttribute('role');
   });
+
   /**
    * Glider dot update check
    * This function checks the status of the dots within the controls container and updates each
@@ -76,75 +81,65 @@ window.addEventListener('load', function () {
    * and requires that an event object is passed in. The event object has to originate from a glider event
    * @param e
    */
-
   var gliderDotUpdate = function gliderDotUpdate(e) {
     var dots = e.target.parentElement.querySelectorAll('.glider-dot');
-
     if (typeof dots !== 'undefined') {
       dots.forEach(function (elem) {
         //Remove tab role
         elem.removeAttribute('role');
-
         if (elem.classList.contains('active')) {
           elem.setAttribute('aria-selected', 'true');
         } else {
           elem.setAttribute('aria-selected', 'false');
         }
       });
-    } //Remove tab list role
+    }
 
-
+    //Remove tab list role
     var dotsContainer = e.target.parentElement.querySelector('.glider-dots');
-
     if (typeof dotsContainer !== 'undefined') {
       dotsContainer.removeAttribute('role');
     }
   };
+
   /**
    *
    */
-
-
   blockReviews.addEventListener('glider-loaded', gliderDotUpdate);
   /**
    * Glider refresh listener
    */
-
   blockReviews.addEventListener('glider-refresh', gliderDotUpdate);
+
   /**
    * Glider Change Listener
    */
-
   blockReviews.addEventListener('glider-slide-visible', function (event) {
-    gliderNotificationCenter.textContent = "Review ".concat(event.detail.slide + 1, " is now visible"); //Call dot update just in case
-
+    gliderNotificationCenter.textContent = "Review ".concat(event.detail.slide + 1, " is now visible");
+    //Call dot update just in case
     gliderDotUpdate(event);
   });
+
   /**
    * Setup Next/Previous Status Reporters
    */
-
   var reviewsCarouselPrev = document.querySelector('.block-reviews__prev');
   var reviewsCarouselNext = document.querySelector('.block-reviews__next');
-
   var reviewCarouselAction = function reviewCarouselAction(event, direction) {
     gliderNotificationCenter.textContent = '';
     var closestSlide = event.target.closest('.glider-slide.visible');
     console.log(closestSlide);
-
     if (!event.target.classList.contains('disabled') && window.outerWidth >= 1024) {
       gliderNotificationCenter.textContent = "Carousel of reviews moved to ".concat(direction, " slide of 4 reviews.");
     } else if (!event.target.classList.contains('disabled') && window.outerWidth < 775) {
       gliderNotificationCenter.textContent = "Carousel of reviews moved to ".concat(direction, " review.");
     }
   };
-
   if (typeof reviewsCarouselPrev !== 'undefined') {
     reviewsCarouselNext.addEventListener('click', function (event) {
       reviewCarouselAction(event, 'Next');
     });
   }
-
   if (typeof reviewsCarouselPrev !== 'undefined') {
     reviewsCarouselPrev.addEventListener('click', function (event) {
       reviewCarouselAction(event, 'Previous');

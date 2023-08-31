@@ -34,17 +34,17 @@ window.addEventListener('load', function () {
         }
       }]
     });
+
     /**
      *
      */
-
     carousel.addEventListener('glider-loaded', gliderDotUpdate);
     /**
      * Glider refresh listener
      */
-
     carousel.addEventListener('glider-refresh', gliderDotUpdate);
   });
+
   /**
    * Glider dot update check
    * This function checks the status of the dots within the controls container and updates each
@@ -53,55 +53,46 @@ window.addEventListener('load', function () {
    * and requires that an event object is passed in. The event object has to originate from a glider event
    * @param e
    */
-
   var gliderDotUpdate = function gliderDotUpdate(e) {
     var dots = e.target.parentElement.querySelectorAll('.glider-dot');
-
     if (typeof dots !== 'undefined') {
       dots.forEach(function (elem) {
         //Remove tab role
         elem.removeAttribute('role');
-
         if (elem.classList.contains('active')) {
           elem.setAttribute('aria-selected', 'true');
         } else {
           elem.setAttribute('aria-selected', 'false');
         }
       });
-    } //Remove tab list role
+    }
 
-
+    //Remove tab list role
     var dotsContainer = e.target.parentElement.querySelector('.glider-dots');
-
     if (typeof dotsContainer !== 'undefined') {
       dotsContainer.removeAttribute('role');
     }
   };
-
   var dots = document.querySelectorAll('.glider-dot, .glider-dots');
   dots.forEach(function (dot) {
     dot.removeAttribute('role');
   });
+
   /**
    * Setup Next/Previous Status Reporters
    */
-
   var gliderNotificationCenter;
   gliderNotificationCenter = document.querySelector('#gliderNotificationCenter');
-
   var reviewCarouselAction = function reviewCarouselAction(event, direction) {
     gliderNotificationCenter.textContent = '';
-
     if (!event.target.classList.contains('disabled') && window.outerWidth >= 1024) {
       gliderNotificationCenter.textContent = "Carousel moved to ".concat(direction, " group of 4 items.");
     } else if (!event.target.classList.contains('disabled') && window.outerWidth < 775) {
       gliderNotificationCenter.textContent = "Carousel moved to ".concat(direction, " item.");
     }
   };
-
   var reviewsCarouselPrev = document.querySelectorAll('.related-posts__glider-prev');
   var reviewsCarouselNext = document.querySelectorAll('.related-posts__glider-next');
-
   if (typeof reviewsCarouselPrev !== 'undefined') {
     reviewsCarouselPrev.forEach(function (button) {
       button.addEventListener('click', function (event) {
@@ -109,15 +100,15 @@ window.addEventListener('load', function () {
       });
     });
   }
-
   if (typeof reviewsCarouselPrev !== 'undefined') {
     reviewsCarouselNext.forEach(function (button) {
       button.addEventListener('click', function (event) {
         reviewCarouselAction(event, 'Next');
       });
     });
-  } // When focus is on last visible slide, transition focus to left arrow
+  }
 
+  // When focus is on last visible slide, transition focus to left arrow
 
   var gliderCarousel = document.querySelector('.glider > .glider-track');
   var visibleSlides = gliderCarousel.querySelectorAll(':scope > .visible');
@@ -130,16 +121,18 @@ window.addEventListener('load', function () {
         carouselPrev.focus();
       }
     });
-  }); // Focus on slide that has moved into view after right arrow is selected
+  });
+
+  // Focus on slide that has moved into view after right arrow is selected
 
   document.querySelector('.glider').addEventListener('glider-slide-visible', function (event) {
-    var glider = Glider(this); // let focusEl = document.activeElement;
+    var glider = Glider(this);
+    // let focusEl = document.activeElement;
 
     for (var i = 0; i <= glider.slides.length - 1; i++) {
       var currentSlide = glider.slides[i];
       var nextSlide = glider.slides[i + 1];
       var activeSlide = currentSlide.classList.contains('active');
-
       if (currentSlide.classList.contains('visible') && i === visibleSlides.length - 1) {
         var nextSlideUrl = nextSlide.querySelector('.visible > div > h3 > a');
         nextSlideUrl.focus();

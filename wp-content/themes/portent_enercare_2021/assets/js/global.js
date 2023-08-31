@@ -1,57 +1,58 @@
 "use strict";
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
 function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
-
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
 jQuery(function ($) {
   // Mobile Menu
-  $('.menu-toggle').click(function () {// $('.search-toggle, .header-search').removeClass('active');
+  $('.menu-toggle').click(function () {
+    // $('.search-toggle, .header-search').removeClass('active');
     // $('.menu-toggle, .nav-menu').toggleClass('active');
   });
   $('.menu-item-has-children > .submenu-expand').click(function (e) {
     $(this).toggleClass('expanded');
     e.preventDefault();
-  }); // Search toggle
+  });
 
+  // Search toggle
   $('.search-toggle').click(function () {
     $('.menu-toggle, .nav-menu').removeClass('active');
     $('.search-toggle, .header-search').toggleClass('active');
     $('.site-header .search-field').focus();
-  }); // AddSearch JS client with an example index. Get your own SITEKEY by signing up at www.addsearch.com
+  });
 
+  // AddSearch JS client with an example index. Get your own SITEKEY by signing up at www.addsearch.com
   var client = new AddSearchClient('3145819e621ccfb6dbf5116b2c92967b');
   var conf = {
     searchResultsPageUrl: '/',
     searchParameter: 'addsearch',
     updateBrowserHistory: false
-  }; // Search UI instance
+  };
 
-  var searchui = new AddSearchUI(client, conf); // Add components
-
+  // Search UI instance
+  var searchui = new AddSearchUI(client, conf);
+  // Add components
   searchui.searchField({
     autofocus: false,
     containerId: 'searchfield',
     placeholder: 'Search',
     icon: false
-  }); // Mobile Search UI instance
+  });
 
-  var mobileSearchui = new AddSearchUI(client, conf); // Add components
-
+  // Mobile Search UI instance
+  var mobileSearchui = new AddSearchUI(client, conf);
+  // Add components
   mobileSearchui.searchField({
     autofocus: false,
     containerId: 'mobile-searchfield',
     placeholder: 'Search',
     icon: false
-  }); // var autocompleteClient = new AddSearchClient('3145819e621ccfb6dbf5116b2c92967b');
+  });
+
+  // var autocompleteClient = new AddSearchClient('3145819e621ccfb6dbf5116b2c92967b');
   // autocompleteClient.setPaging(1, 7, 'relevance', 'desc'); // Fetch 7 results by default
   //
   // var autocompleteTemplate = `
@@ -81,20 +82,21 @@ jQuery(function ($) {
   //     }
   //   ]
   // });
+
   // All components added. Start
-
   searchui.start();
-  mobileSearchui.start(); //Enercare Specific function
+  mobileSearchui.start();
 
+  //Enercare Specific function
   (function (window, document, undefined) {
     window.Enercare = {};
+
     /**
      * Array of url parameters structured with the key
      * as the key we will store/pull from sessionStorage
      * and the value as a string of what url parameter we
      * will need to pull the data from.
      */
-
     window.Enercare.PPCparams = [{
       utm_source: 'utm_source'
     }, {
@@ -110,53 +112,44 @@ jQuery(function ($) {
     { AdGroup: 'aid' },
     { ReferralCode: 'refcode' },
     { DeviceType: '' }
-    */
-    ];
+    */];
+
     /**
      * Cookie value grab for closed loop analytics in Google Tag Manager.
      * Imlemented via portent.
      * @param cname
      * @returns {string}
      */
-
     function getCookie(cname) {
       var name = cname + "=";
       var decodedCookie = decodeURIComponent(document.cookie);
       var ca = decodedCookie.split(';');
-
       for (var i = 0; i < ca.length; i++) {
         var c = ca[i];
-
         while (c.charAt(0) == ' ') {
           c = c.substring(1);
         }
-
         if (c.indexOf(name) == 0) {
           return c.substring(name.length, c.length);
         }
       }
-
       return "";
     }
-
     window.Enercare.getUrlParameter = function (name) {
       var n = name.replace(/[[]/, '\\[').replace(/[\]]/, '\\]');
       var regex = new RegExp("[\\?&]".concat(n, "=([^&#]*)"));
       var results = regex.exec(location.search);
       return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
     };
-
     window.Enercare.logPPCParamsToStorage = function () {
       window.Enercare.PPCparams.forEach(function (param) {
         var key = Object.keys(param)[0];
         var urlParam = param[key];
-
         if (!sessionStorage[key]) {
           sessionStorage[key] = window.Enercare.getUrlParameter(urlParam);
         }
       });
     };
-
     window.Enercare.handleHiddenFormFields = function (form) {
       // handle the VendorCookieID/ruid
       if (form.ruid === undefined) {
@@ -167,12 +160,13 @@ jQuery(function ($) {
         form.appendChild(input);
       } else {
         form.ruid.setAttribute("value", getCookie('ruid'));
-      } // loop through our PPC params
+      }
 
-
+      // loop through our PPC params
       window.Enercare.PPCparams.forEach(function (param) {
-        var key = Object.keys(param)[0]; // if form element does not exist, create it and append to form
+        var key = Object.keys(param)[0];
 
+        // if form element does not exist, create it and append to form
         if (form.key === undefined) {
           var input = document.createElement("input");
           input.setAttribute("type", "hidden");
@@ -185,49 +179,42 @@ jQuery(function ($) {
         }
       });
     };
+
     /**
      * Loop through PPCparams
      * check to see if sessionStorage item exists for that key
      * make sure theres no value, then push the value from the
      * url parameter provided
      */
-
-
     window.Enercare.logPPCParamsToStorage();
-    /** Get the gravity form and handle hidden form field inputs */
 
+    /** Get the gravity form and handle hidden form field inputs */
     /*var gravityForm = $('.gform_wrapper form');
     if (gravityForm.length) {
       window.Enercare.handleHiddenFormFields(gravityForm[0]);
     }*/
   })(window, document);
 });
-
 function insertAfter(newNode, existingNode) {
   existingNode.parentNode.insertBefore(newNode, existingNode.nextSibling);
 }
+
 /**
  * Toggle Navigation Script
  */
-
-
 var PortentToggleNav = function PortentToggleNav() {};
-
 PortentToggleNav.prototype.menu = '';
 PortentToggleNav.prototype.logo = null;
-PortentToggleNav.prototype.cta = null; //@todo let this get set externally.
-
+PortentToggleNav.prototype.cta = null;
+//@todo let this get set externally.
 PortentToggleNav.prototype.mobileWidth = 1023;
 PortentToggleNav.prototype.keyModifierDown = false;
 PortentToggleNav.prototype.closeButton = '';
 PortentToggleNav.prototype.touchStartX = 0;
 PortentToggleNav.prototype.touchEndX = 0;
-
 PortentToggleNav.prototype.init = function () {
   var _this2 = this;
-
   performance.mark('toggle-menu-init-start');
-
   if (this.menu !== '') {
     /*
     Add a class for style tracking
@@ -241,11 +228,10 @@ PortentToggleNav.prototype.init = function () {
   } else {
     console.log('Please set a menu property');
   }
+
   /**
    * Global listener for the shift key as a modifier
    */
-
-
   this.menu.addEventListener('keydown', function (event) {
     if (event.keyCode === 16) {
       this.keyModifierDown = true;
@@ -261,72 +247,61 @@ PortentToggleNav.prototype.init = function () {
   });
   document.addEventListener('touchend', function (e) {
     _this2.touchendX = e.changedTouches[0].screenX;
-
     _this2.checkDirection(e);
   });
   performance.mark('toggle-menu-init-end');
   performance.measure('toggle-menu-init', 'toggle-menu-init-start', 'toggle-menu-init-end');
 };
-
 PortentToggleNav.prototype.setupClickOutside = function () {
   /**
    * Handle Closing the menu when a user clicks outside of the frame
    */
+
   //THIS gets weird once we start to dive down into functions. To make sure we are calling the top level prototype when we ask for properties and functions we need to save top level this into a new variable.
   var _this = this;
-
   var navigationMenu = this.menu;
   document.addEventListener("click", function (event) {
     var isNavigationInClick = navigationMenu.contains(event.target);
-
     if (!isNavigationInClick) {
       _this.closeAllMenus(navigationMenu);
     }
   });
 };
-
 PortentToggleNav.prototype.setupBrandArea = function () {
   var _this = this;
-
   var brandAreaContainer = document.createElement('div');
   brandAreaContainer.classList.add('brand-area');
-
   if (this.logo) {
     var brandLogoElement = document.createElement('img');
     brandLogoElement.classList.add('brand-area__logo');
     brandLogoElement.src = this.logo;
     brandAreaContainer.appendChild(brandLogoElement);
   }
-
   if (this.cta) {
     var brandCTAElement = document.createElement('div');
     brandCTAElement.classList.add('brand-area__cta');
     brandCTAElement.innerHTML = this.cta;
     brandAreaContainer.appendChild(brandCTAElement);
   }
-
   this.menu.insertBefore(brandAreaContainer, this.menu.children[0]);
 };
-
 PortentToggleNav.prototype.statusButtonKeys = function (event) {
   var el = this.menu.querySelector('[data-open=true]'),
-      level = false;
+    level = false;
+
   /**
    * Check el if it is null then a sub menu is not open and we need to retarget the main menu body
    */
-
   if (el === null) {
     el = this.menu.querySelector('ul');
     level = true;
   }
-
   if (event.keyCode === 38 || event.keyCode === 9 && this.keyModifierDown) {
     console.log('Key up pressed on menu item');
     event.stopPropagation();
     event.preventDefault();
     this.findNextMenuLink(event, el, 'up', level);
   }
-
   if (event.keyCode === 40 || event.keyCode === 9 && !this.keyModifierDown) {
     console.log('Key down pressed on menu item');
     event.stopPropagation();
@@ -334,20 +309,18 @@ PortentToggleNav.prototype.statusButtonKeys = function (event) {
     this.findNextMenuLink(event, el, 'down', level);
   }
 };
-
 PortentToggleNav.prototype.setupStatusArea = function () {
   performance.mark('toggle-menu-status-area-start');
-
   var _this = this;
-
   var menuElement = this.menu;
   var statusAreaContainer = document.createElement('div');
   var statusAreaBackButton = document.createElement('button');
   var statusAreaCloseButton = document.createElement('button');
   performance.mark("toggle-menu-status-area-end");
   performance.measure("toggle-nav-status-setup", "toggle-menu-status-area-start", "toggle-menu-status-area-end");
-  _this.closebutton = statusAreaCloseButton; //statusAreaContainer.setAttribute('aria-hidden', "true");
+  _this.closebutton = statusAreaCloseButton;
 
+  //statusAreaContainer.setAttribute('aria-hidden', "true");
   statusAreaContainer.setAttribute('data-interface', 'statusArea');
   statusAreaCloseButton.innerText = 'Close';
   statusAreaCloseButton.classList.add('mobile-close-btn');
@@ -371,13 +344,10 @@ PortentToggleNav.prototype.setupStatusArea = function () {
   performance.mark("toggle-menu-status-area-end");
   performance.measure("toggle-nav-status-setup", "toggle-menu-status-area-start", "toggle-menu-status-area-end");
 };
-
 PortentToggleNav.prototype.setupMobileToggle = function () {
   var _this = this;
-
   var menuElement = this.menu;
   var mobileMenuToggle;
-
   if (this.toggleButton) {
     mobileMenuToggle = this.toggleButton;
   } else {
@@ -385,34 +355,30 @@ PortentToggleNav.prototype.setupMobileToggle = function () {
     mobileMenuToggle = document.createElement('button');
     menuElement.parentElement.insertBefore(mobileMenuToggle, menuElement);
   }
-
   mobileMenuToggle.addEventListener("click", function () {
     _this.openMobileMenu(_this.menu);
   });
   mobileMenuToggle.setAttribute('aria-expanded', 'false');
 };
+
 /**
  * This is likely better handled through a dispatched event listener
  * @param menuState
  */
-
-
 PortentToggleNav.prototype.setSubMenuStatus = function () {
   var menuState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
-
   if (menuState) {
     this.menu.setAttribute('data-menu', 'open');
   } else {
     this.menu.removeAttribute('data-menu');
   }
 };
-
 PortentToggleNav.prototype.expandTopLevelItem = function (event) {
   event.preventDefault();
+
   /**
    * @todo This is a duplication of the opening menu logic. Condense this.
    */
-
   if (event.target.parentNode.dataset.open === 'true') {
     /**
      * If the same menu button we are clicking on is already visible then toggle it closed
@@ -429,19 +395,18 @@ PortentToggleNav.prototype.expandTopLevelItem = function (event) {
     event.target.parentNode.dataset.open = 'true';
     event.target.setAttribute('aria-expanded', "true");
     this.setSubMenuStatus(true);
+
     /**
      * Focus The First Item
      */
-
     this.focusFirstOption(event.target.parentNode);
   }
 };
-
 PortentToggleNav.prototype.navigationMenuToggle = function (navigationContainer) {
-  var menuItems = navigationContainer.querySelectorAll('[data-children=true]'); //THIS gets weird once we start to dive down into functions. To make sure we are calling the top level prototype when we ask for properties and functions we need to save top level this into a new variable.
+  var menuItems = navigationContainer.querySelectorAll('[data-children=true]');
 
+  //THIS gets weird once we start to dive down into functions. To make sure we are calling the top level prototype when we ask for properties and functions we need to save top level this into a new variable.
   var _this = this;
-
   menuItems.forEach.call(menuItems, function (el, i) {
     el.querySelector('button').addEventListener("click", function (event) {
       if (this.parentNode.dataset.open === 'true') {
@@ -451,42 +416,33 @@ PortentToggleNav.prototype.navigationMenuToggle = function (navigationContainer)
          */
         this.parentNode.dataset.open = 'false';
         this.setAttribute('aria-expanded', "false");
-
         _this.setSubMenuStatus();
       } else {
         /**
          * If the button we are clicking on is not open, reset all open menus before displaying the current option
          */
         _this.closeAllMenus(navigationContainer);
-
         this.parentNode.dataset.open = 'true';
         this.setAttribute('aria-expanded', "true");
-
         _this.setSubMenuStatus(true);
       }
+
       /**
        * Focus The First Item
        */
-
-
       _this.focusFirstOption(this.parentNode);
-
       return false;
     });
     el.querySelector('button').addEventListener("keydown", function (event) {
       if (window.outerWidth <= _this.mobileWidth) {
         if (event.keyCode === 38 || event.keyCode === 9 && this.keyModifierDown) {
           event.preventDefault();
-
           _this.findNextMenuLink(event, this.parentNode.parentNode, 'up', true);
         }
-
         if (event.keyCode === 40 || event.keyCode === 9 && !this.keyModifierDown) {
           event.preventDefault();
-
           _this.findNextMenuLink(event, this.parentNode.parentNode, 'down', true);
         }
-
         if (event.keyCode === 39) {
           _this.expandTopLevelItem(event);
         }
@@ -494,20 +450,18 @@ PortentToggleNav.prototype.navigationMenuToggle = function (navigationContainer)
         if ([40, 39].includes(event.keyCode)) {
           _this.expandTopLevelItem(event);
         }
-
         if ([38].includes(event.keyCode)) {
           _this.closeAllMenus(navigationContainer);
         }
       }
-
       return false;
     });
+
     /**
      * Event Listeners for ALL link elements within the current top level list item
      * We are tracking all links within the top level container so that when links are buried in containers
      * and out of sequence we can still locate the next logical link in the list.
      */
-
     el.querySelectorAll('a').forEach(function (elem) {
       elem.addEventListener('blur', function () {
         console.log('link blurred');
@@ -517,28 +471,22 @@ PortentToggleNav.prototype.navigationMenuToggle = function (navigationContainer)
           if (event.keyCode === 38 || event.keyCode === 9 && this.keyModifierDown) {
             event.stopPropagation();
             event.preventDefault();
-
             _this.findNextMenuLink(event, el, 'up');
           }
-
           if (event.keyCode === 40 || event.keyCode === 9 && !this.keyModifierDown) {
             event.stopPropagation();
             event.preventDefault();
-
             _this.findNextMenuLink(event, el, 'down');
           }
         } else {
           if (event.keyCode === 38) {
             event.stopPropagation();
             event.preventDefault();
-
             _this.findNextMenuLink(event, el, 'up');
           }
-
           if (event.keyCode === 40) {
             event.stopPropagation();
             event.preventDefault();
-
             _this.findNextMenuLink(event, el, 'down');
           }
         }
@@ -547,55 +495,47 @@ PortentToggleNav.prototype.navigationMenuToggle = function (navigationContainer)
         //Close menu and focus on closest button when Escape is pressed on a menu item
         if (event.keyCode === 27) {
           _this.closeAllMenus(navigationContainer);
-
           el.querySelector('button').focus();
         }
       });
     });
   });
 };
-
 PortentToggleNav.prototype.checkDirection = function (event) {
   if (this.touchendX < this.touchstartX) {
     this.findNextMenuLink(event, this.getTopLevelParentFromFocus(), 'up');
   }
-
   if (this.touchendX > this.touchstartX) {
     this.findNextMenuLink(event, this.getTopLevelParentFromFocus(), 'down');
   }
 };
-
 PortentToggleNav.prototype.getTopLevelParentFromFocus = function () {
   var currentItem = document.activeElement;
   return currentItem.parentElement;
 };
+
 /*
 This function essentially serves as a keyboard trap for the current menu.
 I don't love this at the moment. It feels like it is doing more work that it should
  */
-
-
 PortentToggleNav.prototype.findNextMenuLink = function (event, topLevelParent, direction, topLevel) {
   var allLinks;
-
   if (!direction || typeof direction == 'undefined') {
     direction = 'down';
   }
+
   /*
   don't love this part but we need to know if the menu is at its highest level or not
    */
-
-
   if (!topLevel) {
     topLevel = false;
   }
-
   if (window.outerWidth <= this.mobileWidth) {
     var mobileElements;
+
     /**
      * Available elements are different depending on the level
      */
-
     if (topLevel) {
       mobileElements = Array.from(this.menu.querySelectorAll('.mobile-close-btn'));
       allLinks = Array.from(topLevelParent.querySelectorAll(':scope > li > button, :scope > li > a'));
@@ -603,41 +543,37 @@ PortentToggleNav.prototype.findNextMenuLink = function (event, topLevelParent, d
       mobileElements = Array.from(this.menu.querySelectorAll('.mobile-back-btn, .mobile-close-btn'));
       allLinks = Array.from(topLevelParent.querySelectorAll('a'));
     }
-
     allLinks = [].concat(_toConsumableArray(mobileElements), _toConsumableArray(allLinks));
   } else {
     allLinks = Array.from(topLevelParent.querySelectorAll('a'));
   }
-
   console.log(allLinks);
   var firstFocusableLink = allLinks[0];
   var lastFocusableLink = allLinks[allLinks.length - 1];
   var currentElement = document.activeElement;
+
   /**
    * If the user has pressed up on the final focusable in the set, shift focus to the last
    * It is important that we return if this statement is true so that we do not duplicate the action.
    */
-
   if (currentElement === firstFocusableLink && direction === 'up') {
     lastFocusableLink.focus();
     return;
   }
+
   /**
    * If the user has pressed down on the final focusable item in the list shift focus to the first item in the set
    * It is important that we return if this statement is true so that we do not duplicate the action.
    */
-
-
   if (currentElement === lastFocusableLink && direction === 'down') {
     firstFocusableLink.focus();
     return;
   }
+
   /**
    * If a user has pressed the up or down arrow while a menu item is focused and neither is the first or last element
    * then loop through the list until
    */
-
-
   allLinks.forEach(function (link, index) {
     if (currentElement === link) {
       if (direction === 'down') {
@@ -649,7 +585,6 @@ PortentToggleNav.prototype.findNextMenuLink = function (event, topLevelParent, d
   });
   console.log(document.activeElement);
 };
-
 PortentToggleNav.prototype.closeAllMenus = function (navigationContainer) {
   var openMenus = navigationContainer.querySelectorAll('button[aria-expanded=true]');
   openMenus.forEach(function (elem) {
@@ -657,49 +592,41 @@ PortentToggleNav.prototype.closeAllMenus = function (navigationContainer) {
     elem.setAttribute('aria-expanded', "false");
   });
   console.log(openMenus);
-
   if (openMenus.length > 0) {
     openMenus.item(0).focus();
   }
-
   this.setSubMenuStatus(false);
 };
-
 PortentToggleNav.prototype.setDocumentAttribute = function () {
   var bodyElement = document.querySelector('body');
   bodyElement.setAttribute('data-menu', 'open');
 };
-
 PortentToggleNav.prototype.removeDocumentAttribute = function () {
   var bodyElement = document.querySelector('body');
   bodyElement.removeAttribute('data-menu');
 };
-
 PortentToggleNav.prototype.openMobileMenu = function (menuElement) {
   menuElement.setAttribute('data-mobile', 'open');
   this.setDocumentAttribute();
   var firstMenuItem = this.menu.querySelector('.mobile-close-btn');
   firstMenuItem.focus();
 };
-
 PortentToggleNav.prototype.closeMobileMenu = function () {
   this.removeDocumentAttribute();
   this.closeAllMenus(this.menu);
-
   if (this.menu.getAttribute('data-mobile') === 'open') {
     this.menu.removeAttribute('data-mobile');
   }
-
   this.toggleButton.focus();
   this.setSubMenuStatus(false);
 };
-
 PortentToggleNav.prototype.focusFirstOption = function (topLevelItem) {
   var firstLink = topLevelItem.querySelector('.sub-menu a');
   firstLink.focus({
     preventScroll: true
   });
 };
+
 /**
  * Execute a function given a delay time
  *
@@ -708,30 +635,25 @@ PortentToggleNav.prototype.focusFirstOption = function (topLevelItem) {
  * @param {type} immediate
  * @returns {Function}
  */
-
-
 PortentToggleNav.prototype.debouceKeys = function (cb, wait, immediate) {
   var timeout;
   return function () {
     var context = this,
-        args = arguments;
-
+      args = arguments;
     var later = function later() {
       timeout = null;
       if (!immediate) cb.apply(context, args);
     };
-
     var callNow = immediate && !timeout;
     clearTimeout(timeout);
     timeout = setTimeout(later, wait);
     if (callNow) cb.apply(context, args);
   };
 };
+
 /**
  * Setup and init the toggle menu
  */
-
-
 function setupToggleNav() {
   performance.mark('nav-build-start');
   var primaryNavigation = new PortentToggleNav();
@@ -745,15 +667,14 @@ function setupToggleNav() {
   performance.measure("nav-build-total", "nav-build-start", "nav-build-end");
   console.log(loginMeasure.duration);
 }
-
 window.addEventListener('load', setupToggleNav);
+
 /**
  * Create caption element from the figcaption if a table is present on page
  */
 
 function createTableCaption() {
   var tableFigureBlocks = document.querySelectorAll('.wp-block-table');
-
   if (tableFigureBlocks.length > 0 && typeof tableFigureBlocks !== 'undefined') {
     tableFigureBlocks.forEach(function (elem) {
       var innerTable = elem.querySelector(':scope > table');
@@ -763,7 +684,6 @@ function createTableCaption() {
     });
   }
 }
-
 window.addEventListener('load', createTableCaption);
 "use strict";
 
@@ -771,40 +691,33 @@ jQuery(function ($) {
   // Smooth Scroll
   function enercare_scroll(hash) {
     var target = null;
-
     try {
       target = $(hash);
     } catch (error) {
       // Perhaps worth adding some error logging here in the future.
       return false;
     }
-
     target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-
     if (target.length) {
       var top_offset = 0;
-
       if ($('.site-header').css('position') == 'fixed') {
         top_offset = $('.site-header').height();
       }
-
       if ($('body').hasClass('admin-bar')) {
         top_offset = top_offset + $('#wpadminbar').height();
       }
-
       $('html,body').animate({
         scrollTop: target.offset().top - top_offset
       }, 1000);
       return false;
     }
-  } // -- Smooth scroll on pageload
+  }
 
-
+  // -- Smooth scroll on pageload
   if (window.location.hash) {
     enercare_scroll(window.location.hash);
-  } // -- Smooth scroll on click
-
-
+  }
+  // -- Smooth scroll on click
   $('a[href*="#"]:not([href="#"]):not(.no-scroll)').click(function () {
     if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
       enercare_scroll(this.hash);

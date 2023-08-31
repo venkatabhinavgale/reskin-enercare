@@ -8,10 +8,10 @@
 .block-reviews__star{margin:0 .15em;height:24px;width:24px}
 .block-reviews__star:first-of-type,.block-reviews__star:last-of-type{margin:0}
 .block-reviews__score-section{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;margin:2em .5em .5em}
-.block-reviews__section-heading__score{font-size:clamp(3vw,9vw,3rem);height:100%;display:block;margin-right:clamp(0.75vw,3vw,1rem)}
+.block-reviews__section-heading__score{font-size:clamp(3vw,9vw,3rem);height:100%;display:block;margin-right:clamp(.75vw,3vw,1rem)}
 .block-reviews__section-heading__stars{-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
-.block-reviews__section-heading__stars img{height:clamp(2rem,3rem,2.5rem);width:clamp(2rem,3rem,2.5rem)}
-.block-reviews__score-star-container{border-left:1px solid gray;padding-left:clamp(0.75vw,2vw,1em)}
+.block-reviews__section-heading__stars img{height:2.5rem;width:2.5rem}
+.block-reviews__score-star-container{border-left:1px solid gray;padding-left:clamp(.75vw,2vw,1em)}
 .block-reviews__score-star-container:before{background-color:gray;content:"";display:block;height:100%;width:1px}
 .block-reviews__score-star-container span{display:block;font-weight:700}
 .block-reviews__section-heading{background-color:#fff;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-preferred-size:75%;flex-basis:75%;padding:0 1em;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;font-size:1.125em;line-height:1.5rem;position:relative}
@@ -25,7 +25,7 @@
 .block-reviews__dots{margin:1.5em 0 1em;-ms-flex-wrap:nowrap;flex-wrap:nowrap}
 .block-reviews__dots button{background-color:#d3d1d1;margin:0 .4em .5em}
 .block-reviews__dots button.active{background-color:#da1b27}
-.block-reviews__prev,.block-reviews__next{background-color:transparent;border:1px dotted transparent;height:50px;opacity:1;-webkit-transition:opacity .3s ease-in;transition:opacity .3s ease-in;width:50px;border-radius:100%;visibility:visible}
+.block-reviews__prev,.block-reviews__next{background-color:rgba(0,0,0,0);border:1px dotted rgba(0,0,0,0);height:50px;opacity:1;-webkit-transition:opacity .3s ease-in;transition:opacity .3s ease-in;width:50px;border-radius:100%;visibility:visible}
 .block-reviews__prev img,.block-reviews__next img{margin:0 auto}
 .block-reviews__prev:hover,.block-reviews__next:hover{background-color:#e6e4e4;-webkit-transition:background-color .3s ease-in;transition:background-color .3s ease-in}
 .block-reviews__prev:focus,.block-reviews__next:focus{border:1px dotted #3d3d43}
@@ -46,7 +46,7 @@
 .block-reviews__wrapper{padding:32px 0;overflow-x:visible}
 .block-reviews__dots button{margin:0 .75em .5em}
 .block-reviews__review__reviewer{font-size:1.125em}
-}@media(max-width:1199px) and (min-width:641px){.block-reviews__section-heading{-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;padding:0 .5em}
+}@media(max-width:1199px)and (min-width:641px){.block-reviews__section-heading{-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;padding:0 .5em}
 }@media(min-width:1200px){.block-reviews__section-heading{-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;padding:0 1em}
 }@media(max-width:768px){.block-reviews__stars{margin-top:.5em;margin-bottom:.25em}
 .block-reviews__review .block-reviews__stars{margin-top:1.5em;margin-bottom:.75em}
