@@ -30,7 +30,7 @@ $gform = get_field('gravity_form');
 			</div>
 		</div>
 		<div class="block-newsletter-form__form-container">
-			<?php gravity_form( $gform, false, false ); ?>
+			<iframe width=378 height=350 style="border:none;" scrolling="no" src="https://mc7h6pzvkzvcryh60nr99md1dmd0.pub.sfmc-content.com/iq5ulrci3fn"></iframe>
 		</div>
 	</div>
 </section>
