@@ -4,10 +4,10 @@ Contributors: publishpress, kevinB, stevejburge, andergmartins
 Author: PublishPress
 Author URI: https://publishpress.com
 Tags: revision, submit changes, duplicate post, duplicate page, revisions, approve changes, scheduled changes
-Requires at least: 4.9.7
+Requires at least: 5.5
 Requires PHP: 7.2.5
-Tested up to: 6.2
-Stable tag: 3.1.13
+Tested up to: 6.3
+Stable tag: 3.5.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -238,6 +238,48 @@ Divi is one of the most popular page-builders in WordPress, and it does integrat
 [Click here for more on duplicate posts with Divi (https://publishpress.com/knowledge-base/divi-theme/).
 
 == Changelog ==
+
+= 3.5.3 - 30 Aug 2023 =
+* Feature : Option to enable deletion of revisions in Revision Archive 
+* Fixed : Category / taxonomy changes were cleared by revision preview, not applied at revision approval
+* Fixed : Revision Archive included autosaves
+* Fixed : PHP 8.1 - Warning for dynamic property creation in revision preview
+
+= 3.5.2 - 17 Aug 2023 =
+* Fixed : Pro - Fatal error on activation if plugin settings were not previously saved (packaging error reverted fix in 3.5.1)
+* Fixed : Revision Edit - No progress caption was shown after Submit button click
+* Fixed : Options screen - html markup error (missing closing div tag)
+* Lang : Updated Spanish, French, Italian translations
+
+= 3.5.1 - 11 Aug 2023 =
+* Fixed : Bedrock - Unable to activate plugin due to three internal libraries missing from GitHub commit
+
+= 3.5 - 10 Aug 2023 =
+* Fixed : Unscheduling a revision using bulk edit in Revision Queue caused it to become inaccessible
+* Compat : Permalink Manager plugin - Suppress permalink modification in Revision edit
+* Change : Change revision deletion captions to clarify that only the revision is deleted
+* Change: Modified internal vendor library structure for shorter paths (lib/vendor)
+* Change: Free plugin is loaded through internal vendor library
+
+= 3.4.1 - 29 Jun 2023 =
+* Fixed : Incorrect admin menu item display if revision submission is disabled for all post types
+
+= 3.4 - 29 Jun 2023 =
+* Feature : Revision Archive screen
+
+= 3.3 - 19 Jun 2023 =
+* Feature : Revisions > Settings > Revision Creation > "Limit to one active revision per post"
+* Fixed : Plugin compat - dashboard_glance_items was improperly filtered
+* Fixed : Revisions were incorrectly attributed to original page author under some conditions
+* Compat : Revision Queue - Work around unidentified plugin conflict inserting inappropriate clauses into our posts query
+* Compat : PublishPress Authors - Author changes in revision were not applied at revision publication
+* Compat : PublishPress Authors - Revision Queue "Revised By" column always showed original post author
+* Compat : Permissions + WordFence - Add Media query was not filtered based on Permissions settings
+* Fixed : Multisite - Some settings UI were not displayed when plugin on network installations when plugin is not activated network-wide 
+* Fixed : Multisite - Settings previously configured for network-wide activation were not displayed on sub-site settings screen even after network deactivation
+* Change : Bump WordPress version requirement to 5.5
+* Change : Bump PHP version requirement to 7.2.5
+* Change : Update vendor libraries based on revised PHP version support, using new internal-vendor structure
 
 = 3.1.13 - 30 Mar 2023 =
 * Fixed : Posts screen - Has Revision caption was not displayed unless "Revision Submission for Unpublished Posts" setting is enabled  

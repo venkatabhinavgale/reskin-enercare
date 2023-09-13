@@ -59,7 +59,7 @@ class RvyRevisionEditSubmitMetabox
                     <?php // PP: no change from WP core
                     if (current_user_can("delete_post", $post->ID)) {
                         if (!EMPTY_TRASH_DAYS)
-                            $delete_text = esc_html__('Delete Revision');
+                            $delete_text = (defined('RVY_DISCARD_CAPTION')) ? esc_html__('Discard Revision', 'revisionary') : esc_html__('Delete Revision', 'revisionary');
                         else
                             $delete_text = esc_html__('Move to Trash');
                         ?>
@@ -70,7 +70,7 @@ class RvyRevisionEditSubmitMetabox
 
                 <div class="clear"></div>
             </div> <?php // major-publishing-actions ?>
-            
+
             <?php
             $html = apply_filters('revisionary_submit_revision_metabox_classic', ob_get_clean(), $post);
             echo $html;

@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit51966439afa696395ace4d2aedbde39e
+class ComposerStaticInitc57d044a24bfb26a5a62055272330da7
 {
     public static $prefixLengthsPsr4 = array (
         'C' => 
@@ -579,9 +579,11 @@ class ComposerStaticInit51966439afa696395ace4d2aedbde39e
         'Yoast\\WP\\SEO\\Conditionals\\Admin\\Non_Network_Admin_Conditional' => __DIR__ . '/../..' . '/src/conditionals/admin/non-network-admin-conditional.php',
         'Yoast\\WP\\SEO\\Conditionals\\Admin\\Post_Conditional' => __DIR__ . '/../..' . '/src/conditionals/admin/post-conditional.php',
         'Yoast\\WP\\SEO\\Conditionals\\Admin\\Posts_Overview_Or_Ajax_Conditional' => __DIR__ . '/../..' . '/src/conditionals/admin/posts-overview-or-ajax-conditional.php',
+        'Yoast\\WP\\SEO\\Conditionals\\Admin\\Yoast_Admin_Conditional' => __DIR__ . '/../..' . '/src/conditionals/admin/yoast-admin-conditional.php',
         'Yoast\\WP\\SEO\\Conditionals\\Admin_Conditional' => __DIR__ . '/../..' . '/src/conditionals/admin-conditional.php',
         'Yoast\\WP\\SEO\\Conditionals\\Attachment_Redirections_Enabled_Conditional' => __DIR__ . '/../..' . '/src/conditionals/attachment-redirections-enabled-conditional.php',
         'Yoast\\WP\\SEO\\Conditionals\\Conditional' => __DIR__ . '/../..' . '/src/conditionals/conditional-interface.php',
+        'Yoast\\WP\\SEO\\Conditionals\\Deactivating_Yoast_Seo_Conditional' => __DIR__ . '/../..' . '/src/conditionals/deactivating-yoast-seo-conditional.php',
         'Yoast\\WP\\SEO\\Conditionals\\Development_Conditional' => __DIR__ . '/../..' . '/src/conditionals/development-conditional.php',
         'Yoast\\WP\\SEO\\Conditionals\\Feature_Flag_Conditional' => __DIR__ . '/../..' . '/src/conditionals/feature-flag-conditional.php',
         'Yoast\\WP\\SEO\\Conditionals\\Front_End_Conditional' => __DIR__ . '/../..' . '/src/conditionals/front-end-conditional.php',
@@ -627,6 +629,7 @@ class ComposerStaticInit51966439afa696395ace4d2aedbde39e
         'Yoast\\WP\\SEO\\Conditionals\\Updated_Importer_Framework_Conditional' => __DIR__ . '/../..' . '/src/conditionals/updated-importer-framework-conditional.php',
         'Yoast\\WP\\SEO\\Conditionals\\User_Can_Manage_Wpseo_Options_Conditional' => __DIR__ . '/../..' . '/src/conditionals/user-can-manage-wpseo-options-conditional.php',
         'Yoast\\WP\\SEO\\Conditionals\\User_Can_Publish_Posts_And_Pages_Conditional' => __DIR__ . '/../..' . '/src/conditionals/user-can-publish-posts-and-pages-conditional.php',
+        'Yoast\\WP\\SEO\\Conditionals\\User_Profile_Conditional' => __DIR__ . '/../..' . '/src/conditionals/user-profile-conditional.php',
         'Yoast\\WP\\SEO\\Conditionals\\WP_CRON_Enabled_Conditional' => __DIR__ . '/../..' . '/src/conditionals/wp-cron-enabled-conditional.php',
         'Yoast\\WP\\SEO\\Conditionals\\WP_Robots_Conditional' => __DIR__ . '/../..' . '/src/conditionals/wp-robots-conditional.php',
         'Yoast\\WP\\SEO\\Conditionals\\Web_Stories_Conditional' => __DIR__ . '/../..' . '/src/conditionals/web-stories-conditional.php',
@@ -675,6 +678,9 @@ class ComposerStaticInit51966439afa696395ace4d2aedbde39e
         'Yoast\\WP\\SEO\\Config\\Wincher_PKCE_Provider' => __DIR__ . '/../..' . '/src/config/wincher-pkce-provider.php',
         'Yoast\\WP\\SEO\\Config\\Wordproof_App_Config' => __DIR__ . '/../..' . '/src/config/wordproof-app-config.php',
         'Yoast\\WP\\SEO\\Config\\Wordproof_Translations' => __DIR__ . '/../..' . '/src/config/wordproof-translations.php',
+        'Yoast\\WP\\SEO\\Content_Type_Visibility\\Application\\Content_Type_Visibility_Dismiss_Notifications' => __DIR__ . '/../..' . '/src/content-type-visibility/application/content-type-visibility-dismiss-notifications.php',
+        'Yoast\\WP\\SEO\\Content_Type_Visibility\\Application\\Content_Type_Visibility_Watcher_Actions' => __DIR__ . '/../..' . '/src/content-type-visibility/application/content-type-visibility-watcher-actions.php',
+        'Yoast\\WP\\SEO\\Content_Type_Visibility\\User_Interface\\Content_Type_Visibility_Dismiss_New_Route' => __DIR__ . '/../..' . '/src/content-type-visibility/user-interface/content-type-visibility-dismiss-new-route.php',
         'Yoast\\WP\\SEO\\Context\\Meta_Tags_Context' => __DIR__ . '/../..' . '/src/context/meta-tags-context.php',
         'Yoast\\WP\\SEO\\Exceptions\\Addon_Installation\\Addon_Activation_Error_Exception' => __DIR__ . '/../..' . '/src/exceptions/addon-installation/addon-activation-error-exception.php',
         'Yoast\\WP\\SEO\\Exceptions\\Addon_Installation\\Addon_Already_Installed_Exception' => __DIR__ . '/../..' . '/src/exceptions/addon-installation/addon-already-installed-exception.php',
@@ -809,7 +815,7 @@ class ComposerStaticInit51966439afa696395ace4d2aedbde39e
         'Yoast\\WP\\SEO\\Integrations\\Admin\\Menu_Badge_Integration' => __DIR__ . '/../..' . '/src/integrations/admin/menu-badge-integration.php',
         'Yoast\\WP\\SEO\\Integrations\\Admin\\Migration_Error_Integration' => __DIR__ . '/../..' . '/src/integrations/admin/migration-error-integration.php',
         'Yoast\\WP\\SEO\\Integrations\\Admin\\Old_Configuration_Integration' => __DIR__ . '/../..' . '/src/integrations/admin/old-configuration-integration.php',
-        'Yoast\\WP\\SEO\\Integrations\\Admin\\Old_Premium_Integration' => __DIR__ . '/../..' . '/src/integrations/admin/old-premium-integration.php',
+        'Yoast\\WP\\SEO\\Integrations\\Admin\\Old_Premium_Integration' => __DIR__ . '/../..' . '/src/deprecated/src/integrations/admin/old-premium-integration.php',
         'Yoast\\WP\\SEO\\Integrations\\Admin\\Redirect_Integration' => __DIR__ . '/../..' . '/src/integrations/admin/redirect-integration.php',
         'Yoast\\WP\\SEO\\Integrations\\Admin\\Redirect_Old_Features_Tab_Integration' => __DIR__ . '/../..' . '/src/deprecated/src/integrations/admin/redirect-old-features-tab-integration.php',
         'Yoast\\WP\\SEO\\Integrations\\Admin\\Redirects_Page_Integration' => __DIR__ . '/../..' . '/src/integrations/admin/redirects-page-integration.php',
@@ -852,6 +858,7 @@ class ComposerStaticInit51966439afa696395ace4d2aedbde39e
         'Yoast\\WP\\SEO\\Integrations\\Primary_Category' => __DIR__ . '/../..' . '/src/integrations/primary-category.php',
         'Yoast\\WP\\SEO\\Integrations\\Schema_Blocks' => __DIR__ . '/../..' . '/src/deprecated/src/integrations/schema-blocks.php',
         'Yoast\\WP\\SEO\\Integrations\\Settings_Integration' => __DIR__ . '/../..' . '/src/integrations/settings-integration.php',
+        'Yoast\\WP\\SEO\\Integrations\\Support_Integration' => __DIR__ . '/../..' . '/src/integrations/support-integration.php',
         'Yoast\\WP\\SEO\\Integrations\\Third_Party\\AMP' => __DIR__ . '/../..' . '/src/integrations/third-party/amp.php',
         'Yoast\\WP\\SEO\\Integrations\\Third_Party\\BbPress' => __DIR__ . '/../..' . '/src/integrations/third-party/bbpress.php',
         'Yoast\\WP\\SEO\\Integrations\\Third_Party\\CoAuthors_Plus' => __DIR__ . '/../..' . '/src/deprecated/src/integrations/third-party/coauthors-plus.php',
@@ -898,6 +905,17 @@ class ComposerStaticInit51966439afa696395ace4d2aedbde39e
         'Yoast\\WP\\SEO\\Integrations\\Watchers\\Primary_Term_Watcher' => __DIR__ . '/../..' . '/src/integrations/watchers/primary-term-watcher.php',
         'Yoast\\WP\\SEO\\Integrations\\Watchers\\Search_Engines_Discouraged_Watcher' => __DIR__ . '/../..' . '/src/integrations/watchers/search-engines-discouraged-watcher.php',
         'Yoast\\WP\\SEO\\Integrations\\XMLRPC' => __DIR__ . '/../..' . '/src/integrations/xmlrpc.php',
+        'Yoast\\WP\\SEO\\Introductions\\Application\\Ai_Generate_Titles_And_Descriptions_Introduction_Upsell' => __DIR__ . '/../..' . '/src/introductions/application/ai-generate-titles-and-descriptions-introduction-upsell.php',
+        'Yoast\\WP\\SEO\\Introductions\\Application\\Current_Page_Trait' => __DIR__ . '/../..' . '/src/introductions/application/current-page-trait.php',
+        'Yoast\\WP\\SEO\\Introductions\\Application\\Introductions_Collector' => __DIR__ . '/../..' . '/src/introductions/application/introductions-collector.php',
+        'Yoast\\WP\\SEO\\Introductions\\Application\\User_Allowed_Trait' => __DIR__ . '/../..' . '/src/introductions/application/user-allowed-trait.php',
+        'Yoast\\WP\\SEO\\Introductions\\Application\\Version_Trait' => __DIR__ . '/../..' . '/src/introductions/application/version-trait.php',
+        'Yoast\\WP\\SEO\\Introductions\\Domain\\Introduction_Interface' => __DIR__ . '/../..' . '/src/introductions/domain/introduction-interface.php',
+        'Yoast\\WP\\SEO\\Introductions\\Domain\\Introduction_Item' => __DIR__ . '/../..' . '/src/introductions/domain/introduction-item.php',
+        'Yoast\\WP\\SEO\\Introductions\\Domain\\Introductions_Bucket' => __DIR__ . '/../..' . '/src/introductions/domain/introductions-bucket.php',
+        'Yoast\\WP\\SEO\\Introductions\\Infrastructure\\Wistia_Embed_Permission_Repository' => __DIR__ . '/../..' . '/src/introductions/infrastructure/wistia-embed-permission-repository.php',
+        'Yoast\\WP\\SEO\\Introductions\\User_Interface\\Introductions_Integration' => __DIR__ . '/../..' . '/src/introductions/user-interface/introductions-integration.php',
+        'Yoast\\WP\\SEO\\Introductions\\User_Interface\\Wistia_Embed_Permission_Route' => __DIR__ . '/../..' . '/src/introductions/user-interface/wistia-embed-permission-route.php',
         'Yoast\\WP\\SEO\\Loadable_Interface' => __DIR__ . '/../..' . '/src/loadable-interface.php',
         'Yoast\\WP\\SEO\\Loader' => __DIR__ . '/../..' . '/src/loader.php',
         'Yoast\\WP\\SEO\\Loggers\\Logger' => __DIR__ . '/../..' . '/src/loggers/logger.php',
@@ -1041,6 +1059,7 @@ class ComposerStaticInit51966439afa696395ace4d2aedbde39e
         'Yoast\\WP\\SEO\\Surfaces\\Schema_Helpers_Surface' => __DIR__ . '/../..' . '/src/surfaces/schema-helpers-surface.php',
         'Yoast\\WP\\SEO\\Surfaces\\Twitter_Helpers_Surface' => __DIR__ . '/../..' . '/src/surfaces/twitter-helpers-surface.php',
         'Yoast\\WP\\SEO\\Surfaces\\Values\\Meta' => __DIR__ . '/../..' . '/src/surfaces/values/meta.php',
+        'Yoast\\WP\\SEO\\User_Profiles_Additions\\User_Interface\\User_Profiles_Additions_Ui' => __DIR__ . '/../..' . '/src/user-profiles-additions/user-interface/user-profiles-additions-ui.php',
         'Yoast\\WP\\SEO\\Values\\Images' => __DIR__ . '/../..' . '/src/values/images.php',
         'Yoast\\WP\\SEO\\Values\\Indexables\\Indexable_Builder_Versions' => __DIR__ . '/../..' . '/src/values/indexables/indexable-builder-versions.php',
         'Yoast\\WP\\SEO\\Values\\OAuth\\OAuth_Token' => __DIR__ . '/../..' . '/src/values/oauth/oauth-token.php',
@@ -1075,9 +1094,9 @@ class ComposerStaticInit51966439afa696395ace4d2aedbde39e
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit51966439afa696395ace4d2aedbde39e::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit51966439afa696395ace4d2aedbde39e::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit51966439afa696395ace4d2aedbde39e::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitc57d044a24bfb26a5a62055272330da7::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitc57d044a24bfb26a5a62055272330da7::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInitc57d044a24bfb26a5a62055272330da7::$classMap;
 
         }, null, ClassLoader::class);
     }
