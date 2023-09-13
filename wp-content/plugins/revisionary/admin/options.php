@@ -119,6 +119,7 @@ $this->option_captions = apply_filters('revisionary_option_captions',
 	'copy_posts_capability' =>					rvy_get_option('revision_statuses_noun_labels') ? esc_html__("Additional role capability required to create a Working Copy", 'revisionary') : esc_html__("Additional role capability required to create a new revision", 'revisionary'),
 	'caption_copy_as_edit' =>					sprintf(esc_html__('Posts / Pages list: Use "Edit" caption for %s link'), pp_revisions_status_label('draft-revision', 'submit_short')),
 	'pending_revisions' => 						sprintf(esc_html__('Enable %s', 'revisionary'), $pending_revision_plural),
+	'revision_limit_per_post' =>				esc_html__("Limit to one active revision per post", 'revisionary'),
 	'auto_submit_revisions' =>					esc_html__("Auto-submit revisions created by a user with publishing capability", 'revisionary'),
 	'scheduled_revisions' => 					sprintf(esc_html__('Enable %s', 'revisionary'), pp_revisions_status_label('future-revision', 'plural')),
 	'revise_posts_capability' =>				rvy_get_option('revision_statuses_noun_labels') ? esc_html__("Additional role capability required to submit a Change Request", 'revisionary') : esc_html__("Additional role capability required to submit a revision", 'revisionary'),
@@ -152,6 +153,7 @@ $this->option_captions = apply_filters('revisionary_option_captions',
 	'list_unsubmitted_revisions' => 			sprintf(esc_html__('Include %s in My Activity, Revisions to My Posts views', 'revisionary'), pp_revisions_status_label('draft-revision', 'plural')),
 	'rev_publication_delete_ed_comments' =>		esc_html__('On Revision publication, delete Editorial Comments', 'revisionary'),
 	'deletion_queue' => 						esc_html__('Enable deletion queue', 'revisionary'),
+	'revision_archive_deletion' => 				esc_html__('Enable deletion in Revision Archive', 'revisionary'),
 	]
 );
 
@@ -173,12 +175,12 @@ $this->form_options = apply_filters('revisionary_option_sections', [
 	'post_types' =>			 ['enabled_post_types'],
 	'role_definition' => 	 ['revisor_role_add_custom_rolecaps', 'require_edit_others_drafts'],
 	'revision_statuses' =>	 ['revision_statuses_noun_labels'],
-	'working_copy' =>		 ['manage_unsubmitted_capability', 'copy_posts_capability', 'auto_submit_revisions', 'caption_copy_as_edit'],
+	'working_copy' =>		 ['manage_unsubmitted_capability', 'copy_posts_capability', 'revision_limit_per_post', 'auto_submit_revisions', 'caption_copy_as_edit'],
 	'scheduled_revisions' => ['scheduled_revisions', 'scheduled_publish_cron', 'async_scheduled_publish', 'wp_cron_usage_detected', 'scheduled_revision_update_post_date', 'scheduled_revision_update_modified_date'],
 	'pending_revisions'	=> 	 ['pending_revisions', 'revise_posts_capability', 'pending_revision_update_post_date', 'pending_revision_update_modified_date'],
 	'revision_queue' =>		 ['revisor_lock_others_revisions', 'revisor_hide_others_revisions', 'admin_revisions_to_own_posts', 'list_unsubmitted_revisions'],
 	'preview' =>			 ['revision_preview_links', 'preview_link_type', 'compare_revisions_direct_approval'],
-	'revisions'		=>		 ['trigger_post_update_actions', 'copy_revision_comments_to_post', 'diff_display_strip_tags', 'past_revisions_order_by', 'rev_publication_delete_ed_comments', 'deletion_queue', 'display_hints'],
+	'revisions'		=>		 ['trigger_post_update_actions', 'copy_revision_comments_to_post', 'diff_display_strip_tags', 'past_revisions_order_by', 'rev_publication_delete_ed_comments', 'deletion_queue', 'revision_archive_deletion', 'display_hints'],
 	'notification'	=>		 ['pending_rev_notify_admin', 'pending_rev_notify_author', 'revision_update_notifications', 'rev_approval_notify_admin', 'rev_approval_notify_author', 'rev_approval_notify_revisor', 'publish_scheduled_notify_admin', 'publish_scheduled_notify_author', 'publish_scheduled_notify_revisor', 'use_notification_buffer'],
 ]
 ]);
@@ -298,8 +300,11 @@ if ( rvy_get_option('display_hints', $sitewide, $customize_defaults) ) {
 	echo '<div class="rs-optionhint publishpress-headline"><span>';
 
 	if ( $sitewide ) {
-		$site_defaults_caption = ( count( $rvy_options_sitewide ) < count( $rvy_default_options ) ) ? sprintf( esc_html__( 'You can also specify %1$sdefaults for site-specific settings%2$s.', 'revisionary' ), '<a href="admin.php?page=rvy-default_options">', '</a>' ) : '';
-		printf( esc_html__('Use this tab to make NETWORK-WIDE changes to PublishPress Revisions settings. %s', 'revisionary'), esc_html($site_defaults_caption) );
+		printf( esc_html__('Use this tab to make NETWORK-WIDE changes to PublishPress Revisions settings. %s', 'revisionary'), '' );
+		
+		if ( count( $rvy_options_sitewide ) < count( $rvy_default_options ) ) {
+			printf( esc_html__( 'You can also specify %1$sdefaults for site-specific settings%2$s.', 'revisionary' ), '<a href="admin.php?page=rvy-default_options">', '</a>' );
+		}
 	} elseif ( $customize_defaults ) {
 		esc_html_e('Here you can change the default value for settings which are controlled separately on each site.', 'revisionary');
 	}
@@ -371,7 +376,7 @@ if ( rvy_get_option('display_hints', $sitewide, $customize_defaults) ) {
 // possible TODO: replace redundant hardcoded IDs with $id
 
 	if (defined('PUBLISHPRESS_REVISIONS_PRO_VERSION') && !empty($this->form_options['features']['license'])) {
-		require_once(RVY_ABSPATH . '/includes-pro/SettingsLicense.php');
+		require_once(REVISIONARY_PRO_ABSPATH . '/includes-pro/SettingsLicense.php');
 		$license_ui = new RevisionaryLicenseSettings();
 		?>
 		<table class="form-table rs-form-table" id="ppr-tab-license"<?php echo ($setActiveTab != 'license') ? ' style="display:none;"' : '' ?>>
@@ -391,7 +396,7 @@ if ( rvy_get_option('display_hints', $sitewide, $customize_defaults) ) {
 
 		$this->all_options []= $option_name;
 
-		esc_html_e('Enable revisions for these Post Types:', 'revisionary');
+		esc_html_e('Enable revision submission for these Post Types:', 'revisionary');
         echo '<br /><br />';
 
 		$hidden_types = ['attachment' => true, 'tablepress_table' => true, 'acf-field-group' => true, 'acf-field' => true, 'nav_menu_item' => true, 'custom_css' => true, 'customize_changeset' => true, 'wp_block' => true, 'wp_template' => true, 'wp_template_part' => true, 'wp_global_styles' => true, 'wp_navigation' => true];
@@ -453,7 +458,7 @@ if ( rvy_get_option('display_hints', $sitewide, $customize_defaults) ) {
 	<?php
 	esc_html_e('Note: Third party code may cause some post types to be incompatible with PublishPress Revisions.', 'revisionary');
 	?>
-	</p>
+	</div>
 
 	</td></tr></table>
 	<?php endif; // any options accessable in this section
@@ -512,6 +517,11 @@ if ( ! empty( $this->form_options[$tab][$section] ) ) :?>
 	$this->option_checkbox('manage_unsubmitted_capability', $tab, $section, $hint, '');
 
 	?>
+	<br />
+	<?php
+	$this->option_checkbox( 'revision_limit_per_post', $tab, $section, '', '' );
+	?>
+
 	<br />
 	<?php
 	$this->option_checkbox( 'auto_submit_revisions', $tab, $section, '', '' );
@@ -742,6 +752,9 @@ $pending_revisions_available || $scheduled_revisions_available ) :
 		}
 
 		do_action('revisionary_option_ui_revision_options', $this);
+
+		$hint = '';
+		$this->option_checkbox( 'revision_archive_deletion', $tab, $section, $hint, '' );
 		?>
 
 		</td></tr></table>

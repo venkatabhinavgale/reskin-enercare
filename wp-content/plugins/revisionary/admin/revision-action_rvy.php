@@ -7,7 +7,7 @@ add_action( '_wp_put_post_revision', 'rvy_review_revision' );
 /**
  * @package     PublishPress\Revisions\RevisionaryAction
  * @author      PublishPress <help@publishpress.com>
- * @copyright   Copyright (c) 2021 PublishPress. All rights reserved.
+ * @copyright   Copyright (c) 2023 PublishPress. All rights reserved.
  * @license     GPLv2 or later
  * @since       1.0.0
  */
@@ -21,6 +21,10 @@ function rvy_revision_create($post_id = 0, $args = []) {
 		} else {
 			return;
 		}
+	}
+
+	if (!rvy_post_revision_supported($post_id)) {
+		return;
 	}
 
 	$main_post_id = rvy_in_revision_workflow($post_id) ? rvy_post_id($post_id) : $post_id;
@@ -376,6 +380,8 @@ function rvy_revision_approve($revision_id = 0, $args = []) {
 			$revision_status = 'future-revision';
 			$last_arg = array( "revision_action" => 1, 'scheduled' => $revision->ID );
 			$scheduled = $revision->post_date;
+
+			update_post_meta($revision->ID, '_rvy_approved_by', $current_user->ID);
 		}
 
 		clean_post_cache($revision->ID);
@@ -834,7 +840,7 @@ function rvy_apply_revision( $revision_id, $actual_revision_status = '' ) {
 
 	if (defined('PUBLISHPRESS_MULTIPLE_AUTHORS_VERSION') && $published_authors) {
 		// Make sure Multiple Authors values were not wiped due to incomplete revision data
-		if (!get_multiple_authors($post_id)) {
+		if (function_exists('get_post_authors') && !get_post_authors($post_id, true)) {
 			rvy_set_ma_post_authors($post_id, $published_authors);
 		}
 	}
@@ -862,6 +868,13 @@ function rvy_apply_revision( $revision_id, $actual_revision_status = '' ) {
 	}
 	
 	rvy_update_post_meta($revision_id, '_rvy_published_gmt', $post_modified_gmt);
+
+	rvy_update_post_meta($revision_id, '_rvy_prev_revision_status', $actual_revision_status);
+
+	if ('future-revision' != $actual_revision_status) {
+		global $current_user;
+		rvy_update_post_meta($revision_id, '_rvy_approved_by', $current_user->ID);
+	}
 
 	// If published revision was the last remaining pending / scheduled, clear _rvy_has_revisions postmeta flag 
 	revisionary_refresh_postmeta($post_id);
@@ -956,6 +969,11 @@ function rvy_apply_revision( $revision_id, $actual_revision_status = '' ) {
 	clean_post_cache($revision_id);
 	clean_post_cache($published->ID);
 
+	if (!defined('REVISIONARY_DISABLE_SECONDARY_CACHE_FLUSH')) {
+		wp_cache_delete( $published->ID, 'posts' );
+		wp_cache_delete( $published->ID, 'post_meta' );
+	}
+
 	if (defined('LSCWP_V')) {
 		do_action('litespeed_purge_post', $published->ID);
 	}
@@ -1048,7 +1066,12 @@ function rvy_revision_delete() {
 
 		// before deleting the revision, note its status for redirect
 		wp_delete_post_revision( $revision_id );
-		$redirect = "admin.php?page=rvy-revisions&revision={$revision->post_parent}&action=view&revision_status={$revision->post_mime_type}&deleted=1";
+
+		if (!empty($_SERVER['HTTP_REFERER']) && strpos($_SERVER['HTTP_REFERER'], 'revisionary-archive')) {
+			$redirect = add_query_arg('deleted', '1', esc_url_raw($_SERVER['HTTP_REFERER']));
+		} else {
+			$redirect = "admin.php?page=revisionary-archive&origin_post={$revision->post_parent}&revision_status={$revision->post_mime_type}&deleted=1";
+		}
 
 		rvy_delete_past_revisions($revision_id);
 
@@ -1130,7 +1153,7 @@ function rvy_revision_bulk_delete() {
 		}
 	}
 
-	$redirect = "admin.php?page=rvy-revisions&revision=$post_id&action=view&revision_status=$revision_status&bulk_deleted=$delete_count";
+	$redirect = "admin.php?page=revisionary-archive&origin_post=$post_id&revision_status=$revision_status&bulk_deleted=$delete_count";
 	
 	wp_redirect( $redirect );
 	exit;
@@ -1160,7 +1183,7 @@ function rvy_revision_unschedule($revision_id) {
 			break;
 		}
 
-		$wpdb->update( $wpdb->posts, array( 'post_status' => 'draft-revision' ), array( 'ID' => $revision->ID ) );
+		$wpdb->update( $wpdb->posts, ['post_status' => 'draft', 'post_mime_type' => 'draft-revision'], ['ID' => $revision->ID] );
 		
 		clean_post_cache($revision->ID);
 
@@ -1389,8 +1412,8 @@ function rvy_publish_scheduled_revisions($args = []) {
 								$skip_notification_revisor_roles = ['editor', 'administrator'];
 							}
 						}
-			
-						if (array_intersect($user->roles, $skip_notification_revisor_roles)) {
+
+						if (!empty($skip_notification_revisor_roles) && array_intersect($user->roles, $skip_notification_revisor_roles)) {
 							$skip_notification = true;
 						}
 					}
