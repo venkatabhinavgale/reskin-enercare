@@ -309,7 +309,7 @@ PortentToggleNav.prototype.statusButtonKeys = function(event){
 		console.log('Key up pressed on menu item');
 		event.stopPropagation();
 		event.preventDefault();
-		this.findNextMenuLink(event, el, 'up',level);
+		this.findNextMenuLink(event, el, 'up', level);
 	}
 
 	if (event.keyCode === 40 || (event.keyCode === 9 && !this.keyModifierDown)) {
@@ -489,9 +489,10 @@ PortentToggleNav.prototype.navigationMenuToggle = function(navigationContainer) 
 		 * and out of sequence we can still locate the next logical link in the list.
 		 */
 		el.querySelectorAll('a').forEach( function(elem) {
-			elem.addEventListener('blur', function(){
-				console.log('link blurred');
-			});
+			// elem.addEventListener('blur', function(){
+			// 	console.log('link blurred');
+			// });
+
 			elem.addEventListener('keydown', function(event) {
 				if( window.outerWidth <= _this.mobileWidth ) {
 					if (event.keyCode === 38 || (event.keyCode === 9 && this.keyModifierDown)) {
@@ -533,10 +534,10 @@ PortentToggleNav.prototype.navigationMenuToggle = function(navigationContainer) 
 
 PortentToggleNav.prototype.checkDirection = function(event) {
 	if (this.touchendX < this.touchstartX) {
-		this.findNextMenuLink(event, this.getTopLevelParentFromFocus(), 'up')
+		//this.findNextMenuLink(event, this.getTopLevelParentFromFocus(), 'up')
 	}
 	if (this.touchendX > this.touchstartX){
-		this.findNextMenuLink(event, this.getTopLevelParentFromFocus(), 'down')
+		//this.findNextMenuLink(event, this.getTopLevelParentFromFocus(), 'down')
 	}
 };
 
@@ -550,6 +551,8 @@ This function essentially serves as a keyboard trap for the current menu.
 I don't love this at the moment. It feels like it is doing more work that it should
  */
 PortentToggleNav.prototype.findNextMenuLink = function(event, topLevelParent, direction, topLevel) {
+	console.log(`topLevelParent`);
+	console.log(topLevelParent);
 	let allLinks;
 
 	if(!direction || typeof direction == 'undefined') {
@@ -570,6 +573,7 @@ PortentToggleNav.prototype.findNextMenuLink = function(event, topLevelParent, di
 		 * Available elements are different depending on the level
 		 */
 		if (topLevel) {
+			console.log(`Pulling from top level`);
 			mobileElements = Array.from(this.menu.querySelectorAll('.mobile-close-btn'));
 			allLinks = Array.from(topLevelParent.querySelectorAll(':scope > li > button, :scope > li > a'));
 		} else {
@@ -581,6 +585,7 @@ PortentToggleNav.prototype.findNextMenuLink = function(event, topLevelParent, di
 		allLinks = Array.from(topLevelParent.querySelectorAll('a'));
 	}
 
+	console.log('Outputting All Links');
 	console.log(allLinks);
 	let firstFocusableLink = allLinks[0];
 	let lastFocusableLink = allLinks[allLinks.length - 1];
