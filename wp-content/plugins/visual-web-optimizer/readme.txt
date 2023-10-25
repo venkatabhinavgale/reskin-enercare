@@ -4,8 +4,8 @@ Plugin Name: VWO
 Plugin URI: https://vwo.com/
 Tags: split testing, analytics, stats, visual web optimizer, vwo, cro
 Requires at least: 2.7
-Tested up to: 6.1.1
-Stable tag: 3.8
+Tested up to: 6.3.1
+Stable tag: 4.0
 
 VWO is the all-in-one platform that helps you conduct visitor research, build an optimization roadmap, and run continuous experimentation. 
 
@@ -29,6 +29,14 @@ No, this plugin is sufficient by itself
 2. Settings page (Synchronous Code)
 
 == ChangeLog ==
+= 4.0 =
+* Tested with latest version
+* VWO SmartCode updated
+
+= 3.9 =
+* Tested with latest version
+* Code improvement and add Rocket loader handling
+
 = 3.8 =
 * Tested with latest version
 * Fix WP Rocket Issue
