@@ -55,6 +55,10 @@ include_once( get_template_directory() . '/inc/gforms.php' );
  * Enqueue scripts and styles.
  */
 function enercare_scripts() {
+  /**
+   * Remove WP Global Styles
+	*/
+	wp_dequeue_style( 'global-styles' );
 
 	/**
 	 * Script Registrations
