@@ -9,6 +9,13 @@
       update_option('ecreviews_enable_cron', 0);
     }
     
+    if (isset($_POST['ecreviews_enable_banner_cron'])) {
+      update_option('ecreviews_enable_banner_cron', 1);
+      $this->updateGmbBannerReviews();
+    } else {
+      update_option('ecreviews_enable_banner_cron', 0);
+    }
+    
     if (isset($_POST['ecreviews_admin_email'])) {
       update_option('ecreviews_admin_email', $_POST['ecreviews_admin_email']);
     }

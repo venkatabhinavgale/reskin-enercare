@@ -56,6 +56,12 @@ class ECReviews {
       // schedule cron for every day
       wp_schedule_event(time(), 'daily', 'ecreviews_reviews_sync_cron');
     }
+    
+    add_action('ecreviews_reviews_banner_cron', array($this, 'syncReviewsBannerCron'));
+    if (! wp_next_scheduled ( 'ecreviews_reviews_banner_cron' )) {
+      // schedule cron for every day
+      wp_schedule_event(time(), 'daily', 'ecreviews_reviews_banner_cron');
+    }
 
     $this->initializeGMBClient();
   }
@@ -69,6 +75,7 @@ class ECReviews {
   public function plugin_deactivate($network_wide) {
     wp_clear_scheduled_hook('ecreviews_locations_sync_cron');
     wp_clear_scheduled_hook('ecreviews_reviews_sync_cron');
+    wp_clear_scheduled_hook('ecreviews_reviews_banner_cron');
   }
 
   // Create Admin Menu
@@ -579,6 +586,18 @@ class ECReviews {
 
     }
   }
+  
+  /**
+   * Queries for total reviews and aggregate rating and updates an ACF field for the Global Reviews Banner display
+   */
+  public function updateGmbBannerReviews() {
+    $rating = $this->getAggregateRating();
+    $count = $this->getReviewsCount();
+    if (function_exists("update_field")) {
+      update_field('reviews_banner_rating', $rating, 'option');
+      update_field('reviews_banner_count', $count, 'option');
+    }
+  }
 
   public function syncLocationsCron() {
     if (get_option('ecreviews_enable_cron')) {
@@ -588,6 +607,11 @@ class ECReviews {
   public function syncReviewsCron() {
     if (get_option('ecreviews_enable_cron')) {
       $this->syncGmbReviews();
+    }
+  }
+  public function syncReviewsBannerCron() {
+    if (get_option('ecreviews_enable_banner_cron')) {
+      $this->updateGmbBannerReviews();
     }
   }
 
@@ -763,4 +787,24 @@ function enercare_gmb_reviews_api_access_notice() {
     <p><?php _e( 'Enercare Google Reviews ERROR: Access Token is expired and could not refresh token. Run refreshGMBAccessToken.php locally to regenerate and re-upload token.json', 'enercare-google-reviews' ); ?></p>
   </div>
   <?php
+}
+
+function enercare_gmb_reviews_display_global_banner() {
+  // check if global reviews banner is set to be displayed.
+  if (get_field('reviews_banner_toggle', 'option')) {
+    $reviews_text = get_field( 'reviews_banner_text', 'option' );
+    $reviews_count = get_field( 'reviews_banner_count', 'option' );
+    $reviews_rating = get_field( 'reviews_banner_rating', 'option' );
+    $output .= '<div class="global-reviews-banner">';
+    $output .= '<div class="global-reviews-banner__stars">';
+    for ( $x = 1; $x <= intval(ceil($reviews_rating)); $x ++ ) {
+      $output .= '<img width="15px" height="15px" class="global-reviews-banner__star" alt="" role="presentation" src="' . plugin_dir_url(__FILE__) . 'img/full-star-enercare.svg">';
+    }
+    $output .= '</div>';
+    $output .= '<div class="global-reviews-banner__count">';
+    $output .= number_format($reviews_count, 0) . ' ' . $reviews_text;
+    $output .= '</div>';
+    $output .= '</div>';
+    echo $output;
+  }
 }
