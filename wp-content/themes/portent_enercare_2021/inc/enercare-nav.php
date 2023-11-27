@@ -162,6 +162,10 @@ function enercare_secondary_navigation() {
                           'container_class' => 'top-bar__nav'
       ) );
     }
+    if (function_exists('enercare_gmb_reviews_display_global_banner')) {
+      enercare_gmb_reviews_display_global_banner();
+    }
+    
     get_search_form(true);
     echo '</div>';
     echo '</div>';

@@ -21,6 +21,16 @@
             <input type="checkbox" name="ecreviews_enable_cron" value="1"<?php if (get_option('ecreviews_enable_cron')) { ?> checked="checked"<?php } ?> /> Yes<br />
           </td>
         </tr>
+        
+        <tr>
+          <th>
+            Enable Banner Cron<br />
+            <small>Check this to enable the daily updating the GMB review counts and aggregate rating fields for the global banner display.</small>
+          </th>
+          <td>
+            <input type="checkbox" name="ecreviews_enable_banner_cron" value="1"<?php if (get_option('ecreviews_enable_banner_cron')) { ?> checked="checked"<?php } ?> /> Yes<br />
+          </td>
+        </tr>
       
         <!--
         <tr>
@@ -132,6 +142,6 @@
       </tbody>
     </table>
     <p class="submit"><input type="submit" name="submit" value="Search" class="button-primary" /></p>
-  </form> 
+  </form>
   
 </div>
