@@ -667,7 +667,8 @@ function ecreviews_location_block_render_callback( $attributes, $content ) {
     }
   }
 
-  $reviews = ECReviews::getReviewsByLocation($location_id, 12);
+  $ecReviews = new ECReviews();
+  $reviews = $ecReviews->getReviewsByLocation($location_id, 12);
   if ( count( $reviews ) === 0 ) {
     $output = 'No reviews were found.';
     if ($location_name) {
@@ -688,8 +689,8 @@ function ecreviews_location_block_render_callback( $attributes, $content ) {
       $output .= '<div class="block-reviews__section-heading__title">';
           $output .= '<h2 class="block-reviews__section-heading__header">What Our Customers Think About Us</h2>' . "\n";
 
-  $total_reviews = ECReviews::getReviewsCount($location_id);
-  $aggregate_rating = ECReviews::getAggregateRating($location_id);
+  $total_reviews = $ecReviews->getReviewsCount($location_id);
+  $aggregate_rating = $ecReviews->getAggregateRating($location_id);
   if ($total_reviews && $aggregate_rating) {
     $output .= '<div class="block-reviews__score-section"><!-- start score container -->';
     $output .= '<strong class="block-reviews__section-heading__score">'. number_format($aggregate_rating, 1) .'</strong>';
