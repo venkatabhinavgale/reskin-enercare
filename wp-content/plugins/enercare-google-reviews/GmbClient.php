@@ -184,7 +184,8 @@ class GmbClient {
    * @return array|bool
    */
   public function getReviewsBatchManual($pageSize = 50) {
-    $locations = ECReviews::getLocations();
+    global $ecReviews;
+    $locations = $ecReviews->getLocations();
 
     $reviews = [];
 
@@ -204,9 +205,10 @@ class GmbClient {
    * @return mixed
    */
   public function getReviewsBatch() {
+    global $ecReviews;
     $batchLocations = new \Google_Service_MyBusiness_BatchGetReviewsRequest();
     
-    $locations = ECReviews::getLocations();
+    $locations = $ecReviews->getLocations();
     $location_gmb_ids = [];
     
     /****** batchGetReviews is breaking when using more than 1 locationName in the array, which makes it useless. ******/

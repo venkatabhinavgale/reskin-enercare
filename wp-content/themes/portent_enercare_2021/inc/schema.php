@@ -4,6 +4,7 @@ add_action('tha_head_bottom', 'enercare_schema');
 
 function enercare_schema() {
   global $post;
+  global $ecReviews;
   
   // check if post allows faq schema and contains enercare-faqs block. if so, generate schema for it
   if (get_field('include_faq_schema', $post->ID) && has_block('acf/enercare-faqs', $post->ID)) {
@@ -22,12 +23,12 @@ function enercare_schema() {
         $location_id = get_field('gmb_location_id', $gmb_location->ID);
         // check if variable ratingValue exists. if so, get value
         if (strpos($schema, '%ratingValue%') !== false) {
-          $aggregate_rating = ECReviews::getAggregateRating($location_id);
+          $aggregate_rating = $ecReviews->getAggregateRating($location_id);
           $schema = str_replace("%ratingValue%", number_format($aggregate_rating,1,'.',''), $schema);
         }
         // check if variable ratingCount exists. if so, get value
         if (strpos($schema, '%ratingCount%') !== false) {
-          $total_reviews = ECReviews::getReviewsCount($location_id);
+          $total_reviews = $ecReviews->getReviewsCount($location_id);
           $schema = str_replace("%ratingCount%", number_format($total_reviews,0,'.',''), $schema);
         }
       }
@@ -82,13 +83,14 @@ function enercare_schema_faqs($post) {
 /*
 function enercare_schema_locations() {
   global $post;
+  global $ecReviews;
   
   $gmb_location = get_field('gmb_location', $post->ID);
   if ($gmb_location) { 
     //var_dump($gmb_location);
     $location_id = get_field('gmb_location_id', $gmb_location->ID);
-    $total_reviews = ECReviews::getReviewsCount($location_id);
-    $aggregate_rating = ECReviews::getAggregateRating($location_id);
+    $total_reviews = $ecReviews->getReviewsCount($location_id);
+    $aggregate_rating = $ecReviews->getAggregateRating($location_id);
   ?>
     
     <script type="application/ld+json">
