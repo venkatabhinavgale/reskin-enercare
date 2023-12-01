@@ -324,7 +324,7 @@ class ECReviews {
     }
   }
 
-  public function postsWhereContentNotEmpty($where = '') {
+  public static function postsWhereContentNotEmpty($where = '') {
     $where .= " AND trim(coalesce(post_content, '')) <>''";
     return $where;
   }
@@ -643,6 +643,7 @@ add_action( 'init', 'create_block_ecreviews_block_init' );
 
 function ecreviews_location_block_render_callback( $attributes, $content ) {
   global $post;
+  global $ecReviews;
 
   $location_id = null;
   $location_name = null;
@@ -666,8 +667,7 @@ function ecreviews_location_block_render_callback( $attributes, $content ) {
       return $output;
     }
   }
-
-  $ecReviews = new ECReviews();
+  
   $reviews = $ecReviews->getReviewsByLocation($location_id, 12);
   if ( count( $reviews ) === 0 ) {
     $output = 'No reviews were found.';
