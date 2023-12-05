@@ -66,7 +66,8 @@
 	}
 
 	.block-tabbed-content__tab[data-default=false] {
-		border-bottom: 2px solid transparent;
+		border: 2px solid #ccc;
+		background-color: #eee;
 		color: unset;
 
 		img {
@@ -76,6 +77,7 @@
 		&:hover,
 		&:focus {
 			color: $white;
+			background-color: #333;
 
 			img {
 				filter: brightness(0) invert(1);
@@ -114,7 +116,10 @@
 	font-weight: 700;
 	@include font-sizes(24px);
 	padding: 8px 24px 4px;
-	border-bottom: 2px solid transparent;
+	border: 2px solid #ccc;
+	background-color: #eee;
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
 
 	img {
 		filter: hue-rotate(180deg) contrast(100%) brightness(0) grayscale(100%);
@@ -125,7 +130,7 @@
 
 	&:hover,
 	&:focus {
-		background-color: brand-color('red');
+		background-color: #333;
 		border-top-left-radius: 20px;
 		border-top-right-radius: 20px;
 		color: $white;
@@ -606,11 +611,11 @@ Blog Posts
 									color: $grey_10;
 								}
 								> .block-blog-posts__post__title {
-									color: $highlight;	
+									color: $highlight;
 								}
 
 								> .block-blog-posts__post__except {
-									color: $grey_10;	
+									color: $grey_10;
 								}
 
 								> .block-blog-posts__post__author-meta__date {
@@ -653,7 +658,7 @@ Switchboard
  */
 
  .wp-block-group.has-background:has( .block-switchboard ) .block-switchboard {
-	
+
 	.block-mega-button a {
 		background-color: #fff;
 		border: 2px solid $grey_5;

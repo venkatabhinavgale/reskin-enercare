@@ -51,6 +51,17 @@ function glider_notification_center() {
 }
 add_action('wp_footer', 'glider_notification_center');
 
+/**
+	Scroll back to top button
+ */
+function enercare_btt_button() {
+	$btt_toggle = get_field('btt_button_on', 'options');
+	if($btt_toggle) {
+		echo '<button id="enercare-btt-button" class="hidden" data-interface="back-to-top" aria-label="Scroll back to top of page"><span>Back to top of page</span></button>';
+	}
+}
+add_action('wp_footer', 'enercare_btt_button');
+
 echo '</div>'; // .site-inner
 tha_footer_before();
 echo '<footer class="site-footer" role="contentinfo"><div class="wrap">';
