@@ -94,9 +94,9 @@ reviewsGlider = new Glider(blockReviews, {
 				elem.removeAttribute('role');
 
 				if(elem.classList.contains('active')) {
-					elem.setAttribute('aria-selected', 'true');
+					elem.setAttribute( 'aria-current', 'true' );
 				} else {
-					elem.setAttribute('aria-selected', 'false');
+					elem.setAttribute( 'aria-current', 'false' );
 				}
 			});
 		}
