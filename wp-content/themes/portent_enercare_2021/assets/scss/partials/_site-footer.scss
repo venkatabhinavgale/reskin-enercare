@@ -284,3 +284,65 @@ Floating CTA
 	border: 0;
 	word-wrap: normal !important;
 }
+
+/**
+* Back to top button
+*/
+[data-interface="back-to-top"] {
+	display: flex;
+	position: fixed;
+	bottom: 25vh;
+	right: 1vw;
+	z-index: 999;
+	border: 1px solid #000;
+	border-radius: 24px;
+	padding: 8px;
+	overflow: hidden;
+	align-items: center;
+	transition: right 700ms ease-out;
+
+	span {
+		display: block;
+		overflow: hidden;
+		width: auto;
+		max-width: 0px;
+		transition: max-width 250ms linear;
+		white-space: nowrap;
+		transform-origin: left;
+		font-size:0.85rem;
+		margin-right:0;
+	}
+
+	&.hidden {
+		right: -100%;
+		transition: right 900ms ease-in-out;
+	}
+
+	&:hover,
+	&:focus {
+		span {
+			max-width: 135px;
+			transition: max-width 250ms linear;
+			margin-right: 0.25rem;
+		}
+	}
+
+	&:focus {
+		right: 1vw;
+	}
+
+	&:focus-visible {
+		outline: 2px dotted #000;
+	}
+
+	&:before {
+		content: "";
+		background: url("../icons/navigation/expand_less_black_24dp_rounded.svg");
+		display: block;
+		height: 30px;
+		width: 30px;
+		text-align: center;
+		background-position: center;
+		background-size: cover;
+	}
+}

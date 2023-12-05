@@ -215,6 +215,49 @@ function insertAfter(newNode, existingNode) {
 }
 
 /**
+Back to top button
+ */
+function bttLoad(event) {
+	let pageHeader = document.querySelector('header.site-header');
+	let bttButtonElement = document.getElementById('enercare-btt-button');
+
+	let bttObserverOptions = {
+		rootMargin: `${pageHeader.clientHeight * 2}px`,
+		threshold: 1.0,
+	};
+
+	let bttObserverCallback = (entries, observer) => {
+		entries.forEach((entry) => {
+			if(entry.isIntersecting) {
+				bttButtonElement.classList.add('hidden');
+			} else {
+				bttButtonElement.classList.remove('hidden');
+			}
+		});
+	}
+
+	let bttObserver = new IntersectionObserver(bttObserverCallback, bttObserverOptions);
+
+	let handle_btt_button = (event) => {
+		
+		let siteLogo = document.querySelector('.title-area a');
+
+		window.scrollTo({
+			top: pageHeader.scrollTop,
+			left: 0,
+			behavior: "smooth",
+		});
+
+		siteLogo.focus({ preventScroll: true});
+	}
+
+	bttButtonElement.addEventListener("click", handle_btt_button);
+
+	bttObserver.observe(pageHeader);
+}
+
+window.addEventListener("load", bttLoad);
+/**
  * Toggle Navigation Script
  */
 let PortentToggleNav = function () {};

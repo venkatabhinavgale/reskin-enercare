@@ -3,6 +3,26 @@
     "title": "Banner & Nav Controls",
     "fields": [
         {
+            "key": "field_63890ed8b9203",
+            "label": "OBA Banner Text",
+            "name": "oba_banner_text",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "This field will override the contents of the banner.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
             "key": "field_61410061091f7",
             "label": "Banner Toggle",
             "name": "banner_toggle",
@@ -26,46 +46,6 @@
             "key": "field_614100ab5b5da",
             "label": "Banner Text",
             "name": "banner_text",
-            "aria-label": "",
-            "type": "wysiwyg",
-            "instructions": "This field will override the contents of the banner.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "tabs": "all",
-            "toolbar": "basic",
-            "media_upload": 0,
-            "delay": 0
-        },
-        {
-            "key": "field_63890ec6b9202",
-            "label": "OBA Banner Toggle",
-            "name": "oba_banner_toggle",
-            "aria-label": "",
-            "type": "true_false",
-            "instructions": "This controls whether the OBA banner displays on this page. Overrides the global setting.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 0,
-            "ui_on_text": "Off",
-            "ui_off_text": "On",
-            "ui": 1
-        },
-        {
-            "key": "field_63890ed8b9203",
-            "label": "OBA Banner Text",
-            "name": "oba_banner_text",
             "aria-label": "",
             "type": "wysiwyg",
             "instructions": "This field will override the contents of the banner.",
@@ -121,6 +101,46 @@
             "ui": 1,
             "ui_on_text": "Off",
             "ui_off_text": "On"
+        },
+        {
+            "key": "field_63890ec6b9202",
+            "label": "OBA Banner Toggle",
+            "name": "oba_banner_toggle",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "This controls whether the OBA banner displays on this page. Overrides the global setting.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui_on_text": "Off",
+            "ui_off_text": "On",
+            "ui": 1
+        },
+        {
+            "key": "field_6564fe47272cc",
+            "label": "Back to top button",
+            "name": "btt_button_on",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
         }
     ],
     "location": [
@@ -155,5 +175,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1669927049
+    "modified": 1701117618
 }

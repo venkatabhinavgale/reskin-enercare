@@ -217,6 +217,41 @@ function insertAfter(newNode, existingNode) {
 }
 
 /**
+Back to top button
+ */
+function bttLoad(event) {
+  var pageHeader = document.querySelector('header.site-header');
+  var bttButtonElement = document.getElementById('enercare-btt-button');
+  var bttObserverOptions = {
+    rootMargin: "".concat(pageHeader.clientHeight * 2, "px"),
+    threshold: 1.0
+  };
+  var bttObserverCallback = function bttObserverCallback(entries, observer) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        bttButtonElement.classList.add('hidden');
+      } else {
+        bttButtonElement.classList.remove('hidden');
+      }
+    });
+  };
+  var bttObserver = new IntersectionObserver(bttObserverCallback, bttObserverOptions);
+  var handle_btt_button = function handle_btt_button(event) {
+    var siteLogo = document.querySelector('.title-area a');
+    window.scrollTo({
+      top: pageHeader.scrollTop,
+      left: 0,
+      behavior: "smooth"
+    });
+    siteLogo.focus({
+      preventScroll: true
+    });
+  };
+  bttButtonElement.addEventListener("click", handle_btt_button);
+  bttObserver.observe(pageHeader);
+}
+window.addEventListener("load", bttLoad);
+/**
  * Toggle Navigation Script
  */
 var PortentToggleNav = function PortentToggleNav() {};
