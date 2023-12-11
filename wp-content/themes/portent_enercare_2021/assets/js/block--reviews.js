@@ -88,9 +88,9 @@ window.addEventListener('load', function () {
         //Remove tab role
         elem.removeAttribute('role');
         if (elem.classList.contains('active')) {
-          elem.setAttribute('aria-selected', 'true');
+          elem.setAttribute('aria-current', 'true');
         } else {
-          elem.setAttribute('aria-selected', 'false');
+          elem.setAttribute('aria-current', 'false');
         }
       });
     }
