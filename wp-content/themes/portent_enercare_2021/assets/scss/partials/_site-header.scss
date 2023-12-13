@@ -134,6 +134,26 @@
 	}
 }
 
+/* Header Review Stars
+--------------------------------------------- */
+ .global-reviews-banner {
+	margin-right:1.5%;
+	border-radius:10px;
+}
+.global-reviews-banner__stars {
+	display: flex;
+	justify-content:center;
+}
+
+.global-reviews-banner__stars img {
+	filter: invert(19%) sepia(78%) saturate(2686%) hue-rotate(340deg) brightness(100%) contrast(108%);
+}
+
+.global-reviews-banner__count {
+	font-size: 0.8rem;
+	font-weight: 700;
+}
+
 /* Admin Bar
 --------------------------------------------- */
 
