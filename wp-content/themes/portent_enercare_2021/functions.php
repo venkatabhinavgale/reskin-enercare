@@ -57,11 +57,6 @@ include_once( get_template_directory() . '/inc/gforms.php' );
 function enercare_scripts() {
 
 	/**
-	Remove WP Global Styles
-	*/
-	wp_dequeue_style( 'global-styles' );
-
-	/**
 	 * Script Registrations
 	 */
 	wp_register_script( 'glider-js', get_template_directory_uri() . '/assets/js/glider/glider.min.js', null , null, true );
