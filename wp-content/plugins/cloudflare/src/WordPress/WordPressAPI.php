@@ -155,12 +155,4 @@ class WordPressAPI implements IntegrationAPIInterface
 
         return false;
     }
-
-    /**
-     * @return boolean
-     */
-    public function isCurrentUserAdministrator()
-    {
-        return $this->wordPressWrapper->currentUserCan('administrator');
-    }
 }
