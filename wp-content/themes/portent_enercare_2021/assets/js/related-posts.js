@@ -141,3 +141,10 @@ window.addEventListener('load', function () {
     }
   });
 });
+jQuery(function ($) {
+  // Accessibility for related posts slider dots
+  $(window).on('load', function () {
+    $('.block-carousel__dots.related-posts__glider-dots').attr('role', 'tablist');
+    $('.related-posts__glider-dots button.glider-dot').attr('role', 'tab');
+  });
+});
