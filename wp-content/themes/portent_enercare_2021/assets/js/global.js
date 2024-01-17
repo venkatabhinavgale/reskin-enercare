@@ -742,10 +742,12 @@ function createTableCaption() {
   }
 }
 window.addEventListener("load", createTableCaption);
-
-// Billing Support accessibility code
 jQuery(function ($) {
-  $(".dummy-list__Hidden-sc-x301ko-0.hEbrhV").css("display", "none");
+  // Accessibility for search
+  $(window).on('load', function () {
+    $('input#wp-block-search__input-1').attr('title', 'Keywords for a site-wide search');
+    $('input#wp-block-search__input-1').attr('aria-label', 'Keywords for a site-wide search');
+  });
 });
 "use strict";
 
