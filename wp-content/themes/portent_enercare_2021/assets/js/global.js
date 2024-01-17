@@ -742,6 +742,11 @@ function createTableCaption() {
   }
 }
 window.addEventListener("load", createTableCaption);
+
+// Billing Support accessibility code
+jQuery(function ($) {
+  $(".dummy-list__Hidden-sc-x301ko-0.hEbrhV").css("display", "none");
+});
 "use strict";
 
 jQuery(function ($) {
