@@ -45,7 +45,11 @@ function get_field( $selector, $post_id = false, $format_value = true, $escape_h
 	if ( $format_value ) {
 
 		// get value for field
+<<<<<<< HEAD
 		$value = acf_format_value( $value, $post_id, $field, $escape_html );
+=======
+		$value = acf_format_value( $value, $post_id, $field );
+>>>>>>> 13262f2487541ffade3c7da9bfe1f1da0a891d50
 	}
 
 	// return
@@ -905,6 +909,7 @@ function the_sub_field( $field_name, $format_value = true ) {
 
 	if ( is_array( $value ) ) {
 		$value = implode( ', ', $value );
+<<<<<<< HEAD
 	}
 
 	// If we're not a scalar we'd throw an error, so return early for safety.
@@ -943,6 +948,8 @@ function the_sub_field( $field_name, $format_value = true ) {
 			}
 		}
 		unset( $new_value );
+=======
+>>>>>>> 13262f2487541ffade3c7da9bfe1f1da0a891d50
 	}
 
 	echo $value;
@@ -986,7 +993,11 @@ function get_sub_field_object( $selector, $format_value = true, $load_value = tr
 	// format value
 	if ( $format_value ) {
 		// get value for field
+<<<<<<< HEAD
 		$sub_field['value'] = acf_format_value( $sub_field['value'], $row['post_id'], $sub_field, $escape_html );
+=======
+		$sub_field['value'] = acf_format_value( $sub_field['value'], $row['post_id'], $sub_field );
+>>>>>>> 13262f2487541ffade3c7da9bfe1f1da0a891d50
 	}
 
 	// return

@@ -4,7 +4,11 @@ Tags: acf, fields, custom fields, meta, repeater
 Requires at least: 5.8
 Tested up to: 6.4
 Requires PHP: 7.0
+<<<<<<< HEAD
 Stable tag: 6.2.5
+=======
+Stable tag: 6.2.4
+>>>>>>> 13262f2487541ffade3c7da9bfe1f1da0a891d50
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -92,6 +96,7 @@ From your WordPress dashboard
 
 == Changelog ==
 
+<<<<<<< HEAD
 = 6.2.5 =
 *Release Date 16th January 2024*
 
@@ -99,6 +104,8 @@ From your WordPress dashboard
 * Security - ACF now warns via an admin message, when upcoming changes to `the_field` and `the_sub_field` may require theme changes to your site to avoid stripping unsafe HTML. Please see the [blog post for this release for more information](https://www.advancedcustomfields.com/blog/acf-6-2-5-security-release/)
 * Security - Users may opt in to automatically escaping unsafe HTML via a new filter `acf/the_field/escape_html_optin` when using `the_field` and `the_sub_field` before this becomes default in an upcoming ACF release.
 
+=======
+>>>>>>> 13262f2487541ffade3c7da9bfe1f1da0a891d50
 = 6.2.4 =
 *Release Date 28th November 2023*
 
