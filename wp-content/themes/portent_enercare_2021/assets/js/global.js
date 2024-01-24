@@ -754,6 +754,10 @@ jQuery(function ($) {
 
   // Accessibility for Postal code field
   $('.block-location-finder__input').attr('aria-labelledby', 'Postal code input');
+
+  // Accessibility for commerial page CTA
+  $('.ec-cta-commercial a').attr('role', 'link');
+  $('.ec-cta-commercial a').attr('tabindex', '0');
 });
 "use strict";
 
