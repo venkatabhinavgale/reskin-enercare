@@ -855,4 +855,10 @@ jQuery( function( $ ) {
 		$( 'input#wp-block-search__input-1' ).attr( 'aria-label', 'Keywords for a site-wide search' );
 	});
 
+	// Enercare & partner logo accessibility
+	$( '.ec-logo img' ).attr( 'alt', 'Enercare logo & Proud Partner logo' );
+
+	// Accessibility for Postal code field
+	$( '.block-location-finder__input' ).attr( 'aria-labelledby', 'Postal code input' );
+	
 });
