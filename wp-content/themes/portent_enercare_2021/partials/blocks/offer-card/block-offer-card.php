@@ -94,7 +94,6 @@ if (!$override) {
 }
 
 //only display block if valid campaign found
-$show_expiration_date   = get_field( 'hide_expire' ) ?? 0;
 if (isset($campaign) && !empty($campaign)) {
   $campaign_heading = get_field('heading', $campaign->ID);
   $campaign_subheading = get_field('subheading', $campaign->ID);
