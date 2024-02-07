@@ -24,7 +24,8 @@ We will post more information about how this works but we recommend developers t
 
 ![alt](http://i.imgur.com/4EOcqYN.png, '')
 
-If you would like to keep a separate set of configuration for local development, you can use a file called `wp-config-local.php`, which is already in our .gitignore file.
+If you would like to keep a separate set of configuration for local development, you can use a file called `wp-config-local.php`, which is already in our .gitignore file. 
+This is a test message
 
 ### 4. Enjoy!
 
