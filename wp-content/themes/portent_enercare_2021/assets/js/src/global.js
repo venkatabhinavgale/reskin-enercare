@@ -859,6 +859,11 @@ jQuery( function( $ ) {
 		$( '.block-reviews__dots button.glider-dot' ).each( function( index ) {
 		this.setAttribute( 'aria-describedby', `Slide-${index + 1}` );
 		});
+
+        $( '.block-reviews__dots button.glider-dot' ).each( function( index ) {
+		this.setAttribute( 'aria-label', `You are on Slide-${index + 1} of reviews` );
+		});
+
 	});
 
 	// Enercare & partner logo accessibility
