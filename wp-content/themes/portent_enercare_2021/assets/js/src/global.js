@@ -870,10 +870,13 @@ jQuery( function( $ ) {
 	$( '.ec-logo img' ).attr( 'alt', 'Enercare logo & Proud Partner logo' );
 
 	// Accessibility for Postal code field
+	$( '.block-location-finder__input' ).attr( 'aria-label', 'Postal code input field, Enter postal code to find services near you' );
 	$( '.block-location-finder__input' ).attr( 'aria-labelledby', 'Postal code input' );
+	$( '.block-location-finder__postal-form label:first-child' ).attr( 'aria-label', 'Enter postal code to find services near you' );
 
 	// Accessibility for commerial page CTA
 	$( '.ec-cta-commercial a' ).attr( 'role', 'link' );
 	$( '.ec-cta-commercial a' ).attr( 'tabindex', '0' );
+	$( '.ec-cta-commercial a' ).attr( 'aria-label', 'To call 1-885-321-1508' );
 
 });
