@@ -768,6 +768,7 @@ jQuery(function ($) {
   // Accessibility for commerial page CTA
   $('.ec-cta-commercial a').attr('role', 'link');
   $('.ec-cta-commercial a').attr('tabindex', '0');
+  $('.ec-cta-commercial a').attr('aria-label', 'To call 1-885-321-1508');
 });
 "use strict";
 
