@@ -43,26 +43,6 @@
             "maxlength": ""
         },
         {
-            "key": "field_64e948f4df66b",
-            "label": "Excerpt",
-            "name": "excerpt",
-            "aria-label": "",
-            "type": "textarea",
-            "instructions": "Use this field to supply a short paragraph of supplemental text to be shown under the header",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "rows": 4,
-            "placeholder": "",
-            "new_lines": ""
-        },
-        {
             "key": "field_618d7a37e0183",
             "label": "CTA Text",
             "name": "cta_text",
@@ -106,6 +86,26 @@
             "max_height": "",
             "max_size": "",
             "mime_types": ""
+        },
+        {
+            "key": "field_64e948f4df66b",
+            "label": "Excerpt",
+            "name": "excerpt",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Use this field to supply a short paragraph of supplemental text to be shown under the header",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": 4,
+            "placeholder": "",
+            "new_lines": ""
         },
         {
             "key": "field_611eaea17df12",
@@ -230,7 +230,8 @@
             "elements": "",
             "min": "",
             "max": "",
-            "return_format": "object"
+            "return_format": "object",
+            "bidirectional_target": []
         },
         {
             "key": "field_611eb03d7df18",
@@ -292,6 +293,26 @@
             "ui_on_text": "",
             "ui_off_text": "",
             "ui": 1
+        },
+        {
+            "key": "field_65cf413101e45",
+            "label": "Hide Expiry Date",
+            "name": "hide_expiry_date",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
         }
     ],
     "location": [
@@ -318,5 +339,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 1,
-    "modified": 1693010221
+    "modified": 1708334576
 }
