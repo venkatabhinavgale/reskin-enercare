@@ -14,7 +14,8 @@
     			<?php endif; ?>
 
 				<p class="block-offer-card__offer-expiration">
-					<?php if ($campaign_expiration && $campaign_expiration != "") { ?>
+				    <?php $show_hide_expiration_date = get_field('hide_expiry_date', $campaign->ID); ?>
+					<?php if ($campaign_expiration && $campaign_expiration != "" && !$show_hide_expiration_date) { ?>
 						Offer expires <?= date('F d, Y', strtotime($campaign_expiration)); ?>.
 					<?php } ?>
 					<button class="block-offer-card__terms-toggle" aria-controls="terms_<?= $campaign->ID ?>" data-micromodal-trigger="modal-<?=$campaign->ID ?>" aria-label="Open modal and view Terms and Conditions for <?= $campaign_heading ?>">View Terms and Conditions</button>
