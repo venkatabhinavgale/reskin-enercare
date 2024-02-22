@@ -764,6 +764,8 @@ jQuery(function ($) {
   $('.block-location-finder__input').attr('aria-label', 'Postal code input field, Enter postal code to find services near you');
   $('.block-location-finder__input').attr('aria-labelledby', 'Postal code input');
   $('.block-location-finder__postal-form label:first-child').attr('aria-label', 'Enter postal code to find services near you');
+  // Postal code Input flield attribute required invalid data error fix for safari
+  $('.block-location-finder__input').attr('aria-invalid', 'false');
 
   // Accessibility for commerial page CTA
   $('.ec-cta-commercial a').attr('role', 'link');
