@@ -190,8 +190,8 @@ jQuery(function ($) {
       pushHistoryState(updatedUrl);
       displayFilteredResults(updatedUrl);
       // set the polite status element for screen reading for postal code location count
-      var postalLocationCount = jQuery('.archive-wrapper .location-summary').children().length;
-      jQuery('.post-type-archive-location .archive-description').append('<div><p class="postal-code-filter-count-msg" role="status" aria-live="polite">' + postalLocationCount + ' results found</p></div>');
+      var postalLocationCount = $('.archive-wrapper .location-summary').children().length;
+      $('.post-type-archive-location .archive-description').append('<div><p class="postal-code-filter-count-msg" role="status" aria-live="polite">' + postalLocationCount + ' results found</p></div>');
     } else {
       topLevelContainer.addClass('has-errors');
       var errorLabel = $(this).parent().parent().find('.form-error');
