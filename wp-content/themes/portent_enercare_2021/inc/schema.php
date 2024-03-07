@@ -52,6 +52,8 @@ function enercare_schema_faqs($post) {
     
     if (isset($block['attrs']['data']['faqs'])) {
       $faq_ids = $block['attrs']['data']['faqs'];
+      if (is_array($faq_ids) || is_object($faq_ids))
+   {
       foreach ($faq_ids as $fid) {
         $faq_post = get_post($fid);
         $mainEntity .= '
@@ -64,6 +66,7 @@ function enercare_schema_faqs($post) {
             }
           },';
       }
+    }
       $mainEntity = rtrim($mainEntity, ",");
     }
   }
