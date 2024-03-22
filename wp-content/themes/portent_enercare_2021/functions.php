@@ -817,3 +817,8 @@ add_filter( 'login_redirect', 'enercare_login_redirect', 10, 3 );
 function add_diagram_modal() {
 	require get_template_directory() . '/partials/modal-diagram-image.php';
 }
+
+/**
+ * Widgets block nav_menu error code fix
+ */
+add_filter( 'use_widgets_block_editor', '__return_false' );
